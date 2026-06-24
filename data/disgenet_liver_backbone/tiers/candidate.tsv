@@ -1,0 +1,1 @@
+relation_id	gene_id	gene_symbol	disease_id	disease_umls_id	stage_code	stage_order	assoc_id	score	normalized_score	num_pmids	year_initial	year_final	evidence_index	disgenet_evidence_level	score_breakdown	num_db_snp	num_clinical_trials	num_chemicals	num_pmids_with_chemicals	num_trials_with_chemicals	chemical_evidence	source	tier	tier_reason	api_endpoint	api_query	retrieved_at

@@ -1,0 +1,6799 @@
+{
+  "httpStatus": 200,
+  "paging": {
+    "currentPageNumber": 1,
+    "pageSize": 100,
+    "totalElements": 169,
+    "totalElementsInPage": 69
+  },
+  "payload": [
+    {
+      "assocID": "XXEkep4BHkeZZb25wKyC",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.917,
+      "geneDSI": 0.401,
+      "geneEnsemblIDs": [
+        "ENSG00000106546"
+      ],
+      "geneNcbiID": 196,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007542"
+      ],
+      "geneProteinClassNames": [
+        "Transcription factor"
+      ],
+      "geneProteinStrIDs": [
+        "P35869"
+      ],
+      "genepLI": 0.0077533,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 2,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 1,
+              "sources": [
+                "TEXTMINING_HUMAN"
+              ],
+              "weight": 0.1
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "AHR",
+      "yearFinal": 2019,
+      "yearInitial": 2018
+    },
+    {
+      "assocID": "YnEkep4BHkeZZb25wKyC",
+      "chemsIncludedInEvidenceBySource": [
+        {
+          "chemID": "CHEMBL107367",
+          "chemPrefName": "Farglitazar",
+          "chemVocabCrossreferences": [
+            "CHEMBL_CHEMBL107367",
+            "CHEBI_229920",
+            "DRUGBANK_DB19311",
+            "MESH_C422415",
+            "PUBCHEM_170364"
+          ],
+          "numPublicationsWithChemInEvidence": 1,
+          "pmidsWithChemInEvidence": []
+        },
+        {
+          "chemID": "CHEMBL1401",
+          "chemPrefName": "Nitazoxanide",
+          "chemVocabCrossreferences": [
+            "CHEMBL_CHEMBL1401",
+            "CHEBI_94807",
+            "DRUGBANK_DB00507",
+            "MESH_C041747",
+            "PUBCHEM_41684"
+          ],
+          "numPublicationsWithChemInEvidence": 1,
+          "pmidsWithChemInEvidence": []
+        },
+        {
+          "chemID": "CHEMBL2109667",
+          "chemPrefName": "Simtuzumab",
+          "chemVocabCrossreferences": [
+            "CHEMBL_CHEMBL2109667",
+            "DRUGBANK_DB12152",
+            "MESH_C000613471"
+          ],
+          "numPublicationsWithChemInEvidence": 1,
+          "pmidsWithChemInEvidence": []
+        }
+      ],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.497,
+      "geneEnsemblIDs": [
+        "ENSG00000175899"
+      ],
+      "geneNcbiID": 2,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007584"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme modulator"
+      ],
+      "geneProteinStrIDs": [
+        "P01023"
+      ],
+      "genepLI": 9.1331e-20,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 4,
+      "numChemsIncludedInEvidences": 3,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 3,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 1,
+              "sources": [
+                "CLINICALTRIALS"
+              ],
+              "weight": 0.1
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "A2M",
+      "yearFinal": 2016,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "gRlEep4BZ4eu0iZexgPV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 0.5,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.587,
+      "geneEnsemblIDs": [
+        "ENSG00000173369"
+      ],
+      "geneNcbiID": 713,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "P02746"
+      ],
+      "genepLI": 0.24867,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 2,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 1,
+              "sources": [
+                "TEXTMINING_HUMAN"
+              ],
+              "weight": 0.1
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "C1QB",
+      "yearFinal": 2024,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "gxlEep4BZ4eu0iZexgPV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.404,
+      "geneEnsemblIDs": [
+        "ENSG00000028137"
+      ],
+      "geneNcbiID": 7133,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "P20333"
+      ],
+      "genepLI": 0.10032,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 1,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 1,
+              "sources": [
+                "CLINICALTRIALS"
+              ],
+              "weight": 0.1
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "TNFRSF1B",
+      "yearFinal": 2010,
+      "yearInitial": 2010
+    },
+    {
+      "assocID": "EdYjep4Bu8jCkiVmXhE8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.485,
+      "geneEnsemblIDs": [
+        "ENSG00000140505"
+      ],
+      "geneNcbiID": 1544,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007624"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme"
+      ],
+      "geneProteinStrIDs": [
+        "P05177"
+      ],
+      "genepLI": 9.0758e-13,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 2,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 1,
+              "sources": [
+                "TEXTMINING_HUMAN"
+              ],
+              "weight": 0.1
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "CYP1A2",
+      "yearFinal": 2016,
+      "yearInitial": 1995
+    },
+    {
+      "assocID": "X3Ekep4BHkeZZb25wK6C",
+      "chemsIncludedInEvidenceBySource": [
+        {
+          "chemID": "CHEMBL2109667",
+          "chemPrefName": "Simtuzumab",
+          "chemVocabCrossreferences": [
+            "CHEMBL_CHEMBL2109667",
+            "DRUGBANK_DB12152",
+            "MESH_C000613471"
+          ],
+          "numPublicationsWithChemInEvidence": 1,
+          "pmidsWithChemInEvidence": []
+        }
+      ],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.455,
+      "geneEnsemblIDs": [
+        "ENSG00000113083"
+      ],
+      "geneNcbiID": 4015,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "P28300"
+      ],
+      "genepLI": 0.97953,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 1,
+      "numChemsIncludedInEvidences": 1,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 1,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 1,
+              "sources": [
+                "CLINICALTRIALS"
+              ],
+              "weight": 0.1
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "LOX",
+      "yearFinal": 2016,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "HBlEep4BZ4eu0iZexgPV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.436,
+      "geneEnsemblIDs": [
+        "ENSG00000113140"
+      ],
+      "geneNcbiID": 6678,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007599"
+      ],
+      "geneProteinClassNames": [
+        "Signaling"
+      ],
+      "geneProteinStrIDs": [
+        "P09486"
+      ],
+      "genepLI": 6.332e-05,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 2,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 1,
+              "sources": [
+                "TEXTMINING_HUMAN"
+              ],
+              "weight": 0.1
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "SPARC",
+      "yearFinal": 2013,
+      "yearInitial": 2002
+    },
+    {
+      "assocID": "IdYjep4Bu8jCkiVmXhE8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.442,
+      "geneEnsemblIDs": [
+        "ENSG00000135929"
+      ],
+      "geneNcbiID": 1593,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007624"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme"
+      ],
+      "geneProteinStrIDs": [
+        "Q02318"
+      ],
+      "genepLI": 1.8592e-15,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 2,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 1,
+              "sources": [
+                "TEXTMINING_HUMAN"
+              ],
+              "weight": 0.1
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "CYP27A1",
+      "yearFinal": 2022,
+      "yearInitial": 2014
+    },
+    {
+      "assocID": "enEkep4BHkeZZb25wKyC",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.435,
+      "geneEnsemblIDs": [
+        "ENSG00000181104"
+      ],
+      "geneNcbiID": 2149,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_02300001"
+      ],
+      "geneProteinClassNames": [
+        "G-protein coupled receptor"
+      ],
+      "geneProteinStrIDs": [
+        "P25116"
+      ],
+      "genepLI": 0.0070568,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 2,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 1,
+              "sources": [
+                "TEXTMINING_HUMAN"
+              ],
+              "weight": 0.1
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "F2R",
+      "yearFinal": 2010,
+      "yearInitial": 2006
+    },
+    {
+      "assocID": "AHEkep4BHkeZZb25wK2C",
+      "chemsIncludedInEvidenceBySource": [
+        {
+          "chemID": "CHEMBL1536",
+          "chemPrefName": "Ergocalciferol",
+          "chemVocabCrossreferences": [
+            "CHEMBL_CHEMBL1536",
+            "CHEBI_28934",
+            "DRUGBANK_DB00153",
+            "PUBCHEM_5280793"
+          ],
+          "numPublicationsWithChemInEvidence": 1,
+          "pmidsWithChemInEvidence": [
+            "31789949"
+          ]
+        }
+      ],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.917,
+      "geneDSI": 0.475,
+      "geneEnsemblIDs": [
+        "ENSG00000145321"
+      ],
+      "geneNcbiID": 2638,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007405"
+      ],
+      "geneProteinClassNames": [
+        "Transporter"
+      ],
+      "geneProteinStrIDs": [
+        "P02774"
+      ],
+      "genepLI": 2.2635e-07,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 1,
+      "numDBSNPsupportingAssociation": 2,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 1,
+      "numPMIDs": 2,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 1,
+              "sources": [
+                "TEXTMINING_HUMAN"
+              ],
+              "weight": 0.1
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "GC",
+      "yearFinal": 2020,
+      "yearInitial": 2014
+    },
+    {
+      "assocID": "qXEkep4BHkeZZb25wK2C",
+      "chemsIncludedInEvidenceBySource": [
+        {
+          "chemID": "CHEMBL1922673",
+          "chemPrefName": "FIBOFLAPON SODIUM",
+          "chemVocabCrossreferences": [
+            "CHEMBL_CHEMBL1922673",
+            "PUBCHEM_44473150"
+          ],
+          "numPublicationsWithChemInEvidence": 1,
+          "pmidsWithChemInEvidence": [
+            "12788832"
+          ]
+        }
+      ],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.567,
+      "geneEnsemblIDs": [
+        "ENSG00000176387"
+      ],
+      "geneNcbiID": 3291,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007624"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme"
+      ],
+      "geneProteinStrIDs": [
+        "P80365"
+      ],
+      "genepLI": 3.3476e-07,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 1,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 1,
+      "numPMIDs": 2,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 1,
+              "sources": [
+                "TEXTMINING_HUMAN"
+              ],
+              "weight": 0.1
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "HSD11B2",
+      "yearFinal": 2004,
+      "yearInitial": 2003
+    },
+    {
+      "assocID": "bHEkep4BHkeZZb25wK6C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 0.5,
+      "el": null,
+      "geneDPI": 0.792,
+      "geneDSI": 0.521,
+      "geneEnsemblIDs": [
+        "ENSG00000139329"
+      ],
+      "geneNcbiID": 4060,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "P51884"
+      ],
+      "genepLI": 0.0024905,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 2,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 1,
+              "sources": [
+                "TEXTMINING_HUMAN"
+              ],
+              "weight": 0.1
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "LUM",
+      "yearFinal": 2018,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "h3Ekep4BHkeZZb25wK2C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 0.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.489,
+      "geneEnsemblIDs": [
+        "ENSG00000231389"
+      ],
+      "geneNcbiID": 3113,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007608"
+      ],
+      "geneProteinClassNames": [
+        "Immune response"
+      ],
+      "geneProteinStrIDs": [
+        "P20036"
+      ],
+      "genepLI": null,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 2,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "MGD_HUMAN"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 1,
+              "sources": [
+                "TEXTMINING_HUMAN"
+              ],
+              "weight": 0.1
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "HLA-DPA1",
+      "yearFinal": 2016,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "KtYjep4Bu8jCkiVmXhA8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.467,
+      "geneEnsemblIDs": [
+        "ENSG00000160710"
+      ],
+      "geneNcbiID": 103,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007624"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme"
+      ],
+      "geneProteinStrIDs": [
+        "P55265"
+      ],
+      "genepLI": 0.9997,
+      "normalized_score": 0.3225806451612903,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.5,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "MGD_HUMAN"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 1,
+              "sources": [
+                "TEXTMINING_HUMAN"
+              ],
+              "weight": 0.1
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.5
+        }
+      ],
+      "symbolOfGene": "ADAR",
+      "yearFinal": 2014,
+      "yearInitial": 2014
+    },
+    {
+      "assocID": "WRlEep4BZ4eu0iZexgPV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.505,
+      "geneEnsemblIDs": [
+        "ENSG00000108064"
+      ],
+      "geneNcbiID": 7019,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "Q00059"
+      ],
+      "genepLI": 0.086114,
+      "normalized_score": 0.2903225806451613,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.45,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 1,
+              "sources": [
+                "HPO"
+              ],
+              "weight": 0.05
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.45
+        }
+      ],
+      "symbolOfGene": "TFAM",
+      "yearFinal": 2024,
+      "yearInitial": 2024
+    },
+    {
+      "assocID": "IdYjep4Bu8jCkiVmXhA8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.572,
+      "geneEnsemblIDs": [
+        "ENSG00000112337"
+      ],
+      "geneNcbiID": 10246,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007405"
+      ],
+      "geneProteinClassNames": [
+        "Transporter"
+      ],
+      "geneProteinStrIDs": [
+        "O00624"
+      ],
+      "genepLI": 1.7431e-08,
+      "normalized_score": 0.2903225806451613,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 1,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 2,
+      "score": 0.45,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 1,
+              "sources": [
+                "GWASCAT"
+              ],
+              "weight": 0.05
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.45
+        }
+      ],
+      "symbolOfGene": "SLC17A2",
+      "yearFinal": 2023,
+      "yearInitial": 2014
+    },
+    {
+      "assocID": "NtYjep4Bu8jCkiVmXhE8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.493,
+      "geneEnsemblIDs": [
+        "ENSG00000172893"
+      ],
+      "geneNcbiID": 1717,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007624"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme"
+      ],
+      "geneProteinStrIDs": [
+        "Q9UBM7"
+      ],
+      "genepLI": 1.1212e-12,
+      "normalized_score": 0.2903225806451613,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.45,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 1,
+              "sources": [
+                "HPO"
+              ],
+              "weight": 0.05
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.45
+        }
+      ],
+      "symbolOfGene": "DHCR7",
+      "yearFinal": 2014,
+      "yearInitial": 2014
+    },
+    {
+      "assocID": "dHEkep4BHkeZZb25wKyC",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.561,
+      "geneEnsemblIDs": [
+        "ENSG00000148218"
+      ],
+      "geneNcbiID": 210,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007624"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme"
+      ],
+      "geneProteinStrIDs": [
+        "P13716"
+      ],
+      "genepLI": 0.096041,
+      "normalized_score": 0.2903225806451613,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 2,
+      "score": 0.45,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 1,
+              "sources": [
+                "RGD_RAT"
+              ],
+              "weight": 0.05
+            }
+          },
+          "total": 0.45
+        }
+      ],
+      "symbolOfGene": "ALAD",
+      "yearFinal": 2014,
+      "yearInitial": 1983
+    },
+    {
+      "assocID": "ZxlEep4BZ4eu0iZexgTV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.75,
+      "geneDSI": 0.513,
+      "geneEnsemblIDs": [
+        "ENSG00000164953"
+      ],
+      "geneNcbiID": 91147,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "Q5HYA8"
+      ],
+      "genepLI": 3.0272e-18,
+      "normalized_score": 0.2903225806451613,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.45,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 1,
+              "sources": [
+                "HPO"
+              ],
+              "weight": 0.05
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.45
+        }
+      ],
+      "symbolOfGene": "TMEM67",
+      "yearFinal": 2009,
+      "yearInitial": 2009
+    },
+    {
+      "assocID": "CnEkep4BHkeZZb25wLCD",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.319,
+      "geneEnsemblIDs": [
+        "ENSG00000171862"
+      ],
+      "geneNcbiID": 5728,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007624"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme"
+      ],
+      "geneProteinStrIDs": [
+        "P60484"
+      ],
+      "genepLI": 0.048008,
+      "normalized_score": 0.2903225806451613,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 2,
+      "score": 0.45,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 1,
+              "sources": [
+                "RGD_RAT"
+              ],
+              "weight": 0.05
+            }
+          },
+          "total": 0.45
+        }
+      ],
+      "symbolOfGene": "PTEN",
+      "yearFinal": 2020,
+      "yearInitial": 2015
+    },
+    {
+      "assocID": "B9Yjep4Bu8jCkiVmXhA8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": null,
+      "el": null,
+      "geneDPI": 0.667,
+      "geneDSI": 0.613,
+      "geneEnsemblIDs": [
+        "ENSG00000116120"
+      ],
+      "geneNcbiID": 10056,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007624"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme"
+      ],
+      "geneProteinStrIDs": [
+        "Q9NSD9"
+      ],
+      "genepLI": 0.0073579,
+      "normalized_score": 0.2903225806451613,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 5,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 0,
+      "score": 0.45,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "CLINVAR"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 1,
+              "sources": [
+                "HPO"
+              ],
+              "weight": 0.05
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.45
+        }
+      ],
+      "symbolOfGene": "FARSB",
+      "yearFinal": null,
+      "yearInitial": null
+    },
+    {
+      "assocID": "BBlEep4BZ4eu0iZexgPV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.437,
+      "geneEnsemblIDs": [
+        "ENSG00000108576"
+      ],
+      "geneNcbiID": 6532,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007405"
+      ],
+      "geneProteinClassNames": [
+        "Transporter"
+      ],
+      "geneProteinStrIDs": [
+        "P31645"
+      ],
+      "genepLI": 0.99985,
+      "normalized_score": 0.2903225806451613,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.45,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "MGD_HUMAN"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 1,
+              "sources": [
+                "RGD_RAT"
+              ],
+              "weight": 0.05
+            }
+          },
+          "total": 0.45
+        }
+      ],
+      "symbolOfGene": "SLC6A4",
+      "yearFinal": 2001,
+      "yearInitial": 2001
+    },
+    {
+      "assocID": "xNYjep4Bu8jCkiVmXhA8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.458,
+      "geneEnsemblIDs": [
+        "ENSG00000118432"
+      ],
+      "geneNcbiID": 1268,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_02300001"
+      ],
+      "geneProteinClassNames": [
+        "G-protein coupled receptor"
+      ],
+      "geneProteinStrIDs": [
+        "P21554"
+      ],
+      "genepLI": 0.31479,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 2,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "CNR1",
+      "yearFinal": 2011,
+      "yearInitial": 2001
+    },
+    {
+      "assocID": "-3Ekep4BHkeZZb25wKyC",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.458,
+      "geneDSI": 0.763,
+      "geneEnsemblIDs": [
+        "ENSG00000164707"
+      ],
+      "geneNcbiID": 26266,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007405"
+      ],
+      "geneProteinClassNames": [
+        "Transporter"
+      ],
+      "geneProteinStrIDs": [
+        "Q9UKG4"
+      ],
+      "genepLI": 0.99677,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "SLC13A4",
+      "yearFinal": 2014,
+      "yearInitial": 2014
+    },
+    {
+      "assocID": "VXEkep4BHkeZZb25wK6C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.437,
+      "geneEnsemblIDs": [
+        "ENSG00000100097"
+      ],
+      "geneNcbiID": 3956,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007599"
+      ],
+      "geneProteinClassNames": [
+        "Signaling"
+      ],
+      "geneProteinStrIDs": [
+        "P09382"
+      ],
+      "genepLI": 1.8891e-05,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "LGALS1",
+      "yearFinal": 2016,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "rXEkep4BHkeZZb25wK6C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.333,
+      "geneDSI": 0.714,
+      "geneEnsemblIDs": [
+        "ENSG00000199094"
+      ],
+      "geneNcbiID": 407032,
+      "geneNcbiType": "ncRNA",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": null,
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "MIR30C2",
+      "yearFinal": 2012,
+      "yearInitial": 2012
+    },
+    {
+      "assocID": "KHEkep4BHkeZZb25wK-C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.502,
+      "geneEnsemblIDs": [
+        "ENSG00000141458"
+      ],
+      "geneNcbiID": 4864,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007405"
+      ],
+      "geneProteinClassNames": [
+        "Transporter"
+      ],
+      "geneProteinStrIDs": [
+        "O15118"
+      ],
+      "genepLI": 5.6981e-11,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "NPC1",
+      "yearFinal": 2011,
+      "yearInitial": 2011
+    },
+    {
+      "assocID": "w3Ekep4BHkeZZb25wK-D",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.494,
+      "geneEnsemblIDs": [
+        "ENSG00000253352"
+      ],
+      "geneNcbiID": 55000,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "A0A6I8PU40"
+      ],
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "TUG1",
+      "yearFinal": 2023,
+      "yearInitial": 2023
+    },
+    {
+      "assocID": "CtYjep4Bu8jCkiVmXhA8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.25,
+      "geneDSI": 0.851,
+      "geneEnsemblIDs": [
+        "ENSG00000283165"
+      ],
+      "geneNcbiID": 100616173,
+      "geneNcbiType": "ncRNA",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": null,
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "MIR203B",
+      "yearFinal": 2020,
+      "yearInitial": 2020
+    },
+    {
+      "assocID": "DdYjep4Bu8jCkiVmXhE8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.508,
+      "geneEnsemblIDs": [
+        "ENSG00000051523"
+      ],
+      "geneNcbiID": 1535,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "P13498"
+      ],
+      "genepLI": 2.5483e-10,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "CYBA",
+      "yearFinal": 2014,
+      "yearInitial": 2014
+    },
+    {
+      "assocID": "M9Yjep4Bu8jCkiVmXhE8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.792,
+      "geneDSI": 0.586,
+      "geneEnsemblIDs": [
+        "ENSG00000188676"
+      ],
+      "geneNcbiID": 169355,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "Q6ZQW0"
+      ],
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "IDO2",
+      "yearFinal": 2020,
+      "yearInitial": 2020
+    },
+    {
+      "assocID": "9tYjep4Bu8jCkiVmXg88",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.125,
+      "geneDSI": 0.936,
+      "geneEnsemblIDs": [
+        "ENSG00000212100"
+      ],
+      "geneNcbiID": 100313838,
+      "geneNcbiType": "ncRNA",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": null,
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "MIR764",
+      "yearFinal": 2012,
+      "yearInitial": 2012
+    },
+    {
+      "assocID": "mdYjep4Bu8jCkiVmXhA8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.532,
+      "geneEnsemblIDs": [
+        "ENSG00000074416"
+      ],
+      "geneNcbiID": 11343,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007624"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme"
+      ],
+      "geneProteinStrIDs": [
+        "Q99685"
+      ],
+      "genepLI": 0.98058,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "MGLL",
+      "yearFinal": 2019,
+      "yearInitial": 2019
+    },
+    {
+      "assocID": "s9Yjep4Bu8jCkiVmXhA8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.55,
+      "geneEnsemblIDs": [
+        "ENSG00000186104"
+      ],
+      "geneNcbiID": 120227,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "Q6VVX0"
+      ],
+      "genepLI": 2.4652e-12,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "CYP2R1",
+      "yearFinal": 2014,
+      "yearInitial": 2014
+    },
+    {
+      "assocID": "OBlEep4BZ4eu0iZexgTV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.6,
+      "geneEnsemblIDs": [
+        "ENSG00000170099"
+      ],
+      "geneNcbiID": 866,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007584"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme modulator"
+      ],
+      "geneProteinStrIDs": [
+        "P08185"
+      ],
+      "genepLI": 1.827e-05,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "SERPINA6",
+      "yearFinal": 2014,
+      "yearInitial": 2014
+    },
+    {
+      "assocID": "fhlEep4BZ4eu0iZexgTW",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.465,
+      "geneEnsemblIDs": [
+        "ENSG00000010278"
+      ],
+      "geneNcbiID": 928,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "P21926"
+      ],
+      "genepLI": 0.93215,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "CD9",
+      "yearFinal": 2016,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "vXEkep4BHkeZZb25wK-D",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.509,
+      "geneEnsemblIDs": [
+        "ENSG00000092439"
+      ],
+      "geneNcbiID": 54822,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_01300327"
+      ],
+      "geneProteinClassNames": [
+        "Ion channel"
+      ],
+      "geneProteinStrIDs": [
+        "Q96QT4"
+      ],
+      "genepLI": 1.6428e-17,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "TRPM7",
+      "yearFinal": 2014,
+      "yearInitial": 2014
+    },
+    {
+      "assocID": "8hlEep4BZ4eu0iZexgLV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.792,
+      "geneDSI": 0.502,
+      "geneEnsemblIDs": [
+        "ENSG00000160691"
+      ],
+      "geneNcbiID": 6464,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007599"
+      ],
+      "geneProteinClassNames": [
+        "Signaling"
+      ],
+      "geneProteinStrIDs": [
+        "P29353"
+      ],
+      "genepLI": 0.00036723,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "SHC1",
+      "yearFinal": 2020,
+      "yearInitial": 2020
+    },
+    {
+      "assocID": "hxlEep4BZ4eu0iZexgTW",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.708,
+      "geneDSI": 0.655,
+      "geneEnsemblIDs": [
+        "ENSG00000149452"
+      ],
+      "geneNcbiID": 9376,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007405"
+      ],
+      "geneProteinClassNames": [
+        "Transporter"
+      ],
+      "geneProteinStrIDs": [
+        "Q8TCC7"
+      ],
+      "genepLI": 7.9361e-09,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "SLC22A8",
+      "yearFinal": 2014,
+      "yearInitial": 2014
+    },
+    {
+      "assocID": "qhlEep4BZ4eu0iZexgTW",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.75,
+      "geneDSI": 0.646,
+      "geneEnsemblIDs": [
+        "ENSG00000133816"
+      ],
+      "geneNcbiID": 9645,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "O94851"
+      ],
+      "genepLI": 7.3163e-13,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "MICAL2",
+      "yearFinal": 2020,
+      "yearInitial": 2020
+    },
+    {
+      "assocID": "69Yjep4Bu8jCkiVmXg88",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.167,
+      "geneDSI": 0.872,
+      "geneEnsemblIDs": [
+        "ENSG00000216069"
+      ],
+      "geneNcbiID": 100126309,
+      "geneNcbiType": "ncRNA",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": null,
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "MIR875",
+      "yearFinal": 2020,
+      "yearInitial": 2020
+    },
+    {
+      "assocID": "ztYjep4Bu8jCkiVmXhA8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.792,
+      "geneDSI": 0.531,
+      "geneEnsemblIDs": [
+        "ENSG00000204262"
+      ],
+      "geneNcbiID": 1290,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "P05997"
+      ],
+      "genepLI": 1.0,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "COL5A2",
+      "yearFinal": 2016,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "6nEkep4BHkeZZb25wKyC",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.75,
+      "geneDSI": 0.606,
+      "geneEnsemblIDs": [
+        "ENSG00000095739"
+      ],
+      "geneNcbiID": 25805,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "Q13145"
+      ],
+      "genepLI": 2.4233e-07,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "BAMBI",
+      "yearFinal": 2018,
+      "yearInitial": 2018
+    },
+    {
+      "assocID": "dnEkep4BHkeZZb25wK2C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.917,
+      "geneDSI": 0.457,
+      "geneEnsemblIDs": [
+        "ENSG00000196591"
+      ],
+      "geneNcbiID": 3066,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007378"
+      ],
+      "geneProteinClassNames": [
+        "Epigenetic regulator"
+      ],
+      "geneProteinStrIDs": [
+        "Q92769"
+      ],
+      "genepLI": 0.98923,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "HDAC2",
+      "yearFinal": 2016,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "2HEkep4BHkeZZb25wK2C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.446,
+      "geneEnsemblIDs": [
+        "ENSG00000115457"
+      ],
+      "geneNcbiID": 3485,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007584"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme modulator"
+      ],
+      "geneProteinStrIDs": [
+        "P18065"
+      ],
+      "genepLI": 0.0037854,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "IGFBP2",
+      "yearFinal": 2016,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "onEkep4BHkeZZb25wK-C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.75,
+      "geneDSI": 0.54,
+      "geneEnsemblIDs": [
+        "ENSG00000152952"
+      ],
+      "geneNcbiID": 5352,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007624"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme"
+      ],
+      "geneProteinStrIDs": [
+        "O00469"
+      ],
+      "genepLI": 6.7296e-07,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "PLOD2",
+      "yearFinal": 2016,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "73Ekep4BHkeZZb25wK-D",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.397,
+      "geneEnsemblIDs": [
+        "ENSG00000165819"
+      ],
+      "geneNcbiID": 56339,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "Q86U44"
+      ],
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "METTL3",
+      "yearFinal": 2023,
+      "yearInitial": 2023
+    },
+    {
+      "assocID": "exlEep4BZ4eu0iZexgPV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.489,
+      "geneEnsemblIDs": [
+        "ENSG00000149131"
+      ],
+      "geneNcbiID": 710,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007584"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme modulator"
+      ],
+      "geneProteinStrIDs": [
+        "P05155"
+      ],
+      "genepLI": 0.99999,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "SERPING1",
+      "yearFinal": 2016,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "sRlEep4BZ4eu0iZexgPV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.792,
+      "geneDSI": 0.533,
+      "geneEnsemblIDs": [
+        "ENSG00000173511"
+      ],
+      "geneNcbiID": 7423,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007599"
+      ],
+      "geneProteinClassNames": [
+        "Signaling"
+      ],
+      "geneProteinStrIDs": [
+        "P49765"
+      ],
+      "genepLI": 1.4942e-09,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "VEGFB",
+      "yearFinal": 2025,
+      "yearInitial": 2025
+    },
+    {
+      "assocID": "_BlEep4BZ4eu0iZexgPV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.792,
+      "geneDSI": 0.609,
+      "geneEnsemblIDs": [
+        "ENSG00000110057"
+      ],
+      "geneNcbiID": 81622,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "Q9H1C4"
+      ],
+      "genepLI": 1.2372e-09,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "UNC93B1",
+      "yearFinal": 2014,
+      "yearInitial": 2014
+    },
+    {
+      "assocID": "EhlEep4BZ4eu0iZexgTV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.667,
+      "geneDSI": 0.578,
+      "geneEnsemblIDs": [
+        "ENSG00000158710"
+      ],
+      "geneNcbiID": 8407,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007530"
+      ],
+      "geneProteinClassNames": [
+        "Cellular structure"
+      ],
+      "geneProteinStrIDs": [
+        "P37802"
+      ],
+      "genepLI": 0.0074187,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "TAGLN2",
+      "yearFinal": 2014,
+      "yearInitial": 2014
+    },
+    {
+      "assocID": "oRlEep4BZ4eu0iZexgTW",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.491,
+      "geneEnsemblIDs": [
+        "ENSG00000145824"
+      ],
+      "geneNcbiID": 9547,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "O95715"
+      ],
+      "genepLI": 0.020873,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "CXCL14",
+      "yearFinal": 2021,
+      "yearInitial": 2021
+    },
+    {
+      "assocID": "g3Ekep4BHkeZZb25wK6C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.566,
+      "geneEnsemblIDs": [
+        "ENSG00000207960"
+      ],
+      "geneNcbiID": 406945,
+      "geneNcbiType": "ncRNA",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": null,
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "MIR153-2",
+      "yearFinal": 2012,
+      "yearInitial": 2012
+    },
+    {
+      "assocID": "rHEkep4BHkeZZb25wK6C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.792,
+      "geneDSI": 0.521,
+      "geneEnsemblIDs": [
+        "ENSG00000207962"
+      ],
+      "geneNcbiID": 407031,
+      "geneNcbiType": "ncRNA",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": null,
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "MIR30C1",
+      "yearFinal": 2012,
+      "yearInitial": 2012
+    },
+    {
+      "assocID": "83Ekep4BHkeZZb25wK6C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.625,
+      "geneDSI": 0.628,
+      "geneEnsemblIDs": [
+        "ENSG00000198984"
+      ],
+      "geneNcbiID": 442910,
+      "geneNcbiType": "ncRNA",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": null,
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "MIR345",
+      "yearFinal": 2022,
+      "yearInitial": 2022
+    },
+    {
+      "assocID": "PnEkep4BHkeZZb25wK-C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.428,
+      "geneEnsemblIDs": [
+        "ENSG00000089041"
+      ],
+      "geneNcbiID": 5027,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_01300327"
+      ],
+      "geneProteinClassNames": [
+        "Ion channel"
+      ],
+      "geneProteinStrIDs": [
+        "Q99572"
+      ],
+      "genepLI": 4.2054e-13,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "P2RX7",
+      "yearFinal": 2020,
+      "yearInitial": 2020
+    },
+    {
+      "assocID": "GnEkep4BHkeZZb25wLCD",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.708,
+      "geneDSI": 0.567,
+      "geneEnsemblIDs": [
+        "ENSG00000208005"
+      ],
+      "geneNcbiID": 574506,
+      "geneNcbiType": "ncRNA",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": null,
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "MIR503",
+      "yearFinal": 2012,
+      "yearInitial": 2012
+    },
+    {
+      "assocID": "-NYjep4Bu8jCkiVmXhA8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.792,
+      "geneDSI": 0.551,
+      "geneEnsemblIDs": [
+        "ENSG00000120907"
+      ],
+      "geneNcbiID": 148,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_02300001"
+      ],
+      "geneProteinClassNames": [
+        "G-protein coupled receptor"
+      ],
+      "geneProteinStrIDs": [
+        "P35348"
+      ],
+      "genepLI": 3.5799e-11,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "ADRA1A",
+      "yearFinal": 2006,
+      "yearInitial": 2006
+    },
+    {
+      "assocID": "PxlEep4BZ4eu0iZexgPV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.498,
+      "geneEnsemblIDs": [
+        "ENSG00000102554"
+      ],
+      "geneNcbiID": 688,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007557"
+      ],
+      "geneProteinClassNames": [
+        "Nucleic acid binding"
+      ],
+      "geneProteinStrIDs": [
+        "Q13887"
+      ],
+      "genepLI": 0.96632,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "KLF5",
+      "yearFinal": 2021,
+      "yearInitial": 2021
+    },
+    {
+      "assocID": "ZnEkep4BHkeZZb25wKyC",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.5,
+      "geneDSI": 0.655,
+      "geneEnsemblIDs": [
+        "ENSG00000165138"
+      ],
+      "geneNcbiID": 203286,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "Q68DC2"
+      ],
+      "genepLI": 4.0676e-10,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "ANKS6",
+      "yearFinal": 2013,
+      "yearInitial": 2013
+    },
+    {
+      "assocID": "ZXEkep4BHkeZZb25wK6C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.537,
+      "geneEnsemblIDs": [
+        "ENSG00000143437"
+      ],
+      "geneNcbiID": 405,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007542"
+      ],
+      "geneProteinClassNames": [
+        "Transcription factor"
+      ],
+      "geneProteinStrIDs": [
+        "P27540"
+      ],
+      "genepLI": 1.0,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "ARNT",
+      "yearFinal": 2012,
+      "yearInitial": 2012
+    },
+    {
+      "assocID": "q3Ekep4BHkeZZb25wK6C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.538,
+      "geneEnsemblIDs": [
+        "ENSG00000207582"
+      ],
+      "geneNcbiID": 407030,
+      "geneNcbiType": "ncRNA",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": null,
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "MIR30B",
+      "yearFinal": 2012,
+      "yearInitial": 2012
+    },
+    {
+      "assocID": "tXEkep4BHkeZZb25wK6C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.917,
+      "geneDSI": 0.524,
+      "geneEnsemblIDs": [
+        "ENSG00000137486"
+      ],
+      "geneNcbiID": 408,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007584"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme modulator"
+      ],
+      "geneProteinStrIDs": [
+        "P49407"
+      ],
+      "genepLI": 0.1458,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "ARRB1",
+      "yearFinal": 2016,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "FnEkep4BHkeZZb25wK-C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.382,
+      "geneEnsemblIDs": [
+        "ENSG00000149311"
+      ],
+      "geneNcbiID": 472,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_03300101"
+      ],
+      "geneProteinClassNames": [
+        "Kinase"
+      ],
+      "geneProteinStrIDs": [
+        "Q13315"
+      ],
+      "genepLI": 1.2568e-69,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "ATM",
+      "yearFinal": 2023,
+      "yearInitial": 2023
+    },
+    {
+      "assocID": "XHEkep4BHkeZZb25wK-C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.708,
+      "geneDSI": 0.646,
+      "geneEnsemblIDs": [
+        "ENSG00000106333"
+      ],
+      "geneNcbiID": 5118,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "Q15113"
+      ],
+      "genepLI": 7.3142e-09,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "PCOLCE",
+      "yearFinal": 2016,
+      "yearInitial": 2016
+    },
+    {
+      "assocID": "NnEkep4BHkeZZb25wK6C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": null,
+      "el": null,
+      "geneDPI": 0.708,
+      "geneDSI": 0.606,
+      "geneEnsemblIDs": [],
+      "geneNcbiID": 3813,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007575"
+      ],
+      "geneProteinClassNames": [
+        "Receptor"
+      ],
+      "geneProteinStrIDs": [
+        "Q14943"
+      ],
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 0,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "MGD_HUMAN"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "KIR3DS1",
+      "yearFinal": null,
+      "yearInitial": null
+    },
+    {
+      "assocID": "Q9Yjep4Bu8jCkiVmXhE8",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": null,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.511,
+      "geneEnsemblIDs": [
+        "ENSG00000069696"
+      ],
+      "geneNcbiID": 1815,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_02300001"
+      ],
+      "geneProteinClassNames": [
+        "G-protein coupled receptor"
+      ],
+      "geneProteinStrIDs": [
+        "P21917"
+      ],
+      "genepLI": 7.0522e-14,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 0,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "MGD_HUMAN"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "DRD4",
+      "yearFinal": null,
+      "yearInitial": null
+    },
+    {
+      "assocID": "yXEkep4BHkeZZb25wK2C",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": null,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.511,
+      "geneEnsemblIDs": [
+        "ENSG00000188379"
+      ],
+      "geneNcbiID": 3440,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "P01563"
+      ],
+      "genepLI": 0.12904,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 0,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "MGD_HUMAN"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "IFNA2",
+      "yearFinal": null,
+      "yearInitial": null
+    },
+    {
+      "assocID": "lBlEep4BZ4eu0iZexgPV",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "disease of anatomical entity (7)"
+      ],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Liver Cirrhosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0023890",
+      "diseaseVocabularies": [
+        "MESH_D008103",
+        "HPO_HP:0001394",
+        "NCI_C2951",
+        "DO_0070658",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0023890"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": null,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.532,
+      "geneEnsemblIDs": [
+        "ENSG00000106804"
+      ],
+      "geneNcbiID": 727,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007584"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme modulator"
+      ],
+      "geneProteinStrIDs": [
+        "P01031"
+      ],
+      "genepLI": 7.3456e-17,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 0,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "MGD_HUMAN"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "C5",
+      "yearFinal": null,
+      "yearInitial": null
+    }
+  ],
+  "requestpar": {
+    "disease": "UMLS_C0023890",
+    "page_number": 1
+  },
+  "status": "OK",
+  "warnings": [
+    "Academic roles can only access to CURATED sources: (CLINGEN, CLINPGX, CLINVAR, GENCC, MGD_HUMAN, ORPHANET, PSYGENET, RGD_HUMAN, UNIPROT)",
+    "gene_ncbi_id > The parameter value is empty / unspecified.",
+    "gene_ensembl_id > The parameter value is empty / unspecified.",
+    "gene_symbol > The parameter value is empty / unspecified.",
+    "uniprot_id > The parameter value is empty / unspecified.",
+    "chemical_id > The parameter value is empty / unspecified.",
+    "chemical_association > The parameter value is empty / unspecified.",
+    "output > The parameter value is empty / unspecified.",
+    "source > The parameter value is empty / unspecified.",
+    "dis_type > The parameter value is empty / unspecified.",
+    "dis_class_list > The parameter value is empty / unspecified.",
+    "order_by > The parameter value is empty / unspecified.",
+    "order > The parameter value is empty / unspecified.",
+    "disease_inheritance > The parameter value is empty / unspecified.",
+    "disease_prevalence_class > The parameter value is empty / unspecified.",
+    "disease_prevalence_geo_area > The parameter value is empty / unspecified.",
+    "disease_prevalence_type >The parameter value is empty / unspecified.",
+    "evidence_level >The parameter value is empty / unspecified.",
+    "min_score > The parameter value is unspecified or not a double number.",
+    "max_score > The parameter value is unspecified or not a double number.",
+    "min_ei > The parameter value is unspecified or not a double number.",
+    "max_ei > The parameter value is unspecified or not a double number.",
+    "min_dsi > The parameter value is unspecified or not a double number.",
+    "max_dsi > The parameter value is unspecified or not a double number.",
+    "min_dpi > The parameter value is unspecified or not a double number.",
+    "max_dpi > The parameter value is unspecified or not a double number.",
+    "min_pli > The parameter value is unspecified or not a double number.",
+    "max_pli > The parameter value is unspecified or not a double number.",
+    "min_numCTs > The parameter value is unspecified or not an integer number.",
+    "min_yearInitial > The parameter value is unspecified or not an integer number.",
+    "max_yearInitial > The parameter value is unspecified or not an integer number.",
+    "min_yearFinal > The parameter value is unspecified or not an integer number.",
+    "max_yearFinal > The parameter value is unspecified or not an integer number."
+  ]
+}

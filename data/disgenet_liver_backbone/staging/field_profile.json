@@ -1,0 +1,359 @@
+{
+  "_expected_umls_id": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "str": 1036
+    }
+  },
+  "_retrieved_at": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "str": 1036
+    }
+  },
+  "_stage_code": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "str": 1036
+    }
+  },
+  "_stage_order": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "int": 1036
+    }
+  },
+  "assocID": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "str": 1036
+    }
+  },
+  "chemsIncludedInEvidenceBySource": {
+    "empty": 542,
+    "present": 1036,
+    "types": {
+      "array[0]": 542,
+      "array[object:103]": 1,
+      "array[object:10]": 10,
+      "array[object:11]": 9,
+      "array[object:12]": 3,
+      "array[object:134]": 1,
+      "array[object:13]": 5,
+      "array[object:14]": 4,
+      "array[object:15]": 7,
+      "array[object:162]": 1,
+      "array[object:16]": 8,
+      "array[object:186]": 1,
+      "array[object:18]": 2,
+      "array[object:19]": 5,
+      "array[object:1]": 147,
+      "array[object:20]": 1,
+      "array[object:21]": 4,
+      "array[object:23]": 2,
+      "array[object:24]": 6,
+      "array[object:25]": 1,
+      "array[object:26]": 3,
+      "array[object:27]": 2,
+      "array[object:28]": 2,
+      "array[object:29]": 2,
+      "array[object:2]": 88,
+      "array[object:30]": 1,
+      "array[object:31]": 4,
+      "array[object:33]": 1,
+      "array[object:35]": 4,
+      "array[object:37]": 1,
+      "array[object:39]": 2,
+      "array[object:3]": 45,
+      "array[object:40]": 1,
+      "array[object:41]": 1,
+      "array[object:44]": 2,
+      "array[object:45]": 1,
+      "array[object:46]": 2,
+      "array[object:49]": 1,
+      "array[object:4]": 22,
+      "array[object:58]": 1,
+      "array[object:5]": 26,
+      "array[object:61]": 1,
+      "array[object:65]": 1,
+      "array[object:6]": 18,
+      "array[object:71]": 1,
+      "array[object:78]": 1,
+      "array[object:7]": 15,
+      "array[object:81]": 3,
+      "array[object:85]": 1,
+      "array[object:88]": 1,
+      "array[object:8]": 13,
+      "array[object:99]": 1,
+      "array[object:9]": 8
+    }
+  },
+  "diseaseClasses_DO": {
+    "empty": 2,
+    "present": 1036,
+    "types": {
+      "array[0]": 2,
+      "array[str:1]": 169,
+      "array[str:2]": 655,
+      "array[str:3]": 210
+    }
+  },
+  "diseaseClasses_HPO": {
+    "empty": 210,
+    "present": 1036,
+    "types": {
+      "array[0]": 210,
+      "array[str:1]": 171,
+      "array[str:2]": 655
+    }
+  },
+  "diseaseClasses_MSH": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "array[str:1]": 210,
+      "array[str:2]": 826
+    }
+  },
+  "diseaseClasses_UMLS_ST": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "array[str:1]": 1036
+    }
+  },
+  "diseaseName": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "str": 1036
+    }
+  },
+  "diseaseType": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "str": 1036
+    }
+  },
+  "diseaseUMLSCUI": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "str": 1036
+    }
+  },
+  "diseaseVocabularies": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "array[str:10]": 655,
+      "array[str:6]": 210,
+      "array[str:7]": 171
+    }
+  },
+  "disease_inheritance": {
+    "empty": 381,
+    "present": 1036,
+    "types": {
+      "str": 1036
+    }
+  },
+  "disease_prevalence_class": {
+    "empty": 381,
+    "present": 1036,
+    "types": {
+      "str": 1036
+    }
+  },
+  "disease_prevalence_geo_area": {
+    "empty": 381,
+    "present": 1036,
+    "types": {
+      "str": 1036
+    }
+  },
+  "disease_prevalence_type": {
+    "empty": 381,
+    "present": 1036,
+    "types": {
+      "str": 1036
+    }
+  },
+  "ei": {
+    "empty": 10,
+    "present": 1036,
+    "types": {
+      "float": 1026,
+      "null": 10
+    }
+  },
+  "el": {
+    "empty": 1035,
+    "present": 1036,
+    "types": {
+      "null": 1035,
+      "str": 1
+    }
+  },
+  "geneDPI": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "float": 1036
+    }
+  },
+  "geneDSI": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "float": 1036
+    }
+  },
+  "geneEnsemblIDs": {
+    "empty": 12,
+    "present": 1036,
+    "types": {
+      "array[0]": 12,
+      "array[str:1]": 1024
+    }
+  },
+  "geneNcbiID": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "int": 1036
+    }
+  },
+  "geneNcbiType": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "str": 1036
+    }
+  },
+  "geneProteinClassIDs": {
+    "empty": 445,
+    "present": 1036,
+    "types": {
+      "array[str:1]": 591,
+      "null": 445
+    }
+  },
+  "geneProteinClassNames": {
+    "empty": 445,
+    "present": 1036,
+    "types": {
+      "array[str:1]": 591,
+      "null": 445
+    }
+  },
+  "geneProteinStrIDs": {
+    "empty": 39,
+    "present": 1036,
+    "types": {
+      "array[str:1]": 996,
+      "array[str:2]": 1,
+      "null": 39
+    }
+  },
+  "genepLI": {
+    "empty": 94,
+    "present": 1036,
+    "types": {
+      "float": 942,
+      "null": 94
+    }
+  },
+  "normalized_score": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "float": 1036
+    }
+  },
+  "numCTsupportingAssociation": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "int": 1036
+    }
+  },
+  "numChemsIncludedInEvidences": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "int": 1036
+    }
+  },
+  "numDBSNPsupportingAssociation": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "int": 1036
+    }
+  },
+  "numNCTSWithChemsIncludedInEvidences": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "int": 1036
+    }
+  },
+  "numPMIDSWithChemsIncludedInEvidences": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "int": 1036
+    }
+  },
+  "numPMIDs": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "int": 1036
+    }
+  },
+  "score": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "float": 1036
+    }
+  },
+  "scoreBreakdown": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "array[object:1]": 1036
+    }
+  },
+  "symbolOfGene": {
+    "empty": 0,
+    "present": 1036,
+    "types": {
+      "str": 1036
+    }
+  },
+  "yearFinal": {
+    "empty": 10,
+    "present": 1036,
+    "types": {
+      "int": 1026,
+      "null": 10
+    }
+  },
+  "yearInitial": {
+    "empty": 10,
+    "present": 1036,
+    "types": {
+      "int": 1026,
+      "null": 10
+    }
+  }
+}

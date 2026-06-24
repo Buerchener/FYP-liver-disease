@@ -1,0 +1,334 @@
+pathway_id	kegg_pathway_id	name	pathway_name	organism	source
+KEGG:hsa00010	hsa00010	Glycolysis / Gluconeogenesis	Glycolysis / Gluconeogenesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00020	hsa00020	Citrate cycle (TCA cycle)	Citrate cycle (TCA cycle) - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00030	hsa00030	Pentose phosphate pathway	Pentose phosphate pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00040	hsa00040	Pentose and glucuronate interconversions	Pentose and glucuronate interconversions - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00051	hsa00051	Fructose and mannose metabolism	Fructose and mannose metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00052	hsa00052	Galactose metabolism	Galactose metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00053	hsa00053	Ascorbate and aldarate metabolism	Ascorbate and aldarate metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00061	hsa00061	Fatty acid biosynthesis	Fatty acid biosynthesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00062	hsa00062	Fatty acid elongation	Fatty acid elongation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00071	hsa00071	Fatty acid degradation	Fatty acid degradation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00100	hsa00100	Steroid biosynthesis	Steroid biosynthesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00120	hsa00120	Primary bile acid biosynthesis	Primary bile acid biosynthesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00130	hsa00130	Ubiquinone and other terpenoid-quinone biosynthesis	Ubiquinone and other terpenoid-quinone biosynthesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00140	hsa00140	Steroid hormone biosynthesis	Steroid hormone biosynthesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00190	hsa00190	Oxidative phosphorylation	Oxidative phosphorylation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00220	hsa00220	Arginine biosynthesis	Arginine biosynthesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00230	hsa00230	Purine metabolism	Purine metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00232	hsa00232	Caffeine metabolism	Caffeine metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00240	hsa00240	Pyrimidine metabolism	Pyrimidine metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00250	hsa00250	Alanine, aspartate and glutamate metabolism	Alanine, aspartate and glutamate metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00260	hsa00260	Glycine, serine and threonine metabolism	Glycine, serine and threonine metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00270	hsa00270	Cysteine and methionine metabolism	Cysteine and methionine metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00280	hsa00280	Valine, leucine and isoleucine degradation	Valine, leucine and isoleucine degradation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00310	hsa00310	Lysine degradation	Lysine degradation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00330	hsa00330	Arginine and proline metabolism	Arginine and proline metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00340	hsa00340	Histidine metabolism	Histidine metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00350	hsa00350	Tyrosine metabolism	Tyrosine metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00380	hsa00380	Tryptophan metabolism	Tryptophan metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00410	hsa00410	beta-Alanine metabolism	beta-Alanine metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00450	hsa00450	Selenocompound metabolism	Selenocompound metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00480	hsa00480	Glutathione metabolism	Glutathione metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00500	hsa00500	Starch and sucrose metabolism	Starch and sucrose metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00515	hsa00515	Mannose type O-glycan biosynthesis	Mannose type O-glycan biosynthesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00531	hsa00531	Glycosaminoglycan degradation	Glycosaminoglycan degradation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00561	hsa00561	Glycerolipid metabolism	Glycerolipid metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00562	hsa00562	Inositol phosphate metabolism	Inositol phosphate metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00564	hsa00564	Glycerophospholipid metabolism	Glycerophospholipid metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00590	hsa00590	Arachidonic acid metabolism	Arachidonic acid metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00591	hsa00591	Linoleic acid metabolism	Linoleic acid metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00592	hsa00592	alpha-Linolenic acid metabolism	alpha-Linolenic acid metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00620	hsa00620	Pyruvate metabolism	Pyruvate metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00630	hsa00630	Glyoxylate and dicarboxylate metabolism	Glyoxylate and dicarboxylate metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00640	hsa00640	Propanoate metabolism	Propanoate metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00670	hsa00670	One carbon pool by folate	One carbon pool by folate - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00760	hsa00760	Nicotinate and nicotinamide metabolism	Nicotinate and nicotinamide metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00770	hsa00770	Pantothenate and CoA biosynthesis	Pantothenate and CoA biosynthesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00790	hsa00790	Folate biosynthesis	Folate biosynthesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00830	hsa00830	Retinol metabolism	Retinol metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00860	hsa00860	Porphyrin metabolism	Porphyrin metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00900	hsa00900	Terpenoid backbone biosynthesis	Terpenoid backbone biosynthesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00910	hsa00910	Nitrogen metabolism	Nitrogen metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00920	hsa00920	Sulfur metabolism	Sulfur metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00970	hsa00970	Aminoacyl-tRNA biosynthesis	Aminoacyl-tRNA biosynthesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00980	hsa00980	Metabolism of xenobiotics by cytochrome P450	Metabolism of xenobiotics by cytochrome P450 - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00982	hsa00982	Drug metabolism - cytochrome P450	Drug metabolism - cytochrome P450 - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa00983	hsa00983	Drug metabolism - other enzymes	Drug metabolism - other enzymes - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa01040	hsa01040	Biosynthesis of unsaturated fatty acids	Biosynthesis of unsaturated fatty acids - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa01100	hsa01100	Metabolic pathways	Metabolic pathways - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa01200	hsa01200	Carbon metabolism	Carbon metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa01210	hsa01210	2-Oxocarboxylic acid metabolism	2-Oxocarboxylic acid metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa01212	hsa01212	Fatty acid metabolism	Fatty acid metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa01230	hsa01230	Biosynthesis of amino acids	Biosynthesis of amino acids - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa01232	hsa01232	Nucleotide metabolism	Nucleotide metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa01240	hsa01240	Biosynthesis of cofactors	Biosynthesis of cofactors - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa01521	hsa01521	EGFR tyrosine kinase inhibitor resistance	EGFR tyrosine kinase inhibitor resistance - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa01522	hsa01522	Endocrine resistance	Endocrine resistance - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa01523	hsa01523	Antifolate resistance	Antifolate resistance - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa01524	hsa01524	Platinum drug resistance	Platinum drug resistance - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa02010	hsa02010	ABC transporters	ABC transporters - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03008	hsa03008	Ribosome biogenesis in eukaryotes	Ribosome biogenesis in eukaryotes - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03010	hsa03010	Ribosome	Ribosome - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03013	hsa03013	Nucleocytoplasmic transport	Nucleocytoplasmic transport - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03018	hsa03018	RNA degradation	RNA degradation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03022	hsa03022	Basal transcription factors	Basal transcription factors - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03030	hsa03030	DNA replication	DNA replication - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03040	hsa03040	Spliceosome	Spliceosome - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03050	hsa03050	Proteasome	Proteasome - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03060	hsa03060	Protein export	Protein export - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03082	hsa03082	ATP-dependent chromatin remodeling	ATP-dependent chromatin remodeling - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03083	hsa03083	Polycomb repressive complex	Polycomb repressive complex - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03250	hsa03250	Viral life cycle - HIV-1	Viral life cycle - HIV-1 - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03260	hsa03260	Virion - Human immunodeficiency virus	Virion - Human immunodeficiency virus - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03264	hsa03264	Virion - Flavivirus and Alphavirus	Virion - Flavivirus and Alphavirus - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03265	hsa03265	Virion - Ebolavirus, Lyssavirus and Morbillivirus	Virion - Ebolavirus, Lyssavirus and Morbillivirus - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03266	hsa03266	Virion - Herpesvirus	Virion - Herpesvirus - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03272	hsa03272	Virion - Hepatitis viruses	Virion - Hepatitis viruses - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03273	hsa03273	Virion - Lassa virus and SFTS virus	Virion - Lassa virus and SFTS virus - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03320	hsa03320	PPAR signaling pathway	PPAR signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03410	hsa03410	Base excision repair	Base excision repair - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03420	hsa03420	Nucleotide excision repair	Nucleotide excision repair - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03430	hsa03430	Mismatch repair	Mismatch repair - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03440	hsa03440	Homologous recombination	Homologous recombination - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03450	hsa03450	Non-homologous end-joining	Non-homologous end-joining - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa03460	hsa03460	Fanconi anemia pathway	Fanconi anemia pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04010	hsa04010	MAPK signaling pathway	MAPK signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04012	hsa04012	ErbB signaling pathway	ErbB signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04014	hsa04014	Ras signaling pathway	Ras signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04015	hsa04015	Rap1 signaling pathway	Rap1 signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04020	hsa04020	Calcium signaling pathway	Calcium signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04022	hsa04022	cGMP-PKG signaling pathway	cGMP-PKG signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04024	hsa04024	cAMP signaling pathway	cAMP signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04060	hsa04060	Cytokine-cytokine receptor interaction	Cytokine-cytokine receptor interaction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04061	hsa04061	Viral protein interaction with cytokine and cytokine receptor	Viral protein interaction with cytokine and cytokine receptor - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04062	hsa04062	Chemokine signaling pathway	Chemokine signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04064	hsa04064	NF-kappa B signaling pathway	NF-kappa B signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04066	hsa04066	HIF-1 signaling pathway	HIF-1 signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04068	hsa04068	FoxO signaling pathway	FoxO signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04070	hsa04070	Phosphatidylinositol signaling system	Phosphatidylinositol signaling system - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04071	hsa04071	Sphingolipid signaling pathway	Sphingolipid signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04072	hsa04072	Phospholipase D signaling pathway	Phospholipase D signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04080	hsa04080	Neuroactive ligand-receptor interaction	Neuroactive ligand-receptor interaction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04081	hsa04081	Hormone signaling	Hormone signaling - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04082	hsa04082	Neuroactive ligand signaling	Neuroactive ligand signaling - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04110	hsa04110	Cell cycle	Cell cycle - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04114	hsa04114	Oocyte meiosis	Oocyte meiosis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04115	hsa04115	p53 signaling pathway	p53 signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04120	hsa04120	Ubiquitin mediated proteolysis	Ubiquitin mediated proteolysis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04122	hsa04122	Sulfur relay system	Sulfur relay system - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04136	hsa04136	Autophagy - other	Autophagy - other - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04137	hsa04137	Mitophagy - animal	Mitophagy - animal - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04140	hsa04140	Autophagy - animal	Autophagy - animal - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04141	hsa04141	Protein processing in endoplasmic reticulum	Protein processing in endoplasmic reticulum - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04142	hsa04142	Lysosome biogenesis	Lysosome biogenesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04144	hsa04144	Endocytosis	Endocytosis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04145	hsa04145	Phagocytosis	Phagocytosis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04146	hsa04146	Peroxisome	Peroxisome - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04148	hsa04148	Efferocytosis	Efferocytosis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04150	hsa04150	mTOR signaling pathway	mTOR signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04151	hsa04151	PI3K-Akt signaling pathway	PI3K-Akt signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04152	hsa04152	AMPK signaling pathway	AMPK signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04156	hsa04156	Integrated stress response (ISR) signaling pathway	Integrated stress response (ISR) signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04210	hsa04210	Apoptosis	Apoptosis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04211	hsa04211	Longevity regulating pathway	Longevity regulating pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04213	hsa04213	Longevity regulating pathway - multiple species	Longevity regulating pathway - multiple species - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04215	hsa04215	Apoptosis - multiple species	Apoptosis - multiple species - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04216	hsa04216	Ferroptosis	Ferroptosis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04217	hsa04217	Necroptosis	Necroptosis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04218	hsa04218	Cellular senescence	Cellular senescence - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04260	hsa04260	Cardiac muscle contraction	Cardiac muscle contraction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04261	hsa04261	Adrenergic signaling in cardiomyocytes	Adrenergic signaling in cardiomyocytes - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04270	hsa04270	Vascular smooth muscle contraction	Vascular smooth muscle contraction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04310	hsa04310	Wnt signaling pathway	Wnt signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04330	hsa04330	Notch signaling pathway	Notch signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04340	hsa04340	Hedgehog signaling pathway	Hedgehog signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04350	hsa04350	TGF-beta signaling pathway	TGF-beta signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04360	hsa04360	Axon guidance	Axon guidance - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04370	hsa04370	VEGF signaling pathway	VEGF signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04371	hsa04371	Apelin signaling pathway	Apelin signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04380	hsa04380	Osteoclast differentiation	Osteoclast differentiation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04382	hsa04382	Cornified envelope formation	Cornified envelope formation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04390	hsa04390	Hippo signaling pathway	Hippo signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04392	hsa04392	Hippo signaling pathway - multiple species	Hippo signaling pathway - multiple species - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04510	hsa04510	Focal adhesion	Focal adhesion - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04512	hsa04512	ECM-receptor interaction	ECM-receptor interaction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04514	hsa04514	Cell adhesion molecule (CAM) interaction	Cell adhesion molecule (CAM) interaction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04517	hsa04517	IgSF CAM signaling	IgSF CAM signaling - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04518	hsa04518	Integrin signaling	Integrin signaling - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04519	hsa04519	Cadherin signaling	Cadherin signaling - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04520	hsa04520	Adherens junction	Adherens junction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04530	hsa04530	Tight junction	Tight junction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04540	hsa04540	Gap junction	Gap junction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04550	hsa04550	Signaling pathways regulating pluripotency of stem cells	Signaling pathways regulating pluripotency of stem cells - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04610	hsa04610	Complement and coagulation cascades	Complement and coagulation cascades - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04611	hsa04611	Platelet activation	Platelet activation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04612	hsa04612	Antigen processing and presentation	Antigen processing and presentation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04613	hsa04613	Neutrophil extracellular trap formation	Neutrophil extracellular trap formation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04614	hsa04614	Renin-angiotensin system	Renin-angiotensin system - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04620	hsa04620	Toll-like receptor signaling pathway	Toll-like receptor signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04621	hsa04621	NOD-like receptor signaling pathway	NOD-like receptor signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04622	hsa04622	RIG-I-like receptor signaling pathway	RIG-I-like receptor signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04623	hsa04623	Cytosolic DNA-sensing pathway	Cytosolic DNA-sensing pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04625	hsa04625	C-type lectin receptor signaling pathway	C-type lectin receptor signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04630	hsa04630	JAK-STAT signaling pathway	JAK-STAT signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04640	hsa04640	Hematopoietic cell lineage	Hematopoietic cell lineage - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04650	hsa04650	Natural killer cell mediated cytotoxicity	Natural killer cell mediated cytotoxicity - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04657	hsa04657	IL-17 signaling pathway	IL-17 signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04658	hsa04658	Th1 and Th2 cell differentiation	Th1 and Th2 cell differentiation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04659	hsa04659	Th17 cell differentiation	Th17 cell differentiation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04660	hsa04660	T cell receptor signaling pathway	T cell receptor signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04662	hsa04662	B cell receptor signaling pathway	B cell receptor signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04664	hsa04664	Fc epsilon RI signaling pathway	Fc epsilon RI signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04666	hsa04666	Fc gamma R-mediated phagosome formation	Fc gamma R-mediated phagosome formation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04668	hsa04668	TNF signaling pathway	TNF signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04670	hsa04670	Leukocyte transendothelial migration	Leukocyte transendothelial migration - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04672	hsa04672	Intestinal immune network for IgA production	Intestinal immune network for IgA production - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04713	hsa04713	Circadian entrainment	Circadian entrainment - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04714	hsa04714	Thermogenesis	Thermogenesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04720	hsa04720	Long-term potentiation	Long-term potentiation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04721	hsa04721	Synaptic vesicle cycle	Synaptic vesicle cycle - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04722	hsa04722	Neurotrophin signaling pathway	Neurotrophin signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04723	hsa04723	Retrograde endocannabinoid signaling	Retrograde endocannabinoid signaling - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04724	hsa04724	Glutamatergic synapse	Glutamatergic synapse - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04725	hsa04725	Cholinergic synapse	Cholinergic synapse - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04726	hsa04726	Serotonergic synapse	Serotonergic synapse - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04727	hsa04727	GABAergic synapse	GABAergic synapse - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04728	hsa04728	Dopaminergic synapse	Dopaminergic synapse - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04730	hsa04730	Long-term depression	Long-term depression - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04740	hsa04740	Olfactory transduction	Olfactory transduction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04742	hsa04742	Taste transduction	Taste transduction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04750	hsa04750	Inflammatory mediator regulation of TRP channels	Inflammatory mediator regulation of TRP channels - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04810	hsa04810	Regulation of actin cytoskeleton	Regulation of actin cytoskeleton - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04814	hsa04814	Motor proteins	Motor proteins - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04820	hsa04820	Cytoskeleton in muscle cells	Cytoskeleton in muscle cells - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04910	hsa04910	Insulin signaling pathway	Insulin signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04911	hsa04911	Insulin secretion	Insulin secretion - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04912	hsa04912	GnRH signaling pathway	GnRH signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04913	hsa04913	Ovarian steroidogenesis	Ovarian steroidogenesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04914	hsa04914	Progesterone-mediated oocyte maturation	Progesterone-mediated oocyte maturation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04915	hsa04915	Estrogen signaling pathway	Estrogen signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04916	hsa04916	Melanogenesis	Melanogenesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04917	hsa04917	Prolactin signaling pathway	Prolactin signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04918	hsa04918	Thyroid hormone synthesis	Thyroid hormone synthesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04919	hsa04919	Thyroid hormone signaling pathway	Thyroid hormone signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04920	hsa04920	Adipocytokine signaling pathway	Adipocytokine signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04921	hsa04921	Oxytocin signaling pathway	Oxytocin signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04922	hsa04922	Glucagon signaling pathway	Glucagon signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04923	hsa04923	Regulation of lipolysis in adipocytes	Regulation of lipolysis in adipocytes - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04924	hsa04924	Renin secretion	Renin secretion - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04925	hsa04925	Aldosterone synthesis and secretion	Aldosterone synthesis and secretion - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04926	hsa04926	Relaxin signaling pathway	Relaxin signaling pathway - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04927	hsa04927	Cortisol synthesis and secretion	Cortisol synthesis and secretion - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04928	hsa04928	Parathyroid hormone synthesis, secretion and action	Parathyroid hormone synthesis, secretion and action - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04929	hsa04929	GnRH secretion	GnRH secretion - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04930	hsa04930	Type II diabetes mellitus	Type II diabetes mellitus - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04931	hsa04931	Insulin resistance	Insulin resistance - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04932	hsa04932	Non-alcoholic fatty liver disease	Non-alcoholic fatty liver disease - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04933	hsa04933	AGE-RAGE signaling pathway in diabetic complications	AGE-RAGE signaling pathway in diabetic complications - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04934	hsa04934	Cushing syndrome	Cushing syndrome - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04935	hsa04935	Growth hormone synthesis, secretion and action	Growth hormone synthesis, secretion and action - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04936	hsa04936	Alcoholic liver disease	Alcoholic liver disease - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04940	hsa04940	Type I diabetes mellitus	Type I diabetes mellitus - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04950	hsa04950	Maturity onset diabetes of the young	Maturity onset diabetes of the young - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04960	hsa04960	Aldosterone-regulated sodium reabsorption	Aldosterone-regulated sodium reabsorption - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04961	hsa04961	Endocrine and other factor-regulated calcium reabsorption	Endocrine and other factor-regulated calcium reabsorption - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04962	hsa04962	Vasopressin-regulated water reabsorption	Vasopressin-regulated water reabsorption - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04964	hsa04964	Proximal tubule bicarbonate reclamation	Proximal tubule bicarbonate reclamation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04966	hsa04966	Collecting duct acid secretion	Collecting duct acid secretion - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04970	hsa04970	Salivary secretion	Salivary secretion - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04971	hsa04971	Gastric acid secretion	Gastric acid secretion - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04972	hsa04972	Pancreatic secretion	Pancreatic secretion - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04973	hsa04973	Carbohydrate digestion and absorption	Carbohydrate digestion and absorption - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04974	hsa04974	Protein digestion and absorption	Protein digestion and absorption - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04975	hsa04975	Fat digestion and absorption	Fat digestion and absorption - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04976	hsa04976	Bile secretion	Bile secretion - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04977	hsa04977	Vitamin digestion and absorption	Vitamin digestion and absorption - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04978	hsa04978	Mineral absorption	Mineral absorption - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04979	hsa04979	Cholesterol metabolism	Cholesterol metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04980	hsa04980	Cobalamin transport and metabolism	Cobalamin transport and metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa04981	hsa04981	Folate transport and metabolism	Folate transport and metabolism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05010	hsa05010	Alzheimer disease	Alzheimer disease - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05012	hsa05012	Parkinson disease	Parkinson disease - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05014	hsa05014	Amyotrophic lateral sclerosis	Amyotrophic lateral sclerosis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05016	hsa05016	Huntington disease	Huntington disease - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05017	hsa05017	Spinocerebellar ataxia	Spinocerebellar ataxia - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05020	hsa05020	Prion disease	Prion disease - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05022	hsa05022	Pathways of neurodegeneration - multiple diseases	Pathways of neurodegeneration - multiple diseases - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05030	hsa05030	Cocaine addiction	Cocaine addiction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05031	hsa05031	Amphetamine addiction	Amphetamine addiction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05032	hsa05032	Morphine addiction	Morphine addiction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05033	hsa05033	Nicotine addiction	Nicotine addiction - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05034	hsa05034	Alcoholism	Alcoholism - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05100	hsa05100	Bacterial invasion of epithelial cells	Bacterial invasion of epithelial cells - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05110	hsa05110	Vibrio cholerae infection	Vibrio cholerae infection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05120	hsa05120	Epithelial cell signaling in Helicobacter pylori infection	Epithelial cell signaling in Helicobacter pylori infection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05130	hsa05130	Pathogenic Escherichia coli infection	Pathogenic Escherichia coli infection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05131	hsa05131	Shigellosis	Shigellosis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05132	hsa05132	Salmonella infection	Salmonella infection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05133	hsa05133	Pertussis	Pertussis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05134	hsa05134	Legionellosis	Legionellosis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05135	hsa05135	Yersinia infection	Yersinia infection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05140	hsa05140	Leishmaniasis	Leishmaniasis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05142	hsa05142	Chagas disease	Chagas disease - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05143	hsa05143	African trypanosomiasis	African trypanosomiasis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05144	hsa05144	Malaria	Malaria - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05145	hsa05145	Toxoplasmosis	Toxoplasmosis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05146	hsa05146	Amoebiasis	Amoebiasis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05150	hsa05150	Staphylococcus aureus infection	Staphylococcus aureus infection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05152	hsa05152	Tuberculosis	Tuberculosis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05160	hsa05160	Hepatitis C	Hepatitis C - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05161	hsa05161	Hepatitis B	Hepatitis B - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05162	hsa05162	Measles	Measles - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05163	hsa05163	Human cytomegalovirus infection	Human cytomegalovirus infection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05164	hsa05164	Influenza A	Influenza A - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05165	hsa05165	Human papillomavirus infection	Human papillomavirus infection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05166	hsa05166	Human T-cell leukemia virus 1 infection	Human T-cell leukemia virus 1 infection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05167	hsa05167	Kaposi sarcoma-associated herpesvirus infection	Kaposi sarcoma-associated herpesvirus infection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05168	hsa05168	Herpes simplex virus 1 infection	Herpes simplex virus 1 infection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05169	hsa05169	Epstein-Barr virus infection	Epstein-Barr virus infection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05170	hsa05170	Human immunodeficiency virus 1 infection	Human immunodeficiency virus 1 infection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05171	hsa05171	Coronavirus disease	Coronavirus disease - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05200	hsa05200	Pathways in cancer	Pathways in cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05202	hsa05202	Transcriptional misregulation in cancer	Transcriptional misregulation in cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05203	hsa05203	Viral carcinogenesis	Viral carcinogenesis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05204	hsa05204	Chemical carcinogenesis - DNA adducts	Chemical carcinogenesis - DNA adducts - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05205	hsa05205	Proteoglycans in cancer	Proteoglycans in cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05206	hsa05206	MicroRNAs in cancer	MicroRNAs in cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05207	hsa05207	Chemical carcinogenesis - receptor activation	Chemical carcinogenesis - receptor activation - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05208	hsa05208	Chemical carcinogenesis - reactive oxygen species	Chemical carcinogenesis - reactive oxygen species - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05210	hsa05210	Colorectal cancer	Colorectal cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05211	hsa05211	Renal cell carcinoma	Renal cell carcinoma - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05212	hsa05212	Pancreatic cancer	Pancreatic cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05213	hsa05213	Endometrial cancer	Endometrial cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05214	hsa05214	Glioma	Glioma - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05215	hsa05215	Prostate cancer	Prostate cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05216	hsa05216	Thyroid cancer	Thyroid cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05217	hsa05217	Basal cell carcinoma	Basal cell carcinoma - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05218	hsa05218	Melanoma	Melanoma - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05219	hsa05219	Bladder cancer	Bladder cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05220	hsa05220	Chronic myeloid leukemia	Chronic myeloid leukemia - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05221	hsa05221	Acute myeloid leukemia	Acute myeloid leukemia - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05222	hsa05222	Small cell lung cancer	Small cell lung cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05223	hsa05223	Non-small cell lung cancer	Non-small cell lung cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05224	hsa05224	Breast cancer	Breast cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05225	hsa05225	Hepatocellular carcinoma	Hepatocellular carcinoma - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05226	hsa05226	Gastric cancer	Gastric cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05230	hsa05230	Central carbon metabolism in cancer	Central carbon metabolism in cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05231	hsa05231	Choline metabolism in cancer	Choline metabolism in cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05235	hsa05235	PD-L1 expression and PD-1 checkpoint pathway in cancer	PD-L1 expression and PD-1 checkpoint pathway in cancer - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05310	hsa05310	Asthma	Asthma - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05320	hsa05320	Autoimmune thyroid disease	Autoimmune thyroid disease - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05321	hsa05321	Inflammatory bowel disease	Inflammatory bowel disease - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05322	hsa05322	Systemic lupus erythematosus	Systemic lupus erythematosus - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05323	hsa05323	Rheumatoid arthritis	Rheumatoid arthritis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05330	hsa05330	Allograft rejection	Allograft rejection - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05332	hsa05332	Graft-versus-host disease	Graft-versus-host disease - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05340	hsa05340	Primary immunodeficiency	Primary immunodeficiency - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05410	hsa05410	Hypertrophic cardiomyopathy	Hypertrophic cardiomyopathy - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05412	hsa05412	Arrhythmogenic right ventricular cardiomyopathy	Arrhythmogenic right ventricular cardiomyopathy - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05414	hsa05414	Dilated cardiomyopathy	Dilated cardiomyopathy - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05415	hsa05415	Diabetic cardiomyopathy	Diabetic cardiomyopathy - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05416	hsa05416	Viral myocarditis	Viral myocarditis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05417	hsa05417	Lipid and atherosclerosis	Lipid and atherosclerosis - Homo sapiens (human)	hsa	KEGG
+KEGG:hsa05418	hsa05418	Fluid shear stress and atherosclerosis	Fluid shear stress and atherosclerosis - Homo sapiens (human)	hsa	KEGG

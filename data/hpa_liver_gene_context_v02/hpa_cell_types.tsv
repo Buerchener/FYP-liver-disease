@@ -1,0 +1,155 @@
+cell_type_id	name	cell_type_name	source
+HPA_CELL_TYPE:adipocytes	adipocytes	adipocytes	Human Protein Atlas
+HPA_CELL_TYPE:adrenal_cortex_cells	adrenal cortex cells	adrenal cortex cells	Human Protein Atlas
+HPA_CELL_TYPE:adrenal_medulla_cells	adrenal medulla cells	adrenal medulla cells	Human Protein Atlas
+HPA_CELL_TYPE:alveolar_cells_type_1	alveolar cells type 1	alveolar cells type 1	Human Protein Atlas
+HPA_CELL_TYPE:alveolar_cells_type_2	alveolar cells type 2	alveolar cells type 2	Human Protein Atlas
+HPA_CELL_TYPE:astrocytes	astrocytes	astrocytes	Human Protein Atlas
+HPA_CELL_TYPE:b-cells	b-cells	b-cells	Human Protein Atlas
+HPA_CELL_TYPE:basal_keratinocytes	basal keratinocytes	basal keratinocytes	Human Protein Atlas
+HPA_CELL_TYPE:basal_prostatic_cells	basal prostatic cells	basal prostatic cells	Human Protein Atlas
+HPA_CELL_TYPE:bergmann_glia	bergmann glia	bergmann glia	Human Protein Atlas
+HPA_CELL_TYPE:brain_excitatory_neurons	brain excitatory neurons	brain excitatory neurons	Human Protein Atlas
+HPA_CELL_TYPE:brain_inhibitory_neurons	brain inhibitory neurons	brain inhibitory neurons	Human Protein Atlas
+HPA_CELL_TYPE:breast_hormone-responsive_cells	breast hormone-responsive cells	breast hormone-responsive cells	Human Protein Atlas
+HPA_CELL_TYPE:breast_lactating_cells	breast lactating cells	breast lactating cells	Human Protein Atlas
+HPA_CELL_TYPE:breast_myoepithelial_cells	breast myoepithelial cells	breast myoepithelial cells	Human Protein Atlas
+HPA_CELL_TYPE:breast_secretory_cells	breast secretory cells	breast secretory cells	Human Protein Atlas
+HPA_CELL_TYPE:cardiomyocytes	cardiomyocytes	cardiomyocytes	Human Protein Atlas
+HPA_CELL_TYPE:cdc	cdc	cdc	Human Protein Atlas
+HPA_CELL_TYPE:cholangiocytes	cholangiocytes	cholangiocytes	Human Protein Atlas
+HPA_CELL_TYPE:choroid_plexus_epithelial_cells	choroid plexus epithelial cells	choroid plexus epithelial cells	Human Protein Atlas
+HPA_CELL_TYPE:colonocytes	colonocytes	colonocytes	Human Protein Atlas
+HPA_CELL_TYPE:cone_photoreceptor_cells	cone photoreceptor cells	cone photoreceptor cells	Human Protein Atlas
+HPA_CELL_TYPE:conjunctival_goblet_cells	conjunctival goblet cells	conjunctival goblet cells	Human Protein Atlas
+HPA_CELL_TYPE:corticotrophs	corticotrophs	corticotrophs	Human Protein Atlas
+HPA_CELL_TYPE:cytotrophoblasts	cytotrophoblasts	cytotrophoblasts	Human Protein Atlas
+HPA_CELL_TYPE:decidual_stromal_cells	decidual stromal cells	decidual stromal cells	Human Protein Atlas
+HPA_CELL_TYPE:differentiating_spermatogonia	differentiating spermatogonia	differentiating spermatogonia	Human Protein Atlas
+HPA_CELL_TYPE:distal_convoluted_tubule_cells	distal convoluted tubule cells	distal convoluted tubule cells	Human Protein Atlas
+HPA_CELL_TYPE:early_primary_spermatocytes	early primary spermatocytes	early primary spermatocytes	Human Protein Atlas
+HPA_CELL_TYPE:early_spermatids	early spermatids	early spermatids	Human Protein Atlas
+HPA_CELL_TYPE:endometrial_ciliated_cells	endometrial ciliated cells	endometrial ciliated cells	Human Protein Atlas
+HPA_CELL_TYPE:endometrial_glandular_cells	endometrial glandular cells	endometrial glandular cells	Human Protein Atlas
+HPA_CELL_TYPE:endometrial_luminal_cells	endometrial luminal cells	endometrial luminal cells	Human Protein Atlas
+HPA_CELL_TYPE:endometrial_secretory_cells	endometrial secretory cells	endometrial secretory cells	Human Protein Atlas
+HPA_CELL_TYPE:endometrial_stromal_cells	endometrial stromal cells	endometrial stromal cells	Human Protein Atlas
+HPA_CELL_TYPE:enteric_stem_cells	enteric stem cells	enteric stem cells	Human Protein Atlas
+HPA_CELL_TYPE:enteric_transient_amplifying_cells	enteric transient amplifying cells	enteric transient amplifying cells	Human Protein Atlas
+HPA_CELL_TYPE:enterocytes	enterocytes	enterocytes	Human Protein Atlas
+HPA_CELL_TYPE:ependymal_cells	ependymal cells	ependymal cells	Human Protein Atlas
+HPA_CELL_TYPE:epicardial_cells	epicardial cells	epicardial cells	Human Protein Atlas
+HPA_CELL_TYPE:epididymal_basal_cells	epididymal basal cells	epididymal basal cells	Human Protein Atlas
+HPA_CELL_TYPE:epididymal_clear_cells	epididymal clear cells	epididymal clear cells	Human Protein Atlas
+HPA_CELL_TYPE:epididymal_efferent_duct_absorptive_cells	epididymal efferent duct absorptive cells	epididymal efferent duct absorptive cells	Human Protein Atlas
+HPA_CELL_TYPE:epididymal_efferent_duct_ciliated_cells	epididymal efferent duct ciliated cells	epididymal efferent duct ciliated cells	Human Protein Atlas
+HPA_CELL_TYPE:epididymal_principal_cells	epididymal principal cells	epididymal principal cells	Human Protein Atlas
+HPA_CELL_TYPE:erythrocyte_progenitors	erythrocyte progenitors	erythrocyte progenitors	Human Protein Atlas
+HPA_CELL_TYPE:erythrocytes	erythrocytes	erythrocytes	Human Protein Atlas
+HPA_CELL_TYPE:esophageal_apical_cells	esophageal apical cells	esophageal apical cells	Human Protein Atlas
+HPA_CELL_TYPE:esophageal_basal_cells	esophageal basal cells	esophageal basal cells	Human Protein Atlas
+HPA_CELL_TYPE:esophageal_suprabasal_cells	esophageal suprabasal cells	esophageal suprabasal cells	Human Protein Atlas
+HPA_CELL_TYPE:extravillous_trophoblasts	extravillous trophoblasts	extravillous trophoblasts	Human Protein Atlas
+HPA_CELL_TYPE:fallopian_secretory_cells	fallopian secretory cells	fallopian secretory cells	Human Protein Atlas
+HPA_CELL_TYPE:fallopian_tube_ciliated_cells	fallopian tube ciliated cells	fallopian tube ciliated cells	Human Protein Atlas
+HPA_CELL_TYPE:fibro-adipogenic_progenitors	fibro-adipogenic progenitors	fibro-adipogenic progenitors	Human Protein Atlas
+HPA_CELL_TYPE:fibroblasts	fibroblasts	fibroblasts	Human Protein Atlas
+HPA_CELL_TYPE:foveolar_cells	foveolar cells	foveolar cells	Human Protein Atlas
+HPA_CELL_TYPE:gastric_chief_cells	gastric chief cells	gastric chief cells	Human Protein Atlas
+HPA_CELL_TYPE:gastric_progenitor_cells	gastric progenitor cells	gastric progenitor cells	Human Protein Atlas
+HPA_CELL_TYPE:goblet_cells	goblet cells	goblet cells	Human Protein Atlas
+HPA_CELL_TYPE:gonadotrophs	gonadotrophs	gonadotrophs	Human Protein Atlas
+HPA_CELL_TYPE:granulosa_cells	granulosa cells	granulosa cells	Human Protein Atlas
+HPA_CELL_TYPE:hematopoietic_stem_cells	hematopoietic stem cells	hematopoietic stem cells	Human Protein Atlas
+HPA_CELL_TYPE:hepatic_stellate_cells	hepatic stellate cells	hepatic stellate cells	Human Protein Atlas
+HPA_CELL_TYPE:hepatocytes	hepatocytes	hepatocytes	Human Protein Atlas
+HPA_CELL_TYPE:hofbauer_cells	hofbauer cells	hofbauer cells	Human Protein Atlas
+HPA_CELL_TYPE:innate_lymphoid_cells	innate lymphoid cells	innate lymphoid cells	Human Protein Atlas
+HPA_CELL_TYPE:kupffer_cells	kupffer cells	kupffer cells	Human Protein Atlas
+HPA_CELL_TYPE:lacrimal_acinar_cells	lacrimal acinar cells	lacrimal acinar cells	Human Protein Atlas
+HPA_CELL_TYPE:lactotrophs	lactotrophs	lactotrophs	Human Protein Atlas
+HPA_CELL_TYPE:late_primary_spermatocytes	late primary spermatocytes	late primary spermatocytes	Human Protein Atlas
+HPA_CELL_TYPE:late_spermatids	late spermatids	late spermatids	Human Protein Atlas
+HPA_CELL_TYPE:leydig_cells	leydig cells	leydig cells	Human Protein Atlas
+HPA_CELL_TYPE:loop_of_henle_epithelial_cells	loop of henle epithelial cells	loop of henle epithelial cells	Human Protein Atlas
+HPA_CELL_TYPE:lymphatic_endothelial_cells	lymphatic endothelial cells	lymphatic endothelial cells	Human Protein Atlas
+HPA_CELL_TYPE:macrophages	macrophages	macrophages	Human Protein Atlas
+HPA_CELL_TYPE:mast_cells	mast cells	mast cells	Human Protein Atlas
+HPA_CELL_TYPE:medullary_thymic_epithelial_cells	medullary thymic epithelial cells	medullary thymic epithelial cells	Human Protein Atlas
+HPA_CELL_TYPE:megakaryocyte-erythroid_progenitors	megakaryocyte-erythroid progenitors	megakaryocyte-erythroid progenitors	Human Protein Atlas
+HPA_CELL_TYPE:megakaryocyte_progenitors	megakaryocyte progenitors	megakaryocyte progenitors	Human Protein Atlas
+HPA_CELL_TYPE:megakaryocytes	megakaryocytes	megakaryocytes	Human Protein Atlas
+HPA_CELL_TYPE:melanocytes	melanocytes	melanocytes	Human Protein Atlas
+HPA_CELL_TYPE:mesothelial_cells	mesothelial cells	mesothelial cells	Human Protein Atlas
+HPA_CELL_TYPE:microglia	microglia	microglia	Human Protein Atlas
+HPA_CELL_TYPE:migrating_cytotrophoblasts	migrating cytotrophoblasts	migrating cytotrophoblasts	Human Protein Atlas
+HPA_CELL_TYPE:monocyte_progenitors	monocyte progenitors	monocyte progenitors	Human Protein Atlas
+HPA_CELL_TYPE:monocytes	monocytes	monocytes	Human Protein Atlas
+HPA_CELL_TYPE:mucous_neck_cells	mucous neck cells	mucous neck cells	Human Protein Atlas
+HPA_CELL_TYPE:myonuclei	myonuclei	myonuclei	Human Protein Atlas
+HPA_CELL_TYPE:myosatellite_cells	myosatellite cells	myosatellite cells	Human Protein Atlas
+HPA_CELL_TYPE:müller_glia	müller glia	müller glia	Human Protein Atlas
+HPA_CELL_TYPE:neuroendocrine_cells	neuroendocrine cells	neuroendocrine cells	Human Protein Atlas
+HPA_CELL_TYPE:neutrophil_progenitors	neutrophil progenitors	neutrophil progenitors	Human Protein Atlas
+HPA_CELL_TYPE:neutrophils	neutrophils	neutrophils	Human Protein Atlas
+HPA_CELL_TYPE:nk-cells	nk-cells	nk-cells	Human Protein Atlas
+HPA_CELL_TYPE:ocular_epithelial_cells	ocular epithelial cells	ocular epithelial cells	Human Protein Atlas
+HPA_CELL_TYPE:oligodendrocyte_progenitor_cells	oligodendrocyte progenitor cells	oligodendrocyte progenitor cells	Human Protein Atlas
+HPA_CELL_TYPE:oligodendrocytes	oligodendrocytes	oligodendrocytes	Human Protein Atlas
+HPA_CELL_TYPE:oocytes	oocytes	oocytes	Human Protein Atlas
+HPA_CELL_TYPE:other_brain_neurons	other brain neurons	other brain neurons	Human Protein Atlas
+HPA_CELL_TYPE:ovarian_stromal_cells	ovarian stromal cells	ovarian stromal cells	Human Protein Atlas
+HPA_CELL_TYPE:pancreatic_acinar_cells	pancreatic acinar cells	pancreatic acinar cells	Human Protein Atlas
+HPA_CELL_TYPE:pancreatic_duct_cells	pancreatic duct cells	pancreatic duct cells	Human Protein Atlas
+HPA_CELL_TYPE:pancreatic_islet_cells	pancreatic islet cells	pancreatic islet cells	Human Protein Atlas
+HPA_CELL_TYPE:paneth_cells	paneth cells	paneth cells	Human Protein Atlas
+HPA_CELL_TYPE:papillary_tip_epithelial_cells	papillary tip epithelial cells	papillary tip epithelial cells	Human Protein Atlas
+HPA_CELL_TYPE:parietal_cells	parietal cells	parietal cells	Human Protein Atlas
+HPA_CELL_TYPE:pdcs	pdcs	pdcs	Human Protein Atlas
+HPA_CELL_TYPE:pericytes	pericytes	pericytes	Human Protein Atlas
+HPA_CELL_TYPE:peritubular_myoid_cells	peritubular myoid cells	peritubular myoid cells	Human Protein Atlas
+HPA_CELL_TYPE:pituicytes/fscs	pituicytes/fscs	pituicytes/fscs	Human Protein Atlas
+HPA_CELL_TYPE:pituitary_stem_cells	pituitary stem cells	pituitary stem cells	Human Protein Atlas
+HPA_CELL_TYPE:plasma_cells	plasma cells	plasma cells	Human Protein Atlas
+HPA_CELL_TYPE:platelets	platelets	platelets	Human Protein Atlas
+HPA_CELL_TYPE:podocytes	podocytes	podocytes	Human Protein Atlas
+HPA_CELL_TYPE:prostatic_club_cells	prostatic club cells	prostatic club cells	Human Protein Atlas
+HPA_CELL_TYPE:prostatic_glandular_cells	prostatic glandular cells	prostatic glandular cells	Human Protein Atlas
+HPA_CELL_TYPE:prostatic_hillock_cells	prostatic hillock cells	prostatic hillock cells	Human Protein Atlas
+HPA_CELL_TYPE:proximal_tubule_cells	proximal tubule cells	proximal tubule cells	Human Protein Atlas
+HPA_CELL_TYPE:renal_collecting_duct_intercalated_cells	renal collecting duct intercalated cells	renal collecting duct intercalated cells	Human Protein Atlas
+HPA_CELL_TYPE:renal_collecting_duct_principal_cells	renal collecting duct principal cells	renal collecting duct principal cells	Human Protein Atlas
+HPA_CELL_TYPE:renal_connecting_tubule_cells	renal connecting tubule cells	renal connecting tubule cells	Human Protein Atlas
+HPA_CELL_TYPE:respiratory_basal_cells	respiratory basal cells	respiratory basal cells	Human Protein Atlas
+HPA_CELL_TYPE:respiratory_ciliated_cells	respiratory ciliated cells	respiratory ciliated cells	Human Protein Atlas
+HPA_CELL_TYPE:respiratory_deuterosomal_cells	respiratory deuterosomal cells	respiratory deuterosomal cells	Human Protein Atlas
+HPA_CELL_TYPE:respiratory_ionocytes	respiratory ionocytes	respiratory ionocytes	Human Protein Atlas
+HPA_CELL_TYPE:respiratory_secretory_cells	respiratory secretory cells	respiratory secretory cells	Human Protein Atlas
+HPA_CELL_TYPE:retinal_amacrine_cells	retinal amacrine cells	retinal amacrine cells	Human Protein Atlas
+HPA_CELL_TYPE:retinal_bipolar_cells	retinal bipolar cells	retinal bipolar cells	Human Protein Atlas
+HPA_CELL_TYPE:retinal_ganglion_cells	retinal ganglion cells	retinal ganglion cells	Human Protein Atlas
+HPA_CELL_TYPE:retinal_horizontal_cells	retinal horizontal cells	retinal horizontal cells	Human Protein Atlas
+HPA_CELL_TYPE:retinal_pigment_epithelial_cells	retinal pigment epithelial cells	retinal pigment epithelial cells	Human Protein Atlas
+HPA_CELL_TYPE:rod_photoreceptor_cells	rod photoreceptor cells	rod photoreceptor cells	Human Protein Atlas
+HPA_CELL_TYPE:salivary_acinar_cells	salivary acinar cells	salivary acinar cells	Human Protein Atlas
+HPA_CELL_TYPE:salivary_basal_cells	salivary basal cells	salivary basal cells	Human Protein Atlas
+HPA_CELL_TYPE:salivary_duct_cells	salivary duct cells	salivary duct cells	Human Protein Atlas
+HPA_CELL_TYPE:salivary_ionocytes	salivary ionocytes	salivary ionocytes	Human Protein Atlas
+HPA_CELL_TYPE:salivary_myoepithelial_cells	salivary myoepithelial cells	salivary myoepithelial cells	Human Protein Atlas
+HPA_CELL_TYPE:schwann_cells	schwann cells	schwann cells	Human Protein Atlas
+HPA_CELL_TYPE:sertoli_cells	sertoli cells	sertoli cells	Human Protein Atlas
+HPA_CELL_TYPE:smooth_muscle_cells	smooth muscle cells	smooth muscle cells	Human Protein Atlas
+HPA_CELL_TYPE:somatotrophs	somatotrophs	somatotrophs	Human Protein Atlas
+HPA_CELL_TYPE:submucosal_glandular_cells	submucosal glandular cells	submucosal glandular cells	Human Protein Atlas
+HPA_CELL_TYPE:suprabasal_keratinocytes	suprabasal keratinocytes	suprabasal keratinocytes	Human Protein Atlas
+HPA_CELL_TYPE:syncytiotrophoblasts	syncytiotrophoblasts	syncytiotrophoblasts	Human Protein Atlas
+HPA_CELL_TYPE:t-cells	t-cells	t-cells	Human Protein Atlas
+HPA_CELL_TYPE:thymic_myoid_cells	thymic myoid cells	thymic myoid cells	Human Protein Atlas
+HPA_CELL_TYPE:thymocytes	thymocytes	thymocytes	Human Protein Atlas
+HPA_CELL_TYPE:thyrotrophs	thyrotrophs	thyrotrophs	Human Protein Atlas
+HPA_CELL_TYPE:transitional_alveolar_cells	transitional alveolar cells	transitional alveolar cells	Human Protein Atlas
+HPA_CELL_TYPE:tuft_cells	tuft cells	tuft cells	Human Protein Atlas
+HPA_CELL_TYPE:undifferentiated_spermatogonia	undifferentiated spermatogonia	undifferentiated spermatogonia	Human Protein Atlas
+HPA_CELL_TYPE:urothelial_cells	urothelial cells	urothelial cells	Human Protein Atlas
+HPA_CELL_TYPE:vascular_endothelial_cells	vascular endothelial cells	vascular endothelial cells	Human Protein Atlas
+HPA_CELL_TYPE:vascular_smooth_muscle_cells	vascular smooth muscle cells	vascular smooth muscle cells	Human Protein Atlas

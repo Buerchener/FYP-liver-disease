@@ -1,0 +1,11 @@
+{
+  "cell_type_count": 154,
+  "cell_type_expression_count": 16947,
+  "created_at": "2026-06-24T11:57:30.090091+00:00",
+  "include_single_cell": true,
+  "lihc_prognostic_count": 1384,
+  "min_single_cell_ncpm": 100.0,
+  "source": "Human Protein Atlas downloadable TSV",
+  "tissue_count": 1,
+  "tissue_expression_count": 798
+}

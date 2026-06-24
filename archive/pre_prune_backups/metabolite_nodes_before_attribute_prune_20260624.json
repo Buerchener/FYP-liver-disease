@@ -1,0 +1,578 @@
+[
+  {
+    "metabolite_id": "HMDB0000036",
+    "properties": {
+      "average_molecular_weight": "515.703",
+      "chemical_formula": "C26H45NO7S",
+      "class": "",
+      "hmdb_id": "HMDB0000036",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000036",
+      "monisotopic_molecular_weight": "515.291673489",
+      "name": "Taurocholic acid",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000039",
+    "properties": {
+      "average_molecular_weight": "88.1051",
+      "chemical_formula": "C4H8O2",
+      "class": "",
+      "hmdb_id": "HMDB0000039",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000039",
+      "monisotopic_molecular_weight": "88.0524295",
+      "name": "Butyric acid",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000042",
+    "properties": {
+      "average_molecular_weight": "60.052",
+      "chemical_formula": "C2H4O2",
+      "class": "",
+      "hmdb_id": "HMDB0000042",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000042",
+      "monisotopic_molecular_weight": "60.021129372",
+      "name": "Acetic acid",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000108",
+    "properties": {
+      "average_molecular_weight": "46.0684",
+      "chemical_formula": "C2H6O",
+      "class": "",
+      "hmdb_id": "HMDB0000108",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000108",
+      "monisotopic_molecular_weight": "46.041864814",
+      "name": "Ethanol",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000191",
+    "properties": {
+      "average_molecular_weight": "133.1027",
+      "chemical_formula": "C4H7NO4",
+      "class": "",
+      "hmdb_id": "HMDB0000191",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000191",
+      "monisotopic_molecular_weight": "133.037507717",
+      "name": "L-Aspartic acid",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000222",
+    "properties": {
+      "average_molecular_weight": "400.623",
+      "chemical_formula": "C23H46NO4",
+      "class": "",
+      "hmdb_id": "HMDB0000222",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000222",
+      "monisotopic_molecular_weight": "400.342135385",
+      "name": "Palmitoylcarnitine",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000228",
+    "properties": {
+      "average_molecular_weight": "94.1112",
+      "chemical_formula": "C6H6O",
+      "class": "",
+      "hmdb_id": "HMDB0000228",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000228",
+      "monisotopic_molecular_weight": "94.041864814",
+      "name": "Phenol",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000294",
+    "properties": {
+      "average_molecular_weight": "60.0553",
+      "chemical_formula": "CH4N2O",
+      "class": "",
+      "hmdb_id": "HMDB0000294",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000294",
+      "monisotopic_molecular_weight": "60.03236276",
+      "name": "Urea",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000306",
+    "properties": {
+      "average_molecular_weight": "137.179",
+      "chemical_formula": "C8H11NO",
+      "class": "",
+      "hmdb_id": "HMDB0000306",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000306",
+      "monisotopic_molecular_weight": "137.084063979",
+      "name": "Tyramine",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000467",
+    "properties": {
+      "average_molecular_weight": "390.5561",
+      "chemical_formula": "C24H38O4",
+      "class": "",
+      "hmdb_id": "HMDB0000467",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000467",
+      "monisotopic_molecular_weight": "390.277009704",
+      "name": "Nutriacholic acid",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000518",
+    "properties": {
+      "average_molecular_weight": "392.572",
+      "chemical_formula": "C24H40O4",
+      "class": "",
+      "hmdb_id": "HMDB0000518",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000518",
+      "monisotopic_molecular_weight": "392.292659768",
+      "name": "Chenodeoxycholic acid",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000619",
+    "properties": {
+      "average_molecular_weight": "408.5714",
+      "chemical_formula": "C24H40O5",
+      "class": "",
+      "hmdb_id": "HMDB0000619",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000619",
+      "monisotopic_molecular_weight": "408.28757439",
+      "name": "Cholic acid",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000673",
+    "properties": {
+      "average_molecular_weight": "280.4455",
+      "chemical_formula": "C18H32O2",
+      "class": "",
+      "hmdb_id": "HMDB0000673",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000673",
+      "monisotopic_molecular_weight": "280.240230268",
+      "name": "Linoleic acid",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000699",
+    "properties": {
+      "average_molecular_weight": "137.1592",
+      "chemical_formula": "C7H9N2O",
+      "class": "",
+      "hmdb_id": "HMDB0000699",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000699",
+      "monisotopic_molecular_weight": "137.07148792",
+      "name": "1-Methylnicotinamide",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000820",
+    "properties": {
+      "average_molecular_weight": "60.095",
+      "chemical_formula": "C3H8O",
+      "class": "",
+      "hmdb_id": "HMDB0000820",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000820",
+      "monisotopic_molecular_weight": "60.057514878",
+      "name": "Propyl alcohol",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000863",
+    "properties": {
+      "average_molecular_weight": "60.095",
+      "chemical_formula": "C3H8O",
+      "class": "",
+      "hmdb_id": "HMDB0000863",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000863",
+      "monisotopic_molecular_weight": "60.057514878",
+      "name": "Isopropyl alcohol",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0000990",
+    "properties": {
+      "average_molecular_weight": "44.0526",
+      "chemical_formula": "C2H4O",
+      "class": "",
+      "hmdb_id": "HMDB0000990",
+      "kingdom": "",
+      "metabolite_id": "HMDB0000990",
+      "monisotopic_molecular_weight": "44.02621475",
+      "name": "Acetaldehyde",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0001842",
+    "properties": {
+      "average_molecular_weight": "59.0705",
+      "chemical_formula": "CH5N3",
+      "class": "",
+      "hmdb_id": "HMDB0001842",
+      "kingdom": "",
+      "metabolite_id": "HMDB0001842",
+      "monisotopic_molecular_weight": "59.048347175",
+      "name": "Guanidine",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0001875",
+    "properties": {
+      "average_molecular_weight": "32.0419",
+      "chemical_formula": "CH4O",
+      "class": "",
+      "hmdb_id": "HMDB0001875",
+      "kingdom": "",
+      "metabolite_id": "HMDB0001875",
+      "monisotopic_molecular_weight": "32.02621475",
+      "name": "Methanol",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0001881",
+    "properties": {
+      "average_molecular_weight": "76.0944",
+      "chemical_formula": "C3H8O2",
+      "class": "",
+      "hmdb_id": "HMDB0001881",
+      "kingdom": "",
+      "metabolite_id": "HMDB0001881",
+      "monisotopic_molecular_weight": "76.0524295",
+      "name": "Propylene glycol",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0002303",
+    "properties": {
+      "average_molecular_weight": "62.134",
+      "chemical_formula": "C2H6S",
+      "class": "",
+      "hmdb_id": "HMDB0002303",
+      "kingdom": "",
+      "metabolite_id": "HMDB0002303",
+      "monisotopic_molecular_weight": "62.019020882",
+      "name": "Dimethylsulfide",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0002497",
+    "properties": {
+      "average_molecular_weight": "529.687",
+      "chemical_formula": "C26H43NO8S",
+      "class": "",
+      "hmdb_id": "HMDB0002497",
+      "kingdom": "",
+      "metabolite_id": "HMDB0002497",
+      "monisotopic_molecular_weight": "529.270938047",
+      "name": "Glycochenodeoxycholate-3-sulfate",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0002815",
+    "properties": {
+      "average_molecular_weight": "521.6673",
+      "chemical_formula": "C26H52NO7P",
+      "class": "",
+      "hmdb_id": "HMDB0002815",
+      "kingdom": "",
+      "metabolite_id": "HMDB0002815",
+      "monisotopic_molecular_weight": "521.348139535",
+      "name": "LysoPC(18:1(9Z)/0:0)",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0002917",
+    "properties": {
+      "average_molecular_weight": "152.1458",
+      "chemical_formula": "C5H12O5",
+      "class": "",
+      "hmdb_id": "HMDB0002917",
+      "kingdom": "",
+      "metabolite_id": "HMDB0002917",
+      "monisotopic_molecular_weight": "152.068473494",
+      "name": "D-Xylitol",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0003366",
+    "properties": {
+      "average_molecular_weight": "58.0791",
+      "chemical_formula": "C3H6O",
+      "class": "",
+      "hmdb_id": "HMDB0003366",
+      "kingdom": "",
+      "metabolite_id": "HMDB0003366",
+      "monisotopic_molecular_weight": "58.041864814",
+      "name": "Propanal",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0003375",
+    "properties": {
+      "average_molecular_weight": "136.234",
+      "chemical_formula": "C10H16",
+      "class": "",
+      "hmdb_id": "HMDB0003375",
+      "kingdom": "",
+      "metabolite_id": "HMDB0003375",
+      "monisotopic_molecular_weight": "136.125200512",
+      "name": "(+)-Limonene",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0004327",
+    "properties": {
+      "average_molecular_weight": "74.1216",
+      "chemical_formula": "C4H10O",
+      "class": "",
+      "hmdb_id": "HMDB0004327",
+      "kingdom": "",
+      "metabolite_id": "HMDB0004327",
+      "monisotopic_molecular_weight": "74.073164942",
+      "name": "1-Butanol",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0004825",
+    "properties": {
+      "average_molecular_weight": "153.1784",
+      "chemical_formula": "C8H11NO2",
+      "class": "",
+      "hmdb_id": "HMDB0004825",
+      "kingdom": "",
+      "metabolite_id": "HMDB0004825",
+      "monisotopic_molecular_weight": "153.078978601",
+      "name": "p-Octopamine",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0006006",
+    "properties": {
+      "average_molecular_weight": "74.1216",
+      "chemical_formula": "C4H10O",
+      "class": "",
+      "hmdb_id": "HMDB0006006",
+      "kingdom": "",
+      "metabolite_id": "HMDB0006006",
+      "monisotopic_molecular_weight": "74.073164942",
+      "name": "Isobutanol",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0010382",
+    "properties": {
+      "average_molecular_weight": "495.6301",
+      "chemical_formula": "C24H50NO7P",
+      "class": "",
+      "hmdb_id": "HMDB0010382",
+      "kingdom": "",
+      "metabolite_id": "HMDB0010382",
+      "monisotopic_molecular_weight": "495.332489471",
+      "name": "LysoPC(16:0/0:0)",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0010384",
+    "properties": {
+      "average_molecular_weight": "523.6832",
+      "chemical_formula": "C26H54NO7P",
+      "class": "",
+      "hmdb_id": "HMDB0010384",
+      "kingdom": "",
+      "metabolite_id": "HMDB0010384",
+      "monisotopic_molecular_weight": "523.363789599",
+      "name": "LysoPC(18:0/0:0)",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0010386",
+    "properties": {
+      "average_molecular_weight": "519.6515",
+      "chemical_formula": "C26H50NO7P",
+      "class": "",
+      "hmdb_id": "HMDB0010386",
+      "kingdom": "",
+      "metabolite_id": "HMDB0010386",
+      "monisotopic_molecular_weight": "519.332489471",
+      "name": "LysoPC(18:2(9Z,12Z)/0:0)",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0012157",
+    "properties": {
+      "average_molecular_weight": "84.1164",
+      "chemical_formula": "C5H8O",
+      "class": "",
+      "hmdb_id": "HMDB0012157",
+      "kingdom": "",
+      "metabolite_id": "HMDB0012157",
+      "monisotopic_molecular_weight": "84.057514878",
+      "name": "3-Methyl-2-butenal",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0013036",
+    "properties": {
+      "average_molecular_weight": "88.1482",
+      "chemical_formula": "C5H12O",
+      "class": "",
+      "hmdb_id": "HMDB0013036",
+      "kingdom": "",
+      "metabolite_id": "HMDB0013036",
+      "monisotopic_molecular_weight": "88.088815006",
+      "name": "1-Pentanol",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0031206",
+    "properties": {
+      "average_molecular_weight": "86.1323",
+      "chemical_formula": "C5H10O",
+      "class": "",
+      "hmdb_id": "HMDB0031206",
+      "kingdom": "",
+      "metabolite_id": "HMDB0031206",
+      "monisotopic_molecular_weight": "86.073164942",
+      "name": "Pentanal",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  },
+  {
+    "metabolite_id": "HMDB0031243",
+    "properties": {
+      "average_molecular_weight": "72.1057",
+      "chemical_formula": "C4H8O",
+      "class": "",
+      "hmdb_id": "HMDB0031243",
+      "kingdom": "",
+      "metabolite_id": "HMDB0031243",
+      "monisotopic_molecular_weight": "72.057514878",
+      "name": "2-Methylpropanal",
+      "source": "HMDB",
+      "super_class": "",
+      "updated_at": "2026-06-24T00:15:21.704Z"
+    }
+  }
+]

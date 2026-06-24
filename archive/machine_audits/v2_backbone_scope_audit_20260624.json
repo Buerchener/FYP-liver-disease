@@ -1,0 +1,152 @@
+{
+  "all_node_counts": [
+    {
+      "count": 154,
+      "labels": [
+        "CellType"
+      ]
+    },
+    {
+      "count": 5,
+      "labels": [
+        "Disease"
+      ]
+    },
+    {
+      "count": 836,
+      "labels": [
+        "Gene"
+      ]
+    },
+    {
+      "count": 36,
+      "labels": [
+        "Metabolite"
+      ]
+    },
+    {
+      "count": 1721,
+      "labels": [
+        "Pathway"
+      ]
+    },
+    {
+      "count": 793,
+      "labels": [
+        "Protein"
+      ]
+    },
+    {
+      "count": 1,
+      "labels": [
+        "Tissue"
+      ]
+    }
+  ],
+  "all_relationship_counts": [
+    {
+      "count": 1079,
+      "type": "ASSOCIATED_WITH"
+    },
+    {
+      "count": 97,
+      "type": "ASSOCIATED_WITH_METABOLITE"
+    },
+    {
+      "count": 793,
+      "type": "ENCODES"
+    },
+    {
+      "count": 17745,
+      "type": "EXPRESSED_IN"
+    },
+    {
+      "count": 7154,
+      "type": "INTERACTS_WITH"
+    },
+    {
+      "count": 9947,
+      "type": "PARTICIPATES_IN"
+    },
+    {
+      "count": 1384,
+      "type": "PROGNOSTIC_IN"
+    },
+    {
+      "count": 4,
+      "type": "PROGRESSES_TO"
+    }
+  ],
+  "celltype_expression": [
+    {
+      "cell_types": 154,
+      "edges": 16947,
+      "edges_from_gene_without_disease": 0,
+      "genes": 645,
+      "max_n_cpm": 104895.0,
+      "min_n_cpm": 100.0
+    }
+  ],
+  "celltype_scope": [
+    {
+      "cell_types": 154,
+      "cell_types_from_gene_without_disease": 0,
+      "cell_types_without_gene": 0
+    }
+  ],
+  "disease_outside_backbone": [
+    {
+      "count": 0
+    }
+  ],
+  "gene_scope": [
+    {
+      "genes": 836,
+      "genes_with_non_backbone_disease": 0,
+      "genes_without_disease": 0
+    }
+  ],
+  "hpa_expression_by_target": [
+    {
+      "edges": 16947,
+      "target_labels": [
+        "CellType"
+      ]
+    },
+    {
+      "edges": 798,
+      "target_labels": [
+        "Tissue"
+      ]
+    }
+  ],
+  "hpa_prognostic_scope": [
+    {
+      "edges": 1384,
+      "from_gene_without_disease": 0,
+      "target_non_backbone": 0
+    }
+  ],
+  "metabolite_scope": [
+    {
+      "metabolites": 36,
+      "metabolites_with_non_backbone_disease": 0,
+      "metabolites_without_disease": 0,
+      "metabolites_without_gene": 0
+    }
+  ],
+  "pathway_scope": [
+    {
+      "pathways": 1721,
+      "pathways_from_gene_without_disease": 0,
+      "pathways_without_gene": 0
+    }
+  ],
+  "protein_scope": [
+    {
+      "proteins": 793,
+      "proteins_from_gene_without_disease": 0,
+      "proteins_without_gene": 0
+    }
+  ]
+}

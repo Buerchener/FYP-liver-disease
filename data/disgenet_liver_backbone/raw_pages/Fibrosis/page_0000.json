@@ -1,0 +1,269 @@
+{
+  "httpStatus": 200,
+  "paging": {
+    "currentPageNumber": 0,
+    "pageSize": 100,
+    "totalElements": 2,
+    "totalElementsInPage": 2
+  },
+  "payload": [
+    {
+      "assocID": "mw7geJ4BZ4eu0iZebfWA",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Hepatic fibrosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0239946",
+      "diseaseVocabularies": [
+        "ICD10_K74.0",
+        "HPO_HP:0001395",
+        "MESH_D008103",
+        "NCI_C168581",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0239946"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.494,
+      "geneEnsemblIDs": [
+        "ENSG00000197461"
+      ],
+      "geneNcbiID": 5154,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007599"
+      ],
+      "geneProteinClassNames": [
+        "Signaling"
+      ],
+      "geneProteinStrIDs": [
+        "P04085"
+      ],
+      "genepLI": null,
+      "normalized_score": 0.41935483870967744,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 1,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 2,
+      "score": 0.65,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "CLINVAR"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 2,
+              "sources": [
+                "TEXTMINING_HUMAN",
+                "TEXTMINING_MODELS"
+              ],
+              "weight": 0.2
+            },
+            "models": {
+              "count": 1,
+              "sources": [
+                "TEXTMINING_MODELS"
+              ],
+              "weight": 0.05
+            }
+          },
+          "total": 0.65
+        }
+      ],
+      "symbolOfGene": "PDGFA",
+      "yearFinal": 2025,
+      "yearInitial": 2008
+    },
+    {
+      "assocID": "-w7geJ4BZ4eu0iZebfaB",
+      "chemsIncludedInEvidenceBySource": [
+        {
+          "chemID": "CHEMBL224867",
+          "chemPrefName": "Taurocholic acid",
+          "chemVocabCrossreferences": [
+            "CHEMBL_CHEMBL224867",
+            "CHEBI_28865",
+            "DRUGBANK_DB04348",
+            "MESH_D013656",
+            "PUBCHEM_6675"
+          ],
+          "numPublicationsWithChemInEvidence": 1,
+          "pmidsWithChemInEvidence": [
+            "34266968"
+          ]
+        }
+      ],
+      "diseaseClasses_DO": [],
+      "diseaseClasses_HPO": [
+        "Abnormality of the digestive system (25031)"
+      ],
+      "diseaseClasses_MSH": [
+        "Pathological Conditions, Signs and Symptoms (C23)",
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Hepatic fibrosis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0239946",
+      "diseaseVocabularies": [
+        "ICD10_K74.0",
+        "HPO_HP:0001395",
+        "MESH_D008103",
+        "NCI_C168581",
+        "DO_5082",
+        "MONDO_0005155",
+        "UMLS_C0239946"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.583,
+      "geneDSI": 0.614,
+      "geneEnsemblIDs": [
+        "ENSG00000100652"
+      ],
+      "geneNcbiID": 6554,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007405"
+      ],
+      "geneProteinClassNames": [
+        "Transporter"
+      ],
+      "geneProteinStrIDs": [
+        "Q14973"
+      ],
+      "genepLI": 7.4684e-17,
+      "normalized_score": 0.41935483870967744,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 1,
+      "numDBSNPsupportingAssociation": 2,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 1,
+      "numPMIDs": 2,
+      "score": 0.65,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "CLINVAR"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 2,
+              "sources": [
+                "TEXTMINING_HUMAN",
+                "TEXTMINING_MODELS"
+              ],
+              "weight": 0.2
+            },
+            "models": {
+              "count": 1,
+              "sources": [
+                "TEXTMINING_MODELS"
+              ],
+              "weight": 0.05
+            }
+          },
+          "total": 0.65
+        }
+      ],
+      "symbolOfGene": "SLC10A1",
+      "yearFinal": 2022,
+      "yearInitial": 2012
+    }
+  ],
+  "requestpar": {
+    "disease": "UMLS_C0239946",
+    "page_number": 0
+  },
+  "status": "OK",
+  "warnings": [
+    "Academic roles can only access to CURATED sources: (CLINGEN, CLINPGX, CLINVAR, GENCC, MGD_HUMAN, ORPHANET, PSYGENET, RGD_HUMAN, UNIPROT)",
+    "gene_ncbi_id > The parameter value is empty / unspecified.",
+    "gene_ensembl_id > The parameter value is empty / unspecified.",
+    "gene_symbol > The parameter value is empty / unspecified.",
+    "uniprot_id > The parameter value is empty / unspecified.",
+    "chemical_id > The parameter value is empty / unspecified.",
+    "chemical_association > The parameter value is empty / unspecified.",
+    "output > The parameter value is empty / unspecified.",
+    "source > The parameter value is empty / unspecified.",
+    "dis_type > The parameter value is empty / unspecified.",
+    "dis_class_list > The parameter value is empty / unspecified.",
+    "order_by > The parameter value is empty / unspecified.",
+    "order > The parameter value is empty / unspecified.",
+    "disease_inheritance > The parameter value is empty / unspecified.",
+    "disease_prevalence_class > The parameter value is empty / unspecified.",
+    "disease_prevalence_geo_area > The parameter value is empty / unspecified.",
+    "disease_prevalence_type >The parameter value is empty / unspecified.",
+    "evidence_level >The parameter value is empty / unspecified.",
+    "min_score > The parameter value is unspecified or not a double number.",
+    "max_score > The parameter value is unspecified or not a double number.",
+    "min_ei > The parameter value is unspecified or not a double number.",
+    "max_ei > The parameter value is unspecified or not a double number.",
+    "min_dsi > The parameter value is unspecified or not a double number.",
+    "max_dsi > The parameter value is unspecified or not a double number.",
+    "min_dpi > The parameter value is unspecified or not a double number.",
+    "max_dpi > The parameter value is unspecified or not a double number.",
+    "min_pli > The parameter value is unspecified or not a double number.",
+    "max_pli > The parameter value is unspecified or not a double number.",
+    "min_numCTs > The parameter value is unspecified or not an integer number.",
+    "min_yearInitial > The parameter value is unspecified or not an integer number.",
+    "max_yearInitial > The parameter value is unspecified or not an integer number.",
+    "min_yearFinal > The parameter value is unspecified or not an integer number.",
+    "max_yearFinal > The parameter value is unspecified or not an integer number."
+  ]
+}

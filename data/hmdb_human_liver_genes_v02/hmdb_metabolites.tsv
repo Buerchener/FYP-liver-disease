@@ -1,0 +1,37 @@
+metabolite_id	name	chemical_formula	monoisotopic_molecular_weight	average_molecular_weight	kingdom	super_class	class	source
+HMDB:HMDB0000036	Taurocholic acid	C26H45NO7S	515.291673489	515.703	Organic compounds	Lipids and lipid-like molecules	Steroids and steroid derivatives	HMDB
+HMDB:HMDB0000039	Butyric acid	C4H8O2	88.0524295	88.1051	Organic compounds	Lipids and lipid-like molecules	Fatty Acyls	HMDB
+HMDB:HMDB0000042	Acetic acid	C2H4O2	60.021129372	60.052	Organic compounds	Organic acids and derivatives	Carboxylic acids and derivatives	HMDB
+HMDB:HMDB0000108	Ethanol	C2H6O	46.041864814	46.0684	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB
+HMDB:HMDB0000191	L-Aspartic acid	C4H7NO4	133.037507717	133.1027	Organic compounds	Organic acids and derivatives	Carboxylic acids and derivatives	HMDB
+HMDB:HMDB0000222	Palmitoylcarnitine	C23H46NO4	400.342135385	400.623	Organic compounds	Lipids and lipid-like molecules	Fatty Acyls	HMDB
+HMDB:HMDB0000228	Phenol	C6H6O	94.041864814	94.1112	Organic compounds	Benzenoids	Phenols	HMDB
+HMDB:HMDB0000294	Urea	CH4N2O	60.03236276	60.0553	Organic compounds	Organic acids and derivatives	Organic carbonic acids and derivatives	HMDB
+HMDB:HMDB0000306	Tyramine	C8H11NO	137.084063979	137.179	Organic compounds	Benzenoids	Benzene and substituted derivatives	HMDB
+HMDB:HMDB0000467	Nutriacholic acid	C24H38O4	390.277009704	390.5561	Organic compounds	Lipids and lipid-like molecules	Steroids and steroid derivatives	HMDB
+HMDB:HMDB0000518	Chenodeoxycholic acid	C24H40O4	392.292659768	392.572	Organic compounds	Lipids and lipid-like molecules	Steroids and steroid derivatives	HMDB
+HMDB:HMDB0000619	Cholic acid	C24H40O5	408.28757439	408.5714	Organic compounds	Lipids and lipid-like molecules	Steroids and steroid derivatives	HMDB
+HMDB:HMDB0000673	Linoleic acid	C18H32O2	280.240230268	280.4455	Organic compounds	Lipids and lipid-like molecules	Fatty Acyls	HMDB
+HMDB:HMDB0000699	1-Methylnicotinamide	C7H9N2O	137.07148792	137.1592	Organic compounds	Organoheterocyclic compounds	Pyridines and derivatives	HMDB
+HMDB:HMDB0000820	Propyl alcohol	C3H8O	60.057514878	60.095	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB
+HMDB:HMDB0000863	Isopropyl alcohol	C3H8O	60.057514878	60.095	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB
+HMDB:HMDB0000990	Acetaldehyde	C2H4O	44.02621475	44.0526	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB
+HMDB:HMDB0001842	Guanidine	CH5N3	59.048347175	59.0705	Organic compounds	Organic nitrogen compounds	Organonitrogen compounds	HMDB
+HMDB:HMDB0001875	Methanol	CH4O	32.02621475	32.0419	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB
+HMDB:HMDB0001881	Propylene glycol	C3H8O2	76.0524295	76.0944	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB
+HMDB:HMDB0002303	Dimethylsulfide	C2H6S	62.019020882	62.134	Organic compounds	Organosulfur compounds	Thioethers	HMDB
+HMDB:HMDB0002497	Glycochenodeoxycholate-3-sulfate	C26H43NO8S	529.270938047	529.687	Organic compounds	Lipids and lipid-like molecules	Steroids and steroid derivatives	HMDB
+HMDB:HMDB0002815	LysoPC(18:1(9Z)/0:0)	C26H52NO7P	521.348139535	521.6673	Organic compounds	Lipids and lipid-like molecules	Glycerophospholipids	HMDB
+HMDB:HMDB0002917	D-Xylitol	C5H12O5	152.068473494	152.1458	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB
+HMDB:HMDB0003366	Propanal	C3H6O	58.041864814	58.0791	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB
+HMDB:HMDB0003375	(+)-Limonene	C10H16	136.125200512	136.234	Organic compounds	Lipids and lipid-like molecules	Prenol lipids	HMDB
+HMDB:HMDB0004327	1-Butanol	C4H10O	74.073164942	74.1216	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB
+HMDB:HMDB0004825	p-Octopamine	C8H11NO2	153.078978601	153.1784	Organic compounds	Benzenoids	Phenols	HMDB
+HMDB:HMDB0006006	Isobutanol	C4H10O	74.073164942	74.1216	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB
+HMDB:HMDB0010382	LysoPC(16:0/0:0)	C24H50NO7P	495.332489471	495.6301	Organic compounds	Lipids and lipid-like molecules	Glycerophospholipids	HMDB
+HMDB:HMDB0010384	LysoPC(18:0/0:0)	C26H54NO7P	523.363789599	523.6832	Organic compounds	Lipids and lipid-like molecules	Glycerophospholipids	HMDB
+HMDB:HMDB0010386	LysoPC(18:2(9Z,12Z)/0:0)	C26H50NO7P	519.332489471	519.6515	Organic compounds	Lipids and lipid-like molecules	Glycerophospholipids	HMDB
+HMDB:HMDB0012157	3-Methyl-2-butenal	C5H8O	84.057514878	84.1164	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB
+HMDB:HMDB0013036	1-Pentanol	C5H12O	88.088815006	88.1482	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB
+HMDB:HMDB0031206	Pentanal	C5H10O	86.073164942	86.1323	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB
+HMDB:HMDB0031243	2-Methylpropanal	C4H8O	72.057514878	72.1057	Organic compounds	Organic oxygen compounds	Organooxygen compounds	HMDB

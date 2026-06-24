@@ -1,0 +1,13 @@
+{
+  "source": "HMDB",
+  "scope": "disease-linked",
+  "hmdb_xml": "/Users/buerchener/Downloads/hmdb_metabolites.xml",
+  "generated_at": "2026-06-24T00:15:21.207116+00:00",
+  "gene_count": 836,
+  "raw_metabolite_count": 19669,
+  "raw_gene_metabolite_relationship_count": 135696,
+  "raw_disease_metabolite_relationship_count": 43,
+  "metabolite_count": 36,
+  "gene_metabolite_relationship_count": 97,
+  "disease_metabolite_relationship_count": 43
+}

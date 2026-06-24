@@ -1,0 +1,711 @@
+{
+  "httpStatus": 200,
+  "paging": {
+    "currentPageNumber": 1,
+    "pageSize": 100,
+    "totalElements": 107,
+    "totalElementsInPage": 7
+  },
+  "payload": [
+    {
+      "assocID": "rVThdZ4BHkeZZb25KHgg",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "genetic disease (630)",
+        "disease of anatomical entity (7)",
+        "disease of metabolism (0014667)"
+      ],
+      "diseaseClasses_HPO": [],
+      "diseaseClasses_MSH": [
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Metabolic dysfunction-associated steatohepatitis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C3241937",
+      "diseaseVocabularies": [
+        "NCI_C84445",
+        "MESH_D065626",
+        "DO_0080208",
+        "MONDO_0013209",
+        "MONDO_0007027",
+        "UMLS_C3241937"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.792,
+      "geneDSI": 0.602,
+      "geneEnsemblIDs": [
+        "ENSG00000159189"
+      ],
+      "geneNcbiID": 714,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "P02747"
+      ],
+      "genepLI": 0.017695,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "C1QC",
+      "yearFinal": 2022,
+      "yearInitial": 2022
+    },
+    {
+      "assocID": "ylThdZ4BHkeZZb25KHgg",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "genetic disease (630)",
+        "disease of anatomical entity (7)",
+        "disease of metabolism (0014667)"
+      ],
+      "diseaseClasses_HPO": [],
+      "diseaseClasses_MSH": [
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Metabolic dysfunction-associated steatohepatitis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C3241937",
+      "diseaseVocabularies": [
+        "NCI_C84445",
+        "MESH_D065626",
+        "DO_0080208",
+        "MONDO_0013209",
+        "MONDO_0007027",
+        "UMLS_C3241937"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.792,
+      "geneDSI": 0.55,
+      "geneEnsemblIDs": [
+        "ENSG00000147852"
+      ],
+      "geneNcbiID": 7436,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "P98155"
+      ],
+      "genepLI": 5.7808e-18,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "VLDLR",
+      "yearFinal": 2018,
+      "yearInitial": 2018
+    },
+    {
+      "assocID": "W4jhdZ4Bu8jCkiVmGmMB",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "genetic disease (630)",
+        "disease of anatomical entity (7)",
+        "disease of metabolism (0014667)"
+      ],
+      "diseaseClasses_HPO": [],
+      "diseaseClasses_MSH": [
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Metabolic dysfunction-associated steatohepatitis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C3241937",
+      "diseaseVocabularies": [
+        "NCI_C84445",
+        "MESH_D065626",
+        "DO_0080208",
+        "MONDO_0013209",
+        "MONDO_0007027",
+        "UMLS_C3241937"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.583,
+      "geneDSI": 0.655,
+      "geneEnsemblIDs": [
+        "ENSG00000172348"
+      ],
+      "geneNcbiID": 10231,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007599"
+      ],
+      "geneProteinClassNames": [
+        "Signaling"
+      ],
+      "geneProteinStrIDs": [
+        "Q14206"
+      ],
+      "genepLI": 0.55281,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "RCAN2",
+      "yearFinal": 2025,
+      "yearInitial": 2025
+    },
+    {
+      "assocID": "_YjhdZ4Bu8jCkiVmGmMB",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "genetic disease (630)",
+        "disease of anatomical entity (7)",
+        "disease of metabolism (0014667)"
+      ],
+      "diseaseClasses_HPO": [],
+      "diseaseClasses_MSH": [
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Metabolic dysfunction-associated steatohepatitis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C3241937",
+      "diseaseVocabularies": [
+        "NCI_C84445",
+        "MESH_D065626",
+        "DO_0080208",
+        "MONDO_0013209",
+        "MONDO_0007027",
+        "UMLS_C3241937"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.792,
+      "geneDSI": 0.575,
+      "geneEnsemblIDs": [
+        "ENSG00000134962"
+      ],
+      "geneNcbiID": 152831,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007624"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme"
+      ],
+      "geneProteinStrIDs": [
+        "Q86Z14"
+      ],
+      "genepLI": 1.3446e-05,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "KLB",
+      "yearFinal": 2018,
+      "yearInitial": 2018
+    },
+    {
+      "assocID": "O4jhdZ4Bu8jCkiVmGmQB",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "genetic disease (630)",
+        "disease of anatomical entity (7)",
+        "disease of metabolism (0014667)"
+      ],
+      "diseaseClasses_HPO": [],
+      "diseaseClasses_MSH": [
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Metabolic dysfunction-associated steatohepatitis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C3241937",
+      "diseaseVocabularies": [
+        "NCI_C84445",
+        "MESH_D065626",
+        "DO_0080208",
+        "MONDO_0013209",
+        "MONDO_0007027",
+        "UMLS_C3241937"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.833,
+      "geneDSI": 0.555,
+      "geneEnsemblIDs": [
+        "ENSG00000101444"
+      ],
+      "geneNcbiID": 191,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007624"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme"
+      ],
+      "geneProteinStrIDs": [
+        "P23526"
+      ],
+      "genepLI": 0.00091412,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "AHCY",
+      "yearFinal": 2018,
+      "yearInitial": 2018
+    },
+    {
+      "assocID": "SYjhdZ4Bu8jCkiVmGmMB",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "genetic disease (630)",
+        "disease of anatomical entity (7)",
+        "disease of metabolism (0014667)"
+      ],
+      "diseaseClasses_HPO": [],
+      "diseaseClasses_MSH": [
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Metabolic dysfunction-associated steatohepatitis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C3241937",
+      "diseaseVocabularies": [
+        "NCI_C84445",
+        "MESH_D065626",
+        "DO_0080208",
+        "MONDO_0013209",
+        "MONDO_0007027",
+        "UMLS_C3241937"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": null,
+      "el": null,
+      "geneDPI": 0.583,
+      "geneDSI": 0.617,
+      "geneEnsemblIDs": [
+        "ENSG00000272395"
+      ],
+      "geneNcbiID": 101180976,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "K9M1U5"
+      ],
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 0,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "MGD_HUMAN"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "IFNL4",
+      "yearFinal": null,
+      "yearInitial": null
+    },
+    {
+      "assocID": "lFThdZ4BHkeZZb25KHgg",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "genetic disease (630)",
+        "disease of anatomical entity (7)",
+        "disease of metabolism (0014667)"
+      ],
+      "diseaseClasses_HPO": [],
+      "diseaseClasses_MSH": [
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Metabolic dysfunction-associated steatohepatitis",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C3241937",
+      "diseaseVocabularies": [
+        "NCI_C84445",
+        "MESH_D065626",
+        "DO_0080208",
+        "MONDO_0013209",
+        "MONDO_0007027",
+        "UMLS_C3241937"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": null,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.454,
+      "geneEnsemblIDs": [
+        "ENSG00000042832"
+      ],
+      "geneNcbiID": 7038,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007584"
+      ],
+      "geneProteinClassNames": [
+        "Enzyme modulator"
+      ],
+      "geneProteinStrIDs": [
+        "P01266"
+      ],
+      "genepLI": 2.0023e-70,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 0,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "MGD_HUMAN"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "TG",
+      "yearFinal": null,
+      "yearInitial": null
+    }
+  ],
+  "requestpar": {
+    "disease": "UMLS_C3241937",
+    "page_number": 1
+  },
+  "status": "OK",
+  "warnings": [
+    "Academic roles can only access to CURATED sources: (CLINGEN, CLINPGX, CLINVAR, GENCC, MGD_HUMAN, ORPHANET, PSYGENET, RGD_HUMAN, UNIPROT)",
+    "gene_ncbi_id > The parameter value is empty / unspecified.",
+    "gene_ensembl_id > The parameter value is empty / unspecified.",
+    "gene_symbol > The parameter value is empty / unspecified.",
+    "uniprot_id > The parameter value is empty / unspecified.",
+    "chemical_id > The parameter value is empty / unspecified.",
+    "chemical_association > The parameter value is empty / unspecified.",
+    "output > The parameter value is empty / unspecified.",
+    "source > The parameter value is empty / unspecified.",
+    "dis_type > The parameter value is empty / unspecified.",
+    "dis_class_list > The parameter value is empty / unspecified.",
+    "order_by > The parameter value is empty / unspecified.",
+    "order > The parameter value is empty / unspecified.",
+    "disease_inheritance > The parameter value is empty / unspecified.",
+    "disease_prevalence_class > The parameter value is empty / unspecified.",
+    "disease_prevalence_geo_area > The parameter value is empty / unspecified.",
+    "disease_prevalence_type >The parameter value is empty / unspecified.",
+    "evidence_level >The parameter value is empty / unspecified.",
+    "min_score > The parameter value is unspecified or not a double number.",
+    "max_score > The parameter value is unspecified or not a double number.",
+    "min_ei > The parameter value is unspecified or not a double number.",
+    "max_ei > The parameter value is unspecified or not a double number.",
+    "min_dsi > The parameter value is unspecified or not a double number.",
+    "max_dsi > The parameter value is unspecified or not a double number.",
+    "min_dpi > The parameter value is unspecified or not a double number.",
+    "max_dpi > The parameter value is unspecified or not a double number.",
+    "min_pli > The parameter value is unspecified or not a double number.",
+    "max_pli > The parameter value is unspecified or not a double number.",
+    "min_numCTs > The parameter value is unspecified or not an integer number.",
+    "min_yearInitial > The parameter value is unspecified or not an integer number.",
+    "max_yearInitial > The parameter value is unspecified or not an integer number.",
+    "min_yearFinal > The parameter value is unspecified or not an integer number.",
+    "max_yearFinal > The parameter value is unspecified or not an integer number."
+  ]
+}

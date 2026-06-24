@@ -1,0 +1,335 @@
+{
+  "httpStatus": 200,
+  "paging": {
+    "currentPageNumber": 1,
+    "pageSize": 100,
+    "totalElements": 103,
+    "totalElementsInPage": 3
+  },
+  "payload": [
+    {
+      "assocID": "1WVdeJ4BHkeZZb251kAw",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "genetic disease (630)",
+        "disease of anatomical entity (7)",
+        "disease of metabolism (0014667)"
+      ],
+      "diseaseClasses_HPO": [],
+      "diseaseClasses_MSH": [
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Non-alcoholic Fatty Liver Disease",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0400966",
+      "diseaseVocabularies": [
+        "NCI_C84444",
+        "MESH_D065626",
+        "DO_0080208",
+        "MONDO_0013209",
+        "EFO_1001248",
+        "UMLS_C0400966"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.708,
+      "geneDSI": 0.582,
+      "geneEnsemblIDs": [
+        "ENSG00000137710"
+      ],
+      "geneNcbiID": 5962,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_05007530"
+      ],
+      "geneProteinClassNames": [
+        "Cellular structure"
+      ],
+      "geneProteinStrIDs": [
+        "P35241"
+      ],
+      "genepLI": 0.65087,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "RDX",
+      "yearFinal": 2018,
+      "yearInitial": 2018
+    },
+    {
+      "assocID": "7WVdeJ4BHkeZZb251kIx",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "genetic disease (630)",
+        "disease of anatomical entity (7)",
+        "disease of metabolism (0014667)"
+      ],
+      "diseaseClasses_HPO": [],
+      "diseaseClasses_MSH": [
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Non-alcoholic Fatty Liver Disease",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0400966",
+      "diseaseVocabularies": [
+        "NCI_C84444",
+        "MESH_D065626",
+        "DO_0080208",
+        "MONDO_0013209",
+        "EFO_1001248",
+        "UMLS_C0400966"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.875,
+      "geneDSI": 0.473,
+      "geneEnsemblIDs": [
+        "ENSG00000269335"
+      ],
+      "geneNcbiID": 8517,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": [
+        "DTO_03300101"
+      ],
+      "geneProteinClassNames": [
+        "Kinase"
+      ],
+      "geneProteinStrIDs": [
+        "Q9Y6K9"
+      ],
+      "genepLI": null,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "IKBKG",
+      "yearFinal": 2011,
+      "yearInitial": 2011
+    },
+    {
+      "assocID": "BmVdeJ4BHkeZZb251kMx",
+      "chemsIncludedInEvidenceBySource": [],
+      "diseaseClasses_DO": [
+        "genetic disease (630)",
+        "disease of anatomical entity (7)",
+        "disease of metabolism (0014667)"
+      ],
+      "diseaseClasses_HPO": [],
+      "diseaseClasses_MSH": [
+        "Digestive System Diseases (C06)"
+      ],
+      "diseaseClasses_UMLS_ST": [
+        "Disease or Syndrome (T047)"
+      ],
+      "diseaseName": "Non-alcoholic Fatty Liver Disease",
+      "diseaseType": "[disease]",
+      "diseaseUMLSCUI": "C0400966",
+      "diseaseVocabularies": [
+        "NCI_C84444",
+        "MESH_D065626",
+        "DO_0080208",
+        "MONDO_0013209",
+        "EFO_1001248",
+        "UMLS_C0400966"
+      ],
+      "disease_inheritance": "",
+      "disease_prevalence_class": "",
+      "disease_prevalence_geo_area": "",
+      "disease_prevalence_type": "",
+      "ei": 1.0,
+      "el": null,
+      "geneDPI": 0.708,
+      "geneDSI": 0.631,
+      "geneEnsemblIDs": [
+        "ENSG00000159423"
+      ],
+      "geneNcbiID": 8659,
+      "geneNcbiType": "protein-coding",
+      "geneProteinClassIDs": null,
+      "geneProteinClassNames": null,
+      "geneProteinStrIDs": [
+        "P30038"
+      ],
+      "genepLI": 2.0046e-11,
+      "normalized_score": 0.25806451612903225,
+      "numCTsupportingAssociation": 0,
+      "numChemsIncludedInEvidences": 0,
+      "numDBSNPsupportingAssociation": 0,
+      "numNCTSWithChemsIncludedInEvidences": 0,
+      "numPMIDSWithChemsIncludedInEvidences": 0,
+      "numPMIDs": 1,
+      "score": 0.4,
+      "scoreBreakdown": [
+        {
+          "components": {
+            "biobank": null,
+            "clinical": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "curated": {
+              "count": 1,
+              "sources": [
+                "RGD"
+              ],
+              "weight": 0.4
+            },
+            "inferred": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "literature": {
+              "publications": 0,
+              "sources": [],
+              "weight": 0.0
+            },
+            "models": {
+              "count": 0,
+              "sources": [],
+              "weight": 0.0
+            }
+          },
+          "total": 0.4
+        }
+      ],
+      "symbolOfGene": "ALDH4A1",
+      "yearFinal": 2018,
+      "yearInitial": 2018
+    }
+  ],
+  "requestpar": {
+    "disease": "UMLS_C0400966",
+    "page_number": 1
+  },
+  "status": "OK",
+  "warnings": [
+    "Academic roles can only access to CURATED sources: (CLINGEN, CLINPGX, CLINVAR, GENCC, MGD_HUMAN, ORPHANET, PSYGENET, RGD_HUMAN, UNIPROT)",
+    "gene_ncbi_id > The parameter value is empty / unspecified.",
+    "gene_ensembl_id > The parameter value is empty / unspecified.",
+    "gene_symbol > The parameter value is empty / unspecified.",
+    "uniprot_id > The parameter value is empty / unspecified.",
+    "chemical_id > The parameter value is empty / unspecified.",
+    "chemical_association > The parameter value is empty / unspecified.",
+    "output > The parameter value is empty / unspecified.",
+    "source > The parameter value is empty / unspecified.",
+    "dis_type > The parameter value is empty / unspecified.",
+    "dis_class_list > The parameter value is empty / unspecified.",
+    "order_by > The parameter value is empty / unspecified.",
+    "order > The parameter value is empty / unspecified.",
+    "disease_inheritance > The parameter value is empty / unspecified.",
+    "disease_prevalence_class > The parameter value is empty / unspecified.",
+    "disease_prevalence_geo_area > The parameter value is empty / unspecified.",
+    "disease_prevalence_type >The parameter value is empty / unspecified.",
+    "evidence_level >The parameter value is empty / unspecified.",
+    "min_score > The parameter value is unspecified or not a double number.",
+    "max_score > The parameter value is unspecified or not a double number.",
+    "min_ei > The parameter value is unspecified or not a double number.",
+    "max_ei > The parameter value is unspecified or not a double number.",
+    "min_dsi > The parameter value is unspecified or not a double number.",
+    "max_dsi > The parameter value is unspecified or not a double number.",
+    "min_dpi > The parameter value is unspecified or not a double number.",
+    "max_dpi > The parameter value is unspecified or not a double number.",
+    "min_pli > The parameter value is unspecified or not a double number.",
+    "max_pli > The parameter value is unspecified or not a double number.",
+    "min_numCTs > The parameter value is unspecified or not an integer number.",
+    "min_yearInitial > The parameter value is unspecified or not an integer number.",
+    "max_yearInitial > The parameter value is unspecified or not an integer number.",
+    "min_yearFinal > The parameter value is unspecified or not an integer number.",
+    "max_yearFinal > The parameter value is unspecified or not an integer number."
+  ]
+}

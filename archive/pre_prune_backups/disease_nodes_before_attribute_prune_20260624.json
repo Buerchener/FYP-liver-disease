@@ -1,0 +1,107 @@
+[
+  {
+    "disease_id": "UMLS:C0400966",
+    "properties": {
+      "disease_classes_do": "genetic disease (630);disease of anatomical entity (7);disease of metabolism (0014667)",
+      "disease_classes_hpo": "",
+      "disease_classes_msh": "Digestive System Diseases (C06)",
+      "disease_classes_umls_st": "Disease or Syndrome (T047)",
+      "disease_id": "UMLS:C0400966",
+      "disease_name": "Non-alcoholic Fatty Liver Disease",
+      "disease_type": "[disease]",
+      "disease_vocabularies": "NCI_C84444;MESH_D065626;DO_0080208;MONDO_0013209;EFO_1001248;UMLS_C0400966",
+      "is_progression_stage": true,
+      "name": "NAFLD",
+      "project_id": "UMLS:C0400966",
+      "source": "DisGeNET",
+      "stage_code": "NAFLD",
+      "stage_order": 1,
+      "umls_id": "C0400966",
+      "updated_at": "2026-06-23T13:53:51.829Z"
+    }
+  },
+  {
+    "disease_id": "UMLS:C3241937",
+    "properties": {
+      "disease_classes_do": "genetic disease (630);disease of anatomical entity (7);disease of metabolism (0014667)",
+      "disease_classes_hpo": "",
+      "disease_classes_msh": "Digestive System Diseases (C06)",
+      "disease_classes_umls_st": "Disease or Syndrome (T047)",
+      "disease_id": "UMLS:C3241937",
+      "disease_name": "Metabolic dysfunction-associated steatohepatitis",
+      "disease_type": "[disease]",
+      "disease_vocabularies": "NCI_C84445;MESH_D065626;DO_0080208;MONDO_0013209;MONDO_0007027;UMLS_C3241937",
+      "is_progression_stage": true,
+      "name": "NASH",
+      "project_id": "UMLS:C3241937",
+      "source": "DisGeNET",
+      "stage_code": "NASH",
+      "stage_order": 2,
+      "umls_id": "C3241937",
+      "updated_at": "2026-06-23T13:53:51.829Z"
+    }
+  },
+  {
+    "disease_id": "UMLS:C0239946",
+    "properties": {
+      "disease_classes_do": "",
+      "disease_classes_hpo": "Abnormality of the digestive system (25031)",
+      "disease_classes_msh": "Pathological Conditions, Signs and Symptoms (C23);Digestive System Diseases (C06)",
+      "disease_classes_umls_st": "Disease or Syndrome (T047)",
+      "disease_id": "UMLS:C0239946",
+      "disease_name": "Hepatic fibrosis",
+      "disease_type": "[disease]",
+      "disease_vocabularies": "ICD10_K74.0;HPO_HP:0001395;MESH_D008103;NCI_C168581;DO_5082;MONDO_0005155;UMLS_C0239946",
+      "is_progression_stage": true,
+      "name": "Fibrosis",
+      "project_id": "UMLS:C0239946",
+      "source": "DisGeNET",
+      "stage_code": "Fibrosis",
+      "stage_order": 3,
+      "umls_id": "C0239946",
+      "updated_at": "2026-06-23T13:53:51.829Z"
+    }
+  },
+  {
+    "disease_id": "UMLS:C0023890",
+    "properties": {
+      "disease_classes_do": "disease of anatomical entity (7)",
+      "disease_classes_hpo": "Abnormality of the digestive system (25031)",
+      "disease_classes_msh": "Pathological Conditions, Signs and Symptoms (C23);Digestive System Diseases (C06)",
+      "disease_classes_umls_st": "Disease or Syndrome (T047)",
+      "disease_id": "UMLS:C0023890",
+      "disease_name": "Liver Cirrhosis",
+      "disease_type": "[disease]",
+      "disease_vocabularies": "MESH_D008103;HPO_HP:0001394;NCI_C2951;DO_0070658;DO_5082;MONDO_0005155;UMLS_C0023890",
+      "is_progression_stage": true,
+      "name": "Cirrhosis",
+      "project_id": "UMLS:C0023890",
+      "source": "DisGeNET",
+      "stage_code": "Cirrhosis",
+      "stage_order": 4,
+      "umls_id": "C0023890",
+      "updated_at": "2026-06-23T13:53:51.829Z"
+    }
+  },
+  {
+    "disease_id": "UMLS:C2239176",
+    "properties": {
+      "disease_classes_do": "disease of anatomical entity (7);disease of cellular proliferation (14566)",
+      "disease_classes_hpo": "Neoplasm (02664);Abnormality of the digestive system (25031)",
+      "disease_classes_msh": "Neoplasms (C04);Digestive System Diseases (C06)",
+      "disease_classes_umls_st": "Neoplastic Process (T191)",
+      "disease_id": "UMLS:C2239176",
+      "disease_name": "Liver carcinoma",
+      "disease_type": "[disease]",
+      "disease_vocabularies": "ICD10_C22.0;MESH_D006528;OMIM_114550;NCI_C3099;HPO_HP:0001402;ORDO_88673;DO_684;DO_3571;MONDO_0007256;UMLS_C2239176",
+      "is_progression_stage": true,
+      "name": "HCC",
+      "project_id": "UMLS:C2239176",
+      "source": "DisGeNET",
+      "stage_code": "HCC",
+      "stage_order": 5,
+      "umls_id": "C2239176",
+      "updated_at": "2026-06-23T13:53:51.829Z"
+    }
+  }
+]
