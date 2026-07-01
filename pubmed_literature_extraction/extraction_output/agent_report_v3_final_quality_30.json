@@ -1,0 +1,29 @@
+{
+  "run_id": "v3_final_quality_30",
+  "model": "[按次]gemini-2.5-flash",
+  "neo4j_connected": false,
+  "total_articles": 30,
+  "total_time_s": 188.9,
+  "avg_time_per_article_s": 6.3,
+  "extraction": {
+    "total_entities_extracted": 713,
+    "total_relations_extracted": 494,
+    "avg_entities_per_article": 23.8,
+    "avg_relations_per_article": 16.5
+  },
+  "decisions": {
+    "total_import_ready": 412,
+    "entities_created": 445,
+    "relations_created": 412,
+    "relations_updated": 0,
+    "disputed": 0,
+    "discarded": 73,
+    "import_ready_rate": 0.834,
+    "discard_rate": 0.148
+  },
+  "quality": {
+    "avg_quality_score": 0.516,
+    "error_count": 0,
+    "errors": []
+  }
+}

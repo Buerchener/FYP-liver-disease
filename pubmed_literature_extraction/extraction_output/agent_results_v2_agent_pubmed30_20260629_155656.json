@@ -1,0 +1,1653 @@
+{
+  "report": {
+    "run_id": "v2_agent_pubmed30_20260629_155656",
+    "model": "[按次]gemini-2.5-flash",
+    "neo4j_connected": false,
+    "total_articles": 30,
+    "total_time_s": 120.2,
+    "avg_time_per_article_s": 4.0,
+    "extraction": {
+      "total_entities_extracted": 0,
+      "total_relations_extracted": 0,
+      "avg_entities_per_article": 0.0,
+      "avg_relations_per_article": 0.0
+    },
+    "decisions": {
+      "total_import_ready": 0,
+      "entities_created": 0,
+      "relations_created": 0,
+      "relations_updated": 0,
+      "disputed": 0,
+      "discarded": 0,
+      "import_ready_rate": 0.0,
+      "discard_rate": 0.0
+    },
+    "quality": {
+      "avg_quality_score": 0.0,
+      "error_count": 30,
+      "errors": [
+        {
+          "pmid": "41810002",
+          "phase": "extraction",
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800148498957148268d9d6mNF40JRZ)', 'type': 'new_api_error'}}"
+        },
+        {
+          "pmid": "41799192",
+          "phase": "extraction",
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800187176320988268d9d6I8ENfBzU)', 'type': 'new_api_error'}}"
+        },
+        {
+          "pmid": "41620901",
+          "phase": "extraction",
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800223953345228268d9d6bNReuRrT)', 'type': 'new_api_error'}}"
+        },
+        {
+          "pmid": "41794448",
+          "phase": "extraction",
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 20260629080026338432138268d9d62LkxxC9V)', 'type': 'new_api_error'}}"
+        },
+        {
+          "pmid": "41650163",
+          "phase": "extraction",
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800306530727528268d9d60YN7kkOv)', 'type': 'new_api_error'}}"
+        },
+        {
+          "pmid": "41573193",
+          "phase": "extraction",
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800345659105018268d9d6zF7GfnTO)', 'type': 'new_api_error'}}"
+        },
+        {
+          "pmid": "41902413",
+          "phase": "extraction",
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800382350377468268d9d6LThlqdle)', 'type': 'new_api_error'}}"
+        },
+        {
+          "pmid": "41581151",
+          "phase": "extraction",
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800418778930918268d9d6JISWFG9l)', 'type': 'new_api_error'}}"
+        },
+        {
+          "pmid": "41475279",
+          "phase": "extraction",
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800464908857318268d9d69ySFyBKs)', 'type': 'new_api_error'}}"
+        },
+        {
+          "pmid": "41719003",
+          "phase": "extraction",
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800508443691048268d9d638tQVTDB)', 'type': 'new_api_error'}}"
+        }
+      ]
+    }
+  },
+  "config": {
+    "model_id": "[按次]gemini-2.5-flash",
+    "skip_neo4j_write": true,
+    "reflection_interval": 10
+  },
+  "records": [
+    {
+      "pmid": "41810002",
+      "title": "Hydrogel-Based Immunomodulation of Tumor Immune Microenvironment in Hepatocellular Carcinoma: Current Strategies and Fut",
+      "abstract_length": 1541,
+      "timestamp": 1782720006.902731,
+      "phases": {
+        "context": {
+          "pmid": "41810002",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41810002",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800148498957148268d9d6mNF40JRZ)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800148498957148268d9d6mNF40JRZ)', 'type': 'new_api_error'}}",
+      "total_time_s": 8.052250862121582
+    },
+    {
+      "pmid": "41799192",
+      "title": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis in chronic cardiac allograft rejection.",
+      "abstract_length": 1418,
+      "timestamp": 1782720014.955189,
+      "phases": {
+        "context": {
+          "pmid": "41799192",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41799192",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800187176320988268d9d6I8ENfBzU)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800187176320988268d9d6I8ENfBzU)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.935091018676758
+    },
+    {
+      "pmid": "41620901",
+      "title": "Network pharmacology and molecular docking for exploring the mechanism of Hedyotis diffusa against hepatitis B virus inf",
+      "abstract_length": 1867,
+      "timestamp": 1782720018.891168,
+      "phases": {
+        "context": {
+          "pmid": "41620901",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41620901",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800223953345228268d9d6bNReuRrT)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800223953345228268d9d6bNReuRrT)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.634290933609009
+    },
+    {
+      "pmid": "41794448",
+      "title": "Hepatoprotective potential of anthocyanins from purple highland barley bran against non-alcoholic fatty liver disease th",
+      "abstract_length": 1991,
+      "timestamp": 1782720022.525606,
+      "phases": {
+        "context": {
+          "pmid": "41794448",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41794448",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 20260629080026338432138268d9d62LkxxC9V)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 20260629080026338432138268d9d62LkxxC9V)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.6423070430755615
+    },
+    {
+      "pmid": "41650163",
+      "title": "A multifaceted analysis of OTUD5 integrated MAVS in innate immunity of Primary Biliary Cholangitis.",
+      "abstract_length": 2227,
+      "timestamp": 1782720026.169489,
+      "phases": {
+        "context": {
+          "pmid": "41650163",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41650163",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800306530727528268d9d60YN7kkOv)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800306530727528268d9d60YN7kkOv)', 'type': 'new_api_error'}}",
+      "total_time_s": 4.817159175872803
+    },
+    {
+      "pmid": "41573193",
+      "title": "Comparison of the efficacy of antidiabetic agents in type 2 diabetes with MASLD: a network meta-analysis.",
+      "abstract_length": 1596,
+      "timestamp": 1782720030.9867551,
+      "phases": {
+        "context": {
+          "pmid": "41573193",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41573193",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800345659105018268d9d6zF7GfnTO)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800345659105018268d9d6zF7GfnTO)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.666933059692383
+    },
+    {
+      "pmid": "41902413",
+      "title": "Peptide Angio-3 Attenuates Pulmonary Fibrosis Via Modulation of the Coagulation Factor Xa-Protease-Activated Receptor-1 ",
+      "abstract_length": 1417,
+      "timestamp": 1782720034.6542048,
+      "phases": {
+        "context": {
+          "pmid": "41902413",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41902413",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800382350377468268d9d6LThlqdle)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800382350377468268d9d6LThlqdle)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.6753010749816895
+    },
+    {
+      "pmid": "41581151",
+      "title": "Scar-associated endothelial-stellate cellular crosstalk drives fibrosis resolution in MASH.",
+      "abstract_length": 1063,
+      "timestamp": 1782720038.329598,
+      "phases": {
+        "context": {
+          "pmid": "41581151",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41581151",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800418778930918268d9d6JISWFG9l)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800418778930918268d9d6JISWFG9l)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.6443839073181152
+    },
+    {
+      "pmid": "41475279",
+      "title": "Gut microbiota's role in NAFLD- and HBV/HCV-related hepatocellular carcinoma: Mechanisms and therapeutic implications.",
+      "abstract_length": 1966,
+      "timestamp": 1782720041.974077,
+      "phases": {
+        "context": {
+          "pmid": "41475279",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41475279",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800464908857318268d9d69ySFyBKs)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800464908857318268d9d69ySFyBKs)', 'type': 'new_api_error'}}",
+      "total_time_s": 5.325423002243042
+    },
+    {
+      "pmid": "41719003",
+      "title": "The relationship between acromegaly and hepatic steatosis: insights from FibroScan imaging.",
+      "abstract_length": 1993,
+      "timestamp": 1782720047.299689,
+      "phases": {
+        "context": {
+          "pmid": "41719003",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41719003",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800508443691048268d9d638tQVTDB)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800508443691048268d9d638tQVTDB)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.6714839935302734
+    },
+    {
+      "pmid": "41832026",
+      "title": "Sodium hyaluronate based multifunctional hydrogels delivering SiRNA for sustained silencing of SMAD3: A novel strategy t",
+      "abstract_length": 1260,
+      "timestamp": 1782720050.971751,
+      "phases": {
+        "context": {
+          "pmid": "41832026",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41832026",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800544725528118268d9d6BhIdLGmC)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800544725528118268d9d6BhIdLGmC)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.639238119125366
+    },
+    {
+      "pmid": "41354212",
+      "title": "Association of nitrogen dioxide with non-alcoholic fatty liver disease in Chinese rural older adults: The mediating role",
+      "abstract_length": 1746,
+      "timestamp": 1782720054.611605,
+      "phases": {
+        "context": {
+          "pmid": "41354212",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41354212",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 20260629080058662289918268d9d6BU6uaNGo)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 20260629080058662289918268d9d6BU6uaNGo)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.5713257789611816
+    },
+    {
+      "pmid": "41668355",
+      "title": "Effect of Nutritional Status on Coagulation and Inflammation in Patients With Cirrhosis and Variceal Bleeding.",
+      "abstract_length": 1915,
+      "timestamp": 1782720058.182977,
+      "phases": {
+        "context": {
+          "pmid": "41668355",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41668355",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801016645936818268d9d6RSd6JQOI)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801016645936818268d9d6RSd6JQOI)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.6005797386169434
+    },
+    {
+      "pmid": "41683641",
+      "title": "Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pat",
+      "abstract_length": 1446,
+      "timestamp": 1782720061.783653,
+      "phases": {
+        "context": {
+          "pmid": "41683641",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41683641",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801055040056258268d9d6UCmI2eO9)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801055040056258268d9d6UCmI2eO9)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.8175411224365234
+    },
+    {
+      "pmid": "41948344",
+      "title": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+      "abstract_length": 2446,
+      "timestamp": 1782720065.601296,
+      "phases": {
+        "context": {
+          "pmid": "41948344",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41948344",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801091956863248268d9d67oePenuQ)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801091956863248268d9d67oePenuQ)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.7002551555633545
+    },
+    {
+      "pmid": "41969242",
+      "title": "Prophylactic Antibiotic Use and Clinical Outcomes in Patients With Child-Pugh A Cirrhosis and Acute Variceal Bleeding: A",
+      "abstract_length": 1590,
+      "timestamp": 1782720069.302013,
+      "phases": {
+        "context": {
+          "pmid": "41969242",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41969242",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801129507490428268d9d6fUxqSy7u)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801129507490428268d9d6fUxqSy7u)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.7788960933685303
+    },
+    {
+      "pmid": "41884271",
+      "title": "High Dihydromyricetin Loaded Biomimetic Nanoemulsion Ameliorated Early Nonalcoholic Fatty Liver Disease by Hepatic Ferro",
+      "abstract_length": 1260,
+      "timestamp": 1782720073.0810618,
+      "phases": {
+        "context": {
+          "pmid": "41884271",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41884271",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801165449379388268d9d6rg4U6cOQ)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801165449379388268d9d6rg4U6cOQ)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.5911049842834473
+    },
+    {
+      "pmid": "41640520",
+      "title": "Prevalence and Correlates of Hepatitis B and C infections in Sickle cell anaemic (SCA) children compared to Controls in ",
+      "abstract_length": 1394,
+      "timestamp": 1782720076.672294,
+      "phases": {
+        "context": {
+          "pmid": "41640520",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41640520",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801201407269608268d9d6NQMizOMD)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801201407269608268d9d6NQMizOMD)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.566110849380493
+    },
+    {
+      "pmid": "41665498",
+      "title": "Quality of Gadoxetate-enhanced MRI versus US during Hepatocellular Carcinoma Screening in Participants with Cirrhosis.",
+      "abstract_length": 2745,
+      "timestamp": 1782720080.238622,
+      "phases": {
+        "context": {
+          "pmid": "41665498",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41665498",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801241168613938268d9d6Z8RydamM)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801241168613938268d9d6Z8RydamM)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.9943771362304688
+    },
+    {
+      "pmid": "41761962",
+      "title": "Impact of Spheroid Use for Identifying Hepatocellular Carcinoma Features: Involvement of Kinase-Mediated Molecular Pathw",
+      "abstract_length": 1209,
+      "timestamp": 1782720084.233152,
+      "phases": {
+        "context": {
+          "pmid": "41761962",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41761962",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801282007681238268d9d6waqW0rKj)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801282007681238268d9d6waqW0rKj)', 'type': 'new_api_error'}}",
+      "total_time_s": 4.072973012924194
+    },
+    {
+      "pmid": "41977422",
+      "title": "Risk Assessment and Prediction of Hepatocellular Carcinoma in Noncirrhotic Metabolic Dysfunction-Associated Steatotic Li",
+      "abstract_length": 1356,
+      "timestamp": 1782720088.306292,
+      "phases": {
+        "context": {
+          "pmid": "41977422",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41977422",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801318697653478268d9d6zqxdzplo)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801318697653478268d9d6zqxdzplo)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.6694998741149902
+    },
+    {
+      "pmid": "41800244",
+      "title": "New Insights into the Role of NF-κB in Hepatitis B Virus Infection.",
+      "abstract_length": 835,
+      "timestamp": 1782720091.976064,
+      "phases": {
+        "context": {
+          "pmid": "41800244",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41800244",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801353850453348268d9d60bYCC5xg)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801353850453348268d9d60bYCC5xg)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.505279064178467
+    },
+    {
+      "pmid": "41869905",
+      "title": "Meta-Analysis: PPAR Agonists for Pruritus and Quality of Life in Primary Biliary Cholangitis.",
+      "abstract_length": 1994,
+      "timestamp": 1782720095.4814348,
+      "phases": {
+        "context": {
+          "pmid": "41869905",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41869905",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 20260629080139792138978268d9d68sjz0XC3)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 20260629080139792138978268d9d68sjz0XC3)', 'type': 'new_api_error'}}",
+      "total_time_s": 4.933769941329956
+    },
+    {
+      "pmid": "41940593",
+      "title": "Functional Role of COP1 Gene in Hepatocellular Carcinoma Lipid Metabolism and Stemness.",
+      "abstract_length": 1446,
+      "timestamp": 1782720100.415373,
+      "phases": {
+        "context": {
+          "pmid": "41940593",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41940593",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801439761940388268d9d6ERkOKIyz)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801439761940388268d9d6ERkOKIyz)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.7298059463500977
+    },
+    {
+      "pmid": "41731414",
+      "title": "Vaccine-preventable viral hepatitis in men living with HIV/AIDS - immunity and associated factors.",
+      "abstract_length": 1836,
+      "timestamp": 1782720104.145432,
+      "phases": {
+        "context": {
+          "pmid": "41731414",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41731414",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801476780502238268d9d63lIe7TFx)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801476780502238268d9d63lIe7TFx)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.64033579826355
+    },
+    {
+      "pmid": "41953961",
+      "title": "Cost-Effectiveness of De Novo Combination of Tenofovir Alafenamide Fumarate and Peginterferon Alfa-2b Versus Peginterfer",
+      "abstract_length": 1699,
+      "timestamp": 1782720107.785931,
+      "phases": {
+        "context": {
+          "pmid": "41953961",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41953961",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801512727343738268d9d6UaGDqeUx)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801512727343738268d9d6UaGDqeUx)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.58432674407959
+    },
+    {
+      "pmid": "41795165",
+      "title": "Precision-Cut Bladder Slices: A Novel Model for the Study of Bladder Fibrosis and Potential Anti-Fibrotic Agents.",
+      "abstract_length": 1689,
+      "timestamp": 1782720111.3705778,
+      "phases": {
+        "context": {
+          "pmid": "41795165",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41795165",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801549184576308268d9d6M5eGimjC)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801549184576308268d9d6M5eGimjC)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.6429879665374756
+    },
+    {
+      "pmid": "42014525",
+      "title": "Establishment and characterization of a novel HBV-integrated hepatic sarcomatoid carcinoma cell line.",
+      "abstract_length": 1873,
+      "timestamp": 1782720115.013768,
+      "phases": {
+        "context": {
+          "pmid": "42014525",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "42014525",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801587879706358268d9d6fOkqTSXR)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290801587879706358268d9d6fOkqTSXR)', 'type': 'new_api_error'}}",
+      "total_time_s": 4.826385259628296
+    },
+    {
+      "pmid": "41849868",
+      "title": "Grayscale-inverted bright-blood late gadolinium enhancement improves reader confidence in ischemic scar detection: a mul",
+      "abstract_length": 1881,
+      "timestamp": 1782720119.840675,
+      "phases": {
+        "context": {
+          "pmid": "41849868",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": []
+        },
+        "extraction": {
+          "pmid": "41849868",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290802033901976338268d9d69LAjFcSD)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290802033901976338268d9d69LAjFcSD)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.64369797706604
+    },
+    {
+      "pmid": "41961385",
+      "title": "Inflammatory and resolution stages of hepatic injury: imaging with USPIO-enhanced MRI in mice.",
+      "abstract_length": 2407,
+      "timestamp": 1782720123.484564,
+      "phases": {
+        "context": {
+          "pmid": "41961385",
+          "known_entity_count": 0,
+          "existing_relation_count": 0,
+          "knowledge_gap_count": 0,
+          "extraction_goals": [
+            "full_extraction"
+          ],
+          "has_conflicts": false,
+          "coverage_score": 0.0,
+          "known_entities": {}
+        },
+        "strategy": {
+          "active_strategy": {
+            "entity_confidence_threshold": 0.6,
+            "relation_confidence_threshold": 0.7,
+            "extraction_mode": "exploratory",
+            "conflict_resolution_mode": "balanced",
+            "use_extended_examples": false
+          },
+          "example_count": 6,
+          "extraction_goals": [
+            "full_extraction"
+          ]
+        },
+        "extraction": {
+          "pmid": "41961385",
+          "entity_count": 0,
+          "relation_count": 0,
+          "entities": [],
+          "relations": [],
+          "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 20260629080207198802668268d9d6Mpny7jPS)', 'type': 'new_api_error'}}",
+          "retry_count": 0
+        },
+        "verification": {
+          "error": "skipped due to extraction failure"
+        },
+        "causal_reasoning": {
+          "error": "skipped"
+        },
+        "conflict_resolution": {
+          "error": "skipped"
+        },
+        "execution": {
+          "error": "skipped"
+        }
+      },
+      "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 20260629080207198802668268d9d6Mpny7jPS)', 'type': 'new_api_error'}}",
+      "total_time_s": 3.6383700370788574
+    }
+  ]
+}

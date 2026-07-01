@@ -1,0 +1,365 @@
+{
+  "run_id": "v1_pipeline_pubmed30_20260629_155656",
+  "generated_at": "2026-06-29T07:59:45.388676+00:00",
+  "records": 30,
+  "entities": 200,
+  "relations": 118,
+  "schema_valid_relations": 67,
+  "import_ready_relations": 37,
+  "review_relations": 81,
+  "flag_counts": {
+    "not_importable_policy": 6,
+    "schema_mismatch:Protein->Tissue": 3,
+    "unsupported_entity_class": 3,
+    "non_human_or_mixed_species": 32,
+    "schema_mismatch:CellType->Tissue": 1,
+    "schema_mismatch:CellType->Disease": 1,
+    "schema_mismatch:Disease->Disease": 11,
+    "uncertain_relation": 17,
+    "schema_mismatch:Protein->Disease": 13,
+    "schema_mismatch:Pathway->Disease": 9,
+    "schema_mismatch:Protein->CellType": 3,
+    "schema_mismatch:Tissue->Disease": 1,
+    "schema_mismatch:CellType->Gene": 2,
+    "negated_relation": 3,
+    "schema_mismatch:Disease->Pathway": 2,
+    "schema_mismatch:Metabolite->Pathway": 1,
+    "schema_mismatch:Gene->Pathway": 2,
+    "schema_mismatch:Gene->Gene": 2,
+    "ungrounded_evidence": 1
+  },
+  "records_detail": [
+    {
+      "pmid": "41810002",
+      "title": "Hydrogel-Based Immunomodulation of Tumor Immune Microenvironment in Hepatocellular Carcinoma: Current Strategies and Future Directions.",
+      "relations": 6,
+      "import_ready": 0,
+      "requires_review": 6,
+      "quality_flags": {
+        "not_importable_policy": 1,
+        "schema_mismatch:Protein->Tissue": 3,
+        "unsupported_entity_class": 3,
+        "non_human_or_mixed_species": 1,
+        "schema_mismatch:CellType->Tissue": 1
+      }
+    },
+    {
+      "pmid": "41799192",
+      "title": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis in chronic cardiac allograft rejection.",
+      "relations": 6,
+      "import_ready": 2,
+      "requires_review": 4,
+      "quality_flags": {
+        "schema_mismatch:CellType->Disease": 1,
+        "non_human_or_mixed_species": 2,
+        "schema_mismatch:Disease->Disease": 1
+      }
+    },
+    {
+      "pmid": "41620901",
+      "title": "Network pharmacology and molecular docking for exploring the mechanism of Hedyotis diffusa against hepatitis B virus infection.",
+      "relations": 6,
+      "import_ready": 0,
+      "requires_review": 6,
+      "quality_flags": {
+        "uncertain_relation": 6,
+        "schema_mismatch:Protein->Disease": 1,
+        "schema_mismatch:Pathway->Disease": 4
+      }
+    },
+    {
+      "pmid": "41794448",
+      "title": "Hepatoprotective potential of anthocyanins from purple highland barley bran against non-alcoholic fatty liver disease through gut-liver axis.",
+      "relations": 2,
+      "import_ready": 1,
+      "requires_review": 1,
+      "quality_flags": {
+        "uncertain_relation": 1
+      }
+    },
+    {
+      "pmid": "41650163",
+      "title": "A multifaceted analysis of OTUD5 integrated MAVS in innate immunity of Primary Biliary Cholangitis.",
+      "relations": 8,
+      "import_ready": 3,
+      "requires_review": 5,
+      "quality_flags": {
+        "schema_mismatch:Protein->Disease": 2,
+        "uncertain_relation": 3,
+        "schema_mismatch:Protein->CellType": 2
+      }
+    },
+    {
+      "pmid": "41573193",
+      "title": "Comparison of the efficacy of antidiabetic agents in type 2 diabetes with MASLD: a network meta-analysis.",
+      "relations": 7,
+      "import_ready": 5,
+      "requires_review": 2,
+      "quality_flags": {
+        "not_importable_policy": 1,
+        "schema_mismatch:Tissue->Disease": 1
+      }
+    },
+    {
+      "pmid": "41902413",
+      "title": "Peptide Angio-3 Attenuates Pulmonary Fibrosis Via Modulation of the Coagulation Factor Xa-Protease-Activated Receptor-1 Signaling Axis.",
+      "relations": 3,
+      "import_ready": 2,
+      "requires_review": 1,
+      "quality_flags": {
+        "non_human_or_mixed_species": 1,
+        "schema_mismatch:Protein->Disease": 1
+      }
+    },
+    {
+      "pmid": "41581151",
+      "title": "Scar-associated endothelial-stellate cellular crosstalk drives fibrosis resolution in MASH.",
+      "relations": 5,
+      "import_ready": 0,
+      "requires_review": 5,
+      "quality_flags": {
+        "non_human_or_mixed_species": 5,
+        "schema_mismatch:CellType->Gene": 2,
+        "schema_mismatch:Protein->CellType": 1
+      }
+    },
+    {
+      "pmid": "41475279",
+      "title": "Gut microbiota's role in NAFLD- and HBV/HCV-related hepatocellular carcinoma: Mechanisms and therapeutic implications.",
+      "relations": 8,
+      "import_ready": 3,
+      "requires_review": 5,
+      "quality_flags": {
+        "non_human_or_mixed_species": 1,
+        "schema_mismatch:Pathway->Disease": 2,
+        "uncertain_relation": 2
+      }
+    },
+    {
+      "pmid": "41719003",
+      "title": "The relationship between acromegaly and hepatic steatosis: insights from FibroScan imaging.",
+      "relations": 5,
+      "import_ready": 0,
+      "requires_review": 5,
+      "quality_flags": {
+        "schema_mismatch:Disease->Disease": 3,
+        "uncertain_relation": 3,
+        "negated_relation": 1,
+        "schema_mismatch:Protein->Disease": 2
+      }
+    },
+    {
+      "pmid": "41832026",
+      "title": "Sodium hyaluronate based multifunctional hydrogels delivering SiRNA for sustained silencing of SMAD3: A novel strategy to treat intrauterine adhesions.",
+      "relations": 3,
+      "import_ready": 3,
+      "requires_review": 0,
+      "quality_flags": {}
+    },
+    {
+      "pmid": "41354212",
+      "title": "Association of nitrogen dioxide with non-alcoholic fatty liver disease in Chinese rural older adults: The mediating role of fasting plasma glucose.",
+      "relations": 1,
+      "import_ready": 1,
+      "requires_review": 0,
+      "quality_flags": {}
+    },
+    {
+      "pmid": "41668355",
+      "title": "Effect of Nutritional Status on Coagulation and Inflammation in Patients With Cirrhosis and Variceal Bleeding.",
+      "relations": 5,
+      "import_ready": 0,
+      "requires_review": 5,
+      "quality_flags": {
+        "schema_mismatch:Protein->Disease": 3,
+        "non_human_or_mixed_species": 2,
+        "schema_mismatch:Disease->Disease": 2
+      }
+    },
+    {
+      "pmid": "41683641",
+      "title": "Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pathway.",
+      "relations": 4,
+      "import_ready": 0,
+      "requires_review": 4,
+      "quality_flags": {
+        "non_human_or_mixed_species": 4
+      }
+    },
+    {
+      "pmid": "41948344",
+      "title": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+      "relations": 8,
+      "import_ready": 4,
+      "requires_review": 4,
+      "quality_flags": {
+        "non_human_or_mixed_species": 3,
+        "not_importable_policy": 1
+      }
+    },
+    {
+      "pmid": "41969242",
+      "title": "Prophylactic Antibiotic Use and Clinical Outcomes in Patients With Child-Pugh A Cirrhosis and Acute Variceal Bleeding: A Retrospective Cohort Study.",
+      "relations": 1,
+      "import_ready": 0,
+      "requires_review": 1,
+      "quality_flags": {
+        "not_importable_policy": 1
+      }
+    },
+    {
+      "pmid": "41884271",
+      "title": "High Dihydromyricetin Loaded Biomimetic Nanoemulsion Ameliorated Early Nonalcoholic Fatty Liver Disease by Hepatic Ferroptosis Inhibition.",
+      "relations": 4,
+      "import_ready": 1,
+      "requires_review": 3,
+      "quality_flags": {
+        "schema_mismatch:Disease->Pathway": 1,
+        "non_human_or_mixed_species": 2,
+        "schema_mismatch:Metabolite->Pathway": 1
+      }
+    },
+    {
+      "pmid": "41640520",
+      "title": "Prevalence and Correlates of Hepatitis B and C infections in Sickle cell anaemic (SCA) children compared to Controls in a Tertiary Hospital, Abakaliki, Southeast, Nigeria.",
+      "relations": 1,
+      "import_ready": 0,
+      "requires_review": 1,
+      "quality_flags": {
+        "non_human_or_mixed_species": 1,
+        "schema_mismatch:Disease->Disease": 1
+      }
+    },
+    {
+      "pmid": "41665498",
+      "title": "Quality of Gadoxetate-enhanced MRI versus US during Hepatocellular Carcinoma Screening in Participants with Cirrhosis.",
+      "relations": 1,
+      "import_ready": 0,
+      "requires_review": 1,
+      "quality_flags": {
+        "negated_relation": 1,
+        "non_human_or_mixed_species": 1,
+        "schema_mismatch:Disease->Disease": 1,
+        "uncertain_relation": 1
+      }
+    },
+    {
+      "pmid": "41761962",
+      "title": "Impact of Spheroid Use for Identifying Hepatocellular Carcinoma Features: Involvement of Kinase-Mediated Molecular Pathways.",
+      "relations": 3,
+      "import_ready": 1,
+      "requires_review": 2,
+      "quality_flags": {
+        "schema_mismatch:Gene->Pathway": 2
+      }
+    },
+    {
+      "pmid": "41977422",
+      "title": "Risk Assessment and Prediction of Hepatocellular Carcinoma in Noncirrhotic Metabolic Dysfunction-Associated Steatotic Liver Disease.",
+      "relations": 2,
+      "import_ready": 0,
+      "requires_review": 2,
+      "quality_flags": {
+        "not_importable_policy": 1,
+        "schema_mismatch:Disease->Disease": 1
+      }
+    },
+    {
+      "pmid": "41800244",
+      "title": "New Insights into the Role of NF-κB in Hepatitis B Virus Infection.",
+      "relations": 3,
+      "import_ready": 0,
+      "requires_review": 3,
+      "quality_flags": {
+        "schema_mismatch:Pathway->Disease": 2,
+        "schema_mismatch:Disease->Pathway": 1
+      }
+    },
+    {
+      "pmid": "41869905",
+      "title": "Meta-Analysis: PPAR Agonists for Pruritus and Quality of Life in Primary Biliary Cholangitis.",
+      "relations": 4,
+      "import_ready": 0,
+      "requires_review": 4,
+      "quality_flags": {
+        "non_human_or_mixed_species": 4,
+        "schema_mismatch:Protein->Disease": 2,
+        "uncertain_relation": 1
+      }
+    },
+    {
+      "pmid": "41940593",
+      "title": "Functional Role of COP1 Gene in Hepatocellular Carcinoma Lipid Metabolism and Stemness.",
+      "relations": 4,
+      "import_ready": 1,
+      "requires_review": 3,
+      "quality_flags": {
+        "non_human_or_mixed_species": 1,
+        "schema_mismatch:Gene->Gene": 2,
+        "ungrounded_evidence": 1
+      }
+    },
+    {
+      "pmid": "41731414",
+      "title": "Vaccine-preventable viral hepatitis in men living with HIV/AIDS - immunity and associated factors.",
+      "relations": 2,
+      "import_ready": 0,
+      "requires_review": 2,
+      "quality_flags": {
+        "schema_mismatch:Disease->Disease": 2
+      }
+    },
+    {
+      "pmid": "41953961",
+      "title": "Cost-Effectiveness of De Novo Combination of Tenofovir Alafenamide Fumarate and Peginterferon Alfa-2b Versus Peginterferon Alfa-2b Monotherapy of HBeAg-Positive Chronic Hepatitis B in China.",
+      "relations": 2,
+      "import_ready": 0,
+      "requires_review": 2,
+      "quality_flags": {
+        "non_human_or_mixed_species": 2,
+        "schema_mismatch:Protein->Disease": 1
+      }
+    },
+    {
+      "pmid": "41795165",
+      "title": "Precision-Cut Bladder Slices: A Novel Model for the Study of Bladder Fibrosis and Potential Anti-Fibrotic Agents.",
+      "relations": 8,
+      "import_ready": 7,
+      "requires_review": 1,
+      "quality_flags": {
+        "schema_mismatch:Protein->Disease": 1
+      }
+    },
+    {
+      "pmid": "42014525",
+      "title": "Establishment and characterization of a novel HBV-integrated hepatic sarcomatoid carcinoma cell line.",
+      "relations": 5,
+      "import_ready": 3,
+      "requires_review": 2,
+      "quality_flags": {
+        "negated_relation": 1,
+        "non_human_or_mixed_species": 1,
+        "schema_mismatch:Pathway->Disease": 1
+      }
+    },
+    {
+      "pmid": "41849868",
+      "title": "Grayscale-inverted bright-blood late gadolinium enhancement improves reader confidence in ischemic scar detection: a multivendor study.",
+      "relations": 0,
+      "import_ready": 0,
+      "requires_review": 0,
+      "quality_flags": {}
+    },
+    {
+      "pmid": "41961385",
+      "title": "Inflammatory and resolution stages of hepatic injury: imaging with USPIO-enhanced MRI in mice.",
+      "relations": 1,
+      "import_ready": 0,
+      "requires_review": 1,
+      "quality_flags": {
+        "non_human_or_mixed_species": 1,
+        "not_importable_policy": 1
+      }
+    }
+  ]
+}

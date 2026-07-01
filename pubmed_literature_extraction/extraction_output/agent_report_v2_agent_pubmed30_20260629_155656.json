@@ -1,0 +1,80 @@
+{
+  "run_id": "v2_agent_pubmed30_20260629_155656",
+  "model": "[按次]gemini-2.5-flash",
+  "neo4j_connected": false,
+  "total_articles": 30,
+  "total_time_s": 120.2,
+  "avg_time_per_article_s": 4.0,
+  "extraction": {
+    "total_entities_extracted": 0,
+    "total_relations_extracted": 0,
+    "avg_entities_per_article": 0.0,
+    "avg_relations_per_article": 0.0
+  },
+  "decisions": {
+    "total_import_ready": 0,
+    "entities_created": 0,
+    "relations_created": 0,
+    "relations_updated": 0,
+    "disputed": 0,
+    "discarded": 0,
+    "import_ready_rate": 0.0,
+    "discard_rate": 0.0
+  },
+  "quality": {
+    "avg_quality_score": 0.0,
+    "error_count": 30,
+    "errors": [
+      {
+        "pmid": "41810002",
+        "phase": "extraction",
+        "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800148498957148268d9d6mNF40JRZ)', 'type': 'new_api_error'}}"
+      },
+      {
+        "pmid": "41799192",
+        "phase": "extraction",
+        "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800187176320988268d9d6I8ENfBzU)', 'type': 'new_api_error'}}"
+      },
+      {
+        "pmid": "41620901",
+        "phase": "extraction",
+        "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800223953345228268d9d6bNReuRrT)', 'type': 'new_api_error'}}"
+      },
+      {
+        "pmid": "41794448",
+        "phase": "extraction",
+        "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 20260629080026338432138268d9d62LkxxC9V)', 'type': 'new_api_error'}}"
+      },
+      {
+        "pmid": "41650163",
+        "phase": "extraction",
+        "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800306530727528268d9d60YN7kkOv)', 'type': 'new_api_error'}}"
+      },
+      {
+        "pmid": "41573193",
+        "phase": "extraction",
+        "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800345659105018268d9d6zF7GfnTO)', 'type': 'new_api_error'}}"
+      },
+      {
+        "pmid": "41902413",
+        "phase": "extraction",
+        "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800382350377468268d9d6LThlqdle)', 'type': 'new_api_error'}}"
+      },
+      {
+        "pmid": "41581151",
+        "phase": "extraction",
+        "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800418778930918268d9d6JISWFG9l)', 'type': 'new_api_error'}}"
+      },
+      {
+        "pmid": "41475279",
+        "phase": "extraction",
+        "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800464908857318268d9d69ySFyBKs)', 'type': 'new_api_error'}}"
+      },
+      {
+        "pmid": "41719003",
+        "phase": "extraction",
+        "error": "Parallel inference error: Gemini API error: 401 None. {'error': {'code': '', 'message': 'Invalid token (request id: 202606290800508443691048268d9d638tQVTDB)', 'type': 'new_api_error'}}"
+      }
+    ]
+  }
+}

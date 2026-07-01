@@ -1,0 +1,27 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+
+# Local environments and secrets
+.venv/
+.venv-*/
+venv/
+.env
+*.key
+secrets.*
+
+# Runtime logs and generated outputs
+logs/
+extraction_output/*
+
+# Keep small source samples and selected benchmark artifacts.
+!extraction_output/pubmed_converted_500.jsonl
+!extraction_output/pubmed_backup_liver_strict_50.jsonl
+!extraction_output/abtest_compare_20260629_155656.md
+!extraction_output/agent_report_v2_agent_pubmed30_20260629_155656.json
+!extraction_output/agent_results_v2_agent_pubmed30_20260629_155656.json
+!extraction_output/agent_report_v3_final_quality_30.json
+!extraction_output/agent_results_v3_final_quality_30.json
+!extraction_output/extraction_results_v1_pipeline_pubmed30_20260629_155656.json
+!extraction_output/quality_report_v1_pipeline_pubmed30_20260629_155656.json
+!extraction_output/provenance_report_v1_pipeline_pubmed30_20260629_155656.html

@@ -1,0 +1,5 @@
+langextract
+google-genai
+neo4j
+requests
+typing_extensions

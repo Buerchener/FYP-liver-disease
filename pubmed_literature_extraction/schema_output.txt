@@ -1,0 +1,1053 @@
+# Neo4j Schema 探索报告
+
+生成时间: 2026-06-28 22:34:28
+
+数据库: `liver-kg-core-v02` | 地址: `bolt://100.104.181.96:7687`
+
+
+
+======================================================================
+  1. 图谱结构概览 (db.schema.visualization)
+======================================================================
+```json
+[
+  {
+    "nodes": [
+      "<Node element_id='-120' labels=frozenset({'CellType'}) properties={'indexes': [], 'name': 'CellType', 'constraints': [\"Constraint( id=19, name='cell_type_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:CellType {cell_type_id}), ownedIndex=18 )\"]}>",
+      "<Node element_id='-115' labels=frozenset({'Disease'}) properties={'indexes': [], 'name': 'Disease', 'constraints': [\"Constraint( id=3, name='disease_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Disease {disease_id}), ownedIndex=2 )\"]}>",
+      "<Node element_id='-116' labels=frozenset({'Gene'}) properties={'indexes': [], 'name': 'Gene', 'constraints': [\"Constraint( id=5, name='gene_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Gene {gene_id}), ownedIndex=4 )\"]}>",
+      "<Node element_id='-121' labels=frozenset({'Metabolite'}) properties={'indexes': [], 'name': 'Metabolite', 'constraints': [\"Constraint( id=25, name='metabolite_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Metabolite {metabolite_id}), ownedIndex=24 )\"]}>",
+      "<Node element_id='-119' labels=frozenset({'Tissue'}) properties={'indexes': [], 'name': 'Tissue', 'constraints': [\"Constraint( id=17, name='tissue_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Tissue {tissue_id}), ownedIndex=16 )\"]}>",
+      "<Node element_id='-118' labels=frozenset({'Pathway'}) properties={'indexes': [], 'name': 'Pathway', 'constraints': [\"Constraint( id=13, name='pathway_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Pathway {pathway_id}), ownedIndex=12 )\"]}>",
+      "<Node element_id='-117' labels=frozenset({'Protein'}) properties={'indexes': [], 'name': 'Protein', 'constraints': [\"Constraint( id=9, name='protein_string_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Protein {string_protein_id}), ownedIndex=8 )\"]}>"
+    ],
+    "relationships": [
+      "<Relationship element_id='-125' nodes=(<Node element_id='-116' labels=frozenset({'Gene'}) properties={'indexes': [], 'name': 'Gene', 'constraints': [\"Constraint( id=5, name='gene_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Gene {gene_id}), ownedIndex=4 )\"]}>, <Node element_id='-115' labels=frozenset({'Disease'}) properties={'indexes': [], 'name': 'Disease', 'constraints': [\"Constraint( id=3, name='disease_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Disease {disease_id}), ownedIndex=2 )\"]}>) type='ASSOCIATED_WITH' properties={'name': 'ASSOCIATED_WITH'}>",
+      "<Relationship element_id='-126' nodes=(<Node element_id='-121' labels=frozenset({'Metabolite'}) properties={'indexes': [], 'name': 'Metabolite', 'constraints': [\"Constraint( id=25, name='metabolite_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Metabolite {metabolite_id}), ownedIndex=24 )\"]}>, <Node element_id='-115' labels=frozenset({'Disease'}) properties={'indexes': [], 'name': 'Disease', 'constraints': [\"Constraint( id=3, name='disease_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Disease {disease_id}), ownedIndex=2 )\"]}>) type='ASSOCIATED_WITH' properties={'name': 'ASSOCIATED_WITH'}>",
+      "<Relationship element_id='-130' nodes=(<Node element_id='-116' labels=frozenset({'Gene'}) properties={'indexes': [], 'name': 'Gene', 'constraints': [\"Constraint( id=5, name='gene_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Gene {gene_id}), ownedIndex=4 )\"]}>, <Node element_id='-118' labels=frozenset({'Pathway'}) properties={'indexes': [], 'name': 'Pathway', 'constraints': [\"Constraint( id=13, name='pathway_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Pathway {pathway_id}), ownedIndex=12 )\"]}>) type='PARTICIPATES_IN' properties={'name': 'PARTICIPATES_IN'}>",
+      "<Relationship element_id='-134' nodes=(<Node element_id='-116' labels=frozenset({'Gene'}) properties={'indexes': [], 'name': 'Gene', 'constraints': [\"Constraint( id=5, name='gene_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Gene {gene_id}), ownedIndex=4 )\"]}>, <Node element_id='-121' labels=frozenset({'Metabolite'}) properties={'indexes': [], 'name': 'Metabolite', 'constraints': [\"Constraint( id=25, name='metabolite_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Metabolite {metabolite_id}), ownedIndex=24 )\"]}>) type='ASSOCIATED_WITH_METABOLITE' properties={'name': 'ASSOCIATED_WITH_METABOLITE'}>",
+      "<Relationship element_id='-129' nodes=(<Node element_id='-116' labels=frozenset({'Gene'}) properties={'indexes': [], 'name': 'Gene', 'constraints': [\"Constraint( id=5, name='gene_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Gene {gene_id}), ownedIndex=4 )\"]}>, <Node element_id='-117' labels=frozenset({'Protein'}) properties={'indexes': [], 'name': 'Protein', 'constraints': [\"Constraint( id=9, name='protein_string_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Protein {string_protein_id}), ownedIndex=8 )\"]}>) type='ENCODES' properties={'name': 'ENCODES'}>",
+      "<Relationship element_id='-133' nodes=(<Node element_id='-116' labels=frozenset({'Gene'}) properties={'indexes': [], 'name': 'Gene', 'constraints': [\"Constraint( id=5, name='gene_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Gene {gene_id}), ownedIndex=4 )\"]}>, <Node element_id='-115' labels=frozenset({'Disease'}) properties={'indexes': [], 'name': 'Disease', 'constraints': [\"Constraint( id=3, name='disease_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Disease {disease_id}), ownedIndex=2 )\"]}>) type='PROGNOSTIC_IN' properties={'name': 'PROGNOSTIC_IN'}>",
+      "<Relationship element_id='-127' nodes=(<Node element_id='-115' labels=frozenset({'Disease'}) properties={'indexes': [], 'name': 'Disease', 'constraints': [\"Constraint( id=3, name='disease_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Disease {disease_id}), ownedIndex=2 )\"]}>, <Node element_id='-115' labels=frozenset({'Disease'}) properties={'indexes': [], 'name': 'Disease', 'constraints': [\"Constraint( id=3, name='disease_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Disease {disease_id}), ownedIndex=2 )\"]}>) type='PROGRESSES_TO' properties={'name': 'PROGRESSES_TO'}>",
+      "<Relationship element_id='-128' nodes=(<Node element_id='-117' labels=frozenset({'Protein'}) properties={'indexes': [], 'name': 'Protein', 'constraints': [\"Constraint( id=9, name='protein_string_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Protein {string_protein_id}), ownedIndex=8 )\"]}>, <Node element_id='-117' labels=frozenset({'Protein'}) properties={'indexes': [], 'name': 'Protein', 'constraints': [\"Constraint( id=9, name='protein_string_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Protein {string_protein_id}), ownedIndex=8 )\"]}>) type='INTERACTS_WITH' properties={'name': 'INTERACTS_WITH'}>",
+      "<Relationship element_id='-131' nodes=(<Node element_id='-116' labels=frozenset({'Gene'}) properties={'indexes': [], 'name': 'Gene', 'constraints': [\"Constraint( id=5, name='gene_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Gene {gene_id}), ownedIndex=4 )\"]}>, <Node element_id='-119' labels=frozenset({'Tissue'}) properties={'indexes': [], 'name': 'Tissue', 'constraints': [\"Constraint( id=17, name='tissue_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Tissue {tissue_id}), ownedIndex=16 )\"]}>) type='EXPRESSED_IN' properties={'name': 'EXPRESSED_IN'}>",
+      "<Relationship element_id='-132' nodes=(<Node element_id='-116' labels=frozenset({'Gene'}) properties={'indexes': [], 'name': 'Gene', 'constraints': [\"Constraint( id=5, name='gene_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:Gene {gene_id}), ownedIndex=4 )\"]}>, <Node element_id='-120' labels=frozenset({'CellType'}) properties={'indexes': [], 'name': 'CellType', 'constraints': [\"Constraint( id=19, name='cell_type_id_unique', type='NODE PROPERTY UNIQUENESS', schema=(:CellType {cell_type_id}), ownedIndex=18 )\"]}>) type='EXPRESSED_IN' properties={'name': 'EXPRESSED_IN'}>"
+    ]
+  }
+]
+```
+
+
+======================================================================
+  2. 节点标签及数量
+======================================================================
+| Label | Count |
+|---|---|
+| Pathway | 1721 |
+| Gene | 836 |
+| Protein | 793 |
+| CellType | 154 |
+| Metabolite | 36 |
+| Disease | 5 |
+| Tissue | 1 |
+
+======================================================================
+  3. 节点标签及属性键
+======================================================================
+
+### `CellType`
+属性: `cell_type_id, cell_type_name, name, source, updated_at`
+
+### `Disease`
+属性: `disease_classes_msh, disease_id, disease_name, disease_type, external_ids, name, source, stage_order, updated_at`
+
+### `Gene`
+属性: `ensembl_gene_ids, gene_dpi, gene_dsi, gene_id, gene_pli, gene_symbol, gene_type, name, ncbi_gene_id, protein_class_names, source, updated_at`
+
+### `Metabolite`
+属性: `average_molecular_weight, chemical_formula, class, kingdom, metabolite_id, monoisotopic_molecular_weight, name, source, super_class, updated_at`
+
+### `Pathway`
+属性: `name, ncbi_taxon_id, pathway_id, source, species_name, updated_at`
+
+### `Protein`
+属性: `annotation, name, ncbi_taxon_id, protein_id, source, species_name, updated_at`
+
+### `Tissue`
+属性: `name, source, tissue_id, tissue_name, updated_at`
+
+
+======================================================================
+  4. 节点属性详情（含示例值）
+======================================================================
+
+### `Disease` 示例
+```json
+{
+  "stage_order": 1,
+  "updated_at": "2026-06-23T13:53:51.829000000+00:00",
+  "disease_type": "[disease]",
+  "disease_id": "UMLS:C0400966",
+  "name": "NAFLD",
+  "disease_name": "Non-alcoholic Fatty Liver Disease",
+  "source": "DisGeNET",
+  "disease_classes_msh": "Digestive System Diseases (C06)",
+  "external_ids": "NCI_C84444;MESH_D065626;DO_0080208;MONDO_0013209;EFO_1001248;UMLS_C0400966"
+}
+```
+
+### `Disease` 示例
+```json
+{
+  "stage_order": 2,
+  "updated_at": "2026-06-23T13:53:51.829000000+00:00",
+  "disease_type": "[disease]",
+  "disease_id": "UMLS:C3241937",
+  "name": "NASH",
+  "disease_name": "Metabolic dysfunction-associated steatohepatitis",
+  "source": "DisGeNET",
+  "disease_classes_msh": "Digestive System Diseases (C06)",
+  "external_ids": "NCI_C84445;MESH_D065626;DO_0080208;MONDO_0013209;MONDO_0007027;UMLS_C3241937"
+}
+```
+
+### `Disease` 示例
+```json
+{
+  "stage_order": 3,
+  "updated_at": "2026-06-23T13:53:51.829000000+00:00",
+  "disease_type": "[disease]",
+  "disease_id": "UMLS:C0239946",
+  "name": "Fibrosis",
+  "disease_name": "Hepatic fibrosis",
+  "source": "DisGeNET",
+  "disease_classes_msh": "Pathological Conditions, Signs and Symptoms (C23);Digestive System Diseases (C06)",
+  "external_ids": "ICD10_K74.0;HPO_HP:0001395;MESH_D008103;NCI_C168581;DO_5082;MONDO_0005155;UMLS_C0239946"
+}
+```
+
+### `Disease` 示例
+```json
+{
+  "stage_order": 4,
+  "updated_at": "2026-06-23T13:53:51.829000000+00:00",
+  "disease_type": "[disease]",
+  "disease_id": "UMLS:C0023890",
+  "name": "Cirrhosis",
+  "disease_name": "Liver Cirrhosis",
+  "source": "DisGeNET",
+  "disease_classes_msh": "Pathological Conditions, Signs and Symptoms (C23);Digestive System Diseases (C06)",
+  "external_ids": "MESH_D008103;HPO_HP:0001394;NCI_C2951;DO_0070658;DO_5082;MONDO_0005155;UMLS_C0023890"
+}
+```
+
+### `Disease` 示例
+```json
+{
+  "stage_order": 5,
+  "updated_at": "2026-06-23T13:53:51.829000000+00:00",
+  "disease_type": "[disease]",
+  "disease_id": "UMLS:C2239176",
+  "name": "HCC",
+  "disease_name": "Liver carcinoma",
+  "source": "DisGeNET",
+  "disease_classes_msh": "Neoplasms (C04);Digestive System Diseases (C06)",
+  "external_ids": "ICD10_C22.0;MESH_D006528;OMIM_114550;NCI_C3099;HPO_HP:0001402;ORDO_88673;DO_684;DO_3571;MONDO_0007256;UMLS_C2239176"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000175899",
+  "gene_symbol": "A2M",
+  "name": "A2M",
+  "source": "DisGeNET",
+  "gene_dpi": 0.875,
+  "gene_pli": 9.1331e-20,
+  "protein_class_names": "Enzyme modulator",
+  "gene_id": "NCBIGene:2",
+  "gene_dsi": 0.497,
+  "ncbi_gene_id": "2"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000109576",
+  "gene_symbol": "AADAT",
+  "name": "AADAT",
+  "source": "DisGeNET",
+  "gene_dpi": 0.792,
+  "gene_pli": 0.45989,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:51166",
+  "gene_dsi": 0.614,
+  "ncbi_gene_id": "51166"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000085563",
+  "gene_symbol": "ABCB1",
+  "name": "ABCB1",
+  "source": "DisGeNET",
+  "gene_dpi": 0.875,
+  "gene_pli": 1.7784e-05,
+  "protein_class_names": "Transporter",
+  "gene_id": "NCBIGene:5243",
+  "gene_dsi": 0.377,
+  "ncbi_gene_id": "5243"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000073734",
+  "gene_symbol": "ABCB11",
+  "name": "ABCB11",
+  "source": "DisGeNET",
+  "gene_dpi": 0.792,
+  "gene_pli": 9.0393e-15,
+  "protein_class_names": "Transporter",
+  "gene_id": "NCBIGene:8647",
+  "gene_dsi": 0.556,
+  "ncbi_gene_id": "8647"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000005471",
+  "gene_symbol": "ABCB4",
+  "name": "ABCB4",
+  "source": "DisGeNET",
+  "gene_dpi": 0.792,
+  "gene_pli": 1.6843e-08,
+  "protein_class_names": "Transporter",
+  "gene_id": "NCBIGene:5244",
+  "gene_dsi": 0.494,
+  "ncbi_gene_id": "5244"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000023839",
+  "gene_symbol": "ABCC2",
+  "name": "ABCC2",
+  "source": "DisGeNET",
+  "gene_dpi": 0.875,
+  "gene_pli": 1.3868e-45,
+  "protein_class_names": "Transporter",
+  "gene_id": "NCBIGene:1244",
+  "gene_dsi": 0.466,
+  "ncbi_gene_id": "1244"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000278540",
+  "gene_symbol": "ACACA",
+  "name": "ACACA",
+  "source": "DisGeNET",
+  "gene_dpi": 0.833,
+  "gene_pli": 1.0,
+  "protein_class_names": "",
+  "gene_id": "NCBIGene:31",
+  "gene_dsi": 0.514,
+  "ncbi_gene_id": "31"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000159640",
+  "gene_symbol": "ACE",
+  "name": "ACE",
+  "source": "DisGeNET",
+  "gene_dpi": 0.917,
+  "gene_pli": 5.7955e-32,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:1636",
+  "gene_dsi": 0.36,
+  "ncbi_gene_id": "1636"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000166856",
+  "gene_symbol": "ACKR5",
+  "name": "ACKR5",
+  "source": "DisGeNET",
+  "gene_dpi": 0.875,
+  "gene_pli": 0.32049,
+  "protein_class_names": "G-protein coupled receptor",
+  "gene_id": "NCBIGene:11318",
+  "gene_dsi": 0.509,
+  "ncbi_gene_id": "11318"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000131473",
+  "gene_symbol": "ACLY",
+  "name": "ACLY",
+  "source": "DisGeNET",
+  "gene_dpi": 0.833,
+  "gene_pli": 1.0,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:47",
+  "gene_dsi": 0.517,
+  "ncbi_gene_id": "47"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000100412",
+  "gene_symbol": "ACO2",
+  "name": "ACO2",
+  "source": "DisGeNET",
+  "gene_dpi": 0.833,
+  "gene_pli": 0.98042,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:50",
+  "gene_dsi": 0.567,
+  "ncbi_gene_id": "50"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000161533",
+  "gene_symbol": "ACOX1",
+  "name": "ACOX1",
+  "source": "DisGeNET",
+  "gene_dpi": 0.833,
+  "gene_pli": 1.655e-05,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:51",
+  "gene_dsi": 0.566,
+  "ncbi_gene_id": "51"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000068366",
+  "gene_symbol": "ACSL4",
+  "name": "ACSL4",
+  "source": "DisGeNET",
+  "gene_dpi": 0.875,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:2182",
+  "gene_dsi": 0.5,
+  "ncbi_gene_id": "2182"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000107796",
+  "gene_symbol": "ACTA2",
+  "name": "ACTA2",
+  "source": "DisGeNET",
+  "gene_dpi": 0.833,
+  "gene_pli": 0.99422,
+  "protein_class_names": "Cellular structure",
+  "gene_id": "NCBIGene:59",
+  "gene_dsi": 0.469,
+  "ncbi_gene_id": "59"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000075624",
+  "gene_symbol": "ACTB",
+  "name": "ACTB",
+  "source": "DisGeNET",
+  "gene_dpi": 0.875,
+  "gene_pli": 1.0,
+  "protein_class_names": "Cellular structure",
+  "gene_id": "NCBIGene:60",
+  "gene_dsi": 0.458,
+  "ncbi_gene_id": "60"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000154734",
+  "gene_symbol": "ADAMTS1",
+  "name": "ADAMTS1",
+  "source": "DisGeNET",
+  "gene_dpi": 0.833,
+  "gene_pli": 1.0,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:9510",
+  "gene_dsi": 0.496,
+  "ncbi_gene_id": "9510"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000160323",
+  "gene_symbol": "ADAMTS13",
+  "name": "ADAMTS13",
+  "source": "DisGeNET",
+  "gene_dpi": 0.875,
+  "gene_pli": 9.3759e-30,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:11093",
+  "gene_dsi": 0.467,
+  "ncbi_gene_id": "11093"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000160710",
+  "gene_symbol": "ADAR",
+  "name": "ADAR",
+  "source": "DisGeNET",
+  "gene_dpi": 0.875,
+  "gene_pli": 0.9997,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:103",
+  "gene_dsi": 0.467,
+  "ncbi_gene_id": "103"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000087274",
+  "gene_symbol": "ADD1",
+  "name": "ADD1",
+  "source": "DisGeNET",
+  "gene_dpi": 0.75,
+  "gene_pli": 1.0,
+  "protein_class_names": "Cellular structure",
+  "gene_id": "NCBIGene:118",
+  "gene_dsi": 0.579,
+  "ncbi_gene_id": "118"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000144820",
+  "gene_symbol": "ADGRG7",
+  "name": "ADGRG7",
+  "source": "DisGeNET",
+  "gene_dpi": 0.625,
+  "gene_pli": 1.4217e-15,
+  "protein_class_names": "G-protein coupled receptor",
+  "gene_id": "NCBIGene:84873",
+  "gene_dsi": 0.714,
+  "ncbi_gene_id": "84873"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000198099",
+  "gene_symbol": "ADH4",
+  "name": "ADH4",
+  "source": "DisGeNET",
+  "gene_dpi": 0.792,
+  "gene_pli": 1.79e-06,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:127",
+  "gene_dsi": 0.6,
+  "ncbi_gene_id": "127"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000181092",
+  "gene_symbol": "ADIPOQ",
+  "name": "ADIPOQ",
+  "source": "DisGeNET",
+  "gene_dpi": 0.917,
+  "gene_pli": 3.5736e-09,
+  "protein_class_names": "",
+  "gene_id": "NCBIGene:9370",
+  "gene_dsi": 0.406,
+  "ncbi_gene_id": "9370"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000006831",
+  "gene_symbol": "ADIPOR2",
+  "name": "ADIPOR2",
+  "source": "DisGeNET",
+  "gene_dpi": 0.833,
+  "gene_pli": 0.17407,
+  "protein_class_names": "Receptor",
+  "gene_id": "NCBIGene:79602",
+  "gene_dsi": 0.558,
+  "ncbi_gene_id": "79602"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000120907",
+  "gene_symbol": "ADRA1A",
+  "name": "ADRA1A",
+  "source": "DisGeNET",
+  "gene_dpi": 0.792,
+  "gene_pli": 3.5799e-11,
+  "protein_class_names": "G-protein coupled receptor",
+  "gene_id": "NCBIGene:148",
+  "gene_dsi": 0.551,
+  "ncbi_gene_id": "148"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000274286",
+  "gene_symbol": "ADRA2B",
+  "name": "ADRA2B",
+  "source": "DisGeNET",
+  "gene_dpi": 0.833,
+  "gene_pli": 8.2996e-07,
+  "protein_class_names": "G-protein coupled receptor",
+  "gene_id": "NCBIGene:151",
+  "gene_dsi": 0.558,
+  "ncbi_gene_id": "151"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000188778",
+  "gene_symbol": "ADRB3",
+  "name": "ADRB3",
+  "source": "DisGeNET",
+  "gene_dpi": 0.875,
+  "gene_pli": 2.7754e-16,
+  "protein_class_names": "G-protein coupled receptor",
+  "gene_id": "NCBIGene:155",
+  "gene_dsi": 0.518,
+  "ncbi_gene_id": "155"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000081051",
+  "gene_symbol": "AFP",
+  "name": "AFP",
+  "source": "DisGeNET",
+  "gene_dpi": 0.875,
+  "gene_pli": 5.0742e-14,
+  "protein_class_names": "Transporter",
+  "gene_id": "NCBIGene:174",
+  "gene_dsi": 0.39,
+  "ncbi_gene_id": "174"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000135744",
+  "gene_symbol": "AGT",
+  "name": "AGT",
+  "source": "DisGeNET",
+  "gene_dpi": 0.875,
+  "gene_pli": 1.6654e-08,
+  "protein_class_names": "Enzyme modulator",
+  "gene_id": "NCBIGene:183",
+  "gene_dsi": 0.39,
+  "ncbi_gene_id": "183"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000101444",
+  "gene_symbol": "AHCY",
+  "name": "AHCY",
+  "source": "DisGeNET",
+  "gene_dpi": 0.833,
+  "gene_pli": 0.00091412,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:191",
+  "gene_dsi": 0.555,
+  "ncbi_gene_id": "191"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000106546",
+  "gene_symbol": "AHR",
+  "name": "AHR",
+  "source": "DisGeNET",
+  "gene_dpi": 0.917,
+  "gene_pli": 0.0077533,
+  "protein_class_names": "Transcription factor",
+  "gene_id": "NCBIGene:196",
+  "gene_dsi": 0.401,
+  "ncbi_gene_id": "196"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000117448",
+  "gene_symbol": "AKR1A1",
+  "name": "AKR1A1",
+  "source": "DisGeNET",
+  "gene_dpi": 0.75,
+  "gene_pli": 6.5462e-06,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:10327",
+  "gene_dsi": 0.54,
+  "ncbi_gene_id": "10327"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000198074",
+  "gene_symbol": "AKR1B10",
+  "name": "AKR1B10",
+  "source": "DisGeNET",
+  "gene_dpi": 0.833,
+  "gene_pli": 1.1815e-13,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:57016",
+  "gene_dsi": 0.537,
+  "ncbi_gene_id": "57016"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000151632",
+  "gene_symbol": "AKR1C2",
+  "name": "AKR1C2",
+  "source": "DisGeNET",
+  "gene_dpi": 0.708,
+  "gene_pli": 8.7374e-07,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:1646",
+  "gene_dsi": 0.586,
+  "ncbi_gene_id": "1646"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000142208",
+  "gene_symbol": "AKT1",
+  "name": "AKT1",
+  "source": "DisGeNET",
+  "gene_dpi": 0.917,
+  "gene_pli": 0.99533,
+  "protein_class_names": "Kinase",
+  "gene_id": "NCBIGene:207",
+  "gene_dsi": 0.312,
+  "ncbi_gene_id": "207"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000148218",
+  "gene_symbol": "ALAD",
+  "name": "ALAD",
+  "source": "DisGeNET",
+  "gene_dpi": 0.833,
+  "gene_pli": 0.096041,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:210",
+  "gene_dsi": 0.561,
+  "ncbi_gene_id": "210"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000163631",
+  "gene_symbol": "ALB",
+  "name": "ALB",
+  "source": "DisGeNET",
+  "gene_dpi": 0.917,
+  "gene_pli": 0.10648,
+  "protein_class_names": "Transporter",
+  "gene_id": "NCBIGene:213",
+  "gene_dsi": 0.325,
+  "ncbi_gene_id": "213"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000165092",
+  "gene_symbol": "ALDH1A1",
+  "name": "ALDH1A1",
+  "source": "DisGeNET",
+  "gene_dpi": 0.875,
+  "gene_pli": 0.87258,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:216",
+  "gene_dsi": 0.46,
+  "ncbi_gene_id": "216"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000137124",
+  "gene_symbol": "ALDH1B1",
+  "name": "ALDH1B1",
+  "source": "DisGeNET",
+  "gene_dpi": 0.75,
+  "gene_pli": 3.5988e-06,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:219",
+  "gene_dsi": 0.616,
+  "ncbi_gene_id": "219"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000111275",
+  "gene_symbol": "ALDH2",
+  "name": "ALDH2",
+  "source": "DisGeNET",
+  "gene_dpi": 0.875,
+  "gene_pli": 5.8061e-11,
+  "protein_class_names": "Enzyme",
+  "gene_id": "NCBIGene:217",
+  "gene_dsi": 0.428,
+  "ncbi_gene_id": "217"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000159423",
+  "gene_symbol": "ALDH4A1",
+  "name": "ALDH4A1",
+  "source": "DisGeNET",
+  "gene_dpi": 0.708,
+  "gene_pli": 2.0046e-11,
+  "protein_class_names": "",
+  "gene_id": "NCBIGene:8659",
+  "gene_dsi": 0.631,
+  "ncbi_gene_id": "8659"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000052850",
+  "gene_symbol": "ALX4",
+  "name": "ALX4",
+  "source": "DisGeNET",
+  "gene_dpi": 0.792,
+  "gene_pli": 3.2353e-05,
+  "protein_class_names": "",
+  "gene_id": "NCBIGene:60529",
+  "gene_dsi": 0.522,
+  "ncbi_gene_id": "60529"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000130812",
+  "gene_symbol": "ANGPTL6",
+  "name": "ANGPTL6",
+  "source": "DisGeNET",
+  "gene_dpi": 0.625,
+  "gene_pli": 1.7992e-16,
+  "protein_class_names": "Signaling",
+  "gene_id": "NCBIGene:83854",
+  "gene_dsi": 0.613,
+  "ncbi_gene_id": "83854"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000165138",
+  "gene_symbol": "ANKS6",
+  "name": "ANKS6",
+  "source": "DisGeNET",
+  "gene_dpi": 0.5,
+  "gene_pli": 4.0676e-10,
+  "protein_class_names": "",
+  "gene_id": "NCBIGene:203286",
+  "gene_dsi": 0.655,
+  "ncbi_gene_id": "203286"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000011426",
+  "gene_symbol": "ANLN",
+  "name": "ANLN",
+  "source": "DisGeNET",
+  "gene_dpi": 0.667,
+  "gene_pli": 0.075234,
+  "protein_class_names": "",
+  "gene_id": "NCBIGene:54443",
+  "gene_dsi": 0.563,
+  "ncbi_gene_id": "54443"
+}
+```
+
+### `Gene` 示例
+```json
+{
+  "gene_type": "protein-coding",
+  "updated_at": "2026-06-23T13:53:51.884000000+00:00",
+  "ensembl_gene_ids": "ENSG00000196975",
+  "gene_symbol": "ANXA4",
+  "name": "ANXA4",
+  "source": "DisGeNET",
+  "gene_dpi": 0.833,
+  "gene_pli": 2.7883e-08,
+  "protein_class_names": "",
+  "gene_id": "NCBIGene:307",
+  "gene_dsi": 0.549,
+  "ncbi_gene_id": "307"
+}
+```
+
+
+======================================================================
+  5. 关系类型及数量
+======================================================================
+| Relationship | Count |
+|---|---|
+| EXPRESSED_IN | 17745 |
+| PARTICIPATES_IN | 9947 |
+| INTERACTS_WITH | 7154 |
+| PROGNOSTIC_IN | 1384 |
+| ASSOCIATED_WITH | 1079 |
+| ENCODES | 793 |
+| ASSOCIATED_WITH_METABOLITE | 97 |
+| PROGRESSES_TO | 4 |
+
+======================================================================
+  6. 关系类型及属性键
+======================================================================
+- **`ASSOCIATED_WITH`**: `api_endpoint, api_query, assoc_id, chemical_evidence, confidence_score, evidence_index, evidence_level, normalized_score, num_chemicals, num_clinical_trials, num_db_snp, num_pmids, num_pmids_with_chemicals, num_trials_with_chemicals, relation_id, retrieved_at, score, score_breakdown, source, source_record_id, tier, tier_reason, updated_at, validation_status, year_final, year_initial`
+- **`ASSOCIATED_WITH`**: `api_endpoint, api_query, assoc_id, chemical_evidence, confidence_score, evidence_level, normalized_score, num_chemicals, num_clinical_trials, num_db_snp, num_pmids, num_pmids_with_chemicals, num_trials_with_chemicals, relation_id, retrieved_at, score, score_breakdown, source, source_record_id, tier, tier_reason, updated_at, validation_status`
+- **`ASSOCIATED_WITH`**: `api_endpoint, api_query, assoc_id, chemical_evidence, confidence_score, disgenet_evidence_level, evidence_index, evidence_level, normalized_score, num_chemicals, num_clinical_trials, num_db_snp, num_pmids, num_pmids_with_chemicals, num_trials_with_chemicals, relation_id, retrieved_at, score, score_breakdown, source, source_record_id, tier, tier_reason, updated_at, validation_status, year_final, year_initial`
+- **`ASSOCIATED_WITH`**: `disease_name, relationship_id, source, updated_at`
+- **`ASSOCIATED_WITH_METABOLITE`**: `gene_symbol, hmdb_protein_accessions, protein_types, relationship_id, source, uniprot_ids, updated_at`
+- **`ENCODES`**: `mapping_input, mapping_status, source, updated_at`
+- **`EXPRESSED_IN`**: `assay, ensembl_gene_id, expression_unit, n_tpm, relationship_id, source, updated_at`
+- **`EXPRESSED_IN`**: `assay, ensembl_gene_id, expression_unit, n_cpm, relationship_id, source, updated_at`
+- **`INTERACTS_WITH`**: `ascore, dscore, escore, fscore, interaction_id, ncbi_taxon_id, nscore, pscore, required_score, score, source, species_name, tscore, updated_at`
+- **`PARTICIPATES_IN`**: `kegg_gene_id, kegg_pathway_id, relationship_id, source, updated_at`
+- **`PARTICIPATES_IN`**: `evidence_code, mapping_identifier, reactome_stable_id, relationship_id, source, updated_at`
+- **`PROGNOSTIC_IN`**: `cancer, cohort, ensembl_gene_id, p_value, prognostic_direction, prognostic_status, relationship_id, source, updated_at`
+- **`PROGRESSES_TO`**: `evidence_level, from_stage_code, progression_id, source, stage_order_delta, to_stage_code, updated_at, validation_status`
+
+
+======================================================================
+  7. 索引
+======================================================================
+| id | name | state | populationPercent | type | entityType | labelsOrTypes | properties | indexProvider | owningConstraint | lastRead | readCount |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 6 | associated_with_relation_id_unique | ONLINE | 100.0 | RANGE | RELATIONSHIP | ['ASSOCIATED_WITH'] | ['relation_id'] | range-1.0 | associated_with_relation_id_unique | 2026-06-23T13:53:53.790000000+00:00 | 5185 |
+| 18 | cell_type_id_unique | ONLINE | 100.0 | RANGE | NODE | ['CellType'] | ['cell_type_id'] | range-1.0 | cell_type_id_unique | 2026-06-28T13:38:04.612000000+00:00 | 17317 |
+| 2 | disease_id_unique | ONLINE | 100.0 | RANGE | NODE | ['Disease'] | ['disease_id'] | range-1.0 | disease_id_unique | 2026-06-28T13:38:02.849000000+00:00 | 4123 |
+| 20 | expressed_in_id_unique | ONLINE | 100.0 | RANGE | RELATIONSHIP | ['EXPRESSED_IN'] | ['relationship_id'] | range-1.0 | expressed_in_id_unique | 2026-06-24T11:57:42.973000000+00:00 | 89523 |
+| 4 | gene_id_unique | ONLINE | 100.0 | RANGE | NODE | ['Gene'] | ['gene_id'] | range-1.0 | gene_id_unique | 2026-06-28T13:38:02.300000000+00:00 | 18134 |
+| 26 | hmdb_gene_metabolite_id_unique | ONLINE | 100.0 | RANGE | RELATIONSHIP | ['ASSOCIATED_WITH_METABOLITE'] | ['relationship_id'] | range-1.0 | hmdb_gene_metabolite_id_unique | 2026-06-24T00:15:22.469000000+00:00 | 485 |
+| 1 | index_1b9dcc97 | ONLINE | 100.0 | LOOKUP | RELATIONSHIP | None | None | token-lookup-1.0 | None | 2026-06-28T13:34:00.597000000+00:00 | 59 |
+| 0 | index_460996c0 | ONLINE | 100.0 | LOOKUP | NODE | None | None | token-lookup-1.0 | None | 2026-06-28T13:38:12.862000000+00:00 | 25698 |
+| 14 | kegg_participation_id_unique | ONLINE | 100.0 | RANGE | RELATIONSHIP | ['PARTICIPATES_IN'] | ['relationship_id'] | range-1.0 | kegg_participation_id_unique | 2026-06-23T14:10:18.557000000+00:00 | 49735 |
+| 24 | metabolite_id_unique | ONLINE | 100.0 | RANGE | NODE | ['Metabolite'] | ['metabolite_id'] | range-1.0 | metabolite_id_unique | 2026-06-24T10:50:33.567000000+00:00 | 285 |
+| 12 | pathway_id_unique | ONLINE | 100.0 | RANGE | NODE | ['Pathway'] | ['pathway_id'] | range-1.0 | pathway_id_unique | 2026-06-28T13:36:47.824000000+00:00 | 13441 |
+| 22 | prognostic_in_id_unique | ONLINE | 100.0 | RANGE | RELATIONSHIP | ['PROGNOSTIC_IN'] | ['relationship_id'] | range-1.0 | prognostic_in_id_unique | 2026-06-24T11:57:43.952000000+00:00 | 8304 |
+| 8 | protein_string_id_unique | ONLINE | 100.0 | RANGE | NODE | ['Protein'] | ['string_protein_id'] | range-1.0 | protein_string_id_unique | 2026-06-28T13:21:06.019000000+00:00 | 15903 |
+| 10 | string_interaction_id_unique | ONLINE | 100.0 | RANGE | RELATIONSHIP | ['INTERACTS_WITH'] | ['interaction_id'] | range-1.0 | string_interaction_id_unique | 2026-06-23T13:59:24.944000000+00:00 | 35770 |
+| 16 | tissue_id_unique | ONLINE | 100.0 | RANGE | NODE | ['Tissue'] | ['tissue_id'] | range-1.0 | tissue_id_unique | 2026-06-24T11:57:31.754000000+00:00 | 1599 |
+
+======================================================================
+  8. 约束
+======================================================================
+| id | name | type | entityType | labelsOrTypes | properties | enforcedLabel | ownedIndex | propertyType |
+|---|---|---|---|---|---|---|---|---|
+| 7 | associated_with_relation_id_unique | RELATIONSHIP_PROPERTY_UNIQUENESS | RELATIONSHIP | ['ASSOCIATED_WITH'] | ['relation_id'] | None | associated_with_relation_id_unique | None |
+| 19 | cell_type_id_unique | NODE_PROPERTY_UNIQUENESS | NODE | ['CellType'] | ['cell_type_id'] | None | cell_type_id_unique | None |
+| 3 | disease_id_unique | NODE_PROPERTY_UNIQUENESS | NODE | ['Disease'] | ['disease_id'] | None | disease_id_unique | None |
+| 21 | expressed_in_id_unique | RELATIONSHIP_PROPERTY_UNIQUENESS | RELATIONSHIP | ['EXPRESSED_IN'] | ['relationship_id'] | None | expressed_in_id_unique | None |
+| 5 | gene_id_unique | NODE_PROPERTY_UNIQUENESS | NODE | ['Gene'] | ['gene_id'] | None | gene_id_unique | None |
+| 27 | hmdb_gene_metabolite_id_unique | RELATIONSHIP_PROPERTY_UNIQUENESS | RELATIONSHIP | ['ASSOCIATED_WITH_METABOLITE'] | ['relationship_id'] | None | hmdb_gene_metabolite_id_unique | None |
+| 15 | kegg_participation_id_unique | RELATIONSHIP_PROPERTY_UNIQUENESS | RELATIONSHIP | ['PARTICIPATES_IN'] | ['relationship_id'] | None | kegg_participation_id_unique | None |
+| 25 | metabolite_id_unique | NODE_PROPERTY_UNIQUENESS | NODE | ['Metabolite'] | ['metabolite_id'] | None | metabolite_id_unique | None |
+| 13 | pathway_id_unique | NODE_PROPERTY_UNIQUENESS | NODE | ['Pathway'] | ['pathway_id'] | None | pathway_id_unique | None |
+| 23 | prognostic_in_id_unique | RELATIONSHIP_PROPERTY_UNIQUENESS | RELATIONSHIP | ['PROGNOSTIC_IN'] | ['relationship_id'] | None | prognostic_in_id_unique | None |
+| 9 | protein_string_id_unique | NODE_PROPERTY_UNIQUENESS | NODE | ['Protein'] | ['string_protein_id'] | None | protein_string_id_unique | None |
+| 11 | string_interaction_id_unique | RELATIONSHIP_PROPERTY_UNIQUENESS | RELATIONSHIP | ['INTERACTS_WITH'] | ['interaction_id'] | None | string_interaction_id_unique | None |
+| 17 | tissue_id_unique | NODE_PROPERTY_UNIQUENESS | NODE | ['Tissue'] | ['tissue_id'] | None | tissue_id_unique | None |
+
+======================================================================
+  9. 图谱连接模式
+======================================================================
+`(:Gene) -[:ASSOCIATED_WITH]-> (:Disease)`
+`(:Metabolite) -[:ASSOCIATED_WITH]-> (:Disease)`
+`(:Gene) -[:ASSOCIATED_WITH_METABOLITE]-> (:Metabolite)`
+`(:Gene) -[:ENCODES]-> (:Protein)`
+`(:Gene) -[:EXPRESSED_IN]-> (:Tissue)`
+`(:Gene) -[:EXPRESSED_IN]-> (:CellType)`
+`(:Protein) -[:INTERACTS_WITH]-> (:Protein)`
+`(:Gene) -[:PARTICIPATES_IN]-> (:Pathway)`
+`(:Gene) -[:PROGNOSTIC_IN]-> (:Disease)`
+`(:Disease) -[:PROGRESSES_TO]-> (:Disease)`

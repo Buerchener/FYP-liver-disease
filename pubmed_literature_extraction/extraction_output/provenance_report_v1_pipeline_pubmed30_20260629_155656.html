@@ -1,0 +1,2625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Multi-Stage Extraction Provenance Report — v1_pipeline_pubmed30_20260629_155656</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width:1200px; margin:0 auto; padding:20px; background:#fafafa; }
+.record { background:white; border-radius:8px; padding:16px; margin-bottom:16px; box-shadow:0 1px 3px rgba(0,0,0,.1); }
+.abstract { color:#555; font-size:0.9em; line-height:1.5; }
+table { border-collapse:collapse; width:100%; margin:8px 0; }
+th, td { border:1px solid #ddd; padding:6px 10px; text-align:left; font-size:0.9em; }
+th { background:#f5f5f5; }
+h3 { color:#2c3e50; margin-bottom:4px; }
+h4 { color:#34495e; margin:12px 0 4px; }
+details { margin:8px 0; }
+summary { cursor:pointer; color:#3498db; }
+</style>
+</head>
+<body>
+<h1>🔬 Multi-Stage LangExtract Provenance Report</h1>
+<p>Run ID: <strong>v1_pipeline_pubmed30_20260629_155656</strong> | Generated: 2026-06-29 15:59:45</p>
+<p>Total records processed: 30</p>
+
+        <div class="record">
+            <h3>#1 — PMID:41810002 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Hydrogel-Based Immunomodulation of Tumor Immune Microenvironment in Hepatocellular Carcinoma: Current Strategies and Future Directions.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">Hepatocellular carcinoma (HCC) remains one of the most aggressive malignancies, with poor prognosis and limited treatment options, particularly due to the immunosuppressive tumor immune microenvironment (TIME). Hydrogels have emerged as a promising biomaterial platform for local and controlled delivery of immunomodulatory agents, offering a novel strategy to remodel the TIME and enhance the efficacy of existing therapies. This review explores hydrogel-based strategies for immunomodulation in HCC, focusing on their potential to localize immune regulation, improve immune cell infiltration, and overcome immune evasion. Hydrogels can be engineered to encapsulate a range of therapeutic agents, including immune checkpoint inhibitors, cytokines, tumor antigens, and adjuvants, allowing for sustain...</p>
+            </details>
+            <h4>Entities (8)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>Hepatocellular carcinoma</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C2239176</td>
+            </tr>
+            <tr>
+                <td>HCC</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C2239176</td>
+            </tr>
+            <tr>
+                <td>tumor immune microenvironment</td>
+                <td>Tissue</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Tissue_tumor_immune_microenvironment</td>
+            </tr>
+            <tr>
+                <td>immune checkpoint inhibitors</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_immune_checkpoint_inhibitors</td>
+            </tr>
+            <tr>
+                <td>cytokines</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_cytokines</td>
+            </tr>
+            <tr>
+                <td>tumor antigens</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_tumor_antigens</td>
+            </tr>
+            <tr>
+                <td>adjuvants</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_adjuvants</td>
+            </tr>
+            <tr>
+                <td>CAR-T cell therapy</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_CAR-T_cell_therapy</td>
+            </tr></table>
+            <h4>Relations (6)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#fff3cd">
+                <td>HCC</td>
+                <td>PROGRESSES_TO</td>
+                <td>Hepatocellular carcinoma</td>
+                <td>none</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Hepatocellular carcinoma (HCC) remains one of the most aggressive malignancies, with poor prognosis and limited treatment options, particularly due to the immun...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">not_importable_policy</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>immune checkpoint inhibitors</td>
+                <td>INTERACTS_WITH</td>
+                <td>tumor immune microenvironment</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Hydrogels can be engineered to encapsulate a range of therapeutic agents, including immune checkpoint inhibitors, cytokines, tumor antigens, and adjuvants, allo...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Protein-&gt;Tissue, unsupported_entity_class</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>cytokines</td>
+                <td>INTERACTS_WITH</td>
+                <td>tumor immune microenvironment</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Hydrogels can be engineered to encapsulate a range of therapeutic agents, including immune checkpoint inhibitors, cytokines, tumor antigens, and adjuvants, allo...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Protein-&gt;Tissue</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>tumor antigens</td>
+                <td>INTERACTS_WITH</td>
+                <td>tumor immune microenvironment</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Hydrogels can be engineered to encapsulate a range of therapeutic agents, including immune checkpoint inhibitors, cytokines, tumor antigens, and adjuvants, allo...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Protein-&gt;Tissue</td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>adjuvants</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>HCC</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Hydrogels can be engineered to encapsulate a range of therapeutic agents, including immune checkpoint inhibitors, cytokines, tumor antigens, and adjuvants, allo...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">unsupported_entity_class</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>CAR-T cell therapy</td>
+                <td>EXPRESSED_IN</td>
+                <td>tumor immune microenvironment</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">The integration of hydrogels with therapies such as ablation, CAR-T cell therapy, and tumor vaccines has demonstrated synergistic effects, significantly enhanci...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species, schema_mismatch:CellType-&gt;Tissue, unsupported_entity_class</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 8, &quot;total_relations&quot;: 6, &quot;evidence_grounded&quot;: 6, &quot;schema_valid&quot;: 2, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 6, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;not_importable_policy&quot;: 1, &quot;schema_mismatch:Protein-&gt;Tissue&quot;: 3, &quot;unsupported_entity_class&quot;: 3, &quot;non_human_or_mixed_species&quot;: 1, &quot;schema_mismatch:CellType-&gt;Tissue&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#2 — PMID:41799192 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis in chronic cardiac allograft rejection.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">BACKGROUND: Cardiac allograft vasculopathy (CAV) is a major barrier to long-term survival after heart transplantation, characterized by progressive vascular remodeling and luminal narrowing. Fibrosis is one of the key pathological features of CAV progression, but its underlying mechanisms remain unclear. This study aims to investigate the mechanisms of CAV-associated vascular fibrosis and explore potential therapeutic targets. METHODS: Clinical specimens from the aorta (AO), pulmonary artery (PA), and coronary artery (CA) of CAV and control (Ctrl) groups were analyzed using single-cell RNA sequencing (scRNA-seq). Further validation was performed using a mouse arterial transplantation model. RESULTS: This study found that vascular fibrosis occurs extensively in AO, PA, and CA, rather than b...</p>
+            </details>
+            <h4>Entities (9)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>AREG</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_AREG</td>
+            </tr>
+            <tr>
+                <td>EGFR</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_EGFR</td>
+            </tr>
+            <tr>
+                <td>cardiac allograft vasculopathy</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_cardiac_allograft_vasculopathy</td>
+            </tr>
+            <tr>
+                <td>fibrosis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0239946</td>
+            </tr>
+            <tr>
+                <td>T cells</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_T_cells</td>
+            </tr>
+            <tr>
+                <td>fibroblasts</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_fibroblasts</td>
+            </tr>
+            <tr>
+                <td>aorta</td>
+                <td>Tissue</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Tissue_aorta</td>
+            </tr>
+            <tr>
+                <td>pulmonary artery</td>
+                <td>Tissue</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Tissue_pulmonary_artery</td>
+            </tr>
+            <tr>
+                <td>coronary artery</td>
+                <td>Tissue</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Tissue_coronary_artery</td>
+            </tr></table>
+            <h4>Relations (6)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#d4edda">
+                <td>AREG</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>cardiac allograft vasculopathy</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis in chronic cardiac allograft rejection....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>EGFR</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>cardiac allograft vasculopathy</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis in chronic cardiac allograft rejection....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>T cells</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>fibrosis</td>
+                <td>increase</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Cell-cell interaction analysis showed that T cells promote FB activation via AREG-EGFR....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:CellType-&gt;Disease</td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>AREG</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>fibrosis</td>
+                <td>increase</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Two murine transplantation models further confirmed that blocking AREG-EGFR signaling significantly reduces fibrosis....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>EGFR</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>fibrosis</td>
+                <td>increase</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Two murine transplantation models further confirmed that blocking AREG-EGFR signaling significantly reduces fibrosis....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>fibrosis</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>cardiac allograft vasculopathy</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Fibrosis is one of the key pathological features of CAV progression...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Disease-&gt;Disease</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 9, &quot;total_relations&quot;: 6, &quot;evidence_grounded&quot;: 6, &quot;schema_valid&quot;: 4, &quot;import_ready&quot;: 2, &quot;requires_review&quot;: 4, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;schema_mismatch:CellType-&gt;Disease&quot;: 1, &quot;non_human_or_mixed_species&quot;: 2, &quot;schema_mismatch:Disease-&gt;Disease&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#3 — PMID:41620901 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Network pharmacology and molecular docking for exploring the mechanism of Hedyotis diffusa against hepatitis B virus infection.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">BACKGROUND: Hepatitis B virus (HBV) chronically infects nearly 250 million people and causes nearly 700 000 deaths annually. Hedyotis diffusa (HD) is widely used in traditional Chinese medicine for HBV-related liver diseases, yet its systemic mechanism remains unclear. OBJECTIVES: To elucidate the anti-HBV mode of action of HD by integrating network pharmacology with molecular docking. METHODS: Three databases, including TCMSP, TCMID and Chemical database were used to collect ingredients. PubChem database was used to collect the known targets and Pharmmapper database for the prediction of chemicals. DisGeNET database, PharmGKB and Drugbank were used to get disease-related targets. Mapping all candidate targets transformed into gene symbols to disease-related targets. Biological analysis co...</p>
+            </details>
+            <h4>Entities (9)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>AKT1</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_AKT1</td>
+            </tr>
+            <tr>
+                <td>ALB</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_ALB</td>
+            </tr>
+            <tr>
+                <td>GAPDH</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_GAPDH</td>
+            </tr>
+            <tr>
+                <td>hepatitis B virus</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_hepatitis_B_virus</td>
+            </tr>
+            <tr>
+                <td>TNF</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_TNF</td>
+            </tr>
+            <tr>
+                <td>FoxO</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_FoxO</td>
+            </tr>
+            <tr>
+                <td>ErbB</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_ErbB</td>
+            </tr>
+            <tr>
+                <td>EGFR</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_EGFR</td>
+            </tr>
+            <tr>
+                <td>MAPK</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_MAPK</td>
+            </tr></table>
+            <h4>Relations (6)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#fff3cd">
+                <td>AKT1</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatitis B virus</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) a...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">uncertain_relation</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>EGFR</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatitis B virus</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) a...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Protein-&gt;Disease, uncertain_relation</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>MAPK</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatitis B virus</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) a...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Pathway-&gt;Disease, uncertain_relation</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>TNF</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatitis B virus</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Fifty-eight KEGG pathways were enriched, foremost TNF, FoxO, estrogen, prolactin and ErbB signalling....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Pathway-&gt;Disease, uncertain_relation</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>FoxO</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatitis B virus</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Fifty-eight KEGG pathways were enriched, foremost TNF, FoxO, estrogen, prolactin and ErbB signalling....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Pathway-&gt;Disease, uncertain_relation</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>ErbB</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatitis B virus</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Fifty-eight KEGG pathways were enriched, foremost TNF, FoxO, estrogen, prolactin and ErbB signalling....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Pathway-&gt;Disease, uncertain_relation</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 9, &quot;total_relations&quot;: 6, &quot;evidence_grounded&quot;: 6, &quot;schema_valid&quot;: 1, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 6, &quot;negated&quot;: 0, &quot;uncertain&quot;: 6, &quot;quality_flags&quot;: {&quot;uncertain_relation&quot;: 6, &quot;schema_mismatch:Protein-&gt;Disease&quot;: 1, &quot;schema_mismatch:Pathway-&gt;Disease&quot;: 4}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#4 — PMID:41794448 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Hepatoprotective potential of anthocyanins from purple highland barley bran against non-alcoholic fatty liver disease through gut-liver axis.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">Non-alcoholic fatty liver disease (NAFLD) accounts for a major share of liver damage worldwide. Studies investigating dietary anthocyanins as a promising strategy are attracting attention. In this study, the hepatoprotective effects of the purified anthocyanin-rich extract (PAE) from purple highland barley bran were investigated in vitro and in vivo. Results indicated that PAE at 1.2 mg/mL significantly (p &lt; 0.05) inhibited pancreatic lipase and cholesteryl esterase activities by 63.11% and 60.21%, respectively. PAE induced resistant starch formation by increasing the degree of starch structure. In a high-fat diet (HFD)-induced NAFLD model, PAE intervention at 400 mg/kg/d significantly (p &lt; 0.05) reduced hepatic weight, total glyceride (TG) and total cholesterol (TC) by 25.51%, 35.15% and ...</p>
+            </details>
+            <h4>Entities (10)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>non-alcoholic fatty liver disease</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0400966</td>
+            </tr>
+            <tr>
+                <td>NAFLD</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0400966</td>
+            </tr>
+            <tr>
+                <td>nuclear factor erythroid-2-related factor 2</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_nuclear_factor_erythroid-2-related_factor_2</td>
+            </tr>
+            <tr>
+                <td>Nrf2</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_Nrf2</td>
+            </tr>
+            <tr>
+                <td>p38 mitogen-activated protein kinase</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_p38_mitogen-activated_protein_kinase</td>
+            </tr>
+            <tr>
+                <td>p38 MAPK</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_p38_MAPK</td>
+            </tr>
+            <tr>
+                <td>HepG2</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_HepG2</td>
+            </tr>
+            <tr>
+                <td>flavonoid biosynthesis</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_flavonoid_biosynthesis</td>
+            </tr>
+            <tr>
+                <td>biosynthesis of arginine, phenylalanine, tyrosine, and tryptophan</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_biosynthesis_of_arginine,_phenylalanine,_tyrosine,_and_tryptophan</td>
+            </tr>
+            <tr>
+                <td>PAE</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_PAE</td>
+            </tr></table>
+            <h4>Relations (2)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#d4edda">
+                <td>PAE</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>NAFLD</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">PAE at 1.2 mg/mL significantly (p &lt; 0.05) inhibited pancreatic lipase and cholesteryl esterase activities by 63.11% and 60.21%, respectively....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>Nrf2</td>
+                <td>INTERACTS_WITH</td>
+                <td>p38 MAPK</td>
+                <td>none</td>
+                <td>review</td>
+                <td style="font-size:0.85em">the underlying mechanism was partially involved in the activation of the nuclear factor erythroid-2-related factor 2 (Nrf2) pathway and inhibition of p38 mitoge...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">uncertain_relation</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 10, &quot;total_relations&quot;: 2, &quot;evidence_grounded&quot;: 2, &quot;schema_valid&quot;: 2, &quot;import_ready&quot;: 1, &quot;requires_review&quot;: 1, &quot;negated&quot;: 0, &quot;uncertain&quot;: 1, &quot;quality_flags&quot;: {&quot;uncertain_relation&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#5 — PMID:41650163 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> A multifaceted analysis of OTUD5 integrated MAVS in innate immunity of Primary Biliary Cholangitis.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">BACKGROUND: Primary biliary cholangitis (PBC) is a chronic autoimmune liver disease characterized by cholestasis caused by intrahepatic small bile duct injury. Promoting the molecular mechanism of OTU deubiquitinase 5 (OTUD5) in the treatment of PBC requires further exploration. This study unraveled the molecular underpinnings of PBC through bio-informatics analysis and experimental verification for the development of targeted therapeutic strategies. METHODS: This study screened immune-related genes and validated their expression patterns in whole blood of patients with PBC using microarray based on GEO datasets. The expression level of OTU deubiquitinase 5 (OTUD5) was validated in peripheral blood samples using RT-qPCR and immunofluorescence. Subsequently, proteomic bioinformatics analyse...</p>
+            </details>
+            <h4>Entities (8)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>OTUD5</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_OTUD5</td>
+            </tr>
+            <tr>
+                <td>MAVS</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_MAVS</td>
+            </tr>
+            <tr>
+                <td>primary biliary cholangitis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_primary_biliary_cholangitis</td>
+            </tr>
+            <tr>
+                <td>PBC</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_PBC</td>
+            </tr>
+            <tr>
+                <td>RAW264.7 cells</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_RAW264.7_cells</td>
+            </tr>
+            <tr>
+                <td>macrophage subset 11</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_macrophage_subset_11</td>
+            </tr>
+            <tr>
+                <td>mononuclear macrophages</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_mononuclear_macrophages</td>
+            </tr>
+            <tr>
+                <td>liver tissues</td>
+                <td>Tissue</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Tissue_liver_tissues</td>
+            </tr></table>
+            <h4>Relations (8)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#d4edda">
+                <td>OTUD5</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>primary biliary cholangitis</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">This study focused on the overexpression of OTUD5 and its interaction with MAVS within macrophage subset 11 in patients with primary biliary cholangitis (PBC)....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>MAVS</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>primary biliary cholangitis</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">The expression of OTUD5 and MAVS is increased in patients with PBC and is a potential target for the diagnosis and treatment of PBC....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Protein-&gt;Disease, uncertain_relation</td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>OTUD5</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>PBC</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">The expression of OTUD5 and MAVS is increased in patients with PBC and is a potential target for the diagnosis and treatment of PBC....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">uncertain_relation</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>MAVS</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>PBC</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">The expression of OTUD5 and MAVS is increased in patients with PBC and is a potential target for the diagnosis and treatment of PBC....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Protein-&gt;Disease, uncertain_relation</td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>OTUD5</td>
+                <td>EXPRESSED_IN</td>
+                <td>macrophage subset 11</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">This study focused on the overexpression of OTUD5 and its interaction with MAVS within macrophage subset 11 in patients with primary biliary cholangitis (PBC)....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>MAVS</td>
+                <td>EXPRESSED_IN</td>
+                <td>macrophage subset 11</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">This study focused on the overexpression of OTUD5 and its interaction with MAVS within macrophage subset 11 in patients with primary biliary cholangitis (PBC)....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Protein-&gt;CellType</td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>OTUD5</td>
+                <td>EXPRESSED_IN</td>
+                <td>mononuclear macrophages</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages was screened by PBMC scRNA-seq, and mononuclear cells with the subgroup 11 phenotype p...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>MAVS</td>
+                <td>EXPRESSED_IN</td>
+                <td>mononuclear macrophages</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages was screened by PBMC scRNA-seq, and mononuclear cells with the subgroup 11 phenotype p...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Protein-&gt;CellType</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 8, &quot;total_relations&quot;: 8, &quot;evidence_grounded&quot;: 8, &quot;schema_valid&quot;: 4, &quot;import_ready&quot;: 3, &quot;requires_review&quot;: 5, &quot;negated&quot;: 0, &quot;uncertain&quot;: 3, &quot;quality_flags&quot;: {&quot;schema_mismatch:Protein-&gt;Disease&quot;: 2, &quot;uncertain_relation&quot;: 3, &quot;schema_mismatch:Protein-&gt;CellType&quot;: 2}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#6 — PMID:41573193 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Comparison of the efficacy of antidiabetic agents in type 2 diabetes with MASLD: a network meta-analysis.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">OBJECTIVE: To evaluate and compare the efficacy of different antidiabetic agents in patients with metabolic dysfunction-associated steatotic liver disease (MASLD) and type 2 diabetes mellitus (T2DM). METHODS: We systematically searched PubMed, Embase, the Cochrane Library, and Web of Science for relevant randomized controlled trials up to April 20, 2025. Primary outcomes were alanine aminotransferase (ALT), aspartate aminotransferase (AST), and triglycerides. Secondary outcomes included HDL, LDL, fasting plasma glucose (FPG), body mass index (BMI), and glycated hemoglobin (HbA1c). All statistical analyses were performed using R version 4.5.0. RESULTS: A total of 21 randomized controlled trials were included, covering 15 antidiabetic agents and involving 1,717 participants. Ertugliflozin wa...</p>
+            </details>
+            <h4>Entities (8)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>type 2 diabetes mellitus</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_type_2_diabetes_mellitus</td>
+            </tr>
+            <tr>
+                <td>MASLD</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0400966</td>
+            </tr>
+            <tr>
+                <td>alanine aminotransferase</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_alanine_aminotransferase</td>
+            </tr>
+            <tr>
+                <td>aspartate aminotransferase</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_aspartate_aminotransferase</td>
+            </tr>
+            <tr>
+                <td>triglycerides</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_triglycerides</td>
+            </tr>
+            <tr>
+                <td>HDL</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_HDL</td>
+            </tr>
+            <tr>
+                <td>LDL</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_LDL</td>
+            </tr>
+            <tr>
+                <td>liver stiffness</td>
+                <td>Tissue</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Tissue_liver_stiffness</td>
+            </tr></table>
+            <h4>Relations (7)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#fff3cd">
+                <td>MASLD</td>
+                <td>PROGRESSES_TO</td>
+                <td>type 2 diabetes mellitus</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">To evaluate and compare the efficacy of different antidiabetic agents in patients with metabolic dysfunction-associated steatotic liver disease (MASLD) and type...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">not_importable_policy</td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>alanine aminotransferase</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>MASLD</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Primary outcomes were alanine aminotransferase (ALT), aspartate aminotransferase (AST), and triglycerides....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>aspartate aminotransferase</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>MASLD</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Primary outcomes were alanine aminotransferase (ALT), aspartate aminotransferase (AST), and triglycerides....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>triglycerides</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>MASLD</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Primary outcomes were alanine aminotransferase (ALT), aspartate aminotransferase (AST), and triglycerides....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>HDL</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>MASLD</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Secondary outcomes included HDL, LDL, fasting plasma glucose (FPG), body mass index (BMI), and glycated hemoglobin (HbA1c)....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>LDL</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>MASLD</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Secondary outcomes included HDL, LDL, fasting plasma glucose (FPG), body mass index (BMI), and glycated hemoglobin (HbA1c)....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>liver stiffness</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>MASLD</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Ertugliflozin also showed favorable effects on triglycerides, BMI, HDL, LDL, and liver stiffness....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Tissue-&gt;Disease</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 8, &quot;total_relations&quot;: 7, &quot;evidence_grounded&quot;: 7, &quot;schema_valid&quot;: 6, &quot;import_ready&quot;: 5, &quot;requires_review&quot;: 2, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;not_importable_policy&quot;: 1, &quot;schema_mismatch:Tissue-&gt;Disease&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#7 — PMID:41902413 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Peptide Angio-3 Attenuates Pulmonary Fibrosis Via Modulation of the Coagulation Factor Xa-Protease-Activated Receptor-1 Signaling Axis.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">Pulmonary fibrosis (PF) is a chronic, progressive, and often fatal interstitial lung disease characterized by interstitial remodeling, fibroblastic foci formation, and excessive extracellular matrix (ECM) deposition. Current therapeutic options remain limited and are associated with unfavorable prognoses. Growing evidence indicates that dysregulated coagulation and fibrinolytic pathways are intimately involved in its pathology, suggesting that modulating this axis may offer novel therapeutic opportunities. In this study, we characterize Angio-3, a plasminogen kringle 3-derived decapeptide, as a potential antifibrotic agent targeting the coagulation cascade. We aimed to investigate the therapeutic efficacy of Angio-3 and elucidate its underlying mechanism. Our results show that Angio-3 sign...</p>
+            </details>
+            <h4>Entities (5)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>Pulmonary fibrosis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0239946</td>
+            </tr>
+            <tr>
+                <td>Angio-3</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_Angio-3</td>
+            </tr>
+            <tr>
+                <td>protease-activated receptor-1</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_protease-activated_receptor-1</td>
+            </tr>
+            <tr>
+                <td>coagulation factor Xa</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_coagulation_factor_Xa</td>
+            </tr>
+            <tr>
+                <td>plasminogen kringle 3</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_plasminogen_kringle_3</td>
+            </tr></table>
+            <h4>Relations (3)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#d4edda">
+                <td>Angio-3</td>
+                <td>INTERACTS_WITH</td>
+                <td>protease-activated receptor-1</td>
+                <td>negative</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">functions as a protease-activated receptor-1 (PAR-1) antagonist that disrupts the coagulation factor Xa (FXa)-PAR-1 signaling axis...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>coagulation factor Xa</td>
+                <td>INTERACTS_WITH</td>
+                <td>protease-activated receptor-1</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">disrupts the coagulation factor Xa (FXa)-PAR-1 signaling axis...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>Angio-3</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>Pulmonary fibrosis</td>
+                <td>negative</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Angio-3 significantly alleviates PF by inhibiting fibroblast invasion and migration...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species, schema_mismatch:Protein-&gt;Disease</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 5, &quot;total_relations&quot;: 3, &quot;evidence_grounded&quot;: 3, &quot;schema_valid&quot;: 2, &quot;import_ready&quot;: 2, &quot;requires_review&quot;: 1, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;non_human_or_mixed_species&quot;: 1, &quot;schema_mismatch:Protein-&gt;Disease&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#8 — PMID:41581151 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Scar-associated endothelial-stellate cellular crosstalk drives fibrosis resolution in MASH.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">Fibrosis contributes to ∼40% of mortality in the industrialized world. Fibrosis in the liver can spontaneously resolve when injury terminates. In this study, we establish a robust mouse model of fibrosis regression in MASH (metabolic dysfunction-associated steatohepatitis), a highly prevalent chronic liver disease worldwide, and perform single-cell and in situ molecular profiling to define the molecular drivers of fibrosis regression. Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression. We further identify a subset of liver endothelial cells termed &quot;Endo4&quot; as the source of Wnt9b. Immunostaining for the Endo4 marker VWF using tissue clearing and 3D imaging reveals VWF...</p>
+            </details>
+            <h4>Entities (8)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>MASH</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C3241937</td>
+            </tr>
+            <tr>
+                <td>Wnt9b</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_Wnt9b</td>
+            </tr>
+            <tr>
+                <td>Sfrp2</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_Sfrp2</td>
+            </tr>
+            <tr>
+                <td>Endo4</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_Endo4</td>
+            </tr>
+            <tr>
+                <td>VWF</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_VWF</td>
+            </tr>
+            <tr>
+                <td>activated hepatic stellate cells</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_activated_hepatic_stellate_cells</td>
+            </tr>
+            <tr>
+                <td>liver endothelial cells</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_liver_endothelial_cells</td>
+            </tr>
+            <tr>
+                <td>fibrosis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0239946</td>
+            </tr></table>
+            <h4>Relations (5)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#fff3cd">
+                <td>Wnt9b</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>fibrosis</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fib...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>Sfrp2</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>fibrosis</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fib...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>Endo4</td>
+                <td>EXPRESSED_IN</td>
+                <td>Wnt9b</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">We further identify a subset of liver endothelial cells termed &quot;Endo4&quot; as the source of Wnt9b....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species, schema_mismatch:CellType-&gt;Gene</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>VWF</td>
+                <td>INTERACTS_WITH</td>
+                <td>activated hepatic stellate cells</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Immunostaining for the Endo4 marker VWF using tissue clearing and 3D imaging reveals VWF+ vasculature juxtaposing activated hepatic stellate cells that penetrat...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species, schema_mismatch:Protein-&gt;CellType</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>liver endothelial cells</td>
+                <td>EXPRESSED_IN</td>
+                <td>Wnt9b</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">We further identify a subset of liver endothelial cells termed &quot;Endo4&quot; as the source of Wnt9b....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species, schema_mismatch:CellType-&gt;Gene</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 8, &quot;total_relations&quot;: 5, &quot;evidence_grounded&quot;: 5, &quot;schema_valid&quot;: 2, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 5, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;non_human_or_mixed_species&quot;: 5, &quot;schema_mismatch:CellType-&gt;Gene&quot;: 2, &quot;schema_mismatch:Protein-&gt;CellType&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#9 — PMID:41475279 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Gut microbiota&#x27;s role in NAFLD- and HBV/HCV-related hepatocellular carcinoma: Mechanisms and therapeutic implications.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">Hepatocellular carcinoma (HCC) is one of the leading causes of cancer-related mortality globally and has been closely linked to chronic liver conditions, such as viral hepatitis and non-alcoholic fatty liver disease. Recent research has demonstrated that the gut microbiota significantly impacts the gut-liver axis, a crucial aspect of the pathophysiology of HCC. This review emphasizes the mechanisms by which gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation. In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances. In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence. Shared pathogenic pathways, such as LPS-TLR4 signaling, bil...</p>
+            </details>
+            <h4>Entities (9)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>Hepatocellular carcinoma</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C2239176</td>
+            </tr>
+            <tr>
+                <td>NAFLD</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0400966</td>
+            </tr>
+            <tr>
+                <td>HBV</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_HBV</td>
+            </tr>
+            <tr>
+                <td>HCV</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_HCV</td>
+            </tr>
+            <tr>
+                <td>gut microbiota</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_gut_microbiota</td>
+            </tr>
+            <tr>
+                <td>LPS-TLR4 signaling</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_LPS-TLR4_signaling</td>
+            </tr>
+            <tr>
+                <td>bile acid dysregulation</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_bile_acid_dysregulation</td>
+            </tr>
+            <tr>
+                <td>Short-chain fatty acids</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_Short-chain_fatty_acids</td>
+            </tr>
+            <tr>
+                <td>valeric acid</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_valeric_acid</td>
+            </tr></table>
+            <h4>Relations (8)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#fff3cd">
+                <td>gut microbiota</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>Hepatocellular carcinoma</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Recent research has demonstrated that the gut microbiota significantly impacts the gut-liver axis, a crucial aspect of the pathophysiology of HCC....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>gut microbiota</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>NAFLD</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>gut microbiota</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>HBV</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>gut microbiota</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>HCV</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>LPS-TLR4 signaling</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>Hepatocellular carcinoma</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Shared pathogenic pathways, such as LPS-TLR4 signaling, bile acid dysregulation, and immunosuppressive microenvironments, highlight the role of microbial imbala...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Pathway-&gt;Disease</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>bile acid dysregulation</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>Hepatocellular carcinoma</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Shared pathogenic pathways, such as LPS-TLR4 signaling, bile acid dysregulation, and immunosuppressive microenvironments, highlight the role of microbial imbala...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Pathway-&gt;Disease</td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>Short-chain fatty acids</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>Hepatocellular carcinoma</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects, while fecal microbiota transplan...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">uncertain_relation</td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>valeric acid</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>Hepatocellular carcinoma</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects, while fecal microbiota transplan...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">uncertain_relation</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 9, &quot;total_relations&quot;: 8, &quot;evidence_grounded&quot;: 8, &quot;schema_valid&quot;: 6, &quot;import_ready&quot;: 3, &quot;requires_review&quot;: 5, &quot;negated&quot;: 0, &quot;uncertain&quot;: 2, &quot;quality_flags&quot;: {&quot;non_human_or_mixed_species&quot;: 1, &quot;schema_mismatch:Pathway-&gt;Disease&quot;: 2, &quot;uncertain_relation&quot;: 2}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#10 — PMID:41719003 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> The relationship between acromegaly and hepatic steatosis: insights from FibroScan imaging.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">PURPOSE: The relationship between metabolic dysfunction-associated steatotic liver disease (MASLD) and acromegaly is unclear due to the complex metabolic effects of growth hormone (GH). GH stimulates gluconeogenesis, glycogenolysis, and lipolysis, increasing free fatty acids, a risk factor for MASLD, but may also protect against hepatic fat accumulation. In this study, we aimed to evaluate the impact of acromegaly and GH levels on liver steatosis and fibrosis using non-invasive FibroScan imaging. METHODS: This cross-sectional study included 58 patients with acromegaly, 61 age- and sex-matched metabolically comparable controls, and 82 healthy controls. Hepatic steatosis and fibrosis were assessed via controlled attenuation parameter (CAP) and liver stiffness measurement (LSM) by vibration-c...</p>
+            </details>
+            <h4>Entities (6)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>acromegaly</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_acromegaly</td>
+            </tr>
+            <tr>
+                <td>MASLD</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0400966</td>
+            </tr>
+            <tr>
+                <td>growth hormone</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_growth_hormone</td>
+            </tr>
+            <tr>
+                <td>GH</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_GH</td>
+            </tr>
+            <tr>
+                <td>hepatic steatosis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_hepatic_steatosis</td>
+            </tr>
+            <tr>
+                <td>liver fibrosis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0239946</td>
+            </tr></table>
+            <h4>Relations (5)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#f8d7da">
+                <td>acromegaly</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>MASLD</td>
+                <td>none</td>
+                <td>review</td>
+                <td style="font-size:0.85em">The relationship between metabolic dysfunction-associated steatotic liver disease (MASLD) and acromegaly is unclear due to the complex metabolic effects of grow...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Disease-&gt;Disease, uncertain_relation</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>GH</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>MASLD</td>
+                <td>negative</td>
+                <td>review</td>
+                <td style="font-size:0.85em">GH levels were lower in acromegaly patients with MASLD (p &lt; 0.001) compared to those without....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">negated_relation, schema_mismatch:Protein-&gt;Disease</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>GH</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatic steatosis</td>
+                <td>negative</td>
+                <td>review</td>
+                <td style="font-size:0.85em">GH was inversely associated with hepatic steatosis scores, possibly suggesting a protective role of GH independent of metabolic comorbidities....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Protein-&gt;Disease, uncertain_relation</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>acromegaly</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatic steatosis</td>
+                <td>negative</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Hepatic steatosis was less frequent in acromegaly than in metabolically comparable individuals...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Disease-&gt;Disease</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>acromegaly</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>liver fibrosis</td>
+                <td>none</td>
+                <td>review</td>
+                <td style="font-size:0.85em">significant liver fibrosis occurred in 5.2%, 7.3%, and 14.7%, respectively (p = 0.154)...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Disease-&gt;Disease, uncertain_relation</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 6, &quot;total_relations&quot;: 5, &quot;evidence_grounded&quot;: 5, &quot;schema_valid&quot;: 0, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 5, &quot;negated&quot;: 1, &quot;uncertain&quot;: 3, &quot;quality_flags&quot;: {&quot;schema_mismatch:Disease-&gt;Disease&quot;: 3, &quot;uncertain_relation&quot;: 3, &quot;negated_relation&quot;: 1, &quot;schema_mismatch:Protein-&gt;Disease&quot;: 2}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#11 — PMID:41832026 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Sodium hyaluronate based multifunctional hydrogels delivering SiRNA for sustained silencing of SMAD3: A novel strategy to treat intrauterine adhesions.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">Intrauterine adhesion (IUA) plays a significant role in female infertility, primarily due to endometrial fibrosis resulting from abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway. However, effectively preventing the high recurrence rate after IUA surgery remains a major challenge that needs to be addressed. To address this challenge, Herein, a novel in situ injectable QOHP@siRNA hydrogel is introduced for the prevention of IUA by silencing SMAD3. This hydrogel addresses the challenges of poor uptake, short half-life, and rapid degradation of siRNA in the treatment of IUA. Additionally, it has demonstrated strong antibacterial activity against gram-negative bacilli and gram-positive cocci, as well as favorable endometrial adhesion and Internal hemostatic properties. The i...</p>
+            </details>
+            <h4>Entities (5)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>SMAD3</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_SMAD3</td>
+            </tr>
+            <tr>
+                <td>intrauterine adhesion</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_intrauterine_adhesion</td>
+            </tr>
+            <tr>
+                <td>IUA</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_IUA</td>
+            </tr>
+            <tr>
+                <td>TGF-β/SMAD3 signaling pathway</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_TGF-β/SMAD3_signaling_pathway</td>
+            </tr>
+            <tr>
+                <td>endometrial</td>
+                <td>Tissue</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Tissue_endometrial</td>
+            </tr></table>
+            <h4>Relations (3)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#d4edda">
+                <td>SMAD3</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>intrauterine adhesion</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Intrauterine adhesion (IUA) plays a significant role in female infertility, primarily due to endometrial fibrosis resulting from abnormal activation of the endo...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>SMAD3</td>
+                <td>PARTICIPATES_IN</td>
+                <td>TGF-β/SMAD3 signaling pathway</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Intrauterine adhesion (IUA) plays a significant role in female infertility, primarily due to endometrial fibrosis resulting from abnormal activation of the endo...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>SMAD3</td>
+                <td>EXPRESSED_IN</td>
+                <td>endometrial</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Intrauterine adhesion (IUA) plays a significant role in female infertility, primarily due to endometrial fibrosis resulting from abnormal activation of the endo...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 5, &quot;total_relations&quot;: 3, &quot;evidence_grounded&quot;: 3, &quot;schema_valid&quot;: 3, &quot;import_ready&quot;: 3, &quot;requires_review&quot;: 0, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#12 — PMID:41354212 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Association of nitrogen dioxide with non-alcoholic fatty liver disease in Chinese rural older adults: The mediating role of fasting plasma glucose.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">BACKGROUND: Evidence for the association between nitrogen dioxide (NO2) exposure and non-alcoholic fatty liver disease (NAFLD) in older adults remains limited, and the underlying mechanisms are not well understood. This study aimed to investigate the relationship between long-term NO2 exposure and NAFLD and to assess the potential mediating role of fasting plasma glucose (FPG) in a Chinese elderly population. METHODS: We analyzed baseline data from 3662 participants in an ongoing longitudinal aging cohort. Annual average NO2 concentrations were estimated using a Space-Time Extra-Trees model incorporating satellite-based and land-use variables. NAFLD was diagnosed using standardized abdominal ultrasonography. Logistic regression and restricted cubic splines (RCS) were employed to evaluate t...</p>
+            </details>
+            <h4>Entities (3)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>non-alcoholic fatty liver disease</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0400966</td>
+            </tr>
+            <tr>
+                <td>fasting plasma glucose</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_fasting_plasma_glucose</td>
+            </tr>
+            <tr>
+                <td>NAFLD</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0400966</td>
+            </tr></table>
+            <h4>Relations (1)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#d4edda">
+                <td>fasting plasma glucose</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>non-alcoholic fatty liver disease</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Mediation analysis indicated that FPG accounted for 3.84 % (95 % CI: 0.28 %-11.19 %) of the total association between NO2 exposure and NAFLD....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 3, &quot;total_relations&quot;: 1, &quot;evidence_grounded&quot;: 1, &quot;schema_valid&quot;: 1, &quot;import_ready&quot;: 1, &quot;requires_review&quot;: 0, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#13 — PMID:41668355 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Effect of Nutritional Status on Coagulation and Inflammation in Patients With Cirrhosis and Variceal Bleeding.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">BACKGROUND Malnutrition is a serious concern in patients with liver cirrhosis that is complicated by acute variceal bleeding due to portal hypertension. The Controlling Nutritional Status (CONUT) score is a screening tool used to evaluate altered nutritional status and predict adverse outcomes in patient populations. This study aimed to assess nutritional status using the CONUT score in 151 patients with cirrhosis and esophageal-gastric variceal bleeding (EVB). MATERIAL AND METHODS Clinical data from 151 patients with cirrhotic EVB admitted between January 2023 and October 2024 were analyzed. Nutritional status was assessed using the CONUT score. General linear model analysis was used to explore associations between nutritional, coagulation, and inflammatory indices. RESULTS Based on CONUT...</p>
+            </details>
+            <h4>Entities (6)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>liver cirrhosis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0023890</td>
+            </tr>
+            <tr>
+                <td>esophageal-gastric variceal bleeding</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_esophageal-gastric_variceal_bleeding</td>
+            </tr>
+            <tr>
+                <td>interleukin-6</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_interleukin-6</td>
+            </tr>
+            <tr>
+                <td>malnutrition</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_malnutrition</td>
+            </tr>
+            <tr>
+                <td>coagulation dysfunction</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_coagulation_dysfunction</td>
+            </tr>
+            <tr>
+                <td>systemic inflammation</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_systemic_inflammation</td>
+            </tr></table>
+            <h4>Relations (5)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#f8d7da">
+                <td>interleukin-6</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>malnutrition</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition (al...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Protein-&gt;Disease</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>interleukin-6</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>coagulation dysfunction</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">CONUT scores were positively correlated with PT (rs=0.508, P&lt;0.05), INR (rs=0.515, P&lt;0.05), and IL-6 (rs=0.211, P&lt;0.05) and negatively correlated with PTA (rs=-...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Protein-&gt;Disease</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>interleukin-6</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>systemic inflammation</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Inflammatory markers, including interleukin-6 (IL-6), were also significantly elevated (P&lt;0.05)....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Protein-&gt;Disease</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>malnutrition</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>coagulation dysfunction</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Moderate-to-severe malnutrition is highly prevalent in patients with cirrhotic EVB and is independently associated with coagulation dysfunction and systemic inf...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species, schema_mismatch:Disease-&gt;Disease</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>malnutrition</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>systemic inflammation</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Moderate-to-severe malnutrition is highly prevalent in patients with cirrhotic EVB and is independently associated with coagulation dysfunction and systemic inf...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species, schema_mismatch:Disease-&gt;Disease</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 6, &quot;total_relations&quot;: 5, &quot;evidence_grounded&quot;: 5, &quot;schema_valid&quot;: 0, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 5, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;schema_mismatch:Protein-&gt;Disease&quot;: 3, &quot;non_human_or_mixed_species&quot;: 2, &quot;schema_mismatch:Disease-&gt;Disease&quot;: 2}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#14 — PMID:41683641 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pathway.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">Metabolic dysfunction-associated steatotic liver disease (MASLD) is the most common liver disease and is characterized by excessive lipid accumulation in hepatocytes. Endoplasmic reticulum (ER) stress and inflammation play important roles in hepatic lipid accumulation. Although CILP2 has been implicated in lipid metabolism, its role in MASLD remains unclear. Hepatic steatosis was induced in mice by a high-fat diet in this study. CILP2 was overexpressed in mouse livers and in vitro hepatocytes using the Ad-CILP2 adenovirus. CILP2 KO mice were also used in the experiments. Liver tissues and hepatocytes were collected for further analysis. CILP2 expression was upregulated in steatotic liver tissue and hepatocytes. CILP2 overexpression upregulated genes related to fatty acid synthesis (Srebp-1...</p>
+            </details>
+            <h4>Entities (13)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>CILP2</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_CILP2</td>
+            </tr>
+            <tr>
+                <td>MASLD</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0400966</td>
+            </tr>
+            <tr>
+                <td>IRE1α/XBP1 pathway</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_IRE1α/XBP1_pathway</td>
+            </tr>
+            <tr>
+                <td>Srebp-1c</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_Srebp-1c</td>
+            </tr>
+            <tr>
+                <td>Fasn</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_Fasn</td>
+            </tr>
+            <tr>
+                <td>Acc</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_Acc</td>
+            </tr>
+            <tr>
+                <td>Scd1</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_Scd1</td>
+            </tr>
+            <tr>
+                <td>Cd36</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_Cd36</td>
+            </tr>
+            <tr>
+                <td>Il6</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">HGNC:6018</td>
+            </tr>
+            <tr>
+                <td>Tnf</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_Tnf</td>
+            </tr>
+            <tr>
+                <td>Il1b</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_Il1b</td>
+            </tr>
+            <tr>
+                <td>4-PBA</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_4-PBA</td>
+            </tr>
+            <tr>
+                <td>STF-083010</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_STF-083010</td>
+            </tr></table>
+            <h4>Relations (4)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#fff3cd">
+                <td>CILP2</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>MASLD</td>
+                <td>increase</td>
+                <td>review</td>
+                <td style="font-size:0.85em">CILP2 expression was upregulated in steatotic liver tissue and hepatocytes....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>CILP2</td>
+                <td>PARTICIPATES_IN</td>
+                <td>IRE1α/XBP1 pathway</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway, thereby promoting lipid synthesis and inflammation...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>4-PBA</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>MASLD</td>
+                <td>negative</td>
+                <td>review</td>
+                <td style="font-size:0.85em">effects that were partially alleviated by 4-PBA and STF-083010 treatments....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>STF-083010</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>MASLD</td>
+                <td>negative</td>
+                <td>review</td>
+                <td style="font-size:0.85em">effects that were partially alleviated by 4-PBA and STF-083010 treatments....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 13, &quot;total_relations&quot;: 4, &quot;evidence_grounded&quot;: 4, &quot;schema_valid&quot;: 4, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 4, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;non_human_or_mixed_species&quot;: 4}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#15 — PMID:41948344 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">BACKGROUND: Liver fibrosis is one of the most common complications in patients with HBV infection. Characterized by excessive extracellular matrix deposition and hepatic stellate cell activation, it is tightly linked to the JAK-STAT pathway that regulates inflammatory and fibrogenic processes. METHODS: The GSE84044 dataset was retrieved from the GEO database. After grouping and preprocessing, DEGs were screened with the limma package and then subjected to functional enrichment analysis. WGCNA was performed to identify fibrosis-related module genes. Candidate key genes were obtained by intersecting these WGCNA module genes with the DEGs and JAK-STAT genes. A diagnostic model was constructed via machine learning algorithms to further filter core genes. Subsequently, GSEA, GSVA and immune inf...</p>
+            </details>
+            <h4>Entities (8)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>CCND1</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_CCND1</td>
+            </tr>
+            <tr>
+                <td>IL7R</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_IL7R</td>
+            </tr>
+            <tr>
+                <td>JAK-STAT pathway</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_JAK-STAT_pathway</td>
+            </tr>
+            <tr>
+                <td>HBV-related liver fibrosis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0239946</td>
+            </tr>
+            <tr>
+                <td>liver fibrosis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0239946</td>
+            </tr>
+            <tr>
+                <td>HBV infection</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_HBV_infection</td>
+            </tr>
+            <tr>
+                <td>M1 macrophages</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_M1_macrophages</td>
+            </tr>
+            <tr>
+                <td>T/NK cells</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_T/NK_cells</td>
+            </tr></table>
+            <h4>Relations (8)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#fff3cd">
+                <td>CCND1</td>
+                <td>PARTICIPATES_IN</td>
+                <td>JAK-STAT pathway</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway through integrated analyses....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>IL7R</td>
+                <td>PARTICIPATES_IN</td>
+                <td>JAK-STAT pathway</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway through integrated analyses....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>CCND1</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>HBV-related liver fibrosis</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis, with IL7R showing a significant causal role....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>IL7R</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>HBV-related liver fibrosis</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis, with IL7R showing a significant causal role....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>IL7R</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>liver fibrosis</td>
+                <td>increase</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">MR analysis confirmed a significant positive causal effect of IL7R on liver fibrosis....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>CCND1</td>
+                <td>EXPRESSED_IN</td>
+                <td>M1 macrophages</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">immune infiltration analysis revealed a close association with M1 macrophages and other immune cell subsets....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>IL7R</td>
+                <td>EXPRESSED_IN</td>
+                <td>T/NK cells</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells)....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>HBV infection</td>
+                <td>PROGRESSES_TO</td>
+                <td>liver fibrosis</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Liver fibrosis is one of the most common complications in patients with HBV infection....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">not_importable_policy</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 8, &quot;total_relations&quot;: 8, &quot;evidence_grounded&quot;: 8, &quot;schema_valid&quot;: 8, &quot;import_ready&quot;: 4, &quot;requires_review&quot;: 4, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;non_human_or_mixed_species&quot;: 3, &quot;not_importable_policy&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#16 — PMID:41969242 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Prophylactic Antibiotic Use and Clinical Outcomes in Patients With Child-Pugh A Cirrhosis and Acute Variceal Bleeding: A Retrospective Cohort Study.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">BACKGROUND &amp; AIMS: Prophylactic use of antibiotics was found to decrease mortality in patients with cirrhosis and acute variceal bleeding (AVB). Patients with Child A cirrhosis have a low risk of treatment failure and mortality. The present study was designed to investigate the association between antibiotics and Child-Pugh A patients with AVB. METHODS: This retrospective analysis was conducted on Child-Pugh class A cirrhotic patients presenting with AVB at West China Hospital between January 2016 and November 2022. The outcome indicators evaluated in this study include the rate of treatment failure within five days, mortality within 6 weeks, incidence of nosocomial infections, and 1-year cumulative mortality. RESULTS: This study ultimately enrolled 237 patients. The day of patients&#x27; admis...</p>
+            </details>
+            <h4>Entities (3)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>cirrhosis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0023890</td>
+            </tr>
+            <tr>
+                <td>acute variceal bleeding</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_acute_variceal_bleeding</td>
+            </tr>
+            <tr>
+                <td>nosocomial infections</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_nosocomial_infections</td>
+            </tr></table>
+            <h4>Relations (1)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#fff3cd">
+                <td>cirrhosis</td>
+                <td>PROGRESSES_TO</td>
+                <td>acute variceal bleeding</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Prophylactic use of antibiotics was found to decrease mortality in patients with cirrhosis and acute variceal bleeding (AVB)....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">not_importable_policy</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 3, &quot;total_relations&quot;: 1, &quot;evidence_grounded&quot;: 1, &quot;schema_valid&quot;: 1, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 1, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;not_importable_policy&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#17 — PMID:41884271 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> High Dihydromyricetin Loaded Biomimetic Nanoemulsion Ameliorated Early Nonalcoholic Fatty Liver Disease by Hepatic Ferroptosis Inhibition.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">INTRODUCTION: Nonalcoholic fatty liver disease (NAFLD) is a metabolic disorder characterized by lipid accumulation in the liver, and is often linked to ferroptosis, an iron-dependent programmed cell death driven by lipid peroxidation. Dihydromyricetin (DMY), a flavonoid from Ampelopsis grossedentata, exhibits anti-NAFLD efficiency but has low bioavailability. In this study, a high DMY-loaded biomimetic nanoemulsion (DMY-bNE) was developed using a double emulsification method with glyceryl monooleate. METHODS: DMY-bNE was characterized in vitro and in vivo including encapsulation efficiency (EE), drug-loading capacity (DLE), gastrointestinal (GI) absorption, biodistribution, pharmacokinetics, safety. High fat diet induced NAFLD mouse model was used to investigate the therapeutic effect and ...</p>
+            </details>
+            <h4>Entities (7)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>Nonalcoholic fatty liver disease</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_Nonalcoholic_fatty_liver_disease</td>
+            </tr>
+            <tr>
+                <td>NAFLD</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0400966</td>
+            </tr>
+            <tr>
+                <td>ferroptosis</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_ferroptosis</td>
+            </tr>
+            <tr>
+                <td>Dihydromyricetin</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_Dihydromyricetin</td>
+            </tr>
+            <tr>
+                <td>DMY</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_DMY</td>
+            </tr>
+            <tr>
+                <td>liver</td>
+                <td>Tissue</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Tissue_liver</td>
+            </tr>
+            <tr>
+                <td>DMY-bNE</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_DMY-bNE</td>
+            </tr></table>
+            <h4>Relations (4)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#f8d7da">
+                <td>NAFLD</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>ferroptosis</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Nonalcoholic fatty liver disease (NAFLD) is a metabolic disorder characterized by lipid accumulation in the liver, and is often linked to ferroptosis, an iron-d...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Disease-&gt;Pathway</td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>DMY</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>NAFLD</td>
+                <td>negative</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Dihydromyricetin (DMY), a flavonoid from Ampelopsis grossedentata, exhibits anti-NAFLD efficiency but has low bioavailability....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>DMY-bNE</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>NAFLD</td>
+                <td>negative</td>
+                <td>review</td>
+                <td style="font-size:0.85em">In NAFLD mice, DMY-bNE significantly ameliorated the disease progression by inhibiting hepatic ferroptosis....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>DMY-bNE</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>ferroptosis</td>
+                <td>negative</td>
+                <td>review</td>
+                <td style="font-size:0.85em">In NAFLD mice, DMY-bNE significantly ameliorated the disease progression by inhibiting hepatic ferroptosis....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species, schema_mismatch:Metabolite-&gt;Pathway</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 7, &quot;total_relations&quot;: 4, &quot;evidence_grounded&quot;: 4, &quot;schema_valid&quot;: 2, &quot;import_ready&quot;: 1, &quot;requires_review&quot;: 3, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;schema_mismatch:Disease-&gt;Pathway&quot;: 1, &quot;non_human_or_mixed_species&quot;: 2, &quot;schema_mismatch:Metabolite-&gt;Pathway&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#18 — PMID:41640520 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Prevalence and Correlates of Hepatitis B and C infections in Sickle cell anaemic (SCA) children compared to Controls in a Tertiary Hospital, Abakaliki, Southeast, Nigeria.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">BACKGROUND: Practices among sickle cell anaemic (SCA) children may increase their risk of infection with blood-borne viruses. The study aimed to determine the prevalence and correlates of hepatitis B virus (HBV) and hepatitis C virus (HCV) infections among children with SCA compared to controls. METHODS: A hospital-based cross-sectional study that involved 200 children with SCA and 200 non-SCA children (controls). Information was obtained using an interviewer-administered questionnaire. Screening for hepatitis B surface antigen (HBsAg) and anti-hepatitis C virus (anti-HCV) was done using Smartcare® rapid diagnostic tests (RDT) kits for HBV and HCV. Data was analyzed using the Statistical Package for Social Science (SPSS) version 22. P&lt;0.05 was considered statistically significant. RESULTS:...</p>
+            </details>
+            <h4>Entities (5)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>sickle cell anaemic</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_sickle_cell_anaemic</td>
+            </tr>
+            <tr>
+                <td>hepatitis B virus</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_hepatitis_B_virus</td>
+            </tr>
+            <tr>
+                <td>hepatitis C virus</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_hepatitis_C_virus</td>
+            </tr>
+            <tr>
+                <td>hepatitis B surface antigen</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_hepatitis_B_surface_antigen</td>
+            </tr>
+            <tr>
+                <td>anti-hepatitis C virus</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_anti-hepatitis_C_virus</td>
+            </tr></table>
+            <h4>Relations (1)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#f8d7da">
+                <td>sickle cell anaemic</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatitis C virus</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">A high prevalence rate of HCV infection was observed among children with SCA and was significantly associated with a modifiable variable....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species, schema_mismatch:Disease-&gt;Disease</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 5, &quot;total_relations&quot;: 1, &quot;evidence_grounded&quot;: 1, &quot;schema_valid&quot;: 0, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 1, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;non_human_or_mixed_species&quot;: 1, &quot;schema_mismatch:Disease-&gt;Disease&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#19 — PMID:41665498 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Quality of Gadoxetate-enhanced MRI versus US during Hepatocellular Carcinoma Screening in Participants with Cirrhosis.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">Background Hepatocellular carcinoma (HCC) surveillance typically involves US, although gadoxetate-enhanced MRI may improve sensitivity. Identifying factors impacting image quality is essential, but comparative data between US and MRI are lacking. Purpose To compare image quality and its determinants in gadoxetate-enhanced MRI versus US in participants with cirrhosis who are undergoing HCC screening in a prospective bicenter study. Materials and Methods In a secondary analysis of a prospective bicenter North American HCC screening study (September 2020 to May 2023), participants with cirrhosis underwent contemporaneous gadoxetate-enhanced MRI and liver US. Two independent observers evaluated MRI scans for dynamic phase motion, hepatobiliary phase liver uptake, and diffusion-weighted imaging...</p>
+            </details>
+            <h4>Entities (3)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>Hepatocellular carcinoma</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C2239176</td>
+            </tr>
+            <tr>
+                <td>cirrhosis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0023890</td>
+            </tr>
+            <tr>
+                <td>obesity</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_obesity</td>
+            </tr></table>
+            <h4>Relations (1)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#f8d7da">
+                <td>obesity</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>Hepatocellular carcinoma</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Obesity (body mass index ≥ 30, calculated as weight in kilograms divided by height in meters squared) reduced quality for both modalities (MRI univariable odds ...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">negated_relation, non_human_or_mixed_species, schema_mismatch:Disease-&gt;Disease, uncertain_relation</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 3, &quot;total_relations&quot;: 1, &quot;evidence_grounded&quot;: 1, &quot;schema_valid&quot;: 0, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 1, &quot;negated&quot;: 1, &quot;uncertain&quot;: 1, &quot;quality_flags&quot;: {&quot;negated_relation&quot;: 1, &quot;non_human_or_mixed_species&quot;: 1, &quot;schema_mismatch:Disease-&gt;Disease&quot;: 1, &quot;uncertain_relation&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#20 — PMID:41761962 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Impact of Spheroid Use for Identifying Hepatocellular Carcinoma Features: Involvement of Kinase-Mediated Molecular Pathways.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">Hepatocellular carcinoma (HCC) is a leading cause of cancer-related mortality worldwide, owing to its molecular complexity and limited therapeutic options. Three-dimensional (3D) in vitro models more accurately recapitulate in vivo conditions than traditional two-dimensional (2D) models, due to their ability to accurately reproduce the tumor microenvironment (TME). Among these models, HepG2 cell-derived spheroids have become an important tool for drug screening, toxicity assessment, and liver cancer research. This review highlights the advantages and limitations of currently available 3D culture systems. In particular, special attention is given to the multifaceted role of leucine-rich repeat kinase 2 (LRRK2), a gene traditionally associated with neurological disorders but increasingly imp...</p>
+            </details>
+            <h4>Entities (7)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>Hepatocellular carcinoma</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C2239176</td>
+            </tr>
+            <tr>
+                <td>HCC</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C2239176</td>
+            </tr>
+            <tr>
+                <td>HepG2</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_HepG2</td>
+            </tr>
+            <tr>
+                <td>leucine-rich repeat kinase 2</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_leucine-rich_repeat_kinase_2</td>
+            </tr>
+            <tr>
+                <td>LRRK2</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_LRRK2</td>
+            </tr>
+            <tr>
+                <td>oxidative stress</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_oxidative_stress</td>
+            </tr>
+            <tr>
+                <td>lipid metabolism</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_lipid_metabolism</td>
+            </tr></table>
+            <h4>Relations (3)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#d4edda">
+                <td>LRRK2</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>HCC</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">leucine-rich repeat kinase 2 (LRRK2), a gene traditionally associated with neurological disorders but increasingly implicated in cancer, a kinase, which emerges...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>LRRK2</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>oxidative stress</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">leucine-rich repeat kinase 2 (LRRK2), a gene traditionally associated with neurological disorders but increasingly implicated in cancer, a kinase, which emerges...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Gene-&gt;Pathway</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>LRRK2</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>lipid metabolism</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">leucine-rich repeat kinase 2 (LRRK2), a gene traditionally associated with neurological disorders but increasingly implicated in cancer, a kinase, which emerges...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Gene-&gt;Pathway</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 7, &quot;total_relations&quot;: 3, &quot;evidence_grounded&quot;: 3, &quot;schema_valid&quot;: 1, &quot;import_ready&quot;: 1, &quot;requires_review&quot;: 2, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;schema_mismatch:Gene-&gt;Pathway&quot;: 2}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#21 — PMID:41977422 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Risk Assessment and Prediction of Hepatocellular Carcinoma in Noncirrhotic Metabolic Dysfunction-Associated Steatotic Liver Disease.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">Metabolic dysfunction-associated steatotic liver disease (MASLD) has emerged as a leading driver of hepatocellular carcinoma (HCC) worldwide. A substantial proportion of MASLD-related HCC arises in the noncirrhotic liver, highlighting critical gaps in current surveillance strategies that rely primarily on fibrosis stage to define risk. Although the annual incidence of HCC in noncirrhotic MASLD is low and does not justify universal surveillance, the extraordinary global prevalence of MASLD translates into a considerable absolute burden of cancer. Accumulating evidence demonstrates that HCC risk in MASLD is modulated not only by histologic severity but also by metabolic comorbidities, particularly type 2 diabetes mellitus, which can significantly amplify cancer risk even in pre-cirrhotic sta...</p>
+            </details>
+            <h4>Entities (4)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>hepatocellular carcinoma</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C2239176</td>
+            </tr>
+            <tr>
+                <td>Metabolic dysfunction-associated steatotic liver disease</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0400966</td>
+            </tr>
+            <tr>
+                <td>MASLD</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0400966</td>
+            </tr>
+            <tr>
+                <td>type 2 diabetes mellitus</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_type_2_diabetes_mellitus</td>
+            </tr></table>
+            <h4>Relations (2)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#fff3cd">
+                <td>MASLD</td>
+                <td>PROGRESSES_TO</td>
+                <td>hepatocellular carcinoma</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Metabolic dysfunction-associated steatotic liver disease (MASLD) has emerged as a leading driver of hepatocellular carcinoma (HCC) worldwide....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">not_importable_policy</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>type 2 diabetes mellitus</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatocellular carcinoma</td>
+                <td>increase</td>
+                <td>review</td>
+                <td style="font-size:0.85em">metabolic comorbidities, particularly type 2 diabetes mellitus, which can significantly amplify cancer risk even in pre-cirrhotic stages...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Disease-&gt;Disease</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 4, &quot;total_relations&quot;: 2, &quot;evidence_grounded&quot;: 2, &quot;schema_valid&quot;: 1, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 2, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;not_importable_policy&quot;: 1, &quot;schema_mismatch:Disease-&gt;Disease&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#22 — PMID:41800244 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> New Insights into the Role of NF-κB in Hepatitis B Virus Infection.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">The nuclear factor kappaB (NF-κB) is a critical regulator in immune development, responses, and tumorigenesis. A range of signals can stimulate its activation by interacting with the inhibitor of κB (IκB) and IκB kinase (IKK) through the canonical pathway or non-canonical pathway. Activation of NF-κB results in this transcriptional factor binding with specific κB sites of different target genes. The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection. HBV proteins have been shown to interact with different members of the NF-κB system, either enhancing or suppressing its activity. Here, we summarize current understanding on the interaction between HBV proteins and the NF-κB pathway, along with its association with liver diseases...</p>
+            </details>
+            <h4>Entities (9)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>NF-κB</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_NF-κB</td>
+            </tr>
+            <tr>
+                <td>IκB</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_IκB</td>
+            </tr>
+            <tr>
+                <td>IKK</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_IKK</td>
+            </tr>
+            <tr>
+                <td>canonical pathway</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_canonical_pathway</td>
+            </tr>
+            <tr>
+                <td>non-canonical pathway</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_non-canonical_pathway</td>
+            </tr>
+            <tr>
+                <td>NF-κB signaling pathway</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_NF-κB_signaling_pathway</td>
+            </tr>
+            <tr>
+                <td>hepatitis B virus</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_hepatitis_B_virus</td>
+            </tr>
+            <tr>
+                <td>HBV</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_HBV</td>
+            </tr>
+            <tr>
+                <td>liver diseases</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_liver_diseases</td>
+            </tr></table>
+            <h4>Relations (3)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#f8d7da">
+                <td>NF-κB signaling pathway</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatitis B virus</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Pathway-&gt;Disease</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>NF-κB signaling pathway</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>liver diseases</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Pathway-&gt;Disease</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>HBV</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>NF-κB signaling pathway</td>
+                <td>unknown</td>
+                <td>review</td>
+                <td style="font-size:0.85em">HBV proteins have been shown to interact with different members of the NF-κB system, either enhancing or suppressing its activity....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Disease-&gt;Pathway</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 9, &quot;total_relations&quot;: 3, &quot;evidence_grounded&quot;: 3, &quot;schema_valid&quot;: 0, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 3, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;schema_mismatch:Pathway-&gt;Disease&quot;: 2, &quot;schema_mismatch:Disease-&gt;Pathway&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#23 — PMID:41869905 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Meta-Analysis: PPAR Agonists for Pruritus and Quality of Life in Primary Biliary Cholangitis.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">BACKGROUND AND AIMS: Pruritus is a frequent and debilitating symptom in primary biliary cholangitis (PBC), substantially impairing sleep, mood and quality of life. Peroxisome proliferator-activated receptor (PPAR) agonists are promising second-line therapies for patients with an inadequate response to ursodeoxycholic acid (UDCA). We conducted a systematic review and meta-analysis to evaluate the efficacy of PPAR agonists on pruritus and health-related quality of life (HRQoL) in PBC. METHODS: We systematically searched for randomised placebo-controlled trials (RCTs) of PPAR agonists in PBC through December 2025. Eligible studies reported validated pruritus or HRQoL outcomes. Main outcomes were NRS and PBC-40 total score. Pooled estimates were calculated using random-effects models and expre...</p>
+            </details>
+            <h4>Entities (5)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>primary biliary cholangitis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_primary_biliary_cholangitis</td>
+            </tr>
+            <tr>
+                <td>pruritus</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_pruritus</td>
+            </tr>
+            <tr>
+                <td>PPAR</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_PPAR</td>
+            </tr>
+            <tr>
+                <td>bezafibrate</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_bezafibrate</td>
+            </tr>
+            <tr>
+                <td>seladelpar</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_seladelpar</td>
+            </tr></table>
+            <h4>Relations (4)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#f8d7da">
+                <td>PPAR</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>pruritus</td>
+                <td>decrease</td>
+                <td>review</td>
+                <td style="font-size:0.85em">PPAR agonists significantly reduced NRS scores at 3 months (MD, -1.39; 95% CI: -2.49 to -0.29), 6 months (MD, -1.17; 95% CI: -1.96 to -0.38) and 12 months (MD, ...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species, schema_mismatch:Protein-&gt;Disease</td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>bezafibrate</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>pruritus</td>
+                <td>decrease</td>
+                <td>review</td>
+                <td style="font-size:0.85em">PPAR agonists, notably bezafibrate and seladelpar, reduce pruritus severity in PBC patients with moderate-to-severe symptoms and consistently improve itch-speci...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>seladelpar</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>pruritus</td>
+                <td>decrease</td>
+                <td>review</td>
+                <td style="font-size:0.85em">PPAR agonists, notably bezafibrate and seladelpar, reduce pruritus severity in PBC patients with moderate-to-severe symptoms and consistently improve itch-speci...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>PPAR</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>primary biliary cholangitis</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Peroxisome proliferator-activated receptor (PPAR) agonists are promising second-line therapies for patients with an inadequate response to ursodeoxycholic acid ...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species, schema_mismatch:Protein-&gt;Disease, uncertain_relation</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 5, &quot;total_relations&quot;: 4, &quot;evidence_grounded&quot;: 4, &quot;schema_valid&quot;: 2, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 4, &quot;negated&quot;: 0, &quot;uncertain&quot;: 1, &quot;quality_flags&quot;: {&quot;non_human_or_mixed_species&quot;: 4, &quot;schema_mismatch:Protein-&gt;Disease&quot;: 2, &quot;uncertain_relation&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#24 — PMID:41940593 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Functional Role of COP1 Gene in Hepatocellular Carcinoma Lipid Metabolism and Stemness.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">We have previously defined the constitutive photomorphogenic protein 1 (COP1) gene as a therapeutic target in hepatocellular carcinoma (HCC). A recent study demonstrated that COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes and that reducing COP1 expression significantly improves high-fat diet-induced hepatic steatosis. Thus, in this study, we investigated if the function of COP1 was associated with HCC metabolism and evolution. Silencing of COP1 expression by a target siRNA significantly suppressed long-term colony formation in Huh7, HepG2, Huh1, and PLC/PRF/5 HCC cell lines. RNA sequencing of COP1-silenced Huh7 and HepG2 cells revealed the same directional regulation of 24 (14 up- and 10 down-regulated) genes. Notable molecular alterations...</p>
+            </details>
+            <h4>Entities (8)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>COP1</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_COP1</td>
+            </tr>
+            <tr>
+                <td>hepatocellular carcinoma</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C2239176</td>
+            </tr>
+            <tr>
+                <td>non-alcoholic fatty liver disease</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0400966</td>
+            </tr>
+            <tr>
+                <td>AKR1D1</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_AKR1D1</td>
+            </tr>
+            <tr>
+                <td>TMEM65</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_TMEM65</td>
+            </tr>
+            <tr>
+                <td>CD133+ liver cancer stem cells</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_CD133+_liver_cancer_stem_cells</td>
+            </tr>
+            <tr>
+                <td>Huh7</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_Huh7</td>
+            </tr>
+            <tr>
+                <td>HepG2</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_HepG2</td>
+            </tr></table>
+            <h4>Relations (4)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#d4edda">
+                <td>COP1</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatocellular carcinoma</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">We have previously defined the constitutive photomorphogenic protein 1 (COP1) gene as a therapeutic target in hepatocellular carcinoma (HCC)....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#fff3cd">
+                <td>COP1</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>non-alcoholic fatty liver disease</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">A recent study demonstrated that COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>COP1</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>AKR1D1</td>
+                <td>negative</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Correlation analysis using GEPIA2 supported inverse relationship between COP1 and AKR1D1 expression...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Gene-&gt;Gene</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>COP1</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>TMEM65</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Correlation analysis using GEPIA2 supported ... positive relationship between COP1 and TMEM65 expression in HCC clinical samples....</td>
+                <td>no</td>
+                <td style="font-size:0.8em">schema_mismatch:Gene-&gt;Gene, ungrounded_evidence</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 8, &quot;total_relations&quot;: 4, &quot;evidence_grounded&quot;: 3, &quot;schema_valid&quot;: 2, &quot;import_ready&quot;: 1, &quot;requires_review&quot;: 3, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;non_human_or_mixed_species&quot;: 1, &quot;schema_mismatch:Gene-&gt;Gene&quot;: 2, &quot;ungrounded_evidence&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#25 — PMID:41731414 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Vaccine-preventable viral hepatitis in men living with HIV/AIDS - immunity and associated factors.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">BACKGROUND: People living with HIV/AIDS (PLWHA) have a higher risk of morbidity and mortality from acquiring infectious diseases, including those preventable by vaccination, such as hepatitis A and B. This study aimed to analyze the immunity of men living with HIV to hepatitis A and B, with emphasis on those in the MSM category, to identify the factors associated with this immunity. METHODS: This is a retrospective, analytical, observational study of cases of men living with HIV, as reported in the Notifiable Diseases Information System of the municipality of Ribeirão Preto, São Paulo, Brazil, between 2015 and 2020. Data were collected from different information systems in 2021 and 2022 using a REDCap platform form. Sociodemographic, clinical and vaccine-related data were collected. Descri...</p>
+            </details>
+            <h4>Entities (3)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>HIV/AIDS</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_HIV/AIDS</td>
+            </tr>
+            <tr>
+                <td>hepatitis A</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_hepatitis_A</td>
+            </tr>
+            <tr>
+                <td>hepatitis B</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_hepatitis_B</td>
+            </tr></table>
+            <h4>Relations (2)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#f8d7da">
+                <td>HIV/AIDS</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatitis A</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">People living with HIV/AIDS (PLWHA) have a higher risk of morbidity and mortality from acquiring infectious diseases, including those preventable by vaccination...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Disease-&gt;Disease</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>HIV/AIDS</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatitis B</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">People living with HIV/AIDS (PLWHA) have a higher risk of morbidity and mortality from acquiring infectious diseases, including those preventable by vaccination...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Disease-&gt;Disease</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 3, &quot;total_relations&quot;: 2, &quot;evidence_grounded&quot;: 2, &quot;schema_valid&quot;: 0, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 2, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;schema_mismatch:Disease-&gt;Disease&quot;: 2}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#26 — PMID:41953961 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Cost-Effectiveness of De Novo Combination of Tenofovir Alafenamide Fumarate and Peginterferon Alfa-2b Versus Peginterferon Alfa-2b Monotherapy of HBeAg-Positive Chronic Hepatitis B in China.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">Chronic hepatitis B (CHB) refers to a global infectious disease caused by the hepatitis B virus. The treatment of CHB causes a heavy economic burden to society. To ensure the rational allocation of medical resources in the whole society and achieve the goal of patients&#x27; satisfaction and economy, this study aimed to evaluate the economics of de novo combination of tenofovir alafenamide fumarate (TAF) as the first-line nucleos(t)ide analogues (NAs) and peginterferon alfa-2b (PEG-IFNα-2b) versus PEG-IFNα-2b monotherapy of HBeAg-positive CHB in China. The Markov model was used to simulate the transition of HBeAg-positive CHB patients aged 30 in China under various health states using TreeAge Pro 2011 software. The cycle length was 1 year, and the cycle period of the model was 50 years. The mod...</p>
+            </details>
+            <h4>Entities (4)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>chronic hepatitis B</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_chronic_hepatitis_B</td>
+            </tr>
+            <tr>
+                <td>HBeAg-positive chronic hepatitis B</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_HBeAg-positive_chronic_hepatitis_B</td>
+            </tr>
+            <tr>
+                <td>tenofovir alafenamide fumarate</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_tenofovir_alafenamide_fumarate</td>
+            </tr>
+            <tr>
+                <td>peginterferon alfa-2b</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_peginterferon_alfa-2b</td>
+            </tr></table>
+            <h4>Relations (2)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#fff3cd">
+                <td>tenofovir alafenamide fumarate</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>HBeAg-positive chronic hepatitis B</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">De novo combination of TAF and PEG-IFNα-2b and PEG-IFNα-2b monotherapy resulted in 11.16 and 10.81 QALYs, with total costs of $55559.72 and $57670.23, respectiv...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>peginterferon alfa-2b</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>HBeAg-positive chronic hepatitis B</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">De novo combination of TAF and PEG-IFNα-2b and PEG-IFNα-2b monotherapy resulted in 11.16 and 10.81 QALYs, with total costs of $55559.72 and $57670.23, respectiv...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species, schema_mismatch:Protein-&gt;Disease</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 4, &quot;total_relations&quot;: 2, &quot;evidence_grounded&quot;: 2, &quot;schema_valid&quot;: 1, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 2, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;non_human_or_mixed_species&quot;: 2, &quot;schema_mismatch:Protein-&gt;Disease&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#27 — PMID:41795165 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Precision-Cut Bladder Slices: A Novel Model for the Study of Bladder Fibrosis and Potential Anti-Fibrotic Agents.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">OBJECTIVES: Precision-cut tissue slice culture is an innovative ex vivo approach for studying fibrosis pathogenesis. Here, we report for the first time the use of human precision-cut bladder slices (PCBS) to investigate fibrotic changes and evaluate anti-fibrotic compounds. METHODS: Fresh bladder tissue was obtained from 16 patients undergoing surgery for non-fibrotic conditions and 7 patients with documented bladder fibrosis. PCBS were cultured and stimulated with transforming growth factor β (TGF-β) to induce fibrotic changes. Viability was assessed by ATP quantification. The anti-fibrotic efficacy of pirfenidone (PFD), relaxin-2 (RLN), bone morphogenetic protein 7 (BMP-7), imatinib (IMA), and galunisertib (GAL) was evaluated. Fibrosis was quantified using qPCR analysis of collagen 1 (CO...</p>
+            </details>
+            <h4>Entities (11)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>bladder fibrosis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0239946</td>
+            </tr>
+            <tr>
+                <td>transforming growth factor β</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_transforming_growth_factor_β</td>
+            </tr>
+            <tr>
+                <td>pirfenidone</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_pirfenidone</td>
+            </tr>
+            <tr>
+                <td>relaxin-2</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_relaxin-2</td>
+            </tr>
+            <tr>
+                <td>bone morphogenetic protein 7</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_bone_morphogenetic_protein_7</td>
+            </tr>
+            <tr>
+                <td>imatinib</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_imatinib</td>
+            </tr>
+            <tr>
+                <td>galunisertib</td>
+                <td>Metabolite</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Metabolite_galunisertib</td>
+            </tr>
+            <tr>
+                <td>COL1A1</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_COL1A1</td>
+            </tr>
+            <tr>
+                <td>FN1</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_FN1</td>
+            </tr>
+            <tr>
+                <td>CCN2</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_CCN2</td>
+            </tr>
+            <tr>
+                <td>bladder</td>
+                <td>Tissue</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Tissue_bladder</td>
+            </tr></table>
+            <h4>Relations (8)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#d4edda">
+                <td>COL1A1</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>bladder fibrosis</td>
+                <td>increase</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">PCBS derived from fibrotic bladders exhibited elevated COL1A1 expression compared to non-fibrotic tissue...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>CCN2</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>bladder fibrosis</td>
+                <td>increase</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">PFD treatment notably reduced CCN2 expression in fibrotic PCBS....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>transforming growth factor β</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>bladder fibrosis</td>
+                <td>increase</td>
+                <td>review</td>
+                <td style="font-size:0.85em">TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Protein-&gt;Disease</td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>pirfenidone</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>bladder fibrosis</td>
+                <td>decrease</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Treatment with PFD, IMA, and GAL effectively attenuated TGF-β-induced upregulation of fibrosis markers....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>imatinib</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>bladder fibrosis</td>
+                <td>decrease</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Treatment with PFD, IMA, and GAL effectively attenuated TGF-β-induced upregulation of fibrosis markers....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>galunisertib</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>bladder fibrosis</td>
+                <td>decrease</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Treatment with PFD, IMA, and GAL effectively attenuated TGF-β-induced upregulation of fibrosis markers....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>COL1A1</td>
+                <td>EXPRESSED_IN</td>
+                <td>bladder</td>
+                <td>increase</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">PCBS derived from fibrotic bladders exhibited elevated COL1A1 expression compared to non-fibrotic tissue...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>CCN2</td>
+                <td>EXPRESSED_IN</td>
+                <td>bladder</td>
+                <td>increase</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">PFD treatment notably reduced CCN2 expression in fibrotic PCBS....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 11, &quot;total_relations&quot;: 8, &quot;evidence_grounded&quot;: 8, &quot;schema_valid&quot;: 7, &quot;import_ready&quot;: 7, &quot;requires_review&quot;: 1, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;schema_mismatch:Protein-&gt;Disease&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#28 — PMID:42014525 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Establishment and characterization of a novel HBV-integrated hepatic sarcomatoid carcinoma cell line.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">Hepatic sarcomatoid carcinoma (HSC) is a rare and highly aggressive liver malignancy with an extremely poor prognosis. The lack of well-validated cellular models has severely limited mechanistic and translational research on this disease. In this study, we established and comprehensively characterized a novel HSC cell line, designated PUMC-LICA3. This cell line was derived from surgically resected tumor tissue of a 58-year-old male patient and has been continuously cultured for more than 40 passages, with a population doubling time of 51.77 h and an epithelial-like morphology. Long-read sequencing identified HBV DNA integration at chromosome 17p11.2 without detectable covalently closed circular DNA (cccDNA) or viral antigen expression, indicating a non-replicative viral status. PUMC-LICA3 ...</p>
+            </details>
+            <h4>Entities (9)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>hepatic sarcomatoid carcinoma</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_hepatic_sarcomatoid_carcinoma</td>
+            </tr>
+            <tr>
+                <td>HBV</td>
+                <td>Gene</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Gene_HBV</td>
+            </tr>
+            <tr>
+                <td>epithelial-mesenchymal transition</td>
+                <td>Pathway</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Pathway_epithelial-mesenchymal_transition</td>
+            </tr>
+            <tr>
+                <td>hepatocellular carcinoma</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C2239176</td>
+            </tr>
+            <tr>
+                <td>CK</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_CK</td>
+            </tr>
+            <tr>
+                <td>CK19</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_CK19</td>
+            </tr>
+            <tr>
+                <td>vimentin</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_vimentin</td>
+            </tr>
+            <tr>
+                <td>E-cadherin</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_E-cadherin</td>
+            </tr>
+            <tr>
+                <td>N-cadherin</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_N-cadherin</td>
+            </tr></table>
+            <h4>Relations (5)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#fff3cd">
+                <td>HBV</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatic sarcomatoid carcinoma</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Long-read sequencing identified HBV DNA integration at chromosome 17p11.2 without detectable covalently closed circular DNA (cccDNA) or viral antigen expression...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">negated_relation, non_human_or_mixed_species</td>
+            </tr>
+            <tr style="background:#f8d7da">
+                <td>epithelial-mesenchymal transition</td>
+                <td>ASSOCIATED_WITH</td>
+                <td>hepatic sarcomatoid carcinoma</td>
+                <td>positive</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Notably, PUMC-LICA3 exhibited a high epithelial-mesenchymal transition (EMT) score and, among 22 hepatocellular carcinoma (HCC), clustered most closely with JHH...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">schema_mismatch:Pathway-&gt;Disease</td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>CK</td>
+                <td>INTERACTS_WITH</td>
+                <td>vimentin</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Xenograft tumors displayed immunohistochemical features consistent with sarcomatoid carcinoma, characterized by the co-expression of epithelial markers (CK and ...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>CK19</td>
+                <td>INTERACTS_WITH</td>
+                <td>vimentin</td>
+                <td>positive</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">Xenograft tumors displayed immunohistochemical features consistent with sarcomatoid carcinoma, characterized by the co-expression of epithelial markers (CK and ...</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr>
+            <tr style="background:#d4edda">
+                <td>E-cadherin</td>
+                <td>INTERACTS_WITH</td>
+                <td>N-cadherin</td>
+                <td>negative</td>
+                <td>yes</td>
+                <td style="font-size:0.85em">E-cadherin expression was patchy, with partial loss in subsets of tumor cells, whereas N-cadherin was diffusely expressed....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em"></td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 9, &quot;total_relations&quot;: 5, &quot;evidence_grounded&quot;: 5, &quot;schema_valid&quot;: 4, &quot;import_ready&quot;: 3, &quot;requires_review&quot;: 2, &quot;negated&quot;: 1, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;negated_relation&quot;: 1, &quot;non_human_or_mixed_species&quot;: 1, &quot;schema_mismatch:Pathway-&gt;Disease&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#29 — PMID:41849868 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Grayscale-inverted bright-blood late gadolinium enhancement improves reader confidence in ischemic scar detection: a multivendor study.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">OBJECTIVE: Bright-blood late gadolinium enhancement (LGE) cardiovascular magnetic resonance (CMR) is standard for myocardial scar detection, yet subendocardial infarcts may be difficult to identify due to limited scar-blood contrast. Grayscale inversion is a simple, vendor-independent post-processing technique that may enhance visual contrast. We assessed whether grayscale inversion improves diagnostic accuracy or reader confidence, and whether its effect varies by reader experience or scanner vendor. METHOD: In this single-center, multivendor study, 120 patients (90 with and 30 without ischemic scar) underwent 2D bright-blood LGE on GE, Philips, and Siemens 1.5 T scanners. Three short-axis slices per patient were evaluated in standard bright-blood and grayscale-inverted visualizations by ...</p>
+            </details>
+            <h4>Entities (3)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>ischemic scar</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_ischemic_scar</td>
+            </tr>
+            <tr>
+                <td>myocardial scar</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_myocardial_scar</td>
+            </tr>
+            <tr>
+                <td>subendocardial infarcts</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_subendocardial_infarcts</td>
+            </tr></table>
+            <h4>Relations (0)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 3, &quot;total_relations&quot;: 0, &quot;evidence_grounded&quot;: 0, &quot;schema_valid&quot;: 0, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 0, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+        <div class="record">
+            <h3>#30 — PMID:41961385 | Class: literature_abstract</h3>
+            <p><strong>Title:</strong> Inflammatory and resolution stages of hepatic injury: imaging with USPIO-enhanced MRI in mice.</p>
+            <details>
+                <summary>Abstract (click to expand)</summary>
+                <p class="abstract">OBJECTIVE: Liver injury includes inflammation and resolution stages with different macrophage populations. Hepatic macrophages can be imaged with ultrasmall paramagnetic iron oxide (USPIO) nanoparticles-enhanced magnetic resonance imaging (MRI). We aimed to assess if inflammation and resolution stages of liver injury could be differentiated with USPIO-enhanced MRI in mice. MATERIALS AND METHODS: Three groups of C57BL/6JRj mice (control, inflammation, resolution; n = 10 for each group) were imaged. Liver fibrosis was induced by intraperitoneal carbon tetrachloride injections for 6 weeks. Multigradient-echo MRI was performed before, 24, and 48 h after intravenous injection of fluorescent USPIO. Contrast uptake was quantified with △ R 2 *   measurements. Macrophages were immunostained with F4...</p>
+            </details>
+            <h4>Entities (4)</h4>
+            <table><tr><th>Mention</th><th>Type</th><th>Normalized ID</th></tr>
+            <tr>
+                <td>hepatic injury</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Disease_hepatic_injury</td>
+            </tr>
+            <tr>
+                <td>macrophages</td>
+                <td>CellType</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:CellType_macrophages</td>
+            </tr>
+            <tr>
+                <td>liver fibrosis</td>
+                <td>Disease</td>
+                <td style="font-family:monospace;font-size:0.8em">UMLS:C0239946</td>
+            </tr>
+            <tr>
+                <td>F4/80</td>
+                <td>Protein</td>
+                <td style="font-family:monospace;font-size:0.8em">MENTION:Protein_F4/80</td>
+            </tr></table>
+            <h4>Relations (1)</h4>
+            <table><tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Direction</th><th>Import</th><th>Evidence</th><th>Grounded</th><th>Flags</th></tr>
+            <tr style="background:#fff3cd">
+                <td>hepatic injury</td>
+                <td>PROGRESSES_TO</td>
+                <td>liver fibrosis</td>
+                <td>none</td>
+                <td>review</td>
+                <td style="font-size:0.85em">Liver injury includes inflammation and resolution stages with different macrophage populations....</td>
+                <td>yes</td>
+                <td style="font-size:0.8em">non_human_or_mixed_species, not_importable_policy</td>
+            </tr></table>
+            <p><small>Validation: {&quot;total_entities&quot;: 4, &quot;total_relations&quot;: 1, &quot;evidence_grounded&quot;: 1, &quot;schema_valid&quot;: 1, &quot;import_ready&quot;: 0, &quot;requires_review&quot;: 1, &quot;negated&quot;: 0, &quot;uncertain&quot;: 0, &quot;quality_flags&quot;: {&quot;non_human_or_mixed_species&quot;: 1, &quot;not_importable_policy&quot;: 1}}</small></p>
+            <p><small>Neo4j write: {&quot;status&quot;: &quot;skipped&quot;, &quot;reason&quot;: &quot;--skip-neo4j flag&quot;}</small></p>
+        </div><hr>
+</body>
+</html>

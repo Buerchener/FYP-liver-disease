@@ -28,6 +28,7 @@ NAFLD -> NASH -> Fibrosis -> Cirrhosis -> HCC
 | Reactome | 获取 Gene 参与的 pathway |
 | HPA | 获取 liver tissue expression、LIHC prognosis 和泛组织 single-cell type expression |
 | HMDB | 获取保守筛选后的疾病相关 metabolite context |
+| PubMed | 使用 LLM baseline 与闭环 cognitive agent 从文献 abstract 中抽取候选 KG 关系 |
 
 ## 当前图谱规模
 
@@ -55,6 +56,7 @@ NAFLD -> NASH -> Fibrosis -> Cirrhosis -> HCC
 ├── review/              # 精简后的当前结论和 schema
 ├── data/                # v2 导入用 TSV/JSON 数据
 ├── scripts/             # 抓取、整理和 Neo4j 导入脚本
+├── pubmed_literature_extraction/  # Shaopeng Chen 负责的 PubMed 文献抽取模块
 ├── archive/             # 旧报告、机器审计、字段裁剪前备份
 └── MANIFEST.txt         # 当前文件清单
 ```
@@ -66,6 +68,12 @@ NAFLD -> NASH -> Fibrosis -> Cirrhosis -> HCC
 3. `review/02_backbone_scope_audit.md`
 4. `review/03_entity_attribute_schema.md`
 5. `review/04_caveats_and_next_cleanup.md`
+
+PubMed 文献抽取部分先看：
+
+1. `pubmed_literature_extraction/README.md`
+2. `pubmed_literature_extraction/docs/pubmed_extraction_report.md`
+3. `pubmed_literature_extraction/docs/cognitive_agent_architecture.md`
 
 ## 重要解释边界
 
