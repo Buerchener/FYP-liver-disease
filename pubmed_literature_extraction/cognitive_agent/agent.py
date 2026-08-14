@@ -69,6 +69,11 @@ from cognitive_agent.central_agent_v2 import CentralAgentV2
 from cognitive_agent.rule_memory import RuleMemory, error_cards_from_records
 from cognitive_agent.aux_model_registry import AuxModelRegistry
 from cognitive_agent.evidence_selector import EvidenceEntailmentEngine, EvidenceSelector
+from cognitive_agent.conformal_router import (
+    CALL_DEEPSEEK,
+    ConformalRiskRouter,
+    RiskFeatures,
+)
 
 import langextract as lx
 from langextract.factory import ModelConfig
@@ -121,6 +126,11 @@ class AgentConfig:
     aux_primary_model: str = "deepseek-v4-flash"
     aux_critic_model: str = "qwen-flash"
     evidence_entailment_mode: str = "off"  # off | shadow | active
+    risk_router_mode: str = "off"  # off | shadow | active
+    conformal_calibration: str = ""
+    conformal_alpha_import_ready: float = 0.05
+    conformal_alpha_semantic: float = 0.10
+    conformal_min_group_size: int = 20
 
     # 调试期可选的 LLM 抽取审稿器；默认关闭，不属于最终生产链路
     reviewer_enabled: bool = False
@@ -266,6 +276,12 @@ class CognitiveAgent:
             raise ValueError("invalid rule_learning_mode")
         if config.evidence_entailment_mode not in {"off", "shadow", "active"}:
             raise ValueError("invalid evidence_entailment_mode")
+        if config.risk_router_mode not in {"off", "shadow", "active"}:
+            raise ValueError("invalid risk_router_mode")
+        if not 0 < config.conformal_alpha_import_ready < 1 or not 0 < config.conformal_alpha_semantic < 1:
+            raise ValueError("conformal alpha values must be within (0,1)")
+        if config.conformal_min_group_size <= 0:
+            raise ValueError("conformal_min_group_size must be positive")
         if config.rule_max_context_tokens <= 0 or config.rule_max_rules_per_article <= 0:
             raise ValueError("rule memory limits must be positive")
         if min(
@@ -346,6 +362,12 @@ class CognitiveAgent:
             critic_model=config.aux_critic_model,
         )
         self.evidence_entailment = EvidenceEntailmentEngine(self.aux_models)
+        self.risk_router = ConformalRiskRouter.from_path(
+            config.conformal_calibration,
+            alpha_import_ready=config.conformal_alpha_import_ready,
+            alpha_semantic=config.conformal_alpha_semantic,
+            min_group_size=config.conformal_min_group_size,
+        )
         self.pair_classifier = BioREDPairClassifier(PairClassifierConfig(
             enabled=config.pair_classifier_enabled,
             mode=config.pair_classifier_mode,
@@ -846,6 +868,56 @@ class CognitiveAgent:
                 pmid=pmid,
                 text=text,
             )
+            risk_routes = []
+            if self.config.risk_router_mode != "off":
+                ambiguous_entities = sum(
+                    bool(item.ambiguity_reason or len(item.candidates or []) > 1)
+                    for item in initial_verified.entities
+                )
+                linking_ambiguity = ambiguous_entities / max(len(initial_verified.entities), 1)
+                for relation in initial_verified.relations:
+                    semantic_passed = bool(
+                        relation.schema_valid
+                        and relation.evidence_contiguous
+                        and relation.subject_grounded_in_evidence
+                        and relation.object_grounded_in_evidence
+                        and not relation.negated
+                    )
+                    route = self.risk_router.route(RiskFeatures(
+                        candidate_id=relation.candidate_id or (
+                            f"{relation.subject}|{relation.predicate}|{relation.object}"
+                        ),
+                        relation_score=(
+                            relation.relation_probability or relation.classifier_confidence
+                            or initial_verified.summary.get("semantic_score", 0.0)
+                        ),
+                        evidence_score=(
+                            relation.evidence_confidence
+                            or max(0.0, 1.0 - 0.25 * max(0, relation.evidence_level - 1))
+                        ),
+                        verifier_passed=(relation.import_ready if relation.import_ready else semantic_passed),
+                        verifier_flags=relation.quality_flags,
+                        local_label=relation.predicate,
+                        rule_support=len(relation.rule_matches),
+                        rule_conflict=any(
+                            item.get("action") in {"REJECT", "ABSTAIN", "REVIEW"}
+                            for item in relation.rule_matches
+                        ),
+                        linking_ambiguity=linking_ambiguity,
+                        study_type=pre_plan.profile.study_type,
+                        predicate=relation.predicate,
+                        section=relation.evidence_role or "ABSTRACT",
+                        semantic_only=not relation.import_ready,
+                    ))
+                    risk_routes.append(route)
+            record["phases"]["conformal_risk_router"] = {
+                "mode": self.config.risk_router_mode,
+                "calibration_version": self.risk_router.calibration.version,
+                "calibration_size": len(self.risk_router.calibration.examples),
+                "routes": [item.to_dict() for item in risk_routes],
+                "production_applied": self.config.risk_router_mode == "active",
+                "safety_policy": "downgrade_or_add_review_only",
+            }
             self.agentic_controller.add_recovery_observation(
                 plan=agent_plan,
                 text=text,
@@ -995,6 +1067,13 @@ class CognitiveAgent:
 
             llm_call = execution_post_plan.should_call("second_llm_refiner")
             llm_reason = execution_post_plan.decisions["second_llm_refiner"].reason
+            if self.config.risk_router_mode == "active" and risk_routes:
+                risk_force_deepseek = any(item.decision == CALL_DEEPSEEK for item in risk_routes)
+                llm_call = bool(self.config.second_llm_enabled and risk_force_deepseek)
+                llm_reason = (
+                    "conformal_router_requested_deepseek" if llm_call
+                    else "conformal_router_certified_or_abstained_without_deepseek"
+                )
             if v2_state is not None:
                 v2_llm_call, v2_llm_reason = self.central_agent_v2.should_adjudicate(
                     v2_state, enabled=self.config.second_llm_enabled,
@@ -1984,6 +2063,12 @@ class CognitiveAgent:
                     "aux_primary_model": self.config.aux_primary_model,
                     "aux_critic_model": self.config.aux_critic_model,
                     "evidence_entailment_mode": self.config.evidence_entailment_mode,
+                    "risk_router_mode": self.config.risk_router_mode,
+                    "conformal_calibration_version": self.risk_router.calibration.version,
+                    "conformal_calibration_size": len(self.risk_router.calibration.examples),
+                    "conformal_alpha_import_ready": self.config.conformal_alpha_import_ready,
+                    "conformal_alpha_semantic": self.config.conformal_alpha_semantic,
+                    "conformal_min_group_size": self.config.conformal_min_group_size,
                     "pair_classifier_enabled": self.config.pair_classifier_enabled,
                     "pair_classifier_mode": self.config.pair_classifier_mode,
                     "pair_classifier_backend": self.config.pair_classifier_backend,
@@ -2569,6 +2654,32 @@ class CognitiveAgent:
             ),
             "auxiliary_models": self.aux_models.audit(),
         }
+        risk_phases = [
+            record.get("phases", {}).get("conformal_risk_router", {})
+            for record in self.history
+            if record.get("phases", {}).get("conformal_risk_router")
+        ]
+        risk_decision_counts: dict[str, int] = {}
+        for phase in risk_phases:
+            for route in phase.get("routes", []) or []:
+                decision = str(route.get("decision", "UNKNOWN"))
+                risk_decision_counts[decision] = risk_decision_counts.get(decision, 0) + 1
+        conformal_report = {
+            "mode": self.config.risk_router_mode,
+            "planned_articles": len(risk_phases),
+            "calibration_version": self.risk_router.calibration.version,
+            "calibration_size": len(self.risk_router.calibration.examples),
+            "min_group_size": self.config.conformal_min_group_size,
+            "alpha_import_ready": self.config.conformal_alpha_import_ready,
+            "alpha_semantic": self.config.conformal_alpha_semantic,
+            "decision_counts": risk_decision_counts,
+            "global_fallback_count": sum(
+                route.get("calibration_group") == "global_fallback"
+                for phase in risk_phases for route in phase.get("routes", []) or []
+            ),
+            "accept_local_count": risk_decision_counts.get("ACCEPT_LOCAL", 0),
+            "accept_override_count": 0,
+        }
         return {
             "run_id": run_id,
             "agent_mode": self.config.agent_mode,
@@ -2628,6 +2739,7 @@ class CognitiveAgent:
             "agent_v2": agent_v2_report,
             "rule_memory": rule_memory_report,
             "evidence_entailment": evidence_entailment_report,
+            "conformal_risk_router": conformal_report,
             "latency": latency_report,
             "article_reviews": article_reviews,
         }
@@ -2692,6 +2804,7 @@ class CognitiveAgent:
             "agent_controller": phases.get("agent_controller", {}),
             "rule_memory": phases.get("rule_memory", {}),
             "evidence_entailment": phases.get("evidence_entailment", {}),
+            "conformal_risk_router": phases.get("conformal_risk_router", {}),
             "collaboration": phases.get("collaboration", {}),
             "rag_context": phases.get("rag_context", {}),
             "entities": entity_reviews,
@@ -2986,6 +3099,25 @@ def main():
         help="Local-first evidence entailment; remote calls only for uncertain candidates",
     )
     parser.add_argument(
+        "--risk-router-mode", choices=("off", "shadow", "active"),
+        default=os.environ.get("RISK_ROUTER_MODE", "off"),
+    )
+    parser.add_argument(
+        "--conformal-calibration", default=os.environ.get("CONFORMAL_CALIBRATION", ""),
+    )
+    parser.add_argument(
+        "--conformal-alpha-import-ready", type=float,
+        default=float(os.environ.get("CONFORMAL_ALPHA_IMPORT_READY", "0.05")),
+    )
+    parser.add_argument(
+        "--conformal-alpha-semantic", type=float,
+        default=float(os.environ.get("CONFORMAL_ALPHA_SEMANTIC", "0.10")),
+    )
+    parser.add_argument(
+        "--conformal-min-group-size", type=int,
+        default=int(os.environ.get("CONFORMAL_MIN_GROUP_SIZE", "20")),
+    )
+    parser.add_argument(
         "--pair-classifier-mode", choices=("off", "shadow", "active"),
         default=os.environ.get("PAIR_CLASSIFIER_MODE", "shadow"),
         help="BioRED式实体对分类：shadow默认只审计；active仅允许dry-run",
@@ -3273,6 +3405,11 @@ def main():
         aux_primary_model=args.aux_primary_model,
         aux_critic_model=args.aux_critic_model,
         evidence_entailment_mode=args.evidence_entailment_mode,
+        risk_router_mode=args.risk_router_mode,
+        conformal_calibration=args.conformal_calibration,
+        conformal_alpha_import_ready=args.conformal_alpha_import_ready,
+        conformal_alpha_semantic=args.conformal_alpha_semantic,
+        conformal_min_group_size=args.conformal_min_group_size,
         pair_classifier_mode=args.pair_classifier_mode,
         pair_classifier_enabled=args.pair_classifier_mode != "off",
         pair_classifier_backend=args.pair_classifier_backend,

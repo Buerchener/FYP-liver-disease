@@ -1,0 +1,320 @@
+{
+  "manifest_version": "agent-v3-blind50-prereg-v1",
+  "created_before_blind_outputs": true,
+  "labels_inspected": false,
+  "frozen": true,
+  "seed": 20260814,
+  "source_range_1_based": [
+    201,
+    500
+  ],
+  "stratification_version": "blind50-five-strata-v1",
+  "target_per_stratum": 10,
+  "second_reviewer_minimum_fraction": 0.2,
+  "source_path": "extraction_output/pubmed_converted_500.jsonl",
+  "source_sha256": "b4f17b3e8e473db1c4348b4ac985787f28181aacca6f087446ab42a2dbd32b21",
+  "code_parent_commit": "30a0269c6f18e08198d7e90fb5f65de27c84809e",
+  "active_rule_bundle_hash": "NOT_YET_FROZEN",
+  "records": [
+    {
+      "pmid": "41574643",
+      "abstract_sha256": "8408c169ec833deb7bcc4b93baa2d17f6d2f122e1b70ce773f1dd3d388022c42",
+      "stratum": "clinical",
+      "source_index_1_based": 443
+    },
+    {
+      "pmid": "41628166",
+      "abstract_sha256": "222a0c65ce26a18151c82145d9a77a1a77a971940e84e36a52ab217ceebecab9",
+      "stratum": "clinical",
+      "source_index_1_based": 341
+    },
+    {
+      "pmid": "41634714",
+      "abstract_sha256": "312e8367fb8565b1148a0e5e9255a9762773ff3ded168678f05ba39780a83cf2",
+      "stratum": "clinical",
+      "source_index_1_based": 370
+    },
+    {
+      "pmid": "41649244",
+      "abstract_sha256": "dbc3e6e2c2cc99888c686324ecb5bffcea668b4a74cdc19b7505676b057ef67f",
+      "stratum": "clinical",
+      "source_index_1_based": 345
+    },
+    {
+      "pmid": "41788066",
+      "abstract_sha256": "c3be6010684a75515ecdb3e783a9f9d4fdb2722cd529e2b001e07c7aa0dfe79d",
+      "stratum": "clinical",
+      "source_index_1_based": 447
+    },
+    {
+      "pmid": "41846463",
+      "abstract_sha256": "6c494c5722cf330e9d11abfdde57d74d0f4802f810f38331ccccf5589818b0b9",
+      "stratum": "clinical",
+      "source_index_1_based": 488
+    },
+    {
+      "pmid": "41941615",
+      "abstract_sha256": "d680a4c12bcc794621b8d13ca4f21ec6111e1a57827c635adcbb0feb379e360f",
+      "stratum": "clinical",
+      "source_index_1_based": 355
+    },
+    {
+      "pmid": "41945554",
+      "abstract_sha256": "2e64b759b57cc5d4e5878324174ae79e079dc553642e66e4e48d1a807ee8bfbc",
+      "stratum": "clinical",
+      "source_index_1_based": 262
+    },
+    {
+      "pmid": "41954051",
+      "abstract_sha256": "f91ea038431321cc52b534ada3112453d54cbea7adf0370ca491ba842391b888",
+      "stratum": "clinical",
+      "source_index_1_based": 319
+    },
+    {
+      "pmid": "41955264",
+      "abstract_sha256": "f11cda8c006c263170cf1f3ab172710edf4060c0e12f735b03edcc7529004f16",
+      "stratum": "clinical",
+      "source_index_1_based": 353
+    },
+    {
+      "pmid": "41599371",
+      "abstract_sha256": "9b3fbe0aaf4e15b8b8e07ba6e4845db1521075f2e80a366d2c4b8714077f1187",
+      "stratum": "mechanistic_in_vitro",
+      "source_index_1_based": 229
+    },
+    {
+      "pmid": "41649270",
+      "abstract_sha256": "734d622aba461123774b0d901a01c5b0707ce36dcb715040cccc64544b9189b1",
+      "stratum": "mechanistic_in_vitro",
+      "source_index_1_based": 445
+    },
+    {
+      "pmid": "41789066",
+      "abstract_sha256": "c7013e97b8395ccca0387fd5fc59c191af8d67285e2638d4b011f1edb81d7851",
+      "stratum": "mechanistic_in_vitro",
+      "source_index_1_based": 374
+    },
+    {
+      "pmid": "41819038",
+      "abstract_sha256": "d142c298c932fd18699cc2229d2381167284e7e2e7318c3df27b8d1c362e530d",
+      "stratum": "mechanistic_in_vitro",
+      "source_index_1_based": 382
+    },
+    {
+      "pmid": "41881291",
+      "abstract_sha256": "354ec0807dd715ba657d6c3d7702005be2cc95572193ba792d8cee5c8a465fd5",
+      "stratum": "mechanistic_in_vitro",
+      "source_index_1_based": 209
+    },
+    {
+      "pmid": "41891544",
+      "abstract_sha256": "2a4cf7713c12140df16248147877f2e72973f46e5a5f9794fa18be2706ece540",
+      "stratum": "mechanistic_in_vitro",
+      "source_index_1_based": 280
+    },
+    {
+      "pmid": "41940986",
+      "abstract_sha256": "2ed2c29d7a1e4b50914c41992360a7ce4c69d8ca718c2d16ce4e7eb364d3fa73",
+      "stratum": "mechanistic_in_vitro",
+      "source_index_1_based": 450
+    },
+    {
+      "pmid": "41951084",
+      "abstract_sha256": "e6cdb88cd3a5f173a5ae99cea90d1a19cd4f5651e1d0eca3ed6302f1b81c822d",
+      "stratum": "mechanistic_in_vitro",
+      "source_index_1_based": 414
+    },
+    {
+      "pmid": "41977192",
+      "abstract_sha256": "e198ab58dd0e71d801e4bb279af3c14849025afb584520a4e99adc0f0bdce1c0",
+      "stratum": "mechanistic_in_vitro",
+      "source_index_1_based": 249
+    },
+    {
+      "pmid": "42014205",
+      "abstract_sha256": "df00b0d7b7e6251b6f87a9849c4c70d62d23ec7e114effd3e037cd9f35e5d6b9",
+      "stratum": "mechanistic_in_vitro",
+      "source_index_1_based": 279
+    },
+    {
+      "pmid": "41378333",
+      "abstract_sha256": "b3f43619c7d6770486b400be33ee174c0e279b8d96ae4b3356d3c41b4519ca01",
+      "stratum": "human_omics_computational",
+      "source_index_1_based": 413
+    },
+    {
+      "pmid": "41734167",
+      "abstract_sha256": "569a58303a7bbd9fb9ec3871c8a4efc81bc3e6ad7b369855ad6fd29293624551",
+      "stratum": "human_omics_computational",
+      "source_index_1_based": 448
+    },
+    {
+      "pmid": "41752002",
+      "abstract_sha256": "a9091a2a293794d15cb8a64b19101fe4fba0def9cf9dd3369feb7ace26044d2c",
+      "stratum": "human_omics_computational",
+      "source_index_1_based": 395
+    },
+    {
+      "pmid": "41795977",
+      "abstract_sha256": "573e00278477f1a50e0e1257aa2984826dc696f83643c59935eab00ecb99f57a",
+      "stratum": "human_omics_computational",
+      "source_index_1_based": 362
+    },
+    {
+      "pmid": "41819026",
+      "abstract_sha256": "7d25dafc8a5043a0a81c37d550de87b5e89874734fa83c2f289980379ba6be75",
+      "stratum": "human_omics_computational",
+      "source_index_1_based": 354
+    },
+    {
+      "pmid": "41860367",
+      "abstract_sha256": "8c31d33f57313c88295536c3411f92c53ece117a795f37d3f1053c5be4ab0f15",
+      "stratum": "human_omics_computational",
+      "source_index_1_based": 226
+    },
+    {
+      "pmid": "41902249",
+      "abstract_sha256": "20547b8ac40023333daa99ea4c88f180eef5f735895da4647504fb893449198a",
+      "stratum": "human_omics_computational",
+      "source_index_1_based": 415
+    },
+    {
+      "pmid": "41912406",
+      "abstract_sha256": "0eb2efdf4d9234215c19cb454b2274d7d2f0eb9316e01d801e5af9e8f7880362",
+      "stratum": "human_omics_computational",
+      "source_index_1_based": 474
+    },
+    {
+      "pmid": "41936288",
+      "abstract_sha256": "f50bfbc5e54b43a0670b8bf743701fac812b4bdbe753fdcfb8a28874568e125b",
+      "stratum": "human_omics_computational",
+      "source_index_1_based": 391
+    },
+    {
+      "pmid": "41942372",
+      "abstract_sha256": "4eef929389648f2fd4cd9eda6310d5c61dbde49a827a19c39f7ef4328eaccdad",
+      "stratum": "human_omics_computational",
+      "source_index_1_based": 376
+    },
+    {
+      "pmid": "41390431",
+      "abstract_sha256": "fcf673fe3ecb3eadd6f01f73ff4f1b54308e2d7a6f149bafde45591ad9a66171",
+      "stratum": "animal",
+      "source_index_1_based": 394
+    },
+    {
+      "pmid": "41519316",
+      "abstract_sha256": "cfbab3be5cbeac08a09e04088ba1f2bfb8563a977f79a03816fb0da35145ae5e",
+      "stratum": "animal",
+      "source_index_1_based": 471
+    },
+    {
+      "pmid": "41677414",
+      "abstract_sha256": "ac8a62665426e22d714181bb2304f54ef63207077bc458ca09a578b53521468e",
+      "stratum": "animal",
+      "source_index_1_based": 281
+    },
+    {
+      "pmid": "41759558",
+      "abstract_sha256": "a77a86d3bc16f81e117277d15c24a2903c99f067c3d4283df4c2700a8ec45ed2",
+      "stratum": "animal",
+      "source_index_1_based": 358
+    },
+    {
+      "pmid": "41810440",
+      "abstract_sha256": "f8596ce864c5229edb603496acabad44c5a6fd4ef9907005ae93287cf29bb526",
+      "stratum": "animal",
+      "source_index_1_based": 289
+    },
+    {
+      "pmid": "41810646",
+      "abstract_sha256": "937909b5a592c9209eb80ef1f940745c7f3c0a300bf234a0003041d98b561e87",
+      "stratum": "animal",
+      "source_index_1_based": 384
+    },
+    {
+      "pmid": "41819037",
+      "abstract_sha256": "b98c11b55f63af895b180b0c0a64426a30197f3c358cb0c303cd69bba5194f02",
+      "stratum": "animal",
+      "source_index_1_based": 255
+    },
+    {
+      "pmid": "41824199",
+      "abstract_sha256": "3146f87b87f095031f78803f4fe2686692a8621abad44c1feddc3326c4f12206",
+      "stratum": "animal",
+      "source_index_1_based": 389
+    },
+    {
+      "pmid": "41950310",
+      "abstract_sha256": "aae6f2d9d56a95b1de9c3edfc6a2a4e23d9bb20d27b1b17269f56d075f3f1c46",
+      "stratum": "animal",
+      "source_index_1_based": 299
+    },
+    {
+      "pmid": "42001289",
+      "abstract_sha256": "970b5aa1e94ab0e2725b4cb0fb4208d42c9df7ce290ccf2a11e0c86d7b6bbeee",
+      "stratum": "animal",
+      "source_index_1_based": 316
+    },
+    {
+      "pmid": "41592926",
+      "abstract_sha256": "6507b72d1879f16309933e2721da689c86a5a04fc01688a3c3960cdf9c75674a",
+      "stratum": "review_other",
+      "source_index_1_based": 312
+    },
+    {
+      "pmid": "41781806",
+      "abstract_sha256": "e58cb8545a840d563fe27954ad9b246dd259b01a10411904f572bf60b77d0c3c",
+      "stratum": "review_other",
+      "source_index_1_based": 479
+    },
+    {
+      "pmid": "41790629",
+      "abstract_sha256": "eb50198d75ab6ab887899bfd56612cbbd710f1c70c84fb4206a082e09ae62bc5",
+      "stratum": "review_other",
+      "source_index_1_based": 332
+    },
+    {
+      "pmid": "41800724",
+      "abstract_sha256": "250ed7c02da797ad0f302775e102479223c024602328628ae29fea6bc8c22340",
+      "stratum": "review_other",
+      "source_index_1_based": 295
+    },
+    {
+      "pmid": "41830105",
+      "abstract_sha256": "7cd3bd2d070f05c121510c5c186c51fc0c96416622b45f1716fc006f28f9c8d4",
+      "stratum": "review_other",
+      "source_index_1_based": 235
+    },
+    {
+      "pmid": "41874552",
+      "abstract_sha256": "97ce2fd358fc363e28c0293385c20d375cbbe37dc3b0bc856ff00a3b9cc0f5db",
+      "stratum": "review_other",
+      "source_index_1_based": 440
+    },
+    {
+      "pmid": "41891399",
+      "abstract_sha256": "a397da536125557be998f68e0fd03ed501c917581184c66484d600f359d532d7",
+      "stratum": "review_other",
+      "source_index_1_based": 349
+    },
+    {
+      "pmid": "41951242",
+      "abstract_sha256": "e586b7c29e3e54b358dbb60312929d8d924a15208cbc6c6269ef67936ac2a347",
+      "stratum": "review_other",
+      "source_index_1_based": 269
+    },
+    {
+      "pmid": "41972725",
+      "abstract_sha256": "6eeee1bafca190aec6980f26915a5ff23f5eeb5e1e8d3b59b6e3f7fb951b4346",
+      "stratum": "review_other",
+      "source_index_1_based": 284
+    },
+    {
+      "pmid": "41991290",
+      "abstract_sha256": "fd1542c4ae178fe95b68bcc8604955f05b5eb65361deea26db9cedc3abe39484",
+      "stratum": "review_other",
+      "source_index_1_based": 496
+    }
+  ]
+}

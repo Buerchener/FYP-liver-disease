@@ -4,7 +4,7 @@
 
 ### 面向 LiverKG 的证据约束型生物医学关系抽取系统
 
-[English](README.md) · [返回 LiverKG](../README.zh-CN.md) · [Agent v2 校准报告](docs/agent_v2_acceptance_20260814.md)
+[English](README.md) · [返回 LiverKG](../README.zh-CN.md) · [Agent v3 架构](ARCHITECTURE_V3.md) · [方法创新](METHOD_INNOVATION.md)
 
 </div>
 
@@ -13,6 +13,10 @@
 本模块从 PubMed 摘要中抽取肝病相关知识，并生成可审计的 Neo4j 候选实体和关系。
 项目同时包含最初的提示词流水线、闭环 Cognitive Agent，以及 Central Agent v2：
 一个由确定性 Verifier 驱动、只在文章状态确实需要时调用昂贵工具的中央控制器。
+
+Agent v3 在此基础上增加安全规则记忆、DeepSeek/Qwen 双模型批判、最小证据片段
+蕴含判断和非参数 Conformal Risk Router。v3 不训练本地 BERT，正式研究路径依赖
+冻结开发集和预注册专家 blind cohort。
 
 系统将“提出候选”和“授予写入资格”严格分离：
 
@@ -102,6 +106,9 @@ set -a && source .env && set +a
 | `NEO4J_RAG_ENABLED` | 开启受限只读图谱上下文。 |
 | `EXTRACTION_CACHE_MODE`、`EXTRACTION_CACHE_PATH` | 内存或 SQLite 重放缓存。 |
 | `AGENT_EXECUTION_MODE`、`AGENT_BUDGET_PROFILE` | Agent 模式及质量/成本档位。 |
+| `RULE_MEMORY_MODE`、`RULE_BUNDLE` | 冻结的 Agent v3 软规则记忆。 |
+| `EVIDENCE_ENTAILMENT_MODE` | local-first 证据裁决。 |
+| `RISK_ROUTER_MODE`、`CONFORMAL_CALIBRATION` | 选择性 conformal 风险路由。 |
 
 ## 运行方式
 
@@ -184,6 +191,9 @@ python -m unittest discover -s tests -v
 | `cognitive_agent/central_agent_v2.py` | 状态、预算、路由与动作审计。 |
 | `cognitive_agent/verifier.py` | evidence、端点和 Schema 验证。 |
 | `cognitive_agent/relation_pair_classifier.py` | BioRED-style 实体对候选与分类。 |
+| `cognitive_agent/rule_memory.py` | 封闭规则 DSL、生命周期和晋升门禁。 |
+| `cognitive_agent/evidence_selector.py` | 最小连续证据和蕴含闭环。 |
+| `cognitive_agent/conformal_router.py` | 全局/Mondrian 非参数风险路由。 |
 | `cognitive_agent/collaborative_extractor.py` | 有界第二模型裁决。 |
 | `cognitive_agent/extraction_cache.py` | L1/L2 缓存与 single-flight。 |
 | `entity_linking_preflight.py` | 只读实体链接预检查。 |
@@ -192,6 +202,6 @@ python -m unittest discover -s tests -v
 
 ## 研究状态
 
-目前已经具备论文级实验的工程基础：legacy 兼容、固定候选、动作轨迹、成本与延迟统计、
-缓存重放以及严格安全边界。下一阶段集中提升 evidence precision、训练生物医学关系分类器、
-加入 DeepSeek/Qwen 分歧路由，并扩大冻结测试集以获得可靠统计结论。
+Agent v3 三批代码已经落地。请查看诚实披露的[中文实验状态](RESULTS_V3.zh-CN.md)或
+[English results status](RESULTS_V3.md)。最终论文结论仍需专家标注和一次冻结 blind 运行；
+预注册 blind cohort 不会用于调参。

@@ -102,6 +102,10 @@ class VerifiedRelation:
     predicate_candidates: dict[str, float] = field(default_factory=dict)
     evidence_unit_id: str = ""
     evidence_role: str = ""
+    evidence_confidence: float = 0.0
+    evidence_entailment: str = ""
+    rule_score_delta: float = 0.0
+    rule_matches: list[dict] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {k: v for k, v in self.__dict__.items()}
@@ -455,6 +459,12 @@ class KGVerifier:
             predicate_candidates=dict(relation.get("predicate_candidates", {}) or {}),
             evidence_unit_id=str(relation.get("evidence_unit_id", "") or ""),
             evidence_role=str(relation.get("evidence_role", "") or ""),
+            evidence_confidence=self._normalize_confidence(
+                relation.get("evidence_confidence", 0.0)
+            ),
+            evidence_entailment=str(relation.get("evidence_entailment", "") or ""),
+            rule_score_delta=float(relation.get("rule_score_delta", 0.0) or 0.0),
+            rule_matches=list(relation.get("rule_matches", []) or []),
         )
 
         # ── 1. Schema 合规检查 ──

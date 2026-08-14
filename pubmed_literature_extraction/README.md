@@ -4,7 +4,7 @@
 
 ### Evidence-grounded biomedical relation extraction for LiverKG
 
-[简体中文](README.zh-CN.md) · [Back to LiverKG](../README.md) · [Agent v2 calibration](docs/agent_v2_acceptance_20260814.md)
+[简体中文](README.zh-CN.md) · [Back to LiverKG](../README.md) · [Agent v3 architecture](ARCHITECTURE_V3.md) · [Method innovations](METHOD_INNOVATION.md)
 
 </div>
 
@@ -15,6 +15,11 @@ turns it into auditable Neo4j candidates. It contains the original prompt-based
 pipeline, a closed-loop cognitive agent, and Central Agent v2: a deterministic,
 verifier-guided controller that calls expensive tools only when the current
 article state justifies them.
+
+Agent v3 adds verifier-safe rule memory, DeepSeek/Qwen dual-model criticism,
+minimal-span evidence entailment and a non-parametric conformal risk router.
+It does not train a local BERT; its research path uses frozen development
+splits and a preregistered expert blind cohort.
 
 The system deliberately separates **proposal** from **authority**:
 
@@ -108,6 +113,9 @@ Important variables:
 | `NEO4J_RAG_ENABLED` | Enables bounded read-only KG context. |
 | `EXTRACTION_CACHE_MODE`, `EXTRACTION_CACHE_PATH` | Memory or persistent replay cache. |
 | `AGENT_EXECUTION_MODE`, `AGENT_BUDGET_PROFILE` | Controller mode and quality/cost profile. |
+| `RULE_MEMORY_MODE`, `RULE_BUNDLE` | Frozen Agent v3 soft-rule memory. |
+| `EVIDENCE_ENTAILMENT_MODE` | Local-first evidence adjudication. |
+| `RISK_ROUTER_MODE`, `CONFORMAL_CALIBRATION` | Selective conformal routing. |
 
 ## Running the system
 
@@ -203,6 +211,9 @@ fall back to a production database.
 | `cognitive_agent/central_agent_v2.py` | State, budgets, routing and action audit. |
 | `cognitive_agent/verifier.py` | Evidence, endpoint and schema validation. |
 | `cognitive_agent/relation_pair_classifier.py` | BioRED-style pair lattice and classification. |
+| `cognitive_agent/rule_memory.py` | Closed rule DSL, lifecycle and promotion gates. |
+| `cognitive_agent/evidence_selector.py` | Minimal exact spans and entailment closure. |
+| `cognitive_agent/conformal_router.py` | Global/Mondrian non-parametric risk routing. |
 | `cognitive_agent/collaborative_extractor.py` | Bounded second-model adjudication. |
 | `cognitive_agent/extraction_cache.py` | L1/L2 cache and single-flight execution. |
 | `entity_linking_preflight.py` | Read-only endpoint-linking preflight. |
@@ -211,8 +222,7 @@ fall back to a production database.
 
 ## Research status
 
-The engineering foundation for a paper-grade evaluation is in place: legacy
-compatibility, fixed candidates, action traces, cost/latency accounting,
-cache-replay experiments and hard safety boundaries. The next research phase
-focuses on evidence precision, a learned biomedical pair classifier, dual-model
-disagreement routing and a larger frozen test set.
+The three Agent v3 implementation batches are available. See the honest
+[English](RESULTS_V3.md) or [Chinese](RESULTS_V3.zh-CN.md) experiment status.
+Final paper claims remain pending expert annotation and the single frozen blind
+run; the preregistered cohort is deliberately not used for tuning.
