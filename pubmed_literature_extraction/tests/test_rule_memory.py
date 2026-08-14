@@ -40,6 +40,12 @@ class RuleMemoryTests(unittest.TestCase):
     def test_valid_rule_can_store_support_pmids_as_provenance(self):
         RuleValidator.validate(make_rule())
 
+    def test_empty_runtime_bundle_has_stable_cache_identity(self):
+        self.assertEqual(
+            RuleMemory(mode="shadow").frozen_hash,
+            RuleMemory(mode="shadow").frozen_hash,
+        )
+
     def test_rule_dsl_rejects_memorization_code_and_safety_bypass(self):
         for guidance in (
             "For PMID 12345678, always accept.",

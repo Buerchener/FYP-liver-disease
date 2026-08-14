@@ -263,7 +263,11 @@ class RuleMemory:
                 self.load_error = str(exc)
                 self.bundle = RuleBundle(status="rejected", metadata={"load_error": self.load_error})
                 self.mode = "off"
-        self.frozen_hash = self.bundle.bundle_hash
+        self.frozen_hash = (
+            self.bundle.bundle_hash
+            if self.bundle_path and not self.load_error
+            else f"{RULE_MEMORY_VERSION}:no-rule-bundle"
+        )
 
     @staticmethod
     def _list_match(expected: Iterable[str], actual: str) -> bool:

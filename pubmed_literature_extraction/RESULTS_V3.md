@@ -2,8 +2,8 @@
 
 ## Reproducibility status
 
-The three implementation batches are complete in code. The deterministic test
-suite currently passes with Neo4j integration tests skipped unless an isolated
+The three implementation batches are complete in code. All 179 deterministic
+tests pass, with two Neo4j integration tests skipped unless an isolated
 test database is explicitly configured. The 200-article development manifest
 contains exactly 120 induction, 40 validation and 40 conformal-calibration
 articles. The preregistered blind cohort contains exactly 10 articles in each
@@ -19,6 +19,33 @@ of five strata and its annotation template is still `UNLABELED`.
 - Blind PMID/hash leakage is machine-checked.
 - The experiment runner requires all nine registered ablations and performs
   10,000 article-level bootstrap iterations by default.
+
+## Five-article development smoke and replay
+
+This is a systems smoke test, not a quality benchmark. It used the first five
+development articles, active evidence-first pair classification, active
+evidence entailment, DeepSeek/Qwen, shadow conformal routing, dry-run and no
+active learned rule bundle. It did not touch the preregistered blind cohort.
+
+| Measurement | Cold run | Fully warm replay |
+| --- | ---: | ---: |
+| Total latency | 82.5 s | 0.8 s |
+| Article P95 | 26.41 s | 0.20 s |
+| Primary extraction cache | 0% | 100% (8/8 windows; 9/9 shared lookups) |
+| Primary remote requests | 8 | 0 |
+| Evidence auxiliary cache | 0% | 100% (5/5 batches) |
+| Evidence DeepSeek/Qwen requests | 5 / 1 | 0 / 0 |
+| Separate relation adjudicator requests | 1 | 0 new request (cached) |
+| Continuous source evidence | 100% | 100% |
+| Zero-change call rate | 0% | 0% |
+| Runtime errors / actual writes | 0 / 0 | 0 / 0 |
+
+Cold and warm extraction entities, relation candidates and final verified
+relations were identical. The cold run selected 157 bounded evidence spans and
+produced 99 entailed, 54 NEI and 4 contradicted decisions. The seven cold
+auxiliary calls equal 1.4 calls/article, within the internal ≤2 smoke target.
+These counts do not establish semantic F1 because the smoke was not scored
+against expert gold.
 
 ## Results not yet available
 
@@ -48,4 +75,3 @@ The final report must include legacy, Agent v2 without rules, DeepSeek
 always-call, rule memory, no Qwen critic, no EvidenceSelector, no conformal
 router, no Causal/Conflict and no cache. Causal/Conflict will be removed from
 performance claims if its ablation shows no benefit.
-

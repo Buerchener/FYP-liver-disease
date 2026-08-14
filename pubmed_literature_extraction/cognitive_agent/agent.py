@@ -68,7 +68,11 @@ from cognitive_agent.relation_pair_classifier import (
 from cognitive_agent.central_agent_v2 import CentralAgentV2
 from cognitive_agent.rule_memory import RuleMemory, error_cards_from_records
 from cognitive_agent.aux_model_registry import AuxModelRegistry
-from cognitive_agent.evidence_selector import EvidenceEntailmentEngine, EvidenceSelector
+from cognitive_agent.evidence_selector import (
+    EntailmentDecision,
+    EvidenceEntailmentEngine,
+    EvidenceSelector,
+)
 from cognitive_agent.conformal_router import (
     CALL_DEEPSEEK,
     ConformalRiskRouter,
@@ -340,6 +344,18 @@ class CognitiveAgent:
         self.extraction_cache = LightweightExtractionCache(
             mode=config.extraction_cache_mode,
             path=config.extraction_cache_path,
+            memory_max_entries=config.extraction_cache_memory_entries,
+            persistent_max_entries=config.extraction_cache_max_entries,
+            persistent_max_mb=config.extraction_cache_max_mb,
+            ttl_days=config.extraction_cache_ttl_days,
+        )
+        auxiliary_cache_path = (
+            f"{config.extraction_cache_path}.aux.sqlite3"
+            if config.extraction_cache_mode == "persistent" else ""
+        )
+        self.auxiliary_cache = LightweightExtractionCache(
+            mode=config.extraction_cache_mode,
+            path=auxiliary_cache_path,
             memory_max_entries=config.extraction_cache_memory_entries,
             persistent_max_entries=config.extraction_cache_max_entries,
             persistent_max_mb=config.extraction_cache_max_mb,
@@ -794,10 +810,54 @@ class CognitiveAgent:
                         "subject": candidate.subject, "predicate": predicate,
                         "object": candidate.object,
                     }
-            entailment_decisions, entailment_audit = self.evidence_entailment.assess(
-                selected_evidence, source_text=text, candidate_payloads=candidate_payloads,
-                allow_remote=self.config.evidence_entailment_mode in {"shadow", "active"},
+            entailment_cache_key = self.central_agent_v2.tool_cache_key(
+                "evidence_entailment_v1", {
+                    "content_hash": prepared.content_hash,
+                    "selections": [item.to_dict() for item in selected_evidence],
+                    "candidate_payloads": candidate_payloads,
+                    "mode": self.config.evidence_entailment_mode,
+                    "primary_model": self.config.aux_primary_model,
+                    "critic_model": self.config.aux_critic_model,
+                    "rule_bundle_hash": self.rule_memory.frozen_hash,
+                    "closed_labels": ["ENTAILED", "CONTRADICTED", "NOT_ENOUGH_INFORMATION"],
+                },
             )
+
+            def compute_entailment():
+                started = time.perf_counter()
+                decisions, audit = self.evidence_entailment.assess(
+                    selected_evidence, source_text=text, candidate_payloads=candidate_payloads,
+                    allow_remote=self.config.evidence_entailment_mode in {"shadow", "active"},
+                )
+                return {
+                    "decisions": [item.to_dict() for item in decisions],
+                    "audit": audit,
+                }, time.perf_counter() - started
+
+            def entailment_cacheable(payload):
+                decisions = payload.get("decisions", [])
+                if not isinstance(decisions, list) or len(decisions) != len(selected_evidence):
+                    return False
+                if any(item.get("label") not in {
+                    "ENTAILED", "CONTRADICTED", "NOT_ENOUGH_INFORMATION"
+                } for item in decisions):
+                    return False
+                audit = payload.get("audit", {})
+                if audit.get("remote_candidates") and self.config.evidence_entailment_mode in {"shadow", "active"}:
+                    if audit.get("deepseek", {}).get("status") != "OK":
+                        return False
+                    if audit.get("qwen") and audit.get("qwen", {}).get("status") != "OK":
+                        return False
+                return True
+
+            entailment_payload, entailment_cache_status = self.auxiliary_cache.get_or_compute(
+                entailment_cache_key, compute_entailment, cacheable=entailment_cacheable,
+            )
+            entailment_decisions = [
+                EntailmentDecision(**item) for item in entailment_payload.get("decisions", [])
+            ]
+            entailment_audit = dict(entailment_payload.get("audit", {}) or {})
+            entailment_audit["cache_status"] = entailment_cache_status
             record["phases"]["evidence_entailment"] = {
                 "mode": self.config.evidence_entailment_mode,
                 "selected": [item.to_dict() for item in selected_evidence],
@@ -2733,6 +2793,7 @@ class CognitiveAgent:
             "tool_marginal_benefit": tool_value_report,
             "preprocessing_cache": self.article_preprocessor.cache.stats(),
             "extraction_cache": self.extraction_cache.stats(),
+            "auxiliary_cache": self.auxiliary_cache.stats(),
             "extraction_planning": extraction_planning_report,
             "agent_controller": agent_controller_report,
             "relation_pair_classifier": pair_classifier_report,
@@ -3444,6 +3505,7 @@ def main():
     finally:
         agent.article_preprocessor.close()
         agent.extraction_cache.close()
+        agent.auxiliary_cache.close()
         agent.kg_memory.close()
 
     return report
