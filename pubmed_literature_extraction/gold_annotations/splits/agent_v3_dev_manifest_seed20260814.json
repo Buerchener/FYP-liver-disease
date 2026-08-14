@@ -1,0 +1,1216 @@
+{
+  "manifest_version": "agent-v3-dev-split-v1",
+  "seed": 20260814,
+  "frozen": true,
+  "targets": {
+    "rule_induction": 120,
+    "validation": 40,
+    "calibration": 40
+  },
+  "gold_source": "gold_annotations/pubmed_200_gold_v2_strict.jsonl",
+  "gold_sha256": "83eb7cc1380b433d33745da31aa6095d166a3478dfaa53f9abe6464c3d5043a9",
+  "article_source": "extraction_output/pubmed_converted_500.jsonl",
+  "article_source_sha256": "b4f17b3e8e473db1c4348b4ac985787f28181aacca6f087446ab42a2dbd32b21",
+  "records": [
+    {
+      "pmid": "41354212",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "9a3010b1105c49f2a5c05f00c410f83704e1b1f9cde5e0600054ecbd363cbd48"
+    },
+    {
+      "pmid": "41369205",
+      "split": "validation",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "a0dd65b6a6a1a6cd0f5586c88a6d2ff2638a95cf54e2ed1eec6667c9b65070b1"
+    },
+    {
+      "pmid": "41412548",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "101b3d8a82158ee7e21f5bfdc156331f59559f635d6619d389e9bd4478c1c634"
+    },
+    {
+      "pmid": "41412549",
+      "split": "calibration",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "dbd481206a699db3151af42aab382a4d6953445f3c653f523a2c99d840d71bde"
+    },
+    {
+      "pmid": "41421874",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "81d97d92be8b99a8b32f7052bd3e6d218330d63dcdd6f867254ce7b38b75ad5d"
+    },
+    {
+      "pmid": "41430095",
+      "split": "calibration",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "cc11f6a731b47ae4eb72a1aa99b368248b39971af3e3906a27524c60a53daa97"
+    },
+    {
+      "pmid": "41431350",
+      "split": "validation",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "38c3924cc90e60b09913502d9aeca292ff75b9207e1bd362aedca907b4ba28b8"
+    },
+    {
+      "pmid": "41435869",
+      "split": "calibration",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "93763df3475c9a4e83a1fce78fdf4911f22612e7ec70f6e48020282f006e867f"
+    },
+    {
+      "pmid": "41475279",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "22dd873e0e9d4f162bfe2b56fc7341e0c81f2c4459bbffba46c926a8970649ba"
+    },
+    {
+      "pmid": "41479749",
+      "split": "validation",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "c5a8213ae4f687617157de38566b8758a9fa9ded8f33cdae85c4e30aa55f39f6"
+    },
+    {
+      "pmid": "41482383",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|semantic_positive|strict_positive",
+      "article_content_sha256": "0eced9c56922ee79907a9adabf9080880f6138518376234689577dff59b239fe"
+    },
+    {
+      "pmid": "41504162",
+      "split": "calibration",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "31e2653d90386bc4b39753b0c50380be16ba97a438f4c93dd03f7340178705ee"
+    },
+    {
+      "pmid": "41515146",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "c251d65664dffb1a6e1cd705dbc4747628ab4433b16dcd127df0dfa86376ab6c"
+    },
+    {
+      "pmid": "41515160",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "77f80175d52870f0dfcb9376d4bea37b8ebc1aa2cdfd266f061d106c3cfcd5b8"
+    },
+    {
+      "pmid": "41518251",
+      "split": "validation",
+      "stratum": "human_omics_computational|in_scope|no_relation|not_strict",
+      "article_content_sha256": "870cba3fc09e78e3b8b8dc0ab676acfb8d0726bd583b8aacdd74dc214cccb1b3"
+    },
+    {
+      "pmid": "41554590",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "965c943470cf6c16b581c586ae142f2a4897c7e0c777b95d1cdcbb274441efb1"
+    },
+    {
+      "pmid": "41555799",
+      "split": "rule_induction",
+      "stratum": "human_omics_computational|in_scope|no_relation|not_strict",
+      "article_content_sha256": "1cd665c9f0f8ded2e47821ba0f5838d2bb70bf05f4b0296b163ba7842a6a3ef5"
+    },
+    {
+      "pmid": "41567035",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "eeb1143cdf4002fdfa2587b92890b2435b0b2ede81f7b159a150d24e2577e867"
+    },
+    {
+      "pmid": "41573193",
+      "split": "validation",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "0cc28c7043f68957a48123e69d19dc29ad26c4a25eeb13f59b0657287175e8d0"
+    },
+    {
+      "pmid": "41578801",
+      "split": "validation",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "cedf7d143e33b6e0a0c17e6690f5b947a8106f3c317fc0a6684c91ddc263c16b"
+    },
+    {
+      "pmid": "41579096",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "95c7b83ae7c64bc17d7e36a323f6485cb9b8c1d52509ebedd286de4f3f47868e"
+    },
+    {
+      "pmid": "41581151",
+      "split": "validation",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "a44cdc79b4a6c319909d2d5c22508de868f15ae44bd665c78da126ff55be87c1"
+    },
+    {
+      "pmid": "41586527",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "dfb9294f13c5d89dc62c55d94224ca260a60e318a2f337a8d79f930ee6f884fd"
+    },
+    {
+      "pmid": "41592220",
+      "split": "rule_induction",
+      "stratum": "human_omics_computational|in_scope|no_relation|not_strict",
+      "article_content_sha256": "9ff9f3dbc0c4b3ebf1b8109e3d5407a8f3343cff87714659a9f91f1c88fe22e5"
+    },
+    {
+      "pmid": "41592760",
+      "split": "rule_induction",
+      "stratum": "human_omics_computational|out_scope|no_relation|not_strict",
+      "article_content_sha256": "0d2b6b2775c9200b403db0c09f255fdd50b08136d321829dfef4f8d45c63ae31"
+    },
+    {
+      "pmid": "41610148",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "ffbb0f563a4d76764f91aa69220a1466e1c9fbbfe117ba6aff4fbe8555efb170"
+    },
+    {
+      "pmid": "41610839",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "33c66064270d33a641a61a28db88b63f6de53ffba6a4e16d887804ffe9722079"
+    },
+    {
+      "pmid": "41620901",
+      "split": "rule_induction",
+      "stratum": "human_omics_computational|in_scope|no_relation|not_strict",
+      "article_content_sha256": "884bb843019fa907f0d05166934beed221c3e210b2db36e080c44068267d602e"
+    },
+    {
+      "pmid": "41628033",
+      "split": "validation",
+      "stratum": "clinical_human|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "4c60078b87579649c6c42bad91af37112109a4fd854f0f96c04827b288cb70cd"
+    },
+    {
+      "pmid": "41640520",
+      "split": "calibration",
+      "stratum": "clinical_human|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "312b3310eeeccab123964f1608002ec3057166779a49cc8dd788c235fda309cb"
+    },
+    {
+      "pmid": "41644064",
+      "split": "validation",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "0d67690257823c81c4ee94fbbe51e4d9bb61d4f5d8bd6166937bb4d20136f77e"
+    },
+    {
+      "pmid": "41644407",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "c069a58ee09f018f993232f55e9e1f69039c3d738c45bec383710a1466877f11"
+    },
+    {
+      "pmid": "41650163",
+      "split": "rule_induction",
+      "stratum": "in_vitro_mechanistic|in_scope|semantic_positive|strict_positive",
+      "article_content_sha256": "b0f5d417c0ba28e173a013d81c6216e63c0014f22c60f9e328df33c1aa77096d"
+    },
+    {
+      "pmid": "41656102",
+      "split": "validation",
+      "stratum": "clinical_human|in_scope|semantic_positive|strict_positive",
+      "article_content_sha256": "f117ab85eb549b49500d74ff1a7de40ad33c4565a47eb2c56b842a485ef8ed1f"
+    },
+    {
+      "pmid": "41661436",
+      "split": "validation",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "0ed7a5a54f92063b081ee8952a8799c411e33d4e98e3853fda0b831ad10d00b0"
+    },
+    {
+      "pmid": "41662862",
+      "split": "validation",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "11c53e6dd7a473e1d8549c99b79060360e37832cf1c18dc8f88f22ed5fbcfadc"
+    },
+    {
+      "pmid": "41665239",
+      "split": "validation",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "815be3f87cc45e60d337dbd8fc50196795e621bb9b8051a47a9b14529d655869"
+    },
+    {
+      "pmid": "41665498",
+      "split": "calibration",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "43fafffefc6ea6a494365b7b1be827411712aaf27f30fcd168241bdf0e7bfa83"
+    },
+    {
+      "pmid": "41668355",
+      "split": "calibration",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "2a8c8fbe1caa189e35434b921bcce252b8c1cf806e9da533889c91dea68650bb"
+    },
+    {
+      "pmid": "41669941",
+      "split": "calibration",
+      "stratum": "clinical_human|in_scope|semantic_positive|strict_positive",
+      "article_content_sha256": "aa80b6a2c5cc79d1090414cc0b7289c797c983c506679568d4c29b3432e1218f"
+    },
+    {
+      "pmid": "41674183",
+      "split": "validation",
+      "stratum": "human_omics_computational|in_scope|no_relation|not_strict",
+      "article_content_sha256": "b20820dd93277868b7dafeae0eac34ad5067a3bbd0bcc59c1ae6fafff2a742ff"
+    },
+    {
+      "pmid": "41678815",
+      "split": "calibration",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "ff44b70afaeaa0549e4fb1d7495626df46bb730bb772c98d8c1f57cfad3ca786"
+    },
+    {
+      "pmid": "41679350",
+      "split": "calibration",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "d12391b5fdb783ac38c3fdf29e713dc391311698fa77c2f5372beb466a37db5f"
+    },
+    {
+      "pmid": "41683641",
+      "split": "calibration",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "965453250a66e8689c956576141a88c7e28ecf7607e755bb39c6f6d58759c968"
+    },
+    {
+      "pmid": "41686896",
+      "split": "rule_induction",
+      "stratum": "human_omics_computational|in_scope|no_relation|not_strict",
+      "article_content_sha256": "9eabafbd98cf5cdbbc5e953f23cda681bd27d79ae8a5e72f69f5d8800ec09976"
+    },
+    {
+      "pmid": "41690295",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "7d0ba54e78c5658aa78a89a8643b6d3e818585f26e434a36cee9c672ed0a3b58"
+    },
+    {
+      "pmid": "41701720",
+      "split": "calibration",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "582a1695ecd6602cc0017bed08eb9678fc4dc0da1f1eff83cfdc4e1ba3a4ef14"
+    },
+    {
+      "pmid": "41703857",
+      "split": "rule_induction",
+      "stratum": "in_vitro_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "c389072a5ae69410eeb5bc9828da9dd01c1c9130d0edc22d9dc5a2570cf7411f"
+    },
+    {
+      "pmid": "41708755",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "ece9261151d480f61324c4775bf553357cd212af22c331306b9740ac65fdb021"
+    },
+    {
+      "pmid": "41714905",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "241c93c4435ce80119f3ea4f78d4b8c4ca72b948b086c084427ae606b00ccb94"
+    },
+    {
+      "pmid": "41718836",
+      "split": "rule_induction",
+      "stratum": "human_omics_computational|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "8c83a997f0fd1e43086138b64833b718aca8cd4bf7ecade91c358423c5ae9285"
+    },
+    {
+      "pmid": "41719003",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|semantic_positive|strict_positive",
+      "article_content_sha256": "9a393db216277d67009057ae333c8156be6dbecd98d0f44d7b13beeefba652f3"
+    },
+    {
+      "pmid": "41720670",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "0d3cd2178485126803fbcd8e50258bdfe0ac930dddf1be36d8c6ee3b2daa7dac"
+    },
+    {
+      "pmid": "41725216",
+      "split": "validation",
+      "stratum": "animal_mechanistic|in_scope|no_relation|not_strict",
+      "article_content_sha256": "79fbc33855b444c553b9d5cd84053d99a9b6ea5a760be66a5608d0dc1790524b"
+    },
+    {
+      "pmid": "41731414",
+      "split": "calibration",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "d990f27398a8b1d95a4dd91abd90f66b1a7c4c8b76e7e0a485788cea1f5a6983"
+    },
+    {
+      "pmid": "41731656",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "81fd76c52db6507b88b9ea89c2128e4484d80310844fdb235f0fe3c9fdc200b9"
+    },
+    {
+      "pmid": "41736341",
+      "split": "calibration",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "0b7816fa7534f9e25aba9a8f116bd8f6d08e68ff8e35aae3be515159271df754"
+    },
+    {
+      "pmid": "41748416",
+      "split": "calibration",
+      "stratum": "human_omics_computational|in_scope|no_relation|not_strict",
+      "article_content_sha256": "d07554316ba73292e336353789d64f947bfcb08e83acf9c18005134c5110fcd4"
+    },
+    {
+      "pmid": "41751807",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "b2be6e234c6c2f707df4f69a1bd1ab6b7ac0f8c918e1982db3171074aa078f1a"
+    },
+    {
+      "pmid": "41751988",
+      "split": "rule_induction",
+      "stratum": "in_vitro_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "5348ad3cf12a557e4299fa732063cb1ea1abb7c3addb4252d1e0e48c058a183a"
+    },
+    {
+      "pmid": "41754379",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "ca24c8f6e93b94f35895b98e0a2aaaa7022134165789cdf4bb15491e0e197447"
+    },
+    {
+      "pmid": "41756301",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "c7263c7faba1ddd5ca6dc251cc000c3d3d7d9546a8602e48cef45546e7d4da7c"
+    },
+    {
+      "pmid": "41761962",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "2cbdba6b4a4918c71828bd20b878c2e0967514cb1b8dc0e818c5aef3db86494b"
+    },
+    {
+      "pmid": "41761978",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "04472ebec15ed7952ffbe2403df094e195db56082c460b1f9c1d9dd0ca81b9e3"
+    },
+    {
+      "pmid": "41761983",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "69be2fce39937cf693c33afb3c49c0fd5dd377033f8ff533097e4a1a2c99d26a"
+    },
+    {
+      "pmid": "41763136",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "2a0798fb8ae038f240a7aaba618dacb21ebe6488b1b57c0eed4ee4193592e9c3"
+    },
+    {
+      "pmid": "41763639",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "106a1469f3c6553e24d64c014ebbab0fe791ef75f0b8f8b16e069c596e03e9b7"
+    },
+    {
+      "pmid": "41763821",
+      "split": "calibration",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "3837e3ae1f95e90c94352e09930035571f388644ff2a559cf9c4e1c2a34fc866"
+    },
+    {
+      "pmid": "41764726",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "7355d0fb780843110337ab5632ce03b6916c86c6b70d3e9e2d4395da12533e27"
+    },
+    {
+      "pmid": "41765506",
+      "split": "calibration",
+      "stratum": "human_omics_computational|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "85f8d525a25f55879c5a1eae56a40a65b7fae18de97dfd3a63bbbabb322330ff"
+    },
+    {
+      "pmid": "41766263",
+      "split": "validation",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "34dd85a46f76ca8506afd5d905125f907f1a5114643209e19c92280a565f5e58"
+    },
+    {
+      "pmid": "41766871",
+      "split": "validation",
+      "stratum": "human_omics_computational|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "0347bfc9dc3c85e4e759c5aa161b871e149c009c7959c82d2218574e8cf0b84a"
+    },
+    {
+      "pmid": "41771036",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "179049d6f4b3de220a2477cda8978bb3daf5b46b9810dd3bb8cae24a62b68904"
+    },
+    {
+      "pmid": "41775211",
+      "split": "calibration",
+      "stratum": "in_vitro_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "79de141b04abef75d469064a353b1040e7183613649248cc3420269e2f704966"
+    },
+    {
+      "pmid": "41776851",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "b964a8e68a752760cd60cc8985dcc0430cfd08ac44dd05c158c2d866c4e98181"
+    },
+    {
+      "pmid": "41778481",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "f198537b684cd391017e1b4980dacfa4a23651fd01d1946657e0fe6d4c1605ca"
+    },
+    {
+      "pmid": "41780497",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "5854966e81db03ede7a0d60c87a3a907fd996afaef0df3aa010de7f70768c888"
+    },
+    {
+      "pmid": "41785727",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "3d04bac002773c2e2ee74e835f54c33798c2d2d1e509693174aac27c516ceed9"
+    },
+    {
+      "pmid": "41785904",
+      "split": "rule_induction",
+      "stratum": "review_other|out_scope|no_relation|not_strict",
+      "article_content_sha256": "2754b7c8deccf64b00681602717d8aaedb0337aa58cae689753af54c2dc267f2"
+    },
+    {
+      "pmid": "41789426",
+      "split": "validation",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "3f5125a34c2d7a57de3e20f6b8c47b70b80f27d16d5c5d28f9215e2b9fe4b947"
+    },
+    {
+      "pmid": "41792438",
+      "split": "validation",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "db069f5fa8cdba1b55c23a3c2ca5b231aa21e830ea52d6930d5984c61a98f6c4"
+    },
+    {
+      "pmid": "41793857",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "93eb855e14047b0901983a142f61bd7a613e1718361c28106b97d7ed74572168"
+    },
+    {
+      "pmid": "41794069",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "8ac6a92f10cd5ceaf68f0b29b4e069ba0e398631aeaa2a19e3231d7403f3d8b4"
+    },
+    {
+      "pmid": "41794448",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|no_relation|not_strict",
+      "article_content_sha256": "845f4c62236bb4f9721269621edd7d5ff55526fea32474b71061de3acd1fb4b0"
+    },
+    {
+      "pmid": "41795165",
+      "split": "calibration",
+      "stratum": "human_omics_computational|out_scope|no_relation|not_strict",
+      "article_content_sha256": "fd990278f4b5d07be8784bdf7c00d98860c66d48dabd922ed92dd4045e988bac"
+    },
+    {
+      "pmid": "41795432",
+      "split": "validation",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "739a9531e75cd40a2a000380b8b15a1f5641c6c693155e2b73ed33e6dac23aeb"
+    },
+    {
+      "pmid": "41799192",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "bba9a57f6c32187bc760e9df53f0d477f5992f26c28539de1845dfa10abdbe9e"
+    },
+    {
+      "pmid": "41799205",
+      "split": "validation",
+      "stratum": "clinical_human|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "8d884776afed4c4e3e3b7ad76473759619c270f957eea6907f9d98f2030fab94"
+    },
+    {
+      "pmid": "41799527",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "ae65124522484608dd5e3f0b2fa2c38ac4b3a7d4595e3e9dc6e407470bdc9a6e"
+    },
+    {
+      "pmid": "41800239",
+      "split": "validation",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "2a85888371f198e473a20a822a6b1f7da485649765bf1e8b0410b2ee123f698e"
+    },
+    {
+      "pmid": "41800244",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "63ac3665c8a9c6dfcdc16049ee3e1e25b84916dbd4784da536865e45e9492337"
+    },
+    {
+      "pmid": "41801145",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "0d27a756a0ccede090225a8056c2d7c90a0304f0bcf6fbeadb2fe8aeddd24d43"
+    },
+    {
+      "pmid": "41801960",
+      "split": "calibration",
+      "stratum": "human_omics_computational|in_scope|no_relation|not_strict",
+      "article_content_sha256": "dc97261a89a11bd11c7cf7561c0f516ae42ea820fa9e349bab63af10d88e039d"
+    },
+    {
+      "pmid": "41802810",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|no_relation|not_strict",
+      "article_content_sha256": "3f8f8331ff62439e8d481bf6308fec3d27b51532390bb64571404b7d56453a27"
+    },
+    {
+      "pmid": "41803088",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "4bc27bc0752aaee43e63eb4303eae138c8c7023e5f23a4d0a43d0f530450ed3e"
+    },
+    {
+      "pmid": "41804063",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "1080fb5caecf6fbc8e2446dd5078f4f458472a2d589322c283f6e6b6747935b7"
+    },
+    {
+      "pmid": "41804293",
+      "split": "calibration",
+      "stratum": "human_omics_computational|in_scope|semantic_positive|strict_positive",
+      "article_content_sha256": "a0db95010725d918f5147e20691e9381d624f261f1505097643c2d6b028ac152"
+    },
+    {
+      "pmid": "41807813",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "ea0cfe92adab7623aa141c91424e883ab327734ef48b55a3ea70f35824e3e273"
+    },
+    {
+      "pmid": "41810002",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "e7791194d9908a8504033a9d1b28c0b1d98911302c5cad3fe52c02acf4e0886a"
+    },
+    {
+      "pmid": "41810734",
+      "split": "rule_induction",
+      "stratum": "human_omics_computational|in_scope|no_relation|not_strict",
+      "article_content_sha256": "dcf52ce9a21f01e135efecb512898018d84c046a11b40bee62f4daf56c37ba31"
+    },
+    {
+      "pmid": "41811088",
+      "split": "validation",
+      "stratum": "human_omics_computational|in_scope|semantic_positive|strict_positive",
+      "article_content_sha256": "3de654753ac4f8359d25480a5f7757a6885faf16ac6a0760c96ae11e61194d58"
+    },
+    {
+      "pmid": "41811176",
+      "split": "calibration",
+      "stratum": "animal_mechanistic|in_scope|no_relation|not_strict",
+      "article_content_sha256": "0c9886aec1de19d3b99d1902672ed1e3e3a9afd340af39ddba987635b62cb6b5"
+    },
+    {
+      "pmid": "41811704",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "5308592b74c6fc512733133b7989bcf4dd5857c5bea2c6e421f85278198acf4e"
+    },
+    {
+      "pmid": "41811796",
+      "split": "calibration",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "fb92ed046e908f0cba192eeddc8262a30a8238574ce16380cf5bffd782eee105"
+    },
+    {
+      "pmid": "41813611",
+      "split": "rule_induction",
+      "stratum": "human_omics_computational|in_scope|no_relation|not_strict",
+      "article_content_sha256": "2d8936b48ce3eb29406fbaa7ad31c26ed4f311256090d8b4d8e2b41a311edd3f"
+    },
+    {
+      "pmid": "41814315",
+      "split": "calibration",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|strict_positive",
+      "article_content_sha256": "b032b231ed4eb00186fc4bb4dd08099c959ad580824724aac27439a606c89b97"
+    },
+    {
+      "pmid": "41814977",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "1d84912912633decc39f7a8b1f247beaf42b1839180b4dfd0abb396f5ed7adba"
+    },
+    {
+      "pmid": "41816340",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "77aca1a517bf366eeb87daf1d202f386fb070931bbb7ee9510931a46859ae001"
+    },
+    {
+      "pmid": "41821216",
+      "split": "validation",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "dfb9990427b5f72ffad8be2f06f3bc403df137adf0c2e11dcd5b7020d0af0868"
+    },
+    {
+      "pmid": "41823026",
+      "split": "validation",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "ee2c7a41d40c1281f1714b2c1b25f151587811bff246b470fb0cc72ae5027eb3"
+    },
+    {
+      "pmid": "41824094",
+      "split": "validation",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "eb03e267647c981c3e931fb948e9550de340770ec897e40ae12189a339f3e4e5"
+    },
+    {
+      "pmid": "41824635",
+      "split": "validation",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "8f3cebd05b7a653c65f1b5a8b3ee6d994823df32e175fa9aa2a453c6e1c0cb15"
+    },
+    {
+      "pmid": "41825230",
+      "split": "calibration",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "b9e20ffb44e8b0a7bad6d02b1f9b2fb23a9dad566fdf83a186426e80b481bcee"
+    },
+    {
+      "pmid": "41827017",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "d34cce6911ffbefff4e3050260050b9a98c8433e627d390c1f4cef07ceafd6c0"
+    },
+    {
+      "pmid": "41828542",
+      "split": "rule_induction",
+      "stratum": "review_other|out_scope|no_relation|not_strict",
+      "article_content_sha256": "3a19e141bcc63ee20b75110108438e708cbde31ab896c89c85c0a1cea891fe21"
+    },
+    {
+      "pmid": "41830362",
+      "split": "validation",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "6f8ec91936764882f9a0c84b851fa15b238f5cdc9349b5a4fe784e96dc695497"
+    },
+    {
+      "pmid": "41830415",
+      "split": "validation",
+      "stratum": "review_other|out_scope|no_relation|not_strict",
+      "article_content_sha256": "de925f03bf8cbeb946073a68bb76d1a46a2215626f1999cb0d886401bef51e94"
+    },
+    {
+      "pmid": "41831438",
+      "split": "calibration",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "7c45ff46d10a4dca8842b8098bd005956c1bd4df09395ae25eb3bd0e94a8a253"
+    },
+    {
+      "pmid": "41832009",
+      "split": "calibration",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "411e289a53e61b458e01019398ac9303d5d047ccc7b0111ded0fa8fa7cdb0323"
+    },
+    {
+      "pmid": "41832026",
+      "split": "rule_induction",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "ec06b690c5a890e77e843069350505b1278ed951bb35cd5a103a20669a60a8f3"
+    },
+    {
+      "pmid": "41836678",
+      "split": "rule_induction",
+      "stratum": "human_omics_computational|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "6ec40ec0000a48b4ab09b9ea3c45d31b5c54005f36bda8e9c7c91b37054061b9"
+    },
+    {
+      "pmid": "41838049",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "ff2ecf9fd24711593ddbf6a0b0f1cea62e29389d800263694fc535ee57b25c2e"
+    },
+    {
+      "pmid": "41841423",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "2ac113446318524e116c8fc26c8378d1d49692c42d38c0e29b7c206fc8e01a77"
+    },
+    {
+      "pmid": "41841542",
+      "split": "rule_induction",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "20c33debdcf49d6a0d93c68549b29afb3fb0cd0a62aa4f1a819b82805c8a3dfa"
+    },
+    {
+      "pmid": "41842669",
+      "split": "validation",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "23d83a3eaf20bdf76cfa0ff6b9f615c0799a88c6b95e229cfd2dff0656d5c40a"
+    },
+    {
+      "pmid": "41846356",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "76f4c7ed506dd0c31a5777edcd7343ac32f4dbab2ed694a56f437d89e569c16b"
+    },
+    {
+      "pmid": "41848035",
+      "split": "calibration",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "bfe489065f2f50afdf5dfab4e37f4353bd63176f9976b828bcf14633ebcbc1e8"
+    },
+    {
+      "pmid": "41849318",
+      "split": "calibration",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "9c9fa61127cf856a1a91f9fe611f6ca83b8f402fcf71b947d7ab8a26b5fdb878"
+    },
+    {
+      "pmid": "41849868",
+      "split": "calibration",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "972fe6049194a45ce5012365c014f0b649f0720ef920a3b912ff36bb671a65f7"
+    },
+    {
+      "pmid": "41850183",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "d712cf8bfaa1ecd119e042a7d8943ec22f483abb6d28b488e7fa82f7e2ca78c6"
+    },
+    {
+      "pmid": "41852476",
+      "split": "calibration",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "9f81dd78e2bb917f70c251f0f097f79860594361ba735bc32cf9818e92853f21"
+    },
+    {
+      "pmid": "41853930",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "5a272860cbd6448d6e9d509d88b6ddc52d63ba34afb6f29dc3c0315ffd69b366"
+    },
+    {
+      "pmid": "41856387",
+      "split": "validation",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "76672fa07695418e0a7b643a84fe0f16e919df58997a61d285db25e12957fc15"
+    },
+    {
+      "pmid": "41857482",
+      "split": "validation",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "8f67eace505219904a8036a6d6b21e79ef9d071f64e780965bd9f7f25d5cdb17"
+    },
+    {
+      "pmid": "41857493",
+      "split": "calibration",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "dce6c053a6e71029cc84da4debb6725b778cd454cd63a0ccd951685f185d5f45"
+    },
+    {
+      "pmid": "41859093",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "d24a541964b00da2bf2ec42cb893db80ec65bc746447a69985393ba52ab0d021"
+    },
+    {
+      "pmid": "41859805",
+      "split": "validation",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "5dced81f5d4c8e92206fffeb4a902ad235829992345e1c0e294ad2d2b27e2775"
+    },
+    {
+      "pmid": "41862476",
+      "split": "calibration",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "af2eb0dbbeea30418b2684c5847290a76d946fd213438452d510f88171069bef"
+    },
+    {
+      "pmid": "41863281",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "94d0c1343f87de430a190df32ac7f934a04079d0437065e64afab3814230893b"
+    },
+    {
+      "pmid": "41865588",
+      "split": "validation",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "4e34630651ee7c84d6208c9949f99d5a4b227cd3044b9baceb05d6018f0946d1"
+    },
+    {
+      "pmid": "41869728",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "af6da71b42d5912e42d8362053b01137508dc0f0d5847a106cd6e5266516cb05"
+    },
+    {
+      "pmid": "41869905",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "933bb007a460037c13443a64a56f43e16ca5aba74aec0e63db65d1879414e896"
+    },
+    {
+      "pmid": "41875334",
+      "split": "calibration",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "36c0ab25ad485324aad1371de58b5e9118bdb04f6425a836f6a046abf8c49fec"
+    },
+    {
+      "pmid": "41877356",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "a7218eecdedd68a612468ac1baa744d73a51220b9194dfd2ad0c9f5d38c4de1d"
+    },
+    {
+      "pmid": "41878444",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "eb44f79e62c646ff6acf5dec314580636babb0da310f1dc53bff5dca6cf53019"
+    },
+    {
+      "pmid": "41880127",
+      "split": "rule_induction",
+      "stratum": "in_vitro_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "db32701ebbc35c96c948cab09778a6db9e044854f370708fef0bdf4dd2a06d00"
+    },
+    {
+      "pmid": "41881454",
+      "split": "rule_induction",
+      "stratum": "review_other|out_scope|no_relation|not_strict",
+      "article_content_sha256": "9876d8df8aa376008aabb1b95e564a0da356de681e31995c4eef7b765dea15bb"
+    },
+    {
+      "pmid": "41883714",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "410375e7bc9be392bb58ba458ad2c53ad04093ff65980d7c2f07da32a07c3718"
+    },
+    {
+      "pmid": "41884271",
+      "split": "validation",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "fb0f06d5159583abfc9423aa86ac24765665e70d299534edaa4762eca5df5416"
+    },
+    {
+      "pmid": "41885332",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "0a2b473fcb146f0d11e0a1cff1130584d3a0988a8d6e33f0fa9200b03f6644f8"
+    },
+    {
+      "pmid": "41887769",
+      "split": "rule_induction",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "9fa279fe46b7ab227d36faa4edcd930251e9e0cae082771659d53c18f49b2812"
+    },
+    {
+      "pmid": "41889072",
+      "split": "calibration",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "2ec0b75cc361c2ee7f0e5c249e7ccb98659587ca97a2a0d0a0e93e8f3c2dccb5"
+    },
+    {
+      "pmid": "41891740",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "11d5f2efe0e682ebe9ace93c3e294d504a118bb587c858a2eca499a53c3d3351"
+    },
+    {
+      "pmid": "41897310",
+      "split": "rule_induction",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "fcfeec747da1e0dd75b754a667b4c3c254f6826a8b137e5c0fc92dfebaa20da9"
+    },
+    {
+      "pmid": "41898542",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "161321cbb98cb4ad8075cd830647ff16d3647732e620b8de6cc74c73f1c6141b"
+    },
+    {
+      "pmid": "41898627",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "d2e2b6e76a00dbfe8833f362c1f7a42422083d93c39afb7340a5952b03521e8f"
+    },
+    {
+      "pmid": "41902413",
+      "split": "rule_induction",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "53ca23417049827f74e76c2f96c1b0863cd871202f14beb6bd73e2e1efe8b0be"
+    },
+    {
+      "pmid": "41903671",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|strict_positive",
+      "article_content_sha256": "259f6e1edc2d8776178b802bbd043ee4e4ecf402c8ca24d913b62e7163d7f4a8"
+    },
+    {
+      "pmid": "41904644",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "dae5fc123301fd1a720bc12b9f90b0a8fd90a32daab168ccef7e40a4c886a678"
+    },
+    {
+      "pmid": "41905442",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "d25b26835bed8cab9301eae1d4b1ffcbc573951e4fd3dceb8e42434e463a46bb"
+    },
+    {
+      "pmid": "41912279",
+      "split": "rule_induction",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "ab91173dd09535e444b7ac6b3fcdd7871bd7f45597c415d39cb14156d40b973a"
+    },
+    {
+      "pmid": "41915573",
+      "split": "validation",
+      "stratum": "human_omics_computational|in_scope|no_relation|not_strict",
+      "article_content_sha256": "f7f03cca270587d937808cbdf72723d38b36e6696cd03f2508df763883a86beb"
+    },
+    {
+      "pmid": "41915583",
+      "split": "rule_induction",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "10152e9195c89835b734f59557dbfa4d5f36ea1c821fa0bb336c0ec1ed0859b2"
+    },
+    {
+      "pmid": "41929481",
+      "split": "rule_induction",
+      "stratum": "in_vitro_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "f12ed93fb1710a3fa88d529411714f17295acd3cef6878693382b342670c243b"
+    },
+    {
+      "pmid": "41936633",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "337b684b0e5615579c5c00e4643cd2ffa3f85cb18a5aeb216041ece16b4f2333"
+    },
+    {
+      "pmid": "41938508",
+      "split": "validation",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "1ad46288e5e88c9fd34da8e85f5f682c2b89a15e7f28d8ca52091300d930ccce"
+    },
+    {
+      "pmid": "41939489",
+      "split": "rule_induction",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "006ef3247703140c4947841f51c56d0d98a945b7b734b1330267fbdf6c68d063"
+    },
+    {
+      "pmid": "41940593",
+      "split": "validation",
+      "stratum": "in_vitro_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "7e1538fb45751e071cf9b427923ee7c4ce288dc01d324e0fc3df5b21f74b78f7"
+    },
+    {
+      "pmid": "41942346",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "c790d48af0b37f7d378f6270b3cc90b93bf1b4185f3ceb19f038dad6ac233b49"
+    },
+    {
+      "pmid": "41946427",
+      "split": "validation",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "5bb3895a2a4c971c855f8b259dbc25f7c2810c350c2127be747704d6f316aaa6"
+    },
+    {
+      "pmid": "41947340",
+      "split": "calibration",
+      "stratum": "in_vitro_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "2aba684eac299fa4d7ce6bbd0d7108563be6c7533f5509d9300389315decd0a2"
+    },
+    {
+      "pmid": "41947638",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "4e954fcefabb09de474d888c46fbc86261b550cbde6bd9d74fc21b0aff824604"
+    },
+    {
+      "pmid": "41948344",
+      "split": "rule_induction",
+      "stratum": "human_omics_computational|in_scope|semantic_positive|strict_positive",
+      "article_content_sha256": "8a0e7ff02126b33bf6b9a0a2d3e689fa2b1b5e453126cc57a77dd78821dfbbe5"
+    },
+    {
+      "pmid": "41950649",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "9994a8000c919c6d8d9cc5cd0b043e0e1fa17591ecb821b9909f3685eb0a1c16"
+    },
+    {
+      "pmid": "41953961",
+      "split": "calibration",
+      "stratum": "human_omics_computational|in_scope|no_relation|not_strict",
+      "article_content_sha256": "b83424a06d95e391e1fec91db6476d90175e0eba02ff14dad7c75a7dbd22dfa6"
+    },
+    {
+      "pmid": "41961385",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "f7bad00cc0d3747ffa7e4f76d188937086d08bfa9728e0ea869a5142aada872e"
+    },
+    {
+      "pmid": "41968483",
+      "split": "rule_induction",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "c2ec1f836dee63382305dffe9c657e3e274923604288d13514a0874df1f2b571"
+    },
+    {
+      "pmid": "41969181",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "043b5ace78eff443bbb0c707ff7588178f455ef4bda7d2b894111df2a89af908"
+    },
+    {
+      "pmid": "41969242",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "18cad89a4499d59975339b65b6800913d7a113316003c6ed0aa61d5c22bc3768"
+    },
+    {
+      "pmid": "41970211",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "d958aa2114253e398cae00c73efed39f3257f5a1f0fdeb1fb7410c10cdfa5525"
+    },
+    {
+      "pmid": "41972705",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "0e5d8297ad1554862ad537832f27abe202cd7dd33fe05ba60f6489dbbea2a14f"
+    },
+    {
+      "pmid": "41972775",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "309632da3509e824fe1a9263bd469372efc8c2ea3850ba3f983b3ee9ea1dcb0d"
+    },
+    {
+      "pmid": "41977422",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "ca7f7188ee62b0ee0d4fcfad5d70a27f697f945dcd50f033edcebfcee5d9be6a"
+    },
+    {
+      "pmid": "41977468",
+      "split": "validation",
+      "stratum": "review_other|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "53a1c9289e6779ec93b0f5a669b97d1304b011bece8954c5200f43088fe03863"
+    },
+    {
+      "pmid": "41984476",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "2ea43f3e08617760331b1a524322ea0395566e6b049afd69025a5fbed7554788"
+    },
+    {
+      "pmid": "41986071",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "4e4a4cc88bc92dabb0d7f62284935ef0e682c6a2e713699adb5be417357fdfbf"
+    },
+    {
+      "pmid": "41987447",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|out_scope|no_relation|not_strict",
+      "article_content_sha256": "fc7d3a6fa022e52055421c1679255eb35344d810db5acd25d4afd3127d4928ea"
+    },
+    {
+      "pmid": "41987600",
+      "split": "rule_induction",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "7719d62cddc95f07cac608b73c63c5d4bfe9d517b7a8908be214004a92f9dd70"
+    },
+    {
+      "pmid": "41991264",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "e191650eeaf89d82fa1e532ad1742c0895d5742c914554b31ef5cbbfabfd2800"
+    },
+    {
+      "pmid": "41992707",
+      "split": "rule_induction",
+      "stratum": "human_omics_computational|in_scope|no_relation|not_strict",
+      "article_content_sha256": "23478f15fd7b6fa52ae4b22289aad77702d59c605de0dbc31258e2ce14e9b43e"
+    },
+    {
+      "pmid": "41992826",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|no_relation|not_strict",
+      "article_content_sha256": "0285bfe668bb22effdb97ea5a6ccdb9905da33f8da7b01d86b0063190ddfaac0"
+    },
+    {
+      "pmid": "41995526",
+      "split": "rule_induction",
+      "stratum": "clinical_human|in_scope|semantic_positive|strict_positive",
+      "article_content_sha256": "c1e35d644a647fec5e759d399971fc0a3abf6e6e26797b37ed1c98b568b129d5"
+    },
+    {
+      "pmid": "41996177",
+      "split": "calibration",
+      "stratum": "review_other|out_scope|no_relation|not_strict",
+      "article_content_sha256": "2dfd704d4feb9ae1bebe47fa5f76faf36c9b0ea512a26867957a389b6737a1c3"
+    },
+    {
+      "pmid": "42001129",
+      "split": "calibration",
+      "stratum": "clinical_human|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "ecdad55d5873e5c557a12d07ecc2150fffd57fd8278910f72dfc5cd81dd3e83d"
+    },
+    {
+      "pmid": "42001431",
+      "split": "rule_induction",
+      "stratum": "review_other|in_scope|no_relation|not_strict",
+      "article_content_sha256": "8975ccbf8c84fb6546226a9d380c2348ddc2644156b563372a2f00498a002be5"
+    },
+    {
+      "pmid": "42002886",
+      "split": "rule_induction",
+      "stratum": "in_vitro_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "a8b1233b081c924191d37658a01a4a78a12215747f96c916b2e2a68f5530f031"
+    },
+    {
+      "pmid": "42004704",
+      "split": "calibration",
+      "stratum": "clinical_human|out_scope|no_relation|not_strict",
+      "article_content_sha256": "650b7e7831d36ac19d0c7daba7af834af928063c93eb6d7969f08282d92afbe5"
+    },
+    {
+      "pmid": "42010915",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|no_relation|not_strict",
+      "article_content_sha256": "19924128e4a25a91151d22ce0ee042288827220f6f2a42206894e7b1fbb1f49d"
+    },
+    {
+      "pmid": "42012961",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|semantic_positive|not_strict",
+      "article_content_sha256": "f333a320a6adaa080552c4d5d32e7742489e11c3d0f810343e2001100d9443ff"
+    },
+    {
+      "pmid": "42014525",
+      "split": "rule_induction",
+      "stratum": "animal_mechanistic|in_scope|no_relation|not_strict",
+      "article_content_sha256": "8c8a49d307b395b3913ed2510920c2fba7acba3102aa35ebb8a8a98118676dc7"
+    }
+  ]
+}

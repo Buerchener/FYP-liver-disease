@@ -20,7 +20,9 @@ from dataclasses import dataclass, field
 from typing import Protocol
 
 from cognitive_agent.evidence_units import EvidenceUnit
+from cognitive_agent.evidence_selector import EvidenceSelector
 from cognitive_agent.extraction_quality import normalize_surface
+from cognitive_agent.rule_memory import RuleMatch, RuleMemory
 from cognitive_agent.schema.relation_signatures import RELATION_SIGNATURES
 
 
@@ -95,6 +97,9 @@ class RelationPairCandidate:
     source_directions: list[str] = field(default_factory=list)
     same_sentence: bool = True
     endpoint_distance: int = -1
+    evidence_confidence: float = 0.0
+    evidence_entailment: str = "NOT_ENOUGH_INFORMATION"
+    evidence_trigger_predicate: str = ""
 
     def to_dict(self) -> dict:
         return {key: value for key, value in self.__dict__.items()}
@@ -113,6 +118,9 @@ class PairPrediction:
     routed_to_llm: bool = False
     reason_codes: list[str] = field(default_factory=list)
     predicate_scores: dict[str, float] = field(default_factory=dict)
+    evidence_confidence: float = 0.0
+    rule_score_delta: float = 0.0
+    rule_matches: list[dict] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {key: value for key, value in self.__dict__.items()}
@@ -321,9 +329,13 @@ class BioREDPairClassifier:
         self,
         config: PairClassifierConfig | None = None,
         backend: PairPredictionBackend | None = None,
+        evidence_selector: EvidenceSelector | None = None,
+        rule_memory: RuleMemory | None = None,
     ):
         self.config = config or PairClassifierConfig()
         self.backend = backend or build_pair_backend(self.config)
+        self.evidence_selector = evidence_selector or EvidenceSelector()
+        self.rule_memory = rule_memory
         if self.config.mode not in {"off", "shadow", "active"}:
             raise ValueError("pair classifier mode must be off, shadow, or active")
 
@@ -365,6 +377,7 @@ class BioREDPairClassifier:
         entities: list[dict],
         relations: list[dict],
         units: list[EvidenceUnit],
+        source_text: str = "",
     ) -> tuple[list[RelationPairCandidate], int]:
         hints = self._hint_index(relations)
         candidates: list[RelationPairCandidate] = []
@@ -393,16 +406,44 @@ class BioREDPairClassifier:
                     seen.add(key)
                     pair_hints = hints.get(key[:4], [])
                     digest = hashlib.sha1("|".join(key).encode("utf-8")).hexdigest()[:10]
+                    evidence_text = unit.text
+                    evidence_start = unit.char_start
+                    evidence_end = unit.char_end
+                    evidence_confidence = 0.0
+                    evidence_entailment = "NOT_ENOUGH_INFORMATION"
+                    evidence_trigger_predicate = ""
+                    if source_text:
+                        selections = []
+                        for predicate in allowed:
+                            selected = self.evidence_selector.select(
+                                candidate_id=f"p-{digest}",
+                                subject_mentions=self._mentions(subject),
+                                object_mentions=self._mentions(obj),
+                                predicate=predicate, units=[unit], source_text=source_text,
+                            )
+                            if selected:
+                                selections.append((
+                                    selected.trigger_span is None,
+                                    selected.section not in RESULT_SECTIONS,
+                                    len(selected.text), predicate, selected,
+                                ))
+                        if selections:
+                            _, _, _, evidence_trigger_predicate, selected = min(selections)
+                            evidence_text = selected.text
+                            evidence_start = selected.char_start
+                            evidence_end = selected.char_end
+                            evidence_confidence = selected.evidence_confidence
+                            evidence_entailment = selected.local_label
                     candidates.append(RelationPairCandidate(
                         candidate_id=f"p-{digest}",
                         subject=str(subject.get("mention", "")), subject_type=subject_type,
                         object=str(obj.get("mention", "")), object_type=object_type,
                         allowed_predicates=allowed,
-                        evidence=unit.text,
+                        evidence=evidence_text,
                         evidence_unit_id=unit.unit_id,
                         evidence_section=unit.section,
-                        evidence_char_start=unit.char_start,
-                        evidence_char_end=unit.char_end,
+                        evidence_char_start=evidence_start,
+                        evidence_char_end=evidence_end,
                         source_predicates=list(dict.fromkeys(
                             str(item.get("predicate", "")).upper() for item in pair_hints
                             if str(item.get("predicate", "")).upper() in allowed
@@ -413,6 +454,9 @@ class BioREDPairClassifier:
                         endpoint_distance=max(
                             0, max(subject_span[0], object_span[0]) - min(subject_span[1], object_span[1])
                         ),
+                        evidence_confidence=evidence_confidence,
+                        evidence_entailment=evidence_entailment,
+                        evidence_trigger_predicate=evidence_trigger_predicate,
                     ))
 
         # Evidence-local pairs with a LangExtract hint are most valuable, then
@@ -451,21 +495,78 @@ class BioREDPairClassifier:
             "relation_probability": prediction.relation_probability,
             "no_relation_probability": prediction.no_relation_probability,
             "classifier_margin": prediction.margin,
+            "evidence_confidence": prediction.evidence_confidence,
+            "evidence_entailment": candidate.evidence_entailment,
+            "evidence_char_start": candidate.evidence_char_start,
+            "evidence_char_end": candidate.evidence_char_end,
+            "rule_score_delta": prediction.rule_score_delta,
+            "rule_matches": prediction.rule_matches,
             "predicate_candidates": prediction.predicate_scores,
             "quality_flags": sorted(set(flags)),
         }
+
+    def _apply_rule_priors(
+        self, candidate: RelationPairCandidate, prediction: PairPrediction,
+    ) -> PairPrediction:
+        prediction.evidence_confidence = candidate.evidence_confidence
+        if not self.rule_memory or self.rule_memory.mode == "off":
+            return prediction
+        adjusted: dict[str, float] = {}
+        all_matches: dict[str, RuleMatch] = {}
+        deltas: dict[str, float] = {}
+        for predicate, score in prediction.predicate_scores.items():
+            matches = self.rule_memory.retrieve({
+                "predicate": predicate,
+                "subject_type": candidate.subject_type,
+                "object_type": candidate.object_type,
+                "section": candidate.evidence_section,
+                "evidence": candidate.evidence,
+                "evidence_confidence": candidate.evidence_confidence,
+                "both_endpoints_in_evidence": True,
+            })
+            delta = sum(
+                float(item.value or 0.0) for item in matches
+                if item.kind == "pair_prior" and item.action == "ADJUST_PAIR_SCORE"
+            )
+            delta = max(-0.20, min(0.20, delta))
+            deltas[predicate] = delta
+            adjusted[predicate] = round(max(0.0, min(1.0, score + delta)), 6)
+            for item in matches:
+                all_matches[item.rule_id] = item
+        if adjusted and self.rule_memory.mode == "active":
+            prediction.predicate_scores = dict(sorted(adjusted.items(), key=lambda item: (-item[1], item[0])))
+            best_label, best_score = next(iter(prediction.predicate_scores.items()))
+            prediction.relation_probability = best_score
+            prediction.no_relation_probability = round(max(0.03, min(0.97, 1.0 - best_score)), 6)
+            prediction.label = best_label if best_score > prediction.no_relation_probability else NO_RELATION
+            prediction.confidence = max(best_score, prediction.no_relation_probability)
+            prediction.rule_score_delta = round(deltas.get(best_label, 0.0), 6)
+            if prediction.rule_score_delta:
+                prediction.reason_codes.append("active_rule_prior")
+        prediction.rule_matches = [all_matches[key].to_dict() for key in sorted(all_matches)]
+        if self.rule_memory.mode == "active" and any(
+            item.action == "REJECT" for item in all_matches.values()
+        ):
+            prediction.label = NO_RELATION
+            prediction.reason_codes.append("active_rule_reject")
+        if any(item.action in {"REVIEW", "ABSTAIN", "CALL_DEEPSEEK", "CALL_QWEN_CRITIC"}
+               for item in all_matches.values()):
+            prediction.routed_to_llm = True
+            prediction.reason_codes.append("active_rule_route_or_downgrade")
+        return prediction
 
     def classify(
         self,
         entities: list[dict],
         relations: list[dict],
         units: list[EvidenceUnit],
+        source_text: str = "",
     ) -> PairClassificationResult:
         result = PairClassificationResult(mode=self.config.mode, backend=self.backend.name)
         if not self.config.enabled or self.config.mode == "off":
             result.fallback_reason = "pair_classifier_disabled"
             return result
-        candidates, truncated = self.build_candidates(entities, relations, units)
+        candidates, truncated = self.build_candidates(entities, relations, units, source_text)
         result.candidates = candidates
         result.truncated_candidates = truncated
         predictions = (
@@ -474,8 +575,9 @@ class BioREDPairClassifier:
             else [self.backend.predict(candidate) for candidate in candidates]
         )
         for candidate, prediction in zip(candidates, predictions):
+            prediction = self._apply_rule_priors(candidate, prediction)
             plausible_relation = prediction.relation_probability >= self.config.uncertainty_floor
-            prediction.routed_to_llm = bool(
+            prediction.routed_to_llm = prediction.routed_to_llm or bool(
                 plausible_relation
                 and (
                     prediction.confidence < self.config.high_confidence_threshold

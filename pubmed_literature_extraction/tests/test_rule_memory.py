@@ -13,6 +13,7 @@ from cognitive_agent.rule_memory import (
     RuleValidationError,
     RuleValidator,
     SoftRule,
+    error_cards_from_records,
 )
 
 
@@ -133,6 +134,28 @@ class RuleMemoryTests(unittest.TestCase):
         result = registry.call_json("primary", system_prompt="s", user_prompt="u")
         self.assertEqual(result.status, "OK")
         self.assertNotIn("top-secret", json.dumps(registry.audit()))
+
+    def test_reflection_errors_become_deduplicated_offline_cards(self):
+        records = [{
+            "pmid": "12345678",
+            "phases": {
+                "verification": {"relations": [{
+                    "subject_type": "Gene", "predicate": "ASSOCIATED_WITH",
+                    "object_type": "Disease", "direction": "unknown",
+                    "quality_flags": ["weak_evidence", "predicate_direction_confusion"],
+                }]},
+                "tool_marginal_benefit": {"second_llm_refiner": {
+                    "called": True, "relation_additions": 0,
+                    "relation_edits": 0, "relation_rejections": 0,
+                }},
+            },
+        }]
+        cards = error_cards_from_records(records)
+        self.assertEqual(
+            {item.category for item in cards},
+            {"evidence_mismatch", "predicate_confusion", "zero_change_call"},
+        )
+        self.assertTrue(all(not item.evidence for item in cards))
 
 
 if __name__ == "__main__":

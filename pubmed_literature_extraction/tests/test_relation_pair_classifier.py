@@ -1,4 +1,7 @@
 import unittest
+import json
+import tempfile
+from pathlib import Path
 
 from cognitive_agent.collaborative_extractor import CollaborativeConfig, CollaborativeExtractor
 from cognitive_agent.evidence_units import ArticleEvidenceReader
@@ -9,6 +12,7 @@ from cognitive_agent.relation_pair_classifier import (
     PairPrediction,
 )
 from cognitive_agent.verifier import KGVerifier
+from cognitive_agent.rule_memory import RuleBundle, RuleMemory, RuleValidator, SoftRule
 
 
 class OfflineKG:
@@ -137,6 +141,32 @@ class RelationPairClassifierTests(unittest.TestCase):
         flags = set(result.low_confidence_relations[0]["quality_flags"])
         self.assertIn("pair_low_confidence", flags)
         self.assertIn("pair_no_relation_abstention", flags)
+
+    def test_active_rule_prior_is_bounded_and_audited(self):
+        rule_payload = {
+            "kind": "pair_prior", "conditions": {"predicates": ["ASSOCIATED_WITH"]},
+            "action": "ADJUST_PAIR_SCORE", "value": -0.2, "guidance": "",
+        }
+        rule = SoftRule(
+            rule_id=RuleValidator.content_id(rule_payload), version=1, status="active",
+            support_pmids=["10000001", "10000002", "10000003"],
+            critic_approved=True, **rule_payload,
+        )
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "rules.json"
+            path.write_text(json.dumps(RuleBundle(rules=[rule]).to_dict()), encoding="utf-8")
+            memory = RuleMemory(mode="active", bundle_path=path)
+            classifier = BioREDPairClassifier(
+                PairClassifierConfig(mode="active"), rule_memory=memory,
+            )
+            text = "TITLE: Study\nABSTRACT: RESULTS: TP53 was associated with HCC."
+            result = classifier.classify(
+                self.entities, [], self.reader.read(text), source_text=text,
+            )
+        prediction = result.predictions[0]
+        self.assertEqual(prediction.rule_score_delta, -0.2)
+        self.assertEqual(prediction.rule_matches[0]["rule_id"], rule.rule_id)
+        self.assertEqual(prediction.evidence_confidence, 0.92)
 
 
 if __name__ == "__main__":

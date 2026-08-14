@@ -20,6 +20,17 @@ def load_json(path: Path) -> dict | list:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def load_error_cards(path: Path) -> list[dict]:
+    text = path.read_text(encoding="utf-8").strip()
+    if not text:
+        return []
+    try:
+        payload = json.loads(text)
+        return payload.get("error_cards", []) if isinstance(payload, dict) else payload
+    except json.JSONDecodeError:
+        return [json.loads(line) for line in text.splitlines() if line.strip()]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--error-cards", type=Path, required=True)
@@ -32,9 +43,7 @@ def main() -> int:
     parser.add_argument("--timeout", type=float, default=90.0)
     args = parser.parse_args()
 
-    raw_cards = load_json(args.error_cards)
-    if isinstance(raw_cards, dict):
-        raw_cards = raw_cards.get("error_cards", [])
+    raw_cards = load_error_cards(args.error_cards)
     cards = [ErrorCard(**item) for item in raw_cards]
     replay_metrics = load_json(args.replay_metrics)
     existing = (

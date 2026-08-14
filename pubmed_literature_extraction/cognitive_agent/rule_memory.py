@@ -388,3 +388,48 @@ def render_rule_context(bundle: RuleBundle) -> str:
             f"- Support documents: {len(set(rule.support_pmids))}", "",
         ])
     return "\n".join(lines).rstrip() + "\n"
+
+
+def error_cards_from_records(records: list[dict[str, Any]], *, split: str = "induction") -> list[ErrorCard]:
+    """Convert runtime failures into privacy-safe offline learning cards."""
+    cards: list[ErrorCard] = []
+    seen: set[str] = set()
+    for record in records:
+        pmid = str(record.get("pmid", ""))
+        phases = record.get("phases", {}) or {}
+        for relation in phases.get("verification", {}).get("relations", []) or []:
+            flags = sorted(set(str(item) for item in relation.get("quality_flags", []) or []))
+            categories = []
+            if any("evidence" in flag or "background" in flag or "method" in flag for flag in flags):
+                categories.append("evidence_mismatch")
+            if any("link" in flag or "ambig" in flag for flag in flags):
+                categories.append("linking_ambiguity")
+            if any("direction" in flag or "predicate" in flag for flag in flags):
+                categories.append("predicate_confusion")
+            for category in categories:
+                observed = {
+                    key: relation.get(key, "")
+                    for key in ("subject_type", "predicate", "object_type", "direction", "evidence_role")
+                }
+                raw = json.dumps([pmid, category, observed, flags], sort_keys=True, ensure_ascii=False)
+                error_id = "err-" + hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
+                if error_id in seen:
+                    continue
+                seen.add(error_id)
+                cards.append(ErrorCard(
+                    error_id=error_id, pmid=pmid, category=category,
+                    observed=observed, reason_codes=flags, split=split,
+                ))
+        marginal = phases.get("tool_marginal_benefit", {}).get("second_llm_refiner", {}) or {}
+        if marginal.get("called"):
+            changes = sum(int(marginal.get(key, 0) or 0) for key in (
+                "relation_additions", "relation_edits", "relation_rejections",
+            ))
+            if not changes:
+                raw = json.dumps([pmid, "zero_change_call"], sort_keys=True)
+                error_id = "err-" + hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
+                cards.append(ErrorCard(
+                    error_id=error_id, pmid=pmid, category="zero_change_call",
+                    reason_codes=["auxiliary_call_without_state_change"], split=split,
+                ))
+    return sorted(cards, key=lambda item: (item.pmid, item.category, item.error_id))

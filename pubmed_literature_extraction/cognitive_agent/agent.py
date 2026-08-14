@@ -66,7 +66,9 @@ from cognitive_agent.relation_pair_classifier import (
     PairClassifierConfig,
 )
 from cognitive_agent.central_agent_v2 import CentralAgentV2
-from cognitive_agent.rule_memory import RuleMemory
+from cognitive_agent.rule_memory import RuleMemory, error_cards_from_records
+from cognitive_agent.aux_model_registry import AuxModelRegistry
+from cognitive_agent.evidence_selector import EvidenceEntailmentEngine, EvidenceSelector
 
 import langextract as lx
 from langextract.factory import ModelConfig
@@ -118,6 +120,7 @@ class AgentConfig:
     rule_max_induction_rounds: int = 3
     aux_primary_model: str = "deepseek-v4-flash"
     aux_critic_model: str = "qwen-flash"
+    evidence_entailment_mode: str = "off"  # off | shadow | active
 
     # 调试期可选的 LLM 抽取审稿器；默认关闭，不属于最终生产链路
     reviewer_enabled: bool = False
@@ -261,6 +264,8 @@ class CognitiveAgent:
             raise ValueError("rule_memory_mode must be off, shadow, or active")
         if config.rule_learning_mode not in {"off", "induce", "validate", "promote"}:
             raise ValueError("invalid rule_learning_mode")
+        if config.evidence_entailment_mode not in {"off", "shadow", "active"}:
+            raise ValueError("invalid evidence_entailment_mode")
         if config.rule_max_context_tokens <= 0 or config.rule_max_rules_per_article <= 0:
             raise ValueError("rule memory limits must be positive")
         if min(
@@ -329,6 +334,18 @@ class CognitiveAgent:
             cache=self.extraction_cache,
             inner_max_workers=config.extraction_inner_max_workers,
         )
+        self.rule_memory = RuleMemory(
+            mode=config.rule_memory_mode,
+            bundle_path=config.rule_bundle,
+            max_rules=config.rule_max_rules_per_article,
+            max_context_tokens=config.rule_max_context_tokens,
+        )
+        self.evidence_selector = EvidenceSelector()
+        self.aux_models = AuxModelRegistry.from_environment(
+            primary_model=config.aux_primary_model,
+            critic_model=config.aux_critic_model,
+        )
+        self.evidence_entailment = EvidenceEntailmentEngine(self.aux_models)
         self.pair_classifier = BioREDPairClassifier(PairClassifierConfig(
             enabled=config.pair_classifier_enabled,
             mode=config.pair_classifier_mode,
@@ -339,7 +356,7 @@ class CognitiveAgent:
             uncertainty_floor=config.pair_classifier_uncertainty_floor,
             max_candidates=config.pair_classifier_max_candidates,
             max_low_confidence_candidates=config.pair_classifier_max_llm_candidates,
-        ))
+        ), evidence_selector=self.evidence_selector, rule_memory=self.rule_memory)
         self.verifier = KGVerifier(self.kg_memory)
         self.reviewer = ExtractionReviewer(
             ReviewerConfig(
@@ -413,13 +430,6 @@ class CognitiveAgent:
             soft_timeout_s=config.agent_soft_timeout,
             hard_timeout_s=config.agent_hard_timeout,
         )
-        self.rule_memory = RuleMemory(
-            mode=config.rule_memory_mode,
-            bundle_path=config.rule_bundle,
-            max_rules=config.rule_max_rules_per_article,
-            max_context_tokens=config.rule_max_context_tokens,
-        )
-
         # 运行时状态
         self.history: list[dict] = []
         self.current_examples = list(DEFAULT_EXAMPLES)
@@ -737,15 +747,63 @@ class CognitiveAgent:
                 entities=raw_extraction.entities,
                 relations=raw_extraction.relations,
                 units=evidence_units,
+                source_text=text,
             )
             record["phases"]["relation_pair_classification"] = pair_result.to_dict()
+            selected_evidence = []
+            candidate_payloads: dict[str, dict] = {}
+            prediction_by_id = {item.candidate_id: item for item in pair_result.predictions}
+            for candidate in pair_result.candidates:
+                prediction = prediction_by_id.get(candidate.candidate_id)
+                predicate = (
+                    prediction.label if prediction and prediction.label != "NO_RELATION"
+                    else candidate.evidence_trigger_predicate
+                )
+                if not predicate:
+                    continue
+                selection = self.evidence_selector.select(
+                    candidate_id=candidate.candidate_id,
+                    subject_mentions=[candidate.subject], object_mentions=[candidate.object],
+                    predicate=predicate, units=evidence_units, source_text=text,
+                )
+                if selection:
+                    selected_evidence.append(selection)
+                    candidate_payloads[candidate.candidate_id] = {
+                        "subject": candidate.subject, "predicate": predicate,
+                        "object": candidate.object,
+                    }
+            entailment_decisions, entailment_audit = self.evidence_entailment.assess(
+                selected_evidence, source_text=text, candidate_payloads=candidate_payloads,
+                allow_remote=self.config.evidence_entailment_mode in {"shadow", "active"},
+            )
+            record["phases"]["evidence_entailment"] = {
+                "mode": self.config.evidence_entailment_mode,
+                "selected": [item.to_dict() for item in selected_evidence],
+                "decisions": [item.to_dict() for item in entailment_decisions],
+                "audit": entailment_audit,
+                "production_applied": (
+                    self.config.evidence_entailment_mode == "active"
+                    and self.config.pair_classifier_mode == "active"
+                ),
+            }
             if self.config.pair_classifier_mode == "active":
+                entailment_by_id = {item.candidate_id: item for item in entailment_decisions}
                 relation_core_relations = []
                 relation_core_keys: set[tuple] = set()
                 for relation in [
                     *pair_result.accepted_relations,
                     *pair_result.low_confidence_relations,
                 ]:
+                    entailment = entailment_by_id.get(str(relation.get("candidate_id", "")))
+                    if self.config.evidence_entailment_mode == "active" and entailment:
+                        relation["evidence_entailment"] = entailment.label
+                        relation["evidence_confidence"] = entailment.confidence
+                        if entailment.label != "ENTAILED":
+                            relation.setdefault("quality_flags", []).extend([
+                                "evidence_not_entailed", "manual_review",
+                            ])
+                            if entailment.label == "CONTRADICTED":
+                                continue
                     key = (
                         relation.get("candidate_id"), relation.get("predicate"),
                         relation.get("subject"), relation.get("object"),
@@ -1855,22 +1913,28 @@ class CognitiveAgent:
                 # Agent v2 treats batch reflection as an offline advisory so a
                 # concurrent batch never changes policy midway or silently
                 # carries an unvalidated rule into the next experiment.
-                if reflection.has_changes() and self.config.execution_mode == "legacy":
+                reflection_applied = bool(
+                    reflection.has_changes()
+                    and self.config.execution_mode == "legacy"
+                    and self.config.rule_memory_mode == "off"
+                )
+                if reflection_applied:
                     self.strategy_manager.apply_update(reflection)
 
         # 生成报告
         report = self._generate_report(run_id, articles, t_batch_end - t_batch_start)
         if reflection is not None:
+            reflection_cards = error_cards_from_records(self.history)
             report["reflection"] = {
                 "strategy_update": reflection.to_dict(),
                 "current_strategy": self.strategy_manager.state.to_dict(),
-                "applied": bool(
-                    reflection.has_changes() and self.config.execution_mode == "legacy"
-                ),
+                "applied": bool(reflection_applied),
                 "mode": (
-                    "legacy_apply" if self.config.execution_mode == "legacy"
+                    "legacy_apply" if reflection_applied
+                    else "error_card_producer" if self.config.rule_memory_mode != "off"
                     else "agent_v2_advisory_only"
                 ),
+                "error_cards": [item.to_dict() for item in reflection_cards],
             }
 
         # 保存结果
@@ -1912,6 +1976,14 @@ class CognitiveAgent:
                         "soft_timeout": self.config.agent_soft_timeout,
                         "hard_timeout": self.config.agent_hard_timeout,
                     },
+                    "rule_memory_mode": self.config.rule_memory_mode,
+                    "rule_bundle_hash": self.rule_memory.frozen_hash,
+                    "rule_learning_mode": self.config.rule_learning_mode,
+                    "rule_max_context_tokens": self.config.rule_max_context_tokens,
+                    "rule_max_rules_per_article": self.config.rule_max_rules_per_article,
+                    "aux_primary_model": self.config.aux_primary_model,
+                    "aux_critic_model": self.config.aux_critic_model,
+                    "evidence_entailment_mode": self.config.evidence_entailment_mode,
                     "pair_classifier_enabled": self.config.pair_classifier_enabled,
                     "pair_classifier_mode": self.config.pair_classifier_mode,
                     "pair_classifier_backend": self.config.pair_classifier_backend,
@@ -2468,6 +2540,35 @@ class CognitiveAgent:
             "max_rules_per_article": self.config.rule_max_rules_per_article,
             "max_context_tokens": self.config.rule_max_context_tokens,
         }
+        evidence_phases = [
+            record.get("phases", {}).get("evidence_entailment", {})
+            for record in self.history
+            if record.get("phases", {}).get("evidence_entailment")
+        ]
+        entailment_label_counts: dict[str, int] = {}
+        entailment_source_counts: dict[str, int] = {}
+        for phase in evidence_phases:
+            for decision in phase.get("decisions", []) or []:
+                label = str(decision.get("label", "UNKNOWN"))
+                source = str(decision.get("source", "unknown"))
+                entailment_label_counts[label] = entailment_label_counts.get(label, 0) + 1
+                entailment_source_counts[source] = entailment_source_counts.get(source, 0) + 1
+        evidence_entailment_report = {
+            "mode": self.config.evidence_entailment_mode,
+            "planned_articles": len(evidence_phases),
+            "selected_span_count": sum(len(item.get("selected", []) or []) for item in evidence_phases),
+            "label_counts": entailment_label_counts,
+            "source_counts": entailment_source_counts,
+            "continuous_source_rate": round(
+                sum(
+                    int(selected.get("char_start", -1)) >= 0
+                    and int(selected.get("char_end", -1)) > int(selected.get("char_start", -1))
+                    for phase in evidence_phases for selected in phase.get("selected", []) or []
+                ) / max(sum(len(item.get("selected", []) or []) for item in evidence_phases), 1),
+                4,
+            ),
+            "auxiliary_models": self.aux_models.audit(),
+        }
         return {
             "run_id": run_id,
             "agent_mode": self.config.agent_mode,
@@ -2526,6 +2627,7 @@ class CognitiveAgent:
             "relation_pair_classifier": pair_classifier_report,
             "agent_v2": agent_v2_report,
             "rule_memory": rule_memory_report,
+            "evidence_entailment": evidence_entailment_report,
             "latency": latency_report,
             "article_reviews": article_reviews,
         }
@@ -2589,6 +2691,7 @@ class CognitiveAgent:
             "tool_plan_post": phases.get("tool_plan_post", {}),
             "agent_controller": phases.get("agent_controller", {}),
             "rule_memory": phases.get("rule_memory", {}),
+            "evidence_entailment": phases.get("evidence_entailment", {}),
             "collaboration": phases.get("collaboration", {}),
             "rag_context": phases.get("rag_context", {}),
             "entities": entity_reviews,
@@ -2878,6 +2981,11 @@ def main():
         "--aux-critic-model", default=os.environ.get("AUX_CRITIC_MODEL", "qwen-flash"),
     )
     parser.add_argument(
+        "--evidence-entailment-mode", choices=("off", "shadow", "active"),
+        default=os.environ.get("EVIDENCE_ENTAILMENT_MODE", "off"),
+        help="Local-first evidence entailment; remote calls only for uncertain candidates",
+    )
+    parser.add_argument(
         "--pair-classifier-mode", choices=("off", "shadow", "active"),
         default=os.environ.get("PAIR_CLASSIFIER_MODE", "shadow"),
         help="BioRED式实体对分类：shadow默认只审计；active仅允许dry-run",
@@ -3164,6 +3272,7 @@ def main():
         rule_max_induction_rounds=args.rule_max_induction_rounds,
         aux_primary_model=args.aux_primary_model,
         aux_critic_model=args.aux_critic_model,
+        evidence_entailment_mode=args.evidence_entailment_mode,
         pair_classifier_mode=args.pair_classifier_mode,
         pair_classifier_enabled=args.pair_classifier_mode != "off",
         pair_classifier_backend=args.pair_classifier_backend,
