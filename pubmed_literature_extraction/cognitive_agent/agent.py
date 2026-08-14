@@ -66,6 +66,7 @@ from cognitive_agent.relation_pair_classifier import (
     PairClassifierConfig,
 )
 from cognitive_agent.central_agent_v2 import CentralAgentV2
+from cognitive_agent.rule_memory import RuleMemory
 
 import langextract as lx
 from langextract.factory import ModelConfig
@@ -107,6 +108,16 @@ class AgentConfig:
     agent_max_neo4j_calls: int = 0
     agent_soft_timeout: float = 0.0
     agent_hard_timeout: float = 180.0
+
+    # Agent v3 validated soft-rule memory. Disabled for compatibility.
+    rule_memory_mode: str = "off"
+    rule_bundle: str = ""
+    rule_learning_mode: str = "off"
+    rule_max_context_tokens: int = 1200
+    rule_max_rules_per_article: int = 8
+    rule_max_induction_rounds: int = 3
+    aux_primary_model: str = "deepseek-v4-flash"
+    aux_critic_model: str = "qwen-flash"
 
     # 调试期可选的 LLM 抽取审稿器；默认关闭，不属于最终生产链路
     reviewer_enabled: bool = False
@@ -246,6 +257,12 @@ class CognitiveAgent:
             raise ValueError("active Agent v2 is restricted to dry-run execution")
         if config.agent_budget_profile not in CentralAgentV2.VALID_PROFILES:
             raise ValueError("invalid central Agent v2 budget profile")
+        if config.rule_memory_mode not in {"off", "shadow", "active"}:
+            raise ValueError("rule_memory_mode must be off, shadow, or active")
+        if config.rule_learning_mode not in {"off", "induce", "validate", "promote"}:
+            raise ValueError("invalid rule_learning_mode")
+        if config.rule_max_context_tokens <= 0 or config.rule_max_rules_per_article <= 0:
+            raise ValueError("rule memory limits must be positive")
         if min(
             config.agent_max_actions, config.agent_max_aux_remote_calls,
             config.agent_max_neo4j_calls, config.agent_soft_timeout,
@@ -396,6 +413,12 @@ class CognitiveAgent:
             soft_timeout_s=config.agent_soft_timeout,
             hard_timeout_s=config.agent_hard_timeout,
         )
+        self.rule_memory = RuleMemory(
+            mode=config.rule_memory_mode,
+            bundle_path=config.rule_bundle,
+            max_rules=config.rule_max_rules_per_article,
+            max_context_tokens=config.rule_max_context_tokens,
+        )
 
         # 运行时状态
         self.history: list[dict] = []
@@ -540,6 +563,19 @@ class CognitiveAgent:
                 max_examples=self.config.golden_shot_max_examples,
                 document_id=str(pmid),
             )
+            rule_prompt_context, article_rule_matches = self.rule_memory.prompt_context({
+                "study_type": pre_plan.profile.study_type,
+                "section": "ABSTRACT",
+                "evidence": text,
+                "evidence_confidence": 0.0,
+                "both_endpoints_in_evidence": False,
+            })
+            rule_guidance_applied = bool(
+                rule_prompt_context and self.config.rule_memory_mode == "active"
+            )
+            record["phases"]["rule_memory"] = self.rule_memory.phase_payload(
+                article_rule_matches, applied=rule_guidance_applied,
+            )
             record["phases"]["local_preprocessing"] = {
                 "mode": "parallel_content_addressed",
                 "content_hash": prepared.content_hash,
@@ -647,6 +683,7 @@ class CognitiveAgent:
                 strategy=strategy,
                 tool_plan=execution_pre_plan,
                 evidence_units=evidence_units,
+                rule_context=rule_prompt_context if rule_guidance_applied else "",
             )
             record["phases"]["strategy"] = {
                 "active_strategy": strategy,
@@ -1674,6 +1711,7 @@ class CognitiveAgent:
         strategy: dict,
         tool_plan: ToolPlan | None = None,
         evidence_units: list | None = None,
+        rule_context: str = "",
     ) -> str:
         """Append runtime extraction guidance derived from Phase 1 context."""
         mode = strategy.get("extraction_mode", "balanced")
@@ -1717,6 +1755,8 @@ class CognitiveAgent:
                 "- For compound sentences, reason clause-by-clause and do not connect entities across unrelated clauses.\n"
                 f"- detected_sections: {', '.join(sections) or 'ABSTRACT'}; evidence_units: {len(evidence_units)}\n"
             )
+        if rule_context:
+            prompt += "\n" + rule_context + "\n"
         return prompt
 
     def _reflect(self) -> dict:
@@ -2396,6 +2436,38 @@ class CognitiveAgent:
             "article_p99_s": nearest_percentile(article_times, 0.99),
             "article_max_s": round(max(article_times), 3) if article_times else 0.0,
         }
+        rule_phases = [
+            record.get("phases", {}).get("rule_memory", {})
+            for record in self.history
+            if record.get("phases", {}).get("rule_memory")
+        ]
+        rule_action_counts: dict[str, int] = {}
+        for phase in rule_phases:
+            for match in phase.get("matches", []) or []:
+                action = str(match.get("action", "UNKNOWN"))
+                rule_action_counts[action] = rule_action_counts.get(action, 0) + 1
+        rule_memory_report = {
+            "mode": self.rule_memory.mode,
+            "learning_mode": self.config.rule_learning_mode,
+            "bundle_version": self.rule_memory.bundle.bundle_version,
+            "bundle_revision": self.rule_memory.bundle.revision,
+            "bundle_hash": self.rule_memory.frozen_hash,
+            "bundle_frozen_for_run": True,
+            "load_error": self.rule_memory.load_error,
+            "planned_articles": len(rule_phases),
+            "articles_with_matches": sum(
+                int(phase.get("retrieved_rule_count", 0) or 0) > 0
+                for phase in rule_phases
+            ),
+            "retrieved_rule_count": sum(
+                int(phase.get("retrieved_rule_count", 0) or 0)
+                for phase in rule_phases
+            ),
+            "applied_articles": sum(bool(phase.get("applied")) for phase in rule_phases),
+            "action_counts": rule_action_counts,
+            "max_rules_per_article": self.config.rule_max_rules_per_article,
+            "max_context_tokens": self.config.rule_max_context_tokens,
+        }
         return {
             "run_id": run_id,
             "agent_mode": self.config.agent_mode,
@@ -2453,6 +2525,7 @@ class CognitiveAgent:
             "agent_controller": agent_controller_report,
             "relation_pair_classifier": pair_classifier_report,
             "agent_v2": agent_v2_report,
+            "rule_memory": rule_memory_report,
             "latency": latency_report,
             "article_reviews": article_reviews,
         }
@@ -2515,6 +2588,7 @@ class CognitiveAgent:
             "tool_plan_pre": phases.get("tool_plan_pre", {}),
             "tool_plan_post": phases.get("tool_plan_post", {}),
             "agent_controller": phases.get("agent_controller", {}),
+            "rule_memory": phases.get("rule_memory", {}),
             "collaboration": phases.get("collaboration", {}),
             "rag_context": phases.get("rag_context", {}),
             "entities": entity_reviews,
@@ -2770,6 +2844,38 @@ def main():
         "--agent-hard-timeout", type=float,
         default=float(os.environ.get("AGENT_HARD_TIMEOUT", "180")),
         help="单篇 Agent v2 硬截止秒数（默认 180）",
+    )
+    parser.add_argument(
+        "--rule-memory-mode", choices=("off", "shadow", "active"),
+        default=os.environ.get("RULE_MEMORY_MODE", "off"),
+        help="Agent v3 soft-rule memory; compatibility default is off",
+    )
+    parser.add_argument(
+        "--rule-bundle", default=os.environ.get("RULE_BUNDLE", ""),
+        help="Versioned validated rule bundle JSON",
+    )
+    parser.add_argument(
+        "--rule-learning-mode", choices=("off", "induce", "validate", "promote"),
+        default=os.environ.get("RULE_LEARNING_MODE", "off"),
+        help="Offline rule-learning audit mode; runtime never mutates the bundle",
+    )
+    parser.add_argument(
+        "--rule-max-context-tokens", type=int,
+        default=int(os.environ.get("RULE_MAX_CONTEXT_TOKENS", "1200")),
+    )
+    parser.add_argument(
+        "--rule-max-rules-per-article", type=int,
+        default=int(os.environ.get("RULE_MAX_RULES_PER_ARTICLE", "8")),
+    )
+    parser.add_argument(
+        "--rule-max-induction-rounds", type=int,
+        default=int(os.environ.get("RULE_MAX_INDUCTION_ROUNDS", "3")),
+    )
+    parser.add_argument(
+        "--aux-primary-model", default=os.environ.get("AUX_PRIMARY_MODEL", "deepseek-v4-flash"),
+    )
+    parser.add_argument(
+        "--aux-critic-model", default=os.environ.get("AUX_CRITIC_MODEL", "qwen-flash"),
     )
     parser.add_argument(
         "--pair-classifier-mode", choices=("off", "shadow", "active"),
@@ -3050,6 +3156,14 @@ def main():
         agent_max_neo4j_calls=args.agent_max_neo4j_calls,
         agent_soft_timeout=args.agent_soft_timeout,
         agent_hard_timeout=args.agent_hard_timeout,
+        rule_memory_mode=args.rule_memory_mode,
+        rule_bundle=args.rule_bundle,
+        rule_learning_mode=args.rule_learning_mode,
+        rule_max_context_tokens=args.rule_max_context_tokens,
+        rule_max_rules_per_article=args.rule_max_rules_per_article,
+        rule_max_induction_rounds=args.rule_max_induction_rounds,
+        aux_primary_model=args.aux_primary_model,
+        aux_critic_model=args.aux_critic_model,
         pair_classifier_mode=args.pair_classifier_mode,
         pair_classifier_enabled=args.pair_classifier_mode != "off",
         pair_classifier_backend=args.pair_classifier_backend,
