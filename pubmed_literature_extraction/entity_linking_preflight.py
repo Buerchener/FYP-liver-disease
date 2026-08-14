@@ -22,39 +22,28 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from urllib.parse import urlparse
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from cognitive_agent.schema.ontology import (
+    RELATION_SIGNATURES,
+    NEO4J_IMPORTABLE_PREDICATES,
+    annotate_relation_evidence,
+)
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_OUTPUT_DIR = SCRIPT_DIR / "extraction_output" / "entity_linking_preflight"
 DEFAULT_CACHE_DIR = DEFAULT_OUTPUT_DIR / "cache"
 
-DEFAULT_HTTP_URL = os.environ.get("NEO4J_HTTP_URL", "http://100.104.181.96:7474")
-DEFAULT_DATABASE = os.environ.get("NEO4J_DATABASE", "liver-kg-core-v02")
+DEFAULT_HTTP_URL = os.environ.get("NEO4J_HTTP_URL", "http://localhost:7474")
+DEFAULT_DATABASE = os.environ.get("NEO4J_DATABASE", "neo4j")
 DEFAULT_USER = os.environ.get("NEO4J_USER", "neo4j")
 DEFAULT_PASSWORD = os.environ.get("NEO4J_PASSWORD", "")
 
-TARGET_RELATION_SIGNATURES = {
-    "ASSOCIATED_WITH": {("Gene", "Disease"), ("Metabolite", "Disease")},
-    "PROGNOSTIC_IN": {("Gene", "Disease")},
-    "PROGRESSES_TO": {("Disease", "Disease")},
-    "ENCODES": {("Gene", "Protein")},
-    "INTERACTS_WITH": {("Protein", "Protein")},
-    "PARTICIPATES_IN": {("Gene", "Pathway")},
-    "EXPRESSED_IN": {("Gene", "Tissue"), ("Gene", "CellType")},
-    "ASSOCIATED_WITH_METABOLITE": {("Gene", "Metabolite")},
-}
-
-IMPORTABLE_PREDICATES = {
-    "ASSOCIATED_WITH",
-    "PROGNOSTIC_IN",
-    "INTERACTS_WITH",
-    "PARTICIPATES_IN",
-    "EXPRESSED_IN",
-    "ASSOCIATED_WITH_METABOLITE",
-}
+TARGET_RELATION_SIGNATURES = RELATION_SIGNATURES
+IMPORTABLE_PREDICATES = NEO4J_IMPORTABLE_PREDICATES
 
 BLOCKING_FLAGS = {
     "ungrounded_evidence",
@@ -161,6 +150,8 @@ class EntityEntry:
 
 class Neo4jHTTPClient:
     def __init__(self, url: str, database: str, user: str, password: str) -> None:
+        if urlparse(url).hostname not in {"localhost", "127.0.0.1", "::1"}:
+            raise ValueError("Neo4j preflight connections are restricted to localhost")
         self.url = url.rstrip("/")
         self.database = database
         self.user = user
@@ -677,6 +668,7 @@ def enrich_results(
                 )
                 update_relation_summary(method_summaries[method_name], relation_reports[method_name])
             rel["linking_preflight"] = relation_reports["ensemble"]
+            annotate_relation_evidence(rel, source="PubMed")
             all_relation_rows.append(
                 {
                     "record_index": record_index,

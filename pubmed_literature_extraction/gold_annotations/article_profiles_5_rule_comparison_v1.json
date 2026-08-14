@@ -1,0 +1,47 @@
+{
+  "evaluated_at": "2026-08-13",
+  "gold_file": "article_profiles_10_gold_v1.json",
+  "gold_subset": "first_five_documents",
+  "router": "cognitive_agent.tool_router.ArticleToolRouter",
+  "sample_size": 5,
+  "metrics": {
+    "primary_study_type_accuracy": {"correct": 3, "total": 5, "value": 0.6},
+    "has_structured_results_accuracy": {"correct": 2, "total": 5, "value": 0.4},
+    "high_extraction_complexity_accuracy": {"correct": 4, "total": 5, "value": 0.8},
+    "recommended_route_accuracy": {"correct": 3, "total": 5, "value": 0.6},
+    "exact_profile_accuracy": {"correct": 2, "total": 5, "value": 0.4}
+  },
+  "comparisons": [
+    {
+      "pmid": "41810002",
+      "gold": {"study_type": "review", "structured_results": false, "high_complexity": false, "route": "FAST"},
+      "rules": {"study_type": "clinical", "structured_results": false, "high_complexity": true, "route": "DEEP"},
+      "error_analysis": "The review detector checks only 'systematic review', 'scoping review', 'meta-analysis', or 'review article' in the title. It misses the abstract's explicit 'This review'. The word 'patient' then triggers the clinical label. High conjunction density also overstates extraction complexity for a broad narrative review."
+    },
+    {
+      "pmid": "41620901",
+      "gold": {"study_type": "computational", "structured_results": true, "high_complexity": true, "route": "FAST"},
+      "rules": {"study_type": "computational", "structured_results": false, "high_complexity": true, "route": "FAST"},
+      "error_analysis": "The core type and route are correct. RESULTS and CONCLUSION labels are missed because the converted abstract stores section labels inline rather than after a newline."
+    },
+    {
+      "pmid": "41354212",
+      "gold": {"study_type": "clinical", "structured_results": true, "high_complexity": false, "route": "STANDARD"},
+      "rules": {"study_type": "clinical", "structured_results": false, "high_complexity": false, "route": "STANDARD"},
+      "error_analysis": "The operational route is correct. The same inline structured-heading parsing bug causes the only profile mismatch."
+    },
+    {
+      "pmid": "41683641",
+      "gold": {"study_type": "animal", "structured_results": false, "high_complexity": true, "route": "DEEP"},
+      "rules": {"study_type": "animal", "structured_results": false, "high_complexity": true, "route": "DEEP"},
+      "error_analysis": "Exact match on the four evaluated fields, although the single-label profile does not preserve the accompanying in-vitro hepatocyte modality."
+    },
+    {
+      "pmid": "41948344",
+      "gold": {"study_type": "human_omics", "structured_results": true, "high_complexity": true, "route": "DEEP"},
+      "rules": {"study_type": "computational", "structured_results": false, "high_complexity": true, "route": "STANDARD"},
+      "error_analysis": "The precedence rule assigns 'computational' as soon as machine learning/diagnostic model language appears. It therefore masks scRNA-seq plus Western blot/qPCR validation in human fibrotic liver tissue. The incorrect primary label downgrades a genuinely multimodal article from DEEP to STANDARD."
+    }
+  ],
+  "interpretation": "This five-document audit is diagnostic, not a statistically stable estimate. It demonstrates concrete label-precedence, mixed-design representation, and structured-heading parsing failures that can change downstream evidence policy and tool routing."
+}

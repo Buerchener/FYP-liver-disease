@@ -1,0 +1,258 @@
+{
+  "deepseek-v4-flash": {
+    "entity_endpoint_core_disease": {
+      "tp": 99,
+      "fp": 322,
+      "fn": 18,
+      "precision": 0.23515439429928742,
+      "recall": 0.8461538461538461,
+      "f1": 0.36802973977695164
+    },
+    "gene_protein_type_accuracy": 0.9047619047619048,
+    "gene_protein_type_counts": {
+      "correct": 19,
+      "matched": 21
+    },
+    "semantic_relation_triples": {
+      "tp": 19,
+      "fp": 21,
+      "fn": 26,
+      "precision": 0.475,
+      "recall": 0.4222222222222222,
+      "f1": 0.4470588235294118
+    },
+    "strict_import_ready_relation_triples": {
+      "tp": 10,
+      "fp": 10,
+      "fn": 12,
+      "precision": 0.5,
+      "recall": 0.45454545454545453,
+      "f1": 0.47619047619047616
+    },
+    "evidence_span_precision_iou_0_5": 0.35,
+    "evidence_source_contiguous_rate": 1.0,
+    "evidence_counts": {
+      "correct": 14,
+      "predicted_relations": 40
+    },
+    "duplicate_candidate_rate": 0.09922822491730982,
+    "duplicate_counts": {
+      "duplicates": 90,
+      "candidates": 907
+    },
+    "latency_seconds": {
+      "mean": 1.6361441358644515,
+      "p50": 0.004832396050915122,
+      "p95": 7.531564308214001,
+      "sum_article_latency": 81.80720679322258,
+      "wall_clock": 11.120597666595131
+    },
+    "usage_and_cost": {
+      "prompt_tokens": 34933,
+      "output_tokens": 11074,
+      "estimated_cost_usd": null,
+      "price_reference_usd_per_million": {
+        "input": 0.0,
+        "output": 0.0
+      },
+      "cost_kind": "workspace_price_not_available"
+    },
+    "invalid_json_attempt_rate": 0.0,
+    "invalid_json_attempts": 0,
+    "model_attempts": 15,
+    "article_failure_rate": 0.0,
+    "failed_articles": 0
+  },
+  "qwen-flash": {
+    "entity_endpoint_core_disease": {
+      "tp": 99,
+      "fp": 322,
+      "fn": 18,
+      "precision": 0.23515439429928742,
+      "recall": 0.8461538461538461,
+      "f1": 0.36802973977695164
+    },
+    "gene_protein_type_accuracy": 0.9047619047619048,
+    "gene_protein_type_counts": {
+      "correct": 19,
+      "matched": 21
+    },
+    "semantic_relation_triples": {
+      "tp": 16,
+      "fp": 19,
+      "fn": 29,
+      "precision": 0.45714285714285713,
+      "recall": 0.35555555555555557,
+      "f1": 0.4
+    },
+    "strict_import_ready_relation_triples": {
+      "tp": 10,
+      "fp": 13,
+      "fn": 12,
+      "precision": 0.43478260869565216,
+      "recall": 0.45454545454545453,
+      "f1": 0.4444444444444445
+    },
+    "evidence_span_precision_iou_0_5": 0.4,
+    "evidence_source_contiguous_rate": 1.0,
+    "evidence_counts": {
+      "correct": 14,
+      "predicted_relations": 35
+    },
+    "duplicate_candidate_rate": 0.09922822491730982,
+    "duplicate_counts": {
+      "duplicates": 90,
+      "candidates": 907
+    },
+    "latency_seconds": {
+      "mean": 1.8822431267052888,
+      "p50": 0.005606062477454543,
+      "p95": 10.245936737232835,
+      "sum_article_latency": 94.11215633526444,
+      "wall_clock": 14.3731301673688
+    },
+    "usage_and_cost": {
+      "prompt_tokens": 34676,
+      "output_tokens": 10401,
+      "estimated_cost_usd": null,
+      "price_reference_usd_per_million": {
+        "input": 0.0,
+        "output": 0.0
+      },
+      "cost_kind": "workspace_price_not_available"
+    },
+    "invalid_json_attempt_rate": 0.0,
+    "invalid_json_attempts": 0,
+    "model_attempts": 15,
+    "article_failure_rate": 0.0,
+    "failed_articles": 0
+  },
+  "qwen3.5-flash": {
+    "entity_endpoint_core_disease": {
+      "tp": 99,
+      "fp": 322,
+      "fn": 18,
+      "precision": 0.23515439429928742,
+      "recall": 0.8461538461538461,
+      "f1": 0.36802973977695164
+    },
+    "gene_protein_type_accuracy": 0.9047619047619048,
+    "gene_protein_type_counts": {
+      "correct": 19,
+      "matched": 21
+    },
+    "semantic_relation_triples": {
+      "tp": 15,
+      "fp": 22,
+      "fn": 30,
+      "precision": 0.40540540540540543,
+      "recall": 0.3333333333333333,
+      "f1": 0.36585365853658536
+    },
+    "strict_import_ready_relation_triples": {
+      "tp": 8,
+      "fp": 10,
+      "fn": 14,
+      "precision": 0.4444444444444444,
+      "recall": 0.36363636363636365,
+      "f1": 0.39999999999999997
+    },
+    "evidence_span_precision_iou_0_5": 0.2972972972972973,
+    "evidence_source_contiguous_rate": 1.0,
+    "evidence_counts": {
+      "correct": 11,
+      "predicted_relations": 37
+    },
+    "duplicate_candidate_rate": 0.09922822491730982,
+    "duplicate_counts": {
+      "duplicates": 90,
+      "candidates": 907
+    },
+    "latency_seconds": {
+      "mean": 3.8646223509311675,
+      "p50": 0.005796583602204919,
+      "p95": 17.43912565044591,
+      "sum_article_latency": 193.23111754655838,
+      "wall_clock": 45.11904220795259
+    },
+    "usage_and_cost": {
+      "prompt_tokens": 34696,
+      "output_tokens": 19538,
+      "estimated_cost_usd": null,
+      "price_reference_usd_per_million": {
+        "input": 0.0,
+        "output": 0.0
+      },
+      "cost_kind": "workspace_price_not_available"
+    },
+    "invalid_json_attempt_rate": 0.0,
+    "invalid_json_attempts": 0,
+    "model_attempts": 15,
+    "article_failure_rate": 0.0,
+    "failed_articles": 0
+  },
+  "qwen3-30b-a3b-instruct-2507": {
+    "entity_endpoint_core_disease": {
+      "tp": 99,
+      "fp": 322,
+      "fn": 18,
+      "precision": 0.23515439429928742,
+      "recall": 0.8461538461538461,
+      "f1": 0.36802973977695164
+    },
+    "gene_protein_type_accuracy": 0.9047619047619048,
+    "gene_protein_type_counts": {
+      "correct": 19,
+      "matched": 21
+    },
+    "semantic_relation_triples": {
+      "tp": 13,
+      "fp": 20,
+      "fn": 32,
+      "precision": 0.3939393939393939,
+      "recall": 0.28888888888888886,
+      "f1": 0.3333333333333333
+    },
+    "strict_import_ready_relation_triples": {
+      "tp": 10,
+      "fp": 11,
+      "fn": 12,
+      "precision": 0.47619047619047616,
+      "recall": 0.45454545454545453,
+      "f1": 0.46511627906976744
+    },
+    "evidence_span_precision_iou_0_5": 0.3333333333333333,
+    "evidence_source_contiguous_rate": 1.0,
+    "evidence_counts": {
+      "correct": 11,
+      "predicted_relations": 33
+    },
+    "duplicate_candidate_rate": 0.09922822491730982,
+    "duplicate_counts": {
+      "duplicates": 90,
+      "candidates": 907
+    },
+    "latency_seconds": {
+      "mean": 2.1584371757414194,
+      "p50": 0.012265813071280718,
+      "p95": 11.437501733307723,
+      "sum_article_latency": 107.92185878707096,
+      "wall_clock": 20.610724207945168
+    },
+    "usage_and_cost": {
+      "prompt_tokens": 34676,
+      "output_tokens": 10980,
+      "estimated_cost_usd": null,
+      "price_reference_usd_per_million": {
+        "input": 0.0,
+        "output": 0.0
+      },
+      "cost_kind": "workspace_price_not_available"
+    },
+    "invalid_json_attempt_rate": 0.0,
+    "invalid_json_attempts": 0,
+    "model_attempts": 15,
+    "article_failure_rate": 0.0,
+    "failed_articles": 0
+  }
+}

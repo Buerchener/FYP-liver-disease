@@ -1,0 +1,557 @@
+{
+  "pmid": "41863281",
+  "title": "Lenvatinib combined with immune checkpoint inhibitors for unresectable, recurrent, or metastatic hepatocellular carcinoma: a real-world study.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 104,
+          "char_end": 128
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "unresectable, recurrent, or metastatic"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1685,
+          "char_end": 1688
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 104,
+            "char_end": 128,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 1,
+          "raw_entity_count": 2,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 1,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.825,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "type_constraint_pass_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 1,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 1
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 2,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.2266096668317914,
+      "prompt_tokens": 450,
+      "output_tokens": 182,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 104,
+          "char_end": 128
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "unresectable, recurrent, or metastatic"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1685,
+          "char_end": 1688
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 104,
+            "char_end": 128,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 1,
+          "raw_entity_count": 2,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 1,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.825,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "type_constraint_pass_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 1,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 1
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 2,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.599559917114675,
+      "prompt_tokens": 3379,
+      "output_tokens": 438,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "hepatocellular carcinoma",
+            "entity_type": "Disease",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 104,
+            "char_end": 128,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Explicit disease mention in title and abstract; retained as novel entity."
+          },
+          {
+            "mention": "HCC",
+            "entity_type": "Disease",
+            "source_span": "HCC",
+            "char_start": 1685,
+            "char_end": 1688,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Abbreviation for hepatocellular carcinoma; merged with canonical entity but kept as separate mention for completeness."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [],
+        "review_reason": "No relations were extracted by the first model; the abstract describes treatment outcomes but does not explicitly state causal or associative relations between entities beyond the disease itself. Entities were verified against the text; both mentions of HCC are valid and retained.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "hepatocellular carcinoma"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HCC",
+            "status": "already_rejected_by_phase_a"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C2239176"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "char_start": 104,
+          "char_end": 128
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C2239176"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "HCC",
+          "char_start": 346,
+          "char_end": 349
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "C2239176"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 104,
+            "char_end": 128,
+            "grounded": true,
+            "normalized_id": "C2239176",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 1,
+          "raw_entity_count": 2,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 1,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.825,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "type_constraint_pass_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 1,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 1
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 2,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.0469930418767035,
+      "prompt_tokens": 1584,
+      "output_tokens": 98,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

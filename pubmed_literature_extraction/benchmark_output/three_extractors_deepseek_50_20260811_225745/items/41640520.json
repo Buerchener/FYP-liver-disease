@@ -1,0 +1,950 @@
+{
+  "pmid": "41640520",
+  "title": "Prevalence and Correlates of Hepatitis B and C infections in Sickle cell anaemic (SCA) children compared to Controls in a Tertiary Hospital, Abakaliki, Southeast, Nigeria.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Hepatitis B",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatitis B",
+            "disease_stage": "HBV"
+          },
+          "grounded": true,
+          "source_span": "Hepatitis B",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 36,
+          "char_end": 47
+        },
+        {
+          "mention": "Hepatitis C",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatitis C",
+            "disease_stage": "HCV"
+          },
+          "grounded": true,
+          "source_span": "Hepatitis C",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 405,
+          "char_end": 416
+        },
+        {
+          "mention": "Sickle cell anaemia",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Sickle cell anaemia",
+            "disease_stage": "SCA"
+          },
+          "grounded": true,
+          "source_span": "Sickle cell anaemia",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 68,
+          "char_end": 79
+        },
+        {
+          "mention": "SCA",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "SCA",
+            "disease_stage": "SCA"
+          },
+          "grounded": true,
+          "source_span": "SCA",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1024,
+          "char_end": 1027
+        },
+        {
+          "mention": "HCV infection",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCV infection",
+            "disease_stage": "HCV"
+          },
+          "grounded": true,
+          "source_span": "HCV infection",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1394,
+          "char_end": 1407
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatitis B",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatitis B",
+              "disease_stage": "HBV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatitis B",
+            "char_start": 36,
+            "char_end": 47,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis b",
+            "canonical_mentions": [
+              "Hepatitis B"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Hepatitis C",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatitis C",
+              "disease_stage": "HCV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis C",
+            "char_start": 405,
+            "char_end": 416,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis c",
+            "canonical_mentions": [
+              "Hepatitis C"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "sickle cell anaemic",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "SCA",
+              "disease_stage": "SCA"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "sickle cell anaemic",
+            "char_start": 217,
+            "char_end": 236,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:sickle cell anaemic",
+            "canonical_mentions": [
+              "SCA"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HCV infection",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HCV infection",
+              "disease_stage": "HCV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HCV infection",
+            "char_start": 1394,
+            "char_end": 1407,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hcv infection",
+            "canonical_mentions": [
+              "HCV infection"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 4,
+          "raw_entity_count": 5,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 4,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.93,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 5,
+              "value": 0.2
+            },
+            "type_constraint_pass_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 4,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 4
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 5,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.5223982497118413,
+      "prompt_tokens": 396,
+      "output_tokens": 372,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Hepatitis B",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatitis B",
+            "disease_stage": "HBV"
+          },
+          "grounded": true,
+          "source_span": "Hepatitis B",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 36,
+          "char_end": 47
+        },
+        {
+          "mention": "Hepatitis C",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatitis C",
+            "disease_stage": "HCV"
+          },
+          "grounded": true,
+          "source_span": "Hepatitis C",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 405,
+          "char_end": 416
+        },
+        {
+          "mention": "Sickle cell anaemia",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Sickle cell anaemia",
+            "disease_stage": "SCA"
+          },
+          "grounded": true,
+          "source_span": "Sickle cell anaemia",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 68,
+          "char_end": 79
+        },
+        {
+          "mention": "SCA",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "SCA",
+            "disease_stage": "SCA"
+          },
+          "grounded": true,
+          "source_span": "SCA",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1024,
+          "char_end": 1027
+        },
+        {
+          "mention": "HCV infection",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCV infection",
+            "disease_stage": "HCV"
+          },
+          "grounded": true,
+          "source_span": "HCV infection",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1394,
+          "char_end": 1407
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatitis B",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatitis B",
+              "disease_stage": "HBV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatitis B",
+            "char_start": 36,
+            "char_end": 47,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis b",
+            "canonical_mentions": [
+              "Hepatitis B"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Hepatitis C",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatitis C",
+              "disease_stage": "HCV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis C",
+            "char_start": 405,
+            "char_end": 416,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis c",
+            "canonical_mentions": [
+              "Hepatitis C"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "sickle cell anaemic",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "SCA",
+              "disease_stage": "SCA"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "sickle cell anaemic",
+            "char_start": 217,
+            "char_end": 236,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:sickle cell anaemic",
+            "canonical_mentions": [
+              "SCA"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HCV infection",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HCV infection",
+              "disease_stage": "HCV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HCV infection",
+            "char_start": 1394,
+            "char_end": 1407,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hcv infection",
+            "canonical_mentions": [
+              "HCV infection"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 4,
+          "raw_entity_count": 5,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 4,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.93,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 5,
+              "value": 0.2
+            },
+            "type_constraint_pass_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 4,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 4
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 5,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.793120582588017,
+      "prompt_tokens": 4929,
+      "output_tokens": 872,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Hepatitis B",
+            "entity_type": "Disease",
+            "source_span": "Hepatitis B",
+            "char_start": 36,
+            "char_end": 47,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in title; disease entity."
+          },
+          {
+            "mention": "Hepatitis C",
+            "entity_type": "Disease",
+            "source_span": "Hepatitis C",
+            "char_start": 405,
+            "char_end": 416,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "sickle cell anaemic",
+            "entity_type": "Disease",
+            "source_span": "sickle cell anaemic",
+            "char_start": 217,
+            "char_end": 236,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "HCV infection",
+            "entity_type": "Disease",
+            "source_span": "HCV infection",
+            "char_start": 1394,
+            "char_end": 1407,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in abstract; disease entity."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "SCA",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Abbreviation for sickle cell anaemic; duplicate of existing entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Sickle cell anaemia",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Mention not in source; only 'sickle cell anaemic' appears."
+          }
+        ],
+        "review_reason": "Corrected entity list to include only exact mentions from source; rejected duplicate and non-source mentions. No relations were extracted due to lack of explicit relational statements in the abstract.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Hepatitis B"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Hepatitis C"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "sickle cell anaemic"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HCV infection"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "sickle cell anaemic",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000756"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "sickle cell anaemic",
+          "char_start": 217,
+          "char_end": 236
+        },
+        {
+          "mention": "hepatitis B virus",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006509"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "hepatitis B virus",
+          "char_start": 377,
+          "char_end": 394
+        },
+        {
+          "mention": "hepatitis C virus",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006526"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "hepatitis C virus",
+          "char_start": 405,
+          "char_end": 422
+        },
+        {
+          "mention": "HCV infection",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006526"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "HCV infection",
+          "char_start": 1394,
+          "char_end": 1407
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "sickle cell anaemic",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCV infection",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "A high prevalence rate of HCV infection was observed among children with SCA",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "sickle cell anaemic",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D000756"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "sickle cell anaemic",
+            "char_start": 217,
+            "char_end": 236,
+            "grounded": true,
+            "normalized_id": "D000756",
+            "canonical_key": "Disease:sickle cell anaemic",
+            "canonical_mentions": [
+              "sickle cell anaemic"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatitis B virus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "D006509"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis B virus",
+            "char_start": 377,
+            "char_end": 394,
+            "grounded": true,
+            "normalized_id": "D006509",
+            "canonical_key": "Disease:hepatitis b virus",
+            "canonical_mentions": [
+              "hepatitis B virus"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatitis C virus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "D006526"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis C virus",
+            "char_start": 405,
+            "char_end": 422,
+            "grounded": true,
+            "normalized_id": "D006526",
+            "canonical_key": "Disease:hepatitis c virus",
+            "canonical_mentions": [
+              "hepatitis C virus",
+              "HCV infection"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "sickle cell anaemic",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatitis C virus",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "A high prevalence rate of HCV infection was observed among children with SCA",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1446,
+            "evidence_char_end": 1522,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "sickle cell anaemic",
+            "original_object": "HCV infection",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 4,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 1,
+          "known_relations": 0,
+          "novel_relations": 1,
+          "contradicting_relations": 0,
+          "schema_valid": 1,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5125,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 4,
+              "value": 0.75
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 4,
+              "value": 0.25
+            },
+            "type_constraint_pass_rate": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 4,
+        "relations": 1,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.9348625829443336,
+      "prompt_tokens": 1530,
+      "output_tokens": 299,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

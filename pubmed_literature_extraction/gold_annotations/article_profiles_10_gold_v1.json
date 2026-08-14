@@ -1,0 +1,134 @@
+{
+  "schema_version": "article-profile-gold-v1",
+  "created_at": "2026-08-13",
+  "annotator": "Codex manual full-title-and-abstract review",
+  "annotation_policy": {
+    "primary_study_type": "The dominant evidentiary design of the article, using the router's existing label set.",
+    "secondary_modalities": "Non-exclusive study modalities explicitly present in the title or abstract.",
+    "has_structured_results": "True only when the abstract has an explicit RESULTS or CONCLUSION(S) heading.",
+    "high_extraction_complexity": "True when reliable extraction must reconcile several experimental modalities, populations, causal layers, or many interacting entities/relations; length alone is insufficient.",
+    "recommended_route": "Gold routing recommendation before candidate extraction: FAST, STANDARD, or DEEP."
+  },
+  "documents": [
+    {
+      "pmid": "41810002",
+      "title": "Hydrogel-Based Immunomodulation of Tumor Immune Microenvironment in Hepatocellular Carcinoma: Current Strategies and Future Directions.",
+      "primary_study_type": "review",
+      "secondary_modalities": ["narrative_review"],
+      "species_scope": "mixed_or_not_applicable",
+      "evidence_posture": "synthesis_of_prior_work_no_new_experiment",
+      "has_structured_results": false,
+      "high_extraction_complexity": false,
+      "recommended_route": "FAST",
+      "rationale": "The abstract explicitly says 'This review explores' and 'This review highlights'; it reports no new cohort or experiment. Statements about demonstrated synergy summarize prior work and must not be treated as findings of this article."
+    },
+    {
+      "pmid": "41620901",
+      "title": "Network pharmacology and molecular docking for exploring the mechanism of Hedyotis diffusa against hepatitis B virus infection.",
+      "primary_study_type": "computational",
+      "secondary_modalities": ["network_pharmacology", "database_mining", "molecular_docking"],
+      "species_scope": "not_applicable",
+      "evidence_posture": "computational_prediction_without_experimental_validation",
+      "has_structured_results": true,
+      "high_extraction_complexity": true,
+      "recommended_route": "FAST",
+      "rationale": "All targets and mechanisms are generated from databases, enrichment and docking. The conclusion calls the work preliminary and asks for subsequent experiments; no wet-lab validation is reported. It is structurally complex but its claims need a strict prediction-only boundary."
+    },
+    {
+      "pmid": "41354212",
+      "title": "Association of nitrogen dioxide with non-alcoholic fatty liver disease in Chinese rural older adults: The mediating role of fasting plasma glucose.",
+      "primary_study_type": "clinical",
+      "secondary_modalities": ["human_observational", "cross_sectional_baseline_analysis", "epidemiology", "mediation_analysis"],
+      "species_scope": "human",
+      "evidence_posture": "direct_human_observational_association_not_interventional_causality",
+      "has_structured_results": true,
+      "high_extraction_complexity": false,
+      "recommended_route": "STANDARD",
+      "rationale": "This is baseline analysis of 3,662 human participants with measured/estimated exposure, ultrasound diagnosis, regression and mediation. It supports association and partial mediation, not experimental causation."
+    },
+    {
+      "pmid": "41683641",
+      "title": "Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pathway.",
+      "primary_study_type": "animal",
+      "secondary_modalities": ["mouse_in_vivo", "hepatocyte_in_vitro", "genetic_overexpression", "genetic_knockout", "mechanistic_intervention"],
+      "species_scope": "mixed_non_human",
+      "evidence_posture": "direct_preclinical_mechanistic_evidence",
+      "has_structured_results": false,
+      "high_extraction_complexity": true,
+      "recommended_route": "DEEP",
+      "rationale": "The dominant causal evidence comes from high-fat-diet mice, liver overexpression and knockout, supplemented by in-vitro hepatocytes and inhibitor rescue. It is mechanistic but must remain non-human evidence."
+    },
+    {
+      "pmid": "41948344",
+      "title": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+      "primary_study_type": "human_omics",
+      "secondary_modalities": ["bulk_transcriptomics", "machine_learning", "mendelian_randomization", "single_cell_transcriptomics", "human_tissue_wet_lab_validation"],
+      "species_scope": "human",
+      "evidence_posture": "mixed_computational_discovery_with_human_experimental_validation",
+      "has_structured_results": true,
+      "high_extraction_complexity": true,
+      "recommended_route": "DEEP",
+      "rationale": "The study begins with GEO/WGCNA/ML/MR/scRNA analyses but ends with Western blot and qPCR validation in HBV-related fibrotic human liver tissues. Calling it merely computational would discard the decisive validation layer."
+    },
+    {
+      "pmid": "41573193",
+      "title": "Comparison of the efficacy of antidiabetic agents in type 2 diabetes with MASLD: a network meta-analysis.",
+      "primary_study_type": "review",
+      "secondary_modalities": ["systematic_review", "network_meta_analysis"],
+      "species_scope": "human",
+      "evidence_posture": "synthesis_of_prior_randomized_trials_no_new_experiment",
+      "has_structured_results": true,
+      "high_extraction_complexity": true,
+      "recommended_route": "FAST",
+      "rationale": "This is a systematic network meta-analysis of 21 previously published randomized trials and 15 agents. It contains quantitative synthesis but no new patient-level intervention performed by the article authors."
+    },
+    {
+      "pmid": "41969242",
+      "title": "Prophylactic Antibiotic Use and Clinical Outcomes in Patients With Child-Pugh A Cirrhosis and Acute Variceal Bleeding: A Retrospective Cohort Study.",
+      "primary_study_type": "clinical",
+      "secondary_modalities": ["human_observational", "retrospective_cohort"],
+      "species_scope": "human",
+      "evidence_posture": "direct_human_observational_association_not_randomized_causality",
+      "has_structured_results": true,
+      "high_extraction_complexity": false,
+      "recommended_route": "STANDARD",
+      "rationale": "The authors retrospectively compare 237 Child-Pugh A patients who did or did not receive early prophylactic antibiotics. Outcomes are direct human observations, but treatment assignment was not randomized."
+    },
+    {
+      "pmid": "41761962",
+      "title": "Impact of Spheroid Use for Identifying Hepatocellular Carcinoma Features: Involvement of Kinase-Mediated Molecular Pathways.",
+      "primary_study_type": "review",
+      "secondary_modalities": ["narrative_review"],
+      "species_scope": "mixed_or_not_applicable",
+      "evidence_posture": "synthesis_of_prior_work_no_new_experiment",
+      "has_structured_results": false,
+      "high_extraction_complexity": false,
+      "recommended_route": "FAST",
+      "rationale": "Although the subject is 3D in-vitro spheroids, the abstract explicitly says 'This review highlights' and reports no newly performed experiment. Topic modality must not replace article design."
+    },
+    {
+      "pmid": "41884271",
+      "title": "High Dihydromyricetin Loaded Biomimetic Nanoemulsion Ameliorated Early Nonalcoholic Fatty Liver Disease by Hepatic Ferroptosis Inhibition.",
+      "primary_study_type": "animal",
+      "secondary_modalities": ["mouse_in_vivo", "formulation_characterization", "pharmacokinetics", "mechanistic_intervention"],
+      "species_scope": "mixed_non_human",
+      "evidence_posture": "direct_preclinical_therapeutic_and_mechanistic_evidence",
+      "has_structured_results": true,
+      "high_extraction_complexity": true,
+      "recommended_route": "DEEP",
+      "rationale": "The work combines nanoemulsion characterization, absorption, biodistribution, pharmacokinetics and safety with therapeutic testing in a high-fat-diet NAFLD mouse model and a ferroptosis mechanism claim."
+    },
+    {
+      "pmid": "41940593",
+      "title": "Functional Role of COP1 Gene in Hepatocellular Carcinoma Lipid Metabolism and Stemness.",
+      "primary_study_type": "in_vitro",
+      "secondary_modalities": ["human_cancer_cell_lines", "gene_silencing", "gene_overexpression", "bulk_transcriptomics", "public_human_data_analysis"],
+      "species_scope": "mixed_human_in_vitro",
+      "evidence_posture": "direct_in_vitro_mechanistic_evidence_with_supportive_human_data",
+      "has_structured_results": false,
+      "high_extraction_complexity": true,
+      "recommended_route": "DEEP",
+      "rationale": "The primary interventions are COP1 siRNA silencing and overexpression in several human HCC cell lines, followed by RNA sequencing and phenotypic assays. GEPIA2 clinical-sample correlation is supportive rather than the dominant design."
+    }
+  ]
+}

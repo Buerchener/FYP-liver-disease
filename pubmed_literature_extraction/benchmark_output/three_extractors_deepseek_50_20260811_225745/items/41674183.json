@@ -1,0 +1,602 @@
+{
+  "pmid": "41674183",
+  "title": "The dynamics of hepatitis B virus transmission using a stochastic differential model and feed forward neural network approach.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "hepatitis B",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis B",
+            "disease_stage": "HBV"
+          },
+          "grounded": true,
+          "source_span": "hepatitis B",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 23,
+          "char_end": 34
+        },
+        {
+          "mention": "hepatitis B virus",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis B virus",
+            "disease_stage": "HBV"
+          },
+          "grounded": true,
+          "source_span": "hepatitis B virus",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 23,
+          "char_end": 40
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatitis B",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatitis B",
+              "disease_stage": "HBV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis B",
+            "char_start": 23,
+            "char_end": 34,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis b",
+            "canonical_mentions": [
+              "hepatitis B"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatitis B virus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatitis B virus",
+              "disease_stage": "HBV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis B virus",
+            "char_start": 23,
+            "char_end": 40,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis b virus",
+            "canonical_mentions": [
+              "hepatitis B virus"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 2,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 2,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.2252379171550274,
+      "prompt_tokens": 303,
+      "output_tokens": 172,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "hepatitis B",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis B",
+            "disease_stage": "HBV"
+          },
+          "grounded": true,
+          "source_span": "hepatitis B",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 23,
+          "char_end": 34
+        },
+        {
+          "mention": "hepatitis B virus",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis B virus",
+            "disease_stage": "HBV"
+          },
+          "grounded": true,
+          "source_span": "hepatitis B virus",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 23,
+          "char_end": 40
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatitis B",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatitis B",
+              "disease_stage": "HBV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis B",
+            "char_start": 23,
+            "char_end": 34,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis b",
+            "canonical_mentions": [
+              "hepatitis B"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatitis B virus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatitis B virus",
+              "disease_stage": "HBV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis B virus",
+            "char_start": 23,
+            "char_end": 40,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis b virus",
+            "canonical_mentions": [
+              "hepatitis B virus"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 2,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 2,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.290258042514324,
+      "prompt_tokens": 3268,
+      "output_tokens": 402,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "hepatitis B",
+            "entity_type": "Disease",
+            "source_span": "hepatitis B",
+            "char_start": 23,
+            "char_end": 34,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact mention in title; disease entity."
+          },
+          {
+            "mention": "hepatitis B virus",
+            "entity_type": "Disease",
+            "source_span": "hepatitis B virus",
+            "char_start": 23,
+            "char_end": 40,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact mention in title; disease entity."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [],
+        "review_reason": "Both entities are valid disease mentions from the title. No relations are supported by the abstract; the text only describes modeling and does not assert any biological relationships.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "hepatitis B"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatitis B virus"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "hepatitis B",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006509"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatitis B",
+          "char_start": 23,
+          "char_end": 34
+        },
+        {
+          "mention": "hepatitis B virus (HBV)",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006509"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatitis B virus (HBV)",
+          "char_start": 575,
+          "char_end": 598
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatitis B virus (HBV)",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D006509"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis B virus (HBV)",
+            "char_start": 575,
+            "char_end": 598,
+            "grounded": true,
+            "normalized_id": "D006509",
+            "canonical_key": "Disease:hepatitis b virus hbv",
+            "canonical_mentions": [
+              "hepatitis B",
+              "hepatitis B virus (HBV)"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 1,
+          "raw_entity_count": 2,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 1,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.825,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "type_constraint_pass_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 1,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 1
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 2,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.4510720004327595,
+      "prompt_tokens": 1335,
+      "output_tokens": 102,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

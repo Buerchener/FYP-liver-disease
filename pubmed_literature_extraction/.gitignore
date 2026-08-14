@@ -7,12 +7,15 @@ __pycache__/
 .venv-*/
 venv/
 .env
+active-gemini.env
 *.key
 secrets.*
 
 # Runtime logs and generated outputs
 logs/
 extraction_output/*
+.cache/
+tmp/
 
 # Keep small source samples and selected benchmark artifacts.
 !extraction_output/pubmed_converted_500.jsonl

@@ -1,0 +1,805 @@
+{
+  "pmid": "41969242",
+  "title": "Prophylactic Antibiotic Use and Clinical Outcomes in Patients With Child-Pugh A Cirrhosis and Acute Variceal Bleeding: A Retrospective Cohort Study.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis",
+            "disease_stage": "Child-Pugh A"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 87,
+          "char_end": 96
+        },
+        {
+          "mention": "acute variceal bleeding",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "acute variceal bleeding",
+            "disease_stage": "AVB"
+          },
+          "grounded": true,
+          "source_span": "acute variceal bleeding",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 101,
+          "char_end": 124
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis",
+            "disease_stage": "Child A"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1738,
+          "char_end": 1747
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis",
+              "disease_stage": "Child-Pugh A"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Cirrhosis",
+            "char_start": 87,
+            "char_end": 96,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "acute variceal bleeding",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "acute variceal bleeding",
+              "disease_stage": "AVB"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Acute Variceal Bleeding",
+            "char_start": 101,
+            "char_end": 124,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:acute variceal bleeding",
+            "canonical_mentions": [
+              "acute variceal bleeding"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8833,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 3,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.3824875419959426,
+      "prompt_tokens": 439,
+      "output_tokens": 245,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis",
+            "disease_stage": "Child-Pugh A",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of first cirrhosis mention; merged in Phase-A."
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 87,
+          "char_end": 96
+        },
+        {
+          "mention": "acute variceal bleeding",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "acute variceal bleeding",
+            "disease_stage": "AVB"
+          },
+          "grounded": true,
+          "source_span": "acute variceal bleeding",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 101,
+          "char_end": 124
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis",
+            "disease_stage": "Child A",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of first cirrhosis mention; merged in Phase-A."
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1738,
+          "char_end": 1747
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis",
+              "disease_stage": "Child-Pugh A",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of first cirrhosis mention; merged in Phase-A."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Cirrhosis",
+            "char_start": 87,
+            "char_end": 96,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "acute variceal bleeding",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "acute variceal bleeding",
+              "disease_stage": "AVB"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Acute Variceal Bleeding",
+            "char_start": 101,
+            "char_end": 124,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:acute variceal bleeding",
+            "canonical_mentions": [
+              "acute variceal bleeding"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8833,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 3,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.0242360001429915,
+      "prompt_tokens": 3840,
+      "output_tokens": 595,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "cirrhosis",
+            "entity_type": "Disease",
+            "source_span": "cirrhosis",
+            "char_start": 87,
+            "char_end": 96,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in title, disease entity."
+          },
+          {
+            "mention": "acute variceal bleeding",
+            "entity_type": "Disease",
+            "source_span": "acute variceal bleeding",
+            "char_start": 101,
+            "char_end": 124,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in title, disease entity."
+          },
+          {
+            "mention": "cirrhosis",
+            "entity_type": "Disease",
+            "source_span": "cirrhosis",
+            "char_start": 1738,
+            "char_end": 1747,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in conclusion, disease entity."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhosis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of first cirrhosis mention; merged in Phase-A."
+          }
+        ],
+        "review_reason": "Entities verified against original text; no relations extracted due to lack of explicit relational statements. Duplicate cirrhosis mention rejected.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "acute variceal bleeding"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhosis"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhosis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of first cirrhosis mention; merged in Phase-A."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000008"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "char_start": 266,
+          "char_end": 275
+        },
+        {
+          "mention": "acute variceal bleeding",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D002486"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "acute variceal bleeding",
+          "char_start": 280,
+          "char_end": 303
+        },
+        {
+          "mention": "Child-Pugh A cirrhosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000008"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Child-Pugh A Cirrhosis",
+          "char_start": 74,
+          "char_end": 96
+        },
+        {
+          "mention": "Child A cirrhosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000008"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Child A cirrhosis",
+          "char_start": 325,
+          "char_end": 342
+        },
+        {
+          "mention": "nosocomial infections",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D003428"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "nosocomial infections",
+          "char_start": 830,
+          "char_end": 851
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Child A cirrhosis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "acute variceal bleeding",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Patients with Child A cirrhosis have a low risk of treatment failure and mortality.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Child-Pugh A cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D000008"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Child-Pugh A Cirrhosis",
+            "char_start": 74,
+            "char_end": 96,
+            "grounded": true,
+            "normalized_id": "D000008",
+            "canonical_key": "Disease:child pugh a cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis",
+              "Child-Pugh A cirrhosis",
+              "Child A cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "acute variceal bleeding",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D002486"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "acute variceal bleeding",
+            "char_start": 280,
+            "char_end": 303,
+            "grounded": true,
+            "normalized_id": "D002486",
+            "canonical_key": "Disease:acute variceal bleeding",
+            "canonical_mentions": [
+              "acute variceal bleeding"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "nosocomial infections",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D003428"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "nosocomial infections",
+            "char_start": 830,
+            "char_end": 851,
+            "grounded": true,
+            "normalized_id": "D003428",
+            "canonical_key": "Disease:nosocomial infections",
+            "canonical_mentions": [
+              "nosocomial infections"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Child-Pugh A cirrhosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "acute variceal bleeding",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Patients with Child A cirrhosis have a low risk of treatment failure and mortality.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "objective_only",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 311,
+            "evidence_char_end": 394,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Child A cirrhosis",
+            "original_object": "acute variceal bleeding",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 5,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 1,
+          "known_relations": 0,
+          "novel_relations": 1,
+          "contradicting_relations": 0,
+          "schema_valid": 1,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.46,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 5,
+              "value": 0.6
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 5,
+              "value": 0.4
+            },
+            "type_constraint_pass_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 5,
+        "relations": 1,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.4015360828489065,
+      "prompt_tokens": 1546,
+      "output_tokens": 339,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

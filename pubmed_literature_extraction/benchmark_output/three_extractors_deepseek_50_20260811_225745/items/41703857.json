@@ -1,0 +1,1891 @@
+{
+  "pmid": "41703857",
+  "title": "Cardoon cell cultures as a biofactory for extracellular vesicles with antisteatotic activity in an in vitro model of non-alcoholic fatty liver disease.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 124,
+          "char_end": 157
+        },
+        {
+          "mention": "SIRT-1",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "SIRT-1",
+            "species": "Homo sapiens",
+            "participates_in": [
+              {
+                "target_entity": "SIRT-1/AMPK signalling pathway",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "SIRT-1",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1662,
+          "char_end": 1668
+        },
+        {
+          "mention": "AMPK",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "AMPK",
+            "species": "Homo sapiens",
+            "participates_in": [
+              {
+                "target_entity": "SIRT-1/AMPK signalling pathway",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "AMPK",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1669,
+          "char_end": 1673
+        },
+        {
+          "mention": "SIRT-1/AMPK signalling pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "SIRT-1/AMPK signalling pathway"
+          },
+          "grounded": true,
+          "source_span": "SIRT-1/AMPK signalling pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1662,
+          "char_end": 1692
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1290,
+          "char_end": 1323
+        },
+        {
+          "mention": "HepG2 cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "HepG2 cells"
+          },
+          "grounded": true,
+          "source_span": "HepG2 cells",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1338,
+          "char_end": 1349
+        },
+        {
+          "mention": "reactive oxygen species",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "reactive oxygen species"
+          },
+          "grounded": true,
+          "source_span": "reactive oxygen species",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1423,
+          "char_end": 1446
+        },
+        {
+          "mention": "nitric oxide",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "nitric oxide"
+          },
+          "grounded": true,
+          "source_span": "nitric oxide",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1457,
+          "char_end": 1469
+        },
+        {
+          "mention": "lipid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "lipid"
+          },
+          "grounded": true,
+          "source_span": "lipid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1713,
+          "char_end": 1718
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "NAFLD",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2102,
+          "char_end": 2107
+        },
+        {
+          "mention": "oxidative stress",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "oxidative stress"
+          },
+          "grounded": true,
+          "source_span": "oxidative stress",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1994,
+          "char_end": 2010
+        },
+        {
+          "mention": "lipid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "lipid"
+          },
+          "grounded": true,
+          "source_span": "lipid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2015,
+          "char_end": 2020
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "SIRT-1",
+          "subject_type": "Protein",
+          "predicate": "PARTICIPATES_IN",
+          "object": "SIRT-1/AMPK signalling pathway",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "AMPK",
+          "subject_type": "Protein",
+          "predicate": "PARTICIPATES_IN",
+          "object": "SIRT-1/AMPK signalling pathway",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 124,
+            "char_end": 157,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease",
+              "NAFLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "SIRT-1",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "SIRT-1",
+              "species": "Homo sapiens",
+              "participates_in": [
+                {
+                  "target_entity": "SIRT-1/AMPK signalling pathway",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "SIRT-1",
+            "char_start": 1662,
+            "char_end": 1668,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:sirt 1",
+            "canonical_mentions": [
+              "SIRT-1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "AMPK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "AMPK",
+              "species": "Homo sapiens",
+              "participates_in": [
+                {
+                  "target_entity": "SIRT-1/AMPK signalling pathway",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AMPK",
+            "char_start": 1669,
+            "char_end": 1673,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:ampk",
+            "canonical_mentions": [
+              "AMPK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "reactive oxygen species",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "reactive oxygen species"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "reactive oxygen species",
+            "char_start": 1423,
+            "char_end": 1446,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:reactive oxygen species",
+            "canonical_mentions": [
+              "reactive oxygen species"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "nitric oxide",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "nitric oxide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "nitric oxide",
+            "char_start": 1457,
+            "char_end": 1469,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:nitric oxide",
+            "canonical_mentions": [
+              "nitric oxide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "lipid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "lipid"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "lipid",
+            "char_start": 1713,
+            "char_end": 1718,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:lipid",
+            "canonical_mentions": [
+              "lipid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "SIRT-1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "SIRT-1/AMPK signalling pathway",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1640,
+            "evidence_char_end": 1692,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "SIRT-1",
+            "original_object": "SIRT-1/AMPK signalling pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "AMPK",
+            "predicate": "PARTICIPATES_IN",
+            "object": "SIRT-1/AMPK signalling pathway",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1640,
+            "evidence_char_end": 1692,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "AMPK",
+            "original_object": "SIRT-1/AMPK signalling pathway",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 6,
+          "raw_entity_count": 12,
+          "filtered_entity_count": 3,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 6,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6042,
+          "evidence_score": 0.75,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 6,
+              "denominator": 12,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 1,
+              "denominator": 12,
+              "value": 0.0833
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 12,
+              "value": 0.25
+            },
+            "type_constraint_pass_rate": {
+              "count": 11,
+              "denominator": 12,
+              "value": 0.9167
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 6,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 6
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 12,
+        "relations": 2,
+        "duplicate_entities": 2,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.7200686247088015,
+      "prompt_tokens": 602,
+      "output_tokens": 1153,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 124,
+          "char_end": 157
+        },
+        {
+          "mention": "SIRT-1",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "SIRT-1",
+            "species": "Homo sapiens",
+            "participates_in": [
+              {
+                "target_entity": "SIRT-1/AMPK signalling pathway",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "SIRT-1",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1662,
+          "char_end": 1668
+        },
+        {
+          "mention": "AMPK",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "AMPK",
+            "species": "Homo sapiens",
+            "participates_in": [
+              {
+                "target_entity": "SIRT-1/AMPK signalling pathway",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "AMPK",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1669,
+          "char_end": 1673
+        },
+        {
+          "mention": "SIRT-1/AMPK signalling pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "SIRT-1/AMPK signalling pathway"
+          },
+          "grounded": true,
+          "source_span": "SIRT-1/AMPK signalling pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1662,
+          "char_end": 1692
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1290,
+          "char_end": 1323
+        },
+        {
+          "mention": "HepG2 cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "HepG2 cells"
+          },
+          "grounded": true,
+          "source_span": "HepG2 cells",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1338,
+          "char_end": 1349
+        },
+        {
+          "mention": "reactive oxygen species",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "reactive oxygen species"
+          },
+          "grounded": true,
+          "source_span": "reactive oxygen species",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1423,
+          "char_end": 1446
+        },
+        {
+          "mention": "nitric oxide",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "nitric oxide"
+          },
+          "grounded": true,
+          "source_span": "nitric oxide",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1457,
+          "char_end": 1469
+        },
+        {
+          "mention": "lipid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "lipid",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of lipid at char 1713."
+          },
+          "grounded": true,
+          "source_span": "lipid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1713,
+          "char_end": 1718
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "NAFLD",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2102,
+          "char_end": 2107
+        },
+        {
+          "mention": "oxidative stress",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "oxidative stress"
+          },
+          "grounded": true,
+          "source_span": "oxidative stress",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1994,
+          "char_end": 2010
+        },
+        {
+          "mention": "lipid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "lipid",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of lipid at char 1713."
+          },
+          "grounded": true,
+          "source_span": "lipid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2015,
+          "char_end": 2020
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "SIRT-1",
+          "subject_type": "Protein",
+          "predicate": "PARTICIPATES_IN",
+          "object": "SIRT-1/AMPK signalling pathway",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "AMPK",
+          "subject_type": "Protein",
+          "predicate": "PARTICIPATES_IN",
+          "object": "SIRT-1/AMPK signalling pathway",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 124,
+            "char_end": 157,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease",
+              "NAFLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "SIRT-1",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "SIRT-1",
+              "species": "Homo sapiens",
+              "participates_in": [
+                {
+                  "target_entity": "SIRT-1/AMPK signalling pathway",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "SIRT-1",
+            "char_start": 1662,
+            "char_end": 1668,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:sirt 1",
+            "canonical_mentions": [
+              "SIRT-1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "AMPK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "AMPK",
+              "species": "Homo sapiens",
+              "participates_in": [
+                {
+                  "target_entity": "SIRT-1/AMPK signalling pathway",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AMPK",
+            "char_start": 1669,
+            "char_end": 1673,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:ampk",
+            "canonical_mentions": [
+              "AMPK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "reactive oxygen species",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "reactive oxygen species"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "reactive oxygen species",
+            "char_start": 1423,
+            "char_end": 1446,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:reactive oxygen species",
+            "canonical_mentions": [
+              "reactive oxygen species"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "nitric oxide",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "nitric oxide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "nitric oxide",
+            "char_start": 1457,
+            "char_end": 1469,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:nitric oxide",
+            "canonical_mentions": [
+              "nitric oxide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "lipid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "lipid",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of lipid at char 1713."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "lipid",
+            "char_start": 1713,
+            "char_end": 1718,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:lipid",
+            "canonical_mentions": [
+              "lipid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "SIRT-1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "SIRT-1/AMPK signalling pathway",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1640,
+            "evidence_char_end": 1692,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "SIRT-1",
+            "original_object": "SIRT-1/AMPK signalling pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "AMPK",
+            "predicate": "PARTICIPATES_IN",
+            "object": "SIRT-1/AMPK signalling pathway",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1640,
+            "evidence_char_end": 1692,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "AMPK",
+            "original_object": "SIRT-1/AMPK signalling pathway",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 6,
+          "raw_entity_count": 12,
+          "filtered_entity_count": 3,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 6,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6042,
+          "evidence_score": 0.75,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 6,
+              "denominator": 12,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 1,
+              "denominator": 12,
+              "value": 0.0833
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 12,
+              "value": 0.25
+            },
+            "type_constraint_pass_rate": {
+              "count": 11,
+              "denominator": 12,
+              "value": 0.9167
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 6,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 6
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 12,
+        "relations": 2,
+        "duplicate_entities": 2,
+        "duplicate_relations": 0
+      },
+      "latency_s": 8.445532290730625,
+      "prompt_tokens": 9172,
+      "output_tokens": 2221,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "entity_type": "Disease",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 124,
+            "char_end": 157,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit disease mention in title and abstract."
+          },
+          {
+            "mention": "SIRT-1",
+            "entity_type": "Protein",
+            "source_span": "SIRT-1",
+            "char_start": 1662,
+            "char_end": 1668,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit protein mention in abstract."
+          },
+          {
+            "mention": "AMPK",
+            "entity_type": "Protein",
+            "source_span": "AMPK",
+            "char_start": 1669,
+            "char_end": 1673,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit protein mention in abstract."
+          },
+          {
+            "mention": "reactive oxygen species",
+            "entity_type": "Metabolite",
+            "source_span": "reactive oxygen species",
+            "char_start": 1423,
+            "char_end": 1446,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit metabolite mention in abstract."
+          },
+          {
+            "mention": "nitric oxide",
+            "entity_type": "Metabolite",
+            "source_span": "nitric oxide",
+            "char_start": 1457,
+            "char_end": 1469,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit metabolite mention in abstract."
+          },
+          {
+            "mention": "lipid",
+            "entity_type": "Metabolite",
+            "source_span": "lipid",
+            "char_start": 1713,
+            "char_end": 1718,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit metabolite mention in abstract."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "SIRT-1",
+            "subject_type": "Protein",
+            "predicate": "PARTICIPATES_IN",
+            "object": "SIRT-1/AMPK signalling pathway",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+            "evidence_span": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+            "confidence": 0.7,
+            "uncertain": false,
+            "reason": "Evidence explicitly states activation of the pathway, and SIRT-1 is part of the pathway name."
+          },
+          {
+            "subject": "AMPK",
+            "subject_type": "Protein",
+            "predicate": "PARTICIPATES_IN",
+            "object": "SIRT-1/AMPK signalling pathway",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+            "evidence_span": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+            "confidence": 0.7,
+            "uncertain": false,
+            "reason": "Evidence explicitly states activation of the pathway, and AMPK is part of the pathway name."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "SIRT-1/AMPK signalling pathway",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Composite entity; individual components are extracted separately."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HepG2 cells",
+            "entity_type": "CellType",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Cell line not specific enough for a cell type entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "oxidative stress",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Bare process without direct evidence as a pathway."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "NAFLD",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of non-alcoholic fatty liver disease."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "lipid",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of lipid at char 1713."
+          }
+        ],
+        "review_reason": "Corrected entities and relations based on explicit evidence in the abstract. Rejected composite, non-specific, and duplicate candidates.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "non-alcoholic fatty liver disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "SIRT-1"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "AMPK"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "reactive oxygen species"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "nitric oxide"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "lipid"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "SIRT-1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "SIRT-1/AMPK signalling pathway"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "AMPK",
+            "predicate": "PARTICIPATES_IN",
+            "object": "SIRT-1/AMPK signalling pathway"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "lipid",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of lipid at char 1713."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "cardoon cell suspension cultures",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CSC"
+          },
+          "confidence": 0.9,
+          "grounded": false,
+          "source_span": "",
+          "char_start": -1,
+          "char_end": -1
+        },
+        {
+          "mention": "HepG2 cells",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CVCL_0027"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "HepG2 cells",
+          "char_start": 1338,
+          "char_end": 1349
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "DOID:0080206"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "char_start": 124,
+          "char_end": 157
+        },
+        {
+          "mention": "SIRT-1",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "SIRT1"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "SIRT-1",
+          "char_start": 1662,
+          "char_end": 1668
+        },
+        {
+          "mention": "AMPK",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "PRKAA1"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "AMPK",
+          "char_start": 1669,
+          "char_end": 1673
+        },
+        {
+          "mention": "SIRT-1/AMPK signalling pathway",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "SIRT1-AMPK"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "SIRT-1/AMPK signalling pathway",
+          "char_start": 1662,
+          "char_end": 1692
+        },
+        {
+          "mention": "cardoon EVs",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "EV"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "cardoon EVs",
+          "char_start": 1351,
+          "char_end": 1362
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "cardoon EVs",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic fatty liver disease",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "cardoon EVs exhibited notable hepatoprotective properties",
+          "negated": false,
+          "uncertain": false,
+          "species": "Cynara cardunculus",
+          "confidence": 0.8
+        },
+        {
+          "subject": "cardoon EVs",
+          "subject_type": "Protein",
+          "predicate": "PARTICIPATES_IN",
+          "object": "SIRT-1/AMPK signalling pathway",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+          "negated": false,
+          "uncertain": false,
+          "species": "Cynara cardunculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "SIRT-1",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "SIRT-1/AMPK signalling pathway",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "AMPK",
+          "subject_type": "Protein",
+          "predicate": "PARTICIPATES_IN",
+          "object": "SIRT-1/AMPK signalling pathway",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "cardoon EVs",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HepG2 cells",
+          "object_type": "CellType",
+          "direction": "positive",
+          "evidence": "cardoon EVs exhibited notable hepatoprotective properties",
+          "negated": false,
+          "uncertain": false,
+          "species": "Cynara cardunculus",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "DOID:0080206"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 124,
+            "char_end": 157,
+            "grounded": true,
+            "normalized_id": "DOID:0080206",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "SIRT-1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "SIRT1"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "SIRT-1",
+            "char_start": 1662,
+            "char_end": 1668,
+            "grounded": true,
+            "normalized_id": "SIRT1",
+            "canonical_key": "Gene:sirt 1",
+            "canonical_mentions": [
+              "SIRT-1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "AMPK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "PRKAA1"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AMPK",
+            "char_start": 1669,
+            "char_end": 1673,
+            "grounded": true,
+            "normalized_id": "PRKAA1",
+            "canonical_key": "Protein:ampk",
+            "canonical_mentions": [
+              "AMPK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cardoon EVs",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "EV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cardoon EVs",
+            "char_start": 1351,
+            "char_end": 1362,
+            "grounded": true,
+            "normalized_id": "EV",
+            "canonical_key": "Protein:cardoon evs",
+            "canonical_mentions": [
+              "cardoon EVs"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "cardoon EVs",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "cardoon EVs exhibited notable hepatoprotective properties",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1351,
+            "evidence_char_end": 1408,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "cardoon EVs",
+            "original_object": "non-alcoholic fatty liver disease",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "cardoon EVs",
+            "predicate": "PARTICIPATES_IN",
+            "object": "SIRT-1/AMPK signalling pathway",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1640,
+            "evidence_char_end": 1692,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "cardoon EVs",
+            "original_object": "SIRT-1/AMPK signalling pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "SIRT-1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "SIRT-1/AMPK signalling pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1640,
+            "evidence_char_end": 1692,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "SIRT-1",
+            "original_object": "SIRT-1/AMPK signalling pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "AMPK",
+            "predicate": "PARTICIPATES_IN",
+            "object": "SIRT-1/AMPK signalling pathway",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CSC EVs activated the SIRT-1/AMPK signalling pathway",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1640,
+            "evidence_char_end": 1692,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "AMPK",
+            "original_object": "SIRT-1/AMPK signalling pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "cardoon EVs",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HepG2 cells",
+            "subject_type": "Protein",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "cardoon EVs exhibited notable hepatoprotective properties",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "object_not_grounded",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1351,
+            "evidence_char_end": 1408,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "cardoon EVs",
+            "original_object": "HepG2 cells",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 4,
+          "raw_entity_count": 7,
+          "filtered_entity_count": 3,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 4,
+          "total_relations": 5,
+          "known_relations": 0,
+          "novel_relations": 5,
+          "contradicting_relations": 0,
+          "schema_valid": 4,
+          "import_ready": 0,
+          "structural_score": 0.88,
+          "semantic_score": 0.4943,
+          "evidence_score": 0.54,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 4,
+              "denominator": 7,
+              "value": 0.5714
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 7,
+              "value": 0.8571
+            },
+            "relation_evidence_exactness": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 5,
+              "value": 0.4
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "unresolved_endpoint_rate": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "weak_evidence_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 4,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 4
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 7,
+        "relations": 5,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.859539625234902,
+      "prompt_tokens": 1561,
+      "output_tokens": 891,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

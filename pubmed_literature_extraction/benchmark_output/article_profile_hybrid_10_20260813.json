@@ -1,0 +1,1231 @@
+{
+  "sample_size": 10,
+  "model_id": "deepseek-v4-flash",
+  "llm_calls": 5,
+  "llm_fallbacks": 1,
+  "metrics": {
+    "legacy_rules": {
+      "primary_study_type": {
+        "correct": 7,
+        "total": 10,
+        "accuracy": 0.7
+      },
+      "has_structured_results": {
+        "correct": 4,
+        "total": 10,
+        "accuracy": 0.4
+      },
+      "high_extraction_complexity": {
+        "correct": 7,
+        "total": 10,
+        "accuracy": 0.7
+      },
+      "recommended_route": {
+        "correct": 6,
+        "total": 10,
+        "accuracy": 0.6
+      },
+      "exact_profile": {
+        "correct": 2,
+        "total": 10,
+        "accuracy": 0.2
+      }
+    },
+    "improved_rules": {
+      "primary_study_type": {
+        "correct": 10,
+        "total": 10,
+        "accuracy": 1.0
+      },
+      "has_structured_results": {
+        "correct": 10,
+        "total": 10,
+        "accuracy": 1.0
+      },
+      "high_extraction_complexity": {
+        "correct": 7,
+        "total": 10,
+        "accuracy": 0.7
+      },
+      "recommended_route": {
+        "correct": 9,
+        "total": 10,
+        "accuracy": 0.9
+      },
+      "exact_profile": {
+        "correct": 7,
+        "total": 10,
+        "accuracy": 0.7
+      }
+    },
+    "hybrid": {
+      "primary_study_type": {
+        "correct": 10,
+        "total": 10,
+        "accuracy": 1.0
+      },
+      "has_structured_results": {
+        "correct": 10,
+        "total": 10,
+        "accuracy": 1.0
+      },
+      "high_extraction_complexity": {
+        "correct": 7,
+        "total": 10,
+        "accuracy": 0.7
+      },
+      "recommended_route": {
+        "correct": 9,
+        "total": 10,
+        "accuracy": 0.9
+      },
+      "exact_profile": {
+        "correct": 7,
+        "total": 10,
+        "accuracy": 0.7
+      }
+    }
+  },
+  "rows": [
+    {
+      "pmid": "41810002",
+      "title": "Hydrogel-Based Immunomodulation of Tumor Immune Microenvironment in Hepatocellular Carcinoma: Current Strategies and Future Directions.",
+      "gold": {
+        "primary_study_type": "review",
+        "has_structured_results": false,
+        "high_extraction_complexity": false,
+        "recommended_route": "FAST"
+      },
+      "legacy_rules": {
+        "primary_study_type": "clinical",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP"
+      },
+      "improved_rules": {
+        "primary_study_type": "review",
+        "secondary_modalities": [
+          "human_observational",
+          "narrative_review"
+        ],
+        "species_scope": "mixed_or_not_applicable",
+        "evidence_posture": "synthesis_of_prior_work_no_new_experiment",
+        "has_structured_results": false,
+        "high_extraction_complexity": false,
+        "recommended_route": "FAST",
+        "confidence": 0.62,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [
+          "mixed_or_conflicting_design_cues",
+          "review_topic_may_mimic_primary_study"
+        ],
+        "features": {
+          "structured_headings": [],
+          "review_cues": [
+            "This review"
+          ],
+          "computational_cues": [],
+          "human_cues": [
+            "patient"
+          ],
+          "animal_cues": [],
+          "in_vitro_cues": [],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [],
+          "char_count": 1677,
+          "modality_count": 2
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      },
+      "hybrid": {
+        "primary_study_type": "review",
+        "secondary_modalities": [
+          "narrative_review"
+        ],
+        "species_scope": "mixed_or_not_applicable",
+        "evidence_posture": "synthesis_of_prior_work_no_new_experiment",
+        "has_structured_results": false,
+        "high_extraction_complexity": false,
+        "recommended_route": "FAST",
+        "confidence": 0.95,
+        "rationale": "Title and abstract clearly indicate a narrative review of hydrogel-based immunomodulation in HCC, describing current strategies and future directions without presenting new experimental data.",
+        "evidence_quotes": [
+          "This review explores hydrogel-based strategies for immunomodulation in HCC",
+          "This review highlights the current advances, challenges, and future directions for hydrogel-based immunomodulation strategies in HCC treatment"
+        ],
+        "source": "llm_adjudicated",
+        "llm_trigger_reasons": [
+          "mixed_or_conflicting_design_cues",
+          "review_topic_may_mimic_primary_study"
+        ],
+        "features": {
+          "structured_headings": [],
+          "review_cues": [
+            "This review"
+          ],
+          "computational_cues": [],
+          "human_cues": [
+            "patient"
+          ],
+          "animal_cues": [],
+          "in_vitro_cues": [],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [],
+          "char_count": 1677,
+          "modality_count": 2
+        },
+        "llm_status": "success",
+        "latency_seconds": 3.234583207871765,
+        "prompt_tokens": 1323,
+        "output_tokens": 306
+      }
+    },
+    {
+      "pmid": "41620901",
+      "title": "Network pharmacology and molecular docking for exploring the mechanism of Hedyotis diffusa against hepatitis B virus infection.",
+      "gold": {
+        "primary_study_type": "computational",
+        "has_structured_results": true,
+        "high_extraction_complexity": true,
+        "recommended_route": "FAST"
+      },
+      "legacy_rules": {
+        "primary_study_type": "computational",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "FAST"
+      },
+      "improved_rules": {
+        "primary_study_type": "computational",
+        "secondary_modalities": [
+          "molecular_docking",
+          "network_pharmacology"
+        ],
+        "species_scope": "not_applicable",
+        "evidence_posture": "computational_prediction_without_experimental_validation",
+        "has_structured_results": true,
+        "high_extraction_complexity": false,
+        "recommended_route": "FAST",
+        "confidence": 0.88,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [],
+        "features": {
+          "structured_headings": [
+            "BACKGROUND:",
+            "OBJECTIVES:",
+            "METHODS:",
+            "RESULTS:",
+            "CONCLUSION:"
+          ],
+          "review_cues": [],
+          "computational_cues": [
+            "Network pharmacology",
+            "molecular docking",
+            "network pharmacology",
+            "databases",
+            "database"
+          ],
+          "human_cues": [],
+          "animal_cues": [],
+          "in_vitro_cues": [],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [],
+          "char_count": 1995,
+          "modality_count": 1
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      },
+      "hybrid": {
+        "primary_study_type": "computational",
+        "secondary_modalities": [
+          "molecular_docking",
+          "network_pharmacology"
+        ],
+        "species_scope": "not_applicable",
+        "evidence_posture": "computational_prediction_without_experimental_validation",
+        "has_structured_results": true,
+        "high_extraction_complexity": false,
+        "recommended_route": "FAST",
+        "confidence": 0.88,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [],
+        "features": {
+          "structured_headings": [
+            "BACKGROUND:",
+            "OBJECTIVES:",
+            "METHODS:",
+            "RESULTS:",
+            "CONCLUSION:"
+          ],
+          "review_cues": [],
+          "computational_cues": [
+            "Network pharmacology",
+            "molecular docking",
+            "network pharmacology",
+            "databases",
+            "database"
+          ],
+          "human_cues": [],
+          "animal_cues": [],
+          "in_vitro_cues": [],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [],
+          "char_count": 1995,
+          "modality_count": 1
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      }
+    },
+    {
+      "pmid": "41354212",
+      "title": "Association of nitrogen dioxide with non-alcoholic fatty liver disease in Chinese rural older adults: The mediating role of fasting plasma glucose.",
+      "gold": {
+        "primary_study_type": "clinical",
+        "has_structured_results": true,
+        "high_extraction_complexity": false,
+        "recommended_route": "STANDARD"
+      },
+      "legacy_rules": {
+        "primary_study_type": "clinical",
+        "has_structured_results": false,
+        "high_extraction_complexity": false,
+        "recommended_route": "STANDARD"
+      },
+      "improved_rules": {
+        "primary_study_type": "clinical",
+        "secondary_modalities": [
+          "human_observational",
+          "mediation_analysis"
+        ],
+        "species_scope": "human",
+        "evidence_posture": "direct_human_observational_association_not_randomized_causality",
+        "has_structured_results": true,
+        "high_extraction_complexity": false,
+        "recommended_route": "STANDARD",
+        "confidence": 0.88,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [],
+        "features": {
+          "structured_headings": [
+            "BACKGROUND:",
+            "METHODS:",
+            "RESULTS:",
+            "CONCLUSIONS:"
+          ],
+          "review_cues": [],
+          "computational_cues": [],
+          "human_cues": [
+            "participants",
+            "cohort",
+            "prospective"
+          ],
+          "animal_cues": [],
+          "in_vitro_cues": [],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [],
+          "char_count": 1894,
+          "modality_count": 1
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      },
+      "hybrid": {
+        "primary_study_type": "clinical",
+        "secondary_modalities": [
+          "human_observational",
+          "mediation_analysis"
+        ],
+        "species_scope": "human",
+        "evidence_posture": "direct_human_observational_association_not_randomized_causality",
+        "has_structured_results": true,
+        "high_extraction_complexity": false,
+        "recommended_route": "STANDARD",
+        "confidence": 0.88,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [],
+        "features": {
+          "structured_headings": [
+            "BACKGROUND:",
+            "METHODS:",
+            "RESULTS:",
+            "CONCLUSIONS:"
+          ],
+          "review_cues": [],
+          "computational_cues": [],
+          "human_cues": [
+            "participants",
+            "cohort",
+            "prospective"
+          ],
+          "animal_cues": [],
+          "in_vitro_cues": [],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [],
+          "char_count": 1894,
+          "modality_count": 1
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      }
+    },
+    {
+      "pmid": "41683641",
+      "title": "Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pathway.",
+      "gold": {
+        "primary_study_type": "animal",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP"
+      },
+      "legacy_rules": {
+        "primary_study_type": "animal",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP"
+      },
+      "improved_rules": {
+        "primary_study_type": "animal",
+        "secondary_modalities": [
+          "gene_overexpression",
+          "genetic_knockout",
+          "hepatocyte_in_vitro",
+          "mouse_in_vivo"
+        ],
+        "species_scope": "mixed_non_human",
+        "evidence_posture": "direct_preclinical_mechanistic_evidence",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP",
+        "confidence": 0.62,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [
+          "mixed_or_conflicting_design_cues"
+        ],
+        "features": {
+          "structured_headings": [],
+          "review_cues": [],
+          "computational_cues": [],
+          "human_cues": [],
+          "animal_cues": [
+            "mice",
+            "mouse"
+          ],
+          "in_vitro_cues": [
+            "hepatocytes",
+            "in vitro"
+          ],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [
+            "overexpressed",
+            "overexpression",
+            "knockout"
+          ],
+          "char_count": 1572,
+          "modality_count": 3
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      },
+      "hybrid": {
+        "primary_study_type": "animal",
+        "secondary_modalities": [
+          "gene_overexpression",
+          "genetic_knockout",
+          "hepatocyte_in_vitro",
+          "mouse_in_vivo",
+          "mechanistic_intervention"
+        ],
+        "species_scope": "mixed_non_human",
+        "evidence_posture": "direct_preclinical_mechanistic_evidence",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP",
+        "confidence": 0.85,
+        "rationale": "Mixed preclinical mouse in vivo and hepatocyte in vitro models using CILP2 overexpression, knockout, and ER-stress inhibitors; multiple readouts (lipids, cytokines, glucose) and pathway dissection require structured extraction.",
+        "evidence_quotes": [
+          "CILP2 was overexpressed in mouse livers and in vitro hepatocytes using the Ad-CILP2 adenovirus.",
+          "CILP2 knockout reduced high-fat diet-induced hepatic steatosis and improved glucose metabolism.",
+          "Mechanistically, CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway"
+        ],
+        "source": "llm_adjudicated",
+        "llm_trigger_reasons": [
+          "mixed_or_conflicting_design_cues"
+        ],
+        "features": {
+          "structured_headings": [],
+          "review_cues": [],
+          "computational_cues": [],
+          "human_cues": [],
+          "animal_cues": [
+            "mice",
+            "mouse"
+          ],
+          "in_vitro_cues": [
+            "hepatocytes",
+            "in vitro"
+          ],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [
+            "overexpressed",
+            "overexpression",
+            "knockout"
+          ],
+          "char_count": 1572,
+          "modality_count": 3
+        },
+        "llm_status": "success",
+        "latency_seconds": 15.52442983398214,
+        "prompt_tokens": 1403,
+        "output_tokens": 1820
+      }
+    },
+    {
+      "pmid": "41948344",
+      "title": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+      "gold": {
+        "primary_study_type": "human_omics",
+        "has_structured_results": true,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP"
+      },
+      "legacy_rules": {
+        "primary_study_type": "computational",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "STANDARD"
+      },
+      "improved_rules": {
+        "primary_study_type": "human_omics",
+        "secondary_modalities": [
+          "human_observational",
+          "human_tissue_wet_lab_validation",
+          "machine_learning",
+          "mendelian_randomization",
+          "single_cell_transcriptomics"
+        ],
+        "species_scope": "human",
+        "evidence_posture": "mixed_computational_discovery_with_human_experimental_validation",
+        "has_structured_results": true,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP",
+        "confidence": 0.62,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [
+          "mixed_or_conflicting_design_cues",
+          "prediction_plus_validation_requires_adjudication"
+        ],
+        "features": {
+          "structured_headings": [
+            "BACKGROUND:",
+            "METHODS:",
+            "RESULTS:",
+            "CONCLUSIONS:"
+          ],
+          "review_cues": [],
+          "computational_cues": [
+            "GEO",
+            "database",
+            "WGCNA",
+            "diagnostic model",
+            "machine learning",
+            "GSEA",
+            "GSVA",
+            "Mendelian randomization"
+          ],
+          "human_cues": [
+            "patients"
+          ],
+          "animal_cues": [],
+          "in_vitro_cues": [
+            "hepatocytes"
+          ],
+          "omics_cues": [
+            "WGCNA",
+            "ScRNA",
+            "scRNA"
+          ],
+          "validation_cues": [
+            "experimentally validated",
+            "Western blot",
+            "qPCR"
+          ],
+          "intervention_cues": [],
+          "char_count": 2556,
+          "modality_count": 5
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      },
+      "hybrid": {
+        "primary_study_type": "human_omics",
+        "secondary_modalities": [
+          "database_mining",
+          "human_observational",
+          "human_tissue_wet_lab_validation",
+          "machine_learning",
+          "mendelian_randomization",
+          "single_cell_transcriptomics"
+        ],
+        "species_scope": "human",
+        "evidence_posture": "mixed_computational_discovery_with_human_experimental_validation",
+        "has_structured_results": true,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP",
+        "confidence": 0.75,
+        "rationale": "Integrated bioinformatics analysis of GEO data with WGCNA, ML, and MR, followed by Western blot/qPCR validation on human fibrotic liver tissues. Mixed computational and wet-lab human evidence necessitates complex extraction.",
+        "evidence_quotes": [
+          "The GSE84044 dataset was retrieved from the GEO database.",
+          "Mendelian randomization (MR) was employed to verify the causal relationships among the target genes.",
+          "Western blot and qPCR further confirmed the upregulation of these genes in HBV-related fibrotic liver tissues at both protein and mRNA levels."
+        ],
+        "source": "llm_adjudicated",
+        "llm_trigger_reasons": [
+          "mixed_or_conflicting_design_cues",
+          "prediction_plus_validation_requires_adjudication"
+        ],
+        "features": {
+          "structured_headings": [
+            "BACKGROUND:",
+            "METHODS:",
+            "RESULTS:",
+            "CONCLUSIONS:"
+          ],
+          "review_cues": [],
+          "computational_cues": [
+            "GEO",
+            "database",
+            "WGCNA",
+            "diagnostic model",
+            "machine learning",
+            "GSEA",
+            "GSVA",
+            "Mendelian randomization"
+          ],
+          "human_cues": [
+            "patients"
+          ],
+          "animal_cues": [],
+          "in_vitro_cues": [
+            "hepatocytes"
+          ],
+          "omics_cues": [
+            "WGCNA",
+            "ScRNA",
+            "scRNA"
+          ],
+          "validation_cues": [
+            "experimentally validated",
+            "Western blot",
+            "qPCR"
+          ],
+          "intervention_cues": [],
+          "char_count": 2556,
+          "modality_count": 5
+        },
+        "llm_status": "success",
+        "latency_seconds": 5.213844417128712,
+        "prompt_tokens": 1623,
+        "output_tokens": 606
+      }
+    },
+    {
+      "pmid": "41573193",
+      "title": "Comparison of the efficacy of antidiabetic agents in type 2 diabetes with MASLD: a network meta-analysis.",
+      "gold": {
+        "primary_study_type": "review",
+        "has_structured_results": true,
+        "high_extraction_complexity": true,
+        "recommended_route": "FAST"
+      },
+      "legacy_rules": {
+        "primary_study_type": "review",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "FAST"
+      },
+      "improved_rules": {
+        "primary_study_type": "review",
+        "secondary_modalities": [
+          "human_observational",
+          "meta_analysis",
+          "network_meta_analysis",
+          "systematic_review"
+        ],
+        "species_scope": "human",
+        "evidence_posture": "synthesis_of_prior_randomized_trials_no_new_experiment",
+        "has_structured_results": true,
+        "high_extraction_complexity": false,
+        "recommended_route": "FAST",
+        "confidence": 0.62,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [
+          "mixed_or_conflicting_design_cues",
+          "review_topic_may_mimic_primary_study"
+        ],
+        "features": {
+          "structured_headings": [
+            "OBJECTIVE:",
+            "METHODS:",
+            "RESULTS:",
+            "CONCLUSION:"
+          ],
+          "review_cues": [
+            "meta-analysis"
+          ],
+          "computational_cues": [],
+          "human_cues": [
+            "patients",
+            "randomized",
+            "participants"
+          ],
+          "animal_cues": [],
+          "in_vitro_cues": [],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [
+            "randomized"
+          ],
+          "char_count": 1702,
+          "modality_count": 3
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      },
+      "hybrid": {
+        "primary_study_type": "review",
+        "secondary_modalities": [
+          "systematic_review",
+          "meta_analysis",
+          "network_meta_analysis"
+        ],
+        "species_scope": "human",
+        "evidence_posture": "synthesis_of_prior_randomized_trials_no_new_experiment",
+        "has_structured_results": true,
+        "high_extraction_complexity": false,
+        "recommended_route": "FAST",
+        "confidence": 0.9,
+        "rationale": "Network meta-analysis of 21 RCTs for antidiabetic agents in MASLD and T2DM. Systematic review with statistical synthesis of prior trials; no new experiment.",
+        "evidence_quotes": [
+          "We systematically searched PubMed, Embase, the Cochrane Library, and Web of Science for relevant randomized controlled trials up to April 20, 2025.",
+          "A total of 21 randomized controlled trials were included, covering 15 antidiabetic agents and involving 1,717 participants.",
+          "Ertugliflozin appears to be among the most effective treatment options for improving liver function and metabolic parameters in patients with MASLD and T2DM."
+        ],
+        "source": "llm_adjudicated",
+        "llm_trigger_reasons": [
+          "mixed_or_conflicting_design_cues",
+          "review_topic_may_mimic_primary_study"
+        ],
+        "features": {
+          "structured_headings": [
+            "OBJECTIVE:",
+            "METHODS:",
+            "RESULTS:",
+            "CONCLUSION:"
+          ],
+          "review_cues": [
+            "meta-analysis"
+          ],
+          "computational_cues": [],
+          "human_cues": [
+            "patients",
+            "randomized",
+            "participants"
+          ],
+          "animal_cues": [],
+          "in_vitro_cues": [],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [
+            "randomized"
+          ],
+          "char_count": 1702,
+          "modality_count": 3
+        },
+        "llm_status": "success",
+        "latency_seconds": 3.607028542086482,
+        "prompt_tokens": 1453,
+        "output_tokens": 451
+      }
+    },
+    {
+      "pmid": "41969242",
+      "title": "Prophylactic Antibiotic Use and Clinical Outcomes in Patients With Child-Pugh A Cirrhosis and Acute Variceal Bleeding: A Retrospective Cohort Study.",
+      "gold": {
+        "primary_study_type": "clinical",
+        "has_structured_results": true,
+        "high_extraction_complexity": false,
+        "recommended_route": "STANDARD"
+      },
+      "legacy_rules": {
+        "primary_study_type": "clinical",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP"
+      },
+      "improved_rules": {
+        "primary_study_type": "clinical",
+        "secondary_modalities": [
+          "human_observational",
+          "retrospective_cohort"
+        ],
+        "species_scope": "human",
+        "evidence_posture": "direct_human_observational_association_not_randomized_causality",
+        "has_structured_results": true,
+        "high_extraction_complexity": false,
+        "recommended_route": "STANDARD",
+        "confidence": 0.88,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [],
+        "features": {
+          "structured_headings": [
+            "BACKGROUND & AIMS:",
+            "METHODS:",
+            "RESULTS:",
+            "CONCLUSIONS:"
+          ],
+          "review_cues": [],
+          "computational_cues": [],
+          "human_cues": [
+            "Patients",
+            "Retrospective",
+            "Cohort",
+            "patients",
+            "retrospective"
+          ],
+          "animal_cues": [],
+          "in_vitro_cues": [],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [],
+          "char_count": 1739,
+          "modality_count": 1
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      },
+      "hybrid": {
+        "primary_study_type": "clinical",
+        "secondary_modalities": [
+          "human_observational",
+          "retrospective_cohort"
+        ],
+        "species_scope": "human",
+        "evidence_posture": "direct_human_observational_association_not_randomized_causality",
+        "has_structured_results": true,
+        "high_extraction_complexity": false,
+        "recommended_route": "STANDARD",
+        "confidence": 0.88,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [],
+        "features": {
+          "structured_headings": [
+            "BACKGROUND & AIMS:",
+            "METHODS:",
+            "RESULTS:",
+            "CONCLUSIONS:"
+          ],
+          "review_cues": [],
+          "computational_cues": [],
+          "human_cues": [
+            "Patients",
+            "Retrospective",
+            "Cohort",
+            "patients",
+            "retrospective"
+          ],
+          "animal_cues": [],
+          "in_vitro_cues": [],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [],
+          "char_count": 1739,
+          "modality_count": 1
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      }
+    },
+    {
+      "pmid": "41761962",
+      "title": "Impact of Spheroid Use for Identifying Hepatocellular Carcinoma Features: Involvement of Kinase-Mediated Molecular Pathways.",
+      "gold": {
+        "primary_study_type": "review",
+        "has_structured_results": false,
+        "high_extraction_complexity": false,
+        "recommended_route": "FAST"
+      },
+      "legacy_rules": {
+        "primary_study_type": "animal",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP"
+      },
+      "improved_rules": {
+        "primary_study_type": "review",
+        "secondary_modalities": [
+          "human_cancer_cell_lines",
+          "narrative_review"
+        ],
+        "species_scope": "mixed_or_not_applicable",
+        "evidence_posture": "synthesis_of_prior_work_no_new_experiment",
+        "has_structured_results": false,
+        "high_extraction_complexity": false,
+        "recommended_route": "FAST",
+        "confidence": 0.62,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [
+          "mixed_or_conflicting_design_cues",
+          "review_topic_may_mimic_primary_study"
+        ],
+        "features": {
+          "structured_headings": [],
+          "review_cues": [
+            "This review"
+          ],
+          "computational_cues": [],
+          "human_cues": [],
+          "animal_cues": [
+            "in vivo"
+          ],
+          "in_vitro_cues": [
+            "in vitro",
+            "HepG2"
+          ],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [],
+          "char_count": 1334,
+          "modality_count": 3
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      },
+      "hybrid": {
+        "primary_study_type": "review",
+        "secondary_modalities": [
+          "human_cancer_cell_lines",
+          "narrative_review"
+        ],
+        "species_scope": "mixed_or_not_applicable",
+        "evidence_posture": "synthesis_of_prior_work_no_new_experiment",
+        "has_structured_results": false,
+        "high_extraction_complexity": false,
+        "recommended_route": "FAST",
+        "confidence": 0.92,
+        "rationale": "Abstract explicitly states 'This review' and synthesizes prior findings on 3D in vitro models and LRRK2 in HCC, with no new experimental data.",
+        "evidence_quotes": [
+          "This review highlights the advantages and limitations of currently available 3D culture systems.",
+          "HepG2 cell-derived spheroids have become an important tool for drug screening, toxicity assessment, and liver cancer research."
+        ],
+        "source": "llm_adjudicated",
+        "llm_trigger_reasons": [
+          "mixed_or_conflicting_design_cues",
+          "review_topic_may_mimic_primary_study"
+        ],
+        "features": {
+          "structured_headings": [],
+          "review_cues": [
+            "This review"
+          ],
+          "computational_cues": [],
+          "human_cues": [],
+          "animal_cues": [
+            "in vivo"
+          ],
+          "in_vitro_cues": [
+            "in vitro",
+            "HepG2"
+          ],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [],
+          "char_count": 1334,
+          "modality_count": 3
+        },
+        "llm_status": "success",
+        "latency_seconds": 4.777359500061721,
+        "prompt_tokens": 1296,
+        "output_tokens": 506
+      }
+    },
+    {
+      "pmid": "41884271",
+      "title": "High Dihydromyricetin Loaded Biomimetic Nanoemulsion Ameliorated Early Nonalcoholic Fatty Liver Disease by Hepatic Ferroptosis Inhibition.",
+      "gold": {
+        "primary_study_type": "animal",
+        "has_structured_results": true,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP"
+      },
+      "legacy_rules": {
+        "primary_study_type": "animal",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP"
+      },
+      "improved_rules": {
+        "primary_study_type": "animal",
+        "secondary_modalities": [
+          "mouse_in_vivo",
+          "pharmacokinetics"
+        ],
+        "species_scope": "mixed_non_human",
+        "evidence_posture": "direct_preclinical_mechanistic_evidence",
+        "has_structured_results": true,
+        "high_extraction_complexity": false,
+        "recommended_route": "STANDARD",
+        "confidence": 0.62,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [
+          "mixed_or_conflicting_design_cues"
+        ],
+        "features": {
+          "structured_headings": [
+            "INTRODUCTION:",
+            "METHODS:",
+            "RESULTS:",
+            "CONCLUSION:"
+          ],
+          "review_cues": [],
+          "computational_cues": [],
+          "human_cues": [],
+          "animal_cues": [
+            "in vivo",
+            "mouse",
+            "mice"
+          ],
+          "in_vitro_cues": [
+            "in vitro"
+          ],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [],
+          "char_count": 1399,
+          "modality_count": 2
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      },
+      "hybrid": {
+        "primary_study_type": "animal",
+        "secondary_modalities": [
+          "mouse_in_vivo",
+          "pharmacokinetics"
+        ],
+        "species_scope": "mixed_non_human",
+        "evidence_posture": "direct_preclinical_mechanistic_evidence",
+        "has_structured_results": true,
+        "high_extraction_complexity": false,
+        "recommended_route": "STANDARD",
+        "confidence": 0.62,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [
+          "mixed_or_conflicting_design_cues"
+        ],
+        "features": {
+          "structured_headings": [
+            "INTRODUCTION:",
+            "METHODS:",
+            "RESULTS:",
+            "CONCLUSION:"
+          ],
+          "review_cues": [],
+          "computational_cues": [],
+          "human_cues": [],
+          "animal_cues": [
+            "in vivo",
+            "mouse",
+            "mice"
+          ],
+          "in_vitro_cues": [
+            "in vitro"
+          ],
+          "omics_cues": [],
+          "validation_cues": [],
+          "intervention_cues": [],
+          "char_count": 1399,
+          "modality_count": 2
+        },
+        "llm_status": "fallback:ValueError:LLM evidence quote is absent from source or violates bounds",
+        "latency_seconds": 3.7172748330049217,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      }
+    },
+    {
+      "pmid": "41940593",
+      "title": "Functional Role of COP1 Gene in Hepatocellular Carcinoma Lipid Metabolism and Stemness.",
+      "gold": {
+        "primary_study_type": "in_vitro",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP"
+      },
+      "legacy_rules": {
+        "primary_study_type": "in_vitro",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP"
+      },
+      "improved_rules": {
+        "primary_study_type": "in_vitro",
+        "secondary_modalities": [
+          "bulk_transcriptomics",
+          "gene_overexpression",
+          "gene_silencing",
+          "human_cancer_cell_lines"
+        ],
+        "species_scope": "mixed_human_in_vitro",
+        "evidence_posture": "direct_in_vitro_mechanistic_evidence",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP",
+        "confidence": 0.88,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [],
+        "features": {
+          "structured_headings": [],
+          "review_cues": [],
+          "computational_cues": [],
+          "human_cues": [],
+          "animal_cues": [],
+          "in_vitro_cues": [
+            "hepatocytes",
+            "Huh7",
+            "HepG2",
+            "Huh1",
+            "PLC/PRF/5",
+            "cell lines"
+          ],
+          "omics_cues": [
+            "RNA sequencing"
+          ],
+          "validation_cues": [],
+          "intervention_cues": [
+            "Silencing",
+            "siRNA",
+            "Overexpression"
+          ],
+          "char_count": 1534,
+          "modality_count": 3
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      },
+      "hybrid": {
+        "primary_study_type": "in_vitro",
+        "secondary_modalities": [
+          "bulk_transcriptomics",
+          "gene_overexpression",
+          "gene_silencing",
+          "human_cancer_cell_lines"
+        ],
+        "species_scope": "mixed_human_in_vitro",
+        "evidence_posture": "direct_in_vitro_mechanistic_evidence",
+        "has_structured_results": false,
+        "high_extraction_complexity": true,
+        "recommended_route": "DEEP",
+        "confidence": 0.88,
+        "rationale": "Deterministic multi-label rule profile.",
+        "evidence_quotes": [],
+        "source": "rules",
+        "llm_trigger_reasons": [],
+        "features": {
+          "structured_headings": [],
+          "review_cues": [],
+          "computational_cues": [],
+          "human_cues": [],
+          "animal_cues": [],
+          "in_vitro_cues": [
+            "hepatocytes",
+            "Huh7",
+            "HepG2",
+            "Huh1",
+            "PLC/PRF/5",
+            "cell lines"
+          ],
+          "omics_cues": [
+            "RNA sequencing"
+          ],
+          "validation_cues": [],
+          "intervention_cues": [
+            "Silencing",
+            "siRNA",
+            "Overexpression"
+          ],
+          "char_count": 1534,
+          "modality_count": 3
+        },
+        "llm_status": "not_called",
+        "latency_seconds": 0.0,
+        "prompt_tokens": 0,
+        "output_tokens": 0
+      }
+    }
+  ]
+}

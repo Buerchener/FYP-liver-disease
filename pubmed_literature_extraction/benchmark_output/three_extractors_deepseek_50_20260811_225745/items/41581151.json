@@ -1,0 +1,2681 @@
+{
+  "pmid": "41581151",
+  "title": "Scar-associated endothelial-stellate cellular crosstalk drives fibrosis resolution in MASH.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "fibrosis",
+            "disease_stage": "regression"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 70,
+          "char_end": 78
+        },
+        {
+          "mention": "MASH",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASH",
+            "disease_stage": "MASH"
+          },
+          "grounded": true,
+          "source_span": "MASH",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 93,
+          "char_end": 97
+        },
+        {
+          "mention": "chronic liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "chronic liver disease"
+          },
+          "grounded": true,
+          "source_span": "chronic liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 403,
+          "char_end": 424
+        },
+        {
+          "mention": "Wnt9b",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Wnt9b",
+            "species": "Mus musculus",
+            "associated_with": [
+              {
+                "target_entity": "fibrosis",
+                "target_type": "disease",
+                "direction": "decrease",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "regression",
+                "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression."
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "Wnt9b-Sfrp2 crosstalk",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression."
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "Endo4",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "We further identify a subset of liver endothelial cells termed \"Endo4\" as the source of Wnt9b."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "Wnt9b",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 599,
+          "char_end": 604
+        },
+        {
+          "mention": "Sfrp2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Sfrp2",
+            "species": "Mus musculus",
+            "participates_in": [
+              {
+                "target_entity": "Wnt9b-Sfrp2 crosstalk",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "Sfrp2",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 605,
+          "char_end": 610
+        },
+        {
+          "mention": "Wnt9b-Sfrp2 crosstalk",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "Wnt9b-Sfrp2 crosstalk"
+          },
+          "grounded": true,
+          "source_span": "Wnt9b-Sfrp2 crosstalk",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 599,
+          "char_end": 620
+        },
+        {
+          "mention": "Endo4",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "Endo4"
+          },
+          "grounded": true,
+          "source_span": "Endo4",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 790,
+          "char_end": 795
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 196,
+          "char_end": 201
+        },
+        {
+          "mention": "VWF",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "VWF",
+            "species": "Mus musculus",
+            "expressed_in": [
+              {
+                "target_entity": "hepatic stellate cells",
+                "target_type": "cell_type",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "VWF+ vasculature juxtaposing activated hepatic stellate cells"
+              }
+            ],
+            "associated_with": [
+              {
+                "target_entity": "MASH fibrosis",
+                "target_type": "disease",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "regression",
+                "evidence": "regulatory node in murine MASH fibrosis regression"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "VWF",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 857,
+          "char_end": 860
+        },
+        {
+          "mention": "hepatic stellate cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "hepatic stellate cells"
+          },
+          "grounded": true,
+          "source_span": "hepatic stellate cells",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 945,
+          "char_end": 967
+        },
+        {
+          "mention": "MASH fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASH fibrosis",
+            "disease_stage": "regression"
+          },
+          "grounded": true,
+          "source_span": "MASH fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1147,
+          "char_end": 1160
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Wnt9b",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "regression",
+          "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "Wnt9b",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "Wnt9b-Sfrp2 crosstalk",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "Wnt9b",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "Endo4",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "We further identify a subset of liver endothelial cells termed \"Endo4\" as the source of Wnt9b.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "Sfrp2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "Wnt9b-Sfrp2 crosstalk",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "VWF",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH fibrosis",
+          "object_type": "Disease",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "regression",
+          "evidence": "regulatory node in murine MASH fibrosis regression",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "VWF",
+          "subject_type": "Protein",
+          "predicate": "EXPRESSED_IN",
+          "object": "hepatic stellate cells",
+          "object_type": "CellType",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "VWF+ vasculature juxtaposing activated hepatic stellate cells",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASH",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASH",
+              "disease_stage": "MASH"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASH",
+            "char_start": 93,
+            "char_end": 97,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:mash",
+            "canonical_mentions": [
+              "MASH"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Wnt9b",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Wnt9b",
+              "species": "Mus musculus",
+              "associated_with": [
+                {
+                  "target_entity": "fibrosis",
+                  "target_type": "disease",
+                  "direction": "decrease",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "regression",
+                  "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression."
+                }
+              ],
+              "participates_in": [
+                {
+                  "target_entity": "Wnt9b-Sfrp2 crosstalk",
+                  "target_type": "pathway",
+                  "direction": "none",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression."
+                }
+              ],
+              "expressed_in": [
+                {
+                  "target_entity": "Endo4",
+                  "target_type": "cell_type",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "We further identify a subset of liver endothelial cells termed \"Endo4\" as the source of Wnt9b."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Wnt9b",
+            "char_start": 599,
+            "char_end": 604,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:wnt9b",
+            "canonical_mentions": [
+              "Wnt9b"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Sfrp2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Sfrp2",
+              "species": "Mus musculus",
+              "participates_in": [
+                {
+                  "target_entity": "Wnt9b-Sfrp2 crosstalk",
+                  "target_type": "pathway",
+                  "direction": "none",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Sfrp2",
+            "char_start": 605,
+            "char_end": 610,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:sfrp2",
+            "canonical_mentions": [
+              "Sfrp2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Wnt9b-Sfrp2 crosstalk",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "Wnt9b-Sfrp2 crosstalk"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Wnt9b-Sfrp2 crosstalk",
+            "char_start": 599,
+            "char_end": 620,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:wnt9b sfrp2 crosstalk",
+            "canonical_mentions": [
+              "Wnt9b-Sfrp2 crosstalk"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 196,
+            "char_end": 201,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "VWF",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "VWF",
+              "species": "Mus musculus",
+              "expressed_in": [
+                {
+                  "target_entity": "hepatic stellate cells",
+                  "target_type": "cell_type",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "VWF+ vasculature juxtaposing activated hepatic stellate cells"
+                }
+              ],
+              "associated_with": [
+                {
+                  "target_entity": "MASH fibrosis",
+                  "target_type": "disease",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "regression",
+                  "evidence": "regulatory node in murine MASH fibrosis regression"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "VWF",
+            "char_start": 857,
+            "char_end": 860,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:vwf",
+            "canonical_mentions": [
+              "VWF"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic stellate cells",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "hepatic stellate cells"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic stellate cells",
+            "char_start": 945,
+            "char_end": 967,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:hepatic stellate cells",
+            "canonical_mentions": [
+              "hepatic stellate cells"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MASH fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASH fibrosis",
+              "disease_stage": "regression"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASH fibrosis",
+            "char_start": 1147,
+            "char_end": 1160,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:mash fibrosis",
+            "canonical_mentions": [
+              "MASH fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Wnt9b",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "prediction_only",
+              "subject_novel",
+              "uncertain",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 548,
+            "evidence_char_end": 725,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "Wnt9b",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Wnt9b",
+            "predicate": "PARTICIPATES_IN",
+            "object": "Wnt9b-Sfrp2 crosstalk",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+            "direction": "none",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 548,
+            "evidence_char_end": 725,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Wnt9b",
+            "original_object": "Wnt9b-Sfrp2 crosstalk",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Wnt9b",
+            "predicate": "EXPRESSED_IN",
+            "object": "Endo4",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "We further identify a subset of liver endothelial cells termed \"Endo4\" as the source of Wnt9b.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 726,
+            "evidence_char_end": 820,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Wnt9b",
+            "original_object": "Endo4",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Sfrp2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "Wnt9b-Sfrp2 crosstalk",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+            "direction": "none",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 548,
+            "evidence_char_end": 725,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Sfrp2",
+            "original_object": "Wnt9b-Sfrp2 crosstalk",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "VWF",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH fibrosis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "regulatory node in murine MASH fibrosis regression",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1121,
+            "evidence_char_end": 1171,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "VWF",
+            "original_object": "MASH fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "VWF",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatic stellate cells",
+            "subject_type": "Protein",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "VWF+ vasculature juxtaposing activated hepatic stellate cells",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 906,
+            "evidence_char_end": 967,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "VWF",
+            "original_object": "hepatic stellate cells",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 8,
+          "raw_entity_count": 11,
+          "filtered_entity_count": 3,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 8,
+          "total_relations": 6,
+          "known_relations": 0,
+          "novel_relations": 6,
+          "contradicting_relations": 0,
+          "schema_valid": 6,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6591,
+          "evidence_score": 0.6917,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 8,
+              "denominator": 11,
+              "value": 0.7273
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 11,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 11,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 9,
+              "denominator": 11,
+              "value": 0.8182
+            },
+            "relation_evidence_exactness": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 5,
+              "denominator": 6,
+              "value": 0.8333
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 6,
+              "value": 0.1667
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "weak_evidence_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 3,
+              "denominator": 6,
+              "value": 0.5
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 8,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 8
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 11,
+        "relations": 6,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 6.77544629201293,
+      "prompt_tokens": 293,
+      "output_tokens": 1814,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "fibrosis",
+            "disease_stage": "regression"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 70,
+          "char_end": 78
+        },
+        {
+          "mention": "MASH",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASH",
+            "disease_stage": "MASH"
+          },
+          "grounded": true,
+          "source_span": "MASH",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 93,
+          "char_end": 97
+        },
+        {
+          "mention": "chronic liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "chronic liver disease"
+          },
+          "grounded": true,
+          "source_span": "chronic liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 403,
+          "char_end": 424
+        },
+        {
+          "mention": "Wnt9b",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Wnt9b",
+            "species": "Mus musculus",
+            "associated_with": [
+              {
+                "target_entity": "fibrosis",
+                "target_type": "disease",
+                "direction": "decrease",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "regression",
+                "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression."
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "Wnt9b-Sfrp2 crosstalk",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression."
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "Endo4",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "We further identify a subset of liver endothelial cells termed \"Endo4\" as the source of Wnt9b."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "Wnt9b",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 599,
+          "char_end": 604
+        },
+        {
+          "mention": "Sfrp2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Sfrp2",
+            "species": "Mus musculus",
+            "participates_in": [
+              {
+                "target_entity": "Wnt9b-Sfrp2 crosstalk",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "Sfrp2",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 605,
+          "char_end": 610
+        },
+        {
+          "mention": "Wnt9b-Sfrp2 crosstalk",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "Wnt9b-Sfrp2 crosstalk"
+          },
+          "grounded": true,
+          "source_span": "Wnt9b-Sfrp2 crosstalk",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 599,
+          "char_end": 620
+        },
+        {
+          "mention": "Endo4",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "Endo4"
+          },
+          "grounded": true,
+          "source_span": "Endo4",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 790,
+          "char_end": 795
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 196,
+          "char_end": 201
+        },
+        {
+          "mention": "VWF",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "VWF",
+            "species": "Mus musculus",
+            "expressed_in": [
+              {
+                "target_entity": "hepatic stellate cells",
+                "target_type": "cell_type",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "VWF+ vasculature juxtaposing activated hepatic stellate cells"
+              }
+            ],
+            "associated_with": [
+              {
+                "target_entity": "MASH fibrosis",
+                "target_type": "disease",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "regression",
+                "evidence": "regulatory node in murine MASH fibrosis regression"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "VWF",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 857,
+          "char_end": 860
+        },
+        {
+          "mention": "hepatic stellate cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "hepatic stellate cells"
+          },
+          "grounded": true,
+          "source_span": "hepatic stellate cells",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 945,
+          "char_end": 967
+        },
+        {
+          "mention": "MASH fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASH fibrosis",
+            "disease_stage": "regression"
+          },
+          "grounded": true,
+          "source_span": "MASH fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1147,
+          "char_end": 1160
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Wnt9b",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "regression",
+          "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "Wnt9b",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "Wnt9b-Sfrp2 crosstalk",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "Wnt9b",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "Endo4",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "We further identify a subset of liver endothelial cells termed \"Endo4\" as the source of Wnt9b.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "Sfrp2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "Wnt9b-Sfrp2 crosstalk",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "VWF",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH fibrosis",
+          "object_type": "Disease",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "regression",
+          "evidence": "regulatory node in murine MASH fibrosis regression",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "VWF",
+          "subject_type": "Protein",
+          "predicate": "EXPRESSED_IN",
+          "object": "hepatic stellate cells",
+          "object_type": "CellType",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "VWF+ vasculature juxtaposing activated hepatic stellate cells",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASH",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASH",
+              "disease_stage": "MASH"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASH",
+            "char_start": 93,
+            "char_end": 97,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:mash",
+            "canonical_mentions": [
+              "MASH"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Wnt9b",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Wnt9b",
+              "species": "Mus musculus",
+              "associated_with": [
+                {
+                  "target_entity": "fibrosis",
+                  "target_type": "disease",
+                  "direction": "decrease",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "regression",
+                  "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression."
+                }
+              ],
+              "participates_in": [
+                {
+                  "target_entity": "Wnt9b-Sfrp2 crosstalk",
+                  "target_type": "pathway",
+                  "direction": "none",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression."
+                }
+              ],
+              "expressed_in": [
+                {
+                  "target_entity": "Endo4",
+                  "target_type": "cell_type",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "We further identify a subset of liver endothelial cells termed \"Endo4\" as the source of Wnt9b."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Wnt9b",
+            "char_start": 599,
+            "char_end": 604,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:wnt9b",
+            "canonical_mentions": [
+              "Wnt9b"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Sfrp2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Sfrp2",
+              "species": "Mus musculus",
+              "participates_in": [
+                {
+                  "target_entity": "Wnt9b-Sfrp2 crosstalk",
+                  "target_type": "pathway",
+                  "direction": "none",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Sfrp2",
+            "char_start": 605,
+            "char_end": 610,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:sfrp2",
+            "canonical_mentions": [
+              "Sfrp2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Wnt9b-Sfrp2 crosstalk",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "Wnt9b-Sfrp2 crosstalk"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Wnt9b-Sfrp2 crosstalk",
+            "char_start": 599,
+            "char_end": 620,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:wnt9b sfrp2 crosstalk",
+            "canonical_mentions": [
+              "Wnt9b-Sfrp2 crosstalk"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 196,
+            "char_end": 201,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "VWF",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "VWF",
+              "species": "Mus musculus",
+              "expressed_in": [
+                {
+                  "target_entity": "hepatic stellate cells",
+                  "target_type": "cell_type",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "VWF+ vasculature juxtaposing activated hepatic stellate cells"
+                }
+              ],
+              "associated_with": [
+                {
+                  "target_entity": "MASH fibrosis",
+                  "target_type": "disease",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "regression",
+                  "evidence": "regulatory node in murine MASH fibrosis regression"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "VWF",
+            "char_start": 857,
+            "char_end": 860,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:vwf",
+            "canonical_mentions": [
+              "VWF"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic stellate cells",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "hepatic stellate cells"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic stellate cells",
+            "char_start": 945,
+            "char_end": 967,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:hepatic stellate cells",
+            "canonical_mentions": [
+              "hepatic stellate cells"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MASH fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASH fibrosis",
+              "disease_stage": "regression"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASH fibrosis",
+            "char_start": 1147,
+            "char_end": 1160,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:mash fibrosis",
+            "canonical_mentions": [
+              "MASH fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Wnt9b",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "prediction_only",
+              "subject_novel",
+              "uncertain",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 548,
+            "evidence_char_end": 725,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "Wnt9b",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Wnt9b",
+            "predicate": "PARTICIPATES_IN",
+            "object": "Wnt9b-Sfrp2 crosstalk",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+            "direction": "none",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 548,
+            "evidence_char_end": 725,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Wnt9b",
+            "original_object": "Wnt9b-Sfrp2 crosstalk",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Wnt9b",
+            "predicate": "EXPRESSED_IN",
+            "object": "Endo4",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "We further identify a subset of liver endothelial cells termed \"Endo4\" as the source of Wnt9b.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 726,
+            "evidence_char_end": 820,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Wnt9b",
+            "original_object": "Endo4",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Sfrp2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "Wnt9b-Sfrp2 crosstalk",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+            "direction": "none",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 548,
+            "evidence_char_end": 725,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Sfrp2",
+            "original_object": "Wnt9b-Sfrp2 crosstalk",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "VWF",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH fibrosis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "regulatory node in murine MASH fibrosis regression",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1121,
+            "evidence_char_end": 1171,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "VWF",
+            "original_object": "MASH fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "VWF",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatic stellate cells",
+            "subject_type": "Protein",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "VWF+ vasculature juxtaposing activated hepatic stellate cells",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 906,
+            "evidence_char_end": 967,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "VWF",
+            "original_object": "hepatic stellate cells",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 8,
+          "raw_entity_count": 11,
+          "filtered_entity_count": 3,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 8,
+          "total_relations": 6,
+          "known_relations": 0,
+          "novel_relations": 6,
+          "contradicting_relations": 0,
+          "schema_valid": 6,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6591,
+          "evidence_score": 0.6917,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 8,
+              "denominator": 11,
+              "value": 0.7273
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 11,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 11,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 9,
+              "denominator": 11,
+              "value": 0.8182
+            },
+            "relation_evidence_exactness": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 5,
+              "denominator": 6,
+              "value": 0.8333
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 6,
+              "value": 0.1667
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "weak_evidence_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 3,
+              "denominator": 6,
+              "value": 0.5
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 8,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 8
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 11,
+        "relations": 6,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 16.027054667007178,
+      "prompt_tokens": 9268,
+      "output_tokens": 3611,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "fibrosis",
+            "entity_type": "Disease",
+            "source_span": "fibrosis",
+            "char_start": 70,
+            "char_end": 78,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "MASH",
+            "entity_type": "Disease",
+            "source_span": "MASH",
+            "char_start": 93,
+            "char_end": 97,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match; disease abbreviation."
+          },
+          {
+            "mention": "chronic liver disease",
+            "entity_type": "Disease",
+            "source_span": "chronic liver disease",
+            "char_start": 403,
+            "char_end": 424,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match; disease entity."
+          },
+          {
+            "mention": "Wnt9b",
+            "entity_type": "Gene",
+            "source_span": "Wnt9b",
+            "char_start": 599,
+            "char_end": 604,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match; gene symbol."
+          },
+          {
+            "mention": "Sfrp2",
+            "entity_type": "Gene",
+            "source_span": "Sfrp2",
+            "char_start": 605,
+            "char_end": 610,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match; gene symbol."
+          },
+          {
+            "mention": "Wnt9b-Sfrp2 crosstalk",
+            "entity_type": "Pathway",
+            "source_span": "Wnt9b-Sfrp2 crosstalk",
+            "char_start": 599,
+            "char_end": 620,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match; pathway term."
+          },
+          {
+            "mention": "Endo4",
+            "entity_type": "CellType",
+            "source_span": "Endo4",
+            "char_start": 790,
+            "char_end": 795,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match; cell subset."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 196,
+            "char_end": 201,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match; tissue."
+          },
+          {
+            "mention": "VWF",
+            "entity_type": "Protein",
+            "source_span": "VWF",
+            "char_start": 857,
+            "char_end": 860,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match; protein marker."
+          },
+          {
+            "mention": "hepatic stellate cells",
+            "entity_type": "CellType",
+            "source_span": "hepatic stellate cells",
+            "char_start": 945,
+            "char_end": 967,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match; cell type."
+          },
+          {
+            "mention": "MASH fibrosis",
+            "entity_type": "Disease",
+            "source_span": "MASH fibrosis",
+            "char_start": 1147,
+            "char_end": 1160,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match; disease term."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "Wnt9b",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+            "evidence_span": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+            "confidence": 0.7,
+            "uncertain": true,
+            "reason": "Evidence states crosstalk emerges as fibrosis resolves and perturbation attenuates regression, implying Wnt9b promotes resolution (decrease fibrosis)."
+          },
+          {
+            "subject": "Wnt9b",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "Wnt9b-Sfrp2 crosstalk",
+            "object_type": "Pathway",
+            "direction": "none",
+            "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+            "evidence_span": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+            "confidence": 0.7,
+            "uncertain": true,
+            "reason": "Wnt9b is part of the named crosstalk; direct participation inferred from naming."
+          },
+          {
+            "subject": "Wnt9b",
+            "subject_type": "Gene",
+            "predicate": "EXPRESSED_IN",
+            "object": "Endo4",
+            "object_type": "CellType",
+            "direction": "increase",
+            "evidence": "We further identify a subset of liver endothelial cells termed \"Endo4\" as the source of Wnt9b.",
+            "evidence_span": "We further identify a subset of liver endothelial cells termed \"Endo4\" as the source of Wnt9b.",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Explicitly states Endo4 is the source of Wnt9b."
+          },
+          {
+            "subject": "Sfrp2",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "Wnt9b-Sfrp2 crosstalk",
+            "object_type": "Pathway",
+            "direction": "none",
+            "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+            "evidence_span": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves, the perturbation of which attenuates spontaneous fibrosis regression.",
+            "confidence": 0.7,
+            "uncertain": true,
+            "reason": "Sfrp2 is part of the named crosstalk; direct participation inferred from naming."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "VWF",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH fibrosis",
+            "reason": "Evidence 'regulatory node in murine MASH fibrosis regression' does not explicitly mention VWF; endpoint not grounded in evidence."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "VWF",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatic stellate cells",
+            "reason": "Evidence 'VWF+ vasculature juxtaposing activated hepatic stellate cells' indicates VWF is in vasculature, not expressed in stellate cells; direction and expression claim unsupported."
+          }
+        ],
+        "review_reason": "Corrected entities and relations based on exact evidence from abstract. Rejected relations lacking explicit endpoint grounding or misinterpreting expression.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "fibrosis",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "MASH"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "chronic liver disease",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Wnt9b"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Sfrp2"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Wnt9b-Sfrp2 crosstalk"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Endo4",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "VWF"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatic stellate cells"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "MASH fibrosis"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "Wnt9b",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "Wnt9b",
+            "predicate": "PARTICIPATES_IN",
+            "object": "Wnt9b-Sfrp2 crosstalk"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "Wnt9b",
+            "predicate": "EXPRESSED_IN",
+            "object": "Endo4"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "Sfrp2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "Wnt9b-Sfrp2 crosstalk"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D005355"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "fibrosis",
+          "char_start": 70,
+          "char_end": 78
+        },
+        {
+          "mention": "MASH",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C536738"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "MASH",
+          "char_start": 93,
+          "char_end": 97
+        },
+        {
+          "mention": "Wnt9b",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "WNT9B"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "Wnt9b",
+          "char_start": 599,
+          "char_end": 604
+        },
+        {
+          "mention": "Sfrp2",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "SFRP2"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "Sfrp2",
+          "char_start": 605,
+          "char_end": 610
+        },
+        {
+          "mention": "Endo4",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000115"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "Endo4",
+          "char_start": 790,
+          "char_end": 795
+        },
+        {
+          "mention": "VWF",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P04275"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "VWF",
+          "char_start": 857,
+          "char_end": 860
+        },
+        {
+          "mention": "hepatic stellate cells",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000632"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "hepatic stellate cells",
+          "char_start": 945,
+          "char_end": 967
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "UBERON:0002107"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "liver",
+          "char_start": 196,
+          "char_end": 201
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Wnt9b",
+          "subject_type": "Gene",
+          "predicate": "INTERACTS_WITH",
+          "object": "Sfrp2",
+          "object_type": "Gene",
+          "direction": "positive",
+          "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves",
+          "negated": false,
+          "uncertain": false,
+          "species": "mouse",
+          "confidence": 0.9
+        },
+        {
+          "subject": "Endo4",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Wnt9b",
+          "object_type": "Gene",
+          "direction": "positive",
+          "evidence": "We further identify a subset of liver endothelial cells termed \"Endo4\" as the source of Wnt9b.",
+          "negated": false,
+          "uncertain": false,
+          "species": "mouse",
+          "confidence": 0.9
+        },
+        {
+          "subject": "VWF",
+          "subject_type": "Protein",
+          "predicate": "EXPRESSED_IN",
+          "object": "Endo4",
+          "object_type": "CellType",
+          "direction": "positive",
+          "evidence": "Immunostaining for the Endo4 marker VWF using tissue clearing and 3D imaging reveals VWF+ vasculature juxtaposing activated hepatic stellate cells",
+          "negated": false,
+          "uncertain": false,
+          "species": "mouse",
+          "confidence": 0.85
+        },
+        {
+          "subject": "hepatic stellate cells",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "VWF+ vasculature juxtaposing activated hepatic stellate cells that penetrate deep into the fibrotic septa",
+          "negated": false,
+          "uncertain": false,
+          "species": "mouse",
+          "confidence": 0.8
+        },
+        {
+          "subject": "fibrosis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Fibrosis in the liver can spontaneously resolve when injury terminates. In this study, we establish a robust mouse model of fibrosis regression in MASH",
+          "negated": false,
+          "uncertain": false,
+          "species": "mouse",
+          "confidence": 0.85
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASH",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "C536738"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASH",
+            "char_start": 93,
+            "char_end": 97,
+            "grounded": true,
+            "normalized_id": "C536738",
+            "canonical_key": "Disease:mash",
+            "canonical_mentions": [
+              "MASH"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Wnt9b",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "WNT9B"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Wnt9b",
+            "char_start": 599,
+            "char_end": 604,
+            "grounded": true,
+            "normalized_id": "WNT9B",
+            "canonical_key": "Gene:wnt9b",
+            "canonical_mentions": [
+              "Wnt9b"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Sfrp2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "SFRP2"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Sfrp2",
+            "char_start": 605,
+            "char_end": 610,
+            "grounded": true,
+            "normalized_id": "SFRP2",
+            "canonical_key": "Gene:sfrp2",
+            "canonical_mentions": [
+              "Sfrp2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "VWF",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "P04275"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "VWF",
+            "char_start": 857,
+            "char_end": 860,
+            "grounded": true,
+            "normalized_id": "P04275",
+            "canonical_key": "Protein:vwf",
+            "canonical_mentions": [
+              "VWF"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic stellate cells",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CL:0000632"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic stellate cells",
+            "char_start": 945,
+            "char_end": 967,
+            "grounded": true,
+            "normalized_id": "CL:0000632",
+            "canonical_key": "CellType:hepatic stellate cells",
+            "canonical_mentions": [
+              "hepatic stellate cells"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "UBERON:0002107"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 196,
+            "char_end": 201,
+            "grounded": true,
+            "normalized_id": "UBERON:0002107",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Wnt9b",
+            "predicate": "INTERACTS_WITH",
+            "object": "Sfrp2",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Prediction of cell-cell communication identifies a Wnt9b-Sfrp2 crosstalk that emerges as fibrosis resolves",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 548,
+            "evidence_char_end": 654,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Wnt9b",
+            "original_object": "Sfrp2",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Endo4",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Wnt9b",
+            "subject_type": "CellType",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "We further identify a subset of liver endothelial cells termed \"Endo4\" as the source of Wnt9b.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "non_human",
+              "object_novel",
+              "schema_mismatch",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 726,
+            "evidence_char_end": 820,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Endo4",
+            "original_object": "Wnt9b",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "VWF",
+            "predicate": "EXPRESSED_IN",
+            "object": "Endo4",
+            "subject_type": "Protein",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Immunostaining for the Endo4 marker VWF using tissue clearing and 3D imaging reveals VWF+ vasculature juxtaposing activated hepatic stellate cells",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 821,
+            "evidence_char_end": 967,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "VWF",
+            "original_object": "Endo4",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "hepatic stellate cells",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "VWF+ vasculature juxtaposing activated hepatic stellate cells that penetrate deep into the fibrotic septa",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "object_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 906,
+            "evidence_char_end": 1011,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "hepatic stellate cells",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "fibrosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Fibrosis in the liver can spontaneously resolve when injury terminates. In this study, we establish a robust mouse model of fibrosis regression in MASH",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "cross_sentence",
+              "filtered_endpoint",
+              "non_human",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 180,
+            "evidence_char_end": 331,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "fibrosis",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 6,
+          "raw_entity_count": 8,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 6,
+          "total_relations": 5,
+          "known_relations": 0,
+          "novel_relations": 5,
+          "contradicting_relations": 0,
+          "schema_valid": 4,
+          "import_ready": 0,
+          "structural_score": 0.88,
+          "semantic_score": 0.61,
+          "evidence_score": 0.68,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 6,
+              "denominator": 8,
+              "value": 0.75
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 8,
+              "value": 0.75
+            },
+            "relation_evidence_exactness": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "unresolved_endpoint_rate": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "weak_evidence_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 1,
+              "denominator": 5,
+              "value": 0.2
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 6,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 6
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 8,
+        "relations": 5,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 5.04228979209438,
+      "prompt_tokens": 1358,
+      "output_tokens": 948,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,143 @@
+import unittest
+
+from cognitive_agent.collaborative_extractor import CollaborativeConfig, CollaborativeExtractor
+from cognitive_agent.evidence_units import ArticleEvidenceReader
+from cognitive_agent.relation_pair_classifier import (
+    BioREDPairClassifier,
+    NO_RELATION,
+    PairClassifierConfig,
+    PairPrediction,
+)
+from cognitive_agent.verifier import KGVerifier
+
+
+class OfflineKG:
+    is_connected = False
+
+
+def entity(mention, entity_type):
+    return {"mention": mention, "type": entity_type, "attributes": {}}
+
+
+class RelationPairClassifierTests(unittest.TestCase):
+    def setUp(self):
+        self.reader = ArticleEvidenceReader()
+        self.entities = [entity("TP53", "Gene"), entity("HCC", "Disease")]
+
+    def classify(self, text, relations=None, **overrides):
+        config = PairClassifierConfig(mode="active", **overrides)
+        return BioREDPairClassifier(config).classify(
+            self.entities, relations or [], self.reader.read(text)
+        )
+
+    def test_builds_schema_constrained_evidence_local_pairs(self):
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 was associated with HCC."
+        result = self.classify(text)
+        self.assertEqual(len(result.candidates), 1)
+        candidate = result.candidates[0]
+        self.assertEqual((candidate.subject_type, candidate.object_type), ("Gene", "Disease"))
+        self.assertIn("ASSOCIATED_WITH", candidate.allowed_predicates)
+        self.assertEqual(text[candidate.evidence_char_start:candidate.evidence_char_end], candidate.evidence)
+
+    def test_no_relation_is_an_explicit_class(self):
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 and HCC samples were measured."
+        result = self.classify(text)
+        self.assertEqual(result.predictions[0].label, NO_RELATION)
+        self.assertEqual(result.accepted_relations, [])
+
+    def test_langextract_is_a_hint_not_a_forced_label(self):
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 and HCC samples were measured."
+        hint = [{
+            "subject": "TP53", "subject_type": "Gene", "predicate": "ASSOCIATED_WITH",
+            "object": "HCC", "object_type": "Disease", "evidence": "unsupported",
+        }]
+        result = self.classify(text, hint)
+        prediction = result.predictions[0]
+        self.assertLess(prediction.relation_probability, 0.5)
+        self.assertNotIn("explicit_predicate_trigger", prediction.reason_codes)
+
+    def test_only_uncertainty_band_candidate_routes_to_deepseek(self):
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 was associated with HCC."
+        result = self.classify(text, high_confidence_threshold=0.9)
+        self.assertEqual(len(result.low_confidence_relations), 1)
+        relation = result.low_confidence_relations[0]
+        self.assertIn("pair_low_confidence", relation["quality_flags"])
+        self.assertIn("manual_review", relation["quality_flags"])
+
+    def test_classifier_metadata_survives_verification_and_blocks_write(self):
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 was associated with HCC."
+        result = self.classify(text, high_confidence_threshold=0.9)
+        verified = KGVerifier(OfflineKG()).verify(
+            self.entities, result.accepted_relations, text=text
+        )
+        relation = verified.relations[0]
+        self.assertTrue(relation.candidate_id.startswith("p-"))
+        self.assertGreater(relation.classifier_confidence, 0)
+        self.assertFalse(relation.import_ready)
+
+    def test_core_policy_does_not_send_high_confidence_pair_to_llm(self):
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 was associated with HCC."
+        result = self.classify(text, high_confidence_threshold=0.6)
+        verified = KGVerifier(OfflineKG()).verify(
+            self.entities, result.accepted_relations, text=text
+        ).to_dict()
+        extractor = CollaborativeExtractor(CollaborativeConfig(
+            enabled=True, model_id="deepseek"), generate=lambda _: self.fail()
+        )
+        collaboration = extractor.collaborate(
+            text, {"entities": self.entities}, verified
+        )
+        self.assertEqual(collaboration.status, "NOT_TRIGGERED")
+
+    def test_batch_backend_is_used_once_for_all_candidates(self):
+        class BatchBackend:
+            name = "batch-test"
+
+            def __init__(self):
+                self.calls = 0
+
+            def predict_many(self, candidates):
+                self.calls += 1
+                return [PairPrediction(
+                    candidate_id=item.candidate_id, label=NO_RELATION,
+                    confidence=0.9, relation_probability=0.1,
+                    no_relation_probability=0.9, margin=0.8,
+                    backend=self.name,
+                ) for item in candidates]
+
+        backend = BatchBackend()
+        classifier = BioREDPairClassifier(
+            PairClassifierConfig(mode="shadow"), backend=backend
+        )
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 and HCC were measured."
+        result = classifier.classify(self.entities, [], self.reader.read(text))
+        self.assertGreater(len(result.candidates), 0)
+        self.assertEqual(backend.calls, 1)
+
+    def test_uncertain_no_relation_routes_as_write_blocked_abstention(self):
+        class AbstainingBackend:
+            name = "abstaining-test"
+
+            def predict(self, candidate):
+                return PairPrediction(
+                    candidate_id=candidate.candidate_id, label=NO_RELATION,
+                    confidence=0.51, relation_probability=0.49,
+                    no_relation_probability=0.51, margin=0.02,
+                    backend=self.name,
+                    predicate_scores={"ASSOCIATED_WITH": 0.49},
+                )
+
+        classifier = BioREDPairClassifier(
+            PairClassifierConfig(mode="active"), backend=AbstainingBackend()
+        )
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 and HCC were jointly evaluated."
+        result = classifier.classify(self.entities, [], self.reader.read(text))
+        self.assertEqual(result.accepted_relations, [])
+        self.assertEqual(len(result.low_confidence_relations), 1)
+        flags = set(result.low_confidence_relations[0]["quality_flags"])
+        self.assertIn("pair_low_confidence", flags)
+        self.assertIn("pair_no_relation_abstention", flags)
+
+
+if __name__ == "__main__":
+    unittest.main()

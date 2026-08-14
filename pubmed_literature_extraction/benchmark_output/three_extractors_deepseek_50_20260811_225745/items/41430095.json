@@ -1,0 +1,3090 @@
+{
+  "pmid": "41430095",
+  "title": "L-ascorbate prevents non-alcoholic steatohepatitis-based hepatocarcinogenesis in Sod1/Prdx4 double-knockout mice.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Sod1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Sod1",
+            "species": "Mus musculus",
+            "normalized_id": "MGI:98351",
+            "associated_with": [
+              {
+                "target_entity": "non-alcoholic steatohepatitis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "NASH",
+                "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "Sod1",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 88,
+          "char_end": 92
+        },
+        {
+          "mention": "Prdx4",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Prdx4",
+            "species": "Mus musculus",
+            "normalized_id": "MGI:109686",
+            "associated_with": [
+              {
+                "target_entity": "non-alcoholic steatohepatitis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": true,
+                "disease_stage": "NASH",
+                "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "Prdx4",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 93,
+          "char_end": 98
+        },
+        {
+          "mention": "non-alcoholic steatohepatitis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic steatohepatitis",
+            "disease_stage": "NASH",
+            "normalized_id": "UMLS:C2745940"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic steatohepatitis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 28,
+          "char_end": 57
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "HCC",
+            "normalized_id": "UMLS:C2239176"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 390,
+          "char_end": 414
+        },
+        {
+          "mention": "L-ascorbate",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "L-ascorbate"
+          },
+          "grounded": true,
+          "source_span": "L-ascorbate",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 487,
+          "char_end": 498
+        },
+        {
+          "mention": "amino acid metabolic pathways",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "amino acid metabolic pathways"
+          },
+          "grounded": true,
+          "source_span": "amino acid metabolic pathways",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 878,
+          "char_end": 907
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 768,
+          "char_end": 773
+        },
+        {
+          "mention": "amino acid metabolic pathways",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "amino acid metabolic pathways"
+          },
+          "grounded": true,
+          "source_span": "amino acid metabolic pathways",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 974,
+          "char_end": 1003
+        },
+        {
+          "mention": "hepatocarcinogenesis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocarcinogenesis"
+          },
+          "grounded": true,
+          "source_span": "hepatocarcinogenesis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1029,
+          "char_end": 1049
+        },
+        {
+          "mention": "iron-regulatory protein",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "iron-regulatory protein"
+          },
+          "grounded": true,
+          "source_span": "iron-regulatory protein",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1054,
+          "char_end": 1077
+        },
+        {
+          "mention": "aconitase",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "aconitase"
+          },
+          "grounded": true,
+          "source_span": "aconitase",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1082,
+          "char_end": 1091
+        },
+        {
+          "mention": "ferroptosis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "ferroptosis"
+          },
+          "grounded": true,
+          "source_span": "ferroptosis",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1212,
+          "char_end": 1223
+        },
+        {
+          "mention": "Asc",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Asc"
+          },
+          "grounded": true,
+          "source_span": "Asc",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1142,
+          "char_end": 1145
+        },
+        {
+          "mention": "hepatic steatosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic steatosis"
+          },
+          "grounded": true,
+          "source_span": "hepatic steatosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1527,
+          "char_end": 1544
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Sod1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic steatohepatitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "NASH",
+          "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "Prdx4",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic steatohepatitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": true,
+          "disease_stage": "NASH",
+          "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Superoxide dismutase 1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Sod1",
+              "species": "Mus musculus",
+              "normalized_id": "MGI:98351",
+              "associated_with": [
+                {
+                  "target_entity": "non-alcoholic steatohepatitis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "NASH",
+                  "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Superoxide dismutase 1",
+            "char_start": 131,
+            "char_end": 153,
+            "grounded": true,
+            "normalized_id": "MGI:98351",
+            "canonical_key": "Gene:superoxide dismutase 1",
+            "canonical_mentions": [
+              "Sod1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "peroxiredoxin 4",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Prdx4",
+              "species": "Mus musculus",
+              "normalized_id": "MGI:109686",
+              "associated_with": [
+                {
+                  "target_entity": "non-alcoholic steatohepatitis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": true,
+                  "disease_stage": "NASH",
+                  "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "peroxiredoxin 4",
+            "char_start": 165,
+            "char_end": 180,
+            "grounded": true,
+            "normalized_id": "MGI:109686",
+            "canonical_key": "Gene:peroxiredoxin 4",
+            "canonical_mentions": [
+              "Prdx4"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic steatohepatitis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic steatohepatitis",
+              "disease_stage": "NASH",
+              "normalized_id": "UMLS:C2745940"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic steatohepatitis",
+            "char_start": 28,
+            "char_end": 57,
+            "grounded": true,
+            "normalized_id": "UMLS:C2745940",
+            "canonical_key": "Disease:non alcoholic steatohepatitis",
+            "canonical_mentions": [
+              "non-alcoholic steatohepatitis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "HCC",
+              "normalized_id": "UMLS:C2239176"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 390,
+            "char_end": 414,
+            "grounded": true,
+            "normalized_id": "UMLS:C2239176",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "L-ascorbate",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "L-ascorbate"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "L-ascorbate",
+            "char_start": 487,
+            "char_end": 498,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:l ascorbate",
+            "canonical_mentions": [
+              "L-ascorbate"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "amino acid metabolic pathways",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "amino acid metabolic pathways"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "amino acid metabolic pathways",
+            "char_start": 878,
+            "char_end": 907,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:amino acid metabolic pathways",
+            "canonical_mentions": [
+              "amino acid metabolic pathways"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 768,
+            "char_end": 773,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "hepatocarcinogenesis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocarcinogenesis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocarcinogenesis",
+            "char_start": 1029,
+            "char_end": 1049,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocarcinogenesis",
+            "canonical_mentions": [
+              "hepatocarcinogenesis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "iron-regulatory protein",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "iron-regulatory protein"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "iron-regulatory protein",
+            "char_start": 1054,
+            "char_end": 1077,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:iron regulatory protein",
+            "canonical_mentions": [
+              "iron-regulatory protein"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aconitase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "aconitase"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aconitase",
+            "char_start": 1082,
+            "char_end": 1091,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:aconitase",
+            "canonical_mentions": [
+              "aconitase"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ferroptosis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "ferroptosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ferroptosis",
+            "char_start": 1212,
+            "char_end": 1223,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:ferroptosis",
+            "canonical_mentions": [
+              "ferroptosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Asc",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Asc"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Asc",
+            "char_start": 1142,
+            "char_end": 1145,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:asc",
+            "canonical_mentions": [
+              "Asc"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic steatosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatic steatosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic steatosis",
+            "char_start": 1527,
+            "char_end": 1544,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatic steatosis",
+            "canonical_mentions": [
+              "hepatic steatosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Superoxide dismutase 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic steatohepatitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 597,
+            "evidence_char_end": 710,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Sod1",
+            "original_object": "non-alcoholic steatohepatitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "peroxiredoxin 4",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic steatohepatitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 597,
+            "evidence_char_end": 710,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Prdx4",
+            "original_object": "non-alcoholic steatohepatitis",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 13,
+          "raw_entity_count": 14,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 13,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.575,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 13,
+              "denominator": 14,
+              "value": 0.9286
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 14,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 14,
+              "value": 0.2143
+            },
+            "type_constraint_pass_rate": {
+              "count": 14,
+              "denominator": 14,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 13,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 13
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 14,
+        "relations": 2,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.384390624705702,
+      "prompt_tokens": 393,
+      "output_tokens": 1369,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Sod1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Sod1",
+            "species": "Mus musculus",
+            "normalized_id": "MGI:98351",
+            "associated_with": [
+              {
+                "target_entity": "non-alcoholic steatohepatitis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "NASH",
+                "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "Sod1",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 88,
+          "char_end": 92
+        },
+        {
+          "mention": "Prdx4",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Prdx4",
+            "species": "Mus musculus",
+            "normalized_id": "MGI:109686",
+            "associated_with": [
+              {
+                "target_entity": "non-alcoholic steatohepatitis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": true,
+                "disease_stage": "NASH",
+                "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "Prdx4",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 93,
+          "char_end": 98
+        },
+        {
+          "mention": "non-alcoholic steatohepatitis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic steatohepatitis",
+            "disease_stage": "NASH",
+            "normalized_id": "UMLS:C2745940"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic steatohepatitis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 28,
+          "char_end": 57
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "HCC",
+            "normalized_id": "UMLS:C2239176"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 390,
+          "char_end": 414
+        },
+        {
+          "mention": "L-ascorbate",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "L-ascorbate"
+          },
+          "grounded": true,
+          "source_span": "L-ascorbate",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 487,
+          "char_end": 498
+        },
+        {
+          "mention": "amino acid metabolic pathways",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "amino acid metabolic pathways"
+          },
+          "grounded": true,
+          "source_span": "amino acid metabolic pathways",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 878,
+          "char_end": 907
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 768,
+          "char_end": 773
+        },
+        {
+          "mention": "amino acid metabolic pathways",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "amino acid metabolic pathways"
+          },
+          "grounded": true,
+          "source_span": "amino acid metabolic pathways",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 974,
+          "char_end": 1003
+        },
+        {
+          "mention": "hepatocarcinogenesis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocarcinogenesis"
+          },
+          "grounded": true,
+          "source_span": "hepatocarcinogenesis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1029,
+          "char_end": 1049
+        },
+        {
+          "mention": "iron-regulatory protein",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "iron-regulatory protein"
+          },
+          "grounded": true,
+          "source_span": "iron-regulatory protein",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1054,
+          "char_end": 1077
+        },
+        {
+          "mention": "aconitase",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "aconitase"
+          },
+          "grounded": true,
+          "source_span": "aconitase",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1082,
+          "char_end": 1091
+        },
+        {
+          "mention": "ferroptosis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "ferroptosis"
+          },
+          "grounded": true,
+          "source_span": "ferroptosis",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1212,
+          "char_end": 1223
+        },
+        {
+          "mention": "Asc",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Asc"
+          },
+          "grounded": true,
+          "source_span": "Asc",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1142,
+          "char_end": 1145
+        },
+        {
+          "mention": "hepatic steatosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic steatosis"
+          },
+          "grounded": true,
+          "source_span": "hepatic steatosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1527,
+          "char_end": 1544
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Sod1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic steatohepatitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "NASH",
+          "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "Prdx4",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic steatohepatitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": true,
+          "disease_stage": "NASH",
+          "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "Superoxide dismutase 1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic steatohepatitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+          "confidence": 0.6,
+          "uncertain": true,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Evidence explicitly mentions SOD1 deficiency and NASH promotion, but causal claim is speculative ('may promote')."
+        },
+        {
+          "subject": "peroxiredoxin 4",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic steatohepatitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+          "confidence": 0.6,
+          "uncertain": true,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Evidence explicitly mentions PRDX4 deficiency and NASH promotion, but causal claim is speculative ('may promote')."
+        },
+        {
+          "subject": "L-ascorbate",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "Administration of physiological doses of L-ascorbate (Asc; 1.5 mg/mL) in drinking water reduced mortality and effectively prevented tumor development.",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement that L-ascorbate prevents tumor development (hepatocellular carcinoma)."
+        },
+        {
+          "subject": "L-ascorbate",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "amino acid metabolic pathways",
+          "object_type": "Pathway",
+          "direction": "decrease",
+          "evidence": "Asc supplementation robustly suppressed upregulation of amino acid metabolic pathways observed in DKO mice.",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement that Asc suppresses upregulation of amino acid metabolic pathways."
+        },
+        {
+          "subject": "amino acid metabolic pathways",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocarcinogenesis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "These findings suggest that upregulation of amino acid metabolic pathways may be important for the hepatocarcinogenesis.",
+          "confidence": 0.6,
+          "uncertain": true,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Speculative suggestion that upregulation of amino acid metabolic pathways is important for hepatocarcinogenesis."
+        },
+        {
+          "subject": "L-ascorbate",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocarcinogenesis",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "Administration of physiological doses of L-ascorbate (Asc; 1.5 mg/mL) in drinking water reduced mortality and effectively prevented tumor development.",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Tumor development refers to hepatocellular carcinoma, and L-ascorbate prevents it."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Superoxide dismutase 1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Sod1",
+              "species": "Mus musculus",
+              "normalized_id": "MGI:98351",
+              "associated_with": [
+                {
+                  "target_entity": "non-alcoholic steatohepatitis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "NASH",
+                  "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Superoxide dismutase 1",
+            "char_start": 131,
+            "char_end": 153,
+            "grounded": true,
+            "normalized_id": "MGI:98351",
+            "canonical_key": "Gene:superoxide dismutase 1",
+            "canonical_mentions": [
+              "Sod1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "peroxiredoxin 4",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Prdx4",
+              "species": "Mus musculus",
+              "normalized_id": "MGI:109686",
+              "associated_with": [
+                {
+                  "target_entity": "non-alcoholic steatohepatitis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": true,
+                  "disease_stage": "NASH",
+                  "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "peroxiredoxin 4",
+            "char_start": 165,
+            "char_end": 180,
+            "grounded": true,
+            "normalized_id": "MGI:109686",
+            "canonical_key": "Gene:peroxiredoxin 4",
+            "canonical_mentions": [
+              "Prdx4"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic steatohepatitis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic steatohepatitis",
+              "disease_stage": "NASH",
+              "normalized_id": "UMLS:C2745940"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic steatohepatitis",
+            "char_start": 28,
+            "char_end": 57,
+            "grounded": true,
+            "normalized_id": "UMLS:C2745940",
+            "canonical_key": "Disease:non alcoholic steatohepatitis",
+            "canonical_mentions": [
+              "non-alcoholic steatohepatitis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "HCC",
+              "normalized_id": "UMLS:C2239176"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 390,
+            "char_end": 414,
+            "grounded": true,
+            "normalized_id": "UMLS:C2239176",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "L-ascorbate",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "L-ascorbate"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "L-ascorbate",
+            "char_start": 487,
+            "char_end": 498,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:l ascorbate",
+            "canonical_mentions": [
+              "L-ascorbate"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "amino acid metabolic pathways",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "amino acid metabolic pathways"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "amino acid metabolic pathways",
+            "char_start": 878,
+            "char_end": 907,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:amino acid metabolic pathways",
+            "canonical_mentions": [
+              "amino acid metabolic pathways"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 768,
+            "char_end": 773,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "hepatocarcinogenesis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocarcinogenesis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocarcinogenesis",
+            "char_start": 1029,
+            "char_end": 1049,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocarcinogenesis",
+            "canonical_mentions": [
+              "hepatocarcinogenesis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "iron-regulatory protein",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "iron-regulatory protein"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "iron-regulatory protein",
+            "char_start": 1054,
+            "char_end": 1077,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:iron regulatory protein",
+            "canonical_mentions": [
+              "iron-regulatory protein"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aconitase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "aconitase"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aconitase",
+            "char_start": 1082,
+            "char_end": 1091,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:aconitase",
+            "canonical_mentions": [
+              "aconitase"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ferroptosis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "ferroptosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ferroptosis",
+            "char_start": 1212,
+            "char_end": 1223,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:ferroptosis",
+            "canonical_mentions": [
+              "ferroptosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Asc",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Asc"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Asc",
+            "char_start": 1142,
+            "char_end": 1145,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:asc",
+            "canonical_mentions": [
+              "Asc"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic steatosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatic steatosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic steatosis",
+            "char_start": 1527,
+            "char_end": 1544,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatic steatosis",
+            "canonical_mentions": [
+              "hepatic steatosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Superoxide dismutase 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic steatohepatitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 597,
+            "evidence_char_end": 710,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Sod1",
+            "original_object": "non-alcoholic steatohepatitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "peroxiredoxin 4",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic steatohepatitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 597,
+            "evidence_char_end": 710,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Prdx4",
+            "original_object": "non-alcoholic steatohepatitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Superoxide dismutase 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic steatohepatitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 597,
+            "evidence_char_end": 710,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Superoxide dismutase 1",
+            "original_object": "non-alcoholic steatohepatitis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "peroxiredoxin 4",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic steatohepatitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 597,
+            "evidence_char_end": 710,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "peroxiredoxin 4",
+            "original_object": "non-alcoholic steatohepatitis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "L-ascorbate",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Administration of physiological doses of L-ascorbate (Asc; 1.5 mg/mL) in drinking water reduced mortality and effectively prevented tumor development.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 446,
+            "evidence_char_end": 595,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "L-ascorbate",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "L-ascorbate",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "amino acid metabolic pathways",
+            "subject_type": "Metabolite",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Asc supplementation robustly suppressed upregulation of amino acid metabolic pathways observed in DKO mice.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 822,
+            "evidence_char_end": 929,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "L-ascorbate",
+            "original_object": "amino acid metabolic pathways",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "amino acid metabolic pathways",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocarcinogenesis",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "These findings suggest that upregulation of amino acid metabolic pathways may be important for the hepatocarcinogenesis.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "prediction_only",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 930,
+            "evidence_char_end": 1050,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "amino acid metabolic pathways",
+            "original_object": "hepatocarcinogenesis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "L-ascorbate",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocarcinogenesis",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Administration of physiological doses of L-ascorbate (Asc; 1.5 mg/mL) in drinking water reduced mortality and effectively prevented tumor development.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 446,
+            "evidence_char_end": 595,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "L-ascorbate",
+            "original_object": "hepatocarcinogenesis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 13,
+          "raw_entity_count": 14,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 13,
+          "total_relations": 8,
+          "known_relations": 0,
+          "novel_relations": 8,
+          "contradicting_relations": 0,
+          "schema_valid": 8,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6,
+          "evidence_score": 0.4438,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 13,
+              "denominator": 14,
+              "value": 0.9286
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 14,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 14,
+              "value": 0.2143
+            },
+            "type_constraint_pass_rate": {
+              "count": 14,
+              "denominator": 14,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 8,
+              "value": 0.125
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 5,
+              "denominator": 8,
+              "value": 0.625
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 13,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 13
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 14,
+        "relations": 8,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 15.818098832853138,
+      "prompt_tokens": 9112,
+      "output_tokens": 3920,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Superoxide dismutase 1",
+            "entity_type": "Gene",
+            "source_span": "Superoxide dismutase 1",
+            "char_start": 131,
+            "char_end": 153,
+            "normalized_id": "MGI:98351",
+            "confidence": 0.9,
+            "reason": "Full gene name explicitly in title, abbreviation Sod1 defined in abstract."
+          },
+          {
+            "mention": "peroxiredoxin 4",
+            "entity_type": "Gene",
+            "source_span": "peroxiredoxin 4",
+            "char_start": 165,
+            "char_end": 180,
+            "normalized_id": "MGI:109686",
+            "confidence": 0.9,
+            "reason": "Full gene name explicitly in title, abbreviation Prdx4 defined in abstract."
+          },
+          {
+            "mention": "non-alcoholic steatohepatitis",
+            "entity_type": "Disease",
+            "source_span": "non-alcoholic steatohepatitis",
+            "char_start": 28,
+            "char_end": 57,
+            "normalized_id": "UMLS:C2745940",
+            "confidence": 0.95,
+            "reason": "Exact disease mention in abstract."
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "entity_type": "Disease",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 390,
+            "char_end": 414,
+            "normalized_id": "UMLS:C2239176",
+            "confidence": 0.95,
+            "reason": "Exact disease mention in abstract."
+          },
+          {
+            "mention": "L-ascorbate",
+            "entity_type": "Metabolite",
+            "source_span": "L-ascorbate",
+            "char_start": 487,
+            "char_end": 498,
+            "normalized_id": "CHEBI:22652",
+            "confidence": 0.9,
+            "reason": "Exact metabolite mention, abbreviation Asc used later."
+          },
+          {
+            "mention": "amino acid metabolic pathways",
+            "entity_type": "Pathway",
+            "source_span": "amino acid metabolic pathways",
+            "char_start": 878,
+            "char_end": 907,
+            "normalized_id": "GO:0006520",
+            "confidence": 0.85,
+            "reason": "Exact pathway mention in abstract."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 768,
+            "char_end": 773,
+            "normalized_id": "UBERON:0002107",
+            "confidence": 0.9,
+            "reason": "Exact tissue mention in abstract."
+          },
+          {
+            "mention": "hepatocarcinogenesis",
+            "entity_type": "Disease",
+            "source_span": "hepatocarcinogenesis",
+            "char_start": 1029,
+            "char_end": 1049,
+            "normalized_id": "UMLS:C1519706",
+            "confidence": 0.85,
+            "reason": "Exact disease process mention in abstract."
+          },
+          {
+            "mention": "iron-regulatory protein",
+            "entity_type": "Protein",
+            "source_span": "iron-regulatory protein",
+            "char_start": 1054,
+            "char_end": 1077,
+            "normalized_id": "UniProt:P21399",
+            "confidence": 0.8,
+            "reason": "Exact protein mention in abstract."
+          },
+          {
+            "mention": "aconitase",
+            "entity_type": "Protein",
+            "source_span": "aconitase",
+            "char_start": 1082,
+            "char_end": 1091,
+            "normalized_id": "UniProt:P21399",
+            "confidence": 0.8,
+            "reason": "Exact protein mention in abstract."
+          },
+          {
+            "mention": "ferroptosis",
+            "entity_type": "Pathway",
+            "source_span": "ferroptosis",
+            "char_start": 1212,
+            "char_end": 1223,
+            "normalized_id": "GO:0097468",
+            "confidence": 0.85,
+            "reason": "Exact pathway mention in abstract."
+          },
+          {
+            "mention": "Asc",
+            "entity_type": "Metabolite",
+            "source_span": "Asc",
+            "char_start": 1142,
+            "char_end": 1145,
+            "normalized_id": "CHEBI:22652",
+            "confidence": 0.9,
+            "reason": "Abbreviation for L-ascorbate defined in abstract."
+          },
+          {
+            "mention": "hepatic steatosis",
+            "entity_type": "Disease",
+            "source_span": "hepatic steatosis",
+            "char_start": 1527,
+            "char_end": 1544,
+            "normalized_id": "UMLS:C0085602",
+            "confidence": 0.9,
+            "reason": "Exact disease mention in abstract."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "Superoxide dismutase 1",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic steatohepatitis",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+            "evidence_span": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+            "confidence": 0.6,
+            "uncertain": true,
+            "reason": "Evidence explicitly mentions SOD1 deficiency and NASH promotion, but causal claim is speculative ('may promote')."
+          },
+          {
+            "subject": "peroxiredoxin 4",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic steatohepatitis",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+            "evidence_span": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH",
+            "confidence": 0.6,
+            "uncertain": true,
+            "reason": "Evidence explicitly mentions PRDX4 deficiency and NASH promotion, but causal claim is speculative ('may promote')."
+          },
+          {
+            "subject": "L-ascorbate",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "Administration of physiological doses of L-ascorbate (Asc; 1.5 mg/mL) in drinking water reduced mortality and effectively prevented tumor development.",
+            "evidence_span": "Administration of physiological doses of L-ascorbate (Asc; 1.5 mg/mL) in drinking water reduced mortality and effectively prevented tumor development.",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Direct statement that L-ascorbate prevents tumor development (hepatocellular carcinoma)."
+          },
+          {
+            "subject": "L-ascorbate",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "amino acid metabolic pathways",
+            "object_type": "Pathway",
+            "direction": "decrease",
+            "evidence": "Asc supplementation robustly suppressed upregulation of amino acid metabolic pathways observed in DKO mice.",
+            "evidence_span": "Asc supplementation robustly suppressed upregulation of amino acid metabolic pathways observed in DKO mice.",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Direct statement that Asc suppresses upregulation of amino acid metabolic pathways."
+          },
+          {
+            "subject": "amino acid metabolic pathways",
+            "subject_type": "Pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocarcinogenesis",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "These findings suggest that upregulation of amino acid metabolic pathways may be important for the hepatocarcinogenesis.",
+            "evidence_span": "These findings suggest that upregulation of amino acid metabolic pathways may be important for the hepatocarcinogenesis.",
+            "confidence": 0.6,
+            "uncertain": true,
+            "reason": "Speculative suggestion that upregulation of amino acid metabolic pathways is important for hepatocarcinogenesis."
+          },
+          {
+            "subject": "L-ascorbate",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocarcinogenesis",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "Administration of physiological doses of L-ascorbate (Asc; 1.5 mg/mL) in drinking water reduced mortality and effectively prevented tumor development.",
+            "evidence_span": "Administration of physiological doses of L-ascorbate (Asc; 1.5 mg/mL) in drinking water reduced mortality and effectively prevented tumor development.",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Tumor development refers to hepatocellular carcinoma, and L-ascorbate prevents it."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "Superoxide dismutase 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "reason": "No direct evidence linking SOD1 to HCC; only indirect via NASH progression."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "peroxiredoxin 4",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "reason": "No direct evidence linking PRDX4 to HCC; only indirect via NASH progression."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "iron-regulatory protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "ferroptosis",
+            "reason": "Evidence mentions decreased activity but no direct link to ferroptosis."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "aconitase",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "ferroptosis",
+            "reason": "Evidence mentions decreased activity but no direct link to ferroptosis."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "ferroptosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "reason": "Evidence mentions precancerous lesions reactive to ferroptosis antibody, but no direct causal link to HCC."
+          }
+        ],
+        "review_reason": "Corrected entity mentions to full names and added missing relations with direct evidence. Rejected speculative or indirect relations.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 6,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Superoxide dismutase 1"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "peroxiredoxin 4"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "non-alcoholic steatohepatitis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatocellular carcinoma"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "L-ascorbate"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "amino acid metabolic pathways"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatocarcinogenesis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "iron-regulatory protein"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "aconitase"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "ferroptosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Asc"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatic steatosis"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "Sod1",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "SOD1"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Sod1",
+          "char_start": 88,
+          "char_end": 92
+        },
+        {
+          "mention": "Prdx4",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "PRDX4"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Prdx4",
+          "char_start": 93,
+          "char_end": 98
+        },
+        {
+          "mention": "non-alcoholic steatohepatitis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "NASH"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "non-alcoholic steatohepatitis",
+          "char_start": 28,
+          "char_end": 57
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "HCC"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "char_start": 390,
+          "char_end": 414
+        },
+        {
+          "mention": "L-ascorbate",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "ascorbate"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "L-ascorbate",
+          "char_start": 7,
+          "char_end": 18
+        },
+        {
+          "mention": "amino acid metabolic pathways",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "amino acid metabolism"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "amino acid metabolic pathways",
+          "char_start": 878,
+          "char_end": 907
+        },
+        {
+          "mention": "iron-regulatory protein",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "IRP"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "iron-regulatory protein",
+          "char_start": 1054,
+          "char_end": 1077
+        },
+        {
+          "mention": "aconitase",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "ACO1"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "aconitase",
+          "char_start": 1082,
+          "char_end": 1091
+        },
+        {
+          "mention": "ferroptosis-specific antibody",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "anti-ferroptosis"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "ferroptosis-specific antibody",
+          "char_start": 1212,
+          "char_end": 1241
+        },
+        {
+          "mention": "hepatic steatosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "steatosis"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "hepatic steatosis",
+          "char_start": 1527,
+          "char_end": 1544
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Sod1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic steatohepatitis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Superoxide dismutase 1 (Sod1) and peroxiredoxin 4 (Prdx4) double knockout (DKO) causes symptoms similar to non-alcoholic steatohepatitis (NASH)",
+          "negated": false,
+          "uncertain": false,
+          "species": "mouse",
+          "confidence": 0.9
+        },
+        {
+          "subject": "Prdx4",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic steatohepatitis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Superoxide dismutase 1 (Sod1) and peroxiredoxin 4 (Prdx4) double knockout (DKO) causes symptoms similar to non-alcoholic steatohepatitis (NASH)",
+          "negated": false,
+          "uncertain": false,
+          "species": "mouse",
+          "confidence": 0.9
+        },
+        {
+          "subject": "non-alcoholic steatohepatitis",
+          "subject_type": "Disease",
+          "predicate": "PROGRESSES_TO",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH, ultimately leading to hepatocarcinogenesis.",
+          "negated": false,
+          "uncertain": true,
+          "species": "mouse",
+          "confidence": 0.8
+        },
+        {
+          "subject": "L-ascorbate",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Administration of physiological doses of L-ascorbate (Asc; 1.5 mg/mL) in drinking water reduced mortality and effectively prevented tumor development.",
+          "negated": false,
+          "uncertain": false,
+          "species": "mouse",
+          "confidence": 0.9
+        },
+        {
+          "subject": "amino acid metabolic pathways",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "These findings suggest that upregulation of amino acid metabolic pathways may be important for the hepatocarcinogenesis.",
+          "negated": false,
+          "uncertain": true,
+          "species": "mouse",
+          "confidence": 0.8
+        },
+        {
+          "subject": "iron-regulatory protein",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "An iron-regulatory protein and aconitase activity were decreased in DKO mice regardless of Asc status.",
+          "negated": false,
+          "uncertain": false,
+          "species": "mouse",
+          "confidence": 0.7
+        },
+        {
+          "subject": "aconitase",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "An iron-regulatory protein and aconitase activity were decreased in DKO mice regardless of Asc status.",
+          "negated": false,
+          "uncertain": false,
+          "species": "mouse",
+          "confidence": 0.7
+        },
+        {
+          "subject": "hepatic steatosis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Adequate intake of Asc in daily life may improve the tumorigenic process promoted by hepatic steatosis due to oxidative insult.",
+          "negated": false,
+          "uncertain": true,
+          "species": "mouse",
+          "confidence": 0.7
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Superoxide dismutase 1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "SOD1"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Superoxide dismutase 1",
+            "char_start": 131,
+            "char_end": 153,
+            "grounded": true,
+            "normalized_id": "SOD1",
+            "canonical_key": "Gene:superoxide dismutase 1",
+            "canonical_mentions": [
+              "Sod1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "peroxiredoxin 4",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "PRDX4"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "peroxiredoxin 4",
+            "char_start": 165,
+            "char_end": 180,
+            "grounded": true,
+            "normalized_id": "PRDX4",
+            "canonical_key": "Gene:peroxiredoxin 4",
+            "canonical_mentions": [
+              "Prdx4"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic steatohepatitis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "NASH"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic steatohepatitis",
+            "char_start": 28,
+            "char_end": 57,
+            "grounded": true,
+            "normalized_id": "NASH",
+            "canonical_key": "Disease:non alcoholic steatohepatitis",
+            "canonical_mentions": [
+              "non-alcoholic steatohepatitis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 390,
+            "char_end": 414,
+            "grounded": true,
+            "normalized_id": "HCC",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "L-ascorbate",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "ascorbate"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "L-ascorbate",
+            "char_start": 7,
+            "char_end": 18,
+            "grounded": true,
+            "normalized_id": "ascorbate",
+            "canonical_key": "Metabolite:l ascorbate",
+            "canonical_mentions": [
+              "L-ascorbate"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "amino acid metabolic pathways",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "amino acid metabolism"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "amino acid metabolic pathways",
+            "char_start": 878,
+            "char_end": 907,
+            "grounded": true,
+            "normalized_id": "amino acid metabolism",
+            "canonical_key": "Pathway:amino acid metabolic pathways",
+            "canonical_mentions": [
+              "amino acid metabolic pathways"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "iron-regulatory protein",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "IRP"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "iron-regulatory protein",
+            "char_start": 1054,
+            "char_end": 1077,
+            "grounded": true,
+            "normalized_id": "IRP",
+            "canonical_key": "Protein:iron regulatory protein",
+            "canonical_mentions": [
+              "iron-regulatory protein"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aconitase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "ACO1"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aconitase",
+            "char_start": 1082,
+            "char_end": 1091,
+            "grounded": true,
+            "normalized_id": "ACO1",
+            "canonical_key": "Protein:aconitase",
+            "canonical_mentions": [
+              "aconitase"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ferroptosis-specific antibody",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "anti-ferroptosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ferroptosis-specific antibody",
+            "char_start": 1212,
+            "char_end": 1241,
+            "grounded": true,
+            "normalized_id": "anti-ferroptosis",
+            "canonical_key": "Protein:ferroptosis specific antibody",
+            "canonical_mentions": [
+              "ferroptosis-specific antibody"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic steatosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "steatosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic steatosis",
+            "char_start": 1527,
+            "char_end": 1544,
+            "grounded": true,
+            "normalized_id": "steatosis",
+            "canonical_key": "Disease:hepatic steatosis",
+            "canonical_mentions": [
+              "hepatic steatosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Superoxide dismutase 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic steatohepatitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Superoxide dismutase 1 (Sod1) and peroxiredoxin 4 (Prdx4) double knockout (DKO) causes symptoms similar to non-alcoholic steatohepatitis (NASH)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "non_human",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 131,
+            "evidence_char_end": 274,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Sod1",
+            "original_object": "non-alcoholic steatohepatitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "peroxiredoxin 4",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic steatohepatitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Superoxide dismutase 1 (Sod1) and peroxiredoxin 4 (Prdx4) double knockout (DKO) causes symptoms similar to non-alcoholic steatohepatitis (NASH)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "non_human",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 131,
+            "evidence_char_end": 274,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Prdx4",
+            "original_object": "non-alcoholic steatohepatitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "non-alcoholic steatohepatitis",
+            "predicate": "PROGRESSES_TO",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Oxidative stress due to SOD1 deficiency and endoplasmic reticulum stress due to PRDX4 deficiency may promote NASH, ultimately leading to hepatocarcinogenesis.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 597,
+            "evidence_char_end": 755,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "non-alcoholic steatohepatitis",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "L-ascorbate",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Administration of physiological doses of L-ascorbate (Asc; 1.5 mg/mL) in drinking water reduced mortality and effectively prevented tumor development.",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 446,
+            "evidence_char_end": 595,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "L-ascorbate",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "amino acid metabolic pathways",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "These findings suggest that upregulation of amino acid metabolic pathways may be important for the hepatocarcinogenesis.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 930,
+            "evidence_char_end": 1050,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "amino acid metabolic pathways",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "iron-regulatory protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "An iron-regulatory protein and aconitase activity were decreased in DKO mice regardless of Asc status.",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1051,
+            "evidence_char_end": 1153,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "iron-regulatory protein",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "aconitase",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "An iron-regulatory protein and aconitase activity were decreased in DKO mice regardless of Asc status.",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1051,
+            "evidence_char_end": 1153,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "aconitase",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "hepatic steatosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Adequate intake of Asc in daily life may improve the tumorigenic process promoted by hepatic steatosis due to oxidative insult.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1442,
+            "evidence_char_end": 1569,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "hepatic steatosis",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 10,
+          "raw_entity_count": 10,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 10,
+          "total_relations": 8,
+          "known_relations": 0,
+          "novel_relations": 8,
+          "contradicting_relations": 0,
+          "schema_valid": 8,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.65,
+          "evidence_score": 0.4875,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 10,
+              "value": 0.2
+            },
+            "type_constraint_pass_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 8,
+              "value": 0.25
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 3,
+              "denominator": 8,
+              "value": 0.375
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 10,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 10
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 10,
+        "relations": 8,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 6.659325917251408,
+      "prompt_tokens": 1460,
+      "output_tokens": 1451,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,760 @@
+{
+  "pmid": "41883714",
+  "title": "From Guidelines to Practice: Case-Based Teaching Module to Improve MASLD Screening in Diabetes Care for Internal Medicine Residents.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 74,
+          "char_end": 79
+        },
+        {
+          "mention": "type 2 diabetes",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "type 2 diabetes"
+          },
+          "grounded": true,
+          "source_span": "type 2 diabetes",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 519,
+          "char_end": 534
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1083,
+          "char_end": 1088
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 74,
+            "char_end": 79,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "type 2 diabetes",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "type 2 diabetes"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes",
+            "char_start": 519,
+            "char_end": 534,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:type 2 diabetes",
+            "canonical_mentions": [
+              "type 2 diabetes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8833,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 3,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.2822436671704054,
+      "prompt_tokens": 483,
+      "output_tokens": 225,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate mention at char 1083-1088; merged with first occurrence."
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 74,
+          "char_end": 79
+        },
+        {
+          "mention": "type 2 diabetes",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "type 2 diabetes"
+          },
+          "grounded": true,
+          "source_span": "type 2 diabetes",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 519,
+          "char_end": 534
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate mention at char 1083-1088; merged with first occurrence."
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1083,
+          "char_end": 1088
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD",
+              "disease_stage": "MASLD",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate mention at char 1083-1088; merged with first occurrence."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 74,
+            "char_end": 79,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "type 2 diabetes",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "type 2 diabetes"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes",
+            "char_start": 519,
+            "char_end": 534,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:type 2 diabetes",
+            "canonical_mentions": [
+              "type 2 diabetes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8833,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 3,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.4036781671456993,
+      "prompt_tokens": 3811,
+      "output_tokens": 494,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "MASLD",
+            "entity_type": "Disease",
+            "source_span": "MASLD",
+            "char_start": 74,
+            "char_end": 79,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, disease entity."
+          },
+          {
+            "mention": "type 2 diabetes",
+            "entity_type": "Disease",
+            "source_span": "type 2 diabetes",
+            "char_start": 519,
+            "char_end": 534,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, disease entity."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "MASLD",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate mention at char 1083-1088; merged with first occurrence."
+          }
+        ],
+        "review_reason": "Verified entities from abstract; no relations extracted due to lack of explicit relational statements. Duplicate MASLD mention rejected.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "MASLD"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "type 2 diabetes"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "MASLD",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate mention at char 1083-1088; merged with first occurrence."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "Disease:MASLD"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "MASLD",
+          "char_start": 74,
+          "char_end": 79
+        },
+        {
+          "mention": "type 2 diabetes",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "Disease:type_2_diabetes"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "type 2 diabetes",
+          "char_start": 519,
+          "char_end": 534
+        },
+        {
+          "mention": "Fibrosis-4 (FIB-4) index",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "Metabolite:FIB-4"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Fibrosis-4 (FIB-4) index",
+          "char_start": 556,
+          "char_end": 580
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "MASLD",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "type 2 diabetes",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "recommend MASLD screening for patients with type 2 diabetes",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "Disease:MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 74,
+            "char_end": 79,
+            "grounded": true,
+            "normalized_id": "Disease:MASLD",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "type 2 diabetes",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "Disease:type_2_diabetes"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes",
+            "char_start": 519,
+            "char_end": 534,
+            "grounded": true,
+            "normalized_id": "Disease:type_2_diabetes",
+            "canonical_key": "Disease:type 2 diabetes",
+            "canonical_mentions": [
+              "type 2 diabetes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Fibrosis-4 (FIB-4) index",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Metabolite:FIB-4"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Fibrosis-4 (FIB-4) index",
+            "char_start": 556,
+            "char_end": 580,
+            "grounded": true,
+            "normalized_id": "Metabolite:FIB-4",
+            "canonical_key": "Metabolite:fibrosis 4 fib 4 index",
+            "canonical_mentions": [
+              "Fibrosis-4 (FIB-4) index"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "MASLD",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "type 2 diabetes",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "recommend MASLD screening for patients with type 2 diabetes",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "background_only",
+              "method_only",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 475,
+            "evidence_char_end": 534,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "MASLD",
+            "original_object": "type 2 diabetes",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 1,
+          "known_relations": 0,
+          "novel_relations": 1,
+          "contradicting_relations": 0,
+          "schema_valid": 1,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8,
+          "evidence_score": 0.75,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 1,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.7760903337039053,
+      "prompt_tokens": 1571,
+      "output_tokens": 267,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

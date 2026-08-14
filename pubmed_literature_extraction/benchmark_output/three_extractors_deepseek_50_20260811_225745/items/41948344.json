@@ -1,0 +1,5351 @@
+{
+  "pmid": "41948344",
+  "title": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "CCND1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "CCND1",
+            "species": "Homo sapiens",
+            "normalized_id": "HGNC:1582",
+            "participates_in": [
+              {
+                "target_entity": "JAK-STAT pathway",
+                "target_type": "pathway",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes"
+              }
+            ],
+            "associated_with": [
+              {
+                "target_entity": "liver fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "fibrosis",
+                "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "CCND1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 25,
+          "char_end": 30
+        },
+        {
+          "mention": "IL7R",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "IL7R",
+            "species": "Homo sapiens",
+            "normalized_id": "HGNC:6024",
+            "participates_in": [
+              {
+                "target_entity": "JAK-STAT pathway",
+                "target_type": "pathway",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes"
+              }
+            ],
+            "associated_with": [
+              {
+                "target_entity": "liver fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "fibrosis",
+                "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "IL7R",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 35,
+          "char_end": 39
+        },
+        {
+          "mention": "JAK-STAT pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "JAK-STAT pathway"
+          },
+          "grounded": true,
+          "source_span": "JAK-STAT pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 48,
+          "char_end": 64
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver fibrosis",
+            "disease_stage": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 101,
+          "char_end": 115
+        },
+        {
+          "mention": "HBV infection",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HBV infection",
+            "disease_stage": "HBV"
+          },
+          "grounded": true,
+          "source_span": "HBV infection",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 211,
+          "char_end": 224
+        },
+        {
+          "mention": "hepatic stellate cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "hepatic stellate cell"
+          },
+          "grounded": true,
+          "source_span": "hepatic stellate cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 289,
+          "char_end": 310
+        },
+        {
+          "mention": "extracellular matrix",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "extracellular matrix"
+          },
+          "grounded": true,
+          "source_span": "extracellular matrix",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 253,
+          "char_end": 273
+        },
+        {
+          "mention": "CCND1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "CCND1",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "HBV-related liver fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "liver fibrosis",
+                "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "JAK-STAT pathway",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "CCND1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1359,
+          "char_end": 1364
+        },
+        {
+          "mention": "IL7R",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "IL7R",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "HBV-related liver fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "liver fibrosis",
+                "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "JAK-STAT pathway",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "IL7R",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1369,
+          "char_end": 1373
+        },
+        {
+          "mention": "HBV-related liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HBV-related liver fibrosis",
+            "disease_stage": "liver fibrosis"
+          },
+          "grounded": true,
+          "source_span": "HBV-related liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1530,
+          "char_end": 1556
+        },
+        {
+          "mention": "JAK-STAT pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "JAK-STAT pathway"
+          },
+          "grounded": true,
+          "source_span": "JAK-STAT pathway",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1410,
+          "char_end": 1426
+        },
+        {
+          "mention": "M1 macrophages",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "M1 macrophages"
+          },
+          "grounded": true,
+          "source_span": "M1 macrophages",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1786,
+          "char_end": 1800
+        },
+        {
+          "mention": "IL7R",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "IL7R",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "liver fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "HBV-related",
+                "evidence": "MR analysis confirmed a significant positive causal effect of IL7R on liver fibrosis."
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "JAK-STAT pathway",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis"
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "T/NK cells",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells)."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "IL7R",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1894,
+          "char_end": 1898
+        },
+        {
+          "mention": "CCND1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "CCND1",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "liver fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "HBV-related",
+                "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "JAK-STAT pathway",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis"
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "epithelial cells",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells)."
+              },
+              {
+                "target_entity": "endothelial cells",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells)."
+              },
+              {
+                "target_entity": "hepatocytes",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells)."
+              },
+              {
+                "target_entity": "macrophages",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells)."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "CCND1",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2099,
+          "char_end": 2104
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver fibrosis",
+            "disease_stage": "HBV-related"
+          },
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1902,
+          "char_end": 1916
+        },
+        {
+          "mention": "JAK-STAT pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "JAK-STAT pathway"
+          },
+          "grounded": true,
+          "source_span": "JAK-STAT pathway",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2384,
+          "char_end": 2400
+        },
+        {
+          "mention": "T/NK cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "T/NK cells"
+          },
+          "grounded": true,
+          "source_span": "T/NK cells",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2179,
+          "char_end": 2189
+        },
+        {
+          "mention": "epithelial cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "epithelial cells"
+          },
+          "grounded": true,
+          "source_span": "epithelial cells",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2106,
+          "char_end": 2122
+        },
+        {
+          "mention": "endothelial cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "endothelial cells"
+          },
+          "grounded": true,
+          "source_span": "endothelial cells",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2124,
+          "char_end": 2141
+        },
+        {
+          "mention": "hepatocytes",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "hepatocytes"
+          },
+          "grounded": true,
+          "source_span": "hepatocytes",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2143,
+          "char_end": 2154
+        },
+        {
+          "mention": "macrophages",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "macrophages"
+          },
+          "grounded": true,
+          "source_span": "macrophages",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2156,
+          "char_end": 2167
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "fibrosis",
+          "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "fibrosis",
+          "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HBV-related liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "liver fibrosis",
+          "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HBV-related liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "liver fibrosis",
+          "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "HBV-related",
+          "evidence": "MR analysis confirmed a significant positive causal effect of IL7R on liver fibrosis.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "T/NK cells",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "HBV-related",
+          "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "epithelial cells",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "endothelial cells",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "hepatocytes",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "macrophages",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "CCND1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "CCND1",
+              "species": "Homo sapiens",
+              "normalized_id": "HGNC:1582",
+              "participates_in": [
+                {
+                  "target_entity": "JAK-STAT pathway",
+                  "target_type": "pathway",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes"
+                }
+              ],
+              "associated_with": [
+                {
+                  "target_entity": "liver fibrosis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "fibrosis",
+                  "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CCND1",
+            "char_start": 25,
+            "char_end": 30,
+            "grounded": true,
+            "normalized_id": "HGNC:1582",
+            "canonical_key": "Gene:ccnd1",
+            "canonical_mentions": [
+              "CCND1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IL7R",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "IL7R",
+              "species": "Homo sapiens",
+              "normalized_id": "HGNC:6024",
+              "participates_in": [
+                {
+                  "target_entity": "JAK-STAT pathway",
+                  "target_type": "pathway",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes"
+                }
+              ],
+              "associated_with": [
+                {
+                  "target_entity": "liver fibrosis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "fibrosis",
+                  "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IL7R",
+            "char_start": 35,
+            "char_end": 39,
+            "grounded": true,
+            "normalized_id": "HGNC:6024",
+            "canonical_key": "Gene:il7r",
+            "canonical_mentions": [
+              "IL7R"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "JAK-STAT pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "JAK-STAT pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "JAK-STAT pathway",
+            "char_start": 48,
+            "char_end": 64,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:jak stat pathway",
+            "canonical_mentions": [
+              "JAK-STAT pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "liver fibrosis",
+              "disease_stage": "fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver fibrosis",
+            "char_start": 101,
+            "char_end": 115,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver fibrosis",
+            "canonical_mentions": [
+              "liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV infection",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HBV infection",
+              "disease_stage": "HBV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV infection",
+            "char_start": 211,
+            "char_end": 224,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hbv infection",
+            "canonical_mentions": [
+              "HBV infection"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic stellate cell",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "hepatic stellate cell"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic stellate cell",
+            "char_start": 289,
+            "char_end": 310,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:hepatic stellate cell",
+            "canonical_mentions": [
+              "hepatic stellate cell"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "extracellular matrix",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "extracellular matrix"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "extracellular matrix",
+            "char_start": 253,
+            "char_end": 273,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:extracellular matrix",
+            "canonical_mentions": [
+              "extracellular matrix"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV-related liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HBV-related liver fibrosis",
+              "disease_stage": "liver fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV-related liver fibrosis",
+            "char_start": 1530,
+            "char_end": 1556,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hbv related liver fibrosis",
+            "canonical_mentions": [
+              "HBV-related liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "M1 macrophages",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "M1 macrophages"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "M1 macrophages",
+            "char_start": 1786,
+            "char_end": 1800,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:m1 macrophages",
+            "canonical_mentions": [
+              "M1 macrophages"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "endothelial cells",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "endothelial cells"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "endothelial cells",
+            "char_start": 2124,
+            "char_end": 2141,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:endothelial cells",
+            "canonical_mentions": [
+              "endothelial cells"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocytes",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "hepatocytes"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocytes",
+            "char_start": 2143,
+            "char_end": 2154,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:hepatocytes",
+            "canonical_mentions": [
+              "hepatocytes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "macrophages",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "macrophages"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "macrophages",
+            "char_start": 2156,
+            "char_end": 2167,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:macrophages",
+            "canonical_mentions": [
+              "macrophages"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "CCND1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "title_only",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 116,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "CCND1",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "title_only",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 70,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "title_only",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 116,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "IL7R",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "title_only",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 70,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HBV-related liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1456,
+            "evidence_char_end": 1556,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "HBV-related liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1359,
+            "evidence_char_end": 1426,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HBV-related liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1456,
+            "evidence_char_end": 1556,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "HBV-related liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1359,
+            "evidence_char_end": 1426,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "MR analysis confirmed a significant positive causal effect of IL7R on liver fibrosis.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1832,
+            "evidence_char_end": 1917,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2360,
+            "evidence_char_end": 2449,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "EXPRESSED_IN",
+            "object": "T/NK cells",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "IL7R",
+            "original_object": "T/NK cells",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2360,
+            "evidence_char_end": 2449,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "CCND1",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2360,
+            "evidence_char_end": 2449,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "epithelial cells",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "CCND1",
+            "original_object": "epithelial cells",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "endothelial cells",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "CCND1",
+            "original_object": "endothelial cells",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "CCND1",
+            "original_object": "hepatocytes",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "macrophages",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "CCND1",
+            "original_object": "macrophages",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 12,
+          "raw_entity_count": 21,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 7,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 12,
+          "total_relations": 17,
+          "known_relations": 0,
+          "novel_relations": 17,
+          "contradicting_relations": 0,
+          "schema_valid": 17,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6027,
+          "evidence_score": 0.7088,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 12,
+              "denominator": 21,
+              "value": 0.5714
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 21,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 7,
+              "denominator": 21,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 19,
+              "denominator": 21,
+              "value": 0.9048
+            },
+            "relation_evidence_exactness": {
+              "count": 17,
+              "denominator": 17,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 15,
+              "denominator": 17,
+              "value": 0.8824
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 17,
+              "value": 0.1176
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 17,
+              "value": 0.1176
+            },
+            "weak_evidence_rate": {
+              "count": 17,
+              "denominator": 17,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 12,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 12
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 21,
+        "relations": 17,
+        "duplicate_entities": 7,
+        "duplicate_relations": 6
+      },
+      "latency_s": 5.784981457982212,
+      "prompt_tokens": 644,
+      "output_tokens": 4333,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "CCND1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "CCND1",
+            "species": "Homo sapiens",
+            "normalized_id": "HGNC:1582",
+            "participates_in": [
+              {
+                "target_entity": "JAK-STAT pathway",
+                "target_type": "pathway",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes"
+              }
+            ],
+            "associated_with": [
+              {
+                "target_entity": "liver fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "fibrosis",
+                "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "CCND1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 25,
+          "char_end": 30
+        },
+        {
+          "mention": "IL7R",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "IL7R",
+            "species": "Homo sapiens",
+            "normalized_id": "HGNC:6024",
+            "participates_in": [
+              {
+                "target_entity": "JAK-STAT pathway",
+                "target_type": "pathway",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes"
+              }
+            ],
+            "associated_with": [
+              {
+                "target_entity": "liver fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "fibrosis",
+                "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "IL7R",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 35,
+          "char_end": 39
+        },
+        {
+          "mention": "JAK-STAT pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "JAK-STAT pathway"
+          },
+          "grounded": true,
+          "source_span": "JAK-STAT pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 48,
+          "char_end": 64
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver fibrosis",
+            "disease_stage": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 101,
+          "char_end": 115
+        },
+        {
+          "mention": "HBV infection",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HBV infection",
+            "disease_stage": "HBV"
+          },
+          "grounded": true,
+          "source_span": "HBV infection",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 211,
+          "char_end": 224
+        },
+        {
+          "mention": "hepatic stellate cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "hepatic stellate cell"
+          },
+          "grounded": true,
+          "source_span": "hepatic stellate cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 289,
+          "char_end": 310
+        },
+        {
+          "mention": "extracellular matrix",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "extracellular matrix"
+          },
+          "grounded": true,
+          "source_span": "extracellular matrix",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 253,
+          "char_end": 273
+        },
+        {
+          "mention": "CCND1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "CCND1",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "HBV-related liver fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "liver fibrosis",
+                "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "JAK-STAT pathway",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "CCND1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1359,
+          "char_end": 1364
+        },
+        {
+          "mention": "IL7R",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "IL7R",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "HBV-related liver fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "liver fibrosis",
+                "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "JAK-STAT pathway",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "IL7R",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1369,
+          "char_end": 1373
+        },
+        {
+          "mention": "HBV-related liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HBV-related liver fibrosis",
+            "disease_stage": "liver fibrosis"
+          },
+          "grounded": true,
+          "source_span": "HBV-related liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1530,
+          "char_end": 1556
+        },
+        {
+          "mention": "JAK-STAT pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "JAK-STAT pathway"
+          },
+          "grounded": true,
+          "source_span": "JAK-STAT pathway",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1410,
+          "char_end": 1426
+        },
+        {
+          "mention": "M1 macrophages",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "M1 macrophages"
+          },
+          "grounded": true,
+          "source_span": "M1 macrophages",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1786,
+          "char_end": 1800
+        },
+        {
+          "mention": "IL7R",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "IL7R",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "liver fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "HBV-related",
+                "evidence": "MR analysis confirmed a significant positive causal effect of IL7R on liver fibrosis."
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "JAK-STAT pathway",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis"
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "T/NK cells",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells)."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "IL7R",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1894,
+          "char_end": 1898
+        },
+        {
+          "mention": "CCND1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "CCND1",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "liver fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "HBV-related",
+                "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "JAK-STAT pathway",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis"
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "epithelial cells",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells)."
+              },
+              {
+                "target_entity": "endothelial cells",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells)."
+              },
+              {
+                "target_entity": "hepatocytes",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells)."
+              },
+              {
+                "target_entity": "macrophages",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells)."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "CCND1",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2099,
+          "char_end": 2104
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver fibrosis",
+            "disease_stage": "HBV-related"
+          },
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1902,
+          "char_end": 1916
+        },
+        {
+          "mention": "JAK-STAT pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "JAK-STAT pathway"
+          },
+          "grounded": true,
+          "source_span": "JAK-STAT pathway",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2384,
+          "char_end": 2400
+        },
+        {
+          "mention": "T/NK cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "T/NK cells"
+          },
+          "grounded": true,
+          "source_span": "T/NK cells",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2179,
+          "char_end": 2189
+        },
+        {
+          "mention": "epithelial cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "epithelial cells"
+          },
+          "grounded": true,
+          "source_span": "epithelial cells",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2106,
+          "char_end": 2122
+        },
+        {
+          "mention": "endothelial cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "endothelial cells"
+          },
+          "grounded": true,
+          "source_span": "endothelial cells",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2124,
+          "char_end": 2141
+        },
+        {
+          "mention": "hepatocytes",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "hepatocytes"
+          },
+          "grounded": true,
+          "source_span": "hepatocytes",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2143,
+          "char_end": 2154
+        },
+        {
+          "mention": "macrophages",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "macrophages"
+          },
+          "grounded": true,
+          "source_span": "macrophages",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 2156,
+          "char_end": 2167
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "fibrosis",
+          "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "fibrosis",
+          "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HBV-related liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "liver fibrosis",
+          "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HBV-related liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "liver fibrosis",
+          "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "HBV-related",
+          "evidence": "MR analysis confirmed a significant positive causal effect of IL7R on liver fibrosis.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "T/NK cells",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "HBV-related",
+          "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "epithelial cells",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "endothelial cells",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "hepatocytes",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "macrophages",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "T/NK cells",
+          "object_type": "CellType",
+          "direction": "none",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "confidence": 0.95,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit expression pattern."
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "epithelial cells",
+          "object_type": "CellType",
+          "direction": "none",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "confidence": 0.95,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit expression pattern."
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "endothelial cells",
+          "object_type": "CellType",
+          "direction": "none",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "confidence": 0.95,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit expression pattern."
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "hepatocytes",
+          "object_type": "CellType",
+          "direction": "none",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "confidence": 0.95,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit expression pattern."
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "macrophages",
+          "object_type": "CellType",
+          "direction": "none",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "confidence": 0.95,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit expression pattern."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "CCND1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "CCND1",
+              "species": "Homo sapiens",
+              "normalized_id": "HGNC:1582",
+              "participates_in": [
+                {
+                  "target_entity": "JAK-STAT pathway",
+                  "target_type": "pathway",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes"
+                }
+              ],
+              "associated_with": [
+                {
+                  "target_entity": "liver fibrosis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "fibrosis",
+                  "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CCND1",
+            "char_start": 25,
+            "char_end": 30,
+            "grounded": true,
+            "normalized_id": "HGNC:1582",
+            "canonical_key": "Gene:ccnd1",
+            "canonical_mentions": [
+              "CCND1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IL7R",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "IL7R",
+              "species": "Homo sapiens",
+              "normalized_id": "HGNC:6024",
+              "participates_in": [
+                {
+                  "target_entity": "JAK-STAT pathway",
+                  "target_type": "pathway",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes"
+                }
+              ],
+              "associated_with": [
+                {
+                  "target_entity": "liver fibrosis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "fibrosis",
+                  "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IL7R",
+            "char_start": 35,
+            "char_end": 39,
+            "grounded": true,
+            "normalized_id": "HGNC:6024",
+            "canonical_key": "Gene:il7r",
+            "canonical_mentions": [
+              "IL7R"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "JAK-STAT pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "JAK-STAT pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "JAK-STAT pathway",
+            "char_start": 48,
+            "char_end": 64,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:jak stat pathway",
+            "canonical_mentions": [
+              "JAK-STAT pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "liver fibrosis",
+              "disease_stage": "fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver fibrosis",
+            "char_start": 101,
+            "char_end": 115,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver fibrosis",
+            "canonical_mentions": [
+              "liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV infection",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HBV infection",
+              "disease_stage": "HBV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV infection",
+            "char_start": 211,
+            "char_end": 224,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hbv infection",
+            "canonical_mentions": [
+              "HBV infection"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic stellate cell",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "hepatic stellate cell"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic stellate cell",
+            "char_start": 289,
+            "char_end": 310,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:hepatic stellate cell",
+            "canonical_mentions": [
+              "hepatic stellate cell"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "extracellular matrix",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "extracellular matrix"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "extracellular matrix",
+            "char_start": 253,
+            "char_end": 273,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:extracellular matrix",
+            "canonical_mentions": [
+              "extracellular matrix"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV-related liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HBV-related liver fibrosis",
+              "disease_stage": "liver fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV-related liver fibrosis",
+            "char_start": 1530,
+            "char_end": 1556,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hbv related liver fibrosis",
+            "canonical_mentions": [
+              "HBV-related liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "M1 macrophages",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "M1 macrophages"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "M1 macrophages",
+            "char_start": 1786,
+            "char_end": 1800,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:m1 macrophages",
+            "canonical_mentions": [
+              "M1 macrophages"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "endothelial cells",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "endothelial cells"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "endothelial cells",
+            "char_start": 2124,
+            "char_end": 2141,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:endothelial cells",
+            "canonical_mentions": [
+              "endothelial cells"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocytes",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "hepatocytes"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocytes",
+            "char_start": 2143,
+            "char_end": 2154,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:hepatocytes",
+            "canonical_mentions": [
+              "hepatocytes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "macrophages",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "macrophages"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "macrophages",
+            "char_start": 2156,
+            "char_end": 2167,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:macrophages",
+            "canonical_mentions": [
+              "macrophages"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "CCND1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "title_only",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 116,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "CCND1",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "title_only",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 70,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "title_only",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 116,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "IL7R",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "title_only",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 70,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HBV-related liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1456,
+            "evidence_char_end": 1556,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "HBV-related liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1359,
+            "evidence_char_end": 1426,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HBV-related liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1456,
+            "evidence_char_end": 1556,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "HBV-related liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1359,
+            "evidence_char_end": 1426,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "MR analysis confirmed a significant positive causal effect of IL7R on liver fibrosis.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1832,
+            "evidence_char_end": 1917,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2360,
+            "evidence_char_end": 2449,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "EXPRESSED_IN",
+            "object": "T/NK cells",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "IL7R",
+            "original_object": "T/NK cells",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2360,
+            "evidence_char_end": 2449,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "CCND1",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2360,
+            "evidence_char_end": 2449,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "epithelial cells",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "CCND1",
+            "original_object": "epithelial cells",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "endothelial cells",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "CCND1",
+            "original_object": "endothelial cells",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "CCND1",
+            "original_object": "hepatocytes",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "macrophages",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "CCND1",
+            "original_object": "macrophages",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "EXPRESSED_IN",
+            "object": "T/NK cells",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "T/NK cells",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "epithelial cells",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "epithelial cells",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "endothelial cells",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "endothelial cells",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "hepatocytes",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "macrophages",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "macrophages",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 12,
+          "raw_entity_count": 21,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 7,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 12,
+          "total_relations": 22,
+          "known_relations": 0,
+          "novel_relations": 22,
+          "contradicting_relations": 0,
+          "schema_valid": 22,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.608,
+          "evidence_score": 0.7182,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 12,
+              "denominator": 21,
+              "value": 0.5714
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 21,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 7,
+              "denominator": 21,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 19,
+              "denominator": 21,
+              "value": 0.9048
+            },
+            "relation_evidence_exactness": {
+              "count": 22,
+              "denominator": 22,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 20,
+              "denominator": 22,
+              "value": 0.9091
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 22,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 4,
+              "denominator": 22,
+              "value": 0.1818
+            },
+            "unresolved_endpoint_rate": {
+              "count": 4,
+              "denominator": 22,
+              "value": 0.1818
+            },
+            "weak_evidence_rate": {
+              "count": 22,
+              "denominator": 22,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 22,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 22,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 22,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 12,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 12
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 21,
+        "relations": 22,
+        "duplicate_entities": 7,
+        "duplicate_relations": 11
+      },
+      "latency_s": 23.360809665638953,
+      "prompt_tokens": 12706,
+      "output_tokens": 8158,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "CCND1",
+            "entity_type": "Gene",
+            "source_span": "CCND1",
+            "char_start": 25,
+            "char_end": 30,
+            "normalized_id": "HGNC:1582",
+            "confidence": 0.95,
+            "reason": "Exact match in title and abstract, gene symbol."
+          },
+          {
+            "mention": "IL7R",
+            "entity_type": "Gene",
+            "source_span": "IL7R",
+            "char_start": 35,
+            "char_end": 39,
+            "normalized_id": "HGNC:6024",
+            "confidence": 0.95,
+            "reason": "Exact match in title and abstract, gene symbol."
+          },
+          {
+            "mention": "JAK-STAT pathway",
+            "entity_type": "Pathway",
+            "source_span": "JAK-STAT pathway",
+            "char_start": 48,
+            "char_end": 64,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in title and abstract."
+          },
+          {
+            "mention": "liver fibrosis",
+            "entity_type": "Disease",
+            "source_span": "liver fibrosis",
+            "char_start": 101,
+            "char_end": 115,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in title and abstract."
+          },
+          {
+            "mention": "HBV infection",
+            "entity_type": "Disease",
+            "source_span": "HBV infection",
+            "char_start": 211,
+            "char_end": 224,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract."
+          },
+          {
+            "mention": "hepatic stellate cell",
+            "entity_type": "CellType",
+            "source_span": "hepatic stellate cell",
+            "char_start": 289,
+            "char_end": 310,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract."
+          },
+          {
+            "mention": "extracellular matrix",
+            "entity_type": "Metabolite",
+            "source_span": "extracellular matrix",
+            "char_start": 253,
+            "char_end": 273,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, classified as metabolite."
+          },
+          {
+            "mention": "HBV-related liver fibrosis",
+            "entity_type": "Disease",
+            "source_span": "HBV-related liver fibrosis",
+            "char_start": 1530,
+            "char_end": 1556,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract."
+          },
+          {
+            "mention": "M1 macrophages",
+            "entity_type": "CellType",
+            "source_span": "M1 macrophages",
+            "char_start": 1786,
+            "char_end": 1800,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract."
+          },
+          {
+            "mention": "T/NK cells",
+            "entity_type": "CellType",
+            "source_span": "T/NK cells",
+            "char_start": 2179,
+            "char_end": 2189,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract."
+          },
+          {
+            "mention": "epithelial cells",
+            "entity_type": "CellType",
+            "source_span": "epithelial cells",
+            "char_start": 2106,
+            "char_end": 2122,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract."
+          },
+          {
+            "mention": "endothelial cells",
+            "entity_type": "CellType",
+            "source_span": "endothelial cells",
+            "char_start": 2124,
+            "char_end": 2141,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract."
+          },
+          {
+            "mention": "hepatocytes",
+            "entity_type": "CellType",
+            "source_span": "hepatocytes",
+            "char_start": 2143,
+            "char_end": 2154,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract."
+          },
+          {
+            "mention": "macrophages",
+            "entity_type": "CellType",
+            "source_span": "macrophages",
+            "char_start": 2156,
+            "char_end": 2167,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "CCND1",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+            "evidence_span": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Title explicitly states promoting, indicating positive association."
+          },
+          {
+            "subject": "IL7R",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+            "evidence_span": "Identification of CCND1 and IL7R as core JAK-STAT pathway genes promoting hepatitis B-related liver fibrosis.",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Title explicitly states promoting, indicating positive association."
+          },
+          {
+            "subject": "CCND1",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "object_type": "Pathway",
+            "direction": "none",
+            "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+            "evidence_span": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicitly states hub genes of the pathway."
+          },
+          {
+            "subject": "IL7R",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "object_type": "Pathway",
+            "direction": "none",
+            "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+            "evidence_span": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicitly states hub genes of the pathway."
+          },
+          {
+            "subject": "CCND1",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HBV-related liver fibrosis",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis",
+            "evidence_span": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicitly states upregulation and synergistic effects in the disease."
+          },
+          {
+            "subject": "IL7R",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HBV-related liver fibrosis",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis",
+            "evidence_span": "Both genes are significantly upregulated and exert synergistic effects in HBV-related liver fibrosis",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicitly states upregulation and synergistic effects in the disease."
+          },
+          {
+            "subject": "IL7R",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "MR analysis confirmed a significant positive causal effect of IL7R on liver fibrosis.",
+            "evidence_span": "MR analysis confirmed a significant positive causal effect of IL7R on liver fibrosis.",
+            "confidence": 0.95,
+            "uncertain": false,
+            "reason": "Explicit causal positive effect."
+          },
+          {
+            "subject": "IL7R",
+            "subject_type": "Gene",
+            "predicate": "EXPRESSED_IN",
+            "object": "T/NK cells",
+            "object_type": "CellType",
+            "direction": "none",
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "evidence_span": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "confidence": 0.95,
+            "uncertain": false,
+            "reason": "Explicit expression pattern."
+          },
+          {
+            "subject": "CCND1",
+            "subject_type": "Gene",
+            "predicate": "EXPRESSED_IN",
+            "object": "epithelial cells",
+            "object_type": "CellType",
+            "direction": "none",
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "evidence_span": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "confidence": 0.95,
+            "uncertain": false,
+            "reason": "Explicit expression pattern."
+          },
+          {
+            "subject": "CCND1",
+            "subject_type": "Gene",
+            "predicate": "EXPRESSED_IN",
+            "object": "endothelial cells",
+            "object_type": "CellType",
+            "direction": "none",
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "evidence_span": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "confidence": 0.95,
+            "uncertain": false,
+            "reason": "Explicit expression pattern."
+          },
+          {
+            "subject": "CCND1",
+            "subject_type": "Gene",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes",
+            "object_type": "CellType",
+            "direction": "none",
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "evidence_span": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "confidence": 0.95,
+            "uncertain": false,
+            "reason": "Explicit expression pattern."
+          },
+          {
+            "subject": "CCND1",
+            "subject_type": "Gene",
+            "predicate": "EXPRESSED_IN",
+            "object": "macrophages",
+            "object_type": "CellType",
+            "direction": "none",
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "evidence_span": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "confidence": 0.95,
+            "uncertain": false,
+            "reason": "Explicit expression pattern."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "CCND1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "reason": "Evidence from title only, but direction 'increase' is inferred from 'promoting'; however, the abstract provides stronger evidence, so this is redundant. Rejected to avoid duplication."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "reason": "Evidence from title only, but direction 'increase' is inferred from 'promoting'; however, the abstract provides stronger evidence, so this is redundant. Rejected to avoid duplication."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "CCND1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "reason": "Evidence from title only, but abstract provides explicit statement, so this is redundant. Rejected to avoid duplication."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "IL7R",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "reason": "Evidence from title only, but abstract provides explicit statement, so this is redundant. Rejected to avoid duplication."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "CCND1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HBV-related liver fibrosis",
+            "reason": "Evidence from abstract, but subject not explicitly mentioned in evidence; however, 'Both genes' refers to CCND1 and IL7R, so it is valid. Rejected because it is redundant with the more specific relation to liver fibrosis."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HBV-related liver fibrosis",
+            "reason": "Evidence from abstract, but subject not explicitly mentioned in evidence; however, 'Both genes' refers to CCND1 and IL7R, so it is valid. Rejected because it is redundant with the more specific relation to liver fibrosis."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "CCND1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "reason": "Evidence from abstract, but redundant with the relation from 'hub genes' statement. Rejected to avoid duplication."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "IL7R",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "reason": "Evidence from abstract, but redundant with the relation from 'hub genes' statement. Rejected to avoid duplication."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "CCND1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "reason": "Evidence from abstract, but redundant with the relation from 'Both genes' statement. Rejected to avoid duplication."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "reason": "Evidence from abstract, but redundant with the relation from 'Both genes' statement. Rejected to avoid duplication."
+          }
+        ],
+        "review_reason": "Corrected entities and relations based on explicit statements in the abstract. Removed redundant relations and corrected direction for expression relations to 'none' as no direction is specified. Rejected candidates that were duplicates or lacked explicit evidence.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 5,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "CCND1"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "IL7R"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "JAK-STAT pathway"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver fibrosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HBV infection"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatic stellate cell"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "extracellular matrix"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HBV-related liver fibrosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "M1 macrophages"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "T/NK cells",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "epithelial cells",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "endothelial cells"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatocytes"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "macrophages"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "CCND1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "CCND1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "IL7R",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "CCND1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HBV-related liver fibrosis"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HBV-related liver fibrosis"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "CCND1",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "CCND1"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "CCND1",
+          "char_start": 25,
+          "char_end": 30
+        },
+        {
+          "mention": "IL7R",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "IL7R"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "IL7R",
+          "char_start": 35,
+          "char_end": 39
+        },
+        {
+          "mention": "JAK-STAT pathway",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "JAK-STAT"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "JAK-STAT pathway",
+          "char_start": 48,
+          "char_end": 64
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "liver fibrosis"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "char_start": 101,
+          "char_end": 115
+        },
+        {
+          "mention": "HBV infection",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "HBV infection"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "HBV infection",
+          "char_start": 211,
+          "char_end": 224
+        },
+        {
+          "mention": "hepatic stellate cell",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "hepatic stellate cell"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatic stellate cell",
+          "char_start": 289,
+          "char_end": 310
+        },
+        {
+          "mention": "M1 macrophages",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "M1 macrophage"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "M1 macrophages",
+          "char_start": 1786,
+          "char_end": 1800
+        },
+        {
+          "mention": "epithelial cells",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "epithelial cell"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "epithelial cells",
+          "char_start": 2106,
+          "char_end": 2122
+        },
+        {
+          "mention": "endothelial cells",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "endothelial cell"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "endothelial cells",
+          "char_start": 2124,
+          "char_end": 2141
+        },
+        {
+          "mention": "hepatocytes",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "hepatocyte"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatocytes",
+          "char_start": 2143,
+          "char_end": 2154
+        },
+        {
+          "mention": "macrophages",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "macrophage"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "macrophages",
+          "char_start": 1789,
+          "char_end": 1800
+        },
+        {
+          "mention": "T/NK cells",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "T/NK cell"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "T/NK cells",
+          "char_start": 2179,
+          "char_end": 2189
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "JAK-STAT pathway",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "MR analysis confirmed a significant positive causal effect of IL7R on liver fibrosis.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.95
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "epithelial cells",
+          "object_type": "CellType",
+          "direction": "positive",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages)",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "endothelial cells",
+          "object_type": "CellType",
+          "direction": "positive",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages)",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "hepatocytes",
+          "object_type": "CellType",
+          "direction": "positive",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages)",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CCND1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "macrophages",
+          "object_type": "CellType",
+          "direction": "positive",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages)",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "IL7R",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "T/NK cells",
+          "object_type": "CellType",
+          "direction": "positive",
+          "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "hepatic stellate cell",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Characterized by excessive extracellular matrix deposition and hepatic stellate cell activation, it is tightly linked to the JAK-STAT pathway",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "M1 macrophages",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "immune infiltration analysis revealed a close association with M1 macrophages and other immune cell subsets.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "CCND1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "CCND1"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CCND1",
+            "char_start": 25,
+            "char_end": 30,
+            "grounded": true,
+            "normalized_id": "CCND1",
+            "canonical_key": "Gene:ccnd1",
+            "canonical_mentions": [
+              "CCND1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IL7R",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "IL7R"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IL7R",
+            "char_start": 35,
+            "char_end": 39,
+            "grounded": true,
+            "normalized_id": "IL7R",
+            "canonical_key": "Gene:il7r",
+            "canonical_mentions": [
+              "IL7R"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "JAK-STAT pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "JAK-STAT"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "JAK-STAT pathway",
+            "char_start": 48,
+            "char_end": 64,
+            "grounded": true,
+            "normalized_id": "JAK-STAT",
+            "canonical_key": "Pathway:jak stat pathway",
+            "canonical_mentions": [
+              "JAK-STAT pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "liver fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver fibrosis",
+            "char_start": 101,
+            "char_end": 115,
+            "grounded": true,
+            "normalized_id": "liver fibrosis",
+            "canonical_key": "Disease:liver fibrosis",
+            "canonical_mentions": [
+              "liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV infection",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "HBV infection"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV infection",
+            "char_start": 211,
+            "char_end": 224,
+            "grounded": true,
+            "normalized_id": "HBV infection",
+            "canonical_key": "Disease:hbv infection",
+            "canonical_mentions": [
+              "HBV infection"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic stellate cell",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "hepatic stellate cell"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic stellate cell",
+            "char_start": 289,
+            "char_end": 310,
+            "grounded": true,
+            "normalized_id": "hepatic stellate cell",
+            "canonical_key": "CellType:hepatic stellate cell",
+            "canonical_mentions": [
+              "hepatic stellate cell"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "M1 macrophages",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "M1 macrophage"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "M1 macrophages",
+            "char_start": 1786,
+            "char_end": 1800,
+            "grounded": true,
+            "normalized_id": "M1 macrophage",
+            "canonical_key": "CellType:m1 macrophages",
+            "canonical_mentions": [
+              "M1 macrophages"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "endothelial cells",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "endothelial cell"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "endothelial cells",
+            "char_start": 2124,
+            "char_end": 2141,
+            "grounded": true,
+            "normalized_id": "endothelial cell",
+            "canonical_key": "CellType:endothelial cells",
+            "canonical_mentions": [
+              "endothelial cells"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocytes",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "hepatocyte"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocytes",
+            "char_start": 2143,
+            "char_end": 2154,
+            "grounded": true,
+            "normalized_id": "hepatocyte",
+            "canonical_key": "CellType:hepatocytes",
+            "canonical_mentions": [
+              "hepatocytes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "macrophages",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "macrophage"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "macrophages",
+            "char_start": 1789,
+            "char_end": 1800,
+            "grounded": true,
+            "normalized_id": "macrophage",
+            "canonical_key": "CellType:macrophages",
+            "canonical_mentions": [
+              "macrophages"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "CCND1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 2360,
+            "evidence_char_end": 2449,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "CCND1 and IL7R are core JAK-STAT pathway genes associated with HBV-related liver fibrosis",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 2360,
+            "evidence_char_end": 2449,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1359,
+            "evidence_char_end": 1426,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "PARTICIPATES_IN",
+            "object": "JAK-STAT pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CCND1 and IL7R were identified as hub genes of the JAK-STAT pathway",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1359,
+            "evidence_char_end": 1426,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "JAK-STAT pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "MR analysis confirmed a significant positive causal effect of IL7R on liver fibrosis.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1832,
+            "evidence_char_end": 1917,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "epithelial cells",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2168,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "epithelial cells",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "endothelial cells",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2168,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "endothelial cells",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2168,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "hepatocytes",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCND1",
+            "predicate": "EXPRESSED_IN",
+            "object": "macrophages",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2168,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCND1",
+            "original_object": "macrophages",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IL7R",
+            "predicate": "EXPRESSED_IN",
+            "object": "T/NK cells",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "scRNA-seq validated cell-type-specific expression patterns of CCND1 (epithelial cells, endothelial cells, hepatocytes, macrophages) and IL7R (T/NK cells).",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2037,
+            "evidence_char_end": 2191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IL7R",
+            "original_object": "T/NK cells",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "hepatic stellate cell",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Characterized by excessive extracellular matrix deposition and hepatic stellate cell activation, it is tightly linked to the JAK-STAT pathway",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "background_only",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 226,
+            "evidence_char_end": 367,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "hepatic stellate cell",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "M1 macrophages",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "immune infiltration analysis revealed a close association with M1 macrophages and other immune cell subsets.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1723,
+            "evidence_char_end": 1831,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "M1 macrophages",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 10,
+          "raw_entity_count": 12,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 10,
+          "total_relations": 12,
+          "known_relations": 0,
+          "novel_relations": 12,
+          "contradicting_relations": 0,
+          "schema_valid": 12,
+          "import_ready": 2,
+          "structural_score": 1.0,
+          "semantic_score": 0.7,
+          "evidence_score": 0.7333,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 10,
+              "denominator": 12,
+              "value": 0.8333
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 12,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 12,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 10,
+              "denominator": 12,
+              "value": 0.8333
+            },
+            "relation_evidence_exactness": {
+              "count": 12,
+              "denominator": 12,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 10,
+              "denominator": 12,
+              "value": 0.8333
+            },
+            "direction_trigger_consistency": {
+              "count": 2,
+              "denominator": 12,
+              "value": 0.1667
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 12,
+              "value": 0.1667
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 12,
+              "value": 0.1667
+            },
+            "weak_evidence_rate": {
+              "count": 10,
+              "denominator": 12,
+              "value": 0.8333
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 12,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 12,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 2,
+              "denominator": 12,
+              "value": 0.1667
+            }
+          },
+          "linking_stats": {
+            "total": 10,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 10
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 12,
+        "relations": 12,
+        "duplicate_entities": 0,
+        "duplicate_relations": 1
+      },
+      "latency_s": 8.138268791139126,
+      "prompt_tokens": 1618,
+      "output_tokens": 1919,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

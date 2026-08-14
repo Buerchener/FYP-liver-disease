@@ -1,0 +1,2971 @@
+{
+  "pmid": "41940593",
+  "title": "Functional Role of COP1 Gene in Hepatocellular Carcinoma Lipid Metabolism and Stemness.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "COP1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "COP1",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "non-alcoholic fatty liver disease",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "NAFLD",
+                "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes"
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "hepatocytes",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "COP1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 26,
+          "char_end": 30
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 39,
+          "char_end": 63
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 293,
+          "char_end": 326
+        },
+        {
+          "mention": "hepatocytes",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "hepatocytes"
+          },
+          "grounded": true,
+          "source_span": "hepatocytes",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 366,
+          "char_end": 377
+        },
+        {
+          "mention": "AKR1D1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "AKR1D1",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "lipid metabolism",
+                "target_type": "pathway",
+                "direction": "decrease",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "upregulation of AKR1D1 and downregulation of TMEM65, which involves negative regulation of lipid metabolism"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "AKR1D1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 927,
+          "char_end": 933
+        },
+        {
+          "mention": "TMEM65",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "TMEM65",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "metastasis",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "downregulation of TMEM65, which involves negative regulation of lipid metabolism and promotion of metastasis"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "TMEM65",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 956,
+          "char_end": 962
+        },
+        {
+          "mention": "COP1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "COP1",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "HCC",
+                "target_type": "disease",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "COP1 is functionally correlated with HCC lipid metabolism and stemness"
+              }
+            ],
+            "interacts_with": [
+              {
+                "target_entity": "AKR1D1",
+                "target_type": "gene",
+                "direction": "decrease",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "inverse relationship between COP1 and AKR1D1 expression"
+              },
+              {
+                "target_entity": "TMEM65",
+                "target_type": "gene",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "positive relationship between COP1 and TMEM65 expression"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "COP1",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1135,
+          "char_end": 1139
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1226,
+          "char_end": 1229
+        },
+        {
+          "mention": "lipid metabolism",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "lipid metabolism"
+          },
+          "grounded": true,
+          "source_span": "lipid metabolism",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1002,
+          "char_end": 1018
+        },
+        {
+          "mention": "metastasis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "metastasis"
+          },
+          "grounded": true,
+          "source_span": "metastasis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1036,
+          "char_end": 1046
+        },
+        {
+          "mention": "CD133+ liver cancer stem cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "CD133+ liver cancer stem cells"
+          },
+          "grounded": true,
+          "source_span": "CD133+ liver cancer stem cells",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1347,
+          "char_end": 1377
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic fatty liver disease",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "NAFLD",
+          "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "hepatocytes",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "AKR1D1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "lipid metabolism",
+          "object_type": "Pathway",
+          "direction": "decrease",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "upregulation of AKR1D1 and downregulation of TMEM65, which involves negative regulation of lipid metabolism",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "TMEM65",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "metastasis",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "downregulation of TMEM65, which involves negative regulation of lipid metabolism and promotion of metastasis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "COP1 is functionally correlated with HCC lipid metabolism and stemness",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "INTERACTS_WITH",
+          "object": "AKR1D1",
+          "object_type": "Gene",
+          "direction": "decrease",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "inverse relationship between COP1 and AKR1D1 expression",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "INTERACTS_WITH",
+          "object": "TMEM65",
+          "object_type": "Gene",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "positive relationship between COP1 and TMEM65 expression",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "photomorphogenic protein 1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "COP1",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "non-alcoholic fatty liver disease",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "NAFLD",
+                  "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes"
+                }
+              ],
+              "expressed_in": [
+                {
+                  "target_entity": "hepatocytes",
+                  "target_type": "cell_type",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "photomorphogenic protein 1",
+            "char_start": 149,
+            "char_end": 175,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:photomorphogenic protein 1",
+            "canonical_mentions": [
+              "COP1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma",
+            "char_start": 39,
+            "char_end": 63,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 293,
+            "char_end": 326,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocytes",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "hepatocytes"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocytes",
+            "char_start": 366,
+            "char_end": 377,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:hepatocytes",
+            "canonical_mentions": [
+              "hepatocytes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "AKR1D1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "AKR1D1",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "lipid metabolism",
+                  "target_type": "pathway",
+                  "direction": "decrease",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "upregulation of AKR1D1 and downregulation of TMEM65, which involves negative regulation of lipid metabolism"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AKR1D1",
+            "char_start": 927,
+            "char_end": 933,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:akr1d1",
+            "canonical_mentions": [
+              "AKR1D1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "TMEM65",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "TMEM65",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "metastasis",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "downregulation of TMEM65, which involves negative regulation of lipid metabolism and promotion of metastasis"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "TMEM65",
+            "char_start": 956,
+            "char_end": 962,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:tmem65",
+            "canonical_mentions": [
+              "TMEM65"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "lipid metabolism",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "lipid metabolism"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "lipid metabolism",
+            "char_start": 1002,
+            "char_end": 1018,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:lipid metabolism",
+            "canonical_mentions": [
+              "lipid metabolism"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 280,
+            "evidence_char_end": 377,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "non-alcoholic fatty liver disease",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 280,
+            "evidence_char_end": 377,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "hepatocytes",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "AKR1D1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "lipid metabolism",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "upregulation of AKR1D1 and downregulation of TMEM65, which involves negative regulation of lipid metabolism",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 911,
+            "evidence_char_end": 1018,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "AKR1D1",
+            "original_object": "lipid metabolism",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "TMEM65",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "metastasis",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "downregulation of TMEM65, which involves negative regulation of lipid metabolism and promotion of metastasis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 938,
+            "evidence_char_end": 1046,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "TMEM65",
+            "original_object": "metastasis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "COP1 is functionally correlated with HCC lipid metabolism and stemness",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 1480,
+            "evidence_char_end": 1550,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "INTERACTS_WITH",
+            "object": "AKR1D1",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "inverse relationship between COP1 and AKR1D1 expression",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1106,
+            "evidence_char_end": 1161,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "COP1",
+            "original_object": "AKR1D1",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "INTERACTS_WITH",
+            "object": "TMEM65",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "positive relationship between COP1 and TMEM65 expression",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1166,
+            "evidence_char_end": 1222,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "TMEM65",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 7,
+          "raw_entity_count": 11,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 7,
+          "total_relations": 7,
+          "known_relations": 0,
+          "novel_relations": 7,
+          "contradicting_relations": 0,
+          "schema_valid": 7,
+          "import_ready": 1,
+          "structural_score": 1.0,
+          "semantic_score": 0.6786,
+          "evidence_score": 0.7857,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 7,
+              "denominator": 11,
+              "value": 0.6364
+            },
+            "generic_entity_rate": {
+              "count": 1,
+              "denominator": 11,
+              "value": 0.0909
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 11,
+              "value": 0.2727
+            },
+            "type_constraint_pass_rate": {
+              "count": 10,
+              "denominator": 11,
+              "value": 0.9091
+            },
+            "relation_evidence_exactness": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 7,
+              "value": 0.1429
+            },
+            "filtered_endpoint_rate": {
+              "count": 1,
+              "denominator": 7,
+              "value": 0.1429
+            },
+            "unresolved_endpoint_rate": {
+              "count": 1,
+              "denominator": 7,
+              "value": 0.1429
+            },
+            "weak_evidence_rate": {
+              "count": 6,
+              "denominator": 7,
+              "value": 0.8571
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 1,
+              "denominator": 7,
+              "value": 0.1429
+            }
+          },
+          "linking_stats": {
+            "total": 7,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 7
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 11,
+        "relations": 7,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.2719939998351038,
+      "prompt_tokens": 388,
+      "output_tokens": 1856,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "COP1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "COP1",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "non-alcoholic fatty liver disease",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "NAFLD",
+                "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes"
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "hepatocytes",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes"
+              }
+            ],
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "This is the full name of COP1, but the mention is not in the abstract; only 'COP1' is used. The entity is already captured as COP1."
+          },
+          "grounded": true,
+          "source_span": "COP1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 26,
+          "char_end": 30
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 39,
+          "char_end": 63
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 293,
+          "char_end": 326
+        },
+        {
+          "mention": "hepatocytes",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "hepatocytes"
+          },
+          "grounded": true,
+          "source_span": "hepatocytes",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 366,
+          "char_end": 377
+        },
+        {
+          "mention": "AKR1D1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "AKR1D1",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "lipid metabolism",
+                "target_type": "pathway",
+                "direction": "decrease",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "upregulation of AKR1D1 and downregulation of TMEM65, which involves negative regulation of lipid metabolism"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "AKR1D1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 927,
+          "char_end": 933
+        },
+        {
+          "mention": "TMEM65",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "TMEM65",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "metastasis",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "downregulation of TMEM65, which involves negative regulation of lipid metabolism and promotion of metastasis"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "TMEM65",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 956,
+          "char_end": 962
+        },
+        {
+          "mention": "COP1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "COP1",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "HCC",
+                "target_type": "disease",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "COP1 is functionally correlated with HCC lipid metabolism and stemness"
+              }
+            ],
+            "interacts_with": [
+              {
+                "target_entity": "AKR1D1",
+                "target_type": "gene",
+                "direction": "decrease",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "inverse relationship between COP1 and AKR1D1 expression"
+              },
+              {
+                "target_entity": "TMEM65",
+                "target_type": "gene",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "positive relationship between COP1 and TMEM65 expression"
+              }
+            ],
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "This is the full name of COP1, but the mention is not in the abstract; only 'COP1' is used. The entity is already captured as COP1."
+          },
+          "grounded": true,
+          "source_span": "COP1",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1135,
+          "char_end": 1139
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1226,
+          "char_end": 1229
+        },
+        {
+          "mention": "lipid metabolism",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "lipid metabolism"
+          },
+          "grounded": true,
+          "source_span": "lipid metabolism",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1002,
+          "char_end": 1018
+        },
+        {
+          "mention": "metastasis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "metastasis"
+          },
+          "grounded": true,
+          "source_span": "metastasis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1036,
+          "char_end": 1046
+        },
+        {
+          "mention": "CD133+ liver cancer stem cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "CD133+ liver cancer stem cells"
+          },
+          "grounded": true,
+          "source_span": "CD133+ liver cancer stem cells",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1347,
+          "char_end": 1377
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic fatty liver disease",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "NAFLD",
+          "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "hepatocytes",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "AKR1D1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "lipid metabolism",
+          "object_type": "Pathway",
+          "direction": "decrease",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "upregulation of AKR1D1 and downregulation of TMEM65, which involves negative regulation of lipid metabolism",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "TMEM65",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "metastasis",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "downregulation of TMEM65, which involves negative regulation of lipid metabolism and promotion of metastasis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "COP1 is functionally correlated with HCC lipid metabolism and stemness",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "INTERACTS_WITH",
+          "object": "AKR1D1",
+          "object_type": "Gene",
+          "direction": "decrease",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "inverse relationship between COP1 and AKR1D1 expression",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "INTERACTS_WITH",
+          "object": "TMEM65",
+          "object_type": "Gene",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "positive relationship between COP1 and TMEM65 expression",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "TMEM65",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "metastasis",
+          "object_type": "Pathway",
+          "direction": "decrease",
+          "evidence": "downregulation of TMEM65, which involves negative regulation of lipid metabolism and promotion of metastasis",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "TMEM65 downregulation is associated with promotion of metastasis, so TMEM65 is negatively associated with metastasis."
+        },
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "unknown",
+          "evidence": "COP1 is functionally correlated with HCC lipid metabolism and stemness",
+          "confidence": 0.7,
+          "uncertain": true,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Correlation is stated but direction is not specified."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "photomorphogenic protein 1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "COP1",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "non-alcoholic fatty liver disease",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "NAFLD",
+                  "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes"
+                }
+              ],
+              "expressed_in": [
+                {
+                  "target_entity": "hepatocytes",
+                  "target_type": "cell_type",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes"
+                }
+              ],
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "This is the full name of COP1, but the mention is not in the abstract; only 'COP1' is used. The entity is already captured as COP1."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "photomorphogenic protein 1",
+            "char_start": 149,
+            "char_end": 175,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:photomorphogenic protein 1",
+            "canonical_mentions": [
+              "COP1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma",
+            "char_start": 39,
+            "char_end": 63,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 293,
+            "char_end": 326,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocytes",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "hepatocytes"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocytes",
+            "char_start": 366,
+            "char_end": 377,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:hepatocytes",
+            "canonical_mentions": [
+              "hepatocytes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "AKR1D1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "AKR1D1",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "lipid metabolism",
+                  "target_type": "pathway",
+                  "direction": "decrease",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "upregulation of AKR1D1 and downregulation of TMEM65, which involves negative regulation of lipid metabolism"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AKR1D1",
+            "char_start": 927,
+            "char_end": 933,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:akr1d1",
+            "canonical_mentions": [
+              "AKR1D1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "TMEM65",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "TMEM65",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "metastasis",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "downregulation of TMEM65, which involves negative regulation of lipid metabolism and promotion of metastasis"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "TMEM65",
+            "char_start": 956,
+            "char_end": 962,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:tmem65",
+            "canonical_mentions": [
+              "TMEM65"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "lipid metabolism",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "lipid metabolism"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "lipid metabolism",
+            "char_start": 1002,
+            "char_end": 1018,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:lipid metabolism",
+            "canonical_mentions": [
+              "lipid metabolism"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 280,
+            "evidence_char_end": 377,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "non-alcoholic fatty liver disease",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 280,
+            "evidence_char_end": 377,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "hepatocytes",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "AKR1D1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "lipid metabolism",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "upregulation of AKR1D1 and downregulation of TMEM65, which involves negative regulation of lipid metabolism",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 911,
+            "evidence_char_end": 1018,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "AKR1D1",
+            "original_object": "lipid metabolism",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "TMEM65",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "metastasis",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "downregulation of TMEM65, which involves negative regulation of lipid metabolism and promotion of metastasis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 938,
+            "evidence_char_end": 1046,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "TMEM65",
+            "original_object": "metastasis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "COP1 is functionally correlated with HCC lipid metabolism and stemness",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 1480,
+            "evidence_char_end": 1550,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "INTERACTS_WITH",
+            "object": "AKR1D1",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "inverse relationship between COP1 and AKR1D1 expression",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1106,
+            "evidence_char_end": 1161,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "COP1",
+            "original_object": "AKR1D1",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "INTERACTS_WITH",
+            "object": "TMEM65",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "positive relationship between COP1 and TMEM65 expression",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1166,
+            "evidence_char_end": 1222,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "TMEM65",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "TMEM65",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "metastasis",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "downregulation of TMEM65, which involves negative regulation of lipid metabolism and promotion of metastasis",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 938,
+            "evidence_char_end": 1046,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "TMEM65",
+            "original_object": "metastasis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "COP1 is functionally correlated with HCC lipid metabolism and stemness",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1480,
+            "evidence_char_end": 1550,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 7,
+          "raw_entity_count": 11,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 7,
+          "total_relations": 9,
+          "known_relations": 0,
+          "novel_relations": 9,
+          "contradicting_relations": 0,
+          "schema_valid": 9,
+          "import_ready": 1,
+          "structural_score": 1.0,
+          "semantic_score": 0.6945,
+          "evidence_score": 0.7778,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 7,
+              "denominator": 11,
+              "value": 0.6364
+            },
+            "generic_entity_rate": {
+              "count": 1,
+              "denominator": 11,
+              "value": 0.0909
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 11,
+              "value": 0.2727
+            },
+            "type_constraint_pass_rate": {
+              "count": 10,
+              "denominator": 11,
+              "value": 0.9091
+            },
+            "relation_evidence_exactness": {
+              "count": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 2,
+              "denominator": 9,
+              "value": 0.2222
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 9,
+              "value": 0.2222
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 9,
+              "value": 0.2222
+            },
+            "weak_evidence_rate": {
+              "count": 8,
+              "denominator": 9,
+              "value": 0.8889
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 9,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 1,
+              "denominator": 9,
+              "value": 0.1111
+            },
+            "import_ready_relation_rate": {
+              "count": 1,
+              "denominator": 9,
+              "value": 0.1111
+            }
+          },
+          "linking_stats": {
+            "total": 7,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 7
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 11,
+        "relations": 9,
+        "duplicate_entities": 1,
+        "duplicate_relations": 1
+      },
+      "latency_s": 13.886690999846905,
+      "prompt_tokens": 9401,
+      "output_tokens": 3896,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "COP1",
+            "entity_type": "Gene",
+            "source_span": "COP1",
+            "char_start": 26,
+            "char_end": 30,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "COP1 is the gene symbol for constitutive photomorphogenic protein 1, mentioned in the title and abstract."
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "entity_type": "Disease",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 39,
+            "char_end": 63,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as HCC in the abstract."
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "entity_type": "Disease",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 293,
+            "char_end": 326,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as NAFLD in the abstract."
+          },
+          {
+            "mention": "hepatocytes",
+            "entity_type": "CellType",
+            "source_span": "hepatocytes",
+            "char_start": 366,
+            "char_end": 377,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as normal hepatocytes."
+          },
+          {
+            "mention": "AKR1D1",
+            "entity_type": "Gene",
+            "source_span": "AKR1D1",
+            "char_start": 927,
+            "char_end": 933,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as a gene upregulated upon COP1 silencing."
+          },
+          {
+            "mention": "TMEM65",
+            "entity_type": "Gene",
+            "source_span": "TMEM65",
+            "char_start": 956,
+            "char_end": 962,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as a gene downregulated upon COP1 silencing."
+          },
+          {
+            "mention": "lipid metabolism",
+            "entity_type": "Pathway",
+            "source_span": "lipid metabolism",
+            "char_start": 1002,
+            "char_end": 1018,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as a pathway negatively regulated by AKR1D1 upregulation."
+          },
+          {
+            "mention": "metastasis",
+            "entity_type": "Pathway",
+            "source_span": "metastasis",
+            "char_start": 1036,
+            "char_end": 1046,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as promoted by TMEM65 downregulation."
+          },
+          {
+            "mention": "CD133+ liver cancer stem cells",
+            "entity_type": "CellType",
+            "source_span": "CD133+ liver cancer stem cells",
+            "char_start": 1347,
+            "char_end": 1377,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as a cell type affected by COP1 targeting."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "COP1",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+            "evidence_span": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Direct statement that COP1 induces NAFLD."
+          },
+          {
+            "subject": "COP1",
+            "subject_type": "Gene",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes",
+            "object_type": "CellType",
+            "direction": "increase",
+            "evidence": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+            "evidence_span": "COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+            "confidence": 0.6,
+            "uncertain": true,
+            "reason": "The sentence implies COP1 acts in hepatocytes, but expression is not explicitly stated; inferred from context."
+          },
+          {
+            "subject": "AKR1D1",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "lipid metabolism",
+            "object_type": "Pathway",
+            "direction": "decrease",
+            "evidence": "upregulation of AKR1D1 and downregulation of TMEM65, which involves negative regulation of lipid metabolism",
+            "evidence_span": "upregulation of AKR1D1 and downregulation of TMEM65, which involves negative regulation of lipid metabolism",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "AKR1D1 upregulation is associated with negative regulation of lipid metabolism."
+          },
+          {
+            "subject": "TMEM65",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "metastasis",
+            "object_type": "Pathway",
+            "direction": "decrease",
+            "evidence": "downregulation of TMEM65, which involves negative regulation of lipid metabolism and promotion of metastasis",
+            "evidence_span": "downregulation of TMEM65, which involves negative regulation of lipid metabolism and promotion of metastasis",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "TMEM65 downregulation is associated with promotion of metastasis, so TMEM65 is negatively associated with metastasis."
+          },
+          {
+            "subject": "COP1",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "object_type": "Disease",
+            "direction": "unknown",
+            "evidence": "COP1 is functionally correlated with HCC lipid metabolism and stemness",
+            "evidence_span": "COP1 is functionally correlated with HCC lipid metabolism and stemness",
+            "confidence": 0.7,
+            "uncertain": true,
+            "reason": "Correlation is stated but direction is not specified."
+          },
+          {
+            "subject": "COP1",
+            "subject_type": "Gene",
+            "predicate": "INTERACTS_WITH",
+            "object": "AKR1D1",
+            "object_type": "Gene",
+            "direction": "decrease",
+            "evidence": "inverse relationship between COP1 and AKR1D1 expression",
+            "evidence_span": "inverse relationship between COP1 and AKR1D1 expression",
+            "confidence": 0.7,
+            "uncertain": false,
+            "reason": "Inverse relationship indicates negative correlation, not necessarily direct interaction; but predicate INTERACTS_WITH is used for correlation."
+          },
+          {
+            "subject": "COP1",
+            "subject_type": "Gene",
+            "predicate": "INTERACTS_WITH",
+            "object": "TMEM65",
+            "object_type": "Gene",
+            "direction": "increase",
+            "evidence": "positive relationship between COP1 and TMEM65 expression",
+            "evidence_span": "positive relationship between COP1 and TMEM65 expression",
+            "confidence": 0.7,
+            "uncertain": false,
+            "reason": "Positive relationship indicates positive correlation, not necessarily direct interaction; but predicate INTERACTS_WITH is used for correlation."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "photomorphogenic protein 1",
+            "entity_type": "Gene",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "This is the full name of COP1, but the mention is not in the abstract; only 'COP1' is used. The entity is already captured as COP1."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HCC",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "HCC is an abbreviation for hepatocellular carcinoma, already captured as the same disease entity. Duplicate."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "COP1",
+            "entity_type": "Gene",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate entity mention; COP1 appears multiple times but should be merged into one entity."
+          }
+        ],
+        "review_reason": "Reviewed and corrected entities and relations based on the abstract. Removed duplicate entities and corrected relation directions based on evidence. Some relations are inferred and marked uncertain.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 2,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "COP1",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatocellular carcinoma"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "non-alcoholic fatty liver disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatocytes"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "AKR1D1"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "TMEM65"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "lipid metabolism"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "metastasis",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "CD133+ liver cancer stem cells",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "COP1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "COP1",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "AKR1D1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "lipid metabolism"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "COP1",
+            "predicate": "INTERACTS_WITH",
+            "object": "AKR1D1"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "COP1",
+            "predicate": "INTERACTS_WITH",
+            "object": "TMEM65"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "photomorphogenic protein 1",
+            "entity_type": "Gene",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "This is the full name of COP1, but the mention is not in the abstract; only 'COP1' is used. The entity is already captured as COP1."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "COP1",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "COP1"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "COP1",
+          "char_start": 26,
+          "char_end": 30
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "HCC"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "char_start": 215,
+          "char_end": 239
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "NAFLD"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "char_start": 293,
+          "char_end": 326
+        },
+        {
+          "mention": "hepatocytes",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "hepatocyte"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "hepatocytes",
+          "char_start": 366,
+          "char_end": 377
+        },
+        {
+          "mention": "Huh7",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "Huh7"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Huh7",
+          "char_start": 689,
+          "char_end": 693
+        },
+        {
+          "mention": "HepG2",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "HepG2"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "HepG2",
+          "char_start": 695,
+          "char_end": 700
+        },
+        {
+          "mention": "Huh1",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "Huh1"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Huh1",
+          "char_start": 702,
+          "char_end": 706
+        },
+        {
+          "mention": "PLC/PRF/5",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "PLC/PRF/5"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "PLC/PRF/5",
+          "char_start": 712,
+          "char_end": 721
+        },
+        {
+          "mention": "AKR1D1",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "AKR1D1"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "AKR1D1",
+          "char_start": 927,
+          "char_end": 933
+        },
+        {
+          "mention": "TMEM65",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "TMEM65"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "TMEM65",
+          "char_start": 956,
+          "char_end": 962
+        },
+        {
+          "mention": "CD133+ liver cancer stem cells",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CD133+ liver cancer stem cell"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "CD133+ liver cancer stem cells",
+          "char_start": 1347,
+          "char_end": 1377
+        },
+        {
+          "mention": "lipid metabolism",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "lipid metabolism"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "lipid metabolism",
+          "char_start": 1002,
+          "char_end": 1018
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "We have previously defined the constitutive photomorphogenic protein 1 (COP1) gene as a therapeutic target in hepatocellular carcinoma (HCC).",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic fatty liver disease",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "A recent study demonstrated that COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "lipid metabolism",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "our findings indicate that the COP1 is functionally correlated with HCC lipid metabolism and stemness.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "AKR1D1",
+          "object_type": "Gene",
+          "direction": "negative",
+          "evidence": "Correlation analysis using GEPIA2 supported inverse relationship between COP1 and AKR1D1 expression",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "COP1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "TMEM65",
+          "object_type": "Gene",
+          "direction": "positive",
+          "evidence": "Correlation analysis using GEPIA2 supported ... positive relationship between COP1 and TMEM65 expression",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "AKR1D1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "lipid metabolism",
+          "object_type": "Pathway",
+          "direction": "negative",
+          "evidence": "Notable molecular alterations were upregulation of AKR1D1 and downregulation of TMEM65, which involves negative regulation of lipid metabolism",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "TMEM65",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "downregulation of TMEM65, which involves ... promotion of metastasis",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "photomorphogenic protein 1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "COP1"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "photomorphogenic protein 1",
+            "char_start": 149,
+            "char_end": 175,
+            "grounded": true,
+            "normalized_id": "COP1",
+            "canonical_key": "Gene:photomorphogenic protein 1",
+            "canonical_mentions": [
+              "COP1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 215,
+            "char_end": 239,
+            "grounded": true,
+            "normalized_id": "HCC",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 293,
+            "char_end": 326,
+            "grounded": true,
+            "normalized_id": "NAFLD",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocytes",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "hepatocyte"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocytes",
+            "char_start": 366,
+            "char_end": 377,
+            "grounded": true,
+            "normalized_id": "hepatocyte",
+            "canonical_key": "CellType:hepatocytes",
+            "canonical_mentions": [
+              "hepatocytes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "AKR1D1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "AKR1D1"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AKR1D1",
+            "char_start": 927,
+            "char_end": 933,
+            "grounded": true,
+            "normalized_id": "AKR1D1",
+            "canonical_key": "Gene:akr1d1",
+            "canonical_mentions": [
+              "AKR1D1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "TMEM65",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "TMEM65"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "TMEM65",
+            "char_start": 956,
+            "char_end": 962,
+            "grounded": true,
+            "normalized_id": "TMEM65",
+            "canonical_key": "Gene:tmem65",
+            "canonical_mentions": [
+              "TMEM65"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "lipid metabolism",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "lipid metabolism"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "lipid metabolism",
+            "char_start": 1002,
+            "char_end": 1018,
+            "grounded": true,
+            "normalized_id": "lipid metabolism",
+            "canonical_key": "Pathway:lipid metabolism",
+            "canonical_mentions": [
+              "lipid metabolism"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "We have previously defined the constitutive photomorphogenic protein 1 (COP1) gene as a therapeutic target in hepatocellular carcinoma (HCC).",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 105,
+            "evidence_char_end": 246,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "A recent study demonstrated that COP1 induces non-alcoholic fatty liver disease (NAFLD), a precursor to HCC, in normal hepatocytes",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 247,
+            "evidence_char_end": 377,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "non-alcoholic fatty liver disease",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "lipid metabolism",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "our findings indicate that the COP1 is functionally correlated with HCC lipid metabolism and stemness.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 1449,
+            "evidence_char_end": 1551,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "lipid metabolism",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "AKR1D1",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Correlation analysis using GEPIA2 supported inverse relationship between COP1 and AKR1D1 expression",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1062,
+            "evidence_char_end": 1161,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "AKR1D1",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "photomorphogenic protein 1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "TMEM65",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Correlation analysis using GEPIA2 supported ... positive relationship between COP1 and TMEM65 expression",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "cross_sentence",
+              "evidence_not_contiguous",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": -1,
+            "evidence_char_end": -1,
+            "evidence_contiguous": false,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "COP1",
+            "original_object": "TMEM65",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "AKR1D1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "lipid metabolism",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Notable molecular alterations were upregulation of AKR1D1 and downregulation of TMEM65, which involves negative regulation of lipid metabolism",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 876,
+            "evidence_char_end": 1018,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "AKR1D1",
+            "original_object": "lipid metabolism",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "TMEM65",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "downregulation of TMEM65, which involves ... promotion of metastasis",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "cross_sentence",
+              "endpoint_not_in_evidence",
+              "evidence_not_contiguous",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": -1,
+            "evidence_char_end": -1,
+            "evidence_contiguous": false,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "TMEM65",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 7,
+          "raw_entity_count": 12,
+          "filtered_entity_count": 5,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 7,
+          "total_relations": 7,
+          "known_relations": 0,
+          "novel_relations": 7,
+          "contradicting_relations": 0,
+          "schema_valid": 7,
+          "import_ready": 1,
+          "structural_score": 1.0,
+          "semantic_score": 0.5708,
+          "evidence_score": 0.6214,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 7,
+              "denominator": 12,
+              "value": 0.5833
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 12,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 12,
+              "value": 0.0833
+            },
+            "type_constraint_pass_rate": {
+              "count": 8,
+              "denominator": 12,
+              "value": 0.6667
+            },
+            "relation_evidence_exactness": {
+              "count": 5,
+              "denominator": 7,
+              "value": 0.7143
+            },
+            "relation_endpoint_coverage": {
+              "count": 6,
+              "denominator": 7,
+              "value": 0.8571
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 7,
+              "value": 0.1429
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 6,
+              "denominator": 7,
+              "value": 0.8571
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 1,
+              "denominator": 7,
+              "value": 0.1429
+            }
+          },
+          "linking_stats": {
+            "total": 7,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 7
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 12,
+        "relations": 7,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 6.110182290896773,
+      "prompt_tokens": 1450,
+      "output_tokens": 1335,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,2003 @@
+{
+  "pmid": "41761962",
+  "title": "Impact of Spheroid Use for Identifying Hepatocellular Carcinoma Features: Involvement of Kinase-Mediated Molecular Pathways.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "Hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 46,
+          "char_end": 70
+        },
+        {
+          "mention": "HepG2 cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "HepG2 cell"
+          },
+          "grounded": true,
+          "source_span": "HepG2 cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 530,
+          "char_end": 540
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 634,
+          "char_end": 639
+        },
+        {
+          "mention": "LRRK2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "LRRK2",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "cancer",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "a gene traditionally associated with neurological disorders but increasingly implicated in cancer"
+              },
+              {
+                "target_entity": "HCC",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "which emerges as a promising therapeutic target in HCC since it regulates oxidative stress, lipid metabolism, and treatment responses, all of which contribute to tumor progression"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "oxidative stress",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses"
+              },
+              {
+                "target_entity": "lipid metabolism",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "LRRK2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 854,
+          "char_end": 859
+        },
+        {
+          "mention": "cancer",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cancer"
+          },
+          "grounded": true,
+          "source_span": "cancer",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 953,
+          "char_end": 959
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1022,
+          "char_end": 1025
+        },
+        {
+          "mention": "oxidative stress",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "oxidative stress"
+          },
+          "grounded": true,
+          "source_span": "oxidative stress",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1045,
+          "char_end": 1061
+        },
+        {
+          "mention": "lipid metabolism",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "lipid metabolism"
+          },
+          "grounded": true,
+          "source_span": "lipid metabolism",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1063,
+          "char_end": 1079
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "LRRK2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "cancer",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "a gene traditionally associated with neurological disorders but increasingly implicated in cancer",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "LRRK2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "which emerges as a promising therapeutic target in HCC since it regulates oxidative stress, lipid metabolism, and treatment responses, all of which contribute to tumor progression",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "LRRK2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "oxidative stress",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "LRRK2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "lipid metabolism",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma",
+            "char_start": 46,
+            "char_end": 70,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "Hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 634,
+            "char_end": 639,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "leucine-rich repeat kinase 2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "LRRK2",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "cancer",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "a gene traditionally associated with neurological disorders but increasingly implicated in cancer"
+                },
+                {
+                  "target_entity": "HCC",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "which emerges as a promising therapeutic target in HCC since it regulates oxidative stress, lipid metabolism, and treatment responses, all of which contribute to tumor progression"
+                }
+              ],
+              "participates_in": [
+                {
+                  "target_entity": "oxidative stress",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses"
+                },
+                {
+                  "target_entity": "lipid metabolism",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "leucine-rich repeat kinase 2",
+            "char_start": 824,
+            "char_end": 852,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:leucine rich repeat kinase 2",
+            "canonical_mentions": [
+              "LRRK2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "lipid metabolism",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "lipid metabolism"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "lipid metabolism",
+            "char_start": 1063,
+            "char_end": 1079,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:lipid metabolism",
+            "canonical_mentions": [
+              "lipid metabolism"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "cancer",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "a gene traditionally associated with neurological disorders but increasingly implicated in cancer",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 862,
+            "evidence_char_end": 959,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "LRRK2",
+            "original_object": "cancer",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatocellular carcinoma",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "which emerges as a promising therapeutic target in HCC since it regulates oxidative stress, lipid metabolism, and treatment responses, all of which contribute to tumor progression",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 971,
+            "evidence_char_end": 1150,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "LRRK2",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "oxidative stress",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1032,
+            "evidence_char_end": 1104,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "LRRK2",
+            "original_object": "oxidative stress",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "lipid metabolism",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1032,
+            "evidence_char_end": 1104,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "LRRK2",
+            "original_object": "lipid metabolism",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 4,
+          "raw_entity_count": 8,
+          "filtered_entity_count": 3,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 4,
+          "total_relations": 4,
+          "known_relations": 0,
+          "novel_relations": 4,
+          "contradicting_relations": 0,
+          "schema_valid": 4,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.3937,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 4,
+              "denominator": 8,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 2,
+              "denominator": 8,
+              "value": 0.25
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 8,
+              "value": 0.25
+            },
+            "type_constraint_pass_rate": {
+              "count": 7,
+              "denominator": 8,
+              "value": 0.875
+            },
+            "relation_evidence_exactness": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 4,
+              "value": 0.5
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 4,
+              "value": 0.5
+            },
+            "weak_evidence_rate": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 4,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 4
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 8,
+        "relations": 4,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.779971499927342,
+      "prompt_tokens": 338,
+      "output_tokens": 1197,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "Hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 46,
+          "char_end": 70
+        },
+        {
+          "mention": "HepG2 cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "HepG2 cell"
+          },
+          "grounded": true,
+          "source_span": "HepG2 cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 530,
+          "char_end": 540
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 634,
+          "char_end": 639
+        },
+        {
+          "mention": "LRRK2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "LRRK2",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "cancer",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "a gene traditionally associated with neurological disorders but increasingly implicated in cancer"
+              },
+              {
+                "target_entity": "HCC",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "which emerges as a promising therapeutic target in HCC since it regulates oxidative stress, lipid metabolism, and treatment responses, all of which contribute to tumor progression"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "oxidative stress",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses"
+              },
+              {
+                "target_entity": "lipid metabolism",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "LRRK2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 854,
+          "char_end": 859
+        },
+        {
+          "mention": "cancer",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cancer"
+          },
+          "grounded": true,
+          "source_span": "cancer",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 953,
+          "char_end": 959
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1022,
+          "char_end": 1025
+        },
+        {
+          "mention": "oxidative stress",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "oxidative stress"
+          },
+          "grounded": true,
+          "source_span": "oxidative stress",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1045,
+          "char_end": 1061
+        },
+        {
+          "mention": "lipid metabolism",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "lipid metabolism"
+          },
+          "grounded": true,
+          "source_span": "lipid metabolism",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1063,
+          "char_end": 1079
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "LRRK2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "cancer",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "a gene traditionally associated with neurological disorders but increasingly implicated in cancer",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "LRRK2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "which emerges as a promising therapeutic target in HCC since it regulates oxidative stress, lipid metabolism, and treatment responses, all of which contribute to tumor progression",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "LRRK2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "oxidative stress",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "LRRK2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "lipid metabolism",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "leucine-rich repeat kinase 2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "cancer",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "a gene traditionally associated with neurological disorders but increasingly implicated in cancer",
+          "confidence": 0.7,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Evidence explicitly states LRRK2 is increasingly implicated in cancer; direction increase inferred from 'increasingly implicated'."
+        },
+        {
+          "subject": "leucine-rich repeat kinase 2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "which emerges as a promising therapeutic target in HCC since it regulates oxidative stress, lipid metabolism, and treatment responses, all of which contribute to tumor progression",
+          "confidence": 0.7,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Evidence states LRRK2 is a therapeutic target in HCC and contributes to tumor progression; direction increase."
+        },
+        {
+          "subject": "leucine-rich repeat kinase 2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "oxidative stress",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+          "confidence": 0.7,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Evidence explicitly states LRRK2 regulates oxidative stress; direction increase as regulation implies participation."
+        },
+        {
+          "subject": "leucine-rich repeat kinase 2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "lipid metabolism",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+          "confidence": 0.7,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Evidence explicitly states LRRK2 regulates lipid metabolism; direction increase as regulation implies participation."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma",
+            "char_start": 46,
+            "char_end": 70,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "Hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 634,
+            "char_end": 639,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "leucine-rich repeat kinase 2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "LRRK2",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "cancer",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "a gene traditionally associated with neurological disorders but increasingly implicated in cancer"
+                },
+                {
+                  "target_entity": "HCC",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "which emerges as a promising therapeutic target in HCC since it regulates oxidative stress, lipid metabolism, and treatment responses, all of which contribute to tumor progression"
+                }
+              ],
+              "participates_in": [
+                {
+                  "target_entity": "oxidative stress",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses"
+                },
+                {
+                  "target_entity": "lipid metabolism",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "leucine-rich repeat kinase 2",
+            "char_start": 824,
+            "char_end": 852,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:leucine rich repeat kinase 2",
+            "canonical_mentions": [
+              "LRRK2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "lipid metabolism",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "lipid metabolism"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "lipid metabolism",
+            "char_start": 1063,
+            "char_end": 1079,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:lipid metabolism",
+            "canonical_mentions": [
+              "lipid metabolism"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "cancer",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "a gene traditionally associated with neurological disorders but increasingly implicated in cancer",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 862,
+            "evidence_char_end": 959,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "LRRK2",
+            "original_object": "cancer",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatocellular carcinoma",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "which emerges as a promising therapeutic target in HCC since it regulates oxidative stress, lipid metabolism, and treatment responses, all of which contribute to tumor progression",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 971,
+            "evidence_char_end": 1150,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "LRRK2",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "oxidative stress",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1032,
+            "evidence_char_end": 1104,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "LRRK2",
+            "original_object": "oxidative stress",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "lipid metabolism",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1032,
+            "evidence_char_end": 1104,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "LRRK2",
+            "original_object": "lipid metabolism",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "cancer",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "a gene traditionally associated with neurological disorders but increasingly implicated in cancer",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 862,
+            "evidence_char_end": 959,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "leucine-rich repeat kinase 2",
+            "original_object": "cancer",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatocellular carcinoma",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "which emerges as a promising therapeutic target in HCC since it regulates oxidative stress, lipid metabolism, and treatment responses, all of which contribute to tumor progression",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 971,
+            "evidence_char_end": 1150,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "leucine-rich repeat kinase 2",
+            "original_object": "Hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "oxidative stress",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1032,
+            "evidence_char_end": 1104,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "leucine-rich repeat kinase 2",
+            "original_object": "oxidative stress",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "lipid metabolism",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1032,
+            "evidence_char_end": 1104,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "leucine-rich repeat kinase 2",
+            "original_object": "lipid metabolism",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 4,
+          "raw_entity_count": 8,
+          "filtered_entity_count": 3,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 4,
+          "total_relations": 8,
+          "known_relations": 0,
+          "novel_relations": 8,
+          "contradicting_relations": 0,
+          "schema_valid": 8,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.3937,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 4,
+              "denominator": 8,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 2,
+              "denominator": 8,
+              "value": 0.25
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 8,
+              "value": 0.25
+            },
+            "type_constraint_pass_rate": {
+              "count": 7,
+              "denominator": 8,
+              "value": 0.875
+            },
+            "relation_evidence_exactness": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 4,
+              "denominator": 8,
+              "value": 0.5
+            },
+            "unresolved_endpoint_rate": {
+              "count": 4,
+              "denominator": 8,
+              "value": 0.5
+            },
+            "weak_evidence_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 4,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 4
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 8,
+        "relations": 8,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 10.438347207847983,
+      "prompt_tokens": 8245,
+      "output_tokens": 2646,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "entity_type": "Disease",
+            "source_span": "Hepatocellular carcinoma",
+            "char_start": 46,
+            "char_end": 70,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit disease mention in title and abstract; canonical for HCC."
+          },
+          {
+            "mention": "HepG2 cell",
+            "entity_type": "CellType",
+            "source_span": "HepG2 cell",
+            "char_start": 530,
+            "char_end": 540,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Specific cell line mentioned as model; retained as CellType."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 634,
+            "char_end": 639,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit tissue mention in context of liver cancer research."
+          },
+          {
+            "mention": "leucine-rich repeat kinase 2",
+            "entity_type": "Gene",
+            "source_span": "leucine-rich repeat kinase 2",
+            "char_start": 824,
+            "char_end": 852,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Full gene name explicitly stated; LRRK2 abbreviation used later."
+          },
+          {
+            "mention": "LRRK2",
+            "entity_type": "Gene",
+            "source_span": "LRRK2",
+            "char_start": 854,
+            "char_end": 859,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Abbreviation for leucine-rich repeat kinase 2; same gene entity."
+          },
+          {
+            "mention": "HCC",
+            "entity_type": "Disease",
+            "source_span": "HCC",
+            "char_start": 1022,
+            "char_end": 1025,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Abbreviation for hepatocellular carcinoma; same disease entity."
+          },
+          {
+            "mention": "oxidative stress",
+            "entity_type": "Pathway",
+            "source_span": "oxidative stress",
+            "char_start": 1045,
+            "char_end": 1061,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Explicitly mentioned as regulated by LRRK2; retained as pathway."
+          },
+          {
+            "mention": "lipid metabolism",
+            "entity_type": "Pathway",
+            "source_span": "lipid metabolism",
+            "char_start": 1063,
+            "char_end": 1079,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Explicitly mentioned as regulated by LRRK2; retained as pathway."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "cancer",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "a gene traditionally associated with neurological disorders but increasingly implicated in cancer",
+            "evidence_span": "a gene traditionally associated with neurological disorders but increasingly implicated in cancer",
+            "confidence": 0.7,
+            "uncertain": false,
+            "reason": "Evidence explicitly states LRRK2 is increasingly implicated in cancer; direction increase inferred from 'increasingly implicated'."
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatocellular carcinoma",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "which emerges as a promising therapeutic target in HCC since it regulates oxidative stress, lipid metabolism, and treatment responses, all of which contribute to tumor progression",
+            "evidence_span": "which emerges as a promising therapeutic target in HCC since it regulates oxidative stress, lipid metabolism, and treatment responses, all of which contribute to tumor progression",
+            "confidence": 0.7,
+            "uncertain": false,
+            "reason": "Evidence states LRRK2 is a therapeutic target in HCC and contributes to tumor progression; direction increase."
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "oxidative stress",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+            "evidence_span": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+            "confidence": 0.7,
+            "uncertain": false,
+            "reason": "Evidence explicitly states LRRK2 regulates oxidative stress; direction increase as regulation implies participation."
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "lipid metabolism",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+            "evidence_span": "it regulates oxidative stress, lipid metabolism, and treatment responses",
+            "confidence": 0.7,
+            "uncertain": false,
+            "reason": "Evidence explicitly states LRRK2 regulates lipid metabolism; direction increase as regulation implies participation."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "cancer",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Generic term; specific disease HCC is already captured."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "oxidative stress",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Bare process without direct evidence; but retained as entity due to explicit mention."
+          }
+        ],
+        "review_reason": "Corrected entities to use full names and canonical forms; relations corrected to use full gene name and canonical disease; evidence spans verified to cover endpoints and direction triggers.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 4,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Hepatocellular carcinoma"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HepG2 cell",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "leucine-rich repeat kinase 2"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "LRRK2",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HCC",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "oxidative stress",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "lipid metabolism"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "Hepatocellular carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C2239176"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Hepatocellular carcinoma",
+          "char_start": 142,
+          "char_end": 166
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C2239176"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "HCC",
+          "char_start": 168,
+          "char_end": 171
+        },
+        {
+          "mention": "HepG2 cell-derived spheroids",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000182"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "HepG2 cell-derived spheroids",
+          "char_start": 530,
+          "char_end": 558
+        },
+        {
+          "mention": "leucine-rich repeat kinase 2",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "LRRK2"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "leucine-rich repeat kinase 2",
+          "char_start": 824,
+          "char_end": 852
+        },
+        {
+          "mention": "LRRK2",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "LRRK2"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "LRRK2",
+          "char_start": 854,
+          "char_end": 859
+        },
+        {
+          "mention": "kinase",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "LRRK2"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "kinase",
+          "char_start": 844,
+          "char_end": 850
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "LRRK2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "leucine-rich repeat kinase 2 (LRRK2), a gene traditionally associated with neurological disorders but increasingly implicated in cancer, a kinase, which emerges as a promising therapeutic target in HCC",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "LRRK2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "leucine-rich repeat kinase 2 (LRRK2), a gene traditionally associated with neurological disorders but increasingly implicated in cancer, a kinase, which emerges as a promising therapeutic target in HCC",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "C2239176"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular carcinoma",
+            "char_start": 142,
+            "char_end": 166,
+            "grounded": true,
+            "normalized_id": "C2239176",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "Hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "leucine-rich repeat kinase 2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "LRRK2"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "leucine-rich repeat kinase 2",
+            "char_start": 824,
+            "char_end": 852,
+            "grounded": true,
+            "normalized_id": "LRRK2",
+            "canonical_key": "Gene:leucine rich repeat kinase 2",
+            "canonical_mentions": [
+              "leucine-rich repeat kinase 2",
+              "LRRK2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "kinase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "LRRK2"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "kinase",
+            "char_start": 844,
+            "char_end": 850,
+            "grounded": true,
+            "normalized_id": "LRRK2",
+            "canonical_key": "Protein:kinase",
+            "canonical_mentions": [
+              "kinase"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatocellular carcinoma",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "leucine-rich repeat kinase 2 (LRRK2), a gene traditionally associated with neurological disorders but increasingly implicated in cancer, a kinase, which emerges as a promising therapeutic target in HCC",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 824,
+            "evidence_char_end": 1025,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "LRRK2",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "leucine-rich repeat kinase 2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatocellular carcinoma",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "leucine-rich repeat kinase 2 (LRRK2), a gene traditionally associated with neurological disorders but increasingly implicated in cancer, a kinase, which emerges as a promising therapeutic target in HCC",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 824,
+            "evidence_char_end": 1025,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "LRRK2",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 2,
+          "structural_score": 1.0,
+          "semantic_score": 0.7833,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 6,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 5,
+              "denominator": 6,
+              "value": 0.8333
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 2,
+        "duplicate_entities": 0,
+        "duplicate_relations": 1
+      },
+      "latency_s": 3.3097137077711523,
+      "prompt_tokens": 1377,
+      "output_tokens": 539,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

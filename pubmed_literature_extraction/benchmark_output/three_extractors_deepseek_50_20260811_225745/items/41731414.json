@@ -1,0 +1,978 @@
+{
+  "pmid": "41731414",
+  "title": "Vaccine-preventable viral hepatitis in men living with HIV/AIDS - immunity and associated factors.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "HIV/AIDS",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HIV/AIDS",
+            "disease_stage": "HIV/AIDS"
+          },
+          "grounded": true,
+          "source_span": "HIV/AIDS",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 62,
+          "char_end": 70
+        },
+        {
+          "mention": "hepatitis A",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis A"
+          },
+          "grounded": true,
+          "source_span": "hepatitis A",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 298,
+          "char_end": 309
+        },
+        {
+          "mention": "hepatitis B",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis B"
+          },
+          "grounded": true,
+          "source_span": "hepatitis B",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 298,
+          "char_end": 315
+        },
+        {
+          "mention": "hepatitis B",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis B"
+          },
+          "grounded": true,
+          "source_span": "hepatitis B",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1085,
+          "char_end": 1096
+        },
+        {
+          "mention": "hepatitis A",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis A"
+          },
+          "grounded": true,
+          "source_span": "hepatitis A",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1404,
+          "char_end": 1415
+        },
+        {
+          "mention": "HIV/AIDS",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HIV/AIDS"
+          },
+          "grounded": true,
+          "source_span": "HIV/AIDS",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1232,
+          "char_end": 1240
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatitis A",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatitis A"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis A",
+            "char_start": 298,
+            "char_end": 309,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis a",
+            "canonical_mentions": [
+              "hepatitis A"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatitis B",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatitis B"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis B",
+            "char_start": 1085,
+            "char_end": 1096,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis b",
+            "canonical_mentions": [
+              "hepatitis B"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.7667,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 0,
+        "duplicate_entities": 3,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.3209525407291949,
+      "prompt_tokens": 488,
+      "output_tokens": 405,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "HIV/AIDS",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HIV/AIDS",
+            "disease_stage": "HIV/AIDS"
+          },
+          "grounded": true,
+          "source_span": "HIV/AIDS",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 62,
+          "char_end": 70
+        },
+        {
+          "mention": "hepatitis A",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis A",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate mention; merged with canonical hepatitis A."
+          },
+          "grounded": true,
+          "source_span": "hepatitis A",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 298,
+          "char_end": 309
+        },
+        {
+          "mention": "hepatitis B",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis B",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate mention; merged with canonical hepatitis B."
+          },
+          "grounded": true,
+          "source_span": "hepatitis B",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 298,
+          "char_end": 315
+        },
+        {
+          "mention": "hepatitis B",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis B",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate mention; merged with canonical hepatitis B."
+          },
+          "grounded": true,
+          "source_span": "hepatitis B",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1085,
+          "char_end": 1096
+        },
+        {
+          "mention": "hepatitis A",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis A",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate mention; merged with canonical hepatitis A."
+          },
+          "grounded": true,
+          "source_span": "hepatitis A",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1404,
+          "char_end": 1415
+        },
+        {
+          "mention": "HIV/AIDS",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HIV/AIDS"
+          },
+          "grounded": true,
+          "source_span": "HIV/AIDS",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1232,
+          "char_end": 1240
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatitis A",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatitis A",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate mention; merged with canonical hepatitis A."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis A",
+            "char_start": 298,
+            "char_end": 309,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis a",
+            "canonical_mentions": [
+              "hepatitis A"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatitis B",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatitis B",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate mention; merged with canonical hepatitis B."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis B",
+            "char_start": 1085,
+            "char_end": 1096,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis b",
+            "canonical_mentions": [
+              "hepatitis B"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.7667,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 0,
+        "duplicate_entities": 3,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.10806958284229,
+      "prompt_tokens": 4622,
+      "output_tokens": 836,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "hepatitis A",
+            "entity_type": "Disease",
+            "source_span": "hepatitis A",
+            "char_start": 298,
+            "char_end": 309,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in abstract; retained."
+          },
+          {
+            "mention": "hepatitis B",
+            "entity_type": "Disease",
+            "source_span": "hepatitis B",
+            "char_start": 1085,
+            "char_end": 1096,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in abstract; retained."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "HIV/AIDS",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Composite entity (HIV and AIDS) not a single disease; rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HIV/AIDS",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Composite entity (HIV and AIDS) not a single disease; rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatitis B",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate mention; merged with canonical hepatitis B."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatitis A",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate mention; merged with canonical hepatitis A."
+          }
+        ],
+        "review_reason": "Retained two unique disease entities (hepatitis A and B) with exact evidence. Rejected composite HIV/AIDS entities and duplicate mentions. No relations extracted due to lack of explicit relational statements in the abstract.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "hepatitis A"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatitis B"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "hepatitis B",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate mention; merged with canonical hepatitis B."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatitis A",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate mention; merged with canonical hepatitis A."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "HIV/AIDS",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006678"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "HIV/AIDS",
+          "char_start": 62,
+          "char_end": 70
+        },
+        {
+          "mention": "hepatitis A",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006506"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatitis A",
+          "char_start": 298,
+          "char_end": 309
+        },
+        {
+          "mention": "hepatitis B",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006509"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatitis B",
+          "char_start": 1085,
+          "char_end": 1096
+        },
+        {
+          "mention": "anti-HBs",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "C0001621"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "anti-HBs",
+          "char_start": 1138,
+          "char_end": 1146
+        },
+        {
+          "mention": "anti-HAV IgG",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "C0001620"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "anti-HAV IgG",
+          "char_start": 1474,
+          "char_end": 1486
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "HIV/AIDS",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatitis A",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "People living with HIV/AIDS (PLWHA) have a higher risk of morbidity and mortality from acquiring infectious diseases, including those preventable by vaccination, such as hepatitis A and B.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "HIV/AIDS",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatitis B",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "People living with HIV/AIDS (PLWHA) have a higher risk of morbidity and mortality from acquiring infectious diseases, including those preventable by vaccination, such as hepatitis A and B.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatitis A",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D006506"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis A",
+            "char_start": 298,
+            "char_end": 309,
+            "grounded": true,
+            "normalized_id": "D006506",
+            "canonical_key": "Disease:hepatitis a",
+            "canonical_mentions": [
+              "hepatitis A"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatitis B",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D006509"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis B",
+            "char_start": 1085,
+            "char_end": 1096,
+            "grounded": true,
+            "normalized_id": "D006509",
+            "canonical_key": "Disease:hepatitis b",
+            "canonical_mentions": [
+              "hepatitis B"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "anti-HBs",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "C0001621"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "anti-HBs",
+            "char_start": 1138,
+            "char_end": 1146,
+            "grounded": true,
+            "normalized_id": "C0001621",
+            "canonical_key": "Protein:anti hbs",
+            "canonical_mentions": [
+              "anti-HBs"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "anti-HAV IgG",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "C0001620"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "anti-HAV IgG",
+            "char_start": 1474,
+            "char_end": 1486,
+            "grounded": true,
+            "normalized_id": "C0001620",
+            "canonical_key": "Protein:anti hav igg",
+            "canonical_mentions": [
+              "anti-HAV IgG"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "HIV/AIDS",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatitis A",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "People living with HIV/AIDS (PLWHA) have a higher risk of morbidity and mortality from acquiring infectious diseases, including those preventable by vaccination, such as hepatitis A and B.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "background_only",
+              "filtered_endpoint",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 128,
+            "evidence_char_end": 316,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "HIV/AIDS",
+            "original_object": "hepatitis A",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "HIV/AIDS",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatitis B",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "People living with HIV/AIDS (PLWHA) have a higher risk of morbidity and mortality from acquiring infectious diseases, including those preventable by vaccination, such as hepatitis A and B.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "background_only",
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_not_grounded",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 128,
+            "evidence_char_end": 316,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "HIV/AIDS",
+            "original_object": "hepatitis B",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 4,
+          "raw_entity_count": 5,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 4,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.63,
+          "evidence_score": 0.575,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 4,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 4
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 5,
+        "relations": 2,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.989629833959043,
+      "prompt_tokens": 1592,
+      "output_tokens": 487,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

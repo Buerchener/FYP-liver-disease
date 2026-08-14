@@ -1,0 +1,3432 @@
+{
+  "pmid": "41650163",
+  "title": "A multifaceted analysis of OTUD5 integrated MAVS in innate immunity of Primary Biliary Cholangitis.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "OTUD5",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "OTUD5",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "Primary Biliary Cholangitis",
+                "target_type": "disease",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": true,
+                "disease_stage": "PBC",
+                "evidence": "Promoting the molecular mechanism of OTU deubiquitinase 5 (OTUD5) in the treatment of PBC requires further exploration."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "OTUD5",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 34,
+          "char_end": 39
+        },
+        {
+          "mention": "Primary Biliary Cholangitis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Primary Biliary Cholangitis",
+            "disease_stage": "PBC"
+          },
+          "grounded": true,
+          "source_span": "Primary Biliary Cholangitis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 78,
+          "char_end": 105
+        },
+        {
+          "mention": "cholestasis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cholestasis"
+          },
+          "grounded": true,
+          "source_span": "cholestasis",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 218,
+          "char_end": 229
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 187,
+          "char_end": 192
+        },
+        {
+          "mention": "bile duct",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "bile duct"
+          },
+          "grounded": true,
+          "source_span": "bile duct",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 259,
+          "char_end": 268
+        },
+        {
+          "mention": "MAVS",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "mitochondrial antiviral signalling protein",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "MAVS",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1057,
+          "char_end": 1061
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1146,
+          "char_end": 1151
+        },
+        {
+          "mention": "NK cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "NK cell"
+          },
+          "grounded": true,
+          "source_span": "NK cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1528,
+          "char_end": 1535
+        },
+        {
+          "mention": "monocyte",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "monocyte"
+          },
+          "grounded": true,
+          "source_span": "monocyte",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1548,
+          "char_end": 1556
+        },
+        {
+          "mention": "mast cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "mast cell"
+          },
+          "grounded": true,
+          "source_span": "mast cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1557,
+          "char_end": 1566
+        },
+        {
+          "mention": "eosinophil",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "eosinophil"
+          },
+          "grounded": true,
+          "source_span": "eosinophil",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1580,
+          "char_end": 1590
+        },
+        {
+          "mention": "OTUD5",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "OTUD5",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "OTUD5",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1662,
+          "char_end": 1667
+        },
+        {
+          "mention": "PBC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "PBC"
+          },
+          "grounded": true,
+          "source_span": "PBC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1722,
+          "char_end": 1725
+        },
+        {
+          "mention": "OTUD5",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "OTUD5",
+            "species": "Homo sapiens",
+            "interacts_with": [
+              {
+                "target_entity": "MAVS",
+                "target_type": "gene",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down"
+              }
+            ],
+            "associated_with": [
+              {
+                "target_entity": "primary biliary cholangitis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "PBC",
+                "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC"
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "mononuclear macrophages",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "OTUD5",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1746,
+          "char_end": 1751
+        },
+        {
+          "mention": "MAVS",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "MAVS",
+            "species": "Homo sapiens",
+            "interacts_with": [
+              {
+                "target_entity": "OTUD5",
+                "target_type": "gene",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down"
+              }
+            ],
+            "associated_with": [
+              {
+                "target_entity": "primary biliary cholangitis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "PBC",
+                "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC"
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "mononuclear macrophages",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "MAVS",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1752,
+          "char_end": 1756
+        },
+        {
+          "mention": "primary biliary cholangitis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "primary biliary cholangitis",
+            "disease_stage": "PBC"
+          },
+          "grounded": true,
+          "source_span": "primary biliary cholangitis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2177,
+          "char_end": 2204
+        },
+        {
+          "mention": "mononuclear macrophages",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "mononuclear macrophages"
+          },
+          "grounded": true,
+          "source_span": "mononuclear macrophages",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1777,
+          "char_end": 1800
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "OTUD5",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Primary Biliary Cholangitis",
+          "object_type": "Disease",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": true,
+          "disease_stage": "PBC",
+          "evidence": "Promoting the molecular mechanism of OTU deubiquitinase 5 (OTUD5) in the treatment of PBC requires further exploration.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "OTUD5",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "PBC",
+          "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "OTUD5",
+          "subject_type": "Gene",
+          "predicate": "INTERACTS_WITH",
+          "object": "MAVS",
+          "object_type": "Gene",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "OTUD5",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "mononuclear macrophages",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "MAVS",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "PBC",
+          "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "MAVS",
+          "subject_type": "Gene",
+          "predicate": "INTERACTS_WITH",
+          "object": "OTUD5",
+          "object_type": "Gene",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "MAVS",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "mononuclear macrophages",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "OTU deubiquitinase 5",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "OTUD5",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "Primary Biliary Cholangitis",
+                  "target_type": "disease",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": true,
+                  "disease_stage": "PBC",
+                  "evidence": "Promoting the molecular mechanism of OTU deubiquitinase 5 (OTUD5) in the treatment of PBC requires further exploration."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "OTU deubiquitinase 5",
+            "char_start": 314,
+            "char_end": 334,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:otu deubiquitinase 5",
+            "canonical_mentions": [
+              "OTUD5"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Primary Biliary Cholangitis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Primary Biliary Cholangitis",
+              "disease_stage": "PBC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Primary Biliary Cholangitis",
+            "char_start": 78,
+            "char_end": 105,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:primary biliary cholangitis",
+            "canonical_mentions": [
+              "Primary Biliary Cholangitis",
+              "PBC",
+              "primary biliary cholangitis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cholestasis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cholestasis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cholestasis",
+            "char_start": 218,
+            "char_end": 229,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cholestasis",
+            "canonical_mentions": [
+              "cholestasis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 187,
+            "char_end": 192,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "bile duct",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "bile duct"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "bile duct",
+            "char_start": 259,
+            "char_end": 268,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:bile duct",
+            "canonical_mentions": [
+              "bile duct"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "mitochondrial antiviral signalling",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "mitochondrial antiviral signalling protein",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "mitochondrial antiviral signalling",
+            "char_start": 1013,
+            "char_end": 1047,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:mitochondrial antiviral signalling",
+            "canonical_mentions": [
+              "MAVS"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "monocyte",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "monocyte"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "monocyte",
+            "char_start": 1548,
+            "char_end": 1556,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:monocyte",
+            "canonical_mentions": [
+              "monocyte"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "mast cell",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "mast cell"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "mast cell",
+            "char_start": 1557,
+            "char_end": 1566,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:mast cell",
+            "canonical_mentions": [
+              "mast cell"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "mitochondrial antiviral signalling",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "MAVS",
+              "species": "Homo sapiens",
+              "interacts_with": [
+                {
+                  "target_entity": "OTUD5",
+                  "target_type": "gene",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down"
+                }
+              ],
+              "associated_with": [
+                {
+                  "target_entity": "primary biliary cholangitis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "PBC",
+                  "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC"
+                }
+              ],
+              "expressed_in": [
+                {
+                  "target_entity": "mononuclear macrophages",
+                  "target_type": "cell_type",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "mitochondrial antiviral signalling",
+            "char_start": 1013,
+            "char_end": 1047,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:mitochondrial antiviral signalling",
+            "canonical_mentions": [
+              "MAVS"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "mononuclear macrophages",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "mononuclear macrophages"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "mononuclear macrophages",
+            "char_start": 1777,
+            "char_end": 1800,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:mononuclear macrophages",
+            "canonical_mentions": [
+              "mononuclear macrophages"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "OTU deubiquitinase 5",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary Biliary Cholangitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Promoting the molecular mechanism of OTU deubiquitinase 5 (OTUD5) in the treatment of PBC requires further exploration.",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "background_only",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 277,
+            "evidence_char_end": 396,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "OTUD5",
+            "original_object": "Primary Biliary Cholangitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "OTU deubiquitinase 5",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary Biliary Cholangitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 2212,
+            "evidence_char_end": 2278,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "OTUD5",
+            "original_object": "primary biliary cholangitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "OTU deubiquitinase 5",
+            "predicate": "INTERACTS_WITH",
+            "object": "mitochondrial antiviral signalling",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1935,
+            "evidence_char_end": 2027,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "OTUD5",
+            "original_object": "MAVS",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "OTU deubiquitinase 5",
+            "predicate": "EXPRESSED_IN",
+            "object": "mononuclear macrophages",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1727,
+            "evidence_char_end": 1800,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "OTUD5",
+            "original_object": "mononuclear macrophages",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "mitochondrial antiviral signalling",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary Biliary Cholangitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 2212,
+            "evidence_char_end": 2278,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "MAVS",
+            "original_object": "primary biliary cholangitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "mitochondrial antiviral signalling",
+            "predicate": "INTERACTS_WITH",
+            "object": "OTU deubiquitinase 5",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1935,
+            "evidence_char_end": 2027,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "MAVS",
+            "original_object": "OTUD5",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "mitochondrial antiviral signalling",
+            "predicate": "EXPRESSED_IN",
+            "object": "mononuclear macrophages",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1727,
+            "evidence_char_end": 1800,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "MAVS",
+            "original_object": "mononuclear macrophages",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 10,
+          "raw_entity_count": 17,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 8,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 10,
+          "total_relations": 7,
+          "known_relations": 0,
+          "novel_relations": 7,
+          "contradicting_relations": 0,
+          "schema_valid": 7,
+          "import_ready": 2,
+          "structural_score": 1.0,
+          "semantic_score": 0.6836,
+          "evidence_score": 0.8214,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 10,
+              "denominator": 17,
+              "value": 0.5882
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 8,
+              "denominator": 17,
+              "value": 0.4706
+            },
+            "type_constraint_pass_rate": {
+              "count": 15,
+              "denominator": 17,
+              "value": 0.8824
+            },
+            "relation_evidence_exactness": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 2,
+              "denominator": 7,
+              "value": 0.2857
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 5,
+              "denominator": 7,
+              "value": 0.7143
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 1,
+              "denominator": 7,
+              "value": 0.1429
+            },
+            "import_ready_relation_rate": {
+              "count": 2,
+              "denominator": 7,
+              "value": 0.2857
+            }
+          },
+          "linking_stats": {
+            "total": 10,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 10
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 17,
+        "relations": 7,
+        "duplicate_entities": 4,
+        "duplicate_relations": 1
+      },
+      "latency_s": 6.409560875035822,
+      "prompt_tokens": 586,
+      "output_tokens": 2239,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "OTUD5",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "OTUD5",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "Primary Biliary Cholangitis",
+                "target_type": "disease",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": true,
+                "disease_stage": "PBC",
+                "evidence": "Promoting the molecular mechanism of OTU deubiquitinase 5 (OTUD5) in the treatment of PBC requires further exploration."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "OTUD5",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 34,
+          "char_end": 39
+        },
+        {
+          "mention": "Primary Biliary Cholangitis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Primary Biliary Cholangitis",
+            "disease_stage": "PBC"
+          },
+          "grounded": true,
+          "source_span": "Primary Biliary Cholangitis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 78,
+          "char_end": 105
+        },
+        {
+          "mention": "cholestasis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cholestasis"
+          },
+          "grounded": true,
+          "source_span": "cholestasis",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 218,
+          "char_end": 229
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 187,
+          "char_end": 192
+        },
+        {
+          "mention": "bile duct",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "bile duct"
+          },
+          "grounded": true,
+          "source_span": "bile duct",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 259,
+          "char_end": 268
+        },
+        {
+          "mention": "MAVS",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "mitochondrial antiviral signalling protein",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "MAVS",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1057,
+          "char_end": 1061
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1146,
+          "char_end": 1151
+        },
+        {
+          "mention": "NK cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "NK cell"
+          },
+          "grounded": true,
+          "source_span": "NK cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1528,
+          "char_end": 1535
+        },
+        {
+          "mention": "monocyte",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "monocyte"
+          },
+          "grounded": true,
+          "source_span": "monocyte",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1548,
+          "char_end": 1556
+        },
+        {
+          "mention": "mast cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "mast cell"
+          },
+          "grounded": true,
+          "source_span": "mast cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1557,
+          "char_end": 1566
+        },
+        {
+          "mention": "eosinophil",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "eosinophil"
+          },
+          "grounded": true,
+          "source_span": "eosinophil",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1580,
+          "char_end": 1590
+        },
+        {
+          "mention": "OTUD5",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "OTUD5",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "OTUD5",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1662,
+          "char_end": 1667
+        },
+        {
+          "mention": "PBC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "PBC"
+          },
+          "grounded": true,
+          "source_span": "PBC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1722,
+          "char_end": 1725
+        },
+        {
+          "mention": "OTUD5",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "OTUD5",
+            "species": "Homo sapiens",
+            "interacts_with": [
+              {
+                "target_entity": "MAVS",
+                "target_type": "gene",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down"
+              }
+            ],
+            "associated_with": [
+              {
+                "target_entity": "primary biliary cholangitis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "PBC",
+                "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC"
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "mononuclear macrophages",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "OTUD5",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1746,
+          "char_end": 1751
+        },
+        {
+          "mention": "MAVS",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "MAVS",
+            "species": "Homo sapiens",
+            "interacts_with": [
+              {
+                "target_entity": "OTUD5",
+                "target_type": "gene",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down"
+              }
+            ],
+            "associated_with": [
+              {
+                "target_entity": "primary biliary cholangitis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "PBC",
+                "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC"
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "mononuclear macrophages",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "MAVS",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1752,
+          "char_end": 1756
+        },
+        {
+          "mention": "primary biliary cholangitis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "primary biliary cholangitis",
+            "disease_stage": "PBC"
+          },
+          "grounded": true,
+          "source_span": "primary biliary cholangitis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2177,
+          "char_end": 2204
+        },
+        {
+          "mention": "mononuclear macrophages",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "mononuclear macrophages"
+          },
+          "grounded": true,
+          "source_span": "mononuclear macrophages",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1777,
+          "char_end": 1800
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "OTUD5",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Primary Biliary Cholangitis",
+          "object_type": "Disease",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": true,
+          "disease_stage": "PBC",
+          "evidence": "Promoting the molecular mechanism of OTU deubiquitinase 5 (OTUD5) in the treatment of PBC requires further exploration.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "OTUD5",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "PBC",
+          "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "OTUD5",
+          "subject_type": "Gene",
+          "predicate": "INTERACTS_WITH",
+          "object": "MAVS",
+          "object_type": "Gene",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "OTUD5",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "mononuclear macrophages",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "MAVS",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "PBC",
+          "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "MAVS",
+          "subject_type": "Gene",
+          "predicate": "INTERACTS_WITH",
+          "object": "OTUD5",
+          "object_type": "Gene",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "MAVS",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "mononuclear macrophages",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "MAVS",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Primary Biliary Cholangitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement of increased expression in PBC patients."
+        },
+        {
+          "subject": "MAVS",
+          "subject_type": "Protein",
+          "predicate": "EXPRESSED_IN",
+          "object": "mononuclear macrophages",
+          "object_type": "CellType",
+          "direction": "increase",
+          "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement of high expression in mononuclear macrophages."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "OTU deubiquitinase 5",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "OTUD5",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "Primary Biliary Cholangitis",
+                  "target_type": "disease",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": true,
+                  "disease_stage": "PBC",
+                  "evidence": "Promoting the molecular mechanism of OTU deubiquitinase 5 (OTUD5) in the treatment of PBC requires further exploration."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "OTU deubiquitinase 5",
+            "char_start": 314,
+            "char_end": 334,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:otu deubiquitinase 5",
+            "canonical_mentions": [
+              "OTUD5"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Primary Biliary Cholangitis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Primary Biliary Cholangitis",
+              "disease_stage": "PBC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Primary Biliary Cholangitis",
+            "char_start": 78,
+            "char_end": 105,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:primary biliary cholangitis",
+            "canonical_mentions": [
+              "Primary Biliary Cholangitis",
+              "PBC",
+              "primary biliary cholangitis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cholestasis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cholestasis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cholestasis",
+            "char_start": 218,
+            "char_end": 229,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cholestasis",
+            "canonical_mentions": [
+              "cholestasis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 187,
+            "char_end": 192,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "bile duct",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "bile duct"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "bile duct",
+            "char_start": 259,
+            "char_end": 268,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:bile duct",
+            "canonical_mentions": [
+              "bile duct"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "mitochondrial antiviral signalling",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "mitochondrial antiviral signalling protein",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "mitochondrial antiviral signalling",
+            "char_start": 1013,
+            "char_end": 1047,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:mitochondrial antiviral signalling",
+            "canonical_mentions": [
+              "MAVS"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "monocyte",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "monocyte"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "monocyte",
+            "char_start": 1548,
+            "char_end": 1556,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:monocyte",
+            "canonical_mentions": [
+              "monocyte"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "mast cell",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "mast cell"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "mast cell",
+            "char_start": 1557,
+            "char_end": 1566,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:mast cell",
+            "canonical_mentions": [
+              "mast cell"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "mitochondrial antiviral signalling",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "MAVS",
+              "species": "Homo sapiens",
+              "interacts_with": [
+                {
+                  "target_entity": "OTUD5",
+                  "target_type": "gene",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down"
+                }
+              ],
+              "associated_with": [
+                {
+                  "target_entity": "primary biliary cholangitis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "PBC",
+                  "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC"
+                }
+              ],
+              "expressed_in": [
+                {
+                  "target_entity": "mononuclear macrophages",
+                  "target_type": "cell_type",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "mitochondrial antiviral signalling",
+            "char_start": 1013,
+            "char_end": 1047,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:mitochondrial antiviral signalling",
+            "canonical_mentions": [
+              "MAVS"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "mononuclear macrophages",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "mononuclear macrophages"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "mononuclear macrophages",
+            "char_start": 1777,
+            "char_end": 1800,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:mononuclear macrophages",
+            "canonical_mentions": [
+              "mononuclear macrophages"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "OTU deubiquitinase 5",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary Biliary Cholangitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Promoting the molecular mechanism of OTU deubiquitinase 5 (OTUD5) in the treatment of PBC requires further exploration.",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "background_only",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 277,
+            "evidence_char_end": 396,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "OTUD5",
+            "original_object": "Primary Biliary Cholangitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "OTU deubiquitinase 5",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary Biliary Cholangitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 2212,
+            "evidence_char_end": 2278,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "OTUD5",
+            "original_object": "primary biliary cholangitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "OTU deubiquitinase 5",
+            "predicate": "INTERACTS_WITH",
+            "object": "mitochondrial antiviral signalling",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1935,
+            "evidence_char_end": 2027,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "OTUD5",
+            "original_object": "MAVS",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "OTU deubiquitinase 5",
+            "predicate": "EXPRESSED_IN",
+            "object": "mononuclear macrophages",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1727,
+            "evidence_char_end": 1800,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "OTUD5",
+            "original_object": "mononuclear macrophages",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "mitochondrial antiviral signalling",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary Biliary Cholangitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 2212,
+            "evidence_char_end": 2278,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "MAVS",
+            "original_object": "primary biliary cholangitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "mitochondrial antiviral signalling",
+            "predicate": "INTERACTS_WITH",
+            "object": "OTU deubiquitinase 5",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The expression of OTUD5 and MAVS was inhibited in RAW264.7 cells when OTUD5 was knocked down",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1935,
+            "evidence_char_end": 2027,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "MAVS",
+            "original_object": "OTUD5",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "mitochondrial antiviral signalling",
+            "predicate": "EXPRESSED_IN",
+            "object": "mononuclear macrophages",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1727,
+            "evidence_char_end": 1800,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "MAVS",
+            "original_object": "mononuclear macrophages",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "mitochondrial antiviral signalling",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary Biliary Cholangitis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel"
+            ],
+            "evidence_char_start": 2212,
+            "evidence_char_end": 2278,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "MAVS",
+            "original_object": "Primary Biliary Cholangitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "mitochondrial antiviral signalling",
+            "predicate": "EXPRESSED_IN",
+            "object": "mononuclear macrophages",
+            "subject_type": "Protein",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1727,
+            "evidence_char_end": 1800,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "MAVS",
+            "original_object": "mononuclear macrophages",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 10,
+          "raw_entity_count": 17,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 8,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 10,
+          "total_relations": 9,
+          "known_relations": 0,
+          "novel_relations": 9,
+          "contradicting_relations": 0,
+          "schema_valid": 9,
+          "import_ready": 3,
+          "structural_score": 1.0,
+          "semantic_score": 0.6931,
+          "evidence_score": 0.8333,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 10,
+              "denominator": 17,
+              "value": 0.5882
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 8,
+              "denominator": 17,
+              "value": 0.4706
+            },
+            "type_constraint_pass_rate": {
+              "count": 15,
+              "denominator": 17,
+              "value": 0.8824
+            },
+            "relation_evidence_exactness": {
+              "count": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 3,
+              "denominator": 9,
+              "value": 0.3333
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 9,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 9,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 6,
+              "denominator": 9,
+              "value": 0.6667
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 9,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 1,
+              "denominator": 9,
+              "value": 0.1111
+            },
+            "import_ready_relation_rate": {
+              "count": 3,
+              "denominator": 9,
+              "value": 0.3333
+            }
+          },
+          "linking_stats": {
+            "total": 10,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 10
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 17,
+        "relations": 9,
+        "duplicate_entities": 4,
+        "duplicate_relations": 1
+      },
+      "latency_s": 16.507993875071406,
+      "prompt_tokens": 10407,
+      "output_tokens": 4368,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "OTUD5",
+            "entity_type": "Gene",
+            "source_span": "OTUD5",
+            "char_start": 34,
+            "char_end": 39,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention in title and abstract; gene symbol for OTU deubiquitinase 5."
+          },
+          {
+            "mention": "Primary Biliary Cholangitis",
+            "entity_type": "Disease",
+            "source_span": "Primary Biliary Cholangitis",
+            "char_start": 78,
+            "char_end": 105,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Disease name in title and abstract."
+          },
+          {
+            "mention": "cholestasis",
+            "entity_type": "Disease",
+            "source_span": "cholestasis",
+            "char_start": 218,
+            "char_end": 229,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Disease mentioned in background."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 187,
+            "char_end": 192,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Tissue mentioned in background."
+          },
+          {
+            "mention": "bile duct",
+            "entity_type": "Tissue",
+            "source_span": "bile duct",
+            "char_start": 259,
+            "char_end": 268,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Tissue mentioned in background."
+          },
+          {
+            "mention": "MAVS",
+            "entity_type": "Protein",
+            "source_span": "MAVS",
+            "char_start": 1057,
+            "char_end": 1061,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Protein abbreviation for mitochondrial antiviral signalling protein."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 1146,
+            "char_end": 1151,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Tissue mentioned in methods."
+          },
+          {
+            "mention": "NK cell",
+            "entity_type": "CellType",
+            "source_span": "NK cell",
+            "char_start": 1528,
+            "char_end": 1535,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Cell type mentioned in results."
+          },
+          {
+            "mention": "monocyte",
+            "entity_type": "CellType",
+            "source_span": "monocyte",
+            "char_start": 1548,
+            "char_end": 1556,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Cell type mentioned in results."
+          },
+          {
+            "mention": "mast cell",
+            "entity_type": "CellType",
+            "source_span": "mast cell",
+            "char_start": 1557,
+            "char_end": 1566,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Cell type mentioned in results."
+          },
+          {
+            "mention": "eosinophil",
+            "entity_type": "CellType",
+            "source_span": "eosinophil",
+            "char_start": 1580,
+            "char_end": 1590,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Cell type mentioned in results."
+          },
+          {
+            "mention": "OTUD5",
+            "entity_type": "Gene",
+            "source_span": "OTUD5",
+            "char_start": 1662,
+            "char_end": 1667,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Gene mentioned in results."
+          },
+          {
+            "mention": "PBC",
+            "entity_type": "Disease",
+            "source_span": "PBC",
+            "char_start": 1722,
+            "char_end": 1725,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Abbreviation for Primary Biliary Cholangitis."
+          },
+          {
+            "mention": "OTUD5",
+            "entity_type": "Gene",
+            "source_span": "OTUD5",
+            "char_start": 1746,
+            "char_end": 1751,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Gene mentioned in results."
+          },
+          {
+            "mention": "MAVS",
+            "entity_type": "Protein",
+            "source_span": "MAVS",
+            "char_start": 1752,
+            "char_end": 1756,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Protein mentioned in results."
+          },
+          {
+            "mention": "mononuclear macrophages",
+            "entity_type": "CellType",
+            "source_span": "mononuclear macrophages",
+            "char_start": 1777,
+            "char_end": 1800,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Cell type mentioned in results."
+          },
+          {
+            "mention": "primary biliary cholangitis",
+            "entity_type": "Disease",
+            "source_span": "primary biliary cholangitis",
+            "char_start": 2177,
+            "char_end": 2204,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Disease name in conclusion."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "OTUD5",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary Biliary Cholangitis",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+            "evidence_span": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct statement of increased expression in PBC patients."
+          },
+          {
+            "subject": "MAVS",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary Biliary Cholangitis",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+            "evidence_span": "The expression of OTUD5 and MAVS is increased in patients with PBC",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct statement of increased expression in PBC patients."
+          },
+          {
+            "subject": "OTUD5",
+            "subject_type": "Gene",
+            "predicate": "EXPRESSED_IN",
+            "object": "mononuclear macrophages",
+            "object_type": "CellType",
+            "direction": "increase",
+            "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+            "evidence_span": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Direct statement of high expression in mononuclear macrophages."
+          },
+          {
+            "subject": "MAVS",
+            "subject_type": "Protein",
+            "predicate": "EXPRESSED_IN",
+            "object": "mononuclear macrophages",
+            "object_type": "CellType",
+            "direction": "increase",
+            "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+            "evidence_span": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Direct statement of high expression in mononuclear macrophages."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "OTUD5",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary Biliary Cholangitis",
+            "reason": "Evidence is background statement, not a direct association."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "OTUD5",
+            "predicate": "INTERACTS_WITH",
+            "object": "MAVS",
+            "reason": "Evidence only shows co-expression and knockdown effect, not direct interaction."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "MAVS",
+            "predicate": "INTERACTS_WITH",
+            "object": "OTUD5",
+            "reason": "Evidence only shows co-expression and knockdown effect, not direct interaction."
+          }
+        ],
+        "review_reason": "Corrected entity types (MAVS as Protein, not Gene), removed unsupported relations (background association, interaction from knockdown), and retained only relations with direct evidence from results.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 2,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "OTUD5",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Primary Biliary Cholangitis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cholestasis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "bile duct"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "MAVS",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "NK cell",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "monocyte"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "mast cell"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "eosinophil",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "OTUD5",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "PBC",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "OTUD5",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "MAVS",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "mononuclear macrophages"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "primary biliary cholangitis"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "OTUD5",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary Biliary Cholangitis"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "OTUD5",
+            "predicate": "EXPRESSED_IN",
+            "object": "mononuclear macrophages"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "Primary biliary cholangitis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008108"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Primary biliary cholangitis",
+          "char_start": 129,
+          "char_end": 156
+        },
+        {
+          "mention": "OTUD5",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "OTUD5"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "OTUD5",
+          "char_start": 34,
+          "char_end": 39
+        },
+        {
+          "mention": "MAVS",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "MAVS"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "MAVS",
+          "char_start": 51,
+          "char_end": 55
+        },
+        {
+          "mention": "NK cell",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000623"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "NK cell",
+          "char_start": 1528,
+          "char_end": 1535
+        },
+        {
+          "mention": "monocyte",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000576"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "monocyte",
+          "char_start": 1548,
+          "char_end": 1556
+        },
+        {
+          "mention": "mast cell",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000097"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "mast cell",
+          "char_start": 1557,
+          "char_end": 1566
+        },
+        {
+          "mention": "eosinophil",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000771"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "eosinophil",
+          "char_start": 1580,
+          "char_end": 1590
+        },
+        {
+          "mention": "macrophage",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000235"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "macrophage",
+          "char_start": 1789,
+          "char_end": 1799
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "UBERON:0002107"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "liver",
+          "char_start": 187,
+          "char_end": 192
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "OTUD5",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "the expression of OTUD5 and MAVS was increased in 16 tissues of patients with PBC",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "MAVS",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "the expression of OTUD5 and MAVS was increased in 16 tissues of patients with PBC",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "OTUD5",
+          "subject_type": "Gene",
+          "predicate": "INTERACTS_WITH",
+          "object": "MAVS",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "This study focused on the overexpression of OTUD5 and its interaction with MAVS within macrophage subset 11 in patients with primary biliary cholangitis (PBC).",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "NK cell",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "the liver tissues of patients with PBC presented increased NK cell activation",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "monocyte",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "the liver tissues of patients with PBC presented increased NK cell activation, monocyte/mast cell numbers, and eosinophil numbers.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "mast cell",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "the liver tissues of patients with PBC presented increased NK cell activation, monocyte/mast cell numbers, and eosinophil numbers.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "eosinophil",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "the liver tissues of patients with PBC presented increased NK cell activation, monocyte/mast cell numbers, and eosinophil numbers.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "macrophage",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages was screened by PBMC scRNA-seq",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "OTUD5",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "macrophage",
+          "object_type": "CellType",
+          "direction": "increase",
+          "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages was screened by PBMC scRNA-seq",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "MAVS",
+          "subject_type": "Protein",
+          "predicate": "EXPRESSED_IN",
+          "object": "macrophage",
+          "object_type": "CellType",
+          "direction": "increase",
+          "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages was screened by PBMC scRNA-seq",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Primary biliary cholangitis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D008108"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Primary biliary cholangitis",
+            "char_start": 129,
+            "char_end": 156,
+            "grounded": true,
+            "normalized_id": "D008108",
+            "canonical_key": "Disease:primary biliary cholangitis",
+            "canonical_mentions": [
+              "Primary biliary cholangitis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "OTU deubiquitinase 5",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "OTUD5"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "OTU deubiquitinase 5",
+            "char_start": 314,
+            "char_end": 334,
+            "grounded": true,
+            "normalized_id": "OTUD5",
+            "canonical_key": "Gene:otu deubiquitinase 5",
+            "canonical_mentions": [
+              "OTUD5"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "mitochondrial antiviral signalling",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "MAVS"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "mitochondrial antiviral signalling",
+            "char_start": 1013,
+            "char_end": 1047,
+            "grounded": true,
+            "normalized_id": "MAVS",
+            "canonical_key": "Protein:mitochondrial antiviral signalling",
+            "canonical_mentions": [
+              "MAVS"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "monocyte",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CL:0000576"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "monocyte",
+            "char_start": 1548,
+            "char_end": 1556,
+            "grounded": true,
+            "normalized_id": "CL:0000576",
+            "canonical_key": "CellType:monocyte",
+            "canonical_mentions": [
+              "monocyte"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "mast cell",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CL:0000097"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "mast cell",
+            "char_start": 1557,
+            "char_end": 1566,
+            "grounded": true,
+            "normalized_id": "CL:0000097",
+            "canonical_key": "CellType:mast cell",
+            "canonical_mentions": [
+              "mast cell"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "macrophage",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CL:0000235"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "macrophage",
+            "char_start": 1789,
+            "char_end": 1799,
+            "grounded": true,
+            "normalized_id": "CL:0000235",
+            "canonical_key": "CellType:macrophage",
+            "canonical_mentions": [
+              "macrophage"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "UBERON:0002107"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 187,
+            "char_end": 192,
+            "grounded": true,
+            "normalized_id": "UBERON:0002107",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "OTU deubiquitinase 5",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary biliary cholangitis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "the expression of OTUD5 and MAVS was increased in 16 tissues of patients with PBC",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1644,
+            "evidence_char_end": 1725,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "OTUD5",
+            "original_object": "Primary biliary cholangitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "mitochondrial antiviral signalling",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary biliary cholangitis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "the expression of OTUD5 and MAVS was increased in 16 tissues of patients with PBC",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1644,
+            "evidence_char_end": 1725,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "MAVS",
+            "original_object": "Primary biliary cholangitis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "OTU deubiquitinase 5",
+            "predicate": "INTERACTS_WITH",
+            "object": "mitochondrial antiviral signalling",
+            "subject_type": "Gene",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "This study focused on the overexpression of OTUD5 and its interaction with MAVS within macrophage subset 11 in patients with primary biliary cholangitis (PBC).",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 2052,
+            "evidence_char_end": 2211,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "OTUD5",
+            "original_object": "MAVS",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "NK cell",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary biliary cholangitis",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "the liver tissues of patients with PBC presented increased NK cell activation",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_not_grounded",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1469,
+            "evidence_char_end": 1546,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "NK cell",
+            "original_object": "Primary biliary cholangitis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "monocyte",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary biliary cholangitis",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "the liver tissues of patients with PBC presented increased NK cell activation, monocyte/mast cell numbers, and eosinophil numbers.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1469,
+            "evidence_char_end": 1599,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "monocyte",
+            "original_object": "Primary biliary cholangitis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "mast cell",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary biliary cholangitis",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "the liver tissues of patients with PBC presented increased NK cell activation, monocyte/mast cell numbers, and eosinophil numbers.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1469,
+            "evidence_char_end": 1599,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "mast cell",
+            "original_object": "Primary biliary cholangitis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "eosinophil",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary biliary cholangitis",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "the liver tissues of patients with PBC presented increased NK cell activation, monocyte/mast cell numbers, and eosinophil numbers.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_not_grounded",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1469,
+            "evidence_char_end": 1599,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "eosinophil",
+            "original_object": "Primary biliary cholangitis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "macrophage",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Primary biliary cholangitis",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages was screened by PBMC scRNA-seq",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "method_only",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1727,
+            "evidence_char_end": 1831,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "macrophage",
+            "original_object": "Primary biliary cholangitis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "OTU deubiquitinase 5",
+            "predicate": "EXPRESSED_IN",
+            "object": "macrophage",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages was screened by PBMC scRNA-seq",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "method_only",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1727,
+            "evidence_char_end": 1831,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "OTUD5",
+            "original_object": "macrophage",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "mitochondrial antiviral signalling",
+            "predicate": "EXPRESSED_IN",
+            "object": "macrophage",
+            "subject_type": "Protein",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "High expression of OTUD5-MAVS in subpopulation 11 mononuclear macrophages was screened by PBMC scRNA-seq",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "method_only",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1727,
+            "evidence_char_end": 1831,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "MAVS",
+            "original_object": "macrophage",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 7,
+          "raw_entity_count": 9,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 7,
+          "total_relations": 10,
+          "known_relations": 0,
+          "novel_relations": 10,
+          "contradicting_relations": 0,
+          "schema_valid": 10,
+          "import_ready": 1,
+          "structural_score": 1.0,
+          "semantic_score": 0.5467,
+          "evidence_score": 0.53,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 7,
+              "denominator": 9,
+              "value": 0.7778
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 9,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 9,
+              "value": 0.2222
+            },
+            "type_constraint_pass_rate": {
+              "count": 7,
+              "denominator": 9,
+              "value": 0.7778
+            },
+            "relation_evidence_exactness": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 3,
+              "denominator": 10,
+              "value": 0.3
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 10,
+              "value": 0.1
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 10,
+              "value": 0.2
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 10,
+              "value": 0.2
+            },
+            "weak_evidence_rate": {
+              "count": 9,
+              "denominator": 10,
+              "value": 0.9
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 1,
+              "denominator": 10,
+              "value": 0.1
+            }
+          },
+          "linking_stats": {
+            "total": 7,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 7
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 9,
+        "relations": 10,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 7.902550374623388,
+      "prompt_tokens": 1604,
+      "output_tokens": 1601,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "run_id": "three_extractors_50_20260811_224936",
+  "started_at": "2026-08-11T14:49:37.974698+00:00",
+  "documents": 50,
+  "max_workers": 10,
+  "model_id": "[按次]gemini-2.5-flash",
+  "api_base": "https://new.bitexingai.com",
+  "gold_path": "/Users/a1234/Desktop/FYP/github_upload/FYP-liver-disease/pubmed_literature_extraction/gold_annotations/pubmed_50_gold_v1.jsonl",
+  "source_path": "/Users/a1234/Desktop/FYP/github_upload/FYP-liver-disease/pubmed_literature_extraction/extraction_output/pubmed_converted_500.jsonl",
+  "neo4j_reads": false,
+  "neo4j_writes": false,
+  "arm_definitions": {
+    "original_agent": "LangExtract candidates + current deterministic verifier; Phase B/C off",
+    "langextract_llm_hybrid": "same LangExtract call + always-on LLM correction + deterministic re-verification",
+    "flash_direct": "strict JSON direct model extraction without LangExtract + deterministic verifier"
+  },
+  "cost_note": "Reference estimate using configured per-token prices; not a proxy invoice."
+}

@@ -1,0 +1,2436 @@
+{
+  "pmid": "41668355",
+  "title": "Effect of Nutritional Status on Coagulation and Inflammation in Patients With Cirrhosis and Variceal Bleeding.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis",
+            "disease_stage": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 85,
+          "char_end": 94
+        },
+        {
+          "mention": "variceal bleeding",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "variceal bleeding",
+            "disease_stage": "EVB"
+          },
+          "grounded": true,
+          "source_span": "variceal bleeding",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 99,
+          "char_end": 116
+        },
+        {
+          "mention": "portal hypertension",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "portal hypertension"
+          },
+          "grounded": true,
+          "source_span": "portal hypertension",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 260,
+          "char_end": 279
+        },
+        {
+          "mention": "malnutrition",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "malnutrition"
+          },
+          "grounded": true,
+          "source_span": "malnutrition",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 139,
+          "char_end": 151
+        },
+        {
+          "mention": "malnutrition",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "malnutrition",
+            "disease_stage": "moderate-to-severe"
+          },
+          "grounded": true,
+          "source_span": "malnutrition",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1004,
+          "char_end": 1016
+        },
+        {
+          "mention": "cirrhotic EVB",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhotic EVB",
+            "disease_stage": "cirrhotic"
+          },
+          "grounded": true,
+          "source_span": "cirrhotic EVB",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1805,
+          "char_end": 1818
+        },
+        {
+          "mention": "prothrombin time",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "prothrombin time"
+          },
+          "grounded": true,
+          "source_span": "prothrombin time",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1145,
+          "char_end": 1161
+        },
+        {
+          "mention": "international normalized ratio",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "international normalized ratio"
+          },
+          "grounded": true,
+          "source_span": "international normalized ratio",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1171,
+          "char_end": 1201
+        },
+        {
+          "mention": "prothrombin activity",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "prothrombin activity"
+          },
+          "grounded": true,
+          "source_span": "prothrombin activity",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1217,
+          "char_end": 1237
+        },
+        {
+          "mention": "D-dimer",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "D-dimer"
+          },
+          "grounded": true,
+          "source_span": "D-dimer",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1258,
+          "char_end": 1265
+        },
+        {
+          "mention": "interleukin-6",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "interleukin-6"
+          },
+          "grounded": true,
+          "source_span": "interleukin-6",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1312,
+          "char_end": 1325
+        },
+        {
+          "mention": "CONUT scores",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "CONUT scores"
+          },
+          "grounded": true,
+          "source_span": "CONUT scores",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1377,
+          "char_end": 1389
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis",
+              "disease_stage": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Cirrhosis",
+            "char_start": 85,
+            "char_end": 94,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "variceal bleeding",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "variceal bleeding",
+              "disease_stage": "EVB"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Variceal Bleeding",
+            "char_start": 99,
+            "char_end": 116,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:variceal bleeding",
+            "canonical_mentions": [
+              "variceal bleeding"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "portal hypertension",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "portal hypertension"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "portal hypertension",
+            "char_start": 260,
+            "char_end": 279,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:portal hypertension",
+            "canonical_mentions": [
+              "portal hypertension"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "malnutrition",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "malnutrition"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Malnutrition",
+            "char_start": 139,
+            "char_end": 151,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:malnutrition",
+            "canonical_mentions": [
+              "malnutrition"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhotic EVB",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhotic EVB",
+              "disease_stage": "cirrhotic"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhotic EVB",
+            "char_start": 1805,
+            "char_end": 1818,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhotic evb",
+            "canonical_mentions": [
+              "cirrhotic EVB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "prothrombin time",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "prothrombin time"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "prothrombin time",
+            "char_start": 1145,
+            "char_end": 1161,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:prothrombin time",
+            "canonical_mentions": [
+              "prothrombin time"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "international normalized ratio",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "international normalized ratio"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "international normalized ratio",
+            "char_start": 1171,
+            "char_end": 1201,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:international normalized ratio",
+            "canonical_mentions": [
+              "international normalized ratio"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "prothrombin activity",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "prothrombin activity"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "prothrombin activity",
+            "char_start": 1217,
+            "char_end": 1237,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:prothrombin activity",
+            "canonical_mentions": [
+              "prothrombin activity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "D-dimer",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "D-dimer"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "D-dimer",
+            "char_start": 1258,
+            "char_end": 1265,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:d dimer",
+            "canonical_mentions": [
+              "D-dimer"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "interleukin-6",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "interleukin-6"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "interleukin-6",
+            "char_start": 1312,
+            "char_end": 1325,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:interleukin 6",
+            "canonical_mentions": [
+              "interleukin-6"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CONUT scores",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "CONUT scores"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CONUT scores",
+            "char_start": 1377,
+            "char_end": 1389,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:conut scores",
+            "canonical_mentions": [
+              "CONUT scores"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 11,
+          "raw_entity_count": 12,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 11,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.9708,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 11,
+              "denominator": 12,
+              "value": 0.9167
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 12,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 12,
+              "value": 0.0833
+            },
+            "type_constraint_pass_rate": {
+              "count": 12,
+              "denominator": 12,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 11,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 11
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 12,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.9175839996896684,
+      "prompt_tokens": 511,
+      "output_tokens": 837,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis",
+            "disease_stage": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 85,
+          "char_end": 94
+        },
+        {
+          "mention": "variceal bleeding",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "variceal bleeding",
+            "disease_stage": "EVB"
+          },
+          "grounded": true,
+          "source_span": "variceal bleeding",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 99,
+          "char_end": 116
+        },
+        {
+          "mention": "portal hypertension",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "portal hypertension"
+          },
+          "grounded": true,
+          "source_span": "portal hypertension",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 260,
+          "char_end": 279
+        },
+        {
+          "mention": "malnutrition",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "malnutrition",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of existing malnutrition entity; merged."
+          },
+          "grounded": true,
+          "source_span": "malnutrition",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 139,
+          "char_end": 151
+        },
+        {
+          "mention": "malnutrition",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "malnutrition",
+            "disease_stage": "moderate-to-severe",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of existing malnutrition entity; merged."
+          },
+          "grounded": true,
+          "source_span": "malnutrition",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1004,
+          "char_end": 1016
+        },
+        {
+          "mention": "cirrhotic EVB",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhotic EVB",
+            "disease_stage": "cirrhotic"
+          },
+          "grounded": true,
+          "source_span": "cirrhotic EVB",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1805,
+          "char_end": 1818
+        },
+        {
+          "mention": "prothrombin time",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "prothrombin time"
+          },
+          "grounded": true,
+          "source_span": "prothrombin time",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1145,
+          "char_end": 1161
+        },
+        {
+          "mention": "international normalized ratio",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "international normalized ratio"
+          },
+          "grounded": true,
+          "source_span": "international normalized ratio",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1171,
+          "char_end": 1201
+        },
+        {
+          "mention": "prothrombin activity",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "prothrombin activity"
+          },
+          "grounded": true,
+          "source_span": "prothrombin activity",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1217,
+          "char_end": 1237
+        },
+        {
+          "mention": "D-dimer",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "D-dimer"
+          },
+          "grounded": true,
+          "source_span": "D-dimer",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1258,
+          "char_end": 1265
+        },
+        {
+          "mention": "interleukin-6",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "interleukin-6"
+          },
+          "grounded": true,
+          "source_span": "interleukin-6",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1312,
+          "char_end": 1325
+        },
+        {
+          "mention": "CONUT scores",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "CONUT scores"
+          },
+          "grounded": true,
+          "source_span": "CONUT scores",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1377,
+          "char_end": 1389
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "CONUT scores",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "prothrombin time",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05)",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit positive correlation stated in abstract."
+        },
+        {
+          "subject": "CONUT scores",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "international normalized ratio",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05)",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit positive correlation stated in abstract."
+        },
+        {
+          "subject": "CONUT scores",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "interleukin-6",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05), and IL-6 (rs=0.211, P<0.05)",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit positive correlation stated in abstract."
+        },
+        {
+          "subject": "CONUT scores",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "prothrombin activity",
+          "object_type": "Protein",
+          "direction": "negative",
+          "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05), and IL-6 (rs=0.211, P<0.05) and negatively correlated with PTA (rs=-0.432, P<0.05)",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit negative correlation stated in abstract."
+        },
+        {
+          "subject": "prothrombin time",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "malnutrition",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "PT identified as independent risk factor for malnutrition."
+        },
+        {
+          "subject": "international normalized ratio",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "malnutrition",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "INR identified as independent risk factor for malnutrition."
+        },
+        {
+          "subject": "D-dimer",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "malnutrition",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "D-dimer identified as independent risk factor for malnutrition."
+        },
+        {
+          "subject": "interleukin-6",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "malnutrition",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "IL-6 identified as independent risk factor for malnutrition."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis",
+              "disease_stage": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Cirrhosis",
+            "char_start": 85,
+            "char_end": 94,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "variceal bleeding",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "variceal bleeding",
+              "disease_stage": "EVB"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Variceal Bleeding",
+            "char_start": 99,
+            "char_end": 116,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:variceal bleeding",
+            "canonical_mentions": [
+              "variceal bleeding"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "portal hypertension",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "portal hypertension"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "portal hypertension",
+            "char_start": 260,
+            "char_end": 279,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:portal hypertension",
+            "canonical_mentions": [
+              "portal hypertension"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "malnutrition",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "malnutrition",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of existing malnutrition entity; merged."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Malnutrition",
+            "char_start": 139,
+            "char_end": 151,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:malnutrition",
+            "canonical_mentions": [
+              "malnutrition"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhotic EVB",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhotic EVB",
+              "disease_stage": "cirrhotic"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhotic EVB",
+            "char_start": 1805,
+            "char_end": 1818,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhotic evb",
+            "canonical_mentions": [
+              "cirrhotic EVB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "prothrombin time",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "prothrombin time"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "prothrombin time",
+            "char_start": 1145,
+            "char_end": 1161,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:prothrombin time",
+            "canonical_mentions": [
+              "prothrombin time"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "international normalized ratio",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "international normalized ratio"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "international normalized ratio",
+            "char_start": 1171,
+            "char_end": 1201,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:international normalized ratio",
+            "canonical_mentions": [
+              "international normalized ratio"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "prothrombin activity",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "prothrombin activity"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "prothrombin activity",
+            "char_start": 1217,
+            "char_end": 1237,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:prothrombin activity",
+            "canonical_mentions": [
+              "prothrombin activity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "D-dimer",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "D-dimer"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "D-dimer",
+            "char_start": 1258,
+            "char_end": 1265,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:d dimer",
+            "canonical_mentions": [
+              "D-dimer"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "interleukin-6",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "interleukin-6"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "interleukin-6",
+            "char_start": 1312,
+            "char_end": 1325,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:interleukin 6",
+            "canonical_mentions": [
+              "interleukin-6"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CONUT scores",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "CONUT scores"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CONUT scores",
+            "char_start": 1377,
+            "char_end": 1389,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:conut scores",
+            "canonical_mentions": [
+              "CONUT scores"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "CONUT scores",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "prothrombin time",
+            "subject_type": "Protein",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1377,
+            "evidence_char_end": 1443,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CONUT scores",
+            "original_object": "prothrombin time",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CONUT scores",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "international normalized ratio",
+            "subject_type": "Protein",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1377,
+            "evidence_char_end": 1467,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CONUT scores",
+            "original_object": "international normalized ratio",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CONUT scores",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "interleukin-6",
+            "subject_type": "Protein",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05), and IL-6 (rs=0.211, P<0.05)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1377,
+            "evidence_char_end": 1496,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CONUT scores",
+            "original_object": "interleukin-6",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CONUT scores",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "prothrombin activity",
+            "subject_type": "Protein",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05), and IL-6 (rs=0.211, P<0.05) and negatively correlated with PTA (rs=-0.432, P<0.05)",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1377,
+            "evidence_char_end": 1551,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CONUT scores",
+            "original_object": "prothrombin activity",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "prothrombin time",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "malnutrition",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1553,
+            "evidence_char_end": 1709,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "prothrombin time",
+            "original_object": "malnutrition",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "international normalized ratio",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "malnutrition",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1553,
+            "evidence_char_end": 1709,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "international normalized ratio",
+            "original_object": "malnutrition",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "D-dimer",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "malnutrition",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1553,
+            "evidence_char_end": 1709,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "D-dimer",
+            "original_object": "malnutrition",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "interleukin-6",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "malnutrition",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1553,
+            "evidence_char_end": 1709,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "interleukin-6",
+            "original_object": "malnutrition",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 11,
+          "raw_entity_count": 12,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 11,
+          "total_relations": 8,
+          "known_relations": 0,
+          "novel_relations": 8,
+          "contradicting_relations": 0,
+          "schema_valid": 8,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5958,
+          "evidence_score": 0.4438,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 11,
+              "denominator": 12,
+              "value": 0.9167
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 12,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 12,
+              "value": 0.0833
+            },
+            "type_constraint_pass_rate": {
+              "count": 12,
+              "denominator": 12,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 8,
+              "value": 0.125
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 11,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 11
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 12,
+        "relations": 8,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 13.489707083441317,
+      "prompt_tokens": 8223,
+      "output_tokens": 3386,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "cirrhosis",
+            "entity_type": "Disease",
+            "source_span": "cirrhosis",
+            "char_start": 85,
+            "char_end": 94,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in title and abstract; disease entity."
+          },
+          {
+            "mention": "variceal bleeding",
+            "entity_type": "Disease",
+            "source_span": "variceal bleeding",
+            "char_start": 99,
+            "char_end": 116,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in title; disease entity."
+          },
+          {
+            "mention": "portal hypertension",
+            "entity_type": "Disease",
+            "source_span": "portal hypertension",
+            "char_start": 260,
+            "char_end": 279,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "malnutrition",
+            "entity_type": "Disease",
+            "source_span": "Malnutrition",
+            "char_start": 139,
+            "char_end": 151,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "cirrhotic EVB",
+            "entity_type": "Disease",
+            "source_span": "cirrhotic EVB",
+            "char_start": 1805,
+            "char_end": 1818,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "prothrombin time",
+            "entity_type": "Protein",
+            "source_span": "prothrombin time",
+            "char_start": 1145,
+            "char_end": 1161,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; protein entity."
+          },
+          {
+            "mention": "international normalized ratio",
+            "entity_type": "Protein",
+            "source_span": "international normalized ratio",
+            "char_start": 1171,
+            "char_end": 1201,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; protein entity."
+          },
+          {
+            "mention": "prothrombin activity",
+            "entity_type": "Protein",
+            "source_span": "prothrombin activity",
+            "char_start": 1217,
+            "char_end": 1237,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; protein entity."
+          },
+          {
+            "mention": "D-dimer",
+            "entity_type": "Protein",
+            "source_span": "D-dimer",
+            "char_start": 1258,
+            "char_end": 1265,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; protein entity."
+          },
+          {
+            "mention": "interleukin-6",
+            "entity_type": "Protein",
+            "source_span": "interleukin-6",
+            "char_start": 1312,
+            "char_end": 1325,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; protein entity."
+          },
+          {
+            "mention": "CONUT scores",
+            "entity_type": "Protein",
+            "source_span": "CONUT scores",
+            "char_start": 1377,
+            "char_end": 1389,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; protein entity."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "CONUT scores",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "prothrombin time",
+            "object_type": "Protein",
+            "direction": "positive",
+            "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05)",
+            "evidence_span": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05)",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicit positive correlation stated in abstract."
+          },
+          {
+            "subject": "CONUT scores",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "international normalized ratio",
+            "object_type": "Protein",
+            "direction": "positive",
+            "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05)",
+            "evidence_span": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05)",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicit positive correlation stated in abstract."
+          },
+          {
+            "subject": "CONUT scores",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "interleukin-6",
+            "object_type": "Protein",
+            "direction": "positive",
+            "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05), and IL-6 (rs=0.211, P<0.05)",
+            "evidence_span": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05), and IL-6 (rs=0.211, P<0.05)",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicit positive correlation stated in abstract."
+          },
+          {
+            "subject": "CONUT scores",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "prothrombin activity",
+            "object_type": "Protein",
+            "direction": "negative",
+            "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05), and IL-6 (rs=0.211, P<0.05) and negatively correlated with PTA (rs=-0.432, P<0.05)",
+            "evidence_span": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05), and IL-6 (rs=0.211, P<0.05) and negatively correlated with PTA (rs=-0.432, P<0.05)",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicit negative correlation stated in abstract."
+          },
+          {
+            "subject": "prothrombin time",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "malnutrition",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+            "evidence_span": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "PT identified as independent risk factor for malnutrition."
+          },
+          {
+            "subject": "international normalized ratio",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "malnutrition",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+            "evidence_span": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "INR identified as independent risk factor for malnutrition."
+          },
+          {
+            "subject": "D-dimer",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "malnutrition",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+            "evidence_span": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "D-dimer identified as independent risk factor for malnutrition."
+          },
+          {
+            "subject": "interleukin-6",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "malnutrition",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+            "evidence_span": "General linear model analysis identified PT (OR=1.214), INR (OR=0.172), D-dimer (OR=3.460), and IL-6 (OR=1.439) as independent risk factors for malnutrition",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "IL-6 identified as independent risk factor for malnutrition."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "malnutrition",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of existing malnutrition entity; merged."
+          }
+        ],
+        "review_reason": "Corrected entity types and added relations based on explicit correlations and risk factor statements in the abstract. Rejected duplicate malnutrition mention.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 8,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "variceal bleeding"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "portal hypertension"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "malnutrition"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhotic EVB"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "prothrombin time"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "international normalized ratio"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "prothrombin activity"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "D-dimer"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "interleukin-6"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "CONUT scores"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "malnutrition",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of existing malnutrition entity; merged."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "liver cirrhosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008103"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "liver cirrhosis",
+          "char_start": 190,
+          "char_end": 205
+        },
+        {
+          "mention": "variceal bleeding",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D014570"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "variceal bleeding",
+          "char_start": 235,
+          "char_end": 252
+        },
+        {
+          "mention": "malnutrition",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D044342"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "malnutrition",
+          "char_start": 1004,
+          "char_end": 1016
+        },
+        {
+          "mention": "prothrombin time",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "D011517"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "prothrombin time",
+          "char_start": 1145,
+          "char_end": 1161
+        },
+        {
+          "mention": "international normalized ratio",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "D019927"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "international normalized ratio",
+          "char_start": 1171,
+          "char_end": 1201
+        },
+        {
+          "mention": "prothrombin activity",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "D011517"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "prothrombin activity",
+          "char_start": 1217,
+          "char_end": 1237
+        },
+        {
+          "mention": "D-dimer",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "D004228"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "D-dimer",
+          "char_start": 1258,
+          "char_end": 1265
+        },
+        {
+          "mention": "interleukin-6",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P05231"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "interleukin-6",
+          "char_start": 1312,
+          "char_end": 1325
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "malnutrition",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "prothrombin time",
+          "object_type": "Metabolite",
+          "direction": "positive",
+          "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "malnutrition",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "international normalized ratio",
+          "object_type": "Metabolite",
+          "direction": "positive",
+          "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "malnutrition",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "prothrombin activity",
+          "object_type": "Metabolite",
+          "direction": "negative",
+          "evidence": "negatively correlated with PTA (rs=-0.432, P<0.05)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "malnutrition",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "interleukin-6",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05), and IL-6 (rs=0.211, P<0.05)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "malnutrition",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "D-dimer",
+          "object_type": "Metabolite",
+          "direction": "positive",
+          "evidence": "D-dimer (OR=3.460) as independent risk factors for malnutrition",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.85
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "liver cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "D008103"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver cirrhosis",
+            "char_start": 190,
+            "char_end": 205,
+            "grounded": true,
+            "normalized_id": "D008103",
+            "canonical_key": "Disease:liver cirrhosis",
+            "canonical_mentions": [
+              "liver cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "variceal bleeding",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D014570"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "variceal bleeding",
+            "char_start": 235,
+            "char_end": 252,
+            "grounded": true,
+            "normalized_id": "D014570",
+            "canonical_key": "Disease:variceal bleeding",
+            "canonical_mentions": [
+              "variceal bleeding"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "malnutrition",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D044342"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "malnutrition",
+            "char_start": 1004,
+            "char_end": 1016,
+            "grounded": true,
+            "normalized_id": "D044342",
+            "canonical_key": "Disease:malnutrition",
+            "canonical_mentions": [
+              "malnutrition"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "prothrombin activity",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "D011517"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "prothrombin activity",
+            "char_start": 1217,
+            "char_end": 1237,
+            "grounded": true,
+            "normalized_id": "D011517",
+            "canonical_key": "Metabolite:prothrombin activity",
+            "canonical_mentions": [
+              "prothrombin time",
+              "prothrombin activity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "international normalized ratio",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "D019927"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "international normalized ratio",
+            "char_start": 1171,
+            "char_end": 1201,
+            "grounded": true,
+            "normalized_id": "D019927",
+            "canonical_key": "Metabolite:international normalized ratio",
+            "canonical_mentions": [
+              "international normalized ratio"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "D-dimer",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D004228"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "D-dimer",
+            "char_start": 1258,
+            "char_end": 1265,
+            "grounded": true,
+            "normalized_id": "D004228",
+            "canonical_key": "Metabolite:d dimer",
+            "canonical_mentions": [
+              "D-dimer"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "interleukin-6",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "P05231"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "interleukin-6",
+            "char_start": 1312,
+            "char_end": 1325,
+            "grounded": true,
+            "normalized_id": "P05231",
+            "canonical_key": "Protein:interleukin 6",
+            "canonical_mentions": [
+              "interleukin-6"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "malnutrition",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "prothrombin activity",
+            "subject_type": "Disease",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1377,
+            "evidence_char_end": 1443,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "malnutrition",
+            "original_object": "prothrombin time",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "malnutrition",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "international normalized ratio",
+            "subject_type": "Disease",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1377,
+            "evidence_char_end": 1467,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "malnutrition",
+            "original_object": "international normalized ratio",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "malnutrition",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "prothrombin activity",
+            "subject_type": "Disease",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "negatively correlated with PTA (rs=-0.432, P<0.05)",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1501,
+            "evidence_char_end": 1551,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "malnutrition",
+            "original_object": "prothrombin activity",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "malnutrition",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "interleukin-6",
+            "subject_type": "Disease",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "CONUT scores were positively correlated with PT (rs=0.508, P<0.05), INR (rs=0.515, P<0.05), and IL-6 (rs=0.211, P<0.05)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1377,
+            "evidence_char_end": 1496,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "malnutrition",
+            "original_object": "interleukin-6",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "malnutrition",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "D-dimer",
+            "subject_type": "Disease",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "D-dimer (OR=3.460) as independent risk factors for malnutrition",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "evidence_not_contiguous",
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": -1,
+            "evidence_char_end": -1,
+            "evidence_contiguous": false,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "malnutrition",
+            "original_object": "D-dimer",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 7,
+          "raw_entity_count": 8,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 7,
+          "total_relations": 5,
+          "known_relations": 0,
+          "novel_relations": 5,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 0.4,
+          "semantic_score": 0.5962,
+          "evidence_score": 0.39,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 7,
+              "denominator": 8,
+              "value": 0.875
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 8,
+              "value": 0.125
+            },
+            "type_constraint_pass_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 5,
+              "value": 0.2
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 7,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 7
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 8,
+        "relations": 5,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.789413707796484,
+      "prompt_tokens": 1598,
+      "output_tokens": 979,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

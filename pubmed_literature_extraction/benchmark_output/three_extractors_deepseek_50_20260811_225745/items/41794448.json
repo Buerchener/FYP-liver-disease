@@ -1,0 +1,4182 @@
+{
+  "pmid": "41794448",
+  "title": "Hepatoprotective potential of anthocyanins from purple highland barley bran against non-alcoholic fatty liver disease through gut-liver axis.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "Non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 91,
+          "char_end": 124
+        },
+        {
+          "mention": "anthocyanins",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "anthocyanins"
+          },
+          "grounded": true,
+          "source_span": "anthocyanins",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 37,
+          "char_end": 49
+        },
+        {
+          "mention": "gut-liver axis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "gut-liver axis"
+          },
+          "grounded": true,
+          "source_span": "gut-liver axis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 133,
+          "char_end": 147
+        },
+        {
+          "mention": "resistant starch",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "resistant starch"
+          },
+          "grounded": true,
+          "source_span": "resistant starch",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 689,
+          "char_end": 705
+        },
+        {
+          "mention": "total glyceride",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "total glyceride"
+          },
+          "grounded": true,
+          "source_span": "total glyceride",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 889,
+          "char_end": 904
+        },
+        {
+          "mention": "total cholesterol",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "total cholesterol"
+          },
+          "grounded": true,
+          "source_span": "total cholesterol",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 914,
+          "char_end": 931
+        },
+        {
+          "mention": "oxidative stress",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "oxidative stress"
+          },
+          "grounded": true,
+          "source_span": "oxidative stress",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1051,
+          "char_end": 1067
+        },
+        {
+          "mention": "inflammation",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "inflammation"
+          },
+          "grounded": true,
+          "source_span": "inflammation",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1072,
+          "char_end": 1084
+        },
+        {
+          "mention": "HepG2 cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "HepG2 cells"
+          },
+          "grounded": true,
+          "source_span": "HepG2 cells",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1135,
+          "char_end": 1146
+        },
+        {
+          "mention": "Nrf2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Nrf2",
+            "species": "Homo sapiens",
+            "participates_in": [
+              {
+                "target_entity": "Nrf2 pathway",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "activation of the nuclear factor erythroid-2-related factor 2 (Nrf2) pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "Nrf2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1279,
+          "char_end": 1283
+        },
+        {
+          "mention": "Nrf2 pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "Nrf2 pathway"
+          },
+          "grounded": true,
+          "source_span": "Nrf2 pathway",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1279,
+          "char_end": 1292
+        },
+        {
+          "mention": "p38 MAPK",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "p38 MAPK",
+            "species": "Homo sapiens",
+            "participates_in": [
+              {
+                "target_entity": "p38 mitogen-activated protein kinase (MAPK) pathway",
+                "target_type": "pathway",
+                "direction": "decrease",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "inhibition of p38 mitogen-activated protein kinase (MAPK) pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "p38 MAPK",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1463,
+          "char_end": 1471
+        },
+        {
+          "mention": "p38 mitogen-activated protein kinase (MAPK) pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "p38 mitogen-activated protein kinase (MAPK) pathway"
+          },
+          "grounded": true,
+          "source_span": "p38 mitogen-activated protein kinase (MAPK) pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1311,
+          "char_end": 1362
+        },
+        {
+          "mention": "goblet cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "goblet cell"
+          },
+          "grounded": true,
+          "source_span": "goblet cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1648,
+          "char_end": 1659
+        },
+        {
+          "mention": "flavonoid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "flavonoid"
+          },
+          "grounded": true,
+          "source_span": "flavonoid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1873,
+          "char_end": 1882
+        },
+        {
+          "mention": "arginine",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "arginine"
+          },
+          "grounded": true,
+          "source_span": "arginine",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1920,
+          "char_end": 1928
+        },
+        {
+          "mention": "phenylalanine",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "phenylalanine"
+          },
+          "grounded": true,
+          "source_span": "phenylalanine",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1930,
+          "char_end": 1943
+        },
+        {
+          "mention": "tyrosine",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "tyrosine"
+          },
+          "grounded": true,
+          "source_span": "tyrosine",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1945,
+          "char_end": 1953
+        },
+        {
+          "mention": "tryptophan",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "tryptophan"
+          },
+          "grounded": true,
+          "source_span": "tryptophan",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1959,
+          "char_end": 1969
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "NAFLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2037,
+          "char_end": 2042
+        },
+        {
+          "mention": "gut-liver axis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "gut-liver axis"
+          },
+          "grounded": true,
+          "source_span": "gut-liver axis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2135,
+          "char_end": 2149
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Nrf2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "Nrf2 pathway",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "activation of the nuclear factor erythroid-2-related factor 2 (Nrf2) pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "p38 MAPK",
+          "subject_type": "Protein",
+          "predicate": "PARTICIPATES_IN",
+          "object": "p38 mitogen-activated protein kinase (MAPK) pathway",
+          "object_type": "Pathway",
+          "direction": "decrease",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "inhibition of p38 mitogen-activated protein kinase (MAPK) pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 91,
+            "char_end": 124,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "Non-alcoholic fatty liver disease",
+              "NAFLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "anthocyanins",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "anthocyanins"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "anthocyanins",
+            "char_start": 37,
+            "char_end": 49,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:anthocyanins",
+            "canonical_mentions": [
+              "anthocyanins"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "gut-liver axis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "gut-liver axis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "gut-liver axis",
+            "char_start": 133,
+            "char_end": 147,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:gut liver axis",
+            "canonical_mentions": [
+              "gut-liver axis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "resistant starch",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "resistant starch"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "resistant starch",
+            "char_start": 689,
+            "char_end": 705,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:resistant starch",
+            "canonical_mentions": [
+              "resistant starch"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "total glyceride",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "total glyceride"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "total glyceride",
+            "char_start": 889,
+            "char_end": 904,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:total glyceride",
+            "canonical_mentions": [
+              "total glyceride"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "total cholesterol",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "total cholesterol"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "total cholesterol",
+            "char_start": 914,
+            "char_end": 931,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:total cholesterol",
+            "canonical_mentions": [
+              "total cholesterol"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Nrf2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Nrf2",
+              "species": "Homo sapiens",
+              "participates_in": [
+                {
+                  "target_entity": "Nrf2 pathway",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "activation of the nuclear factor erythroid-2-related factor 2 (Nrf2) pathway"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Nrf2",
+            "char_start": 1279,
+            "char_end": 1283,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:nrf2",
+            "canonical_mentions": [
+              "Nrf2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Nrf2 pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "Nrf2 pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Nrf2) pathway",
+            "char_start": 1279,
+            "char_end": 1292,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:nrf2 pathway",
+            "canonical_mentions": [
+              "Nrf2 pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "p38 MAPK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "p38 MAPK",
+              "species": "Homo sapiens",
+              "participates_in": [
+                {
+                  "target_entity": "p38 mitogen-activated protein kinase (MAPK) pathway",
+                  "target_type": "pathway",
+                  "direction": "decrease",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "inhibition of p38 mitogen-activated protein kinase (MAPK) pathway"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "p38 MAPK",
+            "char_start": 1463,
+            "char_end": 1471,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:p38 mapk",
+            "canonical_mentions": [
+              "p38 MAPK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "p38 mitogen-activated protein kinase (MAPK) pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "char_start": 1311,
+            "char_end": 1362,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:p38 mitogen activated protein kinase mapk pathway",
+            "canonical_mentions": [
+              "p38 mitogen-activated protein kinase (MAPK) pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "goblet cell",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "goblet cell"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "goblet cell",
+            "char_start": 1648,
+            "char_end": 1659,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:goblet cell",
+            "canonical_mentions": [
+              "goblet cell"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "flavonoid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "flavonoid"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "flavonoid",
+            "char_start": 1873,
+            "char_end": 1882,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:flavonoid",
+            "canonical_mentions": [
+              "flavonoid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "arginine",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "arginine"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "arginine",
+            "char_start": 1920,
+            "char_end": 1928,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:arginine",
+            "canonical_mentions": [
+              "arginine"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "phenylalanine",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "phenylalanine"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "phenylalanine",
+            "char_start": 1930,
+            "char_end": 1943,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:phenylalanine",
+            "canonical_mentions": [
+              "phenylalanine"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tyrosine",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "tyrosine"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tyrosine",
+            "char_start": 1945,
+            "char_end": 1953,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:tyrosine",
+            "canonical_mentions": [
+              "tyrosine"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tryptophan",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "tryptophan"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tryptophan",
+            "char_start": 1959,
+            "char_end": 1969,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:tryptophan",
+            "canonical_mentions": [
+              "tryptophan"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Nrf2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "Nrf2 pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "activation of the nuclear factor erythroid-2-related factor 2 (Nrf2) pathway",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1216,
+            "evidence_char_end": 1292,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Nrf2",
+            "original_object": "Nrf2 pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "p38 MAPK",
+            "predicate": "PARTICIPATES_IN",
+            "object": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "inhibition of p38 mitogen-activated protein kinase (MAPK) pathway",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1297,
+            "evidence_char_end": 1362,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "p38 MAPK",
+            "original_object": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 16,
+          "raw_entity_count": 21,
+          "filtered_entity_count": 3,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 16,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6048,
+          "evidence_score": 0.575,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 16,
+              "denominator": 21,
+              "value": 0.7619
+            },
+            "generic_entity_rate": {
+              "count": 2,
+              "denominator": 21,
+              "value": 0.0952
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 21,
+              "value": 0.0952
+            },
+            "type_constraint_pass_rate": {
+              "count": 20,
+              "denominator": 21,
+              "value": 0.9524
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 16,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 16
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 21,
+        "relations": 2,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 5.544371583964676,
+      "prompt_tokens": 538,
+      "output_tokens": 1740,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "Non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 91,
+          "char_end": 124
+        },
+        {
+          "mention": "anthocyanins",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "anthocyanins"
+          },
+          "grounded": true,
+          "source_span": "anthocyanins",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 37,
+          "char_end": 49
+        },
+        {
+          "mention": "gut-liver axis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "gut-liver axis",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of retained entity; not rejected."
+          },
+          "grounded": true,
+          "source_span": "gut-liver axis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 133,
+          "char_end": 147
+        },
+        {
+          "mention": "resistant starch",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "resistant starch"
+          },
+          "grounded": true,
+          "source_span": "resistant starch",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 689,
+          "char_end": 705
+        },
+        {
+          "mention": "total glyceride",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "total glyceride"
+          },
+          "grounded": true,
+          "source_span": "total glyceride",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 889,
+          "char_end": 904
+        },
+        {
+          "mention": "total cholesterol",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "total cholesterol"
+          },
+          "grounded": true,
+          "source_span": "total cholesterol",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 914,
+          "char_end": 931
+        },
+        {
+          "mention": "oxidative stress",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "oxidative stress"
+          },
+          "grounded": true,
+          "source_span": "oxidative stress",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1051,
+          "char_end": 1067
+        },
+        {
+          "mention": "inflammation",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "inflammation"
+          },
+          "grounded": true,
+          "source_span": "inflammation",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1072,
+          "char_end": 1084
+        },
+        {
+          "mention": "HepG2 cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "HepG2 cells"
+          },
+          "grounded": true,
+          "source_span": "HepG2 cells",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1135,
+          "char_end": 1146
+        },
+        {
+          "mention": "Nrf2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Nrf2",
+            "species": "Homo sapiens",
+            "participates_in": [
+              {
+                "target_entity": "Nrf2 pathway",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "activation of the nuclear factor erythroid-2-related factor 2 (Nrf2) pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "Nrf2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1279,
+          "char_end": 1283
+        },
+        {
+          "mention": "Nrf2 pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "Nrf2 pathway",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of retained entity; not rejected."
+          },
+          "grounded": true,
+          "source_span": "Nrf2 pathway",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1279,
+          "char_end": 1292
+        },
+        {
+          "mention": "p38 MAPK",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "p38 MAPK",
+            "species": "Homo sapiens",
+            "participates_in": [
+              {
+                "target_entity": "p38 mitogen-activated protein kinase (MAPK) pathway",
+                "target_type": "pathway",
+                "direction": "decrease",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "inhibition of p38 mitogen-activated protein kinase (MAPK) pathway"
+              }
+            ],
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of retained entity; not rejected."
+          },
+          "grounded": true,
+          "source_span": "p38 MAPK",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1463,
+          "char_end": 1471
+        },
+        {
+          "mention": "p38 mitogen-activated protein kinase (MAPK) pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of retained entity; not rejected."
+          },
+          "grounded": true,
+          "source_span": "p38 mitogen-activated protein kinase (MAPK) pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1311,
+          "char_end": 1362
+        },
+        {
+          "mention": "goblet cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "goblet cell",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of retained entity; not rejected."
+          },
+          "grounded": true,
+          "source_span": "goblet cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1648,
+          "char_end": 1659
+        },
+        {
+          "mention": "flavonoid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "flavonoid",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of retained entity; not rejected."
+          },
+          "grounded": true,
+          "source_span": "flavonoid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1873,
+          "char_end": 1882
+        },
+        {
+          "mention": "arginine",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "arginine",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of retained entity; not rejected."
+          },
+          "grounded": true,
+          "source_span": "arginine",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1920,
+          "char_end": 1928
+        },
+        {
+          "mention": "phenylalanine",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "phenylalanine",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of retained entity; not rejected."
+          },
+          "grounded": true,
+          "source_span": "phenylalanine",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1930,
+          "char_end": 1943
+        },
+        {
+          "mention": "tyrosine",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "tyrosine",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of retained entity; not rejected."
+          },
+          "grounded": true,
+          "source_span": "tyrosine",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1945,
+          "char_end": 1953
+        },
+        {
+          "mention": "tryptophan",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "tryptophan",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of retained entity; not rejected."
+          },
+          "grounded": true,
+          "source_span": "tryptophan",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1959,
+          "char_end": 1969
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "NAFLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2037,
+          "char_end": 2042
+        },
+        {
+          "mention": "gut-liver axis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "gut-liver axis",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of retained entity; not rejected."
+          },
+          "grounded": true,
+          "source_span": "gut-liver axis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2135,
+          "char_end": 2149
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Nrf2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "Nrf2 pathway",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "activation of the nuclear factor erythroid-2-related factor 2 (Nrf2) pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "p38 MAPK",
+          "subject_type": "Protein",
+          "predicate": "PARTICIPATES_IN",
+          "object": "p38 mitogen-activated protein kinase (MAPK) pathway",
+          "object_type": "Pathway",
+          "direction": "decrease",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "inhibition of p38 mitogen-activated protein kinase (MAPK) pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 91,
+            "char_end": 124,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "Non-alcoholic fatty liver disease",
+              "NAFLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "anthocyanins",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "anthocyanins"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "anthocyanins",
+            "char_start": 37,
+            "char_end": 49,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:anthocyanins",
+            "canonical_mentions": [
+              "anthocyanins"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "gut-liver axis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "gut-liver axis",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of retained entity; not rejected."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "gut-liver axis",
+            "char_start": 133,
+            "char_end": 147,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:gut liver axis",
+            "canonical_mentions": [
+              "gut-liver axis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "resistant starch",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "resistant starch"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "resistant starch",
+            "char_start": 689,
+            "char_end": 705,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:resistant starch",
+            "canonical_mentions": [
+              "resistant starch"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "total glyceride",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "total glyceride"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "total glyceride",
+            "char_start": 889,
+            "char_end": 904,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:total glyceride",
+            "canonical_mentions": [
+              "total glyceride"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "total cholesterol",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "total cholesterol"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "total cholesterol",
+            "char_start": 914,
+            "char_end": 931,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:total cholesterol",
+            "canonical_mentions": [
+              "total cholesterol"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Nrf2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Nrf2",
+              "species": "Homo sapiens",
+              "participates_in": [
+                {
+                  "target_entity": "Nrf2 pathway",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "activation of the nuclear factor erythroid-2-related factor 2 (Nrf2) pathway"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Nrf2",
+            "char_start": 1279,
+            "char_end": 1283,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:nrf2",
+            "canonical_mentions": [
+              "Nrf2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Nrf2 pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "Nrf2 pathway",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of retained entity; not rejected."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Nrf2) pathway",
+            "char_start": 1279,
+            "char_end": 1292,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:nrf2 pathway",
+            "canonical_mentions": [
+              "Nrf2 pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "p38 MAPK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "p38 MAPK",
+              "species": "Homo sapiens",
+              "participates_in": [
+                {
+                  "target_entity": "p38 mitogen-activated protein kinase (MAPK) pathway",
+                  "target_type": "pathway",
+                  "direction": "decrease",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "inhibition of p38 mitogen-activated protein kinase (MAPK) pathway"
+                }
+              ],
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of retained entity; not rejected."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "p38 MAPK",
+            "char_start": 1463,
+            "char_end": 1471,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:p38 mapk",
+            "canonical_mentions": [
+              "p38 MAPK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "p38 mitogen-activated protein kinase (MAPK) pathway",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of retained entity; not rejected."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "char_start": 1311,
+            "char_end": 1362,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:p38 mitogen activated protein kinase mapk pathway",
+            "canonical_mentions": [
+              "p38 mitogen-activated protein kinase (MAPK) pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "goblet cell",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "goblet cell",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of retained entity; not rejected."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "goblet cell",
+            "char_start": 1648,
+            "char_end": 1659,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:goblet cell",
+            "canonical_mentions": [
+              "goblet cell"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "flavonoid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "flavonoid",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of retained entity; not rejected."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "flavonoid",
+            "char_start": 1873,
+            "char_end": 1882,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:flavonoid",
+            "canonical_mentions": [
+              "flavonoid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "arginine",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "arginine",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of retained entity; not rejected."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "arginine",
+            "char_start": 1920,
+            "char_end": 1928,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:arginine",
+            "canonical_mentions": [
+              "arginine"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "phenylalanine",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "phenylalanine",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of retained entity; not rejected."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "phenylalanine",
+            "char_start": 1930,
+            "char_end": 1943,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:phenylalanine",
+            "canonical_mentions": [
+              "phenylalanine"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tyrosine",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "tyrosine",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of retained entity; not rejected."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tyrosine",
+            "char_start": 1945,
+            "char_end": 1953,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:tyrosine",
+            "canonical_mentions": [
+              "tyrosine"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tryptophan",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "tryptophan",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of retained entity; not rejected."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tryptophan",
+            "char_start": 1959,
+            "char_end": 1969,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:tryptophan",
+            "canonical_mentions": [
+              "tryptophan"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Nrf2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "Nrf2 pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "activation of the nuclear factor erythroid-2-related factor 2 (Nrf2) pathway",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1216,
+            "evidence_char_end": 1292,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Nrf2",
+            "original_object": "Nrf2 pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "p38 MAPK",
+            "predicate": "PARTICIPATES_IN",
+            "object": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "inhibition of p38 mitogen-activated protein kinase (MAPK) pathway",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1297,
+            "evidence_char_end": 1362,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "p38 MAPK",
+            "original_object": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 16,
+          "raw_entity_count": 21,
+          "filtered_entity_count": 3,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 16,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6048,
+          "evidence_score": 0.575,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 16,
+              "denominator": 21,
+              "value": 0.7619
+            },
+            "generic_entity_rate": {
+              "count": 2,
+              "denominator": 21,
+              "value": 0.0952
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 21,
+              "value": 0.0952
+            },
+            "type_constraint_pass_rate": {
+              "count": 20,
+              "denominator": 21,
+              "value": 0.9524
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 16,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 16
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 21,
+        "relations": 2,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 18.338755083736032,
+      "prompt_tokens": 9979,
+      "output_tokens": 4475,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Non-alcoholic fatty liver disease",
+            "entity_type": "Disease",
+            "source_span": "Non-alcoholic fatty liver disease",
+            "char_start": 91,
+            "char_end": 124,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in title and abstract; canonical disease entity."
+          },
+          {
+            "mention": "anthocyanins",
+            "entity_type": "Metabolite",
+            "source_span": "anthocyanins",
+            "char_start": 37,
+            "char_end": 49,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention in title; dietary anthocyanins are the focus."
+          },
+          {
+            "mention": "gut-liver axis",
+            "entity_type": "Pathway",
+            "source_span": "gut-liver axis",
+            "char_start": 133,
+            "char_end": 147,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention in title; pathway concept."
+          },
+          {
+            "mention": "resistant starch",
+            "entity_type": "Metabolite",
+            "source_span": "resistant starch",
+            "char_start": 689,
+            "char_end": 705,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention in abstract; metabolite formed by PAE."
+          },
+          {
+            "mention": "total glyceride",
+            "entity_type": "Metabolite",
+            "source_span": "total glyceride",
+            "char_start": 889,
+            "char_end": 904,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; measured metabolite."
+          },
+          {
+            "mention": "total cholesterol",
+            "entity_type": "Metabolite",
+            "source_span": "total cholesterol",
+            "char_start": 914,
+            "char_end": 931,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; measured metabolite."
+          },
+          {
+            "mention": "oxidative stress",
+            "entity_type": "Pathway",
+            "source_span": "oxidative stress",
+            "char_start": 1051,
+            "char_end": 1067,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; biological process."
+          },
+          {
+            "mention": "inflammation",
+            "entity_type": "Pathway",
+            "source_span": "inflammation",
+            "char_start": 1072,
+            "char_end": 1084,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; biological process."
+          },
+          {
+            "mention": "HepG2 cells",
+            "entity_type": "CellType",
+            "source_span": "HepG2 cells",
+            "char_start": 1135,
+            "char_end": 1146,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; cell line used in vitro."
+          },
+          {
+            "mention": "Nrf2",
+            "entity_type": "Gene",
+            "source_span": "Nrf2",
+            "char_start": 1279,
+            "char_end": 1283,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; gene symbol."
+          },
+          {
+            "mention": "Nrf2 pathway",
+            "entity_type": "Pathway",
+            "source_span": "Nrf2) pathway",
+            "char_start": 1279,
+            "char_end": 1292,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Mentioned as 'Nrf2) pathway' in text; pathway entity."
+          },
+          {
+            "mention": "p38 MAPK",
+            "entity_type": "Protein",
+            "source_span": "p38 MAPK",
+            "char_start": 1463,
+            "char_end": 1471,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; protein."
+          },
+          {
+            "mention": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "entity_type": "Pathway",
+            "source_span": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "char_start": 1311,
+            "char_end": 1362,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; pathway entity."
+          },
+          {
+            "mention": "goblet cell",
+            "entity_type": "CellType",
+            "source_span": "goblet cell",
+            "char_start": 1648,
+            "char_end": 1659,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; cell type."
+          },
+          {
+            "mention": "flavonoid",
+            "entity_type": "Metabolite",
+            "source_span": "flavonoid",
+            "char_start": 1873,
+            "char_end": 1882,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; metabolite class."
+          },
+          {
+            "mention": "arginine",
+            "entity_type": "Metabolite",
+            "source_span": "arginine",
+            "char_start": 1920,
+            "char_end": 1928,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; amino acid metabolite."
+          },
+          {
+            "mention": "phenylalanine",
+            "entity_type": "Metabolite",
+            "source_span": "phenylalanine",
+            "char_start": 1930,
+            "char_end": 1943,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; amino acid metabolite."
+          },
+          {
+            "mention": "tyrosine",
+            "entity_type": "Metabolite",
+            "source_span": "tyrosine",
+            "char_start": 1945,
+            "char_end": 1953,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; amino acid metabolite."
+          },
+          {
+            "mention": "tryptophan",
+            "entity_type": "Metabolite",
+            "source_span": "tryptophan",
+            "char_start": 1959,
+            "char_end": 1969,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; amino acid metabolite."
+          },
+          {
+            "mention": "NAFLD",
+            "entity_type": "Disease",
+            "source_span": "NAFLD",
+            "char_start": 2037,
+            "char_end": 2042,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; abbreviation for non-alcoholic fatty liver disease."
+          },
+          {
+            "mention": "gut-liver axis",
+            "entity_type": "Pathway",
+            "source_span": "gut-liver axis",
+            "char_start": 2135,
+            "char_end": 2149,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact mention; pathway concept."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "Nrf2",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "Nrf2 pathway",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "activation of the nuclear factor erythroid-2-related factor 2 (Nrf2) pathway",
+            "evidence_span": "activation of the nuclear factor erythroid-2-related factor 2 (Nrf2) pathway",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Text states PAE increased nuclear Nrf2 level and activated Nrf2 pathway; evidence covers both endpoints and direction."
+          },
+          {
+            "subject": "p38 MAPK",
+            "subject_type": "Protein",
+            "predicate": "PARTICIPATES_IN",
+            "object": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "object_type": "Pathway",
+            "direction": "decrease",
+            "evidence": "inhibition of p38 mitogen-activated protein kinase (MAPK) pathway",
+            "evidence_span": "inhibition of p38 mitogen-activated protein kinase (MAPK) pathway",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Text states PAE decreased p38 MAPK phosphorylation and inhibited p38 MAPK pathway; evidence covers both endpoints and direction."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "oxidative stress",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "inflammation",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HepG2 cells",
+            "entity_type": "CellType",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Nrf2 pathway",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "p38 MAPK",
+            "entity_type": "Protein",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "goblet cell",
+            "entity_type": "CellType",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "flavonoid",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "arginine",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "phenylalanine",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "tyrosine",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "tryptophan",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "NAFLD",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "gut-liver axis",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          }
+        ],
+        "review_reason": "All candidate entities and relations were verified against the abstract. No corrections needed; duplicates were merged. Relations have sufficient evidence and direction.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Non-alcoholic fatty liver disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "anthocyanins"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "gut-liver axis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "resistant starch"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "total glyceride"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "total cholesterol"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "oxidative stress",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "inflammation",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HepG2 cells",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Nrf2"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Nrf2 pathway"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "p38 MAPK"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "p38 mitogen-activated protein kinase (MAPK) pathway"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "goblet cell"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "flavonoid"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "arginine"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "phenylalanine"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "tyrosine"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "tryptophan"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "NAFLD",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "gut-liver axis"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "Nrf2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "Nrf2 pathway"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "p38 MAPK",
+            "predicate": "PARTICIPATES_IN",
+            "object": "p38 mitogen-activated protein kinase (MAPK) pathway"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "Nrf2 pathway",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "p38 MAPK",
+            "entity_type": "Protein",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "p38 mitogen-activated protein kinase (MAPK) pathway",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "goblet cell",
+            "entity_type": "CellType",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "flavonoid",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "arginine",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "phenylalanine",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "tyrosine",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "tryptophan",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "gut-liver axis",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of retained entity; not rejected."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0005263"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "char_start": 91,
+          "char_end": 124
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0005263"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "NAFLD",
+          "char_start": 194,
+          "char_end": 199
+        },
+        {
+          "mention": "anthocyanin-rich extract",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:23053"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "anthocyanin-rich extract",
+          "char_start": 408,
+          "char_end": 432
+        },
+        {
+          "mention": "PAE",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:23053"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "PAE",
+          "char_start": 434,
+          "char_end": 437
+        },
+        {
+          "mention": "pancreatic lipase",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P11150"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "pancreatic lipase",
+          "char_start": 587,
+          "char_end": 604
+        },
+        {
+          "mention": "cholesteryl esterase",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P06280"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "cholesteryl esterase",
+          "char_start": 609,
+          "char_end": 629
+        },
+        {
+          "mention": "resistant starch",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:79055"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "resistant starch",
+          "char_start": 689,
+          "char_end": 705
+        },
+        {
+          "mention": "high-fat diet",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0007586"
+          },
+          "confidence": 0.6,
+          "grounded": true,
+          "source_span": "high-fat diet",
+          "char_start": 767,
+          "char_end": 780
+        },
+        {
+          "mention": "HFD",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0007586"
+          },
+          "confidence": 0.6,
+          "grounded": true,
+          "source_span": "HFD",
+          "char_start": 782,
+          "char_end": 785
+        },
+        {
+          "mention": "hepatic weight",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "UBERON:0002107"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "hepatic weight",
+          "char_start": 873,
+          "char_end": 887
+        },
+        {
+          "mention": "total glyceride",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:35741"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "total glyceride",
+          "char_start": 889,
+          "char_end": 904
+        },
+        {
+          "mention": "TG",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:35741"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "TG",
+          "char_start": 906,
+          "char_end": 908
+        },
+        {
+          "mention": "total cholesterol",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:16113"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "total cholesterol",
+          "char_start": 914,
+          "char_end": 931
+        },
+        {
+          "mention": "TC",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:16113"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "TC",
+          "char_start": 933,
+          "char_end": 935
+        },
+        {
+          "mention": "oxidative stress",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0006979"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "oxidative stress",
+          "char_start": 1051,
+          "char_end": 1067
+        },
+        {
+          "mention": "inflammation",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0006954"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "inflammation",
+          "char_start": 1072,
+          "char_end": 1084
+        },
+        {
+          "mention": "oleic acid",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:28792"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "oleic acid",
+          "char_start": 1111,
+          "char_end": 1121
+        },
+        {
+          "mention": "OA",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:28792"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "OA",
+          "char_start": 1123,
+          "char_end": 1125
+        },
+        {
+          "mention": "HepG2 cells",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000182"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "HepG2 cells",
+          "char_start": 1135,
+          "char_end": 1146
+        },
+        {
+          "mention": "nuclear factor erythroid-2-related factor 2",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "Q16236"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "nuclear factor erythroid-2-related factor 2",
+          "char_start": 1234,
+          "char_end": 1277
+        },
+        {
+          "mention": "Nrf2",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "Q16236"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Nrf2",
+          "char_start": 1279,
+          "char_end": 1283
+        },
+        {
+          "mention": "p38 mitogen-activated protein kinase",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "Q16539"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "p38 mitogen-activated protein kinase",
+          "char_start": 1311,
+          "char_end": 1347
+        },
+        {
+          "mention": "p38 MAPK",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "Q16539"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "p38 MAPK",
+          "char_start": 1463,
+          "char_end": 1471
+        },
+        {
+          "mention": "intestinal barrier",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "UBERON:0000160"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "intestinal barrier",
+          "char_start": 1586,
+          "char_end": 1604
+        },
+        {
+          "mention": "mucus thickness",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "UBERON:0000345"
+          },
+          "confidence": 0.6,
+          "grounded": true,
+          "source_span": "mucus thickness",
+          "char_start": 1628,
+          "char_end": 1643
+        },
+        {
+          "mention": "goblet cell",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000160"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "goblet cell",
+          "char_start": 1648,
+          "char_end": 1659
+        },
+        {
+          "mention": "gut dysbacteriosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0000428"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "gut dysbacteriosis",
+          "char_start": 1718,
+          "char_end": 1736
+        },
+        {
+          "mention": "flavonoid biosynthesis",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0009813"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "flavonoid biosynthesis",
+          "char_start": 1873,
+          "char_end": 1895
+        },
+        {
+          "mention": "biosynthesis of arginine",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0006526"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "biosynthesis of arginine",
+          "char_start": 1904,
+          "char_end": 1928
+        },
+        {
+          "mention": "biosynthesis of phenylalanine",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0009094"
+          },
+          "confidence": 0.7,
+          "grounded": false,
+          "source_span": "",
+          "char_start": -1,
+          "char_end": -1
+        },
+        {
+          "mention": "biosynthesis of tyrosine",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0006571"
+          },
+          "confidence": 0.7,
+          "grounded": false,
+          "source_span": "",
+          "char_start": -1,
+          "char_end": -1
+        },
+        {
+          "mention": "biosynthesis of tryptophan",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0000162"
+          },
+          "confidence": 0.7,
+          "grounded": false,
+          "source_span": "",
+          "char_start": -1,
+          "char_end": -1
+        },
+        {
+          "mention": "gut-liver axis",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0007584"
+          },
+          "confidence": 0.6,
+          "grounded": true,
+          "source_span": "gut-liver axis",
+          "char_start": 133,
+          "char_end": 147
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "NAFLD",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "PAE intervention at 400 mg/kg/d significantly (p < 0.05) reduced hepatic weight, total glyceride (TG) and total cholesterol (TC) by 25.51%, 35.15% and 34.2%, respectively, compared with HFD group.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "pancreatic lipase",
+          "object_type": "Protein",
+          "direction": "decrease",
+          "evidence": "PAE at 1.2 mg/mL significantly (p < 0.05) inhibited pancreatic lipase and cholesteryl esterase activities by 63.11% and 60.21%, respectively.",
+          "negated": false,
+          "uncertain": false,
+          "species": "in vitro",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "cholesteryl esterase",
+          "object_type": "Protein",
+          "direction": "decrease",
+          "evidence": "PAE at 1.2 mg/mL significantly (p < 0.05) inhibited pancreatic lipase and cholesteryl esterase activities by 63.11% and 60.21%, respectively.",
+          "negated": false,
+          "uncertain": false,
+          "species": "in vitro",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "resistant starch",
+          "object_type": "Metabolite",
+          "direction": "increase",
+          "evidence": "PAE induced resistant starch formation by increasing the degree of starch structure.",
+          "negated": false,
+          "uncertain": false,
+          "species": "in vitro",
+          "confidence": 0.8
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "oxidative stress",
+          "object_type": "Pathway",
+          "direction": "decrease",
+          "evidence": "PAE exerted significant beneficial effects on oxidative stress and inflammation.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.8
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "inflammation",
+          "object_type": "Pathway",
+          "direction": "decrease",
+          "evidence": "PAE exerted significant beneficial effects on oxidative stress and inflammation.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.8
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Nrf2",
+          "object_type": "Protein",
+          "direction": "increase",
+          "evidence": "At 400 μg/mL, PAE significantly (p < 0.05) increased nuclear Nrf2 level by 1.24-fold and decreased p38 MAPK phosphorylation by 27.47% compared with the OA-treated group.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "p38 MAPK",
+          "object_type": "Protein",
+          "direction": "decrease",
+          "evidence": "At 400 μg/mL, PAE significantly (p < 0.05) increased nuclear Nrf2 level by 1.24-fold and decreased p38 MAPK phosphorylation by 27.47% compared with the OA-treated group.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "goblet cell",
+          "object_type": "CellType",
+          "direction": "increase",
+          "evidence": "PAE significantly (p < 0.05) improved intestinal barrier function by increasing mucus thickness and goblet cell number by 25.63% and 33.99%, respectively, and alleviated gut dysbacteriosis compared with HFD group.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "gut dysbacteriosis",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "PAE significantly (p < 0.05) improved intestinal barrier function by increasing mucus thickness and goblet cell number by 25.63% and 33.99%, respectively, and alleviated gut dysbacteriosis compared with HFD group.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "flavonoid biosynthesis",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "evidence": "The colon metabolic profile was significantly altered by PAE, with differential metabolites mainly involved in flavonoid biosynthesis and the biosynthesis of arginine, phenylalanine, tyrosine, and tryptophan.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.8
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "biosynthesis of arginine",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "evidence": "The colon metabolic profile was significantly altered by PAE, with differential metabolites mainly involved in flavonoid biosynthesis and the biosynthesis of arginine, phenylalanine, tyrosine, and tryptophan.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.8
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "biosynthesis of phenylalanine",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "evidence": "The colon metabolic profile was significantly altered by PAE, with differential metabolites mainly involved in flavonoid biosynthesis and the biosynthesis of arginine, phenylalanine, tyrosine, and tryptophan.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.8
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "biosynthesis of tyrosine",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "evidence": "The colon metabolic profile was significantly altered by PAE, with differential metabolites mainly involved in flavonoid biosynthesis and the biosynthesis of arginine, phenylalanine, tyrosine, and tryptophan.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.8
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "biosynthesis of tryptophan",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "evidence": "The colon metabolic profile was significantly altered by PAE, with differential metabolites mainly involved in flavonoid biosynthesis and the biosynthesis of arginine, phenylalanine, tyrosine, and tryptophan.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.8
+        },
+        {
+          "subject": "PAE",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "gut-liver axis",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "Correlation analysis revealed strong links (p < 0.05) between the NAFLD-related traits, intestinal flora and metabolites, implying that PAE mitigated NAFLD via the gut-liver axis.",
+          "negated": false,
+          "uncertain": true,
+          "species": "Mus musculus",
+          "confidence": 0.7
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "MONDO:0005263"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 91,
+            "char_end": 124,
+            "grounded": true,
+            "normalized_id": "MONDO:0005263",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease",
+              "NAFLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "purified anthocyanin-rich extract",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "CHEBI:23053"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "purified anthocyanin-rich extract",
+            "char_start": 399,
+            "char_end": 432,
+            "grounded": true,
+            "normalized_id": "CHEBI:23053",
+            "canonical_key": "Metabolite:purified anthocyanin rich extract",
+            "canonical_mentions": [
+              "anthocyanin-rich extract",
+              "PAE"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "pancreatic lipase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "P11150"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "pancreatic lipase",
+            "char_start": 587,
+            "char_end": 604,
+            "grounded": true,
+            "normalized_id": "P11150",
+            "canonical_key": "Protein:pancreatic lipase",
+            "canonical_mentions": [
+              "pancreatic lipase"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cholesteryl esterase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "P06280"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cholesteryl esterase",
+            "char_start": 609,
+            "char_end": 629,
+            "grounded": true,
+            "normalized_id": "P06280",
+            "canonical_key": "Protein:cholesteryl esterase",
+            "canonical_mentions": [
+              "cholesteryl esterase"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "resistant starch",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "CHEBI:79055"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "resistant starch",
+            "char_start": 689,
+            "char_end": 705,
+            "grounded": true,
+            "normalized_id": "CHEBI:79055",
+            "canonical_key": "Metabolite:resistant starch",
+            "canonical_mentions": [
+              "resistant starch"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "high-fat diet",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.6,
+            "attributes": {
+              "normalized_id": "GO:0007586"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "high-fat diet",
+            "char_start": 767,
+            "char_end": 780,
+            "grounded": true,
+            "normalized_id": "GO:0007586",
+            "canonical_key": "Pathway:high fat diet",
+            "canonical_mentions": [
+              "high-fat diet",
+              "HFD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic weight",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "UBERON:0002107"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic weight",
+            "char_start": 873,
+            "char_end": 887,
+            "grounded": true,
+            "normalized_id": "UBERON:0002107",
+            "canonical_key": "Tissue:hepatic weight",
+            "canonical_mentions": [
+              "hepatic weight"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "total glyceride",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "CHEBI:35741"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "total glyceride",
+            "char_start": 889,
+            "char_end": 904,
+            "grounded": true,
+            "normalized_id": "CHEBI:35741",
+            "canonical_key": "Metabolite:total glyceride",
+            "canonical_mentions": [
+              "total glyceride",
+              "TG"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "total cholesterol",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "CHEBI:16113"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "total cholesterol",
+            "char_start": 914,
+            "char_end": 931,
+            "grounded": true,
+            "normalized_id": "CHEBI:16113",
+            "canonical_key": "Metabolite:total cholesterol",
+            "canonical_mentions": [
+              "total cholesterol",
+              "TC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "oleic acid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEBI:28792"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "oleic acid",
+            "char_start": 1111,
+            "char_end": 1121,
+            "grounded": true,
+            "normalized_id": "CHEBI:28792",
+            "canonical_key": "Metabolite:oleic acid",
+            "canonical_mentions": [
+              "oleic acid",
+              "OA"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "nuclear factor erythroid-2-related factor 2",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Q16236"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "nuclear factor erythroid-2-related factor 2",
+            "char_start": 1234,
+            "char_end": 1277,
+            "grounded": true,
+            "normalized_id": "Q16236",
+            "canonical_key": "Protein:nuclear factor erythroid 2 related factor 2",
+            "canonical_mentions": [
+              "nuclear factor erythroid-2-related factor 2",
+              "Nrf2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "p38 mitogen-activated protein kinase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Q16539"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "p38 mitogen-activated protein kinase",
+            "char_start": 1311,
+            "char_end": 1347,
+            "grounded": true,
+            "normalized_id": "Q16539",
+            "canonical_key": "Protein:p38 mitogen activated protein kinase",
+            "canonical_mentions": [
+              "p38 mitogen-activated protein kinase",
+              "p38 MAPK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "intestinal barrier",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "UBERON:0000160"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "intestinal barrier",
+            "char_start": 1586,
+            "char_end": 1604,
+            "grounded": true,
+            "normalized_id": "UBERON:0000160",
+            "canonical_key": "Tissue:intestinal barrier",
+            "canonical_mentions": [
+              "intestinal barrier"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "goblet cell",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CL:0000160"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "goblet cell",
+            "char_start": 1648,
+            "char_end": 1659,
+            "grounded": true,
+            "normalized_id": "CL:0000160",
+            "canonical_key": "CellType:goblet cell",
+            "canonical_mentions": [
+              "goblet cell"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "gut dysbacteriosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "MONDO:0000428"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "gut dysbacteriosis",
+            "char_start": 1718,
+            "char_end": 1736,
+            "grounded": true,
+            "normalized_id": "MONDO:0000428",
+            "canonical_key": "Disease:gut dysbacteriosis",
+            "canonical_mentions": [
+              "gut dysbacteriosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "flavonoid biosynthesis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "GO:0009813"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "flavonoid biosynthesis",
+            "char_start": 1873,
+            "char_end": 1895,
+            "grounded": true,
+            "normalized_id": "GO:0009813",
+            "canonical_key": "Pathway:flavonoid biosynthesis",
+            "canonical_mentions": [
+              "flavonoid biosynthesis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "biosynthesis of arginine",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "GO:0006526"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "biosynthesis of arginine",
+            "char_start": 1904,
+            "char_end": 1928,
+            "grounded": true,
+            "normalized_id": "GO:0006526",
+            "canonical_key": "Pathway:biosynthesis of arginine",
+            "canonical_mentions": [
+              "biosynthesis of arginine"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "gut-liver axis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.6,
+            "attributes": {
+              "normalized_id": "GO:0007584"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "gut-liver axis",
+            "char_start": 133,
+            "char_end": 147,
+            "grounded": true,
+            "normalized_id": "GO:0007584",
+            "canonical_key": "Pathway:gut liver axis",
+            "canonical_mentions": [
+              "gut-liver axis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PAE intervention at 400 mg/kg/d significantly (p < 0.05) reduced hepatic weight, total glyceride (TG) and total cholesterol (TC) by 25.51%, 35.15% and 34.2%, respectively, compared with HFD group.",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 808,
+            "evidence_char_end": 1003,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PAE",
+            "original_object": "NAFLD",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pancreatic lipase",
+            "subject_type": "Metabolite",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "PAE at 1.2 mg/mL significantly (p < 0.05) inhibited pancreatic lipase and cholesteryl esterase activities by 63.11% and 60.21%, respectively.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 535,
+            "evidence_char_end": 675,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "PAE",
+            "original_object": "pancreatic lipase",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "cholesteryl esterase",
+            "subject_type": "Metabolite",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "PAE at 1.2 mg/mL significantly (p < 0.05) inhibited pancreatic lipase and cholesteryl esterase activities by 63.11% and 60.21%, respectively.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 535,
+            "evidence_char_end": 675,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "PAE",
+            "original_object": "cholesteryl esterase",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "resistant starch",
+            "subject_type": "Metabolite",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "PAE induced resistant starch formation by increasing the degree of starch structure.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 677,
+            "evidence_char_end": 761,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PAE",
+            "original_object": "resistant starch",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "oxidative stress",
+            "subject_type": "Metabolite",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PAE exerted significant beneficial effects on oxidative stress and inflammation.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1005,
+            "evidence_char_end": 1085,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "PAE",
+            "original_object": "oxidative stress",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "inflammation",
+            "subject_type": "Metabolite",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PAE exerted significant beneficial effects on oxidative stress and inflammation.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1005,
+            "evidence_char_end": 1085,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "PAE",
+            "original_object": "inflammation",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "nuclear factor erythroid-2-related factor 2",
+            "subject_type": "Metabolite",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "At 400 μg/mL, PAE significantly (p < 0.05) increased nuclear Nrf2 level by 1.24-fold and decreased p38 MAPK phosphorylation by 27.47% compared with the OA-treated group.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1364,
+            "evidence_char_end": 1532,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "PAE",
+            "original_object": "Nrf2",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "p38 mitogen-activated protein kinase",
+            "subject_type": "Metabolite",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "At 400 μg/mL, PAE significantly (p < 0.05) increased nuclear Nrf2 level by 1.24-fold and decreased p38 MAPK phosphorylation by 27.47% compared with the OA-treated group.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1364,
+            "evidence_char_end": 1532,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "PAE",
+            "original_object": "p38 MAPK",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "goblet cell",
+            "subject_type": "Metabolite",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "PAE significantly (p < 0.05) improved intestinal barrier function by increasing mucus thickness and goblet cell number by 25.63% and 33.99%, respectively, and alleviated gut dysbacteriosis compared with HFD group.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1548,
+            "evidence_char_end": 1760,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PAE",
+            "original_object": "goblet cell",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "gut dysbacteriosis",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PAE significantly (p < 0.05) improved intestinal barrier function by increasing mucus thickness and goblet cell number by 25.63% and 33.99%, respectively, and alleviated gut dysbacteriosis compared with HFD group.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1548,
+            "evidence_char_end": 1760,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "PAE",
+            "original_object": "gut dysbacteriosis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "flavonoid biosynthesis",
+            "subject_type": "Metabolite",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The colon metabolic profile was significantly altered by PAE, with differential metabolites mainly involved in flavonoid biosynthesis and the biosynthesis of arginine, phenylalanine, tyrosine, and tryptophan.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1762,
+            "evidence_char_end": 1970,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "PAE",
+            "original_object": "flavonoid biosynthesis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "biosynthesis of arginine",
+            "subject_type": "Metabolite",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The colon metabolic profile was significantly altered by PAE, with differential metabolites mainly involved in flavonoid biosynthesis and the biosynthesis of arginine, phenylalanine, tyrosine, and tryptophan.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1762,
+            "evidence_char_end": 1970,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "PAE",
+            "original_object": "biosynthesis of arginine",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "biosynthesis of phenylalanine",
+            "subject_type": "Metabolite",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The colon metabolic profile was significantly altered by PAE, with differential metabolites mainly involved in flavonoid biosynthesis and the biosynthesis of arginine, phenylalanine, tyrosine, and tryptophan.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "object_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1762,
+            "evidence_char_end": 1970,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "PAE",
+            "original_object": "biosynthesis of phenylalanine",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "biosynthesis of tyrosine",
+            "subject_type": "Metabolite",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The colon metabolic profile was significantly altered by PAE, with differential metabolites mainly involved in flavonoid biosynthesis and the biosynthesis of arginine, phenylalanine, tyrosine, and tryptophan.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "object_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1762,
+            "evidence_char_end": 1970,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "PAE",
+            "original_object": "biosynthesis of tyrosine",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "biosynthesis of tryptophan",
+            "subject_type": "Metabolite",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The colon metabolic profile was significantly altered by PAE, with differential metabolites mainly involved in flavonoid biosynthesis and the biosynthesis of arginine, phenylalanine, tyrosine, and tryptophan.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "object_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1762,
+            "evidence_char_end": 1970,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "PAE",
+            "original_object": "biosynthesis of tryptophan",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "purified anthocyanin-rich extract",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "gut-liver axis",
+            "subject_type": "Metabolite",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Correlation analysis revealed strong links (p < 0.05) between the NAFLD-related traits, intestinal flora and metabolites, implying that PAE mitigated NAFLD via the gut-liver axis.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1971,
+            "evidence_char_end": 2149,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PAE",
+            "original_object": "gut-liver axis",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 18,
+          "raw_entity_count": 33,
+          "filtered_entity_count": 7,
+          "merged_entity_count": 9,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 18,
+          "total_relations": 16,
+          "known_relations": 0,
+          "novel_relations": 16,
+          "contradicting_relations": 0,
+          "schema_valid": 10,
+          "import_ready": 0,
+          "structural_score": 0.775,
+          "semantic_score": 0.5834,
+          "evidence_score": 0.6625,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 18,
+              "denominator": 33,
+              "value": 0.5455
+            },
+            "generic_entity_rate": {
+              "count": 2,
+              "denominator": 33,
+              "value": 0.0606
+            },
+            "duplicate_entity_rate": {
+              "count": 9,
+              "denominator": 33,
+              "value": 0.2727
+            },
+            "type_constraint_pass_rate": {
+              "count": 32,
+              "denominator": 33,
+              "value": 0.9697
+            },
+            "relation_evidence_exactness": {
+              "count": 16,
+              "denominator": 16,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 12,
+              "denominator": 16,
+              "value": 0.75
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 16,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 5,
+              "denominator": 16,
+              "value": 0.3125
+            },
+            "unresolved_endpoint_rate": {
+              "count": 5,
+              "denominator": 16,
+              "value": 0.3125
+            },
+            "weak_evidence_rate": {
+              "count": 16,
+              "denominator": 16,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 16,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 1,
+              "denominator": 16,
+              "value": 0.0625
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 16,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 18,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 18
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 33,
+        "relations": 16,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 15.965733458753675,
+      "prompt_tokens": 1628,
+      "output_tokens": 3403,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

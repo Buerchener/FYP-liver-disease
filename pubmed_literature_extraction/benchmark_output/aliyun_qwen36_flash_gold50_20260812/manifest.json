@@ -1,0 +1,15 @@
+{
+  "run_id": "aliyun_qwen36_flash_gold50_20260812",
+  "created_at": "2026-08-11T19:31:14.862863+00:00",
+  "documents": 50,
+  "max_workers": 10,
+  "input_run": "/Users/a1234/Desktop/FYP/github_upload/FYP-liver-disease/pubmed_literature_extraction/extraction_output/agent_results_agent_arch_v4_gold50_20260812.json",
+  "fixed_upstream_candidates": true,
+  "neo4j_reads": false,
+  "neo4j_writes": false,
+  "thinking_enabled": false,
+  "models": [
+    "qwen3.6-flash"
+  ],
+  "comparison_note": "All models adjudicated identical stored LangExtract candidates. Costs are omitted because custom MaaS workspace pricing was not exposed."
+}

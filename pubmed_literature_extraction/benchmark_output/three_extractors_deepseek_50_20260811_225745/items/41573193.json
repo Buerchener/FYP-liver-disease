@@ -1,0 +1,2831 @@
+{
+  "pmid": "41573193",
+  "title": "Comparison of the efficacy of antidiabetic agents in type 2 diabetes with MASLD: a network meta-analysis.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "type 2 diabetes",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "type 2 diabetes",
+            "disease_stage": "T2DM"
+          },
+          "grounded": true,
+          "source_span": "type 2 diabetes",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 60,
+          "char_end": 75
+        },
+        {
+          "mention": "metabolic dysfunction-associated steatotic liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "metabolic dysfunction-associated steatotic liver disease",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "metabolic dysfunction-associated steatotic liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 221,
+          "char_end": 277
+        },
+        {
+          "mention": "alanine aminotransferase",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "alanine aminotransferase",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "alanine aminotransferase",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 502,
+          "char_end": 526
+        },
+        {
+          "mention": "aspartate aminotransferase",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "aspartate aminotransferase",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "aspartate aminotransferase",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 534,
+          "char_end": 560
+        },
+        {
+          "mention": "triglycerides",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "triglycerides"
+          },
+          "grounded": true,
+          "source_span": "triglycerides",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 572,
+          "char_end": 585
+        },
+        {
+          "mention": "HDL",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "HDL"
+          },
+          "grounded": true,
+          "source_span": "HDL",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 615,
+          "char_end": 618
+        },
+        {
+          "mention": "LDL",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "LDL"
+          },
+          "grounded": true,
+          "source_span": "LDL",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 620,
+          "char_end": 623
+        },
+        {
+          "mention": "fasting plasma glucose",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "fasting plasma glucose"
+          },
+          "grounded": true,
+          "source_span": "fasting plasma glucose",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 625,
+          "char_end": 647
+        },
+        {
+          "mention": "body mass index",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "body mass index"
+          },
+          "grounded": true,
+          "source_span": "body mass index",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 655,
+          "char_end": 670
+        },
+        {
+          "mention": "glycated hemoglobin",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "glycated hemoglobin"
+          },
+          "grounded": true,
+          "source_span": "glycated hemoglobin",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 682,
+          "char_end": 701
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1386,
+          "char_end": 1391
+        },
+        {
+          "mention": "T2DM",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "T2DM",
+            "disease_stage": "T2DM"
+          },
+          "grounded": true,
+          "source_span": "T2DM",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1396,
+          "char_end": 1400
+        },
+        {
+          "mention": "ALT",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "ALT",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "ALT",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 956,
+          "char_end": 959
+        },
+        {
+          "mention": "AST",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "AST",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "AST",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 964,
+          "char_end": 967
+        },
+        {
+          "mention": "triglycerides",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "triglycerides"
+          },
+          "grounded": true,
+          "source_span": "triglycerides",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1115,
+          "char_end": 1128
+        },
+        {
+          "mention": "HDL",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "HDL"
+          },
+          "grounded": true,
+          "source_span": "HDL",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1135,
+          "char_end": 1138
+        },
+        {
+          "mention": "LDL",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "LDL"
+          },
+          "grounded": true,
+          "source_span": "LDL",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1140,
+          "char_end": 1143
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1593,
+          "char_end": 1598
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "type 2 diabetes",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "type 2 diabetes",
+              "disease_stage": "T2DM"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes",
+            "char_start": 60,
+            "char_end": 75,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:type 2 diabetes",
+            "canonical_mentions": [
+              "type 2 diabetes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "metabolic dysfunction-associated steatotic liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "metabolic dysfunction-associated steatotic liver disease",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "metabolic dysfunction-associated steatotic liver disease",
+            "char_start": 221,
+            "char_end": 277,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:metabolic dysfunction associated steatotic liver disease",
+            "canonical_mentions": [
+              "metabolic dysfunction-associated steatotic liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "alanine aminotransferase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "alanine aminotransferase",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "alanine aminotransferase",
+            "char_start": 502,
+            "char_end": 526,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:alanine aminotransferase",
+            "canonical_mentions": [
+              "alanine aminotransferase"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aspartate aminotransferase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "aspartate aminotransferase",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aspartate aminotransferase",
+            "char_start": 534,
+            "char_end": 560,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:aspartate aminotransferase",
+            "canonical_mentions": [
+              "aspartate aminotransferase"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "triglycerides",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "triglycerides"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "triglycerides",
+            "char_start": 572,
+            "char_end": 585,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:triglycerides",
+            "canonical_mentions": [
+              "triglycerides"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HDL",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "HDL"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HDL",
+            "char_start": 615,
+            "char_end": 618,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:hdl",
+            "canonical_mentions": [
+              "HDL"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "LDL",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "LDL"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "LDL",
+            "char_start": 620,
+            "char_end": 623,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:ldl",
+            "canonical_mentions": [
+              "LDL"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "fasting plasma glucose",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "fasting plasma glucose"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fasting plasma glucose",
+            "char_start": 625,
+            "char_end": 647,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:fasting plasma glucose",
+            "canonical_mentions": [
+              "fasting plasma glucose"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "body mass index",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "body mass index"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "body mass index",
+            "char_start": 655,
+            "char_end": 670,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:body mass index",
+            "canonical_mentions": [
+              "body mass index"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "glycated hemoglobin",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "glycated hemoglobin"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "glycated hemoglobin",
+            "char_start": 682,
+            "char_end": 701,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:glycated hemoglobin",
+            "canonical_mentions": [
+              "glycated hemoglobin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 1386,
+            "char_end": 1391,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "type 2 diabetes mellitus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "T2DM",
+              "disease_stage": "T2DM"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes mellitus",
+            "char_start": 290,
+            "char_end": 314,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:type 2 diabetes mellitus",
+            "canonical_mentions": [
+              "T2DM"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ALT",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "ALT",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ALT",
+            "char_start": 956,
+            "char_end": 959,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:alt",
+            "canonical_mentions": [
+              "ALT"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aminotransferase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "AST",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aminotransferase",
+            "char_start": 510,
+            "char_end": 526,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:aminotransferase",
+            "canonical_mentions": [
+              "AST"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 1593,
+            "char_end": 1598,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 15,
+          "raw_entity_count": 18,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 5,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 15,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.9417,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 15,
+              "denominator": 18,
+              "value": 0.8333
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 18,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 5,
+              "denominator": 18,
+              "value": 0.2778
+            },
+            "type_constraint_pass_rate": {
+              "count": 18,
+              "denominator": 18,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 15,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 15
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 18,
+        "relations": 0,
+        "duplicate_entities": 3,
+        "duplicate_relations": 0
+      },
+      "latency_s": 5.309997625183314,
+      "prompt_tokens": 430,
+      "output_tokens": 1235,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "type 2 diabetes",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "type 2 diabetes",
+            "disease_stage": "T2DM"
+          },
+          "grounded": true,
+          "source_span": "type 2 diabetes",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 60,
+          "char_end": 75
+        },
+        {
+          "mention": "metabolic dysfunction-associated steatotic liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "metabolic dysfunction-associated steatotic liver disease",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "metabolic dysfunction-associated steatotic liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 221,
+          "char_end": 277
+        },
+        {
+          "mention": "alanine aminotransferase",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "alanine aminotransferase",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "alanine aminotransferase",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 502,
+          "char_end": 526
+        },
+        {
+          "mention": "aspartate aminotransferase",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "aspartate aminotransferase",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "aspartate aminotransferase",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 534,
+          "char_end": 560
+        },
+        {
+          "mention": "triglycerides",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "triglycerides"
+          },
+          "grounded": true,
+          "source_span": "triglycerides",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 572,
+          "char_end": 585
+        },
+        {
+          "mention": "HDL",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "HDL"
+          },
+          "grounded": true,
+          "source_span": "HDL",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 615,
+          "char_end": 618
+        },
+        {
+          "mention": "LDL",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "LDL"
+          },
+          "grounded": true,
+          "source_span": "LDL",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 620,
+          "char_end": 623
+        },
+        {
+          "mention": "fasting plasma glucose",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "fasting plasma glucose"
+          },
+          "grounded": true,
+          "source_span": "fasting plasma glucose",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 625,
+          "char_end": 647
+        },
+        {
+          "mention": "body mass index",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "body mass index"
+          },
+          "grounded": true,
+          "source_span": "body mass index",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 655,
+          "char_end": 670
+        },
+        {
+          "mention": "glycated hemoglobin",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "glycated hemoglobin"
+          },
+          "grounded": true,
+          "source_span": "glycated hemoglobin",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 682,
+          "char_end": 701
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1386,
+          "char_end": 1391
+        },
+        {
+          "mention": "T2DM",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "T2DM",
+            "disease_stage": "T2DM",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of type 2 diabetes; already represented by T2DM abbreviation."
+          },
+          "grounded": true,
+          "source_span": "T2DM",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1396,
+          "char_end": 1400
+        },
+        {
+          "mention": "ALT",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "ALT",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "ALT",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 956,
+          "char_end": 959
+        },
+        {
+          "mention": "AST",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "AST",
+            "species": "Homo sapiens",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Overlapping span with alanine aminotransferase; not a distinct entity."
+          },
+          "grounded": true,
+          "source_span": "AST",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 964,
+          "char_end": 967
+        },
+        {
+          "mention": "triglycerides",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "triglycerides"
+          },
+          "grounded": true,
+          "source_span": "triglycerides",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1115,
+          "char_end": 1128
+        },
+        {
+          "mention": "HDL",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "HDL"
+          },
+          "grounded": true,
+          "source_span": "HDL",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1135,
+          "char_end": 1138
+        },
+        {
+          "mention": "LDL",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "LDL"
+          },
+          "grounded": true,
+          "source_span": "LDL",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1140,
+          "char_end": 1143
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1593,
+          "char_end": 1598
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "type 2 diabetes",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "type 2 diabetes",
+              "disease_stage": "T2DM"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes",
+            "char_start": 60,
+            "char_end": 75,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:type 2 diabetes",
+            "canonical_mentions": [
+              "type 2 diabetes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "metabolic dysfunction-associated steatotic liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "metabolic dysfunction-associated steatotic liver disease",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "metabolic dysfunction-associated steatotic liver disease",
+            "char_start": 221,
+            "char_end": 277,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:metabolic dysfunction associated steatotic liver disease",
+            "canonical_mentions": [
+              "metabolic dysfunction-associated steatotic liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "alanine aminotransferase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "alanine aminotransferase",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "alanine aminotransferase",
+            "char_start": 502,
+            "char_end": 526,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:alanine aminotransferase",
+            "canonical_mentions": [
+              "alanine aminotransferase"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aspartate aminotransferase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "aspartate aminotransferase",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aspartate aminotransferase",
+            "char_start": 534,
+            "char_end": 560,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:aspartate aminotransferase",
+            "canonical_mentions": [
+              "aspartate aminotransferase"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "triglycerides",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "triglycerides"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "triglycerides",
+            "char_start": 572,
+            "char_end": 585,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:triglycerides",
+            "canonical_mentions": [
+              "triglycerides"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HDL",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "HDL"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HDL",
+            "char_start": 615,
+            "char_end": 618,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:hdl",
+            "canonical_mentions": [
+              "HDL"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "LDL",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "LDL"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "LDL",
+            "char_start": 620,
+            "char_end": 623,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:ldl",
+            "canonical_mentions": [
+              "LDL"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "fasting plasma glucose",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "fasting plasma glucose"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fasting plasma glucose",
+            "char_start": 625,
+            "char_end": 647,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:fasting plasma glucose",
+            "canonical_mentions": [
+              "fasting plasma glucose"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "body mass index",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "body mass index"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "body mass index",
+            "char_start": 655,
+            "char_end": 670,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:body mass index",
+            "canonical_mentions": [
+              "body mass index"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "glycated hemoglobin",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "glycated hemoglobin"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "glycated hemoglobin",
+            "char_start": 682,
+            "char_end": 701,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:glycated hemoglobin",
+            "canonical_mentions": [
+              "glycated hemoglobin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 1386,
+            "char_end": 1391,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "type 2 diabetes mellitus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "T2DM",
+              "disease_stage": "T2DM",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of type 2 diabetes; already represented by T2DM abbreviation."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes mellitus",
+            "char_start": 290,
+            "char_end": 314,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:type 2 diabetes mellitus",
+            "canonical_mentions": [
+              "T2DM"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ALT",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "ALT",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ALT",
+            "char_start": 956,
+            "char_end": 959,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:alt",
+            "canonical_mentions": [
+              "ALT"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aminotransferase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "AST",
+              "species": "Homo sapiens",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Overlapping span with alanine aminotransferase; not a distinct entity."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aminotransferase",
+            "char_start": 510,
+            "char_end": 526,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:aminotransferase",
+            "canonical_mentions": [
+              "AST"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 1593,
+            "char_end": 1598,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 15,
+          "raw_entity_count": 18,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 5,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 15,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.9417,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 15,
+              "denominator": 18,
+              "value": 0.8333
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 18,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 5,
+              "denominator": 18,
+              "value": 0.2778
+            },
+            "type_constraint_pass_rate": {
+              "count": 18,
+              "denominator": 18,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 15,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 15
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 18,
+        "relations": 0,
+        "duplicate_entities": 3,
+        "duplicate_relations": 0
+      },
+      "latency_s": 12.125824250280857,
+      "prompt_tokens": 9045,
+      "output_tokens": 2612,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "type 2 diabetes",
+            "entity_type": "Disease",
+            "source_span": "type 2 diabetes",
+            "char_start": 60,
+            "char_end": 75,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in title; disease entity."
+          },
+          {
+            "mention": "metabolic dysfunction-associated steatotic liver disease",
+            "entity_type": "Disease",
+            "source_span": "metabolic dysfunction-associated steatotic liver disease",
+            "char_start": 221,
+            "char_end": 277,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "alanine aminotransferase",
+            "entity_type": "Protein",
+            "source_span": "alanine aminotransferase",
+            "char_start": 502,
+            "char_end": 526,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match; protein entity."
+          },
+          {
+            "mention": "aspartate aminotransferase",
+            "entity_type": "Protein",
+            "source_span": "aspartate aminotransferase",
+            "char_start": 534,
+            "char_end": 560,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match; protein entity."
+          },
+          {
+            "mention": "triglycerides",
+            "entity_type": "Metabolite",
+            "source_span": "triglycerides",
+            "char_start": 572,
+            "char_end": 585,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match; metabolite entity."
+          },
+          {
+            "mention": "HDL",
+            "entity_type": "Metabolite",
+            "source_span": "HDL",
+            "char_start": 615,
+            "char_end": 618,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match; metabolite entity."
+          },
+          {
+            "mention": "LDL",
+            "entity_type": "Metabolite",
+            "source_span": "LDL",
+            "char_start": 620,
+            "char_end": 623,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match; metabolite entity."
+          },
+          {
+            "mention": "fasting plasma glucose",
+            "entity_type": "Metabolite",
+            "source_span": "fasting plasma glucose",
+            "char_start": 625,
+            "char_end": 647,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match; metabolite entity."
+          },
+          {
+            "mention": "body mass index",
+            "entity_type": "Metabolite",
+            "source_span": "body mass index",
+            "char_start": 655,
+            "char_end": 670,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match; metabolite entity."
+          },
+          {
+            "mention": "glycated hemoglobin",
+            "entity_type": "Metabolite",
+            "source_span": "glycated hemoglobin",
+            "char_start": 682,
+            "char_end": 701,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match; metabolite entity."
+          },
+          {
+            "mention": "MASLD",
+            "entity_type": "Disease",
+            "source_span": "MASLD",
+            "char_start": 1386,
+            "char_end": 1391,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match; abbreviation for metabolic dysfunction-associated steatotic liver disease."
+          },
+          {
+            "mention": "T2DM",
+            "entity_type": "Disease",
+            "source_span": "T2DM",
+            "char_start": 1396,
+            "char_end": 1400,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match; abbreviation for type 2 diabetes mellitus."
+          },
+          {
+            "mention": "ALT",
+            "entity_type": "Protein",
+            "source_span": "ALT",
+            "char_start": 956,
+            "char_end": 959,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Abbreviation for alanine aminotransferase; protein entity."
+          },
+          {
+            "mention": "AST",
+            "entity_type": "Protein",
+            "source_span": "AST",
+            "char_start": 964,
+            "char_end": 967,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Abbreviation for aspartate aminotransferase; protein entity."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 1593,
+            "char_end": 1598,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match; tissue entity."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "aminotransferase",
+            "entity_type": "Protein",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Overlapping span with alanine aminotransferase; not a distinct entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "type 2 diabetes mellitus",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of type 2 diabetes; already represented by T2DM abbreviation."
+          }
+        ],
+        "review_reason": "Corrected entity list to remove duplicates and overlapping spans; no relations extracted due to lack of explicit causal or associative statements in the abstract.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "type 2 diabetes"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "metabolic dysfunction-associated steatotic liver disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "alanine aminotransferase"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "aspartate aminotransferase"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "triglycerides"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HDL"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "LDL"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "fasting plasma glucose"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "body mass index"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "glycated hemoglobin"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "MASLD"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "T2DM",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "ALT"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "AST",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "aminotransferase",
+            "entity_type": "Protein",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Overlapping span with alanine aminotransferase; not a distinct entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "type 2 diabetes mellitus",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of type 2 diabetes; already represented by T2DM abbreviation."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "UMLS:C5543020"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "MASLD",
+          "char_start": 81,
+          "char_end": 86
+        },
+        {
+          "mention": "type 2 diabetes mellitus",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "UMLS:C0011860"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "type 2 diabetes mellitus",
+          "char_start": 290,
+          "char_end": 314
+        },
+        {
+          "mention": "T2DM",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "UMLS:C0011860"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "T2DM",
+          "char_start": 316,
+          "char_end": 320
+        },
+        {
+          "mention": "alanine aminotransferase",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:18022"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "alanine aminotransferase",
+          "char_start": 502,
+          "char_end": 526
+        },
+        {
+          "mention": "aspartate aminotransferase",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:15705"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "aspartate aminotransferase",
+          "char_start": 534,
+          "char_end": 560
+        },
+        {
+          "mention": "triglycerides",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:17754"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "triglycerides",
+          "char_start": 572,
+          "char_end": 585
+        },
+        {
+          "mention": "HDL",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:18060"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "HDL",
+          "char_start": 615,
+          "char_end": 618
+        },
+        {
+          "mention": "LDL",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:39006"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "LDL",
+          "char_start": 620,
+          "char_end": 623
+        },
+        {
+          "mention": "fasting plasma glucose",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:17234"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "fasting plasma glucose",
+          "char_start": 625,
+          "char_end": 647
+        },
+        {
+          "mention": "body mass index",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "UMLS:C0005890"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "body mass index",
+          "char_start": 655,
+          "char_end": 670
+        },
+        {
+          "mention": "glycated hemoglobin",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:16526"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "glycated hemoglobin",
+          "char_start": 682,
+          "char_end": 701
+        },
+        {
+          "mention": "Ertugliflozin",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "CHEBI:82720"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Ertugliflozin",
+          "char_start": 907,
+          "char_end": 920
+        },
+        {
+          "mention": "pioglitazone",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "CHEBI:7476"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "pioglitazone",
+          "char_start": 988,
+          "char_end": 1000
+        },
+        {
+          "mention": "metformin",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "CHEBI:6801"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "metformin",
+          "char_start": 1005,
+          "char_end": 1014
+        },
+        {
+          "mention": "ipragliflozin",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "CHEBI:82718"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "ipragliflozin",
+          "char_start": 1045,
+          "char_end": 1058
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Ertugliflozin",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "alanine aminotransferase",
+          "object_type": "Metabolite",
+          "direction": "decrease",
+          "evidence": "Ertugliflozin was the most effective in reducing ALT and AST levels",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.85
+        },
+        {
+          "subject": "Ertugliflozin",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "aspartate aminotransferase",
+          "object_type": "Metabolite",
+          "direction": "decrease",
+          "evidence": "Ertugliflozin was the most effective in reducing ALT and AST levels",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.85
+        },
+        {
+          "subject": "Ertugliflozin",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "triglycerides",
+          "object_type": "Metabolite",
+          "direction": "decrease",
+          "evidence": "Ertugliflozin also showed favorable effects on triglycerides, BMI, HDL, LDL, and liver stiffness.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "Ertugliflozin",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "body mass index",
+          "object_type": "Metabolite",
+          "direction": "decrease",
+          "evidence": "Ertugliflozin also showed favorable effects on triglycerides, BMI, HDL, LDL, and liver stiffness.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "Ertugliflozin",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HDL",
+          "object_type": "Metabolite",
+          "direction": "increase",
+          "evidence": "Ertugliflozin also showed favorable effects on triglycerides, BMI, HDL, LDL, and liver stiffness.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "Ertugliflozin",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "LDL",
+          "object_type": "Metabolite",
+          "direction": "decrease",
+          "evidence": "Ertugliflozin also showed favorable effects on triglycerides, BMI, HDL, LDL, and liver stiffness.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "pioglitazone",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "alanine aminotransferase",
+          "object_type": "Metabolite",
+          "direction": "decrease",
+          "evidence": "Ertugliflozin was the most effective in reducing ALT and AST levels, followed by pioglitazone and metformin for ALT",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "metformin",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "alanine aminotransferase",
+          "object_type": "Metabolite",
+          "direction": "decrease",
+          "evidence": "Ertugliflozin was the most effective in reducing ALT and AST levels, followed by pioglitazone and metformin for ALT",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "pioglitazone",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "aspartate aminotransferase",
+          "object_type": "Metabolite",
+          "direction": "decrease",
+          "evidence": "Ertugliflozin was the most effective in reducing ALT and AST levels, followed by pioglitazone and metformin for ALT, and pioglitazone and ipragliflozin for AST.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "ipragliflozin",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "aspartate aminotransferase",
+          "object_type": "Metabolite",
+          "direction": "decrease",
+          "evidence": "Ertugliflozin was the most effective in reducing ALT and AST levels, followed by pioglitazone and metformin for ALT, and pioglitazone and ipragliflozin for AST.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "UMLS:C5543020"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 81,
+            "char_end": 86,
+            "grounded": true,
+            "normalized_id": "UMLS:C5543020",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "type 2 diabetes mellitus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "UMLS:C0011860"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes mellitus",
+            "char_start": 290,
+            "char_end": 314,
+            "grounded": true,
+            "normalized_id": "UMLS:C0011860",
+            "canonical_key": "Disease:type 2 diabetes mellitus",
+            "canonical_mentions": [
+              "type 2 diabetes mellitus",
+              "T2DM"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "alanine aminotransferase",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEBI:18022"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "alanine aminotransferase",
+            "char_start": 502,
+            "char_end": 526,
+            "grounded": true,
+            "normalized_id": "CHEBI:18022",
+            "canonical_key": "Metabolite:alanine aminotransferase",
+            "canonical_mentions": [
+              "alanine aminotransferase"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aspartate aminotransferase",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEBI:15705"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aspartate aminotransferase",
+            "char_start": 534,
+            "char_end": 560,
+            "grounded": true,
+            "normalized_id": "CHEBI:15705",
+            "canonical_key": "Metabolite:aspartate aminotransferase",
+            "canonical_mentions": [
+              "aspartate aminotransferase"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "triglycerides",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEBI:17754"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "triglycerides",
+            "char_start": 572,
+            "char_end": 585,
+            "grounded": true,
+            "normalized_id": "CHEBI:17754",
+            "canonical_key": "Metabolite:triglycerides",
+            "canonical_mentions": [
+              "triglycerides"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HDL",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "CHEBI:18060"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HDL",
+            "char_start": 615,
+            "char_end": 618,
+            "grounded": true,
+            "normalized_id": "CHEBI:18060",
+            "canonical_key": "Metabolite:hdl",
+            "canonical_mentions": [
+              "HDL"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "LDL",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "CHEBI:39006"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "LDL",
+            "char_start": 620,
+            "char_end": 623,
+            "grounded": true,
+            "normalized_id": "CHEBI:39006",
+            "canonical_key": "Metabolite:ldl",
+            "canonical_mentions": [
+              "LDL"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "fasting plasma glucose",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "CHEBI:17234"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fasting plasma glucose",
+            "char_start": 625,
+            "char_end": 647,
+            "grounded": true,
+            "normalized_id": "CHEBI:17234",
+            "canonical_key": "Metabolite:fasting plasma glucose",
+            "canonical_mentions": [
+              "fasting plasma glucose"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "body mass index",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "UMLS:C0005890"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "body mass index",
+            "char_start": 655,
+            "char_end": 670,
+            "grounded": true,
+            "normalized_id": "UMLS:C0005890",
+            "canonical_key": "Metabolite:body mass index",
+            "canonical_mentions": [
+              "body mass index"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "glycated hemoglobin",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "CHEBI:16526"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "glycated hemoglobin",
+            "char_start": 682,
+            "char_end": 701,
+            "grounded": true,
+            "normalized_id": "CHEBI:16526",
+            "canonical_key": "Metabolite:glycated hemoglobin",
+            "canonical_mentions": [
+              "glycated hemoglobin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Ertugliflozin",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEBI:82720"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Ertugliflozin",
+            "char_start": 907,
+            "char_end": 920,
+            "grounded": true,
+            "normalized_id": "CHEBI:82720",
+            "canonical_key": "Protein:ertugliflozin",
+            "canonical_mentions": [
+              "Ertugliflozin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "pioglitazone",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEBI:7476"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "pioglitazone",
+            "char_start": 988,
+            "char_end": 1000,
+            "grounded": true,
+            "normalized_id": "CHEBI:7476",
+            "canonical_key": "Protein:pioglitazone",
+            "canonical_mentions": [
+              "pioglitazone"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "metformin",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEBI:6801"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "metformin",
+            "char_start": 1005,
+            "char_end": 1014,
+            "grounded": true,
+            "normalized_id": "CHEBI:6801",
+            "canonical_key": "Protein:metformin",
+            "canonical_mentions": [
+              "metformin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ipragliflozin",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEBI:82718"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ipragliflozin",
+            "char_start": 1045,
+            "char_end": 1058,
+            "grounded": true,
+            "normalized_id": "CHEBI:82718",
+            "canonical_key": "Protein:ipragliflozin",
+            "canonical_mentions": [
+              "ipragliflozin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Ertugliflozin",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "alanine aminotransferase",
+            "subject_type": "Protein",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Ertugliflozin was the most effective in reducing ALT and AST levels",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 907,
+            "evidence_char_end": 974,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Ertugliflozin",
+            "original_object": "alanine aminotransferase",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Ertugliflozin",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "aspartate aminotransferase",
+            "subject_type": "Protein",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Ertugliflozin was the most effective in reducing ALT and AST levels",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 907,
+            "evidence_char_end": 974,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Ertugliflozin",
+            "original_object": "aspartate aminotransferase",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Ertugliflozin",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "triglycerides",
+            "subject_type": "Protein",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Ertugliflozin also showed favorable effects on triglycerides, BMI, HDL, LDL, and liver stiffness.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1068,
+            "evidence_char_end": 1165,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Ertugliflozin",
+            "original_object": "triglycerides",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Ertugliflozin",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "body mass index",
+            "subject_type": "Protein",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Ertugliflozin also showed favorable effects on triglycerides, BMI, HDL, LDL, and liver stiffness.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1068,
+            "evidence_char_end": 1165,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Ertugliflozin",
+            "original_object": "body mass index",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Ertugliflozin",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HDL",
+            "subject_type": "Protein",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Ertugliflozin also showed favorable effects on triglycerides, BMI, HDL, LDL, and liver stiffness.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1068,
+            "evidence_char_end": 1165,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Ertugliflozin",
+            "original_object": "HDL",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Ertugliflozin",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "LDL",
+            "subject_type": "Protein",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Ertugliflozin also showed favorable effects on triglycerides, BMI, HDL, LDL, and liver stiffness.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1068,
+            "evidence_char_end": 1165,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Ertugliflozin",
+            "original_object": "LDL",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "pioglitazone",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "alanine aminotransferase",
+            "subject_type": "Protein",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Ertugliflozin was the most effective in reducing ALT and AST levels, followed by pioglitazone and metformin for ALT",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 907,
+            "evidence_char_end": 1022,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "pioglitazone",
+            "original_object": "alanine aminotransferase",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "metformin",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "alanine aminotransferase",
+            "subject_type": "Protein",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Ertugliflozin was the most effective in reducing ALT and AST levels, followed by pioglitazone and metformin for ALT",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 907,
+            "evidence_char_end": 1022,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "metformin",
+            "original_object": "alanine aminotransferase",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "pioglitazone",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "aspartate aminotransferase",
+            "subject_type": "Protein",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Ertugliflozin was the most effective in reducing ALT and AST levels, followed by pioglitazone and metformin for ALT, and pioglitazone and ipragliflozin for AST.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 907,
+            "evidence_char_end": 1067,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "pioglitazone",
+            "original_object": "aspartate aminotransferase",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "ipragliflozin",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "aspartate aminotransferase",
+            "subject_type": "Protein",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Ertugliflozin was the most effective in reducing ALT and AST levels, followed by pioglitazone and metformin for ALT, and pioglitazone and ipragliflozin for AST.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 907,
+            "evidence_char_end": 1067,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "ipragliflozin",
+            "original_object": "aspartate aminotransferase",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 14,
+          "raw_entity_count": 15,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 14,
+          "total_relations": 10,
+          "known_relations": 0,
+          "novel_relations": 10,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 0.4,
+          "semantic_score": 0.6367,
+          "evidence_score": 0.505,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 14,
+              "denominator": 15,
+              "value": 0.9333
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 15,
+              "value": 0.0667
+            },
+            "type_constraint_pass_rate": {
+              "count": 15,
+              "denominator": 15,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 3,
+              "denominator": 10,
+              "value": 0.3
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 14,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 14
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 15,
+        "relations": 10,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 9.339206125121564,
+      "prompt_tokens": 1510,
+      "output_tokens": 1991,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

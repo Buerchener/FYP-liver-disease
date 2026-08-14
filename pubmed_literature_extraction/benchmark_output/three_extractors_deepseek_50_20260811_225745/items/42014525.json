@@ -1,0 +1,3274 @@
+{
+  "pmid": "42014525",
+  "title": "Establishment and characterization of a novel HBV-integrated hepatic sarcomatoid carcinoma cell line.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Hepatic sarcomatoid carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatic sarcomatoid carcinoma",
+            "disease_stage": "HSC"
+          },
+          "grounded": true,
+          "source_span": "Hepatic sarcomatoid carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 68,
+          "char_end": 97
+        },
+        {
+          "mention": "liver malignancy",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver malignancy"
+          },
+          "grounded": true,
+          "source_span": "liver malignancy",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 187,
+          "char_end": 203
+        },
+        {
+          "mention": "cell line",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "cell line"
+          },
+          "grounded": true,
+          "source_span": "cell line",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 98,
+          "char_end": 107
+        },
+        {
+          "mention": "tumor tissue",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "tumor tissue"
+          },
+          "grounded": true,
+          "source_span": "tumor tissue",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 520,
+          "char_end": 532
+        },
+        {
+          "mention": "HBV",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "HBV",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "HBV",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 735,
+          "char_end": 738
+        },
+        {
+          "mention": "cccDNA",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "cccDNA"
+          },
+          "grounded": true,
+          "source_span": "cccDNA",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 828,
+          "char_end": 834
+        },
+        {
+          "mention": "sarcomatoid carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "sarcomatoid carcinoma"
+          },
+          "grounded": true,
+          "source_span": "sarcomatoid carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1039,
+          "char_end": 1060
+        },
+        {
+          "mention": "CK",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "CK"
+          },
+          "grounded": true,
+          "source_span": "CK",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1120,
+          "char_end": 1122
+        },
+        {
+          "mention": "CK19",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "CK19"
+          },
+          "grounded": true,
+          "source_span": "CK19",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1127,
+          "char_end": 1131
+        },
+        {
+          "mention": "vimentin",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "vimentin"
+          },
+          "grounded": true,
+          "source_span": "vimentin",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1160,
+          "char_end": 1168
+        },
+        {
+          "mention": "E-cadherin",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "E-cadherin"
+          },
+          "grounded": true,
+          "source_span": "E-cadherin",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1170,
+          "char_end": 1180
+        },
+        {
+          "mention": "N-cadherin",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "N-cadherin"
+          },
+          "grounded": true,
+          "source_span": "N-cadherin",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1257,
+          "char_end": 1267
+        },
+        {
+          "mention": "epithelial-mesenchymal transition",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "epithelial-mesenchymal transition"
+          },
+          "grounded": true,
+          "source_span": "epithelial-mesenchymal transition",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1330,
+          "char_end": 1363
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1390,
+          "char_end": 1414
+        },
+        {
+          "mention": "tumor cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "tumor cells"
+          },
+          "grounded": true,
+          "source_span": "tumor cells",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 1735,
+          "char_end": 1740
+        },
+        {
+          "mention": "PUMC-LICA3",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "PUMC-LICA3"
+          },
+          "grounded": true,
+          "source_span": "PUMC-LICA3",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1808,
+          "char_end": 1818
+        },
+        {
+          "mention": "hepatic sarcomatoid carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic sarcomatoid carcinoma"
+          },
+          "grounded": true,
+          "source_span": "hepatic sarcomatoid carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1962,
+          "char_end": 1991
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatic sarcomatoid carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatic sarcomatoid carcinoma",
+              "disease_stage": "HSC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic sarcomatoid carcinoma",
+            "char_start": 68,
+            "char_end": 97,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatic sarcomatoid carcinoma",
+            "canonical_mentions": [
+              "Hepatic sarcomatoid carcinoma",
+              "hepatic sarcomatoid carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver malignancy",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "liver malignancy"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver malignancy",
+            "char_start": 187,
+            "char_end": 203,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver malignancy",
+            "canonical_mentions": [
+              "liver malignancy"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "HBV",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV",
+            "char_start": 735,
+            "char_end": 738,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:hbv",
+            "canonical_mentions": [
+              "HBV"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "covalently closed circular DNA",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "cccDNA"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "covalently closed circular DNA",
+            "char_start": 796,
+            "char_end": 826,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:covalently closed circular dna",
+            "canonical_mentions": [
+              "cccDNA"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "sarcomatoid carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "sarcomatoid carcinoma"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "sarcomatoid carcinoma",
+            "char_start": 1039,
+            "char_end": 1060,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:sarcomatoid carcinoma",
+            "canonical_mentions": [
+              "sarcomatoid carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "CK"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CK",
+            "char_start": 1120,
+            "char_end": 1122,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:ck",
+            "canonical_mentions": [
+              "CK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CK19",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "CK19"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CK19",
+            "char_start": 1127,
+            "char_end": 1131,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:ck19",
+            "canonical_mentions": [
+              "CK19"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "vimentin",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "vimentin"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "vimentin",
+            "char_start": 1160,
+            "char_end": 1168,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:vimentin",
+            "canonical_mentions": [
+              "vimentin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "E-cadherin",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "E-cadherin"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "E-cadherin",
+            "char_start": 1170,
+            "char_end": 1180,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:e cadherin",
+            "canonical_mentions": [
+              "E-cadherin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "N-cadherin",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "N-cadherin"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "N-cadherin",
+            "char_start": 1257,
+            "char_end": 1267,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:n cadherin",
+            "canonical_mentions": [
+              "N-cadherin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "epithelial-mesenchymal transition",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "epithelial-mesenchymal transition"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "epithelial-mesenchymal transition",
+            "char_start": 1330,
+            "char_end": 1363,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:epithelial mesenchymal transition",
+            "canonical_mentions": [
+              "epithelial-mesenchymal transition"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 1390,
+            "char_end": 1414,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 12,
+          "raw_entity_count": 17,
+          "filtered_entity_count": 4,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 12,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8529,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 12,
+              "denominator": 17,
+              "value": 0.7059
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 17,
+              "value": 0.1176
+            },
+            "type_constraint_pass_rate": {
+              "count": 14,
+              "denominator": 17,
+              "value": 0.8235
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 12,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 12
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 17,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.1022904999554157,
+      "prompt_tokens": 498,
+      "output_tokens": 1137,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Hepatic sarcomatoid carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatic sarcomatoid carcinoma",
+            "disease_stage": "HSC"
+          },
+          "grounded": true,
+          "source_span": "Hepatic sarcomatoid carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 68,
+          "char_end": 97
+        },
+        {
+          "mention": "liver malignancy",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver malignancy"
+          },
+          "grounded": true,
+          "source_span": "liver malignancy",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 187,
+          "char_end": 203
+        },
+        {
+          "mention": "cell line",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "cell line"
+          },
+          "grounded": true,
+          "source_span": "cell line",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 98,
+          "char_end": 107
+        },
+        {
+          "mention": "tumor tissue",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "tumor tissue"
+          },
+          "grounded": true,
+          "source_span": "tumor tissue",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 520,
+          "char_end": 532
+        },
+        {
+          "mention": "HBV",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "HBV",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "HBV",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 735,
+          "char_end": 738
+        },
+        {
+          "mention": "cccDNA",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "cccDNA"
+          },
+          "grounded": true,
+          "source_span": "cccDNA",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 828,
+          "char_end": 834
+        },
+        {
+          "mention": "sarcomatoid carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "sarcomatoid carcinoma"
+          },
+          "grounded": true,
+          "source_span": "sarcomatoid carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1039,
+          "char_end": 1060
+        },
+        {
+          "mention": "CK",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "CK"
+          },
+          "grounded": true,
+          "source_span": "CK",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1120,
+          "char_end": 1122
+        },
+        {
+          "mention": "CK19",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "CK19"
+          },
+          "grounded": true,
+          "source_span": "CK19",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1127,
+          "char_end": 1131
+        },
+        {
+          "mention": "vimentin",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "vimentin"
+          },
+          "grounded": true,
+          "source_span": "vimentin",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1160,
+          "char_end": 1168
+        },
+        {
+          "mention": "E-cadherin",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "E-cadherin"
+          },
+          "grounded": true,
+          "source_span": "E-cadherin",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1170,
+          "char_end": 1180
+        },
+        {
+          "mention": "N-cadherin",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "N-cadherin"
+          },
+          "grounded": true,
+          "source_span": "N-cadherin",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1257,
+          "char_end": 1267
+        },
+        {
+          "mention": "epithelial-mesenchymal transition",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "epithelial-mesenchymal transition"
+          },
+          "grounded": true,
+          "source_span": "epithelial-mesenchymal transition",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1330,
+          "char_end": 1363
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1390,
+          "char_end": 1414
+        },
+        {
+          "mention": "tumor cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "tumor cells"
+          },
+          "grounded": true,
+          "source_span": "tumor cells",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 1735,
+          "char_end": 1740
+        },
+        {
+          "mention": "PUMC-LICA3",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "PUMC-LICA3"
+          },
+          "grounded": true,
+          "source_span": "PUMC-LICA3",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1808,
+          "char_end": 1818
+        },
+        {
+          "mention": "hepatic sarcomatoid carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic sarcomatoid carcinoma"
+          },
+          "grounded": true,
+          "source_span": "hepatic sarcomatoid carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1962,
+          "char_end": 1991
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic sarcomatoid carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "the newly established PUMC-LICA3 cell line represents a reliable and valuable experimental model for investigating the biological characteristics and therapeutic strategies of hepatic sarcomatoid carcinoma",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicitly states the cell line is a model for the disease."
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "EXPRESSED_IN",
+          "object": "CK",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "Xenograft tumors displayed immunohistochemical features consistent with sarcomatoid carcinoma, characterized by the co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Xenograft tumors from PUMC-LICA3 co-express CK."
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "EXPRESSED_IN",
+          "object": "CK19",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "Xenograft tumors displayed immunohistochemical features consistent with sarcomatoid carcinoma, characterized by the co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Xenograft tumors from PUMC-LICA3 co-express CK19."
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "EXPRESSED_IN",
+          "object": "vimentin",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "Xenograft tumors displayed immunohistochemical features consistent with sarcomatoid carcinoma, characterized by the co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Xenograft tumors from PUMC-LICA3 co-express vimentin."
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "EXPRESSED_IN",
+          "object": "E-cadherin",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "E-cadherin expression was patchy, with partial loss in subsets of tumor cells",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "E-cadherin is expressed but with partial loss; direction positive for expression."
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "EXPRESSED_IN",
+          "object": "N-cadherin",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "N-cadherin was diffusely expressed",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "N-cadherin is diffusely expressed in tumor cells."
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "PARTICIPATES_IN",
+          "object": "epithelial-mesenchymal transition",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "PUMC-LICA3 exhibited a high epithelial-mesenchymal transition (EMT) score",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Cell line exhibits high EMT score, indicating participation in EMT pathway."
+        },
+        {
+          "subject": "HBV",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic sarcomatoid carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Long-read sequencing identified HBV DNA integration at chromosome 17p11.2 without detectable covalently closed circular DNA (cccDNA) or viral antigen expression, indicating a non-replicative viral status",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "HBV integration is present in the cell line derived from the disease."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatic sarcomatoid carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatic sarcomatoid carcinoma",
+              "disease_stage": "HSC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic sarcomatoid carcinoma",
+            "char_start": 68,
+            "char_end": 97,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatic sarcomatoid carcinoma",
+            "canonical_mentions": [
+              "Hepatic sarcomatoid carcinoma",
+              "hepatic sarcomatoid carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver malignancy",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "liver malignancy"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver malignancy",
+            "char_start": 187,
+            "char_end": 203,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver malignancy",
+            "canonical_mentions": [
+              "liver malignancy"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "HBV",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV",
+            "char_start": 735,
+            "char_end": 738,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:hbv",
+            "canonical_mentions": [
+              "HBV"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "covalently closed circular DNA",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "cccDNA"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "covalently closed circular DNA",
+            "char_start": 796,
+            "char_end": 826,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:covalently closed circular dna",
+            "canonical_mentions": [
+              "cccDNA"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "sarcomatoid carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "sarcomatoid carcinoma"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "sarcomatoid carcinoma",
+            "char_start": 1039,
+            "char_end": 1060,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:sarcomatoid carcinoma",
+            "canonical_mentions": [
+              "sarcomatoid carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "CK"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CK",
+            "char_start": 1120,
+            "char_end": 1122,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:ck",
+            "canonical_mentions": [
+              "CK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CK19",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "CK19"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CK19",
+            "char_start": 1127,
+            "char_end": 1131,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:ck19",
+            "canonical_mentions": [
+              "CK19"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "vimentin",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "vimentin"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "vimentin",
+            "char_start": 1160,
+            "char_end": 1168,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:vimentin",
+            "canonical_mentions": [
+              "vimentin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "E-cadherin",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "E-cadherin"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "E-cadherin",
+            "char_start": 1170,
+            "char_end": 1180,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:e cadherin",
+            "canonical_mentions": [
+              "E-cadherin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "N-cadherin",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "N-cadherin"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "N-cadherin",
+            "char_start": 1257,
+            "char_end": 1267,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:n cadherin",
+            "canonical_mentions": [
+              "N-cadherin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "epithelial-mesenchymal transition",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "epithelial-mesenchymal transition"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "epithelial-mesenchymal transition",
+            "char_start": 1330,
+            "char_end": 1363,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:epithelial mesenchymal transition",
+            "canonical_mentions": [
+              "epithelial-mesenchymal transition"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 1390,
+            "char_end": 1414,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatic sarcomatoid carcinoma",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "the newly established PUMC-LICA3 cell line represents a reliable and valuable experimental model for investigating the biological characteristics and therapeutic strategies of hepatic sarcomatoid carcinoma",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1786,
+            "evidence_char_end": 1991,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "hepatic sarcomatoid carcinoma",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "EXPRESSED_IN",
+            "object": "CK",
+            "subject_type": "CellType",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Xenograft tumors displayed immunohistochemical features consistent with sarcomatoid carcinoma, characterized by the co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_novel",
+              "schema_mismatch",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "subject_not_grounded",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 967,
+            "evidence_char_end": 1168,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "CK",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "EXPRESSED_IN",
+            "object": "CK19",
+            "subject_type": "CellType",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Xenograft tumors displayed immunohistochemical features consistent with sarcomatoid carcinoma, characterized by the co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_novel",
+              "schema_mismatch",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "subject_not_grounded",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 967,
+            "evidence_char_end": 1168,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "CK19",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "EXPRESSED_IN",
+            "object": "vimentin",
+            "subject_type": "CellType",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Xenograft tumors displayed immunohistochemical features consistent with sarcomatoid carcinoma, characterized by the co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_novel",
+              "schema_mismatch",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "subject_not_grounded",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 967,
+            "evidence_char_end": 1168,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "vimentin",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "EXPRESSED_IN",
+            "object": "E-cadherin",
+            "subject_type": "CellType",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "E-cadherin expression was patchy, with partial loss in subsets of tumor cells",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_novel",
+              "schema_mismatch",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "subject_not_grounded",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1170,
+            "evidence_char_end": 1247,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "E-cadherin",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "EXPRESSED_IN",
+            "object": "N-cadherin",
+            "subject_type": "CellType",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "N-cadherin was diffusely expressed",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_novel",
+              "schema_mismatch",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "subject_not_grounded",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1257,
+            "evidence_char_end": 1291,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "N-cadherin",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "PARTICIPATES_IN",
+            "object": "epithelial-mesenchymal transition",
+            "subject_type": "CellType",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PUMC-LICA3 exhibited a high epithelial-mesenchymal transition (EMT) score",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1302,
+            "evidence_char_end": 1375,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "epithelial-mesenchymal transition",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "HBV",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatic sarcomatoid carcinoma",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Long-read sequencing identified HBV DNA integration at chromosome 17p11.2 without detectable covalently closed circular DNA (cccDNA) or viral antigen expression, indicating a non-replicative viral status",
+            "direction": "positive",
+            "negated": true,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "negated",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 703,
+            "evidence_char_end": 906,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "HBV",
+            "original_object": "hepatic sarcomatoid carcinoma",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 12,
+          "raw_entity_count": 17,
+          "filtered_entity_count": 4,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 12,
+          "total_relations": 8,
+          "known_relations": 0,
+          "novel_relations": 8,
+          "contradicting_relations": 0,
+          "schema_valid": 3,
+          "import_ready": 0,
+          "structural_score": 0.625,
+          "semantic_score": 0.5029,
+          "evidence_score": 0.4875,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 12,
+              "denominator": 17,
+              "value": 0.7059
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 17,
+              "value": 0.1176
+            },
+            "type_constraint_pass_rate": {
+              "count": 14,
+              "denominator": 17,
+              "value": 0.8235
+            },
+            "relation_evidence_exactness": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 8,
+              "value": 0.25
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 7,
+              "denominator": 8,
+              "value": 0.875
+            },
+            "unresolved_endpoint_rate": {
+              "count": 7,
+              "denominator": 8,
+              "value": 0.875
+            },
+            "weak_evidence_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 1,
+              "denominator": 8,
+              "value": 0.125
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 12,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 12
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 17,
+        "relations": 8,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 15.245682708919048,
+      "prompt_tokens": 9103,
+      "output_tokens": 3866,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Hepatic sarcomatoid carcinoma",
+            "entity_type": "Disease",
+            "source_span": "Hepatic sarcomatoid carcinoma",
+            "char_start": 68,
+            "char_end": 97,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in title and abstract; canonical disease entity."
+          },
+          {
+            "mention": "liver malignancy",
+            "entity_type": "Disease",
+            "source_span": "liver malignancy",
+            "char_start": 187,
+            "char_end": 203,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Explicitly described as a rare and aggressive liver malignancy; valid disease mention."
+          },
+          {
+            "mention": "HBV",
+            "entity_type": "Gene",
+            "source_span": "HBV",
+            "char_start": 735,
+            "char_end": 738,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as HBV DNA integration; gene entity."
+          },
+          {
+            "mention": "covalently closed circular DNA",
+            "entity_type": "Metabolite",
+            "source_span": "covalently closed circular DNA",
+            "char_start": 796,
+            "char_end": 826,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Full term for cccDNA; explicitly mentioned as not detectable."
+          },
+          {
+            "mention": "sarcomatoid carcinoma",
+            "entity_type": "Disease",
+            "source_span": "sarcomatoid carcinoma",
+            "char_start": 1039,
+            "char_end": 1060,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as the tumor type of xenografts."
+          },
+          {
+            "mention": "CK",
+            "entity_type": "Protein",
+            "source_span": "CK",
+            "char_start": 1120,
+            "char_end": 1122,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Epithelial marker co-expressed in xenograft tumors."
+          },
+          {
+            "mention": "CK19",
+            "entity_type": "Protein",
+            "source_span": "CK19",
+            "char_start": 1127,
+            "char_end": 1131,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Epithelial marker co-expressed in xenograft tumors."
+          },
+          {
+            "mention": "vimentin",
+            "entity_type": "Protein",
+            "source_span": "vimentin",
+            "char_start": 1160,
+            "char_end": 1168,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Mesenchymal marker co-expressed in xenograft tumors."
+          },
+          {
+            "mention": "E-cadherin",
+            "entity_type": "Protein",
+            "source_span": "E-cadherin",
+            "char_start": 1170,
+            "char_end": 1180,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Expression described as patchy with partial loss."
+          },
+          {
+            "mention": "N-cadherin",
+            "entity_type": "Protein",
+            "source_span": "N-cadherin",
+            "char_start": 1257,
+            "char_end": 1267,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Diffusely expressed in tumor cells."
+          },
+          {
+            "mention": "epithelial-mesenchymal transition",
+            "entity_type": "Pathway",
+            "source_span": "epithelial-mesenchymal transition",
+            "char_start": 1330,
+            "char_end": 1363,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as EMT with high score."
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "entity_type": "Disease",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 1390,
+            "char_end": 1414,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as HCC for clustering comparison."
+          },
+          {
+            "mention": "PUMC-LICA3",
+            "entity_type": "CellType",
+            "source_span": "PUMC-LICA3",
+            "char_start": 1808,
+            "char_end": 1818,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Novel cell line established and characterized; specific cell line entity."
+          },
+          {
+            "mention": "hepatic sarcomatoid carcinoma",
+            "entity_type": "Disease",
+            "source_span": "hepatic sarcomatoid carcinoma",
+            "char_start": 1962,
+            "char_end": 1991,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Disease for which the cell line is a model."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "PUMC-LICA3",
+            "subject_type": "CellType",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic sarcomatoid carcinoma",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "the newly established PUMC-LICA3 cell line represents a reliable and valuable experimental model for investigating the biological characteristics and therapeutic strategies of hepatic sarcomatoid carcinoma",
+            "evidence_span": "the newly established PUMC-LICA3 cell line represents a reliable and valuable experimental model for investigating the biological characteristics and therapeutic strategies of hepatic sarcomatoid carcinoma",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicitly states the cell line is a model for the disease."
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "subject_type": "CellType",
+            "predicate": "EXPRESSED_IN",
+            "object": "CK",
+            "object_type": "Protein",
+            "direction": "positive",
+            "evidence": "Xenograft tumors displayed immunohistochemical features consistent with sarcomatoid carcinoma, characterized by the co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+            "evidence_span": "co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Xenograft tumors from PUMC-LICA3 co-express CK."
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "subject_type": "CellType",
+            "predicate": "EXPRESSED_IN",
+            "object": "CK19",
+            "object_type": "Protein",
+            "direction": "positive",
+            "evidence": "Xenograft tumors displayed immunohistochemical features consistent with sarcomatoid carcinoma, characterized by the co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+            "evidence_span": "co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Xenograft tumors from PUMC-LICA3 co-express CK19."
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "subject_type": "CellType",
+            "predicate": "EXPRESSED_IN",
+            "object": "vimentin",
+            "object_type": "Protein",
+            "direction": "positive",
+            "evidence": "Xenograft tumors displayed immunohistochemical features consistent with sarcomatoid carcinoma, characterized by the co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+            "evidence_span": "co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Xenograft tumors from PUMC-LICA3 co-express vimentin."
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "subject_type": "CellType",
+            "predicate": "EXPRESSED_IN",
+            "object": "E-cadherin",
+            "object_type": "Protein",
+            "direction": "positive",
+            "evidence": "E-cadherin expression was patchy, with partial loss in subsets of tumor cells",
+            "evidence_span": "E-cadherin expression was patchy, with partial loss in subsets of tumor cells",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "E-cadherin is expressed but with partial loss; direction positive for expression."
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "subject_type": "CellType",
+            "predicate": "EXPRESSED_IN",
+            "object": "N-cadherin",
+            "object_type": "Protein",
+            "direction": "positive",
+            "evidence": "N-cadherin was diffusely expressed",
+            "evidence_span": "N-cadherin was diffusely expressed",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "N-cadherin is diffusely expressed in tumor cells."
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "subject_type": "CellType",
+            "predicate": "PARTICIPATES_IN",
+            "object": "epithelial-mesenchymal transition",
+            "object_type": "Pathway",
+            "direction": "positive",
+            "evidence": "PUMC-LICA3 exhibited a high epithelial-mesenchymal transition (EMT) score",
+            "evidence_span": "PUMC-LICA3 exhibited a high epithelial-mesenchymal transition (EMT) score",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Cell line exhibits high EMT score, indicating participation in EMT pathway."
+          },
+          {
+            "subject": "HBV",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic sarcomatoid carcinoma",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "Long-read sequencing identified HBV DNA integration at chromosome 17p11.2 without detectable covalently closed circular DNA (cccDNA) or viral antigen expression, indicating a non-replicative viral status",
+            "evidence_span": "HBV DNA integration at chromosome 17p11.2",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "HBV integration is present in the cell line derived from the disease."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "cell line",
+            "entity_type": "CellType",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Generic term, not a specific cell line."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "tumor tissue",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Not a specific anatomical tissue; generic term."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "tumor cells",
+            "entity_type": "CellType",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Non-specific cell type."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cccDNA",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Abbreviation; full term already included as covalently closed circular DNA."
+          }
+        ],
+        "review_reason": "Corrected entity list to include specific and relevant entities, removed generic ones. Added relations supported by explicit evidence in the abstract, including expression of markers, EMT participation, and association with disease.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 8,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Hepatic sarcomatoid carcinoma"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver malignancy"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HBV"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "covalently closed circular DNA"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "sarcomatoid carcinoma"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "CK"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "CK19"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "vimentin"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "E-cadherin"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "N-cadherin"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "epithelial-mesenchymal transition"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatocellular carcinoma"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "PUMC-LICA3",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatic sarcomatoid carcinoma"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "hepatic sarcomatoid carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C0272346"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "hepatic sarcomatoid carcinoma",
+          "char_start": 68,
+          "char_end": 97
+        },
+        {
+          "mention": "HSC",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C0272346"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "HSC",
+          "char_start": 150,
+          "char_end": 153
+        },
+        {
+          "mention": "PUMC-LICA3",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CVCL_0000"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "PUMC-LICA3",
+          "char_start": 456,
+          "char_end": 466
+        },
+        {
+          "mention": "HBV",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "NC_003977"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "HBV",
+          "char_start": 53,
+          "char_end": 56
+        },
+        {
+          "mention": "chromosome 17p11.2",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "unknown"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "chromosome 17p11.2",
+          "char_start": 758,
+          "char_end": 776
+        },
+        {
+          "mention": "cccDNA",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "unknown"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "cccDNA",
+          "char_start": 828,
+          "char_end": 834
+        },
+        {
+          "mention": "CK",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "unknown"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "CK",
+          "char_start": 1120,
+          "char_end": 1122
+        },
+        {
+          "mention": "CK19",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P08727"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "CK19",
+          "char_start": 1127,
+          "char_end": 1131
+        },
+        {
+          "mention": "vimentin",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P08670"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "vimentin",
+          "char_start": 1160,
+          "char_end": 1168
+        },
+        {
+          "mention": "E-cadherin",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P12830"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "E-cadherin",
+          "char_start": 1170,
+          "char_end": 1180
+        },
+        {
+          "mention": "N-cadherin",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P19022"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "N-cadherin",
+          "char_start": 1257,
+          "char_end": 1267
+        },
+        {
+          "mention": "epithelial-mesenchymal transition",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0001837"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "epithelial-mesenchymal transition",
+          "char_start": 1330,
+          "char_end": 1363
+        },
+        {
+          "mention": "EMT",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0001837"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "EMT",
+          "char_start": 1365,
+          "char_end": 1368
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C0019204"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "char_start": 1390,
+          "char_end": 1414
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C0019204"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "HCC",
+          "char_start": 1416,
+          "char_end": 1419
+        },
+        {
+          "mention": "JHH-6",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CVCL_0000"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "JHH-6",
+          "char_start": 1450,
+          "char_end": 1455
+        },
+        {
+          "mention": "SNU-387",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CVCL_0000"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "SNU-387",
+          "char_start": 1460,
+          "char_end": 1467
+        },
+        {
+          "mention": "cisplatin",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "C038070"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "cisplatin",
+          "char_start": 1536,
+          "char_end": 1545
+        },
+        {
+          "mention": "doxorubicin",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "C001308"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "doxorubicin",
+          "char_start": 1547,
+          "char_end": 1558
+        },
+        {
+          "mention": "sorafenib",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "C174065"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "sorafenib",
+          "char_start": 1563,
+          "char_end": 1572
+        },
+        {
+          "mention": "5-fluorouracil",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "C001893"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "5‑fluorouracil",
+          "char_start": 1591,
+          "char_end": 1605
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic sarcomatoid carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "we established and comprehensively characterized a novel HSC cell line, designated PUMC-LICA3",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "EXPRESSED_IN",
+          "object": "vimentin",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "EXPRESSED_IN",
+          "object": "E-cadherin",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "E-cadherin expression was patchy, with partial loss in subsets of tumor cells",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "EXPRESSED_IN",
+          "object": "N-cadherin",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "N-cadherin was diffusely expressed",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "PARTICIPATES_IN",
+          "object": "epithelial-mesenchymal transition",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "PUMC-LICA3 exhibited a high epithelial-mesenchymal transition (EMT) score",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "among 22 hepatocellular carcinoma (HCC), clustered most closely with JHH-6 and SNU-387",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "cisplatin",
+          "object_type": "Metabolite",
+          "direction": "positive",
+          "evidence": "the cell line was sensitive to cisplatin, doxorubicin and sorafenib",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "doxorubicin",
+          "object_type": "Metabolite",
+          "direction": "positive",
+          "evidence": "the cell line was sensitive to cisplatin, doxorubicin and sorafenib",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "sorafenib",
+          "object_type": "Metabolite",
+          "direction": "positive",
+          "evidence": "the cell line was sensitive to cisplatin, doxorubicin and sorafenib",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "PUMC-LICA3",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "5-fluorouracil",
+          "object_type": "Metabolite",
+          "direction": "negative",
+          "evidence": "resistant to 5-fluorouracil",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatic sarcomatoid carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "C0272346"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic sarcomatoid carcinoma",
+            "char_start": 68,
+            "char_end": 97,
+            "grounded": true,
+            "normalized_id": "C0272346",
+            "canonical_key": "Disease:hepatic sarcomatoid carcinoma",
+            "canonical_mentions": [
+              "hepatic sarcomatoid carcinoma",
+              "HSC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "NC_003977"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV",
+            "char_start": 53,
+            "char_end": 56,
+            "grounded": true,
+            "normalized_id": "NC_003977",
+            "canonical_key": "Gene:hbv",
+            "canonical_mentions": [
+              "HBV"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "covalently closed circular DNA",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "unknown"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "covalently closed circular DNA",
+            "char_start": 796,
+            "char_end": 826,
+            "grounded": true,
+            "normalized_id": "unknown",
+            "canonical_key": "Gene:covalently closed circular dna",
+            "canonical_mentions": [
+              "cccDNA"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "unknown"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CK",
+            "char_start": 1120,
+            "char_end": 1122,
+            "grounded": true,
+            "normalized_id": "unknown",
+            "canonical_key": "Protein:ck",
+            "canonical_mentions": [
+              "CK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CK19",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "P08727"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CK19",
+            "char_start": 1127,
+            "char_end": 1131,
+            "grounded": true,
+            "normalized_id": "P08727",
+            "canonical_key": "Protein:ck19",
+            "canonical_mentions": [
+              "CK19"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "vimentin",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "P08670"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "vimentin",
+            "char_start": 1160,
+            "char_end": 1168,
+            "grounded": true,
+            "normalized_id": "P08670",
+            "canonical_key": "Protein:vimentin",
+            "canonical_mentions": [
+              "vimentin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "E-cadherin",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "P12830"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "E-cadherin",
+            "char_start": 1170,
+            "char_end": 1180,
+            "grounded": true,
+            "normalized_id": "P12830",
+            "canonical_key": "Protein:e cadherin",
+            "canonical_mentions": [
+              "E-cadherin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "N-cadherin",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "P19022"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "N-cadherin",
+            "char_start": 1257,
+            "char_end": 1267,
+            "grounded": true,
+            "normalized_id": "P19022",
+            "canonical_key": "Protein:n cadherin",
+            "canonical_mentions": [
+              "N-cadherin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "epithelial-mesenchymal transition",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "GO:0001837"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "epithelial-mesenchymal transition",
+            "char_start": 1330,
+            "char_end": 1363,
+            "grounded": true,
+            "normalized_id": "GO:0001837",
+            "canonical_key": "Pathway:epithelial mesenchymal transition",
+            "canonical_mentions": [
+              "epithelial-mesenchymal transition",
+              "EMT"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "C0019204"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 1390,
+            "char_end": 1414,
+            "grounded": true,
+            "normalized_id": "C0019204",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cisplatin",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "C038070"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cisplatin",
+            "char_start": 1536,
+            "char_end": 1545,
+            "grounded": true,
+            "normalized_id": "C038070",
+            "canonical_key": "Metabolite:cisplatin",
+            "canonical_mentions": [
+              "cisplatin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "doxorubicin",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "C001308"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "doxorubicin",
+            "char_start": 1547,
+            "char_end": 1558,
+            "grounded": true,
+            "normalized_id": "C001308",
+            "canonical_key": "Metabolite:doxorubicin",
+            "canonical_mentions": [
+              "doxorubicin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "sorafenib",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "C174065"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "sorafenib",
+            "char_start": 1563,
+            "char_end": 1572,
+            "grounded": true,
+            "normalized_id": "C174065",
+            "canonical_key": "Metabolite:sorafenib",
+            "canonical_mentions": [
+              "sorafenib"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "5-fluorouracil",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "C001893"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "5‑fluorouracil",
+            "char_start": 1591,
+            "char_end": 1605,
+            "grounded": true,
+            "normalized_id": "C001893",
+            "canonical_key": "Metabolite:5 fluorouracil",
+            "canonical_mentions": [
+              "5-fluorouracil"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic sarcomatoid carcinoma",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "we established and comprehensively characterized a novel HSC cell line, designated PUMC-LICA3",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 373,
+            "evidence_char_end": 466,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "hepatic sarcomatoid carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "EXPRESSED_IN",
+            "object": "vimentin",
+            "subject_type": "CellType",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "co-expression of epithelial markers (CK and CK19) and the mesenchymal marker vimentin",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_novel",
+              "schema_mismatch",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "subject_not_grounded",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1083,
+            "evidence_char_end": 1168,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "vimentin",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "EXPRESSED_IN",
+            "object": "E-cadherin",
+            "subject_type": "CellType",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "E-cadherin expression was patchy, with partial loss in subsets of tumor cells",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_novel",
+              "schema_mismatch",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "subject_not_grounded",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1170,
+            "evidence_char_end": 1247,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "E-cadherin",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "EXPRESSED_IN",
+            "object": "N-cadherin",
+            "subject_type": "CellType",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "N-cadherin was diffusely expressed",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_novel",
+              "schema_mismatch",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "subject_not_grounded",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1257,
+            "evidence_char_end": 1291,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "N-cadherin",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "PARTICIPATES_IN",
+            "object": "epithelial-mesenchymal transition",
+            "subject_type": "CellType",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PUMC-LICA3 exhibited a high epithelial-mesenchymal transition (EMT) score",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1302,
+            "evidence_char_end": 1375,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "epithelial-mesenchymal transition",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "among 22 hepatocellular carcinoma (HCC), clustered most closely with JHH-6 and SNU-387",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "subject_not_grounded",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1381,
+            "evidence_char_end": 1467,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "cisplatin",
+            "subject_type": "CellType",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "the cell line was sensitive to cisplatin, doxorubicin and sorafenib",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_novel",
+              "schema_mismatch",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "subject_not_grounded",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1505,
+            "evidence_char_end": 1572,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "cisplatin",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "doxorubicin",
+            "subject_type": "CellType",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "the cell line was sensitive to cisplatin, doxorubicin and sorafenib",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_novel",
+              "schema_mismatch",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "subject_not_grounded",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1505,
+            "evidence_char_end": 1572,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "doxorubicin",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "sorafenib",
+            "subject_type": "CellType",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "the cell line was sensitive to cisplatin, doxorubicin and sorafenib",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_novel",
+              "schema_mismatch",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "subject_not_grounded",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1505,
+            "evidence_char_end": 1572,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "sorafenib",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PUMC-LICA3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "5-fluorouracil",
+            "subject_type": "CellType",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "resistant to 5-fluorouracil",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_novel",
+              "schema_mismatch",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "subject_not_grounded",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1578,
+            "evidence_char_end": 1605,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PUMC-LICA3",
+            "original_object": "5-fluorouracil",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 14,
+          "raw_entity_count": 21,
+          "filtered_entity_count": 4,
+          "merged_entity_count": 4,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 14,
+          "total_relations": 10,
+          "known_relations": 0,
+          "novel_relations": 10,
+          "contradicting_relations": 0,
+          "schema_valid": 3,
+          "import_ready": 0,
+          "structural_score": 0.58,
+          "semantic_score": 0.4876,
+          "evidence_score": 0.47,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 14,
+              "denominator": 21,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 21,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 4,
+              "denominator": 21,
+              "value": 0.1905
+            },
+            "type_constraint_pass_rate": {
+              "count": 18,
+              "denominator": 21,
+              "value": 0.8571
+            },
+            "relation_evidence_exactness": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 10,
+              "value": 0.2
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "weak_evidence_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 14,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 14
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 21,
+        "relations": 10,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 9.627522542141378,
+      "prompt_tokens": 1548,
+      "output_tokens": 2072,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

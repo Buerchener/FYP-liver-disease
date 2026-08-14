@@ -1,0 +1,46 @@
+gui/501/com.codex.three_extractors_deepseek_50_20260811_225724 = {
+	active count = 0
+	path = (submitted by launchctl[72831])
+	type = Submitted
+	state = spawn scheduled
+
+	program = /Users/a1234/Desktop/FYP/github_upload/FYP-liver-disease/pubmed_literature_extraction/scripts/run_deepseek_benchmark_background.sh
+	arguments = {
+		/Users/a1234/Desktop/FYP/github_upload/FYP-liver-disease/pubmed_literature_extraction/scripts/run_deepseek_benchmark_background.sh
+		three_extractors_deepseek_50_20260811_225724
+	}
+
+	inherited environment = {
+		SSH_AUTH_SOCK => /private/tmp/com.apple.launchd.Pco3Yk0mf1/Listeners
+	}
+
+	default environment = {
+		PATH => /usr/bin:/bin:/usr/sbin:/sbin
+	}
+
+	environment = {
+		XPC_SERVICE_NAME => com.codex.three_extractors_deepseek_50_20260811_225724
+	}
+
+	domain = gui/501 [100017]
+	asid = 100017
+	minimum runtime = 10
+	exit timeout = 5
+	runs = 1
+	last exit code = 127
+
+	spawn type = daemon (3)
+	jetsam priority = 40
+	jetsam memory limit (active) = (unlimited)
+	jetsam memory limit (inactive) = (unlimited)
+	jetsamproperties category = daemon
+	submitted job. ignore execute allowed
+	jetsam thread limit = 32
+	cpumon = default
+	probabilistic guard malloc policy = {
+		activation rate = 1/1000
+		sample rate = 1/0
+	}
+
+	properties = keepalive | inferred program
+}

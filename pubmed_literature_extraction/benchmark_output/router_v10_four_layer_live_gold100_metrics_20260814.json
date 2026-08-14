@@ -1,0 +1,201 @@
+{
+  "run": "extraction_output/agent_results_router_v10_four_layer_live_gold100_20260814.json",
+  "documents": 100,
+  "metrics": {
+    "production": {
+      "entity_endpoint_core_disease": {
+        "tp": 190,
+        "fp": 743,
+        "fn": 24,
+        "precision": 0.20364415862808147,
+        "recall": 0.8878504672897196,
+        "f1": 0.33129904097646035
+      },
+      "gene_protein_type_accuracy": 0.8421052631578947,
+      "gene_protein_type_counts": {
+        "correct": 32,
+        "matched": 38
+      },
+      "semantic_relation_triples": {
+        "tp": 14,
+        "fp": 102,
+        "fn": 49,
+        "precision": 0.1206896551724138,
+        "recall": 0.2222222222222222,
+        "f1": 0.1564245810055866
+      },
+      "strict_import_ready_relation_triples": {
+        "tp": 4,
+        "fp": 15,
+        "fn": 16,
+        "precision": 0.21052631578947367,
+        "recall": 0.2,
+        "f1": 0.20512820512820512
+      },
+      "evidence_span_precision_iou_0_5": 0.07758620689655173,
+      "evidence_source_contiguous_rate": 1.0,
+      "evidence_counts": {
+        "correct": 9,
+        "predicted_relations": 116
+      },
+      "duplicate_candidate_rate": 0.09029345372460497,
+      "duplicate_counts": {
+        "duplicates": 200,
+        "candidates": 2215
+      },
+      "latency_seconds": {
+        "mean": 25.0851,
+        "p50": 21.485,
+        "p95": 59.527999999999984,
+        "sum_article_latency": 2508.5099999999998
+      },
+      "usage_and_cost": {
+        "prompt_tokens": 2306,
+        "output_tokens": 801,
+        "estimated_cost_usd": 0.0,
+        "price_reference_usd_per_million": {
+          "input": 0.0,
+          "output": 0.0
+        },
+        "cost_kind": "reference_estimate_not_proxy_invoice"
+      },
+      "invalid_json_attempt_rate": 0.0,
+      "invalid_json_attempts": 0,
+      "model_attempts": 1,
+      "article_failure_rate": 0.0,
+      "failed_articles": 0
+    },
+    "shadow_union": {
+      "entity_endpoint_core_disease": {
+        "tp": 190,
+        "fp": 743,
+        "fn": 24,
+        "precision": 0.20364415862808147,
+        "recall": 0.8878504672897196,
+        "f1": 0.33129904097646035
+      },
+      "gene_protein_type_accuracy": 0.8421052631578947,
+      "gene_protein_type_counts": {
+        "correct": 32,
+        "matched": 38
+      },
+      "semantic_relation_triples": {
+        "tp": 14,
+        "fp": 102,
+        "fn": 49,
+        "precision": 0.1206896551724138,
+        "recall": 0.2222222222222222,
+        "f1": 0.1564245810055866
+      },
+      "strict_import_ready_relation_triples": {
+        "tp": 4,
+        "fp": 15,
+        "fn": 16,
+        "precision": 0.21052631578947367,
+        "recall": 0.2,
+        "f1": 0.20512820512820512
+      },
+      "evidence_span_precision_iou_0_5": 0.07758620689655173,
+      "evidence_source_contiguous_rate": 1.0,
+      "evidence_counts": {
+        "correct": 9,
+        "predicted_relations": 116
+      },
+      "duplicate_candidate_rate": 0.09029345372460497,
+      "duplicate_counts": {
+        "duplicates": 200,
+        "candidates": 2215
+      },
+      "latency_seconds": {
+        "mean": 25.0851,
+        "p50": 21.485,
+        "p95": 59.527999999999984,
+        "sum_article_latency": 2508.5099999999998
+      },
+      "usage_and_cost": {
+        "prompt_tokens": 2306,
+        "output_tokens": 801,
+        "estimated_cost_usd": 0.0,
+        "price_reference_usd_per_million": {
+          "input": 0.0,
+          "output": 0.0
+        },
+        "cost_kind": "reference_estimate_not_proxy_invoice"
+      },
+      "invalid_json_attempt_rate": 0.0,
+      "invalid_json_attempts": 0,
+      "model_attempts": 1,
+      "article_failure_rate": 0.0,
+      "failed_articles": 0
+    },
+    "shadow_only": {
+      "entity_endpoint_core_disease": {
+        "tp": 190,
+        "fp": 743,
+        "fn": 24,
+        "precision": 0.20364415862808147,
+        "recall": 0.8878504672897196,
+        "f1": 0.33129904097646035
+      },
+      "gene_protein_type_accuracy": 0.8421052631578947,
+      "gene_protein_type_counts": {
+        "correct": 32,
+        "matched": 38
+      },
+      "semantic_relation_triples": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 63,
+        "precision": 1.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "strict_import_ready_relation_triples": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 20,
+        "precision": 1.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "evidence_span_precision_iou_0_5": 1.0,
+      "evidence_source_contiguous_rate": 1.0,
+      "evidence_counts": {
+        "correct": 0,
+        "predicted_relations": 0
+      },
+      "duplicate_candidate_rate": 0.09029345372460497,
+      "duplicate_counts": {
+        "duplicates": 200,
+        "candidates": 2215
+      },
+      "latency_seconds": {
+        "mean": 25.0851,
+        "p50": 21.485,
+        "p95": 59.527999999999984,
+        "sum_article_latency": 2508.5099999999998
+      },
+      "usage_and_cost": {
+        "prompt_tokens": 2306,
+        "output_tokens": 801,
+        "estimated_cost_usd": 0.0,
+        "price_reference_usd_per_million": {
+          "input": 0.0,
+          "output": 0.0
+        },
+        "cost_kind": "reference_estimate_not_proxy_invoice"
+      },
+      "invalid_json_attempt_rate": 0.0,
+      "invalid_json_attempts": 0,
+      "model_attempts": 1,
+      "article_failure_rate": 0.0,
+      "failed_articles": 0
+    }
+  },
+  "shadow_relations": [],
+  "notes": {
+    "production": "relations exposed to decision/write path",
+    "shadow_union": "offline counterfactual: production plus recovered relations",
+    "shadow_only": "recovered relations alone"
+  }
+}

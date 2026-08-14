@@ -1,0 +1,1585 @@
+{
+  "pmid": "41849868",
+  "title": "Grayscale-inverted bright-blood late gadolinium enhancement improves reader confidence in ischemic scar detection: a multivendor study.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [],
+        "relations": [],
+        "summary": {
+          "total_entities": 0,
+          "raw_entity_count": 0,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 0,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "type_constraint_pass_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 0,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 0
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 0,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.9385698749683797,
+      "prompt_tokens": 509,
+      "output_tokens": 44,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "bright-blood late gadolinium enhancement",
+          "type": "Pathway",
+          "source_span": "Bright-blood late gadolinium enhancement (LGE) cardiovascular magnetic resonance (CMR)",
+          "char_start": 0,
+          "char_end": 57,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "LGE",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Explicitly mentioned as standard technique for myocardial scar detection."
+          }
+        },
+        {
+          "mention": "cardiovascular magnetic resonance",
+          "type": "Pathway",
+          "source_span": "cardiovascular magnetic resonance (CMR)",
+          "char_start": 58,
+          "char_end": 91,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "CMR",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Imaging modality explicitly mentioned."
+          }
+        },
+        {
+          "mention": "myocardial scar",
+          "type": "Disease",
+          "source_span": "myocardial scar detection",
+          "char_start": 96,
+          "char_end": 114,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Myocardial scar",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Target condition for detection."
+          }
+        },
+        {
+          "mention": "subendocardial infarcts",
+          "type": "Disease",
+          "source_span": "subendocardial infarcts",
+          "char_start": 139,
+          "char_end": 162,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Subendocardial infarct",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Specific type of myocardial infarction mentioned."
+          }
+        },
+        {
+          "mention": "ischemic scar",
+          "type": "Disease",
+          "source_span": "ischemic scar",
+          "char_start": 263,
+          "char_end": 276,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Ischemic scar",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Condition assessed in the study."
+          }
+        },
+        {
+          "mention": "GE",
+          "type": "Tissue",
+          "source_span": "GE",
+          "char_start": 337,
+          "char_end": 339,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "GE",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Scanner vendor mentioned."
+          }
+        },
+        {
+          "mention": "Philips",
+          "type": "Tissue",
+          "source_span": "Philips",
+          "char_start": 341,
+          "char_end": 348,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Philips",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Scanner vendor mentioned."
+          }
+        },
+        {
+          "mention": "Siemens",
+          "type": "Tissue",
+          "source_span": "Siemens",
+          "char_start": 350,
+          "char_end": 357,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Siemens",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Scanner vendor mentioned."
+          }
+        },
+        {
+          "mention": "1.5 T scanners",
+          "type": "Tissue",
+          "source_span": "1.5 T scanners",
+          "char_start": 358,
+          "char_end": 371,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "1.5T scanner",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Scanner type mentioned."
+          }
+        },
+        {
+          "mention": "short-axis slices",
+          "type": "Tissue",
+          "source_span": "short-axis slices",
+          "char_start": 377,
+          "char_end": 394,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Short-axis slice",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Anatomical imaging plane mentioned."
+          }
+        },
+        {
+          "mention": "bright-blood",
+          "type": "Pathway",
+          "source_span": "bright-blood",
+          "char_start": 399,
+          "char_end": 411,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Bright-blood",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Imaging technique mentioned."
+          }
+        },
+        {
+          "mention": "grayscale-inverted",
+          "type": "Pathway",
+          "source_span": "grayscale-inverted",
+          "char_start": 416,
+          "char_end": 434,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Grayscale inversion",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Post-processing technique mentioned."
+          }
+        },
+        {
+          "mention": "EACVI",
+          "type": "Tissue",
+          "source_span": "EACVI",
+          "char_start": 493,
+          "char_end": 498,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "EACVI",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Professional organization mentioned."
+          }
+        },
+        {
+          "mention": "Level-3 experts",
+          "type": "Tissue",
+          "source_span": "Level-3 experts",
+          "char_start": 548,
+          "char_end": 562,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Level-3 expert",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Expert level mentioned."
+          }
+        },
+        {
+          "mention": "segment-level assessments",
+          "type": "Tissue",
+          "source_span": "segment-level assessments",
+          "char_start": 584,
+          "char_end": 609,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Segment-level assessment",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Assessment unit mentioned."
+          }
+        },
+        {
+          "mention": "diagnostic accuracy",
+          "type": "Pathway",
+          "source_span": "diagnostic accuracy",
+          "char_start": 611,
+          "char_end": 630,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Diagnostic accuracy",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Outcome measure mentioned."
+          }
+        },
+        {
+          "mention": "reader confidence",
+          "type": "Pathway",
+          "source_span": "reader confidence",
+          "char_start": 700,
+          "char_end": 717,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Reader confidence",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Outcome measure mentioned."
+          }
+        },
+        {
+          "mention": "Level-1 readers",
+          "type": "Tissue",
+          "source_span": "Level-1 readers",
+          "char_start": 790,
+          "char_end": 804,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Level-1 reader",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Reader experience level mentioned."
+          }
+        },
+        {
+          "mention": "Interobserver agreement",
+          "type": "Pathway",
+          "source_span": "Interobserver agreement",
+          "char_start": 846,
+          "char_end": 868,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Interobserver agreement",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Outcome measure mentioned."
+          }
+        },
+        {
+          "mention": "transmurality reproducibility",
+          "type": "Pathway",
+          "source_span": "transmurality reproducibility",
+          "char_start": 873,
+          "char_end": 901,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Transmurality reproducibility",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Outcome measure mentioned."
+          }
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "bright-blood late gadolinium enhancement",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "myocardial scar",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Bright-blood late gadolinium enhancement (LGE) cardiovascular magnetic resonance (CMR) is standard for myocardial scar detection",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicitly states LGE is standard for scar detection."
+        },
+        {
+          "subject": "grayscale-inverted bright-blood LGE",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "reader confidence",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "evidence": "Grayscale-inverted bright-blood LGE significantly increases reader confidence",
+          "confidence": 0.95,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement of increase."
+        },
+        {
+          "subject": "grayscale-inverted bright-blood LGE",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "diagnostic accuracy",
+          "object_type": "Pathway",
+          "direction": "none",
+          "evidence": "diagnostic accuracy was high (91.5%, 95% CI 91.0-91.9%) and similar for standard vs. inverted images (90.7% vs. 91.9%, p = 0.27)",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "No significant difference in accuracy."
+        },
+        {
+          "subject": "grayscale-inverted bright-blood LGE",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Interobserver agreement",
+          "object_type": "Pathway",
+          "direction": "none",
+          "evidence": "Interobserver agreement and transmurality reproducibility remained unchanged.",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicitly states unchanged."
+        },
+        {
+          "subject": "grayscale-inverted bright-blood LGE",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "transmurality reproducibility",
+          "object_type": "Pathway",
+          "direction": "none",
+          "evidence": "Interobserver agreement and transmurality reproducibility remained unchanged.",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicitly states unchanged."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "bright-blood late gadolinium enhancement",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "LGE",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Explicitly mentioned as standard technique for myocardial scar detection."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "bright-blood late gadolinium enhancement",
+            "char_start": 26,
+            "char_end": 66,
+            "grounded": true,
+            "normalized_id": "LGE",
+            "canonical_key": "Pathway:bright blood late gadolinium enhancement",
+            "canonical_mentions": [
+              "bright-blood late gadolinium enhancement"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cardiovascular magnetic resonance",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CMR",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Imaging modality explicitly mentioned."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cardiovascular magnetic resonance",
+            "char_start": 211,
+            "char_end": 244,
+            "grounded": true,
+            "normalized_id": "CMR",
+            "canonical_key": "Pathway:cardiovascular magnetic resonance",
+            "canonical_mentions": [
+              "cardiovascular magnetic resonance"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "myocardial scar",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Myocardial scar",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Target condition for detection."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "myocardial scar",
+            "char_start": 267,
+            "char_end": 282,
+            "grounded": true,
+            "normalized_id": "Myocardial scar",
+            "canonical_key": "Disease:myocardial scar",
+            "canonical_mentions": [
+              "myocardial scar"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "subendocardial infarcts",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Subendocardial infarct",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Specific type of myocardial infarction mentioned."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "subendocardial infarcts",
+            "char_start": 298,
+            "char_end": 321,
+            "grounded": true,
+            "normalized_id": "Subendocardial infarct",
+            "canonical_key": "Disease:subendocardial infarcts",
+            "canonical_mentions": [
+              "subendocardial infarcts"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ischemic scar",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Ischemic scar",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Condition assessed in the study."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ischemic scar",
+            "char_start": 97,
+            "char_end": 110,
+            "grounded": true,
+            "normalized_id": "Ischemic scar",
+            "canonical_key": "Disease:ischemic scar",
+            "canonical_mentions": [
+              "ischemic scar"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "bright-blood",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Bright-blood",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Imaging technique mentioned."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "bright-blood",
+            "char_start": 26,
+            "char_end": 38,
+            "grounded": true,
+            "normalized_id": "Bright-blood",
+            "canonical_key": "Pathway:bright blood",
+            "canonical_mentions": [
+              "bright-blood"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "grayscale-inverted",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Grayscale inversion",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Post-processing technique mentioned."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "grayscale-inverted",
+            "char_start": 916,
+            "char_end": 934,
+            "grounded": true,
+            "normalized_id": "Grayscale inversion",
+            "canonical_key": "Pathway:grayscale inverted",
+            "canonical_mentions": [
+              "grayscale-inverted"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "diagnostic accuracy",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Diagnostic accuracy",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Outcome measure mentioned."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "diagnostic accuracy",
+            "char_start": 548,
+            "char_end": 567,
+            "grounded": true,
+            "normalized_id": "Diagnostic accuracy",
+            "canonical_key": "Pathway:diagnostic accuracy",
+            "canonical_mentions": [
+              "diagnostic accuracy"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "reader confidence",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Reader confidence",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Outcome measure mentioned."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "reader confidence",
+            "char_start": 76,
+            "char_end": 93,
+            "grounded": true,
+            "normalized_id": "Reader confidence",
+            "canonical_key": "Pathway:reader confidence",
+            "canonical_mentions": [
+              "reader confidence"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Interobserver agreement",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Interobserver agreement",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Outcome measure mentioned."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Interobserver agreement",
+            "char_start": 1628,
+            "char_end": 1651,
+            "grounded": true,
+            "normalized_id": "Interobserver agreement",
+            "canonical_key": "Pathway:interobserver agreement",
+            "canonical_mentions": [
+              "Interobserver agreement"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "transmurality reproducibility",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Transmurality reproducibility",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Outcome measure mentioned."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "transmurality reproducibility",
+            "char_start": 1656,
+            "char_end": 1685,
+            "grounded": true,
+            "normalized_id": "Transmurality reproducibility",
+            "canonical_key": "Pathway:transmurality reproducibility",
+            "canonical_mentions": [
+              "transmurality reproducibility"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "bright-blood late gadolinium enhancement",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "myocardial scar",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Bright-blood late gadolinium enhancement (LGE) cardiovascular magnetic resonance (CMR) is standard for myocardial scar detection",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "objective_only",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 164,
+            "evidence_char_end": 292,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "bright-blood late gadolinium enhancement",
+            "original_object": "myocardial scar",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "grayscale-inverted bright-blood LGE",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "reader confidence",
+            "subject_type": "Pathway",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Grayscale-inverted bright-blood LGE significantly increases reader confidence",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_not_in_entities",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1758,
+            "evidence_char_end": 1835,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "grayscale-inverted bright-blood LGE",
+            "original_object": "reader confidence",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "grayscale-inverted bright-blood LGE",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "diagnostic accuracy",
+            "subject_type": "Pathway",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "diagnostic accuracy was high (91.5%, 95% CI 91.0-91.9%) and similar for standard vs. inverted images (90.7% vs. 91.9%, p = 0.27)",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "cross_sentence",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_not_grounded",
+              "subject_not_in_entities",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1196,
+            "evidence_char_end": 1323,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "grayscale-inverted bright-blood LGE",
+            "original_object": "diagnostic accuracy",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "grayscale-inverted bright-blood LGE",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Interobserver agreement",
+            "subject_type": "Pathway",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Interobserver agreement and transmurality reproducibility remained unchanged.",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_not_grounded",
+              "subject_not_in_entities",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1628,
+            "evidence_char_end": 1705,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "grayscale-inverted bright-blood LGE",
+            "original_object": "Interobserver agreement",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "grayscale-inverted bright-blood LGE",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "transmurality reproducibility",
+            "subject_type": "Pathway",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Interobserver agreement and transmurality reproducibility remained unchanged.",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_not_grounded",
+              "subject_not_in_entities",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1628,
+            "evidence_char_end": 1705,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "grayscale-inverted bright-blood LGE",
+            "original_object": "transmurality reproducibility",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 11,
+          "raw_entity_count": 20,
+          "filtered_entity_count": 9,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 11,
+          "total_relations": 5,
+          "known_relations": 0,
+          "novel_relations": 5,
+          "contradicting_relations": 0,
+          "schema_valid": 5,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5625,
+          "evidence_score": 0.54,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 11,
+              "denominator": 20,
+              "value": 0.55
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 20,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 20,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 20,
+              "denominator": 20,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 5,
+              "value": 0.4
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 5,
+              "value": 0.2
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "weak_evidence_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 11,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 11
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 20,
+        "relations": 5,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 19.41498495778069,
+      "prompt_tokens": 2643,
+      "output_tokens": 3161,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "bright-blood late gadolinium enhancement",
+            "entity_type": "Pathway",
+            "source_span": "Bright-blood late gadolinium enhancement (LGE) cardiovascular magnetic resonance (CMR)",
+            "char_start": 0,
+            "char_end": 57,
+            "normalized_id": "LGE",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as standard technique for myocardial scar detection."
+          },
+          {
+            "mention": "cardiovascular magnetic resonance",
+            "entity_type": "Pathway",
+            "source_span": "cardiovascular magnetic resonance (CMR)",
+            "char_start": 58,
+            "char_end": 91,
+            "normalized_id": "CMR",
+            "confidence": 0.9,
+            "reason": "Imaging modality explicitly mentioned."
+          },
+          {
+            "mention": "myocardial scar",
+            "entity_type": "Disease",
+            "source_span": "myocardial scar detection",
+            "char_start": 96,
+            "char_end": 114,
+            "normalized_id": "Myocardial scar",
+            "confidence": 0.9,
+            "reason": "Target condition for detection."
+          },
+          {
+            "mention": "subendocardial infarcts",
+            "entity_type": "Disease",
+            "source_span": "subendocardial infarcts",
+            "char_start": 139,
+            "char_end": 162,
+            "normalized_id": "Subendocardial infarct",
+            "confidence": 0.9,
+            "reason": "Specific type of myocardial infarction mentioned."
+          },
+          {
+            "mention": "ischemic scar",
+            "entity_type": "Disease",
+            "source_span": "ischemic scar",
+            "char_start": 263,
+            "char_end": 276,
+            "normalized_id": "Ischemic scar",
+            "confidence": 0.9,
+            "reason": "Condition assessed in the study."
+          },
+          {
+            "mention": "GE",
+            "entity_type": "Tissue",
+            "source_span": "GE",
+            "char_start": 337,
+            "char_end": 339,
+            "normalized_id": "GE",
+            "confidence": 0.9,
+            "reason": "Scanner vendor mentioned."
+          },
+          {
+            "mention": "Philips",
+            "entity_type": "Tissue",
+            "source_span": "Philips",
+            "char_start": 341,
+            "char_end": 348,
+            "normalized_id": "Philips",
+            "confidence": 0.9,
+            "reason": "Scanner vendor mentioned."
+          },
+          {
+            "mention": "Siemens",
+            "entity_type": "Tissue",
+            "source_span": "Siemens",
+            "char_start": 350,
+            "char_end": 357,
+            "normalized_id": "Siemens",
+            "confidence": 0.9,
+            "reason": "Scanner vendor mentioned."
+          },
+          {
+            "mention": "1.5 T scanners",
+            "entity_type": "Tissue",
+            "source_span": "1.5 T scanners",
+            "char_start": 358,
+            "char_end": 371,
+            "normalized_id": "1.5T scanner",
+            "confidence": 0.9,
+            "reason": "Scanner type mentioned."
+          },
+          {
+            "mention": "short-axis slices",
+            "entity_type": "Tissue",
+            "source_span": "short-axis slices",
+            "char_start": 377,
+            "char_end": 394,
+            "normalized_id": "Short-axis slice",
+            "confidence": 0.9,
+            "reason": "Anatomical imaging plane mentioned."
+          },
+          {
+            "mention": "bright-blood",
+            "entity_type": "Pathway",
+            "source_span": "bright-blood",
+            "char_start": 399,
+            "char_end": 411,
+            "normalized_id": "Bright-blood",
+            "confidence": 0.9,
+            "reason": "Imaging technique mentioned."
+          },
+          {
+            "mention": "grayscale-inverted",
+            "entity_type": "Pathway",
+            "source_span": "grayscale-inverted",
+            "char_start": 416,
+            "char_end": 434,
+            "normalized_id": "Grayscale inversion",
+            "confidence": 0.9,
+            "reason": "Post-processing technique mentioned."
+          },
+          {
+            "mention": "EACVI",
+            "entity_type": "Tissue",
+            "source_span": "EACVI",
+            "char_start": 493,
+            "char_end": 498,
+            "normalized_id": "EACVI",
+            "confidence": 0.9,
+            "reason": "Professional organization mentioned."
+          },
+          {
+            "mention": "Level-3 experts",
+            "entity_type": "Tissue",
+            "source_span": "Level-3 experts",
+            "char_start": 548,
+            "char_end": 562,
+            "normalized_id": "Level-3 expert",
+            "confidence": 0.9,
+            "reason": "Expert level mentioned."
+          },
+          {
+            "mention": "segment-level assessments",
+            "entity_type": "Tissue",
+            "source_span": "segment-level assessments",
+            "char_start": 584,
+            "char_end": 609,
+            "normalized_id": "Segment-level assessment",
+            "confidence": 0.9,
+            "reason": "Assessment unit mentioned."
+          },
+          {
+            "mention": "diagnostic accuracy",
+            "entity_type": "Pathway",
+            "source_span": "diagnostic accuracy",
+            "char_start": 611,
+            "char_end": 630,
+            "normalized_id": "Diagnostic accuracy",
+            "confidence": 0.9,
+            "reason": "Outcome measure mentioned."
+          },
+          {
+            "mention": "reader confidence",
+            "entity_type": "Pathway",
+            "source_span": "reader confidence",
+            "char_start": 700,
+            "char_end": 717,
+            "normalized_id": "Reader confidence",
+            "confidence": 0.9,
+            "reason": "Outcome measure mentioned."
+          },
+          {
+            "mention": "Level-1 readers",
+            "entity_type": "Tissue",
+            "source_span": "Level-1 readers",
+            "char_start": 790,
+            "char_end": 804,
+            "normalized_id": "Level-1 reader",
+            "confidence": 0.9,
+            "reason": "Reader experience level mentioned."
+          },
+          {
+            "mention": "Interobserver agreement",
+            "entity_type": "Pathway",
+            "source_span": "Interobserver agreement",
+            "char_start": 846,
+            "char_end": 868,
+            "normalized_id": "Interobserver agreement",
+            "confidence": 0.9,
+            "reason": "Outcome measure mentioned."
+          },
+          {
+            "mention": "transmurality reproducibility",
+            "entity_type": "Pathway",
+            "source_span": "transmurality reproducibility",
+            "char_start": 873,
+            "char_end": 901,
+            "normalized_id": "Transmurality reproducibility",
+            "confidence": 0.9,
+            "reason": "Outcome measure mentioned."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "bright-blood late gadolinium enhancement",
+            "subject_type": "Pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "myocardial scar",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "Bright-blood late gadolinium enhancement (LGE) cardiovascular magnetic resonance (CMR) is standard for myocardial scar detection",
+            "evidence_span": "Bright-blood late gadolinium enhancement (LGE) cardiovascular magnetic resonance (CMR) is standard for myocardial scar detection",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicitly states LGE is standard for scar detection."
+          },
+          {
+            "subject": "grayscale-inverted bright-blood LGE",
+            "subject_type": "Pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "reader confidence",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "Grayscale-inverted bright-blood LGE significantly increases reader confidence",
+            "evidence_span": "Grayscale-inverted bright-blood LGE significantly increases reader confidence",
+            "confidence": 0.95,
+            "uncertain": false,
+            "reason": "Direct statement of increase."
+          },
+          {
+            "subject": "grayscale-inverted bright-blood LGE",
+            "subject_type": "Pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "diagnostic accuracy",
+            "object_type": "Pathway",
+            "direction": "none",
+            "evidence": "diagnostic accuracy was high (91.5%, 95% CI 91.0-91.9%) and similar for standard vs. inverted images (90.7% vs. 91.9%, p = 0.27)",
+            "evidence_span": "diagnostic accuracy was high (91.5%, 95% CI 91.0-91.9%) and similar for standard vs. inverted images (90.7% vs. 91.9%, p = 0.27)",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "No significant difference in accuracy."
+          },
+          {
+            "subject": "grayscale-inverted bright-blood LGE",
+            "subject_type": "Pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Interobserver agreement",
+            "object_type": "Pathway",
+            "direction": "none",
+            "evidence": "Interobserver agreement and transmurality reproducibility remained unchanged.",
+            "evidence_span": "Interobserver agreement and transmurality reproducibility remained unchanged.",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicitly states unchanged."
+          },
+          {
+            "subject": "grayscale-inverted bright-blood LGE",
+            "subject_type": "Pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "transmurality reproducibility",
+            "object_type": "Pathway",
+            "direction": "none",
+            "evidence": "Interobserver agreement and transmurality reproducibility remained unchanged.",
+            "evidence_span": "Interobserver agreement and transmurality reproducibility remained unchanged.",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicitly states unchanged."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "GE",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "GE is a vendor, not a tissue; but we included as Tissue due to lack of better type. However, it is not a biological entity, so rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Philips",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Philips is a vendor, not a tissue; not a biological entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Siemens",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Siemens is a vendor, not a tissue; not a biological entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "1.5 T scanners",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Scanner type is not a biological entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "short-axis slices",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Imaging plane is not a biological entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "EACVI",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Professional organization is not a biological entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Level-3 experts",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Expert level is not a biological entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "segment-level assessments",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Assessment unit is not a biological entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "diagnostic accuracy",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Outcome measure is not a biological pathway."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "reader confidence",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Outcome measure is not a biological pathway."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Level-1 readers",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Reader level is not a biological entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Interobserver agreement",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Outcome measure is not a biological pathway."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "transmurality reproducibility",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Outcome measure is not a biological pathway."
+          }
+        ],
+        "review_reason": "The original model extracted no entities or relations. The abstract contains several biomedical entities (e.g., myocardial scar, subendocardial infarcts, ischemic scar) and relations (e.g., LGE associated with scar detection, grayscale inversion increases reader confidence). However, many candidate entities are non-biological (vendors, scanners, imaging planes, outcome measures) and were rejected. Only entities with clear biomedical relevance were retained. Relations were extracted only where evidence explicitly states the association and direction.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 20,
+        "relation_additions": 5,
+        "agreements": [],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [],
+        "relations": [],
+        "summary": {
+          "total_entities": 0,
+          "raw_entity_count": 0,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 0,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "type_constraint_pass_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 0,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 0
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 0,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 0.8006517910398543,
+      "prompt_tokens": 1579,
+      "output_tokens": 12,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

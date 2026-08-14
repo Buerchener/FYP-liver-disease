@@ -11,8 +11,18 @@ Agent 的外部动态记忆层：
 
 from __future__ import annotations
 
+import re
+import threading
+import unicodedata
 from typing import Optional
+from urllib.parse import urlparse
 from neo4j import GraphDatabase, Driver
+from cognitive_agent.schema.entity_classes import ENTITY_CLASSES
+from cognitive_agent.schema.relation_signatures import NEO4J_IMPORTABLE_PREDICATES
+
+
+ALLOWED_ENTITY_TYPES = frozenset(spec["neo4j_label"] for spec in ENTITY_CLASSES.values())
+ALLOWED_RELATION_TYPES = frozenset(NEO4J_IMPORTABLE_PREDICATES)
 
 
 class KGMemory:
@@ -116,6 +126,19 @@ class KGMemory:
         "negative predictive value",
     })
 
+    # These are conditionally valid biological/anatomical concepts.  Their
+    # article-level evidence is decided by extraction_quality.py; the storage
+    # layer must not silently erase a candidate that already passed that gate.
+    GENERIC_TERM_BLACKLIST = GENERIC_TERM_BLACKLIST.difference({
+        "inflammation", "injury", "immune response", "immune activation",
+        "oxidative stress response", "angiogenesis", "metastasis", "replication",
+        "cell proliferation", "cell apoptosis", "cell cycle", "cell death",
+        "cell survival", "cell differentiation", "cell growth", "cell senescence",
+        "epithelial-mesenchymal transition", "emt", "liver fibrosis",
+        "hepatic fibrosis", "liver steatosis", "hepatic steatosis",
+        "chronic liver disease", "liver failure", "liver", "blood", "serum", "plasma",
+    })
+
     # ── 实体 ID 规则：每种实体类型的主键和附加属性 ──
     ENTITY_ID_SCHEMA: dict[str, dict] = {
         "Disease": {
@@ -162,16 +185,116 @@ class KGMemory:
         },
     }
 
-    def __init__(self, uri: str, user: str, password: str, database: str = "liver-kg-core-v02"):
+    def __init__(
+        self,
+        uri: str,
+        user: str,
+        password: str,
+        database: str = "neo4j",
+        connection_timeout: float = 10.0,
+        allow_isolated_test_writes: bool = False,
+    ):
         self.uri = uri
         self.database = database
         self._driver: Optional[Driver] = None
+        self._schema_profile_cache: Optional[dict] = None
+        self._entity_lookup_cache: dict[tuple[str, str, str], Optional[dict]] = {}
+        self._entity_lookup_lock = threading.Lock()
+        self._entity_lookup_hits = 0
+        self._entity_lookup_misses = 0
+        host = urlparse(uri).hostname
+        self._local_target = host in {"localhost", "127.0.0.1", "::1"}
+        self._write_target_allowed = self._local_target and (
+            database == "neo4j" or allow_isolated_test_writes
+        )
         if password:
-            self._driver = GraphDatabase.driver(uri, auth=(user, password))
+            if not self._local_target:
+                raise ValueError("KGMemory connections are restricted to localhost")
+            self._driver = GraphDatabase.driver(
+                uri,
+                auth=(user, password),
+                connection_timeout=connection_timeout,
+                connection_acquisition_timeout=connection_timeout,
+            )
 
     @property
     def is_connected(self) -> bool:
         return self._driver is not None
+
+    def get_schema_profile(self, refresh: bool = False) -> dict:
+        """Return the actual read schema, cached once per process.
+
+        Queries are built only from labels/properties observed here, avoiding
+        Neo4j warnings and false retrieval attempts against an imagined schema.
+        """
+        if not self._driver:
+            return {"labels": {}, "relationship_types": {}, "compatible_entity_types": []}
+        if self._schema_profile_cache is not None and not refresh:
+            return self._schema_profile_cache
+        labels: dict[str, dict] = {}
+        relationships: dict[str, int] = {}
+        try:
+            with self._driver.session(database=self.database) as session:
+                for record in session.run(
+                    "MATCH (n) UNWIND labels(n) AS label "
+                    "RETURN label, count(*) AS count, collect(DISTINCT keys(n)) AS key_sets"
+                ):
+                    properties = sorted({
+                        key for key_set in (record.get("key_sets", []) or [])
+                        for key in (key_set or [])
+                    })
+                    labels[str(record["label"])] = {
+                        "count": int(record.get("count", 0) or 0),
+                        "properties": properties,
+                    }
+                for record in session.run(
+                    "MATCH ()-[r]->() RETURN type(r) AS type, count(*) AS count"
+                ):
+                    relationships[str(record["type"])] = int(record.get("count", 0) or 0)
+        except Exception as exc:
+            self._schema_profile_cache = {
+                "labels": {}, "relationship_types": {}, "compatible_entity_types": [],
+                "error": str(exc)[:500],
+            }
+            return self._schema_profile_cache
+        self._schema_profile_cache = {
+            "labels": labels,
+            "relationship_types": relationships,
+            "compatible_entity_types": sorted(set(labels) & ALLOWED_ENTITY_TYPES),
+        }
+        return self._schema_profile_cache
+
+    def _runtime_entity_fields(self, entity_type: str) -> tuple[list[str], list[str]]:
+        profile = self.get_schema_profile()
+        label = profile.get("labels", {}).get(entity_type, {})
+        existing = set(label.get("properties", []) or [])
+        if not existing:
+            return [], []
+        schema = self.ENTITY_ID_SCHEMA[entity_type]
+        name_candidates = [
+            schema.get("name_property", ""), "name", "gene_symbol", "disease_name",
+            "preferred_name", "pathway_name", "metabolite_name", "tissue_name",
+            "cell_type_name",
+        ]
+        id_candidates = [
+            schema.get("id_property", ""), "protein_id", "string_protein_id",
+            "normalized_id",
+        ]
+        names = list(dict.fromkeys(item for item in name_candidates if item in existing))
+        identifiers = list(dict.fromkeys(item for item in id_candidates if item in existing))
+        return names, identifiers
+
+    @staticmethod
+    def _preferred_name(properties: dict | None) -> str:
+        properties = properties or {}
+        for key in (
+            "name", "gene_symbol", "disease_name", "preferred_name",
+            "pathway_name", "metabolite_name", "tissue_name", "cell_type_name",
+        ):
+            value = str(properties.get(key, "") or "").strip()
+            if value:
+                return value
+        return ""
 
     # ── 实体查询 ──────────────────────────────────────────
 
@@ -245,78 +368,172 @@ class KGMemory:
         if not self._driver:
             return None
 
-        # 尝试所有实体类型，或指定类型
-        types_to_try = [entity_type] if entity_type else list(self._ENTITY_QUERIES.keys())
+        # 未知类型不能进入查询选择路径。
+        if entity_type and entity_type not in ALLOWED_ENTITY_TYPES:
+            return None
+        cache_key = (
+            entity_type,
+            self.normalize_entity_text(mention),
+            str(normalized_id or "").strip(),
+        )
+        with self._entity_lookup_lock:
+            if cache_key in self._entity_lookup_cache:
+                self._entity_lookup_hits += 1
+                cached = self._entity_lookup_cache[cache_key]
+                return dict(cached) if cached is not None else None
+        compatible = set(self.get_schema_profile().get("compatible_entity_types", []))
+        types_to_try = [entity_type] if entity_type else sorted(compatible)
+        types_to_try = [item for item in types_to_try if item in compatible]
 
         with self._driver.session(database=self.database) as session:
             for etype in types_to_try:
-                cypher = self._ENTITY_QUERIES.get(etype)
-                if not cypher:
+                name_fields, id_fields = self._runtime_entity_fields(etype)
+                if not name_fields and not id_fields:
                     continue
+                name_checks = [f"toLower(toString(n.`{field}`)) = toLower($mention)" for field in name_fields]
+                id_checks = [f"toString(n.`{field}`) = $normalized_id" for field in id_fields]
+                checks = [*name_checks, *id_checks]
+                name_expr = "coalesce(" + ", ".join(
+                    [f"n.`{field}`" for field in name_fields] + ["''"]
+                ) + ")"
+                id_expr = "coalesce(" + ", ".join(
+                    [f"n.`{field}`" for field in id_fields] + ["''"]
+                ) + ")"
+                cypher = f"""
+                    MATCH (n:{etype})
+                    WHERE {' OR '.join(checks)}
+                    RETURN elementId(n) AS element_id, labels(n) AS labels,
+                           {id_expr} AS node_id, {name_expr} AS name
+                    LIMIT 1
+                """
                 try:
                     record = session.run(
                         cypher,
                         {"mention": mention, "normalized_id": normalized_id or ""},
                     ).single()
                     if record:
-                        return {
+                        found = {
                             "element_id": record["element_id"],
                             "labels": record["labels"],
                             "node_id": record["node_id"],
                             "name": record["name"],
                         }
+                        with self._entity_lookup_lock:
+                            self._entity_lookup_cache[cache_key] = found
+                            self._entity_lookup_misses += 1
+                        return dict(found)
                 except Exception:
                     continue
+        with self._entity_lookup_lock:
+            self._entity_lookup_cache[cache_key] = None
+            self._entity_lookup_misses += 1
         return None
+
+    def entity_lookup_cache_stats(self) -> dict:
+        """Audit the process-level read-only exact-linking cache."""
+        with self._entity_lookup_lock:
+            total = self._entity_lookup_hits + self._entity_lookup_misses
+            return {
+                "entries": len(self._entity_lookup_cache),
+                "hits": self._entity_lookup_hits,
+                "misses": self._entity_lookup_misses,
+                "hit_rate": round(self._entity_lookup_hits / total, 4) if total else 0.0,
+            }
+
+    @staticmethod
+    def normalize_entity_text(value: str) -> str:
+        """Normalize a surface form for deterministic candidate scoring."""
+        value = unicodedata.normalize("NFKC", str(value or "")).casefold()
+        value = re.sub(r"[-_/]+", " ", value)
+        value = re.sub(r"[^\w\s]", " ", value, flags=re.UNICODE)
+        return " ".join(value.split())
+
+    @classmethod
+    def score_entity_candidate(cls, mention: str, candidate_name: str) -> tuple[float, str]:
+        """Score a name without treating short arbitrary substrings as matches."""
+        query = cls.normalize_entity_text(mention)
+        candidate = cls.normalize_entity_text(candidate_name)
+        if not query or not candidate:
+            return 0.0, "empty"
+        if query == candidate:
+            return 1.0, "exact_normalized"
+        query_tokens = query.split()
+        candidate_tokens = candidate.split()
+        if len(query_tokens) == 1 and len(query) < 4:
+            return 0.0, "short_mention"
+        overlap = len(set(query_tokens) & set(candidate_tokens))
+        max_tokens = max(len(set(query_tokens)), len(set(candidate_tokens)))
+        token_coverage = overlap / max_tokens if max_tokens else 0.0
+        # A single generic token is not a synonym for a specific multi-token
+        # concept (for example HBV or fibrosis vs HBV-related liver fibrosis).
+        if overlap >= 2 and token_coverage >= 0.8:
+            return round(0.78 + 0.1 * token_coverage, 3), "token_overlap"
+        if min(len(query_tokens), len(candidate_tokens)) == 1 and max(
+            len(query_tokens), len(candidate_tokens)
+        ) > 1:
+            return 0.0, "generic_token_only"
+        if query in candidate or candidate in query:
+            ratio = min(len(query), len(candidate)) / max(len(query), len(candidate))
+            return round(0.55 + 0.25 * ratio, 3), "contains"
+        return 0.0, "none"
 
     def find_entity_fuzzy(self, mention: str, entity_type: str = "") -> Optional[dict]:
-        """模糊匹配实体（大小写不敏感 + 双向包含匹配）。
-
-        双向匹配逻辑：
-        - 节点名 包含 查询词（如 "HCC" 包含在查询词 "Hepatocellular carcinoma"）
-        - 查询词 包含 节点名（如查询词 "HCC" 包含在节点名 "Hepatocellular carcinoma"）
-        """
+        """Return ranked fuzzy candidates; never silently choose the first row."""
         if not self._driver:
             return None
+        compatible = set(self.get_schema_profile().get("compatible_entity_types", []))
+        types_to_try = [entity_type] if entity_type else sorted(compatible)
+        types_to_try = [etype for etype in types_to_try if etype in compatible]
+        if entity_type and not types_to_try:
+            return None
 
-        types_to_try = [entity_type] if entity_type else list(self._ENTITY_QUERIES.keys())
-        mention_lower = mention.lower()
-
+        candidates = []
         with self._driver.session(database=self.database) as session:
             for etype in types_to_try:
-                label = etype
                 try:
+                    name_fields, id_fields = self._runtime_entity_fields(etype)
+                    if not name_fields:
+                        continue
+                    name_expr = "coalesce(" + ", ".join(
+                        [f"n.`{field}`" for field in name_fields] + ["''"]
+                    ) + ")"
+                    id_expr = "coalesce(" + ", ".join(
+                        [f"n.`{field}`" for field in id_fields] + ["''"]
+                    ) + ")"
                     result = session.run(
                         f"""
-                        MATCH (n:{label})
-                        WHERE toLower(coalesce(n.name, n.gene_symbol, n.disease_name, '')) CONTAINS $mention
-                           OR $mention CONTAINS toLower(coalesce(n.name, n.gene_symbol, n.disease_name, ''))
-                           OR (n.gene_symbol IS NOT NULL AND toLower(n.gene_symbol) CONTAINS $mention)
-                           OR (n.disease_name IS NOT NULL AND toLower(n.disease_name) CONTAINS $mention)
-                           OR (n.tissue_name IS NOT NULL AND toLower(n.tissue_name) CONTAINS $mention)
-                           OR (n.cell_type_name IS NOT NULL AND toLower(n.cell_type_name) CONTAINS $mention)
+                        MATCH (n:{etype})
                         RETURN elementId(n) AS element_id, labels(n) AS labels,
-                               coalesce(n.gene_id, n.disease_id, n.protein_id, n.pathway_id,
-                                        n.metabolite_id, n.tissue_id, n.cell_type_id) AS node_id,
-                               coalesce(n.name, n.gene_symbol, n.disease_name) AS name
-                        LIMIT 3
+                               {id_expr} AS node_id,
+                               {name_expr} AS name
+                        LIMIT 100
                         """,
-                        {"mention": mention_lower},
                     )
-                    records = list(result)
-                    if records:
-                        return {
-                            "element_id": records[0]["element_id"],
-                            "labels": records[0]["labels"],
-                            "node_id": records[0]["node_id"],
-                            "name": records[0]["name"],
-                            "fuzzy_matches": [
-                                {"name": r["name"], "node_id": r["node_id"]} for r in records
-                            ],
-                        }
+                    for record in result:
+                        score, match_kind = self.score_entity_candidate(
+                            mention, record.get("name", "")
+                        )
+                        if score:
+                            candidates.append({
+                                "element_id": record["element_id"],
+                                "labels": record["labels"],
+                                "node_id": record["node_id"],
+                                "name": record["name"],
+                                "score": score,
+                                "match_kind": match_kind,
+                                "entity_type": etype,
+                            })
                 except Exception:
                     continue
-        return None
+        if not candidates:
+            return None
+        candidates.sort(key=lambda c: (-c["score"], c["name"] or ""))
+        top = candidates[:5]
+        return {
+            **top[0],
+            "fuzzy_matches": top,
+            "ambiguous": len(top) > 1 and top[0]["score"] - top[1]["score"] < 0.08,
+        }
 
     # ── 大小写不敏感查询 ──────────────────────────────────
 
@@ -329,19 +546,25 @@ class KGMemory:
         if not self._driver:
             return None
 
-        types_to_try = [entity_type] if entity_type else list(self._ENTITY_QUERIES.keys())
+        compatible = set(self.get_schema_profile().get("compatible_entity_types", []))
+        types_to_try = [entity_type] if entity_type else sorted(compatible)
+        types_to_try = [label for label in types_to_try if label in compatible]
 
         with self._driver.session(database=self.database) as session:
             for label in types_to_try:
+                name_fields, _ = self._runtime_entity_fields(label)
+                if not name_fields:
+                    continue
                 try:
                     result = session.run(
                         f"""
                         MATCH (n:{label})
-                        WHERE toLower(coalesce(n.name, n.gene_symbol, n.disease_name)) = toLower($name)
+                        WHERE any(field IN $name_fields
+                                  WHERE toLower(toString(n[field])) = toLower($name))
                         RETURN elementId(n) AS element_id
                         LIMIT 1
                         """,
-                        {"name": name},
+                        {"name": name, "name_fields": name_fields},
                     ).single()
                     if result:
                         return {
@@ -365,12 +588,12 @@ class KGMemory:
                     MATCH (n)-[r]->(m)
                     WHERE elementId(n) = $element_id
                     RETURN type(r) AS predicate, labels(m) AS target_labels,
-                           coalesce(m.name, m.gene_symbol, m.disease_name) AS target_name
+                           properties(m) AS target_properties
                     UNION
                     MATCH (m)-[r]->(n)
                     WHERE elementId(n) = $element_id
                     RETURN type(r) AS predicate, labels(m) AS target_labels,
-                           coalesce(m.name, m.gene_symbol, m.disease_name) AS target_name
+                           properties(m) AS target_properties
                     """,
                     {"element_id": entity_element_id},
                 )
@@ -378,40 +601,150 @@ class KGMemory:
                     {
                         "predicate": rec["predicate"],
                         "target_labels": rec["target_labels"],
-                        "target_name": rec["target_name"],
+                        "target_name": self._preferred_name(rec.get("target_properties")),
                     }
                     for rec in result
                 ]
             except Exception:
                 return []
 
+    def get_rag_entity_context(
+        self,
+        entity_element_id: str,
+        relation_limit: int = 5,
+        evidence_limit: int = 500,
+    ) -> dict:
+        """Return a bounded, read-only one-hop context for controlled RAG.
+
+        This method never writes and deliberately returns only a small set of
+        node aliases and relation provenance fields.  It is not used as current
+        article evidence.
+        """
+        if not self._driver or not entity_element_id:
+            return {"synonyms": [], "relations": []}
+        relation_limit = max(0, min(int(relation_limit), 20))
+        evidence_limit = max(0, min(int(evidence_limit), 2000))
+        with self._driver.session(database=self.database) as session:
+            try:
+                result = session.run(
+                    """
+                    MATCH (n)
+                    WHERE elementId(n) = $element_id
+                    OPTIONAL MATCH (n)-[r]-(m)
+                    RETURN properties(n) AS node_properties,
+                           type(r) AS predicate,
+                           CASE WHEN r IS NULL THEN ''
+                                WHEN elementId(startNode(r)) = elementId(n) THEN 'outgoing'
+                                ELSE 'incoming' END AS edge_orientation,
+                           properties(r) AS relation_properties,
+                           labels(m) AS target_labels,
+                           properties(m) AS target_properties
+                    LIMIT $row_limit
+                    """,
+                    {
+                        "element_id": entity_element_id,
+                        "evidence_limit": evidence_limit,
+                        "row_limit": max(relation_limit, 1),
+                    },
+                )
+                synonyms: list[str] = []
+                relations: list[dict] = []
+                for record in result:
+                    node_properties = record.get("node_properties", {}) or {}
+                    raw_synonyms = (
+                        node_properties.get("synonyms", [])
+                        or node_properties.get("aliases", [])
+                        or []
+                    )
+                    if isinstance(raw_synonyms, str):
+                        raw_synonyms = [raw_synonyms]
+                    for synonym in raw_synonyms:
+                        value = str(synonym or "").strip()
+                        if value and value not in synonyms:
+                            synonyms.append(value)
+                    predicate = record.get("predicate")
+                    if predicate and len(relations) < relation_limit:
+                        rel_props = record.get("relation_properties", {}) or {}
+                        source = str(rel_props.get("source", "") or "")
+                        source_pmid = str(
+                            rel_props.get("source_pmid", rel_props.get("pmid", "")) or ""
+                        )
+                        if not source_pmid and source.startswith("PubMed:"):
+                            source_pmid = source.split(":", 1)[1]
+                        relations.append({
+                            "predicate": predicate,
+                            "target_name": self._preferred_name(
+                                record.get("target_properties")
+                            ),
+                            "target_type": (record.get("target_labels", []) or [""])[0],
+                            "edge_orientation": record.get("edge_orientation", "") or "",
+                            "direction": str(rel_props.get("direction", "") or ""),
+                            "source_pmid": source_pmid,
+                            "source_evidence": str(
+                                rel_props.get("evidence", "") or ""
+                            )[:evidence_limit],
+                        })
+                return {"synonyms": synonyms, "relations": relations}
+            except Exception:
+                return {"synonyms": [], "relations": []}
+
     def check_relation_exists(
         self,
         subject_name: str,
         predicate: str,
         object_name: str,
+        subject_type: str = "",
+        object_type: str = "",
     ) -> Optional[dict]:
-        """检查关系是否已存在（不依赖非标准属性键，避免 schema 警告）"""
-        if not self._driver:
+        """检查关系并返回方向属性；类型过滤避免误配同名节点。"""
+        if not self._driver or predicate not in ALLOWED_RELATION_TYPES:
+            return None
+        # Neo4j emits a warning when a statically named relationship type has
+        # never existed in the database.  Such a relationship cannot match,
+        # so the schema profile is a lossless early exit.
+        existing_relationship_types = set(
+            self.get_schema_profile().get("relationship_types", {})
+        )
+        if predicate not in existing_relationship_types:
             return None
 
         with self._driver.session(database=self.database) as session:
             try:
+                type_filters = ""
+                params = {"subject": subject_name, "object": object_name}
+                if subject_type in ALLOWED_ENTITY_TYPES:
+                    type_filters += f" AND ${'subject_type'} IN labels(s)"
+                    params["subject_type"] = subject_type
+                if object_type in ALLOWED_ENTITY_TYPES:
+                    type_filters += f" AND ${'object_type'} IN labels(o)"
+                    params["object_type"] = object_type
                 result = session.run(
                     f"""
                     MATCH (s)-[r:{predicate}]->(o)
-                    WHERE (toLower(coalesce(s.name, s.gene_symbol, s.disease_name)) = toLower($subject)
-                           OR toLower(s.gene_symbol) = toLower($subject))
-                      AND (toLower(coalesce(o.name, o.gene_symbol, o.disease_name)) = toLower($object)
-                           OR toLower(o.gene_symbol) = toLower($object))
-                    RETURN elementId(r) AS rel_element_id
+                    WHERE any(field IN $name_fields
+                              WHERE toLower(toString(s[field])) = toLower($subject))
+                      AND any(field IN $name_fields
+                              WHERE toLower(toString(o[field])) = toLower($object))
+                      {type_filters}
+                    RETURN elementId(r) AS rel_element_id,
+                           properties(r) AS relation_properties
                     LIMIT 1
                     """,
-                    {"subject": subject_name, "object": object_name},
+                    {
+                        **params,
+                        "name_fields": [
+                            "name", "gene_symbol", "disease_name", "preferred_name",
+                            "pathway_name", "metabolite_name", "tissue_name",
+                            "cell_type_name",
+                        ],
+                    },
                 ).single()
                 if result:
+                    rel_props = result.get("relation_properties", {}) or {}
                     return {
                         "rel_element_id": result["rel_element_id"],
+                        "confidence": rel_props.get("confidence", 0.7),
+                        "direction": rel_props.get("direction", ""),
                     }
             except Exception:
                 pass
@@ -477,6 +810,93 @@ class KGMemory:
             return normalized_id
         return None
 
+    def create_entities_batch(self, entities: list[dict], pmid: str = "") -> dict[tuple[str, str], str]:
+        """Batch MERGE entities with one UNWIND transaction per label.
+
+        The returned cache is keyed by ``(entity_type, mention.casefold())`` so
+        the decision layer can create relations without one lookup per edge.
+        """
+        if not self._driver or not self._write_target_allowed or not entities:
+            return {}
+        import hashlib
+        import time
+
+        grouped: dict[str, list[dict]] = {}
+        for item in entities:
+            label = item.get("type", "")
+            name = str(item.get("mention", "")).strip()
+            if label not in ALLOWED_ENTITY_TYPES or not name:
+                continue
+            if name.casefold() in self.GENERIC_TERM_BLACKLIST:
+                continue
+            schema = self.ENTITY_ID_SCHEMA[label]
+            props_in = item.get("attributes", item.get("properties", {})) or {}
+            external_id = self._extract_external_id(label, props_in)
+            id_value = external_id or f"{schema['id_prefix']}:{hashlib.sha256(f'{label}:{name}'.encode()).hexdigest()[:12]}"
+            now = time.time()
+            props = {
+                schema["id_property"]: id_value,
+                schema["name_property"]: name,
+                "name": name,
+                "source": f"PubMed:{pmid}" if pmid else "LLM_extraction",
+                "confidence": float(item.get("confidence", 0.7) or 0.7),
+                "created_at": now,
+            }
+            for key, value in props_in.items():
+                if key not in self.RELATION_ATTRIBUTE_KEYS and not isinstance(value, (list, dict)) and key not in {"mention", "type", "normalized_id"}:
+                    props.setdefault(key, value)
+            grouped.setdefault(label, []).append({"id_value": id_value, "props": props, "mention": name, "confidence": props["confidence"]})
+
+        cache: dict[tuple[str, str], str] = {}
+        with self._driver.session(database=self.database) as session:
+            for label, rows in grouped.items():
+                schema = self.ENTITY_ID_SCHEMA[label]
+                query = f"""
+                UNWIND $rows AS row
+                MERGE (n:{label} {{{schema['id_property']}: row.id_value}})
+                ON CREATE SET n = row.props
+                ON MATCH SET n.confidence = CASE WHEN row.confidence > coalesce(n.confidence, 0) THEN row.confidence ELSE n.confidence END,
+                              n.updated_at = row.props.created_at
+                RETURN elementId(n) AS element_id, n.{schema['id_property']} AS id_value
+                """
+                for record in session.run(query, {"rows": rows}):
+                    match = next((row for row in rows if row["id_value"] == record["id_value"]), None)
+                    if match:
+                        cache[(label, match["mention"].casefold())] = record["element_id"]
+        return cache
+
+    def create_relations_batch(self, relations: list[dict], pmid: str = "") -> list[str]:
+        """Batch idempotent relation MERGE using UNWIND; returns created IDs."""
+        if not self._driver or not self._write_target_allowed or not relations:
+            return []
+        import hashlib
+        import time
+        grouped: dict[str, list[dict]] = {}
+        for rel in relations:
+            predicate = rel.get("predicate", "")
+            if predicate not in ALLOWED_RELATION_TYPES or not rel.get("subject_element_id") or not rel.get("object_element_id"):
+                continue
+            relation_key = f"{predicate}|{rel.get('subject_element_id')}|{rel.get('object_element_id')}"
+            relation_id = f"LLM_{predicate}:{hashlib.sha256(relation_key.encode()).hexdigest()[:20]}"
+            row = dict(rel)
+            row.update({"relation_id": relation_id, "source": f"PubMed:{pmid}" if pmid else "LLM_extraction", "updated_at": time.time()})
+            grouped.setdefault(predicate, []).append(row)
+        written: list[str] = []
+        with self._driver.session(database=self.database) as session:
+            for predicate, rows in grouped.items():
+                query = f"""
+                UNWIND $rows AS row
+                MATCH (s) WHERE elementId(s) = row.subject_element_id
+                MATCH (o) WHERE elementId(o) = row.object_element_id
+                MERGE (s)-[r:{predicate} {{relation_id: row.relation_id}}]->(o)
+                ON CREATE SET r = row
+                ON MATCH SET r.confidence = CASE WHEN row.confidence > coalesce(r.confidence, 0) THEN row.confidence ELSE r.confidence END,
+                              r.updated_at = row.updated_at
+                RETURN row.relation_id AS relation_id
+                """
+                written.extend(record["relation_id"] for record in session.run(query, {"rows": rows}))
+        return written
+
     def create_entity(
         self,
         entity_type: str,
@@ -495,7 +915,7 @@ class KGMemory:
         Returns:
             element_id 字符串，或写入失败时返回 None
         """
-        if not self._driver:
+        if not self._driver or not self._write_target_allowed:
             return None
 
         import hashlib
@@ -505,6 +925,9 @@ class KGMemory:
         name_lower = name.lower().strip()
         if name_lower in self.GENERIC_TERM_BLACKLIST:
             return None  # 静默拒绝，不创建通用实体
+
+        if entity_type not in ALLOWED_ENTITY_TYPES:
+            return None
 
         label = entity_type
         id_schema = self.ENTITY_ID_SCHEMA.get(label, {
@@ -619,14 +1042,14 @@ class KGMemory:
         confidence: float = 0.7,
     ) -> Optional[str]:
         """在 Neo4j 中创建新关系"""
-        if not self._driver:
+        if not self._driver or not self._write_target_allowed or predicate not in ALLOWED_RELATION_TYPES:
             return None
 
         import hashlib
         import time
 
-        # 生成稳定的 relation_id
-        id_payload = f"{predicate}|{pmid}|{subject_element_id}|{object_element_id}|{evidence}"
+        # 生成稳定的 relation_id；不包含 PMID/evidence，便于跨文章聚合同一条关系。
+        id_payload = f"{predicate}|{subject_element_id}|{object_element_id}"
         relation_id = f"LLM_{predicate}:{hashlib.sha256(id_payload.encode()).hexdigest()[:20]}"
 
         props = {
@@ -644,14 +1067,33 @@ class KGMemory:
                     f"""
                     MATCH (s) WHERE elementId(s) = $subj_id
                     MATCH (o) WHERE elementId(o) = $obj_id
-                    CREATE (s)-[r:{predicate}]->(o)
-                    SET r = $props
+                    MERGE (s)-[r:{predicate} {{relation_id: $relation_id}}]->(o)
+                    ON CREATE SET r = $props
+                    ON MATCH SET
+                        r.confidence = CASE
+                            WHEN $confidence > coalesce(r.confidence, 0)
+                            THEN $confidence ELSE r.confidence
+                        END,
+                        r.evidence = CASE
+                            WHEN $evidence = '' OR r.evidence CONTAINS $evidence
+                            THEN coalesce(r.evidence, '')
+                            WHEN coalesce(r.evidence, '') = ''
+                            THEN $evidence
+                            ELSE r.evidence + ' | ' + $evidence
+                        END,
+                        r.updated_at = $updated_at,
+                        r.updated_by = $pmid
                     RETURN elementId(r) AS rel_element_id
                     """,
                     {
                         "subj_id": subject_element_id,
                         "obj_id": object_element_id,
+                        "relation_id": relation_id,
                         "props": props,
+                        "confidence": confidence,
+                        "evidence": evidence or "",
+                        "updated_at": time.time(),
+                        "pmid": f"PubMed:{pmid}" if pmid else "LLM_agent",
                     },
                 ).single()
                 if result:
@@ -669,7 +1111,7 @@ class KGMemory:
         pmid: str = "",
     ) -> bool:
         """更新已有关系的证据和置信度"""
-        if not self._driver:
+        if not self._driver or not self._write_target_allowed:
             return False
 
         with self._driver.session(database=self.database) as session:
@@ -707,7 +1149,7 @@ class KGMemory:
         pmid: str = "",
     ) -> bool:
         """标记关系为学术争议"""
-        if not self._driver:
+        if not self._driver or not self._write_target_allowed:
             return False
         import time
 

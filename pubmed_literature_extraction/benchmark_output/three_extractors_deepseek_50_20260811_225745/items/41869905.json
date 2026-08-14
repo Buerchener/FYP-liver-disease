@@ -1,0 +1,1879 @@
+{
+  "pmid": "41869905",
+  "title": "Meta-Analysis: PPAR Agonists for Pruritus and Quality of Life in Primary Biliary Cholangitis.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "primary biliary cholangitis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "primary biliary cholangitis",
+            "disease_stage": "PBC"
+          },
+          "grounded": true,
+          "source_span": "primary biliary cholangitis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 72,
+          "char_end": 99
+        },
+        {
+          "mention": "peroxisome proliferator-activated receptor",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "peroxisome proliferator-activated receptor",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "peroxisome proliferator-activated receptor",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 275,
+          "char_end": 317
+        },
+        {
+          "mention": "ursodeoxycholic acid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "ursodeoxycholic acid"
+          },
+          "grounded": true,
+          "source_span": "ursodeoxycholic acid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 414,
+          "char_end": 434
+        },
+        {
+          "mention": "primary biliary cholangitis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "primary biliary cholangitis",
+            "disease_stage": "PBC"
+          },
+          "grounded": false,
+          "source_span": "",
+          "alignment_status": "UNKNOWN",
+          "char_start": null,
+          "char_end": null
+        },
+        {
+          "mention": "PPAR agonist",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "PPAR agonist",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "PPAR agonist",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1061,
+          "char_end": 1073
+        },
+        {
+          "mention": "bezafibrate",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "bezafibrate"
+          },
+          "grounded": true,
+          "source_span": "bezafibrate",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1476,
+          "char_end": 1487
+        },
+        {
+          "mention": "elafibranor",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "elafibranor"
+          },
+          "grounded": true,
+          "source_span": "elafibranor",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1020,
+          "char_end": 1031
+        },
+        {
+          "mention": "seladelpar",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "seladelpar"
+          },
+          "grounded": true,
+          "source_span": "seladelpar",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1492,
+          "char_end": 1502
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "primary biliary cholangitis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "primary biliary cholangitis",
+              "disease_stage": "PBC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Primary Biliary Cholangitis",
+            "char_start": 72,
+            "char_end": 99,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:primary biliary cholangitis",
+            "canonical_mentions": [
+              "primary biliary cholangitis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "peroxisome proliferator-activated receptor",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "peroxisome proliferator-activated receptor",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Peroxisome proliferator-activated receptor",
+            "char_start": 275,
+            "char_end": 317,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:peroxisome proliferator activated receptor",
+            "canonical_mentions": [
+              "peroxisome proliferator-activated receptor"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ursodeoxycholic acid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "ursodeoxycholic acid"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ursodeoxycholic acid",
+            "char_start": 414,
+            "char_end": 434,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:ursodeoxycholic acid",
+            "canonical_mentions": [
+              "ursodeoxycholic acid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "PPAR agonist",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "PPAR agonist",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "PPAR agonist",
+            "char_start": 1061,
+            "char_end": 1073,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:ppar agonist",
+            "canonical_mentions": [
+              "PPAR agonist"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "bezafibrate",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "bezafibrate"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "bezafibrate",
+            "char_start": 1476,
+            "char_end": 1487,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:bezafibrate",
+            "canonical_mentions": [
+              "bezafibrate"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "elafibranor",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "elafibranor"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "elafibranor",
+            "char_start": 1020,
+            "char_end": 1031,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:elafibranor",
+            "canonical_mentions": [
+              "elafibranor"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "seladelpar",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "seladelpar"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "seladelpar",
+            "char_start": 1492,
+            "char_end": 1502,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:seladelpar",
+            "canonical_mentions": [
+              "seladelpar"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 7,
+          "raw_entity_count": 8,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 7,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.9562,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 7,
+              "denominator": 8,
+              "value": 0.875
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 8,
+              "value": 0.125
+            },
+            "type_constraint_pass_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 7,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 7
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 8,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.6190785830840468,
+      "prompt_tokens": 527,
+      "output_tokens": 606,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "primary biliary cholangitis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "primary biliary cholangitis",
+            "disease_stage": "PBC",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate entity with no source span; merged with first occurrence."
+          },
+          "grounded": true,
+          "source_span": "primary biliary cholangitis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 72,
+          "char_end": 99
+        },
+        {
+          "mention": "peroxisome proliferator-activated receptor",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "peroxisome proliferator-activated receptor",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "peroxisome proliferator-activated receptor",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 275,
+          "char_end": 317
+        },
+        {
+          "mention": "ursodeoxycholic acid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "ursodeoxycholic acid"
+          },
+          "grounded": true,
+          "source_span": "ursodeoxycholic acid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 414,
+          "char_end": 434
+        },
+        {
+          "mention": "primary biliary cholangitis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "primary biliary cholangitis",
+            "disease_stage": "PBC",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate entity with no source span; merged with first occurrence."
+          },
+          "grounded": false,
+          "source_span": "",
+          "alignment_status": "UNKNOWN",
+          "char_start": null,
+          "char_end": null
+        },
+        {
+          "mention": "PPAR agonist",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "PPAR agonist",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "PPAR agonist",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1061,
+          "char_end": 1073
+        },
+        {
+          "mention": "bezafibrate",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "bezafibrate"
+          },
+          "grounded": true,
+          "source_span": "bezafibrate",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1476,
+          "char_end": 1487
+        },
+        {
+          "mention": "elafibranor",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "elafibranor"
+          },
+          "grounded": true,
+          "source_span": "elafibranor",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1020,
+          "char_end": 1031
+        },
+        {
+          "mention": "seladelpar",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "seladelpar"
+          },
+          "grounded": true,
+          "source_span": "seladelpar",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1492,
+          "char_end": 1502
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "PPAR agonist",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "none",
+          "evidence": "PPAR agonists are promising second-line therapies for patients with an inadequate response to ursodeoxycholic acid (UDCA).",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Abstract states PPAR agonists are therapies for PBC, indicating association."
+        },
+        {
+          "subject": "bezafibrate",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "none",
+          "evidence": "Five RCTs evaluating bezafibrate, elafibranor and seladelpar (n = 660; 390 PPAR agonist; 270 placebo) met the inclusion criteria.",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Bezafibrate is evaluated in PBC trials, indicating association."
+        },
+        {
+          "subject": "elafibranor",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "none",
+          "evidence": "Five RCTs evaluating bezafibrate, elafibranor and seladelpar (n = 660; 390 PPAR agonist; 270 placebo) met the inclusion criteria.",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Elafibranor is evaluated in PBC trials, indicating association."
+        },
+        {
+          "subject": "seladelpar",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "primary biliary cholangitis",
+          "object_type": "Disease",
+          "direction": "none",
+          "evidence": "Five RCTs evaluating bezafibrate, elafibranor and seladelpar (n = 660; 390 PPAR agonist; 270 placebo) met the inclusion criteria.",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Seladelpar is evaluated in PBC trials, indicating association."
+        },
+        {
+          "subject": "PPAR agonist",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "pruritus",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "PPAR agonists significantly reduced NRS scores at 3 months (MD, -1.39; 95% CI: -2.49 to -0.29), 6 months (MD, -1.17; 95% CI: -1.96 to -0.38) and 12 months (MD, -1.73; 95% CI, -3.00 to -0.46)",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Abstract states PPAR agonists reduce pruritus severity (NRS scores)."
+        },
+        {
+          "subject": "bezafibrate",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "pruritus",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "in individual agent analyses, bezafibrate and seladelpar reached statistical significance at two or more time points.",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Bezafibrate is associated with reduction in pruritus based on significant results."
+        },
+        {
+          "subject": "seladelpar",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "pruritus",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "in individual agent analyses, bezafibrate and seladelpar reached statistical significance at two or more time points.",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Seladelpar is associated with reduction in pruritus based on significant results."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "primary biliary cholangitis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "primary biliary cholangitis",
+              "disease_stage": "PBC",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate entity with no source span; merged with first occurrence."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Primary Biliary Cholangitis",
+            "char_start": 72,
+            "char_end": 99,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:primary biliary cholangitis",
+            "canonical_mentions": [
+              "primary biliary cholangitis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "peroxisome proliferator-activated receptor",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "peroxisome proliferator-activated receptor",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Peroxisome proliferator-activated receptor",
+            "char_start": 275,
+            "char_end": 317,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:peroxisome proliferator activated receptor",
+            "canonical_mentions": [
+              "peroxisome proliferator-activated receptor"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ursodeoxycholic acid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "ursodeoxycholic acid"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ursodeoxycholic acid",
+            "char_start": 414,
+            "char_end": 434,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:ursodeoxycholic acid",
+            "canonical_mentions": [
+              "ursodeoxycholic acid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "PPAR agonist",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "PPAR agonist",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "PPAR agonist",
+            "char_start": 1061,
+            "char_end": 1073,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:ppar agonist",
+            "canonical_mentions": [
+              "PPAR agonist"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "bezafibrate",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "bezafibrate"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "bezafibrate",
+            "char_start": 1476,
+            "char_end": 1487,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:bezafibrate",
+            "canonical_mentions": [
+              "bezafibrate"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "elafibranor",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "elafibranor"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "elafibranor",
+            "char_start": 1020,
+            "char_end": 1031,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:elafibranor",
+            "canonical_mentions": [
+              "elafibranor"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "seladelpar",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "seladelpar"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "seladelpar",
+            "char_start": 1492,
+            "char_end": 1502,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:seladelpar",
+            "canonical_mentions": [
+              "seladelpar"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "PPAR agonist",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "primary biliary cholangitis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PPAR agonists are promising second-line therapies for patients with an inadequate response to ursodeoxycholic acid (UDCA).",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "objective_only",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 319,
+            "evidence_char_end": 440,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PPAR agonist",
+            "original_object": "primary biliary cholangitis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "bezafibrate",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "primary biliary cholangitis",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Five RCTs evaluating bezafibrate, elafibranor and seladelpar (n = 660; 390 PPAR agonist; 270 placebo) met the inclusion criteria.",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 986,
+            "evidence_char_end": 1114,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "bezafibrate",
+            "original_object": "primary biliary cholangitis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "elafibranor",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "primary biliary cholangitis",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Five RCTs evaluating bezafibrate, elafibranor and seladelpar (n = 660; 390 PPAR agonist; 270 placebo) met the inclusion criteria.",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 986,
+            "evidence_char_end": 1114,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "elafibranor",
+            "original_object": "primary biliary cholangitis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "seladelpar",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "primary biliary cholangitis",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Five RCTs evaluating bezafibrate, elafibranor and seladelpar (n = 660; 390 PPAR agonist; 270 placebo) met the inclusion criteria.",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 986,
+            "evidence_char_end": 1114,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "seladelpar",
+            "original_object": "primary biliary cholangitis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PPAR agonist",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pruritus",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PPAR agonists significantly reduced NRS scores at 3 months (MD, -1.39; 95% CI: -2.49 to -0.29), 6 months (MD, -1.17; 95% CI: -1.96 to -0.38) and 12 months (MD, -1.73; 95% CI, -3.00 to -0.46)",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_endpoint_missing",
+              "object_not_grounded",
+              "object_not_in_entities",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1254,
+            "evidence_char_end": 1443,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PPAR agonist",
+            "original_object": "pruritus",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "bezafibrate",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pruritus",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "in individual agent analyses, bezafibrate and seladelpar reached statistical significance at two or more time points.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_endpoint_missing",
+              "object_not_grounded",
+              "object_not_in_entities",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1446,
+            "evidence_char_end": 1563,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "bezafibrate",
+            "original_object": "pruritus",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "seladelpar",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pruritus",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "in individual agent analyses, bezafibrate and seladelpar reached statistical significance at two or more time points.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_endpoint_missing",
+              "object_not_grounded",
+              "object_not_in_entities",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1446,
+            "evidence_char_end": 1563,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "seladelpar",
+            "original_object": "pruritus",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 7,
+          "raw_entity_count": 8,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 7,
+          "total_relations": 7,
+          "known_relations": 0,
+          "novel_relations": 7,
+          "contradicting_relations": 0,
+          "schema_valid": 7,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5562,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 7,
+              "denominator": 8,
+              "value": 0.875
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 8,
+              "value": 0.125
+            },
+            "type_constraint_pass_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 3,
+              "denominator": 7,
+              "value": 0.4286
+            },
+            "weak_evidence_rate": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 7,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 7
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 8,
+        "relations": 7,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 11.487913166172802,
+      "prompt_tokens": 6636,
+      "output_tokens": 2657,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "primary biliary cholangitis",
+            "entity_type": "Disease",
+            "source_span": "primary biliary cholangitis",
+            "char_start": 72,
+            "char_end": 99,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in title and abstract; disease entity."
+          },
+          {
+            "mention": "peroxisome proliferator-activated receptor",
+            "entity_type": "Protein",
+            "source_span": "peroxisome proliferator-activated receptor",
+            "char_start": 275,
+            "char_end": 317,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract; protein entity."
+          },
+          {
+            "mention": "ursodeoxycholic acid",
+            "entity_type": "Metabolite",
+            "source_span": "ursodeoxycholic acid",
+            "char_start": 414,
+            "char_end": 434,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract; metabolite entity."
+          },
+          {
+            "mention": "PPAR agonist",
+            "entity_type": "Protein",
+            "source_span": "PPAR agonist",
+            "char_start": 1061,
+            "char_end": 1073,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; protein entity."
+          },
+          {
+            "mention": "bezafibrate",
+            "entity_type": "Metabolite",
+            "source_span": "bezafibrate",
+            "char_start": 1476,
+            "char_end": 1487,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract; metabolite entity."
+          },
+          {
+            "mention": "elafibranor",
+            "entity_type": "Metabolite",
+            "source_span": "elafibranor",
+            "char_start": 1020,
+            "char_end": 1031,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract; metabolite entity."
+          },
+          {
+            "mention": "seladelpar",
+            "entity_type": "Metabolite",
+            "source_span": "seladelpar",
+            "char_start": 1492,
+            "char_end": 1502,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract; metabolite entity."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "PPAR agonist",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "primary biliary cholangitis",
+            "object_type": "Disease",
+            "direction": "none",
+            "evidence": "PPAR agonists are promising second-line therapies for patients with an inadequate response to ursodeoxycholic acid (UDCA).",
+            "evidence_span": "PPAR agonists are promising second-line therapies for patients with an inadequate response to ursodeoxycholic acid (UDCA).",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Abstract states PPAR agonists are therapies for PBC, indicating association."
+          },
+          {
+            "subject": "bezafibrate",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "primary biliary cholangitis",
+            "object_type": "Disease",
+            "direction": "none",
+            "evidence": "Five RCTs evaluating bezafibrate, elafibranor and seladelpar (n = 660; 390 PPAR agonist; 270 placebo) met the inclusion criteria.",
+            "evidence_span": "Five RCTs evaluating bezafibrate, elafibranor and seladelpar (n = 660; 390 PPAR agonist; 270 placebo) met the inclusion criteria.",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Bezafibrate is evaluated in PBC trials, indicating association."
+          },
+          {
+            "subject": "elafibranor",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "primary biliary cholangitis",
+            "object_type": "Disease",
+            "direction": "none",
+            "evidence": "Five RCTs evaluating bezafibrate, elafibranor and seladelpar (n = 660; 390 PPAR agonist; 270 placebo) met the inclusion criteria.",
+            "evidence_span": "Five RCTs evaluating bezafibrate, elafibranor and seladelpar (n = 660; 390 PPAR agonist; 270 placebo) met the inclusion criteria.",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Elafibranor is evaluated in PBC trials, indicating association."
+          },
+          {
+            "subject": "seladelpar",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "primary biliary cholangitis",
+            "object_type": "Disease",
+            "direction": "none",
+            "evidence": "Five RCTs evaluating bezafibrate, elafibranor and seladelpar (n = 660; 390 PPAR agonist; 270 placebo) met the inclusion criteria.",
+            "evidence_span": "Five RCTs evaluating bezafibrate, elafibranor and seladelpar (n = 660; 390 PPAR agonist; 270 placebo) met the inclusion criteria.",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Seladelpar is evaluated in PBC trials, indicating association."
+          },
+          {
+            "subject": "PPAR agonist",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pruritus",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "PPAR agonists significantly reduced NRS scores at 3 months (MD, -1.39; 95% CI: -2.49 to -0.29), 6 months (MD, -1.17; 95% CI: -1.96 to -0.38) and 12 months (MD, -1.73; 95% CI, -3.00 to -0.46)",
+            "evidence_span": "PPAR agonists significantly reduced NRS scores at 3 months (MD, -1.39; 95% CI: -2.49 to -0.29), 6 months (MD, -1.17; 95% CI: -1.96 to -0.38) and 12 months (MD, -1.73; 95% CI, -3.00 to -0.46)",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Abstract states PPAR agonists reduce pruritus severity (NRS scores)."
+          },
+          {
+            "subject": "bezafibrate",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pruritus",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "in individual agent analyses, bezafibrate and seladelpar reached statistical significance at two or more time points.",
+            "evidence_span": "in individual agent analyses, bezafibrate and seladelpar reached statistical significance at two or more time points.",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Bezafibrate is associated with reduction in pruritus based on significant results."
+          },
+          {
+            "subject": "seladelpar",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pruritus",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "in individual agent analyses, bezafibrate and seladelpar reached statistical significance at two or more time points.",
+            "evidence_span": "in individual agent analyses, bezafibrate and seladelpar reached statistical significance at two or more time points.",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Seladelpar is associated with reduction in pruritus based on significant results."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "primary biliary cholangitis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate entity with no source span; merged with first occurrence."
+          }
+        ],
+        "review_reason": "Corrected entity list to remove duplicate and ensure all entities have valid spans. Added relations based on explicit statements in the abstract: PPAR agonists and specific agents are associated with PBC and reduce pruritus. Rejected duplicate entity candidate.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 7,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "primary biliary cholangitis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "peroxisome proliferator-activated receptor"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "ursodeoxycholic acid"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "PPAR agonist"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "bezafibrate"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "elafibranor"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "seladelpar"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "primary biliary cholangitis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate entity with no source span; merged with first occurrence."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "primary biliary cholangitis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008108"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "primary biliary cholangitis",
+          "char_start": 183,
+          "char_end": 210
+        },
+        {
+          "mention": "pruritus",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D011537"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "pruritus",
+          "char_start": 539,
+          "char_end": 547
+        },
+        {
+          "mention": "PPAR agonists",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "C0000001"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "PPAR agonists",
+          "char_start": 522,
+          "char_end": 535
+        },
+        {
+          "mention": "bezafibrate",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "C0000002"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "bezafibrate",
+          "char_start": 1007,
+          "char_end": 1018
+        },
+        {
+          "mention": "elafibranor",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "C0000003"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "elafibranor",
+          "char_start": 1020,
+          "char_end": 1031
+        },
+        {
+          "mention": "seladelpar",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "C0000004"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "seladelpar",
+          "char_start": 1036,
+          "char_end": 1046
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "PPAR agonists",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "pruritus",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "PPAR agonists significantly reduced NRS scores at 3 months",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "bezafibrate",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "pruritus",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "bezafibrate and seladelpar reached statistical significance at two or more time points",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "seladelpar",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "pruritus",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "bezafibrate and seladelpar reached statistical significance at two or more time points",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "primary biliary cholangitis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D008108"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "primary biliary cholangitis",
+            "char_start": 183,
+            "char_end": 210,
+            "grounded": true,
+            "normalized_id": "D008108",
+            "canonical_key": "Disease:primary biliary cholangitis",
+            "canonical_mentions": [
+              "primary biliary cholangitis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "pruritus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D011537"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "pruritus",
+            "char_start": 539,
+            "char_end": 547,
+            "grounded": true,
+            "normalized_id": "D011537",
+            "canonical_key": "Disease:pruritus",
+            "canonical_mentions": [
+              "pruritus"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "PPAR agonists",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "C0000001"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "PPAR agonists",
+            "char_start": 522,
+            "char_end": 535,
+            "grounded": true,
+            "normalized_id": "C0000001",
+            "canonical_key": "Protein:ppar agonists",
+            "canonical_mentions": [
+              "PPAR agonists"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "bezafibrate",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "C0000002"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "bezafibrate",
+            "char_start": 1007,
+            "char_end": 1018,
+            "grounded": true,
+            "normalized_id": "C0000002",
+            "canonical_key": "Protein:bezafibrate",
+            "canonical_mentions": [
+              "bezafibrate"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "elafibranor",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "C0000003"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "elafibranor",
+            "char_start": 1020,
+            "char_end": 1031,
+            "grounded": true,
+            "normalized_id": "C0000003",
+            "canonical_key": "Protein:elafibranor",
+            "canonical_mentions": [
+              "elafibranor"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "seladelpar",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "C0000004"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "seladelpar",
+            "char_start": 1036,
+            "char_end": 1046,
+            "grounded": true,
+            "normalized_id": "C0000004",
+            "canonical_key": "Protein:seladelpar",
+            "canonical_mentions": [
+              "seladelpar"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "PPAR agonists",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pruritus",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PPAR agonists significantly reduced NRS scores at 3 months",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1254,
+            "evidence_char_end": 1312,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PPAR agonists",
+            "original_object": "pruritus",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "bezafibrate",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pruritus",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "bezafibrate and seladelpar reached statistical significance at two or more time points",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1476,
+            "evidence_char_end": 1562,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "bezafibrate",
+            "original_object": "pruritus",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "seladelpar",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pruritus",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "bezafibrate and seladelpar reached statistical significance at two or more time points",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1476,
+            "evidence_char_end": 1562,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "seladelpar",
+            "original_object": "pruritus",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 6,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 6,
+          "total_relations": 3,
+          "known_relations": 0,
+          "novel_relations": 3,
+          "contradicting_relations": 0,
+          "schema_valid": 3,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 6,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 6
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 3,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.6261662910692394,
+      "prompt_tokens": 1651,
+      "output_tokens": 599,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

@@ -1,24 +1,91 @@
-# PubMed Literature Extraction Workstream
+<div align="center">
 
-Owner: Shaopeng Chen, 2330026016
+# PubMed Literature Extraction Agent
 
-This folder contains the PubMed literature extraction component for the liver disease knowledge graph project. It includes the original multi-stage LLM baseline pipeline, the closed-loop cognitive agent, Neo4j schema/import gating, quality-defense logic, and the 30-paper benchmark outputs used to compare V1/V2/V3 extraction quality.
+### Evidence-grounded biomedical relation extraction for LiverKG
 
-## What is included
+[简体中文](README.zh-CN.md) · [Back to LiverKG](../README.md) · [Agent v2 calibration](docs/agent_v2_acceptance_20260814.md)
 
-| Path | Purpose |
+</div>
+
+## What this project does
+
+This workstream extracts liver-disease knowledge from PubMed abstracts and
+turns it into auditable Neo4j candidates. It contains the original prompt-based
+pipeline, a closed-loop cognitive agent, and Central Agent v2: a deterministic,
+verifier-guided controller that calls expensive tools only when the current
+article state justifies them.
+
+The system deliberately separates **proposal** from **authority**:
+
+- LLMs, retrieval and causal tools may propose or annotate candidates.
+- The deterministic verifier owns evidence and schema validity.
+- The Decision Engine and Safe Write gate own import readiness.
+- The default runtime is read-only; active v2 remains dry-run-only.
+
+## Pipeline
+
+```text
+PubMed JSONL
+  → parallel preprocessing
+  → section-aware chunking and primary extraction
+  → evidence-local entity-pair lattice
+  → predicate / NO_RELATION classification
+  → deterministic verification
+  → Central Agent observation
+      ├─ cache-first Neo4j lookup
+      ├─ bounded second-model adjudication
+      ├─ targeted debug review
+      ├─ evidence repair / relation recovery
+      └─ causal and conflict analysis
+  → re-verification after every modification
+  → Decision Engine
+  → dry-run or Safe Write
+```
+
+## Central Agent v2
+
+Central Agent v2 maintains article-level state for entities, pairs, evidence,
+accepted/rejected/reviewed relations, linking ambiguity, model disagreement,
+hypotheses, budgets and termination reasons.
+
+| Route | Action soft budget | Auxiliary remote calls | Neo4j calls | Soft timeout |
+| --- | ---: | ---: | ---: | ---: |
+| FAST | 12 | 2 | 2 | 30 s |
+| STANDARD | 20 | 4 | 4 | 60 s |
+| DEEP | 28 | 6 | 6 | 120 s |
+
+The global guards are 40 actions, 8 auxiliary remote requests, 8 Neo4j calls
+and 180 seconds per article. A cache hit consumes no remote budget. Two
+consecutive remote calls without a candidate, verification or review-state
+change terminate further remote work.
+
+Execution modes:
+
+| Mode | Behaviour |
 | --- | --- |
-| `cognitive_agent/` | V2/V3 closed-loop cognitive agent for PubMed extraction, KG context activation, evidence/schema verification, reasoning, decision ranking, abbreviation deduplication, and optional Neo4j write-back. |
-| `multi_stage_extraction_pipeline.py` | V1 baseline PubMed extraction pipeline using a prompt-driven LLM workflow. |
-| `entity_linking_preflight.py` | Read-only preflight gate for checking whether extracted relation endpoints can be matched to existing Neo4j KG nodes before import. |
-| `convert_pubmed_xml_to_jsonl.py` | Utility for converting PubMed XML exports to JSONL input records. |
-| `run_cognitive_agent.sh` | Main launcher for the cognitive agent. Defaults to dry-run mode. |
-| `docs/` | Architecture notes, LangExtract redesign notes, and the PubMed extraction report. |
-| `reports/` | Supporting migration and quality-fix reports. |
-| `tests/` | Focused tests for the cognitive agent loop. |
-| `extraction_output/` | Small input samples and selected 30-paper benchmark outputs. Large generated batches are intentionally excluded. |
+| `legacy` | Backward-compatible default; existing production result wins. |
+| `agent-v2-shadow` | Records counterfactual actions without changing production output. |
+| `agent-v2` | Executes v2 routing, but is hard-restricted to dry-run. |
 
-## Environment
+## Evidence and write safety
+
+No LLM or tool can override:
+
+- an illegal entity/relation schema;
+- a missing or unresolved endpoint;
+- evidence absent from the source text;
+- negated, background-only, objective-only or method-only claims;
+- non-human evidence outside the configured scope;
+- an `import_ready=false` decision;
+- the Safe Write restrictions.
+
+Causal chains are stored separately as `hypothesis_relations`. Without direct
+article evidence they can be reviewed as research hypotheses, but never become
+write-ready facts. Conflict analysis may recommend create, keep, update,
+dispute or review; the verifier and Decision Engine still decide authority.
+
+## Installation
 
 ```bash
 python3.12 -m venv .venv-cognitive
@@ -26,22 +93,52 @@ source .venv-cognitive/bin/activate
 python -m pip install -r requirements-cognitive-agent.txt
 
 cp .env.example .env
-# Fill API keys and Neo4j password locally. Do not commit .env.
-set -a
-source .env
-set +a
+# Add secrets locally. .env is ignored by Git.
+set -a && source .env && set +a
 ```
 
-Required runtime variables:
+Important variables:
 
-| Variable | Meaning |
+| Variable | Purpose |
 | --- | --- |
-| `GEMINI_API_KEY` or `LLM_API_KEY` | API key for the Gemini-compatible extraction call used by the agent. |
-| `GEMINI_API_BASE` | Optional custom OpenAI-compatible proxy base URL. |
-| `GEMINI_MODEL` | Gemini-compatible model name. |
-| `NEO4J_PASSWORD` | Required only when reading from or writing to Neo4j. |
+| `GEMINI_API_KEY`, `GEMINI_API_BASE`, `GEMINI_MODEL` | Primary extraction model. |
+| `SECOND_LLM_ENABLED` | Enables bounded auxiliary adjudication. |
+| `SECOND_LLM_API_KEY`, `SECOND_LLM_API_BASE`, `SECOND_LLM_MODEL_ID` | DeepSeek/Qwen-compatible adjudicator. |
+| `NEO4J_URI`, `NEO4J_USER`, `NEO4J_PASSWORD`, `NEO4J_DATABASE` | Optional KG access. |
+| `NEO4J_RAG_ENABLED` | Enables bounded read-only KG context. |
+| `EXTRACTION_CACHE_MODE`, `EXTRACTION_CACHE_PATH` | Memory or persistent replay cache. |
+| `AGENT_EXECUTION_MODE`, `AGENT_BUDGET_PROFILE` | Controller mode and quality/cost profile. |
 
-## Run V1 baseline
+## Running the system
+
+Legacy-compatible dry run:
+
+```bash
+./run_cognitive_agent.sh 5
+```
+
+Agent v2 shadow run with persistent replay cache:
+
+```bash
+export AGENT_EXECUTION_MODE=agent-v2-shadow
+export AGENT_BUDGET_PROFILE=quality
+export EXTRACTION_CACHE_MODE=persistent
+export EXTRACTION_CACHE_PATH=.cache/agent-v2.sqlite3
+./run_cognitive_agent.sh 50
+```
+
+Conditional DeepSeek adjudication:
+
+```bash
+export SECOND_LLM_ENABLED=true
+export SECOND_LLM_PROVIDER=openai
+export SECOND_LLM_API_BASE=https://api.deepseek.com
+export SECOND_LLM_MODEL_ID=deepseek-v4-flash
+# SECOND_LLM_API_KEY may be set directly; the launcher can also use DEEPSEEK_API_KEY.
+./run_cognitive_agent.sh 5 --max-workers=1
+```
+
+Original baseline:
 
 ```bash
 python multi_stage_extraction_pipeline.py \
@@ -51,35 +148,71 @@ python multi_stage_extraction_pipeline.py \
   --skip-neo4j
 ```
 
-## Run V2/V3 cognitive agent
+## Cache and auditability
 
-Dry run, no Neo4j write:
+The extraction layer provides:
 
-```bash
-./run_cognitive_agent.sh 30
+- bounded in-process L1 cache;
+- optional bounded SQLite L2 cache;
+- content/configuration/model-aware cache keys;
+- concurrent single-flight deduplication;
+- no API keys in cache keys or values;
+- caching only for structurally replayable results;
+- attempted/successful/retried/cached counts, token usage and latency percentiles.
+
+With a fully populated 50-article cache, the acceptance run reached 100% main
+extraction cache hits, made zero primary extraction requests and completed in
+4.9 seconds. See the [calibration report](docs/agent_v2_acceptance_20260814.md).
+
+## Evaluation
+
+Gold annotations and research outputs are organised under:
+
+```text
+gold_annotations/  # frozen human-readable gold data
+benchmark_output/  # fixed-candidate model/router comparisons
+scripts/           # evaluation and benchmark runners
+docs/              # architecture, evidence policy and acceptance reports
+tests/              # deterministic and integration tests
 ```
 
-Optional Neo4j write test after reviewing outputs:
+Run the local suite:
 
 ```bash
-./run_cognitive_agent.sh 5 --write-neo4j
+python -m unittest discover -s tests -v
 ```
 
-## Benchmark files
+Neo4j integration tests require an explicitly isolated database:
 
-The selected benchmark artifacts are kept under `extraction_output/`:
+```bash
+export NEO4J_TEST_URI=bolt://localhost:7687
+export NEO4J_TEST_USER=neo4j
+export NEO4J_TEST_PASSWORD=local-test-password
+export NEO4J_TEST_DATABASE=cognitive-agent-test
+python -m unittest tests.test_neo4j_integration -v
+```
 
-| File | Description |
+If these variables are absent, the integration tests skip safely and never
+fall back to a production database.
+
+## Repository map
+
+| Path | Responsibility |
 | --- | --- |
-| `abtest_compare_20260629_155656.md` | V1 vs V2 30-paper comparison summary. |
-| `extraction_results_v1_pipeline_pubmed30_20260629_155656.json` | V1 extracted statements for 30 papers. |
-| `quality_report_v1_pipeline_pubmed30_20260629_155656.json` | V1 quality report. |
-| `agent_results_v2_agent_pubmed30_20260629_155656.json` | V2 agent results for 30 papers. |
-| `agent_results_v3_final_quality_30.json` | V3 quality-defense run after noise filtering and abbreviation deduplication. |
-| `agent_report_v3_final_quality_30.json` | V3 aggregate report. |
+| `cognitive_agent/agent.py` | End-to-end execution and compatibility layer. |
+| `cognitive_agent/central_agent_v2.py` | State, budgets, routing and action audit. |
+| `cognitive_agent/verifier.py` | Evidence, endpoint and schema validation. |
+| `cognitive_agent/relation_pair_classifier.py` | BioRED-style pair lattice and classification. |
+| `cognitive_agent/collaborative_extractor.py` | Bounded second-model adjudication. |
+| `cognitive_agent/extraction_cache.py` | L1/L2 cache and single-flight execution. |
+| `entity_linking_preflight.py` | Read-only endpoint-linking preflight. |
+| `experiment_metrics.py` | Experiment metrics and comparisons. |
+| `run_cognitive_agent.sh` | Safe launcher; dry-run by default. |
 
-## Safety notes
+## Research status
 
-- `.env`, API keys, passwords, virtual environments, caches, PPT files, Word thesis files, and large historical backups are intentionally excluded.
-- The default agent path is dry-run first. Use `--write-neo4j` only after reviewing schema validity, import readiness, and entity-linking preflight results.
-- Neo4j credentials are read from environment variables and must not be committed.
+The engineering foundation for a paper-grade evaluation is in place: legacy
+compatibility, fixed candidates, action traces, cost/latency accounting,
+cache-replay experiments and hard safety boundaries. The next research phase
+focuses on evidence precision, a learned biomedical pair classifier, dual-model
+disagreement routing and a larger frozen test set.

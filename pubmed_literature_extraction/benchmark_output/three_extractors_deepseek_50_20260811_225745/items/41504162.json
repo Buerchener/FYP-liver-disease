@@ -1,0 +1,2528 @@
+{
+  "pmid": "41504162",
+  "title": "Health Risks Associated with a Long-Term Gluten-Free Diet and the Potential Protective Role of Anthocyanins.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "celiac disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "celiac disease"
+          },
+          "grounded": true,
+          "source_span": "celiac disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 286,
+          "char_end": 300
+        },
+        {
+          "mention": "non-celiac gluten sensitivity",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-celiac gluten sensitivity"
+          },
+          "grounded": true,
+          "source_span": "non-celiac gluten sensitivity",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 302,
+          "char_end": 331
+        },
+        {
+          "mention": "gluten ataxia",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "gluten ataxia"
+          },
+          "grounded": true,
+          "source_span": "gluten ataxia",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 333,
+          "char_end": 346
+        },
+        {
+          "mention": "dermatitis herpetiformis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "dermatitis herpetiformis"
+          },
+          "grounded": true,
+          "source_span": "dermatitis herpetiformis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 351,
+          "char_end": 375
+        },
+        {
+          "mention": "obesity",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "obesity"
+          },
+          "grounded": true,
+          "source_span": "obesity",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 726,
+          "char_end": 733
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 735,
+          "char_end": 768
+        },
+        {
+          "mention": "dysbiosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "dysbiosis"
+          },
+          "grounded": true,
+          "source_span": "dysbiosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 778,
+          "char_end": 787
+        },
+        {
+          "mention": "poor mental health",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "poor mental health"
+          },
+          "grounded": true,
+          "source_span": "poor mental health",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 793,
+          "char_end": 811
+        },
+        {
+          "mention": "vitamin B",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "vitamin B"
+          },
+          "grounded": true,
+          "source_span": "vitamin B",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 993,
+          "char_end": 1002
+        },
+        {
+          "mention": "vitamin D",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "vitamin D"
+          },
+          "grounded": true,
+          "source_span": "vitamin D",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1054,
+          "char_end": 1063
+        },
+        {
+          "mention": "Fe",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Fe"
+          },
+          "grounded": true,
+          "source_span": "Fe",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1079,
+          "char_end": 1081
+        },
+        {
+          "mention": "Mg",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Mg"
+          },
+          "grounded": true,
+          "source_span": "Mg",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1083,
+          "char_end": 1085
+        },
+        {
+          "mention": "Se",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Se"
+          },
+          "grounded": true,
+          "source_span": "Se",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1087,
+          "char_end": 1089
+        },
+        {
+          "mention": "Zn",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Zn"
+          },
+          "grounded": true,
+          "source_span": "Zn",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1095,
+          "char_end": 1097
+        },
+        {
+          "mention": "Anthocyanins",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Anthocyanins"
+          },
+          "grounded": true,
+          "source_span": "Anthocyanins",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1182,
+          "char_end": 1194
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "celiac disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "celiac disease"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "celiac disease",
+            "char_start": 286,
+            "char_end": 300,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:celiac disease",
+            "canonical_mentions": [
+              "celiac disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-celiac gluten sensitivity",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-celiac gluten sensitivity"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-celiac gluten sensitivity",
+            "char_start": 302,
+            "char_end": 331,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non celiac gluten sensitivity",
+            "canonical_mentions": [
+              "non-celiac gluten sensitivity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "gluten ataxia",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "gluten ataxia"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "gluten ataxia",
+            "char_start": 333,
+            "char_end": 346,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:gluten ataxia",
+            "canonical_mentions": [
+              "gluten ataxia"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "dermatitis herpetiformis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "dermatitis herpetiformis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "dermatitis herpetiformis",
+            "char_start": 351,
+            "char_end": 375,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:dermatitis herpetiformis",
+            "canonical_mentions": [
+              "dermatitis herpetiformis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "obesity",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "obesity"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "obesity",
+            "char_start": 726,
+            "char_end": 733,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:obesity",
+            "canonical_mentions": [
+              "obesity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 735,
+            "char_end": 768,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "dysbiosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "dysbiosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "dysbiosis",
+            "char_start": 778,
+            "char_end": 787,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:dysbiosis",
+            "canonical_mentions": [
+              "dysbiosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "poor mental health",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "poor mental health"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "poor mental health",
+            "char_start": 793,
+            "char_end": 811,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:poor mental health",
+            "canonical_mentions": [
+              "poor mental health"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "vitamin B",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "vitamin B"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "vitamin B",
+            "char_start": 993,
+            "char_end": 1002,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:vitamin b",
+            "canonical_mentions": [
+              "vitamin B"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "vitamin D",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "vitamin D"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "vitamin D",
+            "char_start": 1054,
+            "char_end": 1063,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:vitamin d",
+            "canonical_mentions": [
+              "vitamin D"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Fe",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Fe"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Fe",
+            "char_start": 1079,
+            "char_end": 1081,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:fe",
+            "canonical_mentions": [
+              "Fe"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Mg",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Mg"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Mg",
+            "char_start": 1083,
+            "char_end": 1085,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:mg",
+            "canonical_mentions": [
+              "Mg"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Se",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Se"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Se",
+            "char_start": 1087,
+            "char_end": 1089,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:se",
+            "canonical_mentions": [
+              "Se"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Zn",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Zn"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Zn",
+            "char_start": 1095,
+            "char_end": 1097,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:zn",
+            "canonical_mentions": [
+              "Zn"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Anthocyanins",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Anthocyanins"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Anthocyanins",
+            "char_start": 1182,
+            "char_end": 1194,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:anthocyanins",
+            "canonical_mentions": [
+              "Anthocyanins"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 15,
+          "raw_entity_count": 15,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 15,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 15,
+              "denominator": 15,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 15,
+              "denominator": 15,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 15,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 15
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 15,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.9402302498929203,
+      "prompt_tokens": 438,
+      "output_tokens": 991,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "celiac disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "celiac disease"
+          },
+          "grounded": true,
+          "source_span": "celiac disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 286,
+          "char_end": 300
+        },
+        {
+          "mention": "non-celiac gluten sensitivity",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-celiac gluten sensitivity"
+          },
+          "grounded": true,
+          "source_span": "non-celiac gluten sensitivity",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 302,
+          "char_end": 331
+        },
+        {
+          "mention": "gluten ataxia",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "gluten ataxia"
+          },
+          "grounded": true,
+          "source_span": "gluten ataxia",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 333,
+          "char_end": 346
+        },
+        {
+          "mention": "dermatitis herpetiformis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "dermatitis herpetiformis"
+          },
+          "grounded": true,
+          "source_span": "dermatitis herpetiformis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 351,
+          "char_end": 375
+        },
+        {
+          "mention": "obesity",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "obesity"
+          },
+          "grounded": true,
+          "source_span": "obesity",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 726,
+          "char_end": 733
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 735,
+          "char_end": 768
+        },
+        {
+          "mention": "dysbiosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "dysbiosis"
+          },
+          "grounded": true,
+          "source_span": "dysbiosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 778,
+          "char_end": 787
+        },
+        {
+          "mention": "poor mental health",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "poor mental health"
+          },
+          "grounded": true,
+          "source_span": "poor mental health",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 793,
+          "char_end": 811
+        },
+        {
+          "mention": "vitamin B",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "vitamin B"
+          },
+          "grounded": true,
+          "source_span": "vitamin B",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 993,
+          "char_end": 1002
+        },
+        {
+          "mention": "vitamin D",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "vitamin D"
+          },
+          "grounded": true,
+          "source_span": "vitamin D",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1054,
+          "char_end": 1063
+        },
+        {
+          "mention": "Fe",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Fe"
+          },
+          "grounded": true,
+          "source_span": "Fe",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1079,
+          "char_end": 1081
+        },
+        {
+          "mention": "Mg",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Mg"
+          },
+          "grounded": true,
+          "source_span": "Mg",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1083,
+          "char_end": 1085
+        },
+        {
+          "mention": "Se",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Se"
+          },
+          "grounded": true,
+          "source_span": "Se",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1087,
+          "char_end": 1089
+        },
+        {
+          "mention": "Zn",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Zn"
+          },
+          "grounded": true,
+          "source_span": "Zn",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1095,
+          "char_end": 1097
+        },
+        {
+          "mention": "Anthocyanins",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Anthocyanins"
+          },
+          "grounded": true,
+          "source_span": "Anthocyanins",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1182,
+          "char_end": 1194
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "celiac disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "celiac disease"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "celiac disease",
+            "char_start": 286,
+            "char_end": 300,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:celiac disease",
+            "canonical_mentions": [
+              "celiac disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-celiac gluten sensitivity",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-celiac gluten sensitivity"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-celiac gluten sensitivity",
+            "char_start": 302,
+            "char_end": 331,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non celiac gluten sensitivity",
+            "canonical_mentions": [
+              "non-celiac gluten sensitivity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "gluten ataxia",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "gluten ataxia"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "gluten ataxia",
+            "char_start": 333,
+            "char_end": 346,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:gluten ataxia",
+            "canonical_mentions": [
+              "gluten ataxia"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "dermatitis herpetiformis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "dermatitis herpetiformis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "dermatitis herpetiformis",
+            "char_start": 351,
+            "char_end": 375,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:dermatitis herpetiformis",
+            "canonical_mentions": [
+              "dermatitis herpetiformis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "obesity",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "obesity"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "obesity",
+            "char_start": 726,
+            "char_end": 733,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:obesity",
+            "canonical_mentions": [
+              "obesity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 735,
+            "char_end": 768,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "dysbiosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "dysbiosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "dysbiosis",
+            "char_start": 778,
+            "char_end": 787,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:dysbiosis",
+            "canonical_mentions": [
+              "dysbiosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "poor mental health",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "poor mental health"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "poor mental health",
+            "char_start": 793,
+            "char_end": 811,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:poor mental health",
+            "canonical_mentions": [
+              "poor mental health"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "vitamin B",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "vitamin B"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "vitamin B",
+            "char_start": 993,
+            "char_end": 1002,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:vitamin b",
+            "canonical_mentions": [
+              "vitamin B"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "vitamin D",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "vitamin D"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "vitamin D",
+            "char_start": 1054,
+            "char_end": 1063,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:vitamin d",
+            "canonical_mentions": [
+              "vitamin D"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Fe",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Fe"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Fe",
+            "char_start": 1079,
+            "char_end": 1081,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:fe",
+            "canonical_mentions": [
+              "Fe"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Mg",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Mg"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Mg",
+            "char_start": 1083,
+            "char_end": 1085,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:mg",
+            "canonical_mentions": [
+              "Mg"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Se",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Se"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Se",
+            "char_start": 1087,
+            "char_end": 1089,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:se",
+            "canonical_mentions": [
+              "Se"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Zn",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Zn"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Zn",
+            "char_start": 1095,
+            "char_end": 1097,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:zn",
+            "canonical_mentions": [
+              "Zn"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Anthocyanins",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Anthocyanins"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Anthocyanins",
+            "char_start": 1182,
+            "char_end": 1194,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:anthocyanins",
+            "canonical_mentions": [
+              "Anthocyanins"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 15,
+          "raw_entity_count": 15,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 15,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 15,
+              "denominator": 15,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 15,
+              "denominator": 15,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 15,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 15
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 15,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 8.41728587495163,
+      "prompt_tokens": 8813,
+      "output_tokens": 2286,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "celiac disease",
+            "entity_type": "Disease",
+            "source_span": "celiac disease",
+            "char_start": 286,
+            "char_end": 300,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "non-celiac gluten sensitivity",
+            "entity_type": "Disease",
+            "source_span": "non-celiac gluten sensitivity",
+            "char_start": 302,
+            "char_end": 331,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "gluten ataxia",
+            "entity_type": "Disease",
+            "source_span": "gluten ataxia",
+            "char_start": 333,
+            "char_end": 346,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "dermatitis herpetiformis",
+            "entity_type": "Disease",
+            "source_span": "dermatitis herpetiformis",
+            "char_start": 351,
+            "char_end": 375,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "obesity",
+            "entity_type": "Disease",
+            "source_span": "obesity",
+            "char_start": 726,
+            "char_end": 733,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "entity_type": "Disease",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 735,
+            "char_end": 768,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "dysbiosis",
+            "entity_type": "Disease",
+            "source_span": "dysbiosis",
+            "char_start": 778,
+            "char_end": 787,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "poor mental health",
+            "entity_type": "Disease",
+            "source_span": "poor mental health",
+            "char_start": 793,
+            "char_end": 811,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "vitamin B",
+            "entity_type": "Metabolite",
+            "source_span": "vitamin B",
+            "char_start": 993,
+            "char_end": 1002,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, metabolite entity."
+          },
+          {
+            "mention": "vitamin D",
+            "entity_type": "Metabolite",
+            "source_span": "vitamin D",
+            "char_start": 1054,
+            "char_end": 1063,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, metabolite entity."
+          },
+          {
+            "mention": "Fe",
+            "entity_type": "Metabolite",
+            "source_span": "Fe",
+            "char_start": 1079,
+            "char_end": 1081,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, mineral metabolite."
+          },
+          {
+            "mention": "Mg",
+            "entity_type": "Metabolite",
+            "source_span": "Mg",
+            "char_start": 1083,
+            "char_end": 1085,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, mineral metabolite."
+          },
+          {
+            "mention": "Se",
+            "entity_type": "Metabolite",
+            "source_span": "Se",
+            "char_start": 1087,
+            "char_end": 1089,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, mineral metabolite."
+          },
+          {
+            "mention": "Zn",
+            "entity_type": "Metabolite",
+            "source_span": "Zn",
+            "char_start": 1095,
+            "char_end": 1097,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, mineral metabolite."
+          },
+          {
+            "mention": "Anthocyanins",
+            "entity_type": "Metabolite",
+            "source_span": "Anthocyanins",
+            "char_start": 1182,
+            "char_end": 1194,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, metabolite entity."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [],
+        "review_reason": "All 15 candidate entities are exact matches in the abstract and correctly typed. No relations were proposed by the first model, and the abstract does not contain explicit relation statements with clear endpoints and predicates that meet the evidence requirements. Therefore, no relations are added.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "celiac disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "non-celiac gluten sensitivity"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "gluten ataxia"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "dermatitis herpetiformis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "obesity"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "non-alcoholic fatty liver disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "dysbiosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "poor mental health"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "vitamin B"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "vitamin D"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Fe"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Mg"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Se"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Zn"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Anthocyanins"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "celiac disease",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0005130"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "celiac disease",
+          "char_start": 286,
+          "char_end": 300
+        },
+        {
+          "mention": "non-celiac gluten sensitivity",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0100300"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "non-celiac gluten sensitivity",
+          "char_start": 302,
+          "char_end": 331
+        },
+        {
+          "mention": "gluten ataxia",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0011462"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "gluten ataxia",
+          "char_start": 333,
+          "char_end": 346
+        },
+        {
+          "mention": "dermatitis herpetiformis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0006025"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "dermatitis herpetiformis",
+          "char_start": 351,
+          "char_end": 375
+        },
+        {
+          "mention": "obesity",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0008195"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "obesity",
+          "char_start": 726,
+          "char_end": 733
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0005364"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "char_start": 735,
+          "char_end": 768
+        },
+        {
+          "mention": "dysbiosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0100172"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "dysbiosis",
+          "char_start": 778,
+          "char_end": 787
+        },
+        {
+          "mention": "poor mental health",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0002254"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "poor mental health",
+          "char_start": 793,
+          "char_end": 811
+        },
+        {
+          "mention": "Anthocyanins",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:23448"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "Anthocyanins",
+          "char_start": 102,
+          "char_end": 114
+        },
+        {
+          "mention": "flavonoids",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:72544"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "flavonoids",
+          "char_start": 1207,
+          "char_end": 1217
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "obesity",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic fatty liver disease",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "obesity, non-alcoholic fatty liver disease (NAFLD), dysbiosis, and poor mental health represent the most probable health risks associated with a LTGFD",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        },
+        {
+          "subject": "obesity",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "dysbiosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "obesity, non-alcoholic fatty liver disease (NAFLD), dysbiosis, and poor mental health represent the most probable health risks associated with a LTGFD",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        },
+        {
+          "subject": "obesity",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "poor mental health",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "obesity, non-alcoholic fatty liver disease (NAFLD), dysbiosis, and poor mental health represent the most probable health risks associated with a LTGFD",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        },
+        {
+          "subject": "non-alcoholic fatty liver disease",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "dysbiosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "obesity, non-alcoholic fatty liver disease (NAFLD), dysbiosis, and poor mental health represent the most probable health risks associated with a LTGFD",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        },
+        {
+          "subject": "non-alcoholic fatty liver disease",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "poor mental health",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "obesity, non-alcoholic fatty liver disease (NAFLD), dysbiosis, and poor mental health represent the most probable health risks associated with a LTGFD",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        },
+        {
+          "subject": "dysbiosis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "poor mental health",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "obesity, non-alcoholic fatty liver disease (NAFLD), dysbiosis, and poor mental health represent the most probable health risks associated with a LTGFD",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        },
+        {
+          "subject": "Anthocyanins",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "obesity",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Anthocyanins, a class of flavonoids found predominantly in red, purple, and blue fruits and vegetables, may provide a promising solution to alleviate health risks associated with a LTGFD due to their inherent antioxidant, anti-inflammatory, neuroprotective, anti-diabetic, and anti-obesity properties.",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.6
+        },
+        {
+          "subject": "Anthocyanins",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic fatty liver disease",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Anthocyanins, a class of flavonoids found predominantly in red, purple, and blue fruits and vegetables, may provide a promising solution to alleviate health risks associated with a LTGFD due to their inherent antioxidant, anti-inflammatory, neuroprotective, anti-diabetic, and anti-obesity properties.",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.6
+        },
+        {
+          "subject": "Anthocyanins",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "dysbiosis",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Anthocyanins, a class of flavonoids found predominantly in red, purple, and blue fruits and vegetables, may provide a promising solution to alleviate health risks associated with a LTGFD due to their inherent antioxidant, anti-inflammatory, neuroprotective, anti-diabetic, and anti-obesity properties.",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.6
+        },
+        {
+          "subject": "Anthocyanins",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "poor mental health",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Anthocyanins, a class of flavonoids found predominantly in red, purple, and blue fruits and vegetables, may provide a promising solution to alleviate health risks associated with a LTGFD due to their inherent antioxidant, anti-inflammatory, neuroprotective, anti-diabetic, and anti-obesity properties.",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.6
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "celiac disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "MONDO:0005130"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "celiac disease",
+            "char_start": 286,
+            "char_end": 300,
+            "grounded": true,
+            "normalized_id": "MONDO:0005130",
+            "canonical_key": "Disease:celiac disease",
+            "canonical_mentions": [
+              "celiac disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-celiac gluten sensitivity",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "MONDO:0100300"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-celiac gluten sensitivity",
+            "char_start": 302,
+            "char_end": 331,
+            "grounded": true,
+            "normalized_id": "MONDO:0100300",
+            "canonical_key": "Disease:non celiac gluten sensitivity",
+            "canonical_mentions": [
+              "non-celiac gluten sensitivity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "gluten ataxia",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "MONDO:0011462"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "gluten ataxia",
+            "char_start": 333,
+            "char_end": 346,
+            "grounded": true,
+            "normalized_id": "MONDO:0011462",
+            "canonical_key": "Disease:gluten ataxia",
+            "canonical_mentions": [
+              "gluten ataxia"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "dermatitis herpetiformis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "MONDO:0006025"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "dermatitis herpetiformis",
+            "char_start": 351,
+            "char_end": 375,
+            "grounded": true,
+            "normalized_id": "MONDO:0006025",
+            "canonical_key": "Disease:dermatitis herpetiformis",
+            "canonical_mentions": [
+              "dermatitis herpetiformis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "obesity",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "MONDO:0008195"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "obesity",
+            "char_start": 726,
+            "char_end": 733,
+            "grounded": true,
+            "normalized_id": "MONDO:0008195",
+            "canonical_key": "Disease:obesity",
+            "canonical_mentions": [
+              "obesity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "MONDO:0005364"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 735,
+            "char_end": 768,
+            "grounded": true,
+            "normalized_id": "MONDO:0005364",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "dysbiosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "MONDO:0100172"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "dysbiosis",
+            "char_start": 778,
+            "char_end": 787,
+            "grounded": true,
+            "normalized_id": "MONDO:0100172",
+            "canonical_key": "Disease:dysbiosis",
+            "canonical_mentions": [
+              "dysbiosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "poor mental health",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "MONDO:0002254"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "poor mental health",
+            "char_start": 793,
+            "char_end": 811,
+            "grounded": true,
+            "normalized_id": "MONDO:0002254",
+            "canonical_key": "Disease:poor mental health",
+            "canonical_mentions": [
+              "poor mental health"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Anthocyanins",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "CHEBI:23448"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Anthocyanins",
+            "char_start": 102,
+            "char_end": 114,
+            "grounded": true,
+            "normalized_id": "CHEBI:23448",
+            "canonical_key": "Metabolite:anthocyanins",
+            "canonical_mentions": [
+              "Anthocyanins"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "flavonoids",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEBI:72544"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "flavonoids",
+            "char_start": 1207,
+            "char_end": 1217,
+            "grounded": true,
+            "normalized_id": "CHEBI:72544",
+            "canonical_key": "Metabolite:flavonoids",
+            "canonical_mentions": [
+              "flavonoids"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "obesity",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "obesity, non-alcoholic fatty liver disease (NAFLD), dysbiosis, and poor mental health represent the most probable health risks associated with a LTGFD",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 726,
+            "evidence_char_end": 876,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "obesity",
+            "original_object": "non-alcoholic fatty liver disease",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "obesity",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "dysbiosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "obesity, non-alcoholic fatty liver disease (NAFLD), dysbiosis, and poor mental health represent the most probable health risks associated with a LTGFD",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 726,
+            "evidence_char_end": 876,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "obesity",
+            "original_object": "dysbiosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "obesity",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "poor mental health",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "obesity, non-alcoholic fatty liver disease (NAFLD), dysbiosis, and poor mental health represent the most probable health risks associated with a LTGFD",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 726,
+            "evidence_char_end": 876,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "obesity",
+            "original_object": "poor mental health",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "non-alcoholic fatty liver disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "dysbiosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "obesity, non-alcoholic fatty liver disease (NAFLD), dysbiosis, and poor mental health represent the most probable health risks associated with a LTGFD",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 726,
+            "evidence_char_end": 876,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "non-alcoholic fatty liver disease",
+            "original_object": "dysbiosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "non-alcoholic fatty liver disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "poor mental health",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "obesity, non-alcoholic fatty liver disease (NAFLD), dysbiosis, and poor mental health represent the most probable health risks associated with a LTGFD",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 726,
+            "evidence_char_end": 876,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "non-alcoholic fatty liver disease",
+            "original_object": "poor mental health",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "dysbiosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "poor mental health",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "obesity, non-alcoholic fatty liver disease (NAFLD), dysbiosis, and poor mental health represent the most probable health risks associated with a LTGFD",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 726,
+            "evidence_char_end": 876,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "dysbiosis",
+            "original_object": "poor mental health",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Anthocyanins",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "obesity",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Anthocyanins, a class of flavonoids found predominantly in red, purple, and blue fruits and vegetables, may provide a promising solution to alleviate health risks associated with a LTGFD due to their inherent antioxidant, anti-inflammatory, neuroprotective, anti-diabetic, and anti-obesity properties.",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1182,
+            "evidence_char_end": 1483,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "Anthocyanins",
+            "original_object": "obesity",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Anthocyanins",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Anthocyanins, a class of flavonoids found predominantly in red, purple, and blue fruits and vegetables, may provide a promising solution to alleviate health risks associated with a LTGFD due to their inherent antioxidant, anti-inflammatory, neuroprotective, anti-diabetic, and anti-obesity properties.",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1182,
+            "evidence_char_end": 1483,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Anthocyanins",
+            "original_object": "non-alcoholic fatty liver disease",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Anthocyanins",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "dysbiosis",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Anthocyanins, a class of flavonoids found predominantly in red, purple, and blue fruits and vegetables, may provide a promising solution to alleviate health risks associated with a LTGFD due to their inherent antioxidant, anti-inflammatory, neuroprotective, anti-diabetic, and anti-obesity properties.",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1182,
+            "evidence_char_end": 1483,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Anthocyanins",
+            "original_object": "dysbiosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Anthocyanins",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "poor mental health",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Anthocyanins, a class of flavonoids found predominantly in red, purple, and blue fruits and vegetables, may provide a promising solution to alleviate health risks associated with a LTGFD due to their inherent antioxidant, anti-inflammatory, neuroprotective, anti-diabetic, and anti-obesity properties.",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1182,
+            "evidence_char_end": 1483,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Anthocyanins",
+            "original_object": "poor mental health",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 10,
+          "raw_entity_count": 10,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 10,
+          "total_relations": 10,
+          "known_relations": 0,
+          "novel_relations": 10,
+          "contradicting_relations": 0,
+          "schema_valid": 10,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.76,
+          "evidence_score": 0.645,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 7,
+              "denominator": 10,
+              "value": 0.7
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 10,
+              "value": 0.1
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 10,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 10
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 10,
+        "relations": 10,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 8.823809542227536,
+      "prompt_tokens": 1500,
+      "output_tokens": 1879,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,552 @@
+{
+  "pmid": "41987600",
+  "title": "Impact of Tenofovir Alafenamide Sub-Dermal Implant Insertion Site Scarring on Acceptability and HIV Prevention Preferences: A Prospective Cohort Study in Durban, South Africa.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "HIV",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HIV",
+            "disease_stage": "HIV prevention"
+          },
+          "grounded": true,
+          "source_span": "HIV",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 103,
+          "char_end": 106
+        },
+        {
+          "mention": "implant site reactions",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "implant site reactions",
+            "disease_stage": "ISRs"
+          },
+          "grounded": true,
+          "source_span": "implant site reactions",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 463,
+          "char_end": 485
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "HIV",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HIV",
+              "disease_stage": "HIV prevention"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HIV",
+            "char_start": 103,
+            "char_end": 106,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hiv",
+            "canonical_mentions": [
+              "HIV"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "implant site reactions",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "implant site reactions",
+              "disease_stage": "ISRs"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "implant site reactions",
+            "char_start": 463,
+            "char_end": 485,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:implant site reactions",
+            "canonical_mentions": [
+              "implant site reactions"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 2,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 2,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.1549543752335012,
+      "prompt_tokens": 643,
+      "output_tokens": 174,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "HIV",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HIV",
+            "disease_stage": "HIV prevention"
+          },
+          "grounded": true,
+          "source_span": "HIV",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 103,
+          "char_end": 106
+        },
+        {
+          "mention": "implant site reactions",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "implant site reactions",
+            "disease_stage": "ISRs"
+          },
+          "grounded": true,
+          "source_span": "implant site reactions",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 463,
+          "char_end": 485
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "HIV",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HIV",
+              "disease_stage": "HIV prevention"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HIV",
+            "char_start": 103,
+            "char_end": 106,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hiv",
+            "canonical_mentions": [
+              "HIV"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "implant site reactions",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "implant site reactions",
+              "disease_stage": "ISRs"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "implant site reactions",
+            "char_start": 463,
+            "char_end": 485,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:implant site reactions",
+            "canonical_mentions": [
+              "implant site reactions"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 2,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 2,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.2243296671658754,
+      "prompt_tokens": 3917,
+      "output_tokens": 397,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "HIV",
+            "entity_type": "Disease",
+            "source_span": "HIV",
+            "char_start": 103,
+            "char_end": 106,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "implant site reactions",
+            "entity_type": "Disease",
+            "source_span": "implant site reactions",
+            "char_start": 463,
+            "char_end": 485,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, disease entity."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [],
+        "review_reason": "No relations were proposed by the first model. The two entities are correctly identified and grounded. No additional entities or relations are clearly supported by the abstract without speculation.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "HIV"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "implant site reactions"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [],
+        "relations": [],
+        "summary": {
+          "total_entities": 0,
+          "raw_entity_count": 0,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 0,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "type_constraint_pass_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 0,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 0
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 0,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 0.9436911251395941,
+      "prompt_tokens": 1726,
+      "output_tokens": 12,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

@@ -14,13 +14,14 @@ cognitive_agent/decision_engine.py — Phase 5: 决策执行引擎
 
 from __future__ import annotations
 
+import hashlib
 from dataclasses import dataclass, field
 from typing import Any, Optional
 from cognitive_agent.memory.kg_memory import KGMemory
 from cognitive_agent.schema.entity_classes import ENTITY_CREATION_POLICY
 from cognitive_agent.tools.ncbi_validator import NCBIGeneValidator
 from cognitive_agent.abbreviation_detector import (
-    AbbreviationMap, CURATED_ABBREVIATIONS, is_methodology_noise, score_entity_name_quality,
+    AbbreviationMap, score_entity_name_quality,
 )
 
 
@@ -87,6 +88,7 @@ class DecisionEngine:
         strategy: Optional[dict] = None,
         conflict_resolution: Any = None,
         abbr_map: Optional[AbbreviationMap] = None,
+        restrict_entities_to_import_ready_endpoints: bool = False,
     ) -> ExecutionLog:
         """
         基于验证结果做决策。
@@ -111,6 +113,20 @@ class DecisionEngine:
         # ── v3: 缩写消歧 + 同批去重 ──
         # 将同批内所有实体按 canonical name 分组，每组只保留一个
         canonical_entities = self._deduplicate_entities(verified_entities, abbr_map)
+        if restrict_entities_to_import_ready_endpoints:
+            eligible_endpoints = {
+                (relation.subject, relation.subject_type)
+                for relation in verified_relations
+                if relation.import_ready
+            } | {
+                (relation.object, relation.object_type)
+                for relation in verified_relations
+                if relation.import_ready
+            }
+            canonical_entities = [
+                entity for entity in canonical_entities
+                if (entity.mention, entity.entity_type) in eligible_endpoints
+            ]
 
         # ── 实体决策 ──
         for entity in canonical_entities:
@@ -120,7 +136,34 @@ class DecisionEngine:
                 log.entities_created += 1
 
         # ── 关系决策 ──
+        # Keep all verified candidates in the review report, but make at most
+        # one write decision for a canonical typed triple.
+        decision_relations: list["VerifiedRelation"] = []
+        relation_index: dict[tuple[str, str, str, str, str], int] = {}
         for relation in verified_relations:
+            key = (
+                relation.subject.strip().casefold(), relation.subject_type,
+                relation.predicate.strip().upper(),
+                relation.object.strip().casefold(), relation.object_type,
+            )
+            current_index = relation_index.get(key)
+            if current_index is None:
+                relation_index[key] = len(decision_relations)
+                decision_relations.append(relation)
+                continue
+            current = decision_relations[current_index]
+            current_rank = (
+                bool(current.import_ready), -int(current.evidence_level),
+                len(current.evidence or ""),
+            )
+            candidate_rank = (
+                bool(relation.import_ready), -int(relation.evidence_level),
+                len(relation.evidence or ""),
+            )
+            if candidate_rank > current_rank:
+                decision_relations[current_index] = relation
+
+        for relation in decision_relations:
             resolution_item = resolution_lookup.get(self._relation_key(
                 relation.subject, relation.predicate, relation.object
             ))
@@ -141,6 +184,27 @@ class DecisionEngine:
             elif action.type == "DISCARD":
                 log.discarded += 1
 
+        if restrict_entities_to_import_ready_endpoints:
+            write_endpoints = {
+                (action.relation.get("subject", ""), action.relation.get("subject_type", ""))
+                for action in log.actions
+                if action.type == "CREATE_RELATION" and action.relation
+            } | {
+                (action.relation.get("object", ""), action.relation.get("object_type", ""))
+                for action in log.actions
+                if action.type == "CREATE_RELATION" and action.relation
+            }
+            for action in log.actions:
+                if action.type != "CREATE_ENTITY" or not action.entity:
+                    continue
+                key = (action.entity.get("mention", ""), action.entity.get("type", ""))
+                if key not in write_endpoints:
+                    action.type = "NO_ACTION"
+                    action.reason += " (no relation selected for write)"
+            log.entities_created = sum(
+                action.type == "CREATE_ENTITY" for action in log.actions
+            )
+
         return log
 
     def _deduplicate_entities(
@@ -152,52 +216,10 @@ class DecisionEngine:
 
         优先保留：长形式 > 缩写，有 normalized_id > 无，先出现 > 后出现。
         """
-        if not abbr_map:
-            return list(entities)
-
-        groups: dict[str, list["VerifiedEntity"]] = {}
-        canonical_order: list[str] = []
-
-        for ent in entities:
-            # 1. 查 curated 词典
-            curated = CURATED_ABBREVIATIONS.get(ent.mention, "")
-            # 2. 查文章内缩写
-            detected = abbr_map.canonical_name(ent.mention)
-            # 取最优 canonical name（优先 curated 词典，其次文章内检测）
-            if curated:
-                canonical = curated
-            elif detected != ent.mention:
-                canonical = detected
-            else:
-                canonical = ent.mention
-
-            canonical_key = canonical.lower().strip()
-
-            if canonical_key not in groups:
-                groups[canonical_key] = []
-                canonical_order.append(canonical_key)
-            groups[canonical_key].append(ent)
-
-        # 每组选最优（长形式 > 短形式，有 ID > 无）
-        deduped = []
-        for key in canonical_order:
-            group = groups[key]
-            if len(group) == 1:
-                deduped.append(group[0])
-            else:
-                # 排序：优先长名称、优先有 attributes
-                group.sort(key=lambda e: (
-                    -(len(e.mention)),  # 越长越优先
-                    -(len(e.attributes.get("normalized_id", "")) > 0),
-                ))
-                winner = group[0]
-                # 记录日志
-                duplicates = [e.mention for e in group[1:]]
-                if duplicates:
-                    winner.attributes["_abbr_merged"] = duplicates
-                deduped.append(winner)
-
-        return deduped
+        # Phase-A canonicalization now runs at the KGVerifier entrance, before
+        # linking and relation verification.  Re-merging here would make entity
+        # and relation views diverge, especially for curated-but-not-in-text aliases.
+        return list(entities)
 
     def _decide_entity(
         self,
@@ -213,21 +235,22 @@ class DecisionEngine:
         """
         mention = entity.mention
 
-        # ── v3: 通用术语黑名单（独立于 Neo4j execute 阶段） ──
-        if mention.lower().strip() in self.kg_memory.GENERIC_TERM_BLACKLIST:
+        if entity.attributes.get("collaboration_status") == "manual_review":
             return Action(
-                type="DISCARD",
+                type="NO_ACTION",
                 entity={"mention": mention, "type": entity.entity_type},
-                reason=f"Generic/blacklisted term — not a specific entity",
-                confidence=0.0,
+                reason=(
+                    "Second model rejected a Phase-A-retained entity; manual review required: "
+                    + str(entity.attributes.get("collaboration_reason", ""))[:300]
+                ),
+                confidence=entity.confidence,
             )
 
-        # ── v3: 方法论噪声过滤 ──
-        if is_methodology_noise(mention):
+        if getattr(entity, "filter_status", "retained") != "retained":
             return Action(
                 type="DISCARD",
                 entity={"mention": mention, "type": entity.entity_type},
-                reason=f"Methodology/research tool term — not a biological entity",
+                reason=getattr(entity, "filter_reason", "entity quality gate rejected candidate"),
                 confidence=0.0,
             )
 
@@ -241,6 +264,14 @@ class DecisionEngine:
                 confidence=name_quality,
             )
 
+        if entity.neo4j_status == "AMBIGUOUS":
+            return Action(
+                type="NO_ACTION",
+                entity={"mention": mention, "type": entity.entity_type},
+                reason="Ambiguous entity match — manual disambiguation required",
+                confidence=entity.confidence,
+            )
+
         # 只有 NOVEL 实体才考虑创建
         if entity.neo4j_status != "NOVEL":
             return Action(type="NO_ACTION", entity={
@@ -252,7 +283,7 @@ class DecisionEngine:
         min_conf = self._effective_entity_threshold(entity.entity_type, policy, strategy or {})
         require_external = policy.get("require_external_db", False)
 
-        if entity.confidence < min_conf:
+        if entity.confidence + 1e-9 < min_conf:
             return Action(
                 type="NO_ACTION",
                 entity={"mention": entity.mention, "type": entity.entity_type},
@@ -333,10 +364,8 @@ class DecisionEngine:
     ) -> Action:
         """关系级别的决策（v3: 缩写消歧）"""
         strategy = strategy or {}
-        # v3: 缩写消歧 — canonicalize subject/object names
-        if abbr_map:
-            relation.subject = abbr_map.canonical_name(relation.subject)
-            relation.object = abbr_map.canonical_name(relation.object)
+        # Endpoints were canonicalized before verification.  Do not mutate them
+        # after conflict resolution and evidence checks.
         rel_info = {
             "subject": relation.subject,
             "predicate": relation.predicate,
@@ -348,6 +377,22 @@ class DecisionEngine:
             "existing_rel_id": relation.existing_rel_id,
             "existing_confidence": relation.existing_confidence,
         }
+
+        if relation.neo4j_status == "INVERTED":
+            return Action(
+                type="NO_ACTION",
+                relation=rel_info,
+                reason="Inverse relation exists — do not auto-create reverse edge",
+                confidence=relation.existing_confidence,
+            )
+
+        if "manual_review" in relation.quality_flags:
+            return Action(
+                type="NO_ACTION",
+                relation=rel_info,
+                reason="Second-model disagreement; relation preserved for manual review",
+                confidence=0.0,
+            )
 
         # 1. 质量过滤
         if not relation.schema_valid:
@@ -363,6 +408,17 @@ class DecisionEngine:
                 type="DISCARD",
                 relation=rel_info,
                 reason="Negated relation",
+                confidence=0.0,
+            )
+
+        if not relation.import_ready:
+            return Action(
+                type="DISCARD",
+                relation=rel_info,
+                reason=(
+                    "Deterministic quality gate blocked relation: "
+                    + ", ".join(relation.quality_flags[:8])
+                ),
                 confidence=0.0,
             )
 
@@ -434,7 +490,7 @@ class DecisionEngine:
         if relation.neo4j_status == "NOVEL" and relation.import_ready:
             confidence = 0.7 if relation.uncertain else 0.85
             min_conf = self._effective_relation_threshold(strategy)
-            if confidence < min_conf:
+            if confidence + 1e-9 < min_conf:
                 return Action(
                     type="NO_ACTION",
                     relation=rel_info,
@@ -474,7 +530,7 @@ class DecisionEngine:
         elif mode == "focused":
             threshold = max(threshold, policy_min)
 
-        return max(0.3, min(0.95, threshold))
+        return round(max(0.3, min(0.95, threshold)), 6)
 
     def _effective_relation_threshold(self, strategy: dict) -> float:
         """Return active relation creation threshold."""
@@ -552,7 +608,7 @@ class DecisionEngine:
                     + " (blocked by import_ready=false)",
                     confidence=confidence,
                 )
-            if confidence < min_rel_conf:
+            if confidence < min_rel_conf - 1e-9:
                 return Action(
                     type="NO_ACTION",
                     relation=rel_info,
@@ -567,6 +623,14 @@ class DecisionEngine:
             )
 
         if decision == "CREATE_WITH_FLAG":
+            if not relation.import_ready:
+                return Action(
+                    type="NO_ACTION",
+                    relation=rel_info,
+                    reason=(reasoning or "Moderate-confidence relation")
+                    + " (blocked by deterministic import_ready gate)",
+                    confidence=confidence,
+                )
             if mode != "aggressive":
                 return Action(
                     type="NO_ACTION",
@@ -626,15 +690,86 @@ class DecisionEngine:
             return item.get(key, default)
         return getattr(item, key, default)
 
-    def execute(self, log: ExecutionLog) -> ExecutionLog:
-        """执行决策（写入 Neo4j），标记是否实际写入了
+    def _execute_batch(self, log: ExecutionLog) -> ExecutionLog:
+        """批量执行 CREATE actions，减少 Neo4j 往返；更新/争议沿用现有 API。"""
+        entity_actions = [a for a in log.actions if a.type == "CREATE_ENTITY" and a.entity]
+        entity_rows = []
+        for action in entity_actions:
+            row = dict(action.entity)
+            row["confidence"] = action.confidence
+            entity_rows.append(row)
+        cache = self.kg_memory.create_entities_batch(entity_rows, pmid=log.pmid) if entity_rows else {}
+        for action in entity_actions:
+            key = (action.entity.get("type", ""), action.entity.get("mention", "").casefold())
+            element_id = cache.get(key)
+            if element_id:
+                action.entity["created_element_id"] = element_id
+            else:
+                action.type = "NO_ACTION"
+                action.reason += " (batch entity write failed)"
 
-        Phase 1: 创建所有新实体（先完成，确保后续关系可用）
-        Phase 2: 更新或标记已有关系
-        Phase 3: 创建新关系（查找两端实体的 element_id）
+        relation_rows = []
+        relation_actions = [a for a in log.actions if a.type == "CREATE_RELATION" and a.relation]
+        for action in relation_actions:
+            rel = action.relation
+            subj_key = (rel.get("subject_type", ""), rel.get("subject", "").casefold())
+            obj_key = (rel.get("object_type", ""), rel.get("object", "").casefold())
+            subj_id = cache.get(subj_key)
+            obj_id = cache.get(obj_key)
+            if not subj_id:
+                match = self.kg_memory.find_entity(rel.get("subject", ""), rel.get("subject_type", ""))
+                subj_id = match.get("element_id") if match else None
+            if not obj_id:
+                match = self.kg_memory.find_entity(rel.get("object", ""), rel.get("object_type", ""))
+                obj_id = match.get("element_id") if match else None
+            if not subj_id or not obj_id:
+                action.type = "NO_ACTION"
+                action.reason += " (batch relation endpoint not found)"
+                continue
+            relation_rows.append({
+                **{k: v for k, v in rel.items() if not isinstance(v, (list, dict))},
+                "subject_element_id": subj_id,
+                "object_element_id": obj_id,
+                "confidence": action.confidence,
+            })
+        written = self.kg_memory.create_relations_batch(relation_rows, pmid=log.pmid) if relation_rows else []
+        written_set = set(written)
+        relation_actions_for_rows = [
+            a for a in relation_actions if a.type == "CREATE_RELATION"
+        ]
+        for action, row in zip(relation_actions_for_rows, relation_rows):
+            relation_identity = (
+                f"{row['predicate']}|{row['subject_element_id']}|"
+                f"{row['object_element_id']}"
+            )
+            digest = hashlib.sha256(relation_identity.encode()).hexdigest()[:20]
+            relation_id = f"LLM_{row['predicate']}:{digest}"
+            if relation_id in written_set:
+                action.relation["created_rel_id"] = relation_id
+            else:
+                action.type = "NO_ACTION"
+                action.reason += " (batch relation write failed)"
+
+        log.entities_created = sum(a.type == "CREATE_ENTITY" for a in log.actions)
+        log.relations_created = sum(a.type == "CREATE_RELATION" for a in log.actions)
+        log.relations_updated = sum(a.type == "UPDATE_RELATION" for a in log.actions)
+        log.disputed = sum(a.type == "MARK_DISPUTED" for a in log.actions)
+        log.discarded = sum(a.type == "DISCARD" for a in log.actions)
+        return log
+
+    def execute(self, log: ExecutionLog) -> ExecutionLog:
+        """执行决策（写入 Neo4j），标记是否实际写入了。
+
+        Phase 1: 创建实体；Phase 2: 更新/争议；Phase 3: 创建关系。
         """
         if self.skip_neo4j_write:
             return log
+
+        if hasattr(self.kg_memory, "create_entities_batch") and any(
+            action.type in ("CREATE_ENTITY", "CREATE_RELATION") for action in log.actions
+        ) and not any(action.type in ("UPDATE_RELATION", "MARK_DISPUTED") for action in log.actions):
+            # Batch CREATE actions; UPDATE/DISPUTE continue through the compatible path below.
+            return self._execute_batch(log)
 
         # ── Phase 1: 实体写入 ──
         for action in log.actions:

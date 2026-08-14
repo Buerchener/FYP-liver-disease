@@ -1,0 +1,2558 @@
+{
+  "pmid": "41828542",
+  "title": "The Ubiquitin-Specific Protease Family: Master Regulators of Renal Fibrosis Pathogenesis and Therapeutic Targets.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Ubiquitin-specific proteases",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "Ubiquitin-specific proteases",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "Ubiquitin-specific proteases",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 131,
+          "char_end": 159
+        },
+        {
+          "mention": "Renal fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Renal fibrosis",
+            "disease_stage": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "Renal fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 368,
+          "char_end": 382
+        },
+        {
+          "mention": "chronic kidney diseases",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "chronic kidney diseases",
+            "disease_stage": "CKD"
+          },
+          "grounded": true,
+          "source_span": "chronic kidney diseases",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 430,
+          "char_end": 453
+        },
+        {
+          "mention": "end-stage renal disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "end-stage renal disease",
+            "disease_stage": "ESRD"
+          },
+          "grounded": true,
+          "source_span": "end-stage renal disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 514,
+          "char_end": 537
+        },
+        {
+          "mention": "post-translational modifications",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "post-translational modifications"
+          },
+          "grounded": true,
+          "source_span": "post-translational modifications",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 327,
+          "char_end": 359
+        },
+        {
+          "mention": "USPs",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "USPs",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "renal fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "renal fibrosis",
+                "evidence": "Emerging evidence highlights the critical involvement of USPs in the pathogenesis of renal fibrosis"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "pro-fibrotic signaling pathways",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "through the potentiation of pro-fibrotic signaling pathways"
+              },
+              {
+                "target_entity": "inflammation",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "inflammation"
+              },
+              {
+                "target_entity": "oxidative stress",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "oxidative stress"
+              },
+              {
+                "target_entity": "cell cycle arrest",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "cell cycle arrest"
+              },
+              {
+                "target_entity": "cellular senescence",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "cellular senescence"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "USPs",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 798,
+          "char_end": 802
+        },
+        {
+          "mention": "renal fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "renal fibrosis",
+            "disease_stage": "renal fibrosis"
+          },
+          "grounded": true,
+          "source_span": "renal fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 826,
+          "char_end": 840
+        },
+        {
+          "mention": "pro-fibrotic signaling pathways",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "pro-fibrotic signaling pathways"
+          },
+          "grounded": true,
+          "source_span": "pro-fibrotic signaling pathways",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 869,
+          "char_end": 900
+        },
+        {
+          "mention": "inflammation",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "inflammation"
+          },
+          "grounded": true,
+          "source_span": "inflammation",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 902,
+          "char_end": 914
+        },
+        {
+          "mention": "oxidative stress",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "oxidative stress"
+          },
+          "grounded": true,
+          "source_span": "oxidative stress",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 916,
+          "char_end": 932
+        },
+        {
+          "mention": "cell cycle arrest",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "cell cycle arrest"
+          },
+          "grounded": true,
+          "source_span": "cell cycle arrest",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 934,
+          "char_end": 951
+        },
+        {
+          "mention": "cellular senescence",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "cellular senescence"
+          },
+          "grounded": true,
+          "source_span": "cellular senescence",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 956,
+          "char_end": 975
+        },
+        {
+          "mention": "ubiquitin-proteasome system",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "ubiquitin-proteasome system"
+          },
+          "grounded": true,
+          "source_span": "ubiquitin-proteasome system",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1327,
+          "char_end": 1354
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "USPs",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "renal fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "renal fibrosis",
+          "evidence": "Emerging evidence highlights the critical involvement of USPs in the pathogenesis of renal fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "USPs",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "pro-fibrotic signaling pathways",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "through the potentiation of pro-fibrotic signaling pathways",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "USPs",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "inflammation",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "inflammation",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "USPs",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "oxidative stress",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "oxidative stress",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "USPs",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "cell cycle arrest",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "cell cycle arrest",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "USPs",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "cellular senescence",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "cellular senescence",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Ubiquitin-specific proteases",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "Ubiquitin-specific proteases",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Ubiquitin-specific proteases",
+            "char_start": 131,
+            "char_end": 159,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:ubiquitin specific proteases",
+            "canonical_mentions": [
+              "Ubiquitin-specific proteases"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Renal fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Renal fibrosis",
+              "disease_stage": "fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Renal fibrosis",
+            "char_start": 368,
+            "char_end": 382,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:renal fibrosis",
+            "canonical_mentions": [
+              "Renal fibrosis",
+              "renal fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "chronic kidney diseases",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "chronic kidney diseases",
+              "disease_stage": "CKD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "chronic kidney diseases",
+            "char_start": 430,
+            "char_end": 453,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:chronic kidney diseases",
+            "canonical_mentions": [
+              "chronic kidney diseases"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "end-stage renal disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "end-stage renal disease",
+              "disease_stage": "ESRD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "end-stage renal disease",
+            "char_start": 514,
+            "char_end": 537,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:end stage renal disease",
+            "canonical_mentions": [
+              "end-stage renal disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "post-translational modifications",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "post-translational modifications"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "post-translational modifications",
+            "char_start": 327,
+            "char_end": 359,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:post translational modifications",
+            "canonical_mentions": [
+              "post-translational modifications"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Ubiquitin-specific proteases",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "USPs",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "renal fibrosis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "renal fibrosis",
+                  "evidence": "Emerging evidence highlights the critical involvement of USPs in the pathogenesis of renal fibrosis"
+                }
+              ],
+              "participates_in": [
+                {
+                  "target_entity": "pro-fibrotic signaling pathways",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "through the potentiation of pro-fibrotic signaling pathways"
+                },
+                {
+                  "target_entity": "inflammation",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "inflammation"
+                },
+                {
+                  "target_entity": "oxidative stress",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "oxidative stress"
+                },
+                {
+                  "target_entity": "cell cycle arrest",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "cell cycle arrest"
+                },
+                {
+                  "target_entity": "cellular senescence",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "cellular senescence"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Ubiquitin-specific proteases",
+            "char_start": 131,
+            "char_end": 159,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:ubiquitin specific proteases",
+            "canonical_mentions": [
+              "USPs"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "pro-fibrotic signaling pathways",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "pro-fibrotic signaling pathways"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "pro-fibrotic signaling pathways",
+            "char_start": 869,
+            "char_end": 900,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:pro fibrotic signaling pathways",
+            "canonical_mentions": [
+              "pro-fibrotic signaling pathways"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cell cycle arrest",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "cell cycle arrest"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cell cycle arrest",
+            "char_start": 934,
+            "char_end": 951,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:cell cycle arrest",
+            "canonical_mentions": [
+              "cell cycle arrest"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cellular senescence",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "cellular senescence"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cellular senescence",
+            "char_start": 956,
+            "char_end": 975,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:cellular senescence",
+            "canonical_mentions": [
+              "cellular senescence"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ubiquitin-proteasome system",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "ubiquitin-proteasome system"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ubiquitin-proteasome system",
+            "char_start": 1327,
+            "char_end": 1354,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:ubiquitin proteasome system",
+            "canonical_mentions": [
+              "ubiquitin-proteasome system"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Ubiquitin-specific proteases",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Renal fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Emerging evidence highlights the critical involvement of USPs in the pathogenesis of renal fibrosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 741,
+            "evidence_char_end": 840,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "USPs",
+            "original_object": "renal fibrosis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Ubiquitin-specific proteases",
+            "predicate": "PARTICIPATES_IN",
+            "object": "pro-fibrotic signaling pathways",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "through the potentiation of pro-fibrotic signaling pathways",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 841,
+            "evidence_char_end": 900,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "USPs",
+            "original_object": "pro-fibrotic signaling pathways",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Ubiquitin-specific proteases",
+            "predicate": "PARTICIPATES_IN",
+            "object": "inflammation",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "inflammation",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 902,
+            "evidence_char_end": 914,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "USPs",
+            "original_object": "inflammation",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Ubiquitin-specific proteases",
+            "predicate": "PARTICIPATES_IN",
+            "object": "oxidative stress",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "oxidative stress",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 916,
+            "evidence_char_end": 932,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "USPs",
+            "original_object": "oxidative stress",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Ubiquitin-specific proteases",
+            "predicate": "PARTICIPATES_IN",
+            "object": "cell cycle arrest",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "cell cycle arrest",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 934,
+            "evidence_char_end": 951,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "USPs",
+            "original_object": "cell cycle arrest",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Ubiquitin-specific proteases",
+            "predicate": "PARTICIPATES_IN",
+            "object": "cellular senescence",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "cellular senescence",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 956,
+            "evidence_char_end": 975,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "USPs",
+            "original_object": "cellular senescence",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 10,
+          "raw_entity_count": 13,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 10,
+          "total_relations": 6,
+          "known_relations": 0,
+          "novel_relations": 6,
+          "contradicting_relations": 0,
+          "schema_valid": 6,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5526,
+          "evidence_score": 0.4583,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 10,
+              "denominator": 13,
+              "value": 0.7692
+            },
+            "generic_entity_rate": {
+              "count": 2,
+              "denominator": 13,
+              "value": 0.1538
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 13,
+              "value": 0.1538
+            },
+            "type_constraint_pass_rate": {
+              "count": 13,
+              "denominator": 13,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 6,
+              "value": 0.1667
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "weak_evidence_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 10,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 10
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 13,
+        "relations": 6,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.6965168328024447,
+      "prompt_tokens": 355,
+      "output_tokens": 1758,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Ubiquitin-specific proteases",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "Ubiquitin-specific proteases",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "Ubiquitin-specific proteases",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 131,
+          "char_end": 159
+        },
+        {
+          "mention": "Renal fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Renal fibrosis",
+            "disease_stage": "fibrosis",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of Renal fibrosis; merged."
+          },
+          "grounded": true,
+          "source_span": "Renal fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 368,
+          "char_end": 382
+        },
+        {
+          "mention": "chronic kidney diseases",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "chronic kidney diseases",
+            "disease_stage": "CKD"
+          },
+          "grounded": true,
+          "source_span": "chronic kidney diseases",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 430,
+          "char_end": 453
+        },
+        {
+          "mention": "end-stage renal disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "end-stage renal disease",
+            "disease_stage": "ESRD"
+          },
+          "grounded": true,
+          "source_span": "end-stage renal disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 514,
+          "char_end": 537
+        },
+        {
+          "mention": "post-translational modifications",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "post-translational modifications"
+          },
+          "grounded": true,
+          "source_span": "post-translational modifications",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 327,
+          "char_end": 359
+        },
+        {
+          "mention": "USPs",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "USPs",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "renal fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "renal fibrosis",
+                "evidence": "Emerging evidence highlights the critical involvement of USPs in the pathogenesis of renal fibrosis"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "pro-fibrotic signaling pathways",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "through the potentiation of pro-fibrotic signaling pathways"
+              },
+              {
+                "target_entity": "inflammation",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "inflammation"
+              },
+              {
+                "target_entity": "oxidative stress",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "oxidative stress"
+              },
+              {
+                "target_entity": "cell cycle arrest",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "cell cycle arrest"
+              },
+              {
+                "target_entity": "cellular senescence",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "cellular senescence"
+              }
+            ],
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of protein entity; should be protein type."
+          },
+          "grounded": true,
+          "source_span": "USPs",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 798,
+          "char_end": 802
+        },
+        {
+          "mention": "renal fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "renal fibrosis",
+            "disease_stage": "renal fibrosis",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of Renal fibrosis; merged."
+          },
+          "grounded": true,
+          "source_span": "renal fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 826,
+          "char_end": 840
+        },
+        {
+          "mention": "pro-fibrotic signaling pathways",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "pro-fibrotic signaling pathways"
+          },
+          "grounded": true,
+          "source_span": "pro-fibrotic signaling pathways",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 869,
+          "char_end": 900
+        },
+        {
+          "mention": "inflammation",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "inflammation"
+          },
+          "grounded": true,
+          "source_span": "inflammation",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 902,
+          "char_end": 914
+        },
+        {
+          "mention": "oxidative stress",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "oxidative stress"
+          },
+          "grounded": true,
+          "source_span": "oxidative stress",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 916,
+          "char_end": 932
+        },
+        {
+          "mention": "cell cycle arrest",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "cell cycle arrest"
+          },
+          "grounded": true,
+          "source_span": "cell cycle arrest",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 934,
+          "char_end": 951
+        },
+        {
+          "mention": "cellular senescence",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "cellular senescence"
+          },
+          "grounded": true,
+          "source_span": "cellular senescence",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 956,
+          "char_end": 975
+        },
+        {
+          "mention": "ubiquitin-proteasome system",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "ubiquitin-proteasome system"
+          },
+          "grounded": true,
+          "source_span": "ubiquitin-proteasome system",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1327,
+          "char_end": 1354
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "USPs",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "renal fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "renal fibrosis",
+          "evidence": "Emerging evidence highlights the critical involvement of USPs in the pathogenesis of renal fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "USPs",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "pro-fibrotic signaling pathways",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "through the potentiation of pro-fibrotic signaling pathways",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "USPs",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "inflammation",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "inflammation",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "USPs",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "oxidative stress",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "oxidative stress",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "USPs",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "cell cycle arrest",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "cell cycle arrest",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "USPs",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "cellular senescence",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "cellular senescence",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Ubiquitin-specific proteases",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "Ubiquitin-specific proteases",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Ubiquitin-specific proteases",
+            "char_start": 131,
+            "char_end": 159,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:ubiquitin specific proteases",
+            "canonical_mentions": [
+              "Ubiquitin-specific proteases"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Renal fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Renal fibrosis",
+              "disease_stage": "fibrosis",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of Renal fibrosis; merged."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Renal fibrosis",
+            "char_start": 368,
+            "char_end": 382,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:renal fibrosis",
+            "canonical_mentions": [
+              "Renal fibrosis",
+              "renal fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "chronic kidney diseases",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "chronic kidney diseases",
+              "disease_stage": "CKD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "chronic kidney diseases",
+            "char_start": 430,
+            "char_end": 453,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:chronic kidney diseases",
+            "canonical_mentions": [
+              "chronic kidney diseases"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "end-stage renal disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "end-stage renal disease",
+              "disease_stage": "ESRD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "end-stage renal disease",
+            "char_start": 514,
+            "char_end": 537,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:end stage renal disease",
+            "canonical_mentions": [
+              "end-stage renal disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "post-translational modifications",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "post-translational modifications"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "post-translational modifications",
+            "char_start": 327,
+            "char_end": 359,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:post translational modifications",
+            "canonical_mentions": [
+              "post-translational modifications"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Ubiquitin-specific proteases",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "USPs",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "renal fibrosis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "renal fibrosis",
+                  "evidence": "Emerging evidence highlights the critical involvement of USPs in the pathogenesis of renal fibrosis"
+                }
+              ],
+              "participates_in": [
+                {
+                  "target_entity": "pro-fibrotic signaling pathways",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "through the potentiation of pro-fibrotic signaling pathways"
+                },
+                {
+                  "target_entity": "inflammation",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "inflammation"
+                },
+                {
+                  "target_entity": "oxidative stress",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "oxidative stress"
+                },
+                {
+                  "target_entity": "cell cycle arrest",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "cell cycle arrest"
+                },
+                {
+                  "target_entity": "cellular senescence",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "cellular senescence"
+                }
+              ],
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of protein entity; should be protein type."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Ubiquitin-specific proteases",
+            "char_start": 131,
+            "char_end": 159,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:ubiquitin specific proteases",
+            "canonical_mentions": [
+              "USPs"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "pro-fibrotic signaling pathways",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "pro-fibrotic signaling pathways"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "pro-fibrotic signaling pathways",
+            "char_start": 869,
+            "char_end": 900,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:pro fibrotic signaling pathways",
+            "canonical_mentions": [
+              "pro-fibrotic signaling pathways"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cell cycle arrest",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "cell cycle arrest"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cell cycle arrest",
+            "char_start": 934,
+            "char_end": 951,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:cell cycle arrest",
+            "canonical_mentions": [
+              "cell cycle arrest"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cellular senescence",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "cellular senescence"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cellular senescence",
+            "char_start": 956,
+            "char_end": 975,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:cellular senescence",
+            "canonical_mentions": [
+              "cellular senescence"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ubiquitin-proteasome system",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "ubiquitin-proteasome system"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ubiquitin-proteasome system",
+            "char_start": 1327,
+            "char_end": 1354,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:ubiquitin proteasome system",
+            "canonical_mentions": [
+              "ubiquitin-proteasome system"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Ubiquitin-specific proteases",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Renal fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Emerging evidence highlights the critical involvement of USPs in the pathogenesis of renal fibrosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 741,
+            "evidence_char_end": 840,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "USPs",
+            "original_object": "renal fibrosis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Ubiquitin-specific proteases",
+            "predicate": "PARTICIPATES_IN",
+            "object": "pro-fibrotic signaling pathways",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "through the potentiation of pro-fibrotic signaling pathways",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 841,
+            "evidence_char_end": 900,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "USPs",
+            "original_object": "pro-fibrotic signaling pathways",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Ubiquitin-specific proteases",
+            "predicate": "PARTICIPATES_IN",
+            "object": "inflammation",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "inflammation",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 902,
+            "evidence_char_end": 914,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "USPs",
+            "original_object": "inflammation",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Ubiquitin-specific proteases",
+            "predicate": "PARTICIPATES_IN",
+            "object": "oxidative stress",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "oxidative stress",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 916,
+            "evidence_char_end": 932,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "USPs",
+            "original_object": "oxidative stress",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Ubiquitin-specific proteases",
+            "predicate": "PARTICIPATES_IN",
+            "object": "cell cycle arrest",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "cell cycle arrest",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 934,
+            "evidence_char_end": 951,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "USPs",
+            "original_object": "cell cycle arrest",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Ubiquitin-specific proteases",
+            "predicate": "PARTICIPATES_IN",
+            "object": "cellular senescence",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "cellular senescence",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 956,
+            "evidence_char_end": 975,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "USPs",
+            "original_object": "cellular senescence",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 10,
+          "raw_entity_count": 13,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 10,
+          "total_relations": 6,
+          "known_relations": 0,
+          "novel_relations": 6,
+          "contradicting_relations": 0,
+          "schema_valid": 6,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5526,
+          "evidence_score": 0.4583,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 10,
+              "denominator": 13,
+              "value": 0.7692
+            },
+            "generic_entity_rate": {
+              "count": 2,
+              "denominator": 13,
+              "value": 0.1538
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 13,
+              "value": 0.1538
+            },
+            "type_constraint_pass_rate": {
+              "count": 13,
+              "denominator": 13,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 6,
+              "value": 0.1667
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "weak_evidence_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 10,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 10
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 13,
+        "relations": 6,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 12.654225166887045,
+      "prompt_tokens": 8965,
+      "output_tokens": 3640,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Ubiquitin-specific proteases",
+            "entity_type": "Protein",
+            "source_span": "Ubiquitin-specific proteases",
+            "char_start": 131,
+            "char_end": 159,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text; protein family."
+          },
+          {
+            "mention": "Renal fibrosis",
+            "entity_type": "Disease",
+            "source_span": "Renal fibrosis",
+            "char_start": 368,
+            "char_end": 382,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text."
+          },
+          {
+            "mention": "chronic kidney diseases",
+            "entity_type": "Disease",
+            "source_span": "chronic kidney diseases",
+            "char_start": 430,
+            "char_end": 453,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text."
+          },
+          {
+            "mention": "end-stage renal disease",
+            "entity_type": "Disease",
+            "source_span": "end-stage renal disease",
+            "char_start": 514,
+            "char_end": 537,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text."
+          },
+          {
+            "mention": "post-translational modifications",
+            "entity_type": "Pathway",
+            "source_span": "post-translational modifications",
+            "char_start": 327,
+            "char_end": 359,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Exact match in text; biological process."
+          },
+          {
+            "mention": "USPs",
+            "entity_type": "Gene",
+            "source_span": "USPs",
+            "char_start": 798,
+            "char_end": 802,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Abbreviation for ubiquitin-specific proteases; gene family."
+          },
+          {
+            "mention": "renal fibrosis",
+            "entity_type": "Disease",
+            "source_span": "renal fibrosis",
+            "char_start": 826,
+            "char_end": 840,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text."
+          },
+          {
+            "mention": "pro-fibrotic signaling pathways",
+            "entity_type": "Pathway",
+            "source_span": "pro-fibrotic signaling pathways",
+            "char_start": 869,
+            "char_end": 900,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text."
+          },
+          {
+            "mention": "inflammation",
+            "entity_type": "Pathway",
+            "source_span": "inflammation",
+            "char_start": 902,
+            "char_end": 914,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Exact match in text; biological process."
+          },
+          {
+            "mention": "oxidative stress",
+            "entity_type": "Pathway",
+            "source_span": "oxidative stress",
+            "char_start": 916,
+            "char_end": 932,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Exact match in text; biological process."
+          },
+          {
+            "mention": "cell cycle arrest",
+            "entity_type": "Pathway",
+            "source_span": "cell cycle arrest",
+            "char_start": 934,
+            "char_end": 951,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Exact match in text; biological process."
+          },
+          {
+            "mention": "cellular senescence",
+            "entity_type": "Pathway",
+            "source_span": "cellular senescence",
+            "char_start": 956,
+            "char_end": 975,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Exact match in text; biological process."
+          },
+          {
+            "mention": "ubiquitin-proteasome system",
+            "entity_type": "Pathway",
+            "source_span": "ubiquitin-proteasome system",
+            "char_start": 1327,
+            "char_end": 1354,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "USPs",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "renal fibrosis",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "Emerging evidence highlights the critical involvement of USPs in the pathogenesis of renal fibrosis",
+            "evidence_span": "Emerging evidence highlights the critical involvement of USPs in the pathogenesis of renal fibrosis",
+            "confidence": 0.7,
+            "uncertain": false,
+            "reason": "Evidence explicitly states involvement of USPs in renal fibrosis pathogenesis."
+          },
+          {
+            "subject": "USPs",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "pro-fibrotic signaling pathways",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "through the potentiation of pro-fibrotic signaling pathways",
+            "evidence_span": "through the potentiation of pro-fibrotic signaling pathways",
+            "confidence": 0.7,
+            "uncertain": false,
+            "reason": "Evidence states USPs potentiate pro-fibrotic signaling pathways."
+          },
+          {
+            "subject": "USPs",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "inflammation",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "inflammation",
+            "evidence_span": "inflammation",
+            "confidence": 0.5,
+            "uncertain": true,
+            "reason": "Evidence is a single word; relation implied by list but not explicit."
+          },
+          {
+            "subject": "USPs",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "oxidative stress",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "oxidative stress",
+            "evidence_span": "oxidative stress",
+            "confidence": 0.5,
+            "uncertain": true,
+            "reason": "Evidence is a single word; relation implied by list but not explicit."
+          },
+          {
+            "subject": "USPs",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "cell cycle arrest",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "cell cycle arrest",
+            "evidence_span": "cell cycle arrest",
+            "confidence": 0.5,
+            "uncertain": true,
+            "reason": "Evidence is a single word; relation implied by list but not explicit."
+          },
+          {
+            "subject": "USPs",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "cellular senescence",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "cellular senescence",
+            "evidence_span": "cellular senescence",
+            "confidence": 0.5,
+            "uncertain": true,
+            "reason": "Evidence is a single word; relation implied by list but not explicit."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "Ubiquitin-specific proteases",
+            "entity_type": "Gene",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of protein entity; should be protein type."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "renal fibrosis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of Renal fibrosis; merged."
+          }
+        ],
+        "review_reason": "Corrected entity types and merged duplicates; relations with weak evidence marked uncertain.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Ubiquitin-specific proteases"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Renal fibrosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "chronic kidney diseases"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "end-stage renal disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "post-translational modifications"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "USPs",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "renal fibrosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "pro-fibrotic signaling pathways"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "inflammation",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "oxidative stress",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cell cycle arrest"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cellular senescence"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "ubiquitin-proteasome system"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "USPs",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "renal fibrosis"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "USPs",
+            "predicate": "PARTICIPATES_IN",
+            "object": "pro-fibrotic signaling pathways"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "USPs",
+            "predicate": "PARTICIPATES_IN",
+            "object": "inflammation"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "USPs",
+            "predicate": "PARTICIPATES_IN",
+            "object": "oxidative stress"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "USPs",
+            "predicate": "PARTICIPATES_IN",
+            "object": "cell cycle arrest"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "USPs",
+            "predicate": "PARTICIPATES_IN",
+            "object": "cellular senescence"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "Ubiquitin-specific proteases",
+            "entity_type": "Gene",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of protein entity; should be protein type."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "renal fibrosis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of Renal fibrosis; merged."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "Ubiquitin-specific proteases",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "USP"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Ubiquitin-specific proteases",
+          "char_start": 131,
+          "char_end": 159
+        },
+        {
+          "mention": "renal fibrosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000000"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "renal fibrosis",
+          "char_start": 826,
+          "char_end": 840
+        },
+        {
+          "mention": "chronic kidney diseases",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000000"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "chronic kidney diseases",
+          "char_start": 430,
+          "char_end": 453
+        },
+        {
+          "mention": "end-stage renal disease",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000000"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "end-stage renal disease",
+          "char_start": 514,
+          "char_end": 537
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Ubiquitin-specific proteases",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "renal fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Emerging evidence highlights the critical involvement of USPs in the pathogenesis of renal fibrosis",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.85
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Ubiquitin-specific proteases",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "USP"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Ubiquitin-specific proteases",
+            "char_start": 131,
+            "char_end": 159,
+            "grounded": true,
+            "normalized_id": "USP",
+            "canonical_key": "Protein:ubiquitin specific proteases",
+            "canonical_mentions": [
+              "Ubiquitin-specific proteases"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "chronic kidney diseases",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D000000"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "chronic kidney diseases",
+            "char_start": 430,
+            "char_end": 453,
+            "grounded": true,
+            "normalized_id": "D000000",
+            "canonical_key": "Disease:chronic kidney diseases",
+            "canonical_mentions": [
+              "renal fibrosis",
+              "chronic kidney diseases",
+              "end-stage renal disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Ubiquitin-specific proteases",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "chronic kidney diseases",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Emerging evidence highlights the critical involvement of USPs in the pathogenesis of renal fibrosis",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 741,
+            "evidence_char_end": 840,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Ubiquitin-specific proteases",
+            "original_object": "renal fibrosis",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 4,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 1,
+          "known_relations": 0,
+          "novel_relations": 1,
+          "contradicting_relations": 0,
+          "schema_valid": 1,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.425,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 4,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 4,
+              "value": 0.5
+            },
+            "type_constraint_pass_rate": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 4,
+        "relations": 1,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.9094270840287209,
+      "prompt_tokens": 1385,
+      "output_tokens": 293,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

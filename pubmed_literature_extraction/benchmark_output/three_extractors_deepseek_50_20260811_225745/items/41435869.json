@@ -1,0 +1,1136 @@
+{
+  "pmid": "41435869",
+  "title": "Modern Diets, Metabolic Inequity, and Race-Ethnic Disparities: Unraveling the Associations With MASLD and Cancer Risk.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 103,
+          "char_end": 108
+        },
+        {
+          "mention": "end-stage liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "end-stage liver disease"
+          },
+          "grounded": true,
+          "source_span": "end-stage liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 490,
+          "char_end": 513
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 594,
+          "char_end": 618
+        },
+        {
+          "mention": "obesity",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "obesity"
+          },
+          "grounded": true,
+          "source_span": "obesity",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 755,
+          "char_end": 762
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1138,
+          "char_end": 1143
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1852,
+          "char_end": 1857
+        },
+        {
+          "mention": "cancer",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cancer"
+          },
+          "grounded": true,
+          "source_span": "cancer",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1961,
+          "char_end": 1967
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2029,
+          "char_end": 2034
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASLD and",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD and",
+            "char_start": 103,
+            "char_end": 112,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld and",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "end-stage liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "end-stage liver disease"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "end-stage liver disease",
+            "char_start": 490,
+            "char_end": 513,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:end stage liver disease",
+            "canonical_mentions": [
+              "end-stage liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 594,
+            "char_end": 618,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "obesity",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "obesity"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "obesity",
+            "char_start": 755,
+            "char_end": 762,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:obesity",
+            "canonical_mentions": [
+              "obesity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 2029,
+            "char_end": 2034,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 5,
+          "raw_entity_count": 8,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 5,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8687,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 5,
+              "denominator": 8,
+              "value": 0.625
+            },
+            "generic_entity_rate": {
+              "count": 1,
+              "denominator": 8,
+              "value": 0.125
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 8,
+              "value": 0.375
+            },
+            "type_constraint_pass_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 5,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 5
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 8,
+        "relations": 0,
+        "duplicate_entities": 2,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.7026733746752143,
+      "prompt_tokens": 514,
+      "output_tokens": 551,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 103,
+          "char_end": 108
+        },
+        {
+          "mention": "end-stage liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "end-stage liver disease"
+          },
+          "grounded": true,
+          "source_span": "end-stage liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 490,
+          "char_end": 513
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 594,
+          "char_end": 618
+        },
+        {
+          "mention": "obesity",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "obesity"
+          },
+          "grounded": true,
+          "source_span": "obesity",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 755,
+          "char_end": 762
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1138,
+          "char_end": 1143
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1852,
+          "char_end": 1857
+        },
+        {
+          "mention": "cancer",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cancer"
+          },
+          "grounded": true,
+          "source_span": "cancer",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1961,
+          "char_end": 1967
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2029,
+          "char_end": 2034
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASLD and",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD and",
+            "char_start": 103,
+            "char_end": 112,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld and",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "end-stage liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "end-stage liver disease"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "end-stage liver disease",
+            "char_start": 490,
+            "char_end": 513,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:end stage liver disease",
+            "canonical_mentions": [
+              "end-stage liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 594,
+            "char_end": 618,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "obesity",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "obesity"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "obesity",
+            "char_start": 755,
+            "char_end": 762,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:obesity",
+            "canonical_mentions": [
+              "obesity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 2029,
+            "char_end": 2034,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 5,
+          "raw_entity_count": 8,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 5,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8687,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 5,
+              "denominator": 8,
+              "value": 0.625
+            },
+            "generic_entity_rate": {
+              "count": 1,
+              "denominator": 8,
+              "value": 0.125
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 8,
+              "value": 0.375
+            },
+            "type_constraint_pass_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 5,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 5
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 8,
+        "relations": 0,
+        "duplicate_entities": 2,
+        "duplicate_relations": 0
+      },
+      "latency_s": 5.588754749391228,
+      "prompt_tokens": 5693,
+      "output_tokens": 1221,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "MASLD",
+            "entity_type": "Disease",
+            "source_span": "MASLD",
+            "char_start": 103,
+            "char_end": 108,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "end-stage liver disease",
+            "entity_type": "Disease",
+            "source_span": "end-stage liver disease",
+            "char_start": 490,
+            "char_end": 513,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "entity_type": "Disease",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 594,
+            "char_end": 618,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "obesity",
+            "entity_type": "Disease",
+            "source_span": "obesity",
+            "char_start": 755,
+            "char_end": 762,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "MASLD",
+            "entity_type": "Disease",
+            "source_span": "MASLD",
+            "char_start": 1138,
+            "char_end": 1143,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "MASLD",
+            "entity_type": "Disease",
+            "source_span": "MASLD",
+            "char_start": 1852,
+            "char_end": 1857,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 2029,
+            "char_end": 2034,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; tissue entity."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "cancer",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Generic term; not specific enough for a disease entity."
+          }
+        ],
+        "review_reason": "Corrected entity list by removing generic 'cancer' and retaining specific disease/tissue entities. No relations were extracted due to lack of explicit relational statements in the abstract.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "MASLD",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "end-stage liver disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatocellular carcinoma"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "obesity"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "MASLD",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "MASLD",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C5543131"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "MASLD",
+          "char_start": 103,
+          "char_end": 108
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C2239176"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "char_start": 594,
+          "char_end": 618
+        },
+        {
+          "mention": "end-stage liver disease",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C0235833"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "end-stage liver disease",
+          "char_start": 490,
+          "char_end": 513
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "MASLD",
+          "subject_type": "Disease",
+          "predicate": "PROGRESSES_TO",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "an emerging driver of hepatocellular carcinoma",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "MASLD",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "end-stage liver disease",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "is now the second most common cause of end-stage liver disease",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASLD and",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "C5543131"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD and",
+            "char_start": 103,
+            "char_end": 112,
+            "grounded": true,
+            "normalized_id": "C5543131",
+            "canonical_key": "Disease:masld and",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "C2239176"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 594,
+            "char_end": 618,
+            "grounded": true,
+            "normalized_id": "C2239176",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "end-stage liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "C0235833"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "end-stage liver disease",
+            "char_start": 490,
+            "char_end": 513,
+            "grounded": true,
+            "normalized_id": "C0235833",
+            "canonical_key": "Disease:end stage liver disease",
+            "canonical_mentions": [
+              "end-stage liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "MASLD and",
+            "predicate": "PROGRESSES_TO",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "an emerging driver of hepatocellular carcinoma",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 572,
+            "evidence_char_end": 618,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "MASLD",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "MASLD and",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "end-stage liver disease",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "is now the second most common cause of end-stage liver disease",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 451,
+            "evidence_char_end": 513,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "MASLD",
+            "original_object": "end-stage liver disease",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 2,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.263173417188227,
+      "prompt_tokens": 1477,
+      "output_tokens": 351,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

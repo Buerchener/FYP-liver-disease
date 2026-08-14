@@ -1,102 +1,146 @@
-# FYP Ontology v2：肝病 Backbone 知识图谱数据包
+<div align="center">
 
-这个仓库保存了一个围绕肝病进展 backbone 构建的知识图谱 v2 数据包。当前版本先聚焦五个核心疾病阶段，并把相关的基因、蛋白、通路、组织表达、细胞类型表达和代谢物信息整理成可审计、可复现的导入材料。
+# LiverKG
 
-## 疾病 Backbone
+### An evidence-grounded liver disease knowledge graph and agentic PubMed extraction system
+
+[简体中文](README.zh-CN.md) · [PubMed Agent](pubmed_literature_extraction/README.md) · [Human Review](HUMAN_REVIEW.md)
+
+</div>
+
+## Overview
+
+LiverKG is a research-oriented knowledge graph centred on the progression of
+chronic liver disease. It combines curated biomedical databases with a
+verifier-guided literature extraction agent that turns PubMed abstracts into
+traceable candidate entities and relations.
+
+The project is designed around one principle: **a model may propose knowledge,
+but only schema-valid, source-grounded and deterministically verified evidence
+may reach the write path**.
 
 ```text
-NAFLD -> NASH -> Fibrosis -> Cirrhosis -> HCC
+NAFLD → NASH → Fibrosis → Cirrhosis → HCC
 ```
 
-五个核心疾病节点：
+## Highlights
 
-| 阶段 | Disease ID |
-|---|---|
-| NAFLD | `UMLS:C0400966` |
-| NASH | `UMLS:C3241937` |
-| Fibrosis | `UMLS:C0239946` |
-| Cirrhosis | `UMLS:C0023890` |
-| HCC | `UMLS:C2239176` |
+- A five-stage liver disease backbone with auditable identifiers and provenance.
+- Integrated gene, protein, pathway, tissue, cell-type and metabolite context.
+- A legacy multi-stage extractor and a backward-compatible Central Agent v2.
+- Evidence-first relation validation with exact source-span checks.
+- Schema-constrained entity-pair classification with an explicit `NO_RELATION` class.
+- Conditional DeepSeek/Qwen-compatible adjudication; every edit is re-verified.
+- Cache-first execution, bounded remote budgets and per-action latency/token traces.
+- Dry-run-by-default Neo4j integration with a deterministic Safe Write gate.
+- Frozen gold annotations, reproducible benchmarks and ablation-ready reports.
 
-## 数据来源
+## Knowledge graph scope
 
-| 数据库 | 用途 |
-|---|---|
-| DisGeNET | 获取五个疾病对应的 Gene-Disease association |
-| STRING | 将 Gene 映射到 Protein，并导入高置信 Protein-Protein interaction |
-| KEGG | 获取 Gene 参与的 pathway |
-| Reactome | 获取 Gene 参与的 pathway |
-| HPA | 获取 liver tissue expression、LIHC prognosis 和泛组织 single-cell type expression |
-| HMDB | 获取保守筛选后的疾病相关 metabolite context |
-| PubMed | 使用 LLM baseline 与闭环 cognitive agent 从文献 abstract 中抽取候选 KG 关系 |
+| Layer | Current scale | Primary source |
+| --- | ---: | --- |
+| Disease | 5 | UMLS-aligned backbone |
+| Gene | 836 | DisGeNET |
+| Protein | 793 | STRING |
+| Pathway | 1,721 | KEGG, Reactome |
+| Tissue | 1 | HPA |
+| Cell type | 154 | HPA single-cell data |
+| Metabolite | 36 | HMDB |
+| Gene–disease associations | 1,036 | DisGeNET |
+| Protein–protein interactions | 7,154 | STRING |
+| Gene–pathway memberships | 9,947 | KEGG, Reactome |
+| HPA expression relations | 17,745 | HPA |
+| HPA LIHC prognostic relations | 1,384 | HPA |
+| Gene–metabolite relations | 97 | HMDB |
 
-## 当前图谱规模
+These figures describe the curated v2 data package. PubMed-derived statements
+remain candidates until they pass the evidence, schema and import-readiness
+gates.
 
-| 实体/关系 | 数量 |
-|---|---:|
-| Disease | 5 |
-| Gene | 836 |
-| Protein | 793 |
-| Pathway | 1721 |
-| Tissue | 1 |
-| CellType | 154 |
-| Metabolite | 36 |
-| Gene-Disease association | 1036 |
-| STRING PPI | 7154 |
-| Gene-Pathway membership | 9947 |
-| HPA expression relation | 17745 |
-| HPA LIHC prognostic relation | 1384 |
-| HMDB Gene-Metabolite relation | 97 |
+## System architecture
 
-## 目录说明
+```text
+Curated databases ────────────────┐
+                                  ├─→ Normalised TSV/JSON ─→ Neo4j
+PubMed abstracts                  │
+  └─→ preprocessing               │
+      └─→ primary extraction      │
+          └─→ pair classification │
+              └─→ Controller      │
+                  ├─→ KG lookup   │
+                  ├─→ adjudicator │
+                  ├─→ reviewer    │
+                  └─→ causal/conflict tools
+                         ↓
+                 deterministic verifier
+                         ↓
+                    Safe Write gate ──────┘
+```
+
+The Central Agent chooses tools from the current article state. Causal output
+is isolated as a hypothesis, retrieved graph context cannot replace article
+evidence, and no LLM can override a hard verifier failure.
+
+## Repository layout
 
 ```text
 .
-├── HUMAN_REVIEW.md      # 人工审阅入口
-├── review/              # 精简后的当前结论和 schema
-├── data/                # v2 导入用 TSV/JSON 数据
-├── scripts/             # 抓取、整理和 Neo4j 导入脚本
-├── pubmed_literature_extraction/  # Shaopeng Chen 负责的 PubMed 文献抽取模块
-├── archive/             # 旧报告、机器审计、字段裁剪前备份
-└── MANIFEST.txt         # 当前文件清单
+├── data/                         # Curated v2 import data
+├── scripts/                      # Data acquisition, normalisation and import
+├── review/                       # Current schema, scope and caveats
+├── archive/                      # Historical reports and migration artefacts
+├── pubmed_literature_extraction/ # Agentic PubMed extraction workstream
+├── HUMAN_REVIEW.md               # Recommended review entry point
+└── MANIFEST.txt                  # Package inventory
 ```
 
-建议人工核对时先看：
+## Quick start
 
-1. `HUMAN_REVIEW.md`
-2. `review/01_current_database_summary.md`
-3. `review/02_backbone_scope_audit.md`
-4. `review/03_entity_attribute_schema.md`
-5. `review/04_caveats_and_next_cleanup.md`
-
-PubMed 文献抽取部分先看：
-
-1. `pubmed_literature_extraction/README.md`
-2. `pubmed_literature_extraction/docs/pubmed_extraction_report.md`
-3. `pubmed_literature_extraction/docs/cognitive_agent_architecture.md`
-
-## 重要解释边界
-
-- DisGeNET 的 Gene-Disease association 是疾病证据主干。
-- STRING PPI 是 backbone Gene 编码蛋白之间的互作背景，不代表直接疾病因果关系。
-- KEGG/Reactome pathway 是 Gene 参与的通路背景，不代表该 pathway 只属于某个疾病阶段。
-- HPA CellType 数据是泛组织 single-cell type 表达背景，不是 liver-only cell type 证据。
-- HMDB metabolite 数据是保守筛选后的疾病相关代谢物背景，不是全量 HMDB。
-
-## Neo4j 版本
-
-当前对应数据库名称：
-
-```text
-liver-kg-core-v02
-```
-
-脚本默认通过环境变量读取 Neo4j 密码，请不要把密码写入代码或提交到 GitHub：
+The literature agent is the most actively developed component:
 
 ```bash
-export NEO4J_PASSWORD='your_password_here'
+cd pubmed_literature_extraction
+python3.12 -m venv .venv-cognitive
+source .venv-cognitive/bin/activate
+python -m pip install -r requirements-cognitive-agent.txt
+
+cp .env.example .env
+# Add credentials locally. Never commit .env.
+set -a && source .env && set +a
+
+# Backward-compatible, read-only run
+./run_cognitive_agent.sh 5
+
+# Auditable Central Agent v2 shadow run
+AGENT_EXECUTION_MODE=agent-v2-shadow ./run_cognitive_agent.sh 5
 ```
 
-## 状态
+See the [PubMed extraction guide](pubmed_literature_extraction/README.md) for
+configuration, evaluation and safety details.
 
-当前 v2 数据已经通过 backbone 范围审计：没有发现 backbone 之外的 Disease 节点，也没有发现无法追溯到 backbone Gene 或 backbone Disease 的下游节点。
+## Reproducibility and safety
+
+- The default execution path is dry-run; Neo4j writes require explicit opt-in.
+- Active Agent v2 and active relation-classifier experiments remain dry-run-only.
+- API keys, passwords, local environments, caches and generated bulk outputs are ignored.
+- External KG context is an entity-linking or conflict hint, never article evidence.
+- Every model-produced modification is passed through deterministic verification.
+- Isolated Neo4j integration tests never fall back to a production database.
+
+## Evidence boundaries
+
+- DisGeNET associations form the principal disease-evidence backbone.
+- STRING interactions are molecular context, not direct disease causality.
+- KEGG/Reactome membership does not imply disease-stage specificity.
+- HPA cell-type observations are pan-tissue context unless explicitly liver-specific.
+- HMDB relations are conservatively filtered disease context, not a complete HMDB import.
+
+## Project status
+
+The curated v2 package has passed backbone-scope checks. Central Agent v2 is
+implemented with legacy compatibility, dynamic budgets, persistent replay
+caching and Safe Write isolation. Current work focuses on evidence precision,
+learned biomedical relation classification and statistically powered evaluation.
+
+For review, start with [HUMAN_REVIEW.md](HUMAN_REVIEW.md) and the
+[current caveats](review/04_caveats_and_next_cleanup.md).

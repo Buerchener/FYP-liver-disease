@@ -13,7 +13,7 @@ Multi-Stage LangExtract Agent — 从 PubMed 文献摘要中提取结构化知�
   Stage 5 — Neo4j 写入: 仅按目标 KG schema 写入已有节点之间的候选关系 + 溯源报告
 
 用法:
-    export DEEPSEEK_API_KEY="sk-xxx"
+    export LLM_API_KEY="sk-xxx"
     export NEO4J_PASSWORD="xxx"
     python multi_stage_extraction_pipeline.py \
         --input workstreams/literature_hmdb_kegg/data/staging/literature/pubmed_demo_2026-06-14/literature_records.jsonl \
@@ -38,59 +38,26 @@ from pathlib import Path
 from typing import Any
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# ============================================================
-# 配置 —— 全部从环境变量读取
-# ============================================================
-DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "") or os.environ.get("GEMINI_API_KEY", "")
-DEEPSEEK_BASE_URL = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
-DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-chat")
+from cognitive_agent.schema.ontology import (
+    RELATION_SIGNATURES,
+    NEO4J_IMPORTABLE_PREDICATES,
+    RELATION_ID_PROPERTY as SHARED_RELATION_ID_PROPERTY,
+    annotate_relation_evidence,
+)
 
-NEO4J_URL = os.environ.get("NEO4J_URL", "bolt://100.104.181.96:7687")
+LLM_API_KEY = os.environ.get("LLM_API_KEY", "") or os.environ.get("GEMINI_API_KEY", "") or os.environ.get("LLM_API_KEY", "")
+LLM_BASE_URL = os.environ.get("LLM_BASE_URL", os.environ.get("LLM_BASE_URL", "https://api.deepseek.com"))
+LLM_MODEL = os.environ.get("LLM_MODEL", os.environ.get("LLM_MODEL", "deepseek-chat"))
 NEO4J_USER = os.environ.get("NEO4J_USER", "neo4j")
 NEO4J_PASSWORD = os.environ.get("NEO4J_PASSWORD", "")
-NEO4J_DATABASE = os.environ.get("NEO4J_DATABASE", "liver-kg-core-v02")
+NEO4J_URL = os.environ.get("NEO4J_URI", "bolt://localhost:7687")
+NEO4J_DATABASE = os.environ.get("NEO4J_DATABASE", "neo4j")
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 OUTPUT_DIR = SCRIPT_DIR / "extraction_output"
 
-ALLOWED_ENTITY_TYPES = {
-    "Gene",
-    "Disease",
-    "Protein",
-    "Pathway",
-    "Metabolite",
-    "Tissue",
-    "CellType",
-}
-
-RELATION_SIGNATURES = {
-    "ASSOCIATED_WITH": {("Gene", "Disease"), ("Metabolite", "Disease")},
-    "PROGNOSTIC_IN": {("Gene", "Disease")},
-    "PROGRESSES_TO": {("Disease", "Disease")},
-    "ENCODES": {("Gene", "Protein")},
-    "INTERACTS_WITH": {("Protein", "Protein")},
-    "PARTICIPATES_IN": {("Gene", "Pathway")},
-    "EXPRESSED_IN": {("Gene", "Tissue"), ("Gene", "CellType")},
-    "ASSOCIATED_WITH_METABOLITE": {("Gene", "Metabolite")},
-}
-
-NEO4J_IMPORTABLE_PREDICATES = {
-    "ASSOCIATED_WITH",
-    "PROGNOSTIC_IN",
-    "INTERACTS_WITH",
-    "PARTICIPATES_IN",
-    "EXPRESSED_IN",
-    "ASSOCIATED_WITH_METABOLITE",
-}
-
-NEO4J_RELATION_ID_PROPERTY = {
-    "ASSOCIATED_WITH": "relation_id",
-    "PROGNOSTIC_IN": "relationship_id",
-    "INTERACTS_WITH": "interaction_id",
-    "PARTICIPATES_IN": "relationship_id",
-    "EXPRESSED_IN": "relationship_id",
-    "ASSOCIATED_WITH_METABOLITE": "relationship_id",
-}
+ALLOWED_ENTITY_TYPES = {"Gene", "Disease", "Protein", "Pathway", "Metabolite", "Tissue", "CellType"}
+NEO4J_RELATION_ID_PROPERTY = dict(SHARED_RELATION_ID_PROPERTY)
 
 ALLOWED_DIRECTIONS = {"positive", "negative", "increase", "decrease", "none", "unknown"}
 NON_HUMAN_SPECIES = {"mus musculus", "mouse", "mice", "rat", "rattus norvegicus"}
@@ -363,15 +330,15 @@ Return format:
 
 def call_deepseek_api(prompt: str, system_prompt: str = "") -> dict[str, Any]:
     """调用 DeepSeek API 进行提取。"""
-    if not DEEPSEEK_API_KEY:
-        raise ValueError("DEEPSEEK_API_KEY environment variable is not set")
+    if not LLM_API_KEY:
+        raise ValueError("LLM_API_KEY environment variable is not set")
 
     import urllib.request
     import urllib.error
 
-    url = f"{DEEPSEEK_BASE_URL}/chat/completions"
+    url = f"{LLM_BASE_URL}/chat/completions"
     payload = {
-        "model": DEEPSEEK_MODEL,
+        "model": LLM_MODEL,
         "temperature": 0,
         "messages": [
             {"role": "system", "content": system_prompt or "You are a biomedical knowledge extraction expert. Output strict JSON only."},
@@ -383,7 +350,7 @@ def call_deepseek_api(prompt: str, system_prompt: str = "") -> dict[str, Any]:
         url,
         data=json.dumps(payload).encode("utf-8"),
         headers={
-            "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
+            "Authorization": f"Bearer {LLM_API_KEY}",
             "Content-Type": "application/json",
         },
         method="POST",
@@ -534,6 +501,7 @@ def validate_extraction(extraction: dict, source_record: dict) -> dict:
         if _looks_like_forced_entity_class(subject, subject_type) or _looks_like_forced_entity_class(obj, object_type):
             flags.append("unsupported_entity_class")
 
+        annotate_relation_evidence(rel, source="PubMed")
         rel["quality_flags"] = sorted(set(flags))
         rel["requires_review"] = bool(rel["quality_flags"])
         rel["confidence_score"] = _score_relation(rel)
@@ -1028,6 +996,11 @@ def write_to_neo4j(extraction: dict, record: dict) -> dict:
     """
     if not NEO4J_PASSWORD:
         return {"status": "skipped", "reason": "NEO4J_PASSWORD not set"}
+    from urllib.parse import urlparse
+    if urlparse(NEO4J_URL).hostname not in {"localhost", "127.0.0.1", "::1"}:
+        return {"status": "skipped", "reason": "Neo4j writes are restricted to localhost"}
+    if NEO4J_DATABASE != "neo4j":
+        return {"status": "skipped", "reason": "Neo4j writes are restricted to database neo4j"}
 
     try:
         from neo4j import GraphDatabase
@@ -1418,7 +1391,7 @@ def _process_single_record(
 
     # --- Stage 1: 分块初提取 ---
     try:
-        if DEEPSEEK_API_KEY:
+        if LLM_API_KEY:
             prompt = build_stage1_prompt(record, text_type)
             extraction = call_deepseek_api(prompt)
         else:
@@ -1502,8 +1475,8 @@ def run_pipeline(
         skip_neo4j: 是否跳过 Neo4j 写入（默认跳过）
         max_workers: 并发 worker 数（默认 5）
     """
-    if not DEEPSEEK_API_KEY:
-        print("[WARN] DEEPSEEK_API_KEY 未设置。将使用模拟提取（不含 LLM 调用）。")
+    if not LLM_API_KEY:
+        print("[WARN] LLM_API_KEY 未设置。将使用模拟提取（不含 LLM 调用）。")
 
     # 读取输入
     records = []
@@ -1627,8 +1600,8 @@ def main():
     print("=" * 70)
 
     # 环境变量检查
-    if not DEEPSEEK_API_KEY:
-        print("[WARN] DEEPSEEK_API_KEY 未设置 → 使用模拟提取")
+    if not LLM_API_KEY:
+        print("[WARN] LLM_API_KEY 未设置 → 使用模拟提取")
     if not args.skip_neo4j and not NEO4J_PASSWORD:
         print("[ERROR] NEO4J_PASSWORD 未设置，无法写入 Neo4j")
         sys.exit(1)

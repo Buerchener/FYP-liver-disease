@@ -134,6 +134,12 @@ class ConflictResolver:
         # ── Known relation: check for contradiction ──
         old_conf = rel.existing_confidence if rel.existing_confidence > 0 else 0.7
 
+        if rel.neo4j_status == "INVERTED":
+            item.decision = "NO_ACTION"
+            item.conflict_type = "NONE"
+            item.reasoning_trace = "Inverse relation exists — reverse edge requires explicit schema review"
+            return item
+
         if rel.neo4j_status == "CONTRADICTING":
             # Determine if direction is truly opposite
             item.conflict_type = "DIRECT_CONTRADICTION"

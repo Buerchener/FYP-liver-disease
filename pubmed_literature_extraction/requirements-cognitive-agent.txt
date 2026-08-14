@@ -1,5 +1,6 @@
-langextract
+langextract==1.6.0
 google-genai
+openai>=1.40,<3
 neo4j
 requests
 typing_extensions

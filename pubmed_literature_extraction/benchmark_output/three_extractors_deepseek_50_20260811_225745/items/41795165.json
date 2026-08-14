@@ -1,0 +1,2376 @@
+{
+  "pmid": "41795165",
+  "title": "Precision-Cut Bladder Slices: A Novel Model for the Study of Bladder Fibrosis and Potential Anti-Fibrotic Agents.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "bladder",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "bladder"
+          },
+          "grounded": true,
+          "source_span": "bladder",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 21,
+          "char_end": 28
+        },
+        {
+          "mention": "bladder fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "bladder fibrosis"
+          },
+          "grounded": true,
+          "source_span": "bladder fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 68,
+          "char_end": 84
+        },
+        {
+          "mention": "transforming growth factor β",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "transforming growth factor β",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "transforming growth factor β",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 601,
+          "char_end": 629
+        },
+        {
+          "mention": "pirfenidone",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "pirfenidone"
+          },
+          "grounded": true,
+          "source_span": "pirfenidone",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 742,
+          "char_end": 753
+        },
+        {
+          "mention": "relaxin-2",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "relaxin-2"
+          },
+          "grounded": true,
+          "source_span": "relaxin-2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 761,
+          "char_end": 770
+        },
+        {
+          "mention": "bone morphogenetic protein 7",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "bone morphogenetic protein 7"
+          },
+          "grounded": true,
+          "source_span": "bone morphogenetic protein 7",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 778,
+          "char_end": 806
+        },
+        {
+          "mention": "imatinib",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "imatinib"
+          },
+          "grounded": true,
+          "source_span": "imatinib",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 816,
+          "char_end": 824
+        },
+        {
+          "mention": "galunisertib",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "galunisertib"
+          },
+          "grounded": true,
+          "source_span": "galunisertib",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 836,
+          "char_end": 848
+        },
+        {
+          "mention": "COL1A1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "COL1A1",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "fibrotic response",
+                "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "COL1A1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 929,
+          "char_end": 935
+        },
+        {
+          "mention": "FN1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "FN1",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "FN1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 951,
+          "char_end": 954
+        },
+        {
+          "mention": "CCN2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "CCN2",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "fibrotic response",
+                "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "CCN2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1002,
+          "char_end": 1006
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "fibrosis",
+            "disease_stage": "fibrotic"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 870,
+          "char_end": 878
+        },
+        {
+          "mention": "TGF-β",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "TGF-β",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "TGF-β",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1090,
+          "char_end": 1095
+        },
+        {
+          "mention": "bladder",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "bladder"
+          },
+          "grounded": true,
+          "source_span": "bladder",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1640,
+          "char_end": 1647
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "COL1A1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "fibrotic response",
+          "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCN2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "fibrotic response",
+          "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "bladder fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "bladder fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Bladder Fibrosis",
+            "char_start": 68,
+            "char_end": 84,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:bladder fibrosis",
+            "canonical_mentions": [
+              "bladder fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "transforming growth factor β",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "transforming growth factor β",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "transforming growth factor β",
+            "char_start": 601,
+            "char_end": 629,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:transforming growth factor β",
+            "canonical_mentions": [
+              "transforming growth factor β"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "pirfenidone",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "pirfenidone"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "pirfenidone",
+            "char_start": 742,
+            "char_end": 753,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:pirfenidone",
+            "canonical_mentions": [
+              "pirfenidone"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "relaxin-2",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "relaxin-2"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "relaxin-2",
+            "char_start": 761,
+            "char_end": 770,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:relaxin 2",
+            "canonical_mentions": [
+              "relaxin-2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "bone morphogenetic protein 7",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "bone morphogenetic protein 7"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "bone morphogenetic protein 7",
+            "char_start": 778,
+            "char_end": 806,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:bone morphogenetic protein 7",
+            "canonical_mentions": [
+              "bone morphogenetic protein 7"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "imatinib",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "imatinib"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "imatinib",
+            "char_start": 816,
+            "char_end": 824,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:imatinib",
+            "canonical_mentions": [
+              "imatinib"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "galunisertib",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "galunisertib"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "galunisertib",
+            "char_start": 836,
+            "char_end": 848,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:galunisertib",
+            "canonical_mentions": [
+              "galunisertib"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "COL1A1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "COL1A1",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "fibrosis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "fibrotic response",
+                  "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "COL1A1",
+            "char_start": 929,
+            "char_end": 935,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:col1a1",
+            "canonical_mentions": [
+              "COL1A1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "FN1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "FN1",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "FN1",
+            "char_start": 951,
+            "char_end": 954,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:fn1",
+            "canonical_mentions": [
+              "FN1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CCN2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "CCN2",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "fibrosis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "fibrotic response",
+                  "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CCN2",
+            "char_start": 1002,
+            "char_end": 1006,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:ccn2",
+            "canonical_mentions": [
+              "CCN2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "TGF-β",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "TGF-β",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "TGF-β",
+            "char_start": 1090,
+            "char_end": 1095,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:tgf β",
+            "canonical_mentions": [
+              "TGF-β"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "COL1A1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "object_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1090,
+            "evidence_char_end": 1204,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "COL1A1",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCN2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "object_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1090,
+            "evidence_char_end": 1204,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCN2",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 11,
+          "raw_entity_count": 14,
+          "filtered_entity_count": 3,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 11,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5071,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 11,
+              "denominator": 14,
+              "value": 0.7857
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 14,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 14,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 13,
+              "denominator": 14,
+              "value": 0.9286
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 11,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 11
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 14,
+        "relations": 2,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.5848206668160856,
+      "prompt_tokens": 455,
+      "output_tokens": 1287,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "bladder",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "bladder"
+          },
+          "grounded": true,
+          "source_span": "bladder",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 21,
+          "char_end": 28
+        },
+        {
+          "mention": "bladder fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "bladder fibrosis"
+          },
+          "grounded": true,
+          "source_span": "bladder fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 68,
+          "char_end": 84
+        },
+        {
+          "mention": "transforming growth factor β",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "transforming growth factor β",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "transforming growth factor β",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 601,
+          "char_end": 629
+        },
+        {
+          "mention": "pirfenidone",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "pirfenidone"
+          },
+          "grounded": true,
+          "source_span": "pirfenidone",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 742,
+          "char_end": 753
+        },
+        {
+          "mention": "relaxin-2",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "relaxin-2"
+          },
+          "grounded": true,
+          "source_span": "relaxin-2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 761,
+          "char_end": 770
+        },
+        {
+          "mention": "bone morphogenetic protein 7",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "bone morphogenetic protein 7"
+          },
+          "grounded": true,
+          "source_span": "bone morphogenetic protein 7",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 778,
+          "char_end": 806
+        },
+        {
+          "mention": "imatinib",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "imatinib"
+          },
+          "grounded": true,
+          "source_span": "imatinib",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 816,
+          "char_end": 824
+        },
+        {
+          "mention": "galunisertib",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "galunisertib"
+          },
+          "grounded": true,
+          "source_span": "galunisertib",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 836,
+          "char_end": 848
+        },
+        {
+          "mention": "COL1A1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "COL1A1",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "fibrotic response",
+                "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "COL1A1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 929,
+          "char_end": 935
+        },
+        {
+          "mention": "FN1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "FN1",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "FN1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 951,
+          "char_end": 954
+        },
+        {
+          "mention": "CCN2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "CCN2",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "fibrosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "fibrotic response",
+                "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "CCN2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1002,
+          "char_end": 1006
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "fibrosis",
+            "disease_stage": "fibrotic"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 870,
+          "char_end": 878
+        },
+        {
+          "mention": "TGF-β",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "TGF-β",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "TGF-β",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1090,
+          "char_end": 1095
+        },
+        {
+          "mention": "bladder",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "bladder"
+          },
+          "grounded": true,
+          "source_span": "bladder",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1640,
+          "char_end": 1647
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "COL1A1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "fibrotic response",
+          "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CCN2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "fibrotic response",
+          "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "bladder fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "bladder fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Bladder Fibrosis",
+            "char_start": 68,
+            "char_end": 84,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:bladder fibrosis",
+            "canonical_mentions": [
+              "bladder fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "transforming growth factor β",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "transforming growth factor β",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "transforming growth factor β",
+            "char_start": 601,
+            "char_end": 629,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:transforming growth factor β",
+            "canonical_mentions": [
+              "transforming growth factor β"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "pirfenidone",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "pirfenidone"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "pirfenidone",
+            "char_start": 742,
+            "char_end": 753,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:pirfenidone",
+            "canonical_mentions": [
+              "pirfenidone"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "relaxin-2",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "relaxin-2"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "relaxin-2",
+            "char_start": 761,
+            "char_end": 770,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:relaxin 2",
+            "canonical_mentions": [
+              "relaxin-2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "bone morphogenetic protein 7",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "bone morphogenetic protein 7"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "bone morphogenetic protein 7",
+            "char_start": 778,
+            "char_end": 806,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:bone morphogenetic protein 7",
+            "canonical_mentions": [
+              "bone morphogenetic protein 7"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "imatinib",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "imatinib"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "imatinib",
+            "char_start": 816,
+            "char_end": 824,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:imatinib",
+            "canonical_mentions": [
+              "imatinib"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "galunisertib",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "galunisertib"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "galunisertib",
+            "char_start": 836,
+            "char_end": 848,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:galunisertib",
+            "canonical_mentions": [
+              "galunisertib"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "COL1A1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "COL1A1",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "fibrosis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "fibrotic response",
+                  "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "COL1A1",
+            "char_start": 929,
+            "char_end": 935,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:col1a1",
+            "canonical_mentions": [
+              "COL1A1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "FN1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "FN1",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "FN1",
+            "char_start": 951,
+            "char_end": 954,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:fn1",
+            "canonical_mentions": [
+              "FN1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CCN2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "CCN2",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "fibrosis",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "fibrotic response",
+                  "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CCN2",
+            "char_start": 1002,
+            "char_end": 1006,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:ccn2",
+            "canonical_mentions": [
+              "CCN2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "TGF-β",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "TGF-β",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "TGF-β",
+            "char_start": 1090,
+            "char_end": 1095,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:tgf β",
+            "canonical_mentions": [
+              "TGF-β"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "COL1A1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "object_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1090,
+            "evidence_char_end": 1204,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "COL1A1",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCN2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "object_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1090,
+            "evidence_char_end": 1204,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCN2",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 11,
+          "raw_entity_count": 14,
+          "filtered_entity_count": 3,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 11,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5071,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 11,
+              "denominator": 14,
+              "value": 0.7857
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 14,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 14,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 13,
+              "denominator": 14,
+              "value": 0.9286
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 11,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 11
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 14,
+        "relations": 2,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 9.307388625573367,
+      "prompt_tokens": 9090,
+      "output_tokens": 2532,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "bladder fibrosis",
+            "entity_type": "Disease",
+            "source_span": "bladder fibrosis",
+            "char_start": 68,
+            "char_end": 84,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit disease term in title and abstract; retained."
+          },
+          {
+            "mention": "transforming growth factor β",
+            "entity_type": "Protein",
+            "source_span": "transforming growth factor β",
+            "char_start": 601,
+            "char_end": 629,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit protein mention in methods; retained."
+          },
+          {
+            "mention": "pirfenidone",
+            "entity_type": "Protein",
+            "source_span": "pirfenidone",
+            "char_start": 742,
+            "char_end": 753,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit drug mention; retained as protein."
+          },
+          {
+            "mention": "relaxin-2",
+            "entity_type": "Protein",
+            "source_span": "relaxin-2",
+            "char_start": 761,
+            "char_end": 770,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit drug mention; retained as protein."
+          },
+          {
+            "mention": "bone morphogenetic protein 7",
+            "entity_type": "Protein",
+            "source_span": "bone morphogenetic protein 7",
+            "char_start": 778,
+            "char_end": 806,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit protein mention; retained."
+          },
+          {
+            "mention": "imatinib",
+            "entity_type": "Protein",
+            "source_span": "imatinib",
+            "char_start": 816,
+            "char_end": 824,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit drug mention; retained as protein."
+          },
+          {
+            "mention": "galunisertib",
+            "entity_type": "Protein",
+            "source_span": "galunisertib",
+            "char_start": 836,
+            "char_end": 848,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit drug mention; retained as protein."
+          },
+          {
+            "mention": "COL1A1",
+            "entity_type": "Gene",
+            "source_span": "COL1A1",
+            "char_start": 929,
+            "char_end": 935,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit gene symbol; retained."
+          },
+          {
+            "mention": "FN1",
+            "entity_type": "Gene",
+            "source_span": "FN1",
+            "char_start": 951,
+            "char_end": 954,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit gene symbol; retained."
+          },
+          {
+            "mention": "CCN2",
+            "entity_type": "Gene",
+            "source_span": "CCN2",
+            "char_start": 1002,
+            "char_end": 1006,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit gene symbol; retained."
+          },
+          {
+            "mention": "TGF-β",
+            "entity_type": "Protein",
+            "source_span": "TGF-β",
+            "char_start": 1090,
+            "char_end": 1095,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit protein abbreviation; retained."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "bladder",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Generic tissue term, not specific anatomical entity; rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "fibrosis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Pathological process, not a disease entity; rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "bladder",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Generic tissue term, not specific anatomical entity; rejected."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "COL1A1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "reason": "Object 'fibrosis' is not a valid disease entity; evidence does not directly link COL1A1 to a disease endpoint."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "CCN2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "reason": "Object 'fibrosis' is not a valid disease entity; evidence does not directly link CCN2 to a disease endpoint."
+          }
+        ],
+        "review_reason": "Corrected entity list to retain only explicit, valid biomedical entities from the abstract. Rejected generic tissue and pathological process terms. Rejected relations because the object 'fibrosis' is not a valid disease entity and the evidence does not directly link the genes to a disease endpoint.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "bladder fibrosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "transforming growth factor β"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "pirfenidone"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "relaxin-2"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "bone morphogenetic protein 7"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "imatinib"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "galunisertib"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "COL1A1"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "FN1"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "CCN2"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "TGF-β"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "bladder fibrosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "CUI:C0005684"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "bladder fibrosis",
+          "char_start": 544,
+          "char_end": 560
+        },
+        {
+          "mention": "TGF-β",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P01137"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "TGF-β",
+          "char_start": 631,
+          "char_end": 636
+        },
+        {
+          "mention": "COL1A1",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "P02452"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "COL1A1",
+          "char_start": 929,
+          "char_end": 935
+        },
+        {
+          "mention": "CCN2",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "P29279"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "CCN2",
+          "char_start": 1002,
+          "char_end": 1006
+        },
+        {
+          "mention": "FN1",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "P02751"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "FN1",
+          "char_start": 951,
+          "char_end": 954
+        },
+        {
+          "mention": "pirfenidone",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "DB04951"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "pirfenidone",
+          "char_start": 742,
+          "char_end": 753
+        },
+        {
+          "mention": "imatinib",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "DB00619"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "imatinib",
+          "char_start": 816,
+          "char_end": 824
+        },
+        {
+          "mention": "galunisertib",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "DB11761"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "galunisertib",
+          "char_start": 836,
+          "char_end": 848
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "TGF-β",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "bladder fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "PCBS were cultured and stimulated with transforming growth factor β (TGF-β) to induce fibrotic changes.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "COL1A1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "bladder fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CCN2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "bladder fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "pirfenidone",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "bladder fibrosis",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "Treatment with PFD, IMA, and GAL effectively attenuated TGF-β-induced upregulation of fibrosis markers.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.85
+        },
+        {
+          "subject": "imatinib",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "bladder fibrosis",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "Treatment with PFD, IMA, and GAL effectively attenuated TGF-β-induced upregulation of fibrosis markers.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.85
+        },
+        {
+          "subject": "galunisertib",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "bladder fibrosis",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "Treatment with PFD, IMA, and GAL effectively attenuated TGF-β-induced upregulation of fibrosis markers.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.85
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "bladder fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CUI:C0005684"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "bladder fibrosis",
+            "char_start": 544,
+            "char_end": 560,
+            "grounded": true,
+            "normalized_id": "CUI:C0005684",
+            "canonical_key": "Disease:bladder fibrosis",
+            "canonical_mentions": [
+              "bladder fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "TGF-β",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "P01137"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "TGF-β",
+            "char_start": 631,
+            "char_end": 636,
+            "grounded": true,
+            "normalized_id": "P01137",
+            "canonical_key": "Protein:tgf β",
+            "canonical_mentions": [
+              "TGF-β"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "COL1A1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "P02452"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "COL1A1",
+            "char_start": 929,
+            "char_end": 935,
+            "grounded": true,
+            "normalized_id": "P02452",
+            "canonical_key": "Gene:col1a1",
+            "canonical_mentions": [
+              "COL1A1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CCN2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "P29279"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CCN2",
+            "char_start": 1002,
+            "char_end": 1006,
+            "grounded": true,
+            "normalized_id": "P29279",
+            "canonical_key": "Gene:ccn2",
+            "canonical_mentions": [
+              "CCN2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "FN1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "P02751"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "FN1",
+            "char_start": 951,
+            "char_end": 954,
+            "grounded": true,
+            "normalized_id": "P02751",
+            "canonical_key": "Gene:fn1",
+            "canonical_mentions": [
+              "FN1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "pirfenidone",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "DB04951"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "pirfenidone",
+            "char_start": 742,
+            "char_end": 753,
+            "grounded": true,
+            "normalized_id": "DB04951",
+            "canonical_key": "Metabolite:pirfenidone",
+            "canonical_mentions": [
+              "pirfenidone"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "imatinib",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "DB00619"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "imatinib",
+            "char_start": 816,
+            "char_end": 824,
+            "grounded": true,
+            "normalized_id": "DB00619",
+            "canonical_key": "Metabolite:imatinib",
+            "canonical_mentions": [
+              "imatinib"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "galunisertib",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "DB11761"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "galunisertib",
+            "char_start": 836,
+            "char_end": 848,
+            "grounded": true,
+            "normalized_id": "DB11761",
+            "canonical_key": "Metabolite:galunisertib",
+            "canonical_mentions": [
+              "galunisertib"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "TGF-β",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "bladder fibrosis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PCBS were cultured and stimulated with transforming growth factor β (TGF-β) to induce fibrotic changes.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "method_section_only",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 562,
+            "evidence_char_end": 665,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "TGF-β",
+            "original_object": "bladder fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "COL1A1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "bladder fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1090,
+            "evidence_char_end": 1204,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "COL1A1",
+            "original_object": "bladder fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CCN2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "bladder fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "TGF-β stimulation significantly increased COL1A1 and CCN2 expression, confirming induction of a fibrotic response.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1090,
+            "evidence_char_end": 1204,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CCN2",
+            "original_object": "bladder fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "pirfenidone",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "bladder fibrosis",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Treatment with PFD, IMA, and GAL effectively attenuated TGF-β-induced upregulation of fibrosis markers.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1205,
+            "evidence_char_end": 1308,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "pirfenidone",
+            "original_object": "bladder fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "imatinib",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "bladder fibrosis",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Treatment with PFD, IMA, and GAL effectively attenuated TGF-β-induced upregulation of fibrosis markers.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1205,
+            "evidence_char_end": 1308,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "imatinib",
+            "original_object": "bladder fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "galunisertib",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "bladder fibrosis",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Treatment with PFD, IMA, and GAL effectively attenuated TGF-β-induced upregulation of fibrosis markers.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1205,
+            "evidence_char_end": 1308,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "galunisertib",
+            "original_object": "bladder fibrosis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 8,
+          "raw_entity_count": 8,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 8,
+          "total_relations": 6,
+          "known_relations": 0,
+          "novel_relations": 6,
+          "contradicting_relations": 0,
+          "schema_valid": 6,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 8,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 8
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 8,
+        "relations": 6,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.941253749653697,
+      "prompt_tokens": 1535,
+      "output_tokens": 1050,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

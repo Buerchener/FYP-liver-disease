@@ -1,0 +1,1944 @@
+{
+  "pmid": "41800244",
+  "title": "New Insights into the Role of NF-κB in Hepatitis B Virus Infection.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "NF-κB",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "NF-κB",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "hepatitis B virus infection",
+                "target_type": "disease",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection."
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "NF-κB signaling pathway",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "NF-κB",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 37,
+          "char_end": 42
+        },
+        {
+          "mention": "hepatitis B virus infection",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis B virus infection",
+            "disease_stage": "HBV infection"
+          },
+          "grounded": true,
+          "source_span": "hepatitis B virus infection",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 46,
+          "char_end": 73
+        },
+        {
+          "mention": "NF-κB signaling pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "NF-κB signaling pathway"
+          },
+          "grounded": true,
+          "source_span": "NF-κB signaling pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 488,
+          "char_end": 511
+        },
+        {
+          "mention": "IκB",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "IκB",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "IκB",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 285,
+          "char_end": 288
+        },
+        {
+          "mention": "IKK",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "IKK",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "IKK",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 306,
+          "char_end": 309
+        },
+        {
+          "mention": "canonical pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "canonical pathway"
+          },
+          "grounded": true,
+          "source_span": "canonical pathway",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 323,
+          "char_end": 340
+        },
+        {
+          "mention": "non-canonical pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "non-canonical pathway"
+          },
+          "grounded": true,
+          "source_span": "non-canonical pathway",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 344,
+          "char_end": 365
+        },
+        {
+          "mention": "HBV proteins",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "HBV proteins",
+            "species": "Hepatitis B virus"
+          },
+          "grounded": true,
+          "source_span": "HBV proteins",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 604,
+          "char_end": 616
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "NF-κB",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatitis B virus infection",
+          "object_type": "Disease",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "NF-κB",
+          "subject_type": "Protein",
+          "predicate": "PARTICIPATES_IN",
+          "object": "NF-κB signaling pathway",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "NF-κB",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "NF-κB",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "hepatitis B virus infection",
+                  "target_type": "disease",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection."
+                }
+              ],
+              "participates_in": [
+                {
+                  "target_entity": "NF-κB signaling pathway",
+                  "target_type": "pathway",
+                  "direction": "none",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "NF-κB",
+            "char_start": 37,
+            "char_end": 42,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:nf κb",
+            "canonical_mentions": [
+              "NF-κB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatitis B virus infection",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatitis B virus infection",
+              "disease_stage": "HBV infection"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatitis B Virus Infection",
+            "char_start": 46,
+            "char_end": 73,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis b virus infection",
+            "canonical_mentions": [
+              "hepatitis B virus infection"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "NF-κB signaling pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "NF-κB signaling pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "NF-κB signaling pathway",
+            "char_start": 488,
+            "char_end": 511,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:nf κb signaling pathway",
+            "canonical_mentions": [
+              "NF-κB signaling pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IκB",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "IκB",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IκB",
+            "char_start": 285,
+            "char_end": 288,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:iκb",
+            "canonical_mentions": [
+              "IκB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IKK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "IKK",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IKK",
+            "char_start": 306,
+            "char_end": 309,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:ikk",
+            "canonical_mentions": [
+              "IKK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "canonical pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "canonical pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "canonical pathway",
+            "char_start": 323,
+            "char_end": 340,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:canonical pathway",
+            "canonical_mentions": [
+              "canonical pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-canonical pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "non-canonical pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-canonical pathway",
+            "char_start": 344,
+            "char_end": 365,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:non canonical pathway",
+            "canonical_mentions": [
+              "non-canonical pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV proteins",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "HBV proteins",
+              "species": "Hepatitis B virus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV proteins",
+            "char_start": 604,
+            "char_end": 616,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:hbv proteins",
+            "canonical_mentions": [
+              "HBV proteins"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "NF-κB",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatitis B virus infection",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 484,
+            "evidence_char_end": 603,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "NF-κB",
+            "original_object": "hepatitis B virus infection",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "NF-κB",
+            "predicate": "PARTICIPATES_IN",
+            "object": "NF-κB signaling pathway",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 484,
+            "evidence_char_end": 603,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "NF-κB",
+            "original_object": "NF-κB signaling pathway",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 8,
+          "raw_entity_count": 8,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 8,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.7,
+          "evidence_score": 0.575,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 8,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 8
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 8,
+        "relations": 2,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.87771183392033,
+      "prompt_tokens": 230,
+      "output_tokens": 934,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "NF-κB",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "NF-κB",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "hepatitis B virus infection",
+                "target_type": "disease",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection."
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "NF-κB signaling pathway",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "NF-κB",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 37,
+          "char_end": 42
+        },
+        {
+          "mention": "hepatitis B virus infection",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis B virus infection",
+            "disease_stage": "HBV infection"
+          },
+          "grounded": true,
+          "source_span": "hepatitis B virus infection",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 46,
+          "char_end": 73
+        },
+        {
+          "mention": "NF-κB signaling pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "NF-κB signaling pathway"
+          },
+          "grounded": true,
+          "source_span": "NF-κB signaling pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 488,
+          "char_end": 511
+        },
+        {
+          "mention": "IκB",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "IκB",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "IκB",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 285,
+          "char_end": 288
+        },
+        {
+          "mention": "IKK",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "IKK",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "IKK",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 306,
+          "char_end": 309
+        },
+        {
+          "mention": "canonical pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "canonical pathway"
+          },
+          "grounded": true,
+          "source_span": "canonical pathway",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 323,
+          "char_end": 340
+        },
+        {
+          "mention": "non-canonical pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "non-canonical pathway"
+          },
+          "grounded": true,
+          "source_span": "non-canonical pathway",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 344,
+          "char_end": 365
+        },
+        {
+          "mention": "HBV proteins",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "HBV proteins",
+            "species": "Hepatitis B virus"
+          },
+          "grounded": true,
+          "source_span": "HBV proteins",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 604,
+          "char_end": 616
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "NF-κB",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatitis B virus infection",
+          "object_type": "Disease",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "NF-κB",
+          "subject_type": "Protein",
+          "predicate": "PARTICIPATES_IN",
+          "object": "NF-κB signaling pathway",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "NF-κB signaling pathway",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatitis B virus infection",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Evidence explicitly states association between NF-κB signaling pathway and HBV infection; endpoints and predicate covered."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "NF-κB",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "NF-κB",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "hepatitis B virus infection",
+                  "target_type": "disease",
+                  "direction": "unknown",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection."
+                }
+              ],
+              "participates_in": [
+                {
+                  "target_entity": "NF-κB signaling pathway",
+                  "target_type": "pathway",
+                  "direction": "none",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "NF-κB",
+            "char_start": 37,
+            "char_end": 42,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:nf κb",
+            "canonical_mentions": [
+              "NF-κB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatitis B virus infection",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatitis B virus infection",
+              "disease_stage": "HBV infection"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatitis B Virus Infection",
+            "char_start": 46,
+            "char_end": 73,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis b virus infection",
+            "canonical_mentions": [
+              "hepatitis B virus infection"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "NF-κB signaling pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "NF-κB signaling pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "NF-κB signaling pathway",
+            "char_start": 488,
+            "char_end": 511,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:nf κb signaling pathway",
+            "canonical_mentions": [
+              "NF-κB signaling pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IκB",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "IκB",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IκB",
+            "char_start": 285,
+            "char_end": 288,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:iκb",
+            "canonical_mentions": [
+              "IκB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IKK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "IKK",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IKK",
+            "char_start": 306,
+            "char_end": 309,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:ikk",
+            "canonical_mentions": [
+              "IKK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "canonical pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "canonical pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "canonical pathway",
+            "char_start": 323,
+            "char_end": 340,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:canonical pathway",
+            "canonical_mentions": [
+              "canonical pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-canonical pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "non-canonical pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-canonical pathway",
+            "char_start": 344,
+            "char_end": 365,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:non canonical pathway",
+            "canonical_mentions": [
+              "non-canonical pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV proteins",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "HBV proteins",
+              "species": "Hepatitis B virus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV proteins",
+            "char_start": 604,
+            "char_end": 616,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:hbv proteins",
+            "canonical_mentions": [
+              "HBV proteins"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "NF-κB",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatitis B virus infection",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 484,
+            "evidence_char_end": 603,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "NF-κB",
+            "original_object": "hepatitis B virus infection",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "NF-κB",
+            "predicate": "PARTICIPATES_IN",
+            "object": "NF-κB signaling pathway",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 484,
+            "evidence_char_end": 603,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "NF-κB",
+            "original_object": "NF-κB signaling pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "NF-κB signaling pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatitis B virus infection",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 484,
+            "evidence_char_end": 603,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "NF-κB signaling pathway",
+            "original_object": "hepatitis B virus infection",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 8,
+          "raw_entity_count": 8,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 8,
+          "total_relations": 3,
+          "known_relations": 0,
+          "novel_relations": 3,
+          "contradicting_relations": 0,
+          "schema_valid": 3,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6667,
+          "evidence_score": 0.5167,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 8,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 8
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 8,
+        "relations": 3,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 8.364347083959728,
+      "prompt_tokens": 7681,
+      "output_tokens": 1978,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "NF-κB",
+            "entity_type": "Protein",
+            "source_span": "NF-κB",
+            "char_start": 37,
+            "char_end": 42,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, core protein of the review."
+          },
+          {
+            "mention": "hepatitis B virus infection",
+            "entity_type": "Disease",
+            "source_span": "hepatitis B virus infection",
+            "char_start": 46,
+            "char_end": 73,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, disease mentioned."
+          },
+          {
+            "mention": "NF-κB signaling pathway",
+            "entity_type": "Pathway",
+            "source_span": "NF-κB signaling pathway",
+            "char_start": 488,
+            "char_end": 511,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, pathway explicitly named."
+          },
+          {
+            "mention": "IκB",
+            "entity_type": "Protein",
+            "source_span": "IκB",
+            "char_start": 285,
+            "char_end": 288,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Exact match in text, protein involved in NF-κB regulation."
+          },
+          {
+            "mention": "IKK",
+            "entity_type": "Protein",
+            "source_span": "IKK",
+            "char_start": 306,
+            "char_end": 309,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Exact match in text, kinase involved in NF-κB activation."
+          },
+          {
+            "mention": "canonical pathway",
+            "entity_type": "Pathway",
+            "source_span": "canonical pathway",
+            "char_start": 323,
+            "char_end": 340,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, but generic; may be considered as part of NF-κB signaling."
+          },
+          {
+            "mention": "non-canonical pathway",
+            "entity_type": "Pathway",
+            "source_span": "non-canonical pathway",
+            "char_start": 344,
+            "char_end": 365,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in text, but generic; may be considered as part of NF-κB signaling."
+          },
+          {
+            "mention": "HBV proteins",
+            "entity_type": "Protein",
+            "source_span": "HBV proteins",
+            "char_start": 604,
+            "char_end": 616,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Exact match in text, viral proteins interacting with NF-κB."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "NF-κB signaling pathway",
+            "subject_type": "Pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatitis B virus infection",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+            "evidence_span": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Evidence explicitly states association between NF-κB signaling pathway and HBV infection; endpoints and predicate covered."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "NF-κB",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatitis B virus infection",
+            "reason": "Endpoint 'NF-κB' not in evidence; evidence mentions 'NF-κB signaling pathway' not the protein directly."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "NF-κB",
+            "predicate": "PARTICIPATES_IN",
+            "object": "NF-κB signaling pathway",
+            "reason": "No explicit statement that NF-κB protein participates in the pathway; evidence only mentions the pathway itself."
+          }
+        ],
+        "review_reason": "Corrected relation to use pathway as subject, rejected relations with protein endpoint not supported by evidence.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 1,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "NF-κB"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatitis B virus infection"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "NF-κB signaling pathway"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "IκB"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "IKK"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "canonical pathway"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "non-canonical pathway"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HBV proteins"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "NF-κB",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "NFKB1"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "NF-κB",
+          "char_start": 37,
+          "char_end": 42
+        },
+        {
+          "mention": "IκB",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "NFKBIA"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "IκB",
+          "char_start": 285,
+          "char_end": 288
+        },
+        {
+          "mention": "IKK",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "CHUK"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "IKK",
+          "char_start": 306,
+          "char_end": 309
+        },
+        {
+          "mention": "canonical pathway",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "canonical NF-kB pathway"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "canonical pathway",
+          "char_start": 323,
+          "char_end": 340
+        },
+        {
+          "mention": "non-canonical pathway",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "non-canonical NF-kB pathway"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "non-canonical pathway",
+          "char_start": 344,
+          "char_end": 365
+        },
+        {
+          "mention": "NF-κB signaling pathway",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "NF-kB signaling pathway"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "NF-κB signaling pathway",
+          "char_start": 488,
+          "char_end": 511
+        },
+        {
+          "mention": "liver diseases",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008107"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "liver diseases",
+          "char_start": 544,
+          "char_end": 558
+        },
+        {
+          "mention": "hepatitis B virus infection",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006509"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Hepatitis B Virus Infection",
+          "char_start": 46,
+          "char_end": 73
+        },
+        {
+          "mention": "HBV proteins",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "HBV proteins"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "HBV proteins",
+          "char_start": 604,
+          "char_end": 616
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "NF-κB",
+          "subject_type": "Protein",
+          "predicate": "PARTICIPATES_IN",
+          "object": "NF-κB signaling pathway",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "Activation of NF-κB results in this transcriptional factor binding with specific κB sites of different target genes.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "NF-κB signaling pathway",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver diseases",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "NF-κB signaling pathway",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatitis B virus infection",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "HBV proteins",
+          "subject_type": "Protein",
+          "predicate": "INTERACTS_WITH",
+          "object": "NF-κB",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "HBV proteins have been shown to interact with different members of the NF-κB system, either enhancing or suppressing its activity.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Hepatitis B virus",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "NF-κB",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "NFKB1"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "NF-κB",
+            "char_start": 37,
+            "char_end": 42,
+            "grounded": true,
+            "normalized_id": "NFKB1",
+            "canonical_key": "Protein:nf κb",
+            "canonical_mentions": [
+              "NF-κB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IκB",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "NFKBIA"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IκB",
+            "char_start": 285,
+            "char_end": 288,
+            "grounded": true,
+            "normalized_id": "NFKBIA",
+            "canonical_key": "Protein:iκb",
+            "canonical_mentions": [
+              "IκB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IKK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "CHUK"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IKK",
+            "char_start": 306,
+            "char_end": 309,
+            "grounded": true,
+            "normalized_id": "CHUK",
+            "canonical_key": "Protein:ikk",
+            "canonical_mentions": [
+              "IKK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "canonical pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "canonical NF-kB pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "canonical pathway",
+            "char_start": 323,
+            "char_end": 340,
+            "grounded": true,
+            "normalized_id": "canonical NF-kB pathway",
+            "canonical_key": "Pathway:canonical pathway",
+            "canonical_mentions": [
+              "canonical pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-canonical pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "non-canonical NF-kB pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-canonical pathway",
+            "char_start": 344,
+            "char_end": 365,
+            "grounded": true,
+            "normalized_id": "non-canonical NF-kB pathway",
+            "canonical_key": "Pathway:non canonical pathway",
+            "canonical_mentions": [
+              "non-canonical pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "NF-κB signaling pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "NF-kB signaling pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "NF-κB signaling pathway",
+            "char_start": 488,
+            "char_end": 511,
+            "grounded": true,
+            "normalized_id": "NF-kB signaling pathway",
+            "canonical_key": "Pathway:nf κb signaling pathway",
+            "canonical_mentions": [
+              "NF-κB signaling pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatitis B virus infection",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D006509"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatitis B Virus Infection",
+            "char_start": 46,
+            "char_end": 73,
+            "grounded": true,
+            "normalized_id": "D006509",
+            "canonical_key": "Disease:hepatitis b virus infection",
+            "canonical_mentions": [
+              "hepatitis B virus infection"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV proteins",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "HBV proteins"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV proteins",
+            "char_start": 604,
+            "char_end": 616,
+            "grounded": true,
+            "normalized_id": "HBV proteins",
+            "canonical_key": "Protein:hbv proteins",
+            "canonical_mentions": [
+              "HBV proteins"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "NF-κB",
+            "predicate": "PARTICIPATES_IN",
+            "object": "NF-κB signaling pathway",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Activation of NF-κB results in this transcriptional factor binding with specific κB sites of different target genes.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 367,
+            "evidence_char_end": 483,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "NF-κB",
+            "original_object": "NF-κB signaling pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "NF-κB signaling pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver diseases",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 484,
+            "evidence_char_end": 603,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "NF-κB signaling pathway",
+            "original_object": "liver diseases",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "NF-κB signaling pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatitis B virus infection",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 484,
+            "evidence_char_end": 603,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "NF-κB signaling pathway",
+            "original_object": "hepatitis B virus infection",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "HBV proteins",
+            "predicate": "INTERACTS_WITH",
+            "object": "NF-κB",
+            "subject_type": "Protein",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "HBV proteins have been shown to interact with different members of the NF-κB system, either enhancing or suppressing its activity.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 604,
+            "evidence_char_end": 734,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "HBV proteins",
+            "original_object": "NF-κB",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 8,
+          "raw_entity_count": 9,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 8,
+          "total_relations": 4,
+          "known_relations": 0,
+          "novel_relations": 4,
+          "contradicting_relations": 0,
+          "schema_valid": 4,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.7111,
+          "evidence_score": 0.575,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 8,
+              "denominator": 9,
+              "value": 0.8889
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 9,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 9,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 4,
+              "value": 0.5
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 4,
+              "value": 0.25
+            },
+            "filtered_endpoint_rate": {
+              "count": 1,
+              "denominator": 4,
+              "value": 0.25
+            },
+            "unresolved_endpoint_rate": {
+              "count": 1,
+              "denominator": 4,
+              "value": 0.25
+            },
+            "weak_evidence_rate": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 8,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 8
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 9,
+        "relations": 4,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.645191208925098,
+      "prompt_tokens": 1317,
+      "output_tokens": 880,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

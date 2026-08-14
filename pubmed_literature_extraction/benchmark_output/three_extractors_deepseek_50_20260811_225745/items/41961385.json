@@ -1,0 +1,1640 @@
+{
+  "pmid": "41961385",
+  "title": "Inflammatory and resolution stages of hepatic injury: imaging with USPIO-enhanced MRI in mice.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "liver injury",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver injury"
+          },
+          "grounded": true,
+          "source_span": "liver injury",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 123,
+          "char_end": 135
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver fibrosis"
+          },
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 615,
+          "char_end": 629
+        },
+        {
+          "mention": "macrophages",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "macrophages"
+          },
+          "grounded": true,
+          "source_span": "macrophages",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 874,
+          "char_end": 885
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 123,
+          "char_end": 128
+        },
+        {
+          "mention": "hepatic injury",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic injury",
+            "disease_stage": "inflammatory and resolution stages"
+          },
+          "grounded": true,
+          "source_span": "hepatic injury",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1799,
+          "char_end": 1813
+        },
+        {
+          "mention": "macrophage",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "macrophage"
+          },
+          "grounded": true,
+          "source_span": "macrophage",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1480,
+          "char_end": 1490
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 995,
+          "char_end": 1000
+        },
+        {
+          "mention": "hepatic injury",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic injury",
+            "disease_stage": "inflammatory and resolution phases"
+          },
+          "grounded": true,
+          "source_span": "hepatic injury",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1988,
+          "char_end": 2002
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2148,
+          "char_end": 2153
+        },
+        {
+          "mention": "macrophage",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "macrophage"
+          },
+          "grounded": true,
+          "source_span": "macrophage",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2269,
+          "char_end": 2279
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "liver injury",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "liver injury"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Liver injury",
+            "char_start": 123,
+            "char_end": 135,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver injury",
+            "canonical_mentions": [
+              "liver injury"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "liver fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Liver fibrosis",
+            "char_start": 615,
+            "char_end": 629,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver fibrosis",
+            "canonical_mentions": [
+              "liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "macrophages",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "macrophages"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Macrophages",
+            "char_start": 874,
+            "char_end": 885,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:macrophages",
+            "canonical_mentions": [
+              "macrophages"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Liver",
+            "char_start": 123,
+            "char_end": 128,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "hepatic injury",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatic injury",
+              "disease_stage": "inflammatory and resolution stages"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic injury",
+            "char_start": 1799,
+            "char_end": 1813,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatic injury",
+            "canonical_mentions": [
+              "hepatic injury"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "macrophage",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "macrophage"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "macrophage",
+            "char_start": 1480,
+            "char_end": 1490,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:macrophage",
+            "canonical_mentions": [
+              "macrophage"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 6,
+          "raw_entity_count": 10,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 4,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 6,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.86,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 6,
+              "denominator": 10,
+              "value": 0.6
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 4,
+              "denominator": 10,
+              "value": 0.4
+            },
+            "type_constraint_pass_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 6,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 6
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 10,
+        "relations": 0,
+        "duplicate_entities": 4,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.55368720786646,
+      "prompt_tokens": 630,
+      "output_tokens": 669,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "liver injury",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver injury"
+          },
+          "grounded": true,
+          "source_span": "liver injury",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 123,
+          "char_end": 135
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver fibrosis"
+          },
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 615,
+          "char_end": 629
+        },
+        {
+          "mention": "macrophages",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "macrophages"
+          },
+          "grounded": true,
+          "source_span": "macrophages",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 874,
+          "char_end": 885
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of already retained liver entity; no additional information."
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 123,
+          "char_end": 128
+        },
+        {
+          "mention": "hepatic injury",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic injury",
+            "disease_stage": "inflammatory and resolution stages",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of already retained hepatic injury entity; no additional information."
+          },
+          "grounded": true,
+          "source_span": "hepatic injury",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1799,
+          "char_end": 1813
+        },
+        {
+          "mention": "macrophage",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "macrophage",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of already retained macrophage entity; no additional information."
+          },
+          "grounded": true,
+          "source_span": "macrophage",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1480,
+          "char_end": 1490
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of already retained liver entity; no additional information."
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 995,
+          "char_end": 1000
+        },
+        {
+          "mention": "hepatic injury",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic injury",
+            "disease_stage": "inflammatory and resolution phases",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of already retained hepatic injury entity; no additional information."
+          },
+          "grounded": true,
+          "source_span": "hepatic injury",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1988,
+          "char_end": 2002
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of already retained liver entity; no additional information."
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2148,
+          "char_end": 2153
+        },
+        {
+          "mention": "macrophage",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "macrophage",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of already retained macrophage entity; no additional information."
+          },
+          "grounded": true,
+          "source_span": "macrophage",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2269,
+          "char_end": 2279
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "liver injury",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "liver injury"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Liver injury",
+            "char_start": 123,
+            "char_end": 135,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver injury",
+            "canonical_mentions": [
+              "liver injury"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "liver fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Liver fibrosis",
+            "char_start": 615,
+            "char_end": 629,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver fibrosis",
+            "canonical_mentions": [
+              "liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "macrophages",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "macrophages"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Macrophages",
+            "char_start": 874,
+            "char_end": 885,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:macrophages",
+            "canonical_mentions": [
+              "macrophages"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of already retained liver entity; no additional information."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Liver",
+            "char_start": 123,
+            "char_end": 128,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "hepatic injury",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatic injury",
+              "disease_stage": "inflammatory and resolution stages",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of already retained hepatic injury entity; no additional information."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic injury",
+            "char_start": 1799,
+            "char_end": 1813,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatic injury",
+            "canonical_mentions": [
+              "hepatic injury"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "macrophage",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "macrophage",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of already retained macrophage entity; no additional information."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "macrophage",
+            "char_start": 1480,
+            "char_end": 1490,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:macrophage",
+            "canonical_mentions": [
+              "macrophage"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 6,
+          "raw_entity_count": 10,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 4,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 6,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.86,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 6,
+              "denominator": 10,
+              "value": 0.6
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 4,
+              "denominator": 10,
+              "value": 0.4
+            },
+            "type_constraint_pass_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 6,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 6
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 10,
+        "relations": 0,
+        "duplicate_entities": 4,
+        "duplicate_relations": 0
+      },
+      "latency_s": 5.83271479094401,
+      "prompt_tokens": 6574,
+      "output_tokens": 1411,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "liver injury",
+            "entity_type": "Disease",
+            "source_span": "liver injury",
+            "char_start": 123,
+            "char_end": 135,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in title and abstract; valid disease entity."
+          },
+          {
+            "mention": "liver fibrosis",
+            "entity_type": "Disease",
+            "source_span": "liver fibrosis",
+            "char_start": 615,
+            "char_end": 629,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in methods; valid disease entity."
+          },
+          {
+            "mention": "macrophages",
+            "entity_type": "CellType",
+            "source_span": "macrophages",
+            "char_start": 874,
+            "char_end": 885,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in results; valid cell type."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 123,
+            "char_end": 128,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in title; valid tissue."
+          },
+          {
+            "mention": "hepatic injury",
+            "entity_type": "Disease",
+            "source_span": "hepatic injury",
+            "char_start": 1799,
+            "char_end": 1813,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in conclusion; valid disease."
+          },
+          {
+            "mention": "macrophage",
+            "entity_type": "CellType",
+            "source_span": "macrophage",
+            "char_start": 1480,
+            "char_end": 1490,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in results; valid cell type."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of already retained liver entity; no additional information."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatic injury",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of already retained hepatic injury entity; no additional information."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of already retained liver entity; no additional information."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "macrophage",
+            "entity_type": "CellType",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of already retained macrophage entity; no additional information."
+          }
+        ],
+        "review_reason": "All candidate entities verified against source text; duplicates removed. No relations were proposed by first model and no explicit relations with clear evidence were found in the abstract; therefore no relations added.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "liver injury"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver fibrosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "macrophages"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatic injury"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "macrophage"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of already retained liver entity; no additional information."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatic injury",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of already retained hepatic injury entity; no additional information."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of already retained liver entity; no additional information."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "macrophage",
+            "entity_type": "CellType",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of already retained macrophage entity; no additional information."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "liver injury",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008107"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "liver injury",
+          "char_start": 418,
+          "char_end": 430
+        },
+        {
+          "mention": "inflammation",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D007249"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "inflammation",
+          "char_start": 145,
+          "char_end": 157
+        },
+        {
+          "mention": "resolution",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000068036"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "resolution",
+          "char_start": 24,
+          "char_end": 34
+        },
+        {
+          "mention": "hepatic injury",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008107"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "hepatic injury",
+          "char_start": 45,
+          "char_end": 59
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D005355"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Liver fibrosis",
+          "char_start": 615,
+          "char_end": 629
+        },
+        {
+          "mention": "macrophages",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000235"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "macrophages",
+          "char_start": 227,
+          "char_end": 238
+        },
+        {
+          "mention": "hepatic macrophages",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000235"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "Hepatic macrophages",
+          "char_start": 219,
+          "char_end": 238
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "UBERON:0002107"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "liver",
+          "char_start": 418,
+          "char_end": 423
+        },
+        {
+          "mention": "USPIO",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:50858"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "USPIO",
+          "char_start": 74,
+          "char_end": 79
+        },
+        {
+          "mention": "iron",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:18248"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "iron",
+          "char_start": 282,
+          "char_end": 286
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "macrophages",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "inflammation",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Confocal microscopy showed a high macrophage number and USPIO uptake in the inflammation group.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.8
+        },
+        {
+          "subject": "macrophages",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "resolution",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Immunofluorescence showed increased macrophage number and uptake during inflammation, decreasing during resolution.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.7
+        },
+        {
+          "subject": "liver fibrosis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver",
+          "object_type": "Tissue",
+          "direction": "positive",
+          "evidence": "Liver fibrosis was induced by intraperitoneal carbon tetrachloride injections for 6 weeks.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "USPIO",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "macrophages",
+          "object_type": "CellType",
+          "direction": "positive",
+          "evidence": "Confocal microscopy showed a high macrophage number and USPIO uptake in the inflammation group.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.8
+        },
+        {
+          "subject": "iron",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "macrophages",
+          "object_type": "CellType",
+          "direction": "positive",
+          "evidence": "Iron concentration significantly correlated with △ R 2 * , macrophage number, and total fluorescence intensity.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatic injury",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D008107"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic injury",
+            "char_start": 45,
+            "char_end": 59,
+            "grounded": true,
+            "normalized_id": "D008107",
+            "canonical_key": "Disease:hepatic injury",
+            "canonical_mentions": [
+              "liver injury",
+              "hepatic injury"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "resolution",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "D000068036"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "resolution",
+            "char_start": 24,
+            "char_end": 34,
+            "grounded": true,
+            "normalized_id": "D000068036",
+            "canonical_key": "Disease:resolution",
+            "canonical_mentions": [
+              "resolution"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D005355"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Liver fibrosis",
+            "char_start": 615,
+            "char_end": 629,
+            "grounded": true,
+            "normalized_id": "D005355",
+            "canonical_key": "Disease:liver fibrosis",
+            "canonical_mentions": [
+              "liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic macrophages",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "CL:0000235"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatic macrophages",
+            "char_start": 219,
+            "char_end": 238,
+            "grounded": true,
+            "normalized_id": "CL:0000235",
+            "canonical_key": "CellType:hepatic macrophages",
+            "canonical_mentions": [
+              "macrophages",
+              "hepatic macrophages"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "UBERON:0002107"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 418,
+            "char_end": 423,
+            "grounded": true,
+            "normalized_id": "UBERON:0002107",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "ultrasmall paramagnetic iron oxide",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "CHEBI:50858"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ultrasmall paramagnetic iron oxide",
+            "char_start": 258,
+            "char_end": 292,
+            "grounded": true,
+            "normalized_id": "CHEBI:50858",
+            "canonical_key": "Metabolite:ultrasmall paramagnetic iron oxide",
+            "canonical_mentions": [
+              "USPIO"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "iron",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEBI:18248"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "iron",
+            "char_start": 282,
+            "char_end": 286,
+            "grounded": true,
+            "normalized_id": "CHEBI:18248",
+            "canonical_key": "Metabolite:iron",
+            "canonical_mentions": [
+              "iron"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "hepatic macrophages",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "inflammation",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Confocal microscopy showed a high macrophage number and USPIO uptake in the inflammation group.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "non_human",
+              "non_human_article",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1446,
+            "evidence_char_end": 1541,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "macrophages",
+            "original_object": "inflammation",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "hepatic macrophages",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "resolution",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Immunofluorescence showed increased macrophage number and uptake during inflammation, decreasing during resolution.",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "non_human_article",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2290,
+            "evidence_char_end": 2405,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "macrophages",
+            "original_object": "resolution",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "liver fibrosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver",
+            "subject_type": "Disease",
+            "object_type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Liver fibrosis was induced by intraperitoneal carbon tetrachloride injections for 6 weeks.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "method_section_only",
+              "non_human",
+              "non_human_article",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 615,
+            "evidence_char_end": 705,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "liver fibrosis",
+            "original_object": "liver",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "ultrasmall paramagnetic iron oxide",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic macrophages",
+            "subject_type": "Metabolite",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Confocal microscopy showed a high macrophage number and USPIO uptake in the inflammation group.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "non_human_article",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1446,
+            "evidence_char_end": 1541,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "USPIO",
+            "original_object": "macrophages",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "iron",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic macrophages",
+            "subject_type": "Metabolite",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Iron concentration significantly correlated with △ R 2 * , macrophage number, and total fluorescence intensity.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "non_human_article",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2406,
+            "evidence_char_end": 2518,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "iron",
+            "original_object": "macrophages",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 7,
+          "raw_entity_count": 10,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 7,
+          "total_relations": 5,
+          "known_relations": 0,
+          "novel_relations": 5,
+          "contradicting_relations": 0,
+          "schema_valid": 3,
+          "import_ready": 0,
+          "structural_score": 0.76,
+          "semantic_score": 0.51,
+          "evidence_score": 0.47,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 7,
+              "denominator": 10,
+              "value": 0.7
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 10,
+              "value": 0.3
+            },
+            "type_constraint_pass_rate": {
+              "count": 9,
+              "denominator": 10,
+              "value": 0.9
+            },
+            "relation_evidence_exactness": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 5,
+              "value": 0.2
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 1,
+              "denominator": 5,
+              "value": 0.2
+            },
+            "unresolved_endpoint_rate": {
+              "count": 1,
+              "denominator": 5,
+              "value": 0.2
+            },
+            "weak_evidence_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 7,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 7
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 10,
+        "relations": 5,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 5.448466083034873,
+      "prompt_tokens": 1687,
+      "output_tokens": 999,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,682 @@
+{
+  "pmid": "41984476",
+  "title": "Point-of-Care Hepatitis C Testing in a Tribal Setting.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "hepatitis C virus",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis C virus",
+            "disease_stage": "HCV"
+          },
+          "grounded": true,
+          "source_span": "hepatitis C virus",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 137,
+          "char_end": 154
+        },
+        {
+          "mention": "Hepatitis C",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatitis C",
+            "disease_stage": "HCV"
+          },
+          "grounded": true,
+          "source_span": "Hepatitis C",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1184,
+          "char_end": 1195
+        },
+        {
+          "mention": "HCV",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCV",
+            "disease_stage": "HCV"
+          },
+          "grounded": true,
+          "source_span": "HCV",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2013,
+          "char_end": 2016
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatitis C virus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatitis C virus",
+              "disease_stage": "HCV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis C virus",
+            "char_start": 137,
+            "char_end": 154,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis c virus",
+            "canonical_mentions": [
+              "hepatitis C virus",
+              "HCV"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Hepatitis C",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatitis C",
+              "disease_stage": "HCV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatitis C",
+            "char_start": 1184,
+            "char_end": 1195,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis c",
+            "canonical_mentions": [
+              "Hepatitis C"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8833,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 3,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.2622431251220405,
+      "prompt_tokens": 697,
+      "output_tokens": 235,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "hepatitis C virus",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatitis C virus",
+            "disease_stage": "HCV"
+          },
+          "grounded": true,
+          "source_span": "hepatitis C virus",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 137,
+          "char_end": 154
+        },
+        {
+          "mention": "Hepatitis C",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatitis C",
+            "disease_stage": "HCV"
+          },
+          "grounded": true,
+          "source_span": "Hepatitis C",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1184,
+          "char_end": 1195
+        },
+        {
+          "mention": "HCV",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCV",
+            "disease_stage": "HCV"
+          },
+          "grounded": true,
+          "source_span": "HCV",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2013,
+          "char_end": 2016
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatitis C virus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatitis C virus",
+              "disease_stage": "HCV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis C virus",
+            "char_start": 137,
+            "char_end": 154,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis c virus",
+            "canonical_mentions": [
+              "hepatitis C virus",
+              "HCV"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Hepatitis C",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatitis C",
+              "disease_stage": "HCV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatitis C",
+            "char_start": 1184,
+            "char_end": 1195,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis c",
+            "canonical_mentions": [
+              "Hepatitis C"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8833,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 3,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.080181042198092,
+      "prompt_tokens": 4282,
+      "output_tokens": 603,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "hepatitis C virus",
+            "entity_type": "Disease",
+            "source_span": "hepatitis C virus",
+            "char_start": 137,
+            "char_end": 154,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit disease mention in abstract; retained as canonical entity."
+          },
+          {
+            "mention": "Hepatitis C",
+            "entity_type": "Disease",
+            "source_span": "Hepatitis C",
+            "char_start": 1184,
+            "char_end": 1195,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit disease mention in title; distinct from HCV abbreviation."
+          },
+          {
+            "mention": "HCV",
+            "entity_type": "Disease",
+            "source_span": "HCV",
+            "char_start": 2013,
+            "char_end": 2016,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Abbreviation for hepatitis C virus; retained as separate mention."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [],
+        "review_reason": "All three entity mentions are valid and explicitly present in the abstract. No relations were proposed by the first model, and no additional relations could be confidently extracted from the text without over-interpreting. The entity 'HCV' is retained as a separate mention since it appears in a distinct context (treatment uptake) and the article uses it as an abbreviation; merging is not performed at this stage.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "hepatitis C virus"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Hepatitis C"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HCV",
+            "status": "already_rejected_by_phase_a"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "hepatitis C virus",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006526"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatitis C virus",
+          "char_start": 137,
+          "char_end": 154
+        },
+        {
+          "mention": "HCV",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006526"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "HCV",
+          "char_start": 156,
+          "char_end": 159
+        },
+        {
+          "mention": "HCV RNA",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "C0000001"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "HCV RNA",
+          "char_start": 260,
+          "char_end": 267
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatitis C virus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D006526"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis C virus",
+            "char_start": 137,
+            "char_end": 154,
+            "grounded": true,
+            "normalized_id": "D006526",
+            "canonical_key": "Disease:hepatitis c virus",
+            "canonical_mentions": [
+              "hepatitis C virus",
+              "HCV"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HCV RNA",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "C0000001"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HCV RNA",
+            "char_start": 260,
+            "char_end": 267,
+            "grounded": true,
+            "normalized_id": "C0000001",
+            "canonical_key": "Metabolite:hcv rna",
+            "canonical_mentions": [
+              "HCV RNA"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8833,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 3,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.3065545419231057,
+      "prompt_tokens": 1698,
+      "output_tokens": 140,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

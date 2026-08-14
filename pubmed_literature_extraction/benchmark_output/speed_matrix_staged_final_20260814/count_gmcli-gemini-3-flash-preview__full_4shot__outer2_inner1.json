@@ -1,0 +1,118 @@
+{
+  "cell": {
+    "model_id": "count.gmcli-gemini-3-flash-preview",
+    "prompt_variant": "full_4shot",
+    "outer_workers": 2,
+    "inner_workers": 1
+  },
+  "cell_id": "count_gmcli-gemini-3-flash-preview__full_4shot__outer2_inner1",
+  "articles": [
+    {
+      "pmid": "41475279",
+      "stratum": "review_or_meta",
+      "success": false,
+      "error_type": "InferenceRuntimeError",
+      "error_category": "provider_auth",
+      "latency_s": 0.206,
+      "entity_count": 0,
+      "relation_count": 0,
+      "verified_entity_count": 0,
+      "verified_relation_count": 0,
+      "import_ready_relation_count": 0,
+      "verifier_entity_retention": null,
+      "verifier_relation_retention": null,
+      "evidence_contiguous_rate": null
+    },
+    {
+      "pmid": "41719003",
+      "stratum": "simple_clinical_observation",
+      "success": false,
+      "error_type": "InferenceRuntimeError",
+      "error_category": "provider_auth",
+      "latency_s": 0.196,
+      "entity_count": 0,
+      "relation_count": 0,
+      "verified_entity_count": 0,
+      "verified_relation_count": 0,
+      "import_ready_relation_count": 0,
+      "verifier_entity_retention": null,
+      "verifier_relation_retention": null,
+      "evidence_contiguous_rate": null
+    },
+    {
+      "pmid": "41686896",
+      "stratum": "omics_or_computational",
+      "success": false,
+      "error_type": "InferenceRuntimeError",
+      "error_category": "provider_auth",
+      "latency_s": 0.096,
+      "entity_count": 0,
+      "relation_count": 0,
+      "verified_entity_count": 0,
+      "verified_relation_count": 0,
+      "import_ready_relation_count": 0,
+      "verifier_entity_retention": null,
+      "verifier_relation_retention": null,
+      "evidence_contiguous_rate": null
+    },
+    {
+      "pmid": "41799192",
+      "stratum": "mixed_validation_complex",
+      "success": false,
+      "error_type": "InferenceRuntimeError",
+      "error_category": "provider_auth",
+      "latency_s": 0.091,
+      "entity_count": 0,
+      "relation_count": 0,
+      "verified_entity_count": 0,
+      "verified_relation_count": 0,
+      "import_ready_relation_count": 0,
+      "verifier_entity_retention": null,
+      "verifier_relation_retention": null,
+      "evidence_contiguous_rate": null
+    }
+  ],
+  "transport": {
+    "requests": 0,
+    "connect_error_count": 0,
+    "invalid_json_count": 0,
+    "ttfb_s": [
+      0.170631333719939,
+      0.17777662491425872,
+      0.0749026252888143,
+      0.08230183320119977
+    ],
+    "request_s": [],
+    "prompt_tokens": null,
+    "output_tokens": null,
+    "reasoning_tokens": null
+  },
+  "summary": {
+    "quality_status": "invalid_provider",
+    "failure_categories": [
+      "provider_auth"
+    ],
+    "success_rate": 0.0,
+    "connection_error_rate": 0.0,
+    "invalid_json_rate": 0.0,
+    "article_latency_p50_s": null,
+    "article_latency_p95_s": null,
+    "request_ttfb_p50_s": 0.171,
+    "request_ttfb_p95_s": 0.178,
+    "mean_entities_per_article": null,
+    "mean_relations_per_article": null,
+    "verifier_relation_retention": null,
+    "evidence_contiguous_rate": null,
+    "token_usage": {
+      "prompt_tokens": null,
+      "output_tokens": null,
+      "reasoning_tokens": null,
+      "availability": "unavailable"
+    },
+    "connect_probe": {
+      "status": "ok",
+      "tcp_connect_s": 0.0487,
+      "tls_ready_s": 0.1241
+    }
+  }
+}

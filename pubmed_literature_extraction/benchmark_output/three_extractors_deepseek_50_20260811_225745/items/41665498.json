@@ -1,0 +1,932 @@
+{
+  "pmid": "41665498",
+  "title": "Quality of Gadoxetate-enhanced MRI versus US during Hepatocellular Carcinoma Screening in Participants with Cirrhosis.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "Hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 59,
+          "char_end": 83
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 115,
+          "char_end": 124
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 790,
+          "char_end": 795
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis",
+            "disease_stage": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1458,
+          "char_end": 1467
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2523,
+          "char_end": 2526
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma",
+            "char_start": 59,
+            "char_end": 83,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "Hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Cirrhosis",
+            "char_start": 115,
+            "char_end": 124,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 790,
+            "char_end": 795,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 5,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.86,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 5,
+              "value": 0.6
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 5,
+              "value": 0.4
+            },
+            "type_constraint_pass_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 5,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.3784032920375466,
+      "prompt_tokens": 721,
+      "output_tokens": 355,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "Hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 59,
+          "char_end": 83
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 115,
+          "char_end": 124
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 790,
+          "char_end": 795
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis",
+            "disease_stage": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1458,
+          "char_end": 1467
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 2523,
+          "char_end": 2526
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma",
+            "char_start": 59,
+            "char_end": 83,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "Hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Cirrhosis",
+            "char_start": 115,
+            "char_end": 124,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 790,
+            "char_end": 795,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 5,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.86,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 5,
+              "value": 0.6
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 5,
+              "value": 0.4
+            },
+            "type_constraint_pass_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 5,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.224889291916043,
+      "prompt_tokens": 5010,
+      "output_tokens": 821,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "entity_type": "Disease",
+            "source_span": "Hepatocellular carcinoma",
+            "char_start": 59,
+            "char_end": 83,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in title, disease entity."
+          },
+          {
+            "mention": "cirrhosis",
+            "entity_type": "Disease",
+            "source_span": "cirrhosis",
+            "char_start": 115,
+            "char_end": 124,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in title, disease entity."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 790,
+            "char_end": 795,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, tissue entity."
+          },
+          {
+            "mention": "cirrhosis",
+            "entity_type": "Disease",
+            "source_span": "cirrhosis",
+            "char_start": 1458,
+            "char_end": 1467,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, disease entity."
+          },
+          {
+            "mention": "HCC",
+            "entity_type": "Disease",
+            "source_span": "HCC",
+            "char_start": 2523,
+            "char_end": 2526,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Abbreviation for hepatocellular carcinoma, disease entity."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [],
+        "review_reason": "All candidate entities are valid and correctly typed. No relations were proposed by the first model, and no explicit relations are supported by the abstract text. No candidates rejected.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Hepatocellular carcinoma"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HCC",
+            "status": "already_rejected_by_phase_a"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "Hepatocellular carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006528"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Hepatocellular carcinoma",
+          "char_start": 147,
+          "char_end": 171
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008103"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "char_start": 495,
+          "char_end": 504
+        },
+        {
+          "mention": "obesity",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D009765"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "obesity",
+          "char_start": 2623,
+          "char_end": 2630
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Hepatocellular carcinoma",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "cirrhosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Hepatocellular carcinoma (HCC) surveillance typically involves US, although gadoxetate-enhanced MRI may improve sensitivity.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "obesity",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "cirrhosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Obesity (body mass index ≥ 30, calculated as weight in kilograms divided by height in meters squared) reduced quality for both modalities",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D006528"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular carcinoma",
+            "char_start": 147,
+            "char_end": 171,
+            "grounded": true,
+            "normalized_id": "D006528",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "Hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D008103"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhosis",
+            "char_start": 495,
+            "char_end": 504,
+            "grounded": true,
+            "normalized_id": "D008103",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "obesity",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D009765"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "obesity",
+            "char_start": 2623,
+            "char_end": 2630,
+            "grounded": true,
+            "normalized_id": "D009765",
+            "canonical_key": "Disease:obesity",
+            "canonical_mentions": [
+              "obesity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Hepatocellular carcinoma",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "cirrhosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Hepatocellular carcinoma (HCC) surveillance typically involves US, although gadoxetate-enhanced MRI may improve sensitivity.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 147,
+            "evidence_char_end": 271,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Hepatocellular carcinoma",
+            "original_object": "cirrhosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "obesity",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "cirrhosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Obesity (body mass index ≥ 30, calculated as weight in kilograms divided by height in meters squared) reduced quality for both modalities",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 2003,
+            "evidence_char_end": 2140,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "obesity",
+            "original_object": "cirrhosis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 2,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.3485461669042706,
+      "prompt_tokens": 1813,
+      "output_tokens": 384,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

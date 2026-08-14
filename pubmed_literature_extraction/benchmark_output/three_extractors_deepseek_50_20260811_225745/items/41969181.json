@@ -1,0 +1,911 @@
+{
+  "pmid": "41969181",
+  "title": "Evaluating the Prognostic Accuracy of New Scores for In-Hospital Outcomes in Cirrhotic Patients With Esophageal Variceal Bleeding.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Esophageal variceal bleeding",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Esophageal variceal bleeding",
+            "disease_stage": "EVB"
+          },
+          "grounded": true,
+          "source_span": "Esophageal variceal bleeding",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 108,
+          "char_end": 136
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 224,
+          "char_end": 233
+        },
+        {
+          "mention": "upper gastrointestinal hemorrhage",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "upper gastrointestinal hemorrhage"
+          },
+          "grounded": true,
+          "source_span": "upper gastrointestinal hemorrhage",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 255,
+          "char_end": 288
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Esophageal variceal bleeding",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Esophageal variceal bleeding",
+              "disease_stage": "EVB"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Esophageal Variceal Bleeding",
+            "char_start": 108,
+            "char_end": 136,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:esophageal variceal bleeding",
+            "canonical_mentions": [
+              "Esophageal variceal bleeding"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhosis",
+            "char_start": 224,
+            "char_end": 233,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "upper gastrointestinal hemorrhage",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "upper gastrointestinal hemorrhage"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "upper gastrointestinal hemorrhage",
+            "char_start": 255,
+            "char_end": 288,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:upper gastrointestinal hemorrhage",
+            "canonical_mentions": [
+              "upper gastrointestinal hemorrhage"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.181648667436093,
+      "prompt_tokens": 499,
+      "output_tokens": 252,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Esophageal variceal bleeding",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Esophageal variceal bleeding",
+            "disease_stage": "EVB"
+          },
+          "grounded": true,
+          "source_span": "Esophageal variceal bleeding",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 108,
+          "char_end": 136
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 224,
+          "char_end": 233
+        },
+        {
+          "mention": "upper gastrointestinal hemorrhage",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "upper gastrointestinal hemorrhage"
+          },
+          "grounded": true,
+          "source_span": "upper gastrointestinal hemorrhage",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 255,
+          "char_end": 288
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Esophageal variceal bleeding",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Esophageal variceal bleeding",
+              "disease_stage": "EVB"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Esophageal Variceal Bleeding",
+            "char_start": 108,
+            "char_end": 136,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:esophageal variceal bleeding",
+            "canonical_mentions": [
+              "Esophageal variceal bleeding"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhosis",
+            "char_start": 224,
+            "char_end": 233,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "upper gastrointestinal hemorrhage",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "upper gastrointestinal hemorrhage"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "upper gastrointestinal hemorrhage",
+            "char_start": 255,
+            "char_end": 288,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:upper gastrointestinal hemorrhage",
+            "canonical_mentions": [
+              "upper gastrointestinal hemorrhage"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.057715917471796,
+      "prompt_tokens": 4077,
+      "output_tokens": 570,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Esophageal variceal bleeding",
+            "entity_type": "Disease",
+            "source_span": "Esophageal variceal bleeding",
+            "char_start": 108,
+            "char_end": 136,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in abstract, retained."
+          },
+          {
+            "mention": "cirrhosis",
+            "entity_type": "Disease",
+            "source_span": "cirrhosis",
+            "char_start": 224,
+            "char_end": 233,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in abstract, retained."
+          },
+          {
+            "mention": "upper gastrointestinal hemorrhage",
+            "entity_type": "Disease",
+            "source_span": "upper gastrointestinal hemorrhage",
+            "char_start": 255,
+            "char_end": 288,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in abstract, retained."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [],
+        "review_reason": "No relations were proposed by the first model. The three entities are correctly extracted from the abstract with exact spans. No additional entities or relations are explicitly supported by the text beyond the existing ones. All candidates are retained.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Esophageal variceal bleeding"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "upper gastrointestinal hemorrhage"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008103"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "char_start": 224,
+          "char_end": 233
+        },
+        {
+          "mention": "Esophageal variceal bleeding",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D014786"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Esophageal variceal bleeding",
+          "char_start": 160,
+          "char_end": 188
+        },
+        {
+          "mention": "upper gastrointestinal hemorrhage",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006471"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "upper gastrointestinal hemorrhage",
+          "char_start": 255,
+          "char_end": 288
+        },
+        {
+          "mention": "in-hospital mortality",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D017026"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "in-hospital mortality",
+          "char_start": 843,
+          "char_end": 864
+        },
+        {
+          "mention": "5-day treatment failure",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000069"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "5-day treatment failure",
+          "char_start": 869,
+          "char_end": 892
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Esophageal variceal bleeding",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "cirrhosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Esophageal variceal bleeding (EVB) is a serious complication of cirrhosis",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 1.0
+        },
+        {
+          "subject": "Esophageal variceal bleeding",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "upper gastrointestinal hemorrhage",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "a major cause of upper gastrointestinal hemorrhage",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D008103"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhosis",
+            "char_start": 224,
+            "char_end": 233,
+            "grounded": true,
+            "normalized_id": "D008103",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Esophageal variceal bleeding",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D014786"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Esophageal variceal bleeding",
+            "char_start": 160,
+            "char_end": 188,
+            "grounded": true,
+            "normalized_id": "D014786",
+            "canonical_key": "Disease:esophageal variceal bleeding",
+            "canonical_mentions": [
+              "Esophageal variceal bleeding"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "upper gastrointestinal hemorrhage",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D006471"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "upper gastrointestinal hemorrhage",
+            "char_start": 255,
+            "char_end": 288,
+            "grounded": true,
+            "normalized_id": "D006471",
+            "canonical_key": "Disease:upper gastrointestinal hemorrhage",
+            "canonical_mentions": [
+              "upper gastrointestinal hemorrhage"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "in-hospital mortality",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D017026"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "in-hospital mortality",
+            "char_start": 843,
+            "char_end": 864,
+            "grounded": true,
+            "normalized_id": "D017026",
+            "canonical_key": "Disease:in hospital mortality",
+            "canonical_mentions": [
+              "in-hospital mortality"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "5-day treatment failure",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "D000069"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "5-day treatment failure",
+            "char_start": 869,
+            "char_end": 892,
+            "grounded": true,
+            "normalized_id": "D000069",
+            "canonical_key": "Disease:5 day treatment failure",
+            "canonical_mentions": [
+              "5-day treatment failure"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Esophageal variceal bleeding",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "cirrhosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Esophageal variceal bleeding (EVB) is a serious complication of cirrhosis",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "background_only",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 160,
+            "evidence_char_end": 233,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Esophageal variceal bleeding",
+            "original_object": "cirrhosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Esophageal variceal bleeding",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "upper gastrointestinal hemorrhage",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "a major cause of upper gastrointestinal hemorrhage",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "background_only",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 238,
+            "evidence_char_end": 288,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Esophageal variceal bleeding",
+            "original_object": "upper gastrointestinal hemorrhage",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 5,
+          "raw_entity_count": 5,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 5,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.7,
+          "evidence_score": 0.575,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 5,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 5
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 5,
+        "relations": 2,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.834182375110686,
+      "prompt_tokens": 1531,
+      "output_tokens": 448,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

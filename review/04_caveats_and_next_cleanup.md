@@ -1,6 +1,15 @@
 # 04 注意事项与下一步清理
 
-## 重要注意事项
+## 统一证据边界（当前口径）
+
+关系必须同时记录 `source` 和 `evidence_class`，二者含义不同：
+
+- `direct_disease_evidence`：DisGeNET Gene-Disease、明确疾病/预后/进展证据句支持的关系；
+- `contextual_background`：STRING PPI、KEGG/Reactome pathway membership、HPA tissue/cell expression、HMDB 代谢物背景和一般功能关联；
+- `inferred_or_hypothesis`：因果传递推理、证据不确定或冲突待裁决的关系。
+
+STRING、通路和表达关系即使连接到 backbone Gene，也不能单独解释为直接疾病因果证据。完整政策见 `pubmed_literature_extraction/docs/evidence_policy.md`。
+
 
 1. `ASSOCIATED_WITH` 当前语义混合。
    - `Gene -[:ASSOCIATED_WITH]-> Disease` 来自 DisGeNET。

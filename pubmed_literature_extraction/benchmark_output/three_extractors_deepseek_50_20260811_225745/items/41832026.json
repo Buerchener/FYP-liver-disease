@@ -1,0 +1,1740 @@
+{
+  "pmid": "41832026",
+  "title": "Sodium hyaluronate based multifunctional hydrogels delivering SiRNA for sustained silencing of SMAD3: A novel strategy to treat intrauterine adhesions.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "intrauterine adhesion",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "intrauterine adhesion",
+            "disease_stage": "IUA"
+          },
+          "grounded": true,
+          "source_span": "intrauterine adhesion",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 169,
+          "char_end": 190
+        },
+        {
+          "mention": "female infertility",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "female infertility"
+          },
+          "grounded": true,
+          "source_span": "female infertility",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 225,
+          "char_end": 243
+        },
+        {
+          "mention": "endometrial fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "endometrial fibrosis"
+          },
+          "grounded": true,
+          "source_span": "endometrial fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 262,
+          "char_end": 282
+        },
+        {
+          "mention": "TGF-β/SMAD3 signaling pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "TGF-β/SMAD3 signaling pathway"
+          },
+          "grounded": true,
+          "source_span": "TGF-β/SMAD3 signaling pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 337,
+          "char_end": 366
+        },
+        {
+          "mention": "SMAD3",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "SMAD3",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "intrauterine adhesion",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "IUA",
+                "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "TGF-β/SMAD3 signaling pathway",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "SMAD3",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 632,
+          "char_end": 637
+        },
+        {
+          "mention": "endometrial",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "endometrial"
+          },
+          "grounded": true,
+          "source_span": "endometrial",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 907,
+          "char_end": 918
+        },
+        {
+          "mention": "SMAD3",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "SMAD3",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "IUA",
+                "target_type": "disease",
+                "direction": "decrease",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "IUA",
+                "evidence": "QOHP@siRNA sustained SMAD3 silencing, anti-fibrotic effects, and microenvironment protection properties."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "SMAD3",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1048,
+          "char_end": 1053
+        },
+        {
+          "mention": "IUA",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "IUA",
+            "disease_stage": "IUA"
+          },
+          "grounded": true,
+          "source_span": "IUA",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1327,
+          "char_end": 1330
+        },
+        {
+          "mention": "angiogenesis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "angiogenesis"
+          },
+          "grounded": true,
+          "source_span": "angiogenesis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1169,
+          "char_end": 1181
+        },
+        {
+          "mention": "cellular proliferation",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "cellular proliferation"
+          },
+          "grounded": true,
+          "source_span": "cellular proliferation",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1186,
+          "char_end": 1208
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "SMAD3",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "intrauterine adhesion",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "IUA",
+          "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "SMAD3",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "TGF-β/SMAD3 signaling pathway",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "SMAD3",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "IUA",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "IUA",
+          "evidence": "QOHP@siRNA sustained SMAD3 silencing, anti-fibrotic effects, and microenvironment protection properties.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "intrauterine adhesion",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "intrauterine adhesion",
+              "disease_stage": "IUA"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Intrauterine adhesion",
+            "char_start": 169,
+            "char_end": 190,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:intrauterine adhesion",
+            "canonical_mentions": [
+              "intrauterine adhesion",
+              "IUA"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "female infertility",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "female infertility"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "female infertility",
+            "char_start": 225,
+            "char_end": 243,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:female infertility",
+            "canonical_mentions": [
+              "female infertility"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "endometrial fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "endometrial fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "endometrial fibrosis",
+            "char_start": 262,
+            "char_end": 282,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:endometrial fibrosis",
+            "canonical_mentions": [
+              "endometrial fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "TGF-β/SMAD3 signaling pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "TGF-β/SMAD3 signaling pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "TGF-β/SMAD3 signaling pathway",
+            "char_start": 337,
+            "char_end": 366,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:tgf β smad3 signaling pathway",
+            "canonical_mentions": [
+              "TGF-β/SMAD3 signaling pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "SMAD3",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "SMAD3",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "intrauterine adhesion",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "IUA",
+                  "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway"
+                }
+              ],
+              "participates_in": [
+                {
+                  "target_entity": "TGF-β/SMAD3 signaling pathway",
+                  "target_type": "pathway",
+                  "direction": "none",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "SMAD3",
+            "char_start": 632,
+            "char_end": 637,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:smad3",
+            "canonical_mentions": [
+              "SMAD3"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cellular proliferation",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "cellular proliferation"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cellular proliferation",
+            "char_start": 1186,
+            "char_end": 1208,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:cellular proliferation",
+            "canonical_mentions": [
+              "cellular proliferation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "SMAD3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "intrauterine adhesion",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 298,
+            "evidence_char_end": 366,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "SMAD3",
+            "original_object": "intrauterine adhesion",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "SMAD3",
+            "predicate": "PARTICIPATES_IN",
+            "object": "TGF-β/SMAD3 signaling pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 298,
+            "evidence_char_end": 366,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "SMAD3",
+            "original_object": "TGF-β/SMAD3 signaling pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "SMAD3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "intrauterine adhesion",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "QOHP@siRNA sustained SMAD3 silencing, anti-fibrotic effects, and microenvironment protection properties.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1027,
+            "evidence_char_end": 1131,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "SMAD3",
+            "original_object": "IUA",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 6,
+          "raw_entity_count": 10,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 6,
+          "total_relations": 3,
+          "known_relations": 0,
+          "novel_relations": 3,
+          "contradicting_relations": 0,
+          "schema_valid": 3,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5267,
+          "evidence_score": 0.5167,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 6,
+              "denominator": 10,
+              "value": 0.6
+            },
+            "generic_entity_rate": {
+              "count": 1,
+              "denominator": 10,
+              "value": 0.1
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 10,
+              "value": 0.2
+            },
+            "type_constraint_pass_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 6,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 6
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 10,
+        "relations": 3,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.686947084031999,
+      "prompt_tokens": 358,
+      "output_tokens": 1176,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "intrauterine adhesion",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "intrauterine adhesion",
+            "disease_stage": "IUA"
+          },
+          "grounded": true,
+          "source_span": "intrauterine adhesion",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 169,
+          "char_end": 190
+        },
+        {
+          "mention": "female infertility",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "female infertility"
+          },
+          "grounded": true,
+          "source_span": "female infertility",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 225,
+          "char_end": 243
+        },
+        {
+          "mention": "endometrial fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "endometrial fibrosis"
+          },
+          "grounded": true,
+          "source_span": "endometrial fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 262,
+          "char_end": 282
+        },
+        {
+          "mention": "TGF-β/SMAD3 signaling pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "TGF-β/SMAD3 signaling pathway"
+          },
+          "grounded": true,
+          "source_span": "TGF-β/SMAD3 signaling pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 337,
+          "char_end": 366
+        },
+        {
+          "mention": "SMAD3",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "SMAD3",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "intrauterine adhesion",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "IUA",
+                "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "TGF-β/SMAD3 signaling pathway",
+                "target_type": "pathway",
+                "direction": "none",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "SMAD3",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 632,
+          "char_end": 637
+        },
+        {
+          "mention": "endometrial",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "endometrial"
+          },
+          "grounded": true,
+          "source_span": "endometrial",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 907,
+          "char_end": 918
+        },
+        {
+          "mention": "SMAD3",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "SMAD3",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "IUA",
+                "target_type": "disease",
+                "direction": "decrease",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "IUA",
+                "evidence": "QOHP@siRNA sustained SMAD3 silencing, anti-fibrotic effects, and microenvironment protection properties."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "SMAD3",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1048,
+          "char_end": 1053
+        },
+        {
+          "mention": "IUA",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "IUA",
+            "disease_stage": "IUA"
+          },
+          "grounded": true,
+          "source_span": "IUA",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1327,
+          "char_end": 1330
+        },
+        {
+          "mention": "angiogenesis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "angiogenesis"
+          },
+          "grounded": true,
+          "source_span": "angiogenesis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1169,
+          "char_end": 1181
+        },
+        {
+          "mention": "cellular proliferation",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "cellular proliferation"
+          },
+          "grounded": true,
+          "source_span": "cellular proliferation",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1186,
+          "char_end": 1208
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "SMAD3",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "intrauterine adhesion",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "IUA",
+          "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "SMAD3",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "TGF-β/SMAD3 signaling pathway",
+          "object_type": "Pathway",
+          "direction": "none",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "SMAD3",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "IUA",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "IUA",
+          "evidence": "QOHP@siRNA sustained SMAD3 silencing, anti-fibrotic effects, and microenvironment protection properties.",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "intrauterine adhesion",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "intrauterine adhesion",
+              "disease_stage": "IUA"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Intrauterine adhesion",
+            "char_start": 169,
+            "char_end": 190,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:intrauterine adhesion",
+            "canonical_mentions": [
+              "intrauterine adhesion",
+              "IUA"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "female infertility",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "female infertility"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "female infertility",
+            "char_start": 225,
+            "char_end": 243,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:female infertility",
+            "canonical_mentions": [
+              "female infertility"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "endometrial fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "endometrial fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "endometrial fibrosis",
+            "char_start": 262,
+            "char_end": 282,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:endometrial fibrosis",
+            "canonical_mentions": [
+              "endometrial fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "TGF-β/SMAD3 signaling pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "TGF-β/SMAD3 signaling pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "TGF-β/SMAD3 signaling pathway",
+            "char_start": 337,
+            "char_end": 366,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:tgf β smad3 signaling pathway",
+            "canonical_mentions": [
+              "TGF-β/SMAD3 signaling pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "SMAD3",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "SMAD3",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "intrauterine adhesion",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "IUA",
+                  "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway"
+                }
+              ],
+              "participates_in": [
+                {
+                  "target_entity": "TGF-β/SMAD3 signaling pathway",
+                  "target_type": "pathway",
+                  "direction": "none",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "SMAD3",
+            "char_start": 632,
+            "char_end": 637,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:smad3",
+            "canonical_mentions": [
+              "SMAD3"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cellular proliferation",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "cellular proliferation"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cellular proliferation",
+            "char_start": 1186,
+            "char_end": 1208,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:cellular proliferation",
+            "canonical_mentions": [
+              "cellular proliferation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "SMAD3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "intrauterine adhesion",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 298,
+            "evidence_char_end": 366,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "SMAD3",
+            "original_object": "intrauterine adhesion",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "SMAD3",
+            "predicate": "PARTICIPATES_IN",
+            "object": "TGF-β/SMAD3 signaling pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 298,
+            "evidence_char_end": 366,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "SMAD3",
+            "original_object": "TGF-β/SMAD3 signaling pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "SMAD3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "intrauterine adhesion",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "QOHP@siRNA sustained SMAD3 silencing, anti-fibrotic effects, and microenvironment protection properties.",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1027,
+            "evidence_char_end": 1131,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "SMAD3",
+            "original_object": "IUA",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 6,
+          "raw_entity_count": 10,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 6,
+          "total_relations": 3,
+          "known_relations": 0,
+          "novel_relations": 3,
+          "contradicting_relations": 0,
+          "schema_valid": 3,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5267,
+          "evidence_score": 0.5167,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 6,
+              "denominator": 10,
+              "value": 0.6
+            },
+            "generic_entity_rate": {
+              "count": 1,
+              "denominator": 10,
+              "value": 0.1
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 10,
+              "value": 0.2
+            },
+            "type_constraint_pass_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 6,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 6
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 10,
+        "relations": 3,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 7.8385257087647915,
+      "prompt_tokens": 8625,
+      "output_tokens": 2105,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "intrauterine adhesion",
+            "entity_type": "Disease",
+            "source_span": "Intrauterine adhesion",
+            "char_start": 169,
+            "char_end": 190,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit disease mention in title and abstract; canonical form for IUA."
+          },
+          {
+            "mention": "female infertility",
+            "entity_type": "Disease",
+            "source_span": "female infertility",
+            "char_start": 225,
+            "char_end": 243,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit disease mention in abstract."
+          },
+          {
+            "mention": "endometrial fibrosis",
+            "entity_type": "Disease",
+            "source_span": "endometrial fibrosis",
+            "char_start": 262,
+            "char_end": 282,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit disease mention in abstract."
+          },
+          {
+            "mention": "TGF-β/SMAD3 signaling pathway",
+            "entity_type": "Pathway",
+            "source_span": "TGF-β/SMAD3 signaling pathway",
+            "char_start": 337,
+            "char_end": 366,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit pathway mention in abstract."
+          },
+          {
+            "mention": "SMAD3",
+            "entity_type": "Gene",
+            "source_span": "SMAD3",
+            "char_start": 632,
+            "char_end": 637,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicit gene mention in abstract."
+          },
+          {
+            "mention": "cellular proliferation",
+            "entity_type": "Pathway",
+            "source_span": "cellular proliferation",
+            "char_start": 1186,
+            "char_end": 1208,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Explicit process mentioned as promoted by hydrogel; retained as pathway."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "SMAD3",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "TGF-β/SMAD3 signaling pathway",
+            "object_type": "Pathway",
+            "direction": "none",
+            "evidence": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway",
+            "evidence_span": "abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "SMAD3 is part of the pathway name; evidence explicitly mentions the pathway."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "SMAD3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "intrauterine adhesion",
+            "reason": "Evidence does not mention intrauterine adhesion; endpoint not in evidence."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "SMAD3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "IUA",
+            "reason": "Evidence does not mention IUA; direction mismatch (silencing implies decrease but not directly stated)."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "endometrial",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Adjective, not an anatomical tissue entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "angiogenesis",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Bare process without direct evidence; not a pathway entity."
+          }
+        ],
+        "review_reason": "Corrected entities to include only explicit mentions; rejected unsupported relations and non-entity terms. Retained only the PARTICIPATES_IN relation with direct evidence.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "intrauterine adhesion"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "female infertility"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "endometrial fibrosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "TGF-β/SMAD3 signaling pathway"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "SMAD3"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cellular proliferation"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "SMAD3",
+            "predicate": "PARTICIPATES_IN",
+            "object": "TGF-β/SMAD3 signaling pathway"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "intrauterine adhesion",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D007187"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "intrauterine adhesion",
+          "char_start": 135,
+          "char_end": 156
+        },
+        {
+          "mention": "endometrial fibrosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D005818"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "endometrial fibrosis",
+          "char_start": 262,
+          "char_end": 282
+        },
+        {
+          "mention": "TGF-β/SMAD3 signaling pathway",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0007179"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "TGF-β/SMAD3 signaling pathway",
+          "char_start": 337,
+          "char_end": 366
+        },
+        {
+          "mention": "SMAD3",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:6769"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "SMAD3",
+          "char_start": 102,
+          "char_end": 107
+        },
+        {
+          "mention": "endometrial",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "UBERON:0001295"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "endometrial",
+          "char_start": 262,
+          "char_end": 273
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "TGF-β/SMAD3 signaling pathway",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "endometrial fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "endometrial fibrosis resulting from abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "SMAD3",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "intrauterine adhesion",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "silencing SMAD3 ... for the prevention of IUA",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "intrauterine adhesion",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D007187"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "intrauterine adhesion",
+            "char_start": 135,
+            "char_end": 156,
+            "grounded": true,
+            "normalized_id": "D007187",
+            "canonical_key": "Disease:intrauterine adhesion",
+            "canonical_mentions": [
+              "intrauterine adhesion"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "endometrial fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D005818"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "endometrial fibrosis",
+            "char_start": 262,
+            "char_end": 282,
+            "grounded": true,
+            "normalized_id": "D005818",
+            "canonical_key": "Disease:endometrial fibrosis",
+            "canonical_mentions": [
+              "endometrial fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "TGF-β/SMAD3 signaling pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "GO:0007179"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "TGF-β/SMAD3 signaling pathway",
+            "char_start": 337,
+            "char_end": 366,
+            "grounded": true,
+            "normalized_id": "GO:0007179",
+            "canonical_key": "Pathway:tgf β smad3 signaling pathway",
+            "canonical_mentions": [
+              "TGF-β/SMAD3 signaling pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "SMAD3",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "HGNC:6769"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "SMAD3",
+            "char_start": 102,
+            "char_end": 107,
+            "grounded": true,
+            "normalized_id": "HGNC:6769",
+            "canonical_key": "Gene:smad3",
+            "canonical_mentions": [
+              "SMAD3"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "TGF-β/SMAD3 signaling pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "endometrial fibrosis",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "endometrial fibrosis resulting from abnormal activation of the endometrial TGF-β/SMAD3 signaling pathway",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 262,
+            "evidence_char_end": 366,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "TGF-β/SMAD3 signaling pathway",
+            "original_object": "endometrial fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "SMAD3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "intrauterine adhesion",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "silencing SMAD3 ... for the prevention of IUA",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "cross_sentence",
+              "endpoint_not_in_evidence",
+              "evidence_not_contiguous",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": -1,
+            "evidence_char_end": -1,
+            "evidence_contiguous": false,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "SMAD3",
+            "original_object": "intrauterine adhesion",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 4,
+          "raw_entity_count": 5,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 4,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.63,
+          "evidence_score": 0.375,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 4,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 4
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 5,
+        "relations": 2,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.9224513340741396,
+      "prompt_tokens": 1397,
+      "output_tokens": 467,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,1223 @@
+{
+  "pmid": "41977422",
+  "title": "Risk Assessment and Prediction of Hepatocellular Carcinoma in Noncirrhotic Metabolic Dysfunction-Associated Steatotic Liver Disease.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Metabolic dysfunction-associated steatotic liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Metabolic dysfunction-associated steatotic liver disease",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "Metabolic dysfunction-associated steatotic liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 82,
+          "char_end": 138
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 250,
+          "char_end": 274
+        },
+        {
+          "mention": "type 2 diabetes mellitus",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "type 2 diabetes mellitus"
+          },
+          "grounded": true,
+          "source_span": "type 2 diabetes mellitus",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 855,
+          "char_end": 879
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 125,
+          "char_end": 130
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1192,
+          "char_end": 1195
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1248,
+          "char_end": 1253
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Metabolic dysfunction-associated steatotic liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Metabolic dysfunction-associated steatotic liver disease",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Metabolic Dysfunction-Associated Steatotic Liver Disease",
+            "char_start": 82,
+            "char_end": 138,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:metabolic dysfunction associated steatotic liver disease",
+            "canonical_mentions": [
+              "Metabolic dysfunction-associated steatotic liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 250,
+            "char_end": 274,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "type 2 diabetes mellitus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "type 2 diabetes mellitus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes mellitus",
+            "char_start": 855,
+            "char_end": 879,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:type 2 diabetes mellitus",
+            "canonical_mentions": [
+              "type 2 diabetes mellitus"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Liver",
+            "char_start": 125,
+            "char_end": 130,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 1248,
+            "char_end": 1253,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 5,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 5,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.9417,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 5,
+              "denominator": 6,
+              "value": 0.8333
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 6,
+              "value": 0.1667
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 5,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 5
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.5287271249108016,
+      "prompt_tokens": 377,
+      "output_tokens": 464,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Metabolic dysfunction-associated steatotic liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Metabolic dysfunction-associated steatotic liver disease",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "Metabolic dysfunction-associated steatotic liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 82,
+          "char_end": 138
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 250,
+          "char_end": 274
+        },
+        {
+          "mention": "type 2 diabetes mellitus",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "type 2 diabetes mellitus"
+          },
+          "grounded": true,
+          "source_span": "type 2 diabetes mellitus",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 855,
+          "char_end": 879
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate of corrected entity; merged into corrected_entities."
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 125,
+          "char_end": 130
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1192,
+          "char_end": 1195
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1248,
+          "char_end": 1253
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "type 2 diabetes mellitus",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "type 2 diabetes mellitus, which can significantly amplify cancer risk even in pre-cirrhotic stages",
+          "confidence": 0.85,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Abstract states T2DM can amplify cancer risk in MASLD, supporting association with HCC."
+        },
+        {
+          "subject": "MASLD",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Metabolic dysfunction-associated steatotic liver disease (MASLD) has emerged as a leading driver of hepatocellular carcinoma (HCC) worldwide",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Abstract explicitly states MASLD is a leading driver of HCC."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Metabolic dysfunction-associated steatotic liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Metabolic dysfunction-associated steatotic liver disease",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Metabolic Dysfunction-Associated Steatotic Liver Disease",
+            "char_start": 82,
+            "char_end": 138,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:metabolic dysfunction associated steatotic liver disease",
+            "canonical_mentions": [
+              "Metabolic dysfunction-associated steatotic liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 250,
+            "char_end": 274,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "type 2 diabetes mellitus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "type 2 diabetes mellitus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes mellitus",
+            "char_start": 855,
+            "char_end": 879,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:type 2 diabetes mellitus",
+            "canonical_mentions": [
+              "type 2 diabetes mellitus"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate of corrected entity; merged into corrected_entities."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Liver",
+            "char_start": 125,
+            "char_end": 130,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 1248,
+            "char_end": 1253,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "type 2 diabetes mellitus",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "type 2 diabetes mellitus, which can significantly amplify cancer risk even in pre-cirrhotic stages",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 855,
+            "evidence_char_end": 953,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "type 2 diabetes mellitus",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "MASLD",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Metabolic dysfunction-associated steatotic liver disease (MASLD) has emerged as a leading driver of hepatocellular carcinoma (HCC) worldwide",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 150,
+            "evidence_char_end": 290,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "MASLD",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 5,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 5,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6417,
+          "evidence_score": 0.575,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 5,
+              "denominator": 6,
+              "value": 0.8333
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 6,
+              "value": 0.1667
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 5,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 5
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 2,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 6.541407749988139,
+      "prompt_tokens": 5178,
+      "output_tokens": 1389,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Metabolic dysfunction-associated steatotic liver disease",
+            "entity_type": "Disease",
+            "source_span": "Metabolic dysfunction-associated steatotic liver disease",
+            "char_start": 82,
+            "char_end": 138,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract; canonical disease entity."
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "entity_type": "Disease",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 250,
+            "char_end": 274,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract; canonical disease entity."
+          },
+          {
+            "mention": "type 2 diabetes mellitus",
+            "entity_type": "Disease",
+            "source_span": "type 2 diabetes mellitus",
+            "char_start": 855,
+            "char_end": 879,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract; metabolic comorbidity."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 125,
+            "char_end": 130,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; anatomical tissue."
+          },
+          {
+            "mention": "HCC",
+            "entity_type": "Disease",
+            "source_span": "HCC",
+            "char_start": 1192,
+            "char_end": 1195,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Abbreviation for hepatocellular carcinoma; explicit in abstract."
+          },
+          {
+            "mention": "MASLD",
+            "entity_type": "Disease",
+            "source_span": "MASLD",
+            "char_start": 1248,
+            "char_end": 1253,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Abbreviation for metabolic dysfunction-associated steatotic liver disease; explicit in abstract."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "type 2 diabetes mellitus",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HCC",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "type 2 diabetes mellitus, which can significantly amplify cancer risk even in pre-cirrhotic stages",
+            "evidence_span": "type 2 diabetes mellitus, which can significantly amplify cancer risk even in pre-cirrhotic stages",
+            "confidence": 0.85,
+            "uncertain": false,
+            "reason": "Abstract states T2DM can amplify cancer risk in MASLD, supporting association with HCC."
+          },
+          {
+            "subject": "MASLD",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HCC",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "Metabolic dysfunction-associated steatotic liver disease (MASLD) has emerged as a leading driver of hepatocellular carcinoma (HCC) worldwide",
+            "evidence_span": "Metabolic dysfunction-associated steatotic liver disease (MASLD) has emerged as a leading driver of hepatocellular carcinoma (HCC) worldwide",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Abstract explicitly states MASLD is a leading driver of HCC."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of corrected entity; merged into corrected_entities."
+          }
+        ],
+        "review_reason": "Corrected entity list to include all explicit mentions; added two relations supported by direct evidence from abstract. Rejected duplicate liver entity.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 2,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Metabolic dysfunction-associated steatotic liver disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatocellular carcinoma"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "type 2 diabetes mellitus"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HCC",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "MASLD"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of corrected entity; merged into corrected_entities."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "Disease:MASLD"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "MASLD",
+          "char_start": 208,
+          "char_end": 213
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "Disease:HCC"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "char_start": 250,
+          "char_end": 274
+        },
+        {
+          "mention": "type 2 diabetes mellitus",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "Disease:T2DM"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "type 2 diabetes mellitus",
+          "char_start": 855,
+          "char_end": 879
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "type 2 diabetes mellitus",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "type 2 diabetes mellitus, which can significantly amplify cancer risk even in pre-cirrhotic stages",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "MASLD",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "MASLD has emerged as a leading driver of hepatocellular carcinoma (HCC) worldwide",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 1.0
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "Disease:MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 208,
+            "char_end": 213,
+            "grounded": true,
+            "normalized_id": "Disease:MASLD",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "Disease:HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 250,
+            "char_end": 274,
+            "grounded": true,
+            "normalized_id": "Disease:HCC",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "type 2 diabetes mellitus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "Disease:T2DM"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes mellitus",
+            "char_start": 855,
+            "char_end": 879,
+            "grounded": true,
+            "normalized_id": "Disease:T2DM",
+            "canonical_key": "Disease:type 2 diabetes mellitus",
+            "canonical_mentions": [
+              "type 2 diabetes mellitus"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "type 2 diabetes mellitus",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "type 2 diabetes mellitus, which can significantly amplify cancer risk even in pre-cirrhotic stages",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 855,
+            "evidence_char_end": 953,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "type 2 diabetes mellitus",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "MASLD",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "MASLD has emerged as a leading driver of hepatocellular carcinoma (HCC) worldwide",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 208,
+            "evidence_char_end": 290,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "MASLD",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.7,
+          "evidence_score": 0.575,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 2,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.4194843326695263,
+      "prompt_tokens": 1403,
+      "output_tokens": 375,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

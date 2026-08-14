@@ -1,0 +1,90 @@
+{
+  "run_id": "speed_matrix_staged_invalid_auth_20260814",
+  "created_at": "2026-08-14T09:05:00.021501+00:00",
+  "status": "complete",
+  "design": "staged_screening",
+  "source": "/Users/a1234/Desktop/FYP/github_upload/FYP-liver-disease/pubmed_literature_extraction/extraction_output/pubmed_converted_500.jsonl",
+  "gold": "/Users/a1234/Desktop/FYP/github_upload/FYP-liver-disease/pubmed_literature_extraction/gold_annotations/pubmed_200_gold_v2_strict.jsonl",
+  "pmids": [
+    {
+      "pmid": "41475279",
+      "study_type": "review",
+      "stratum": "review_or_meta"
+    },
+    {
+      "pmid": "41719003",
+      "study_type": "clinical",
+      "stratum": "simple_clinical_observation"
+    },
+    {
+      "pmid": "41686896",
+      "study_type": "human_omics",
+      "stratum": "omics_or_computational"
+    },
+    {
+      "pmid": "41799192",
+      "study_type": "human_omics",
+      "stratum": "mixed_validation_complex"
+    }
+  ],
+  "langextract_version": "1.6.0",
+  "openai_version": "2.44.0",
+  "python": "3.12.11",
+  "api_endpoint_identity": "https://api-666.cc/v1",
+  "proxy_policy": "httpx trust_env=false; system proxy bypassed",
+  "neo4j_write": false,
+  "cache_mode": "off",
+  "schema_constraints": false,
+  "provider_max_retries": 1,
+  "timeouts_s": {
+    "connect": 10.0,
+    "read_write": 900.0
+  },
+  "cells": [
+    {
+      "model_id": "count.gmcli-gemini-3-flash-preview",
+      "prompt_variant": "full_4shot",
+      "outer_workers": 1,
+      "inner_workers": 1,
+      "cell_id": "count_gmcli-gemini-3-flash-preview__full_4shot__outer1_inner1"
+    },
+    {
+      "model_id": "count.gmcli-gemini-3-flash-preview",
+      "prompt_variant": "full_4shot",
+      "outer_workers": 2,
+      "inner_workers": 1,
+      "cell_id": "count_gmcli-gemini-3-flash-preview__full_4shot__outer2_inner1"
+    },
+    {
+      "model_id": "count.gmcli-gemini-3-flash-preview",
+      "prompt_variant": "full_4shot",
+      "outer_workers": 4,
+      "inner_workers": 1,
+      "cell_id": "count_gmcli-gemini-3-flash-preview__full_4shot__outer4_inner1"
+    },
+    {
+      "model_id": "count.gmcli-gemini-3.5-flash",
+      "prompt_variant": "full_4shot",
+      "outer_workers": 1,
+      "inner_workers": 1,
+      "cell_id": "count_gmcli-gemini-3_5-flash__full_4shot__outer1_inner1"
+    },
+    {
+      "model_id": "count.gmcli-gemini-3-flash-preview",
+      "prompt_variant": "dynamic_2shot",
+      "outer_workers": 1,
+      "inner_workers": 1,
+      "cell_id": "count_gmcli-gemini-3-flash-preview__dynamic_2shot__outer1_inner1"
+    },
+    {
+      "model_id": "count.gmcli-gemini-3-flash-preview",
+      "prompt_variant": "biored_pair",
+      "outer_workers": 1,
+      "inner_workers": 1,
+      "cell_id": "count_gmcli-gemini-3-flash-preview__biored_pair__outer1_inner1"
+    }
+  ],
+  "pair_prompt_note": "Uses strict-gold endpoint inventory only to isolate bounded pair-classification transport; do not compare its entity metrics as blind NER quality.",
+  "failure_policy": "Any connection/timeout/article failure marks the cell invalid_transport; failed rows are excluded from quality aggregates.",
+  "credential_fields_serialized": []
+}

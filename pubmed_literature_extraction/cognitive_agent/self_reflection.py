@@ -104,31 +104,32 @@ class SelfReflection:
         entity_link_rate = context_card.coverage_score
 
         if entity_link_rate < 0.3 and agent_state.total_articles > 10:
-            # Low entity linkage → lower creation threshold to admit more entities
-            update.adjust_threshold("entity_creation_confidence", -0.1)
+            # In a medical KG, low linkage is ambiguity/novelty evidence, not
+            # permission to lower the creation bar.
             update.add_suggestion(
                 f"Low entity link rate ({entity_link_rate:.1%}) — "
-                f"lowered entity creation confidence threshold by 0.1"
+                "route unresolved mentions to entity disambiguation; keep the creation threshold"
             )
 
         if discard_rate > 0.5:
-            # High discard rate → possible schema mismatch
+            # A high-recall generator naturally emits noise.  Do not interpret
+            # this signal as automatic evidence that the ontology is incomplete.
             update.add_suggestion(
                 f"High discard rate ({discard_rate:.1%}) — "
-                f"consider reviewing schema coverage for current article domain"
+                "mine hard negatives before proposing any schema extension"
             )
 
         if dispute_rate > 0.2:
-            # High dispute rate → articles may contain novel contradictory findings
+            update.adjust_threshold("relation_creation_confidence", 0.05)
             update.add_suggestion(
                 f"Elevated dispute rate ({dispute_rate:.1%}) — "
-                f"this batch may contain paradigm-shifting evidence"
+                "raised the relation threshold and require curator review"
             )
 
         if create_rate == 0 and agent_state.total_articles > 20:
             update.add_suggestion(
-                "No entities/relations created in recent batch — "
-                "consider lowering creation thresholds or expanding schema"
+                "No entities/relations created in the recent batch; this is a valid outcome "
+                "and does not justify lowering evidence thresholds"
             )
 
         # ── 3. Cross-document pattern discovery ──

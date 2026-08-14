@@ -1,0 +1,1624 @@
+{
+  "pmid": "41912279",
+  "title": "Racial and Skin Tone Differences in Scar Maturation: A Prospective Analysis of Aesthetic and Physiological Outcomes Using the Modified POSAS Scale.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [],
+        "relations": [],
+        "summary": {
+          "total_entities": 0,
+          "raw_entity_count": 0,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 0,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "type_constraint_pass_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 0,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 0
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 0,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.974279709160328,
+      "prompt_tokens": 389,
+      "output_tokens": 44,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Fitzpatrick skin types",
+          "type": "Disease",
+          "source_span": "Fitzpatrick skin types",
+          "char_start": 0,
+          "char_end": 0,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Fitzpatrick skin type",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Mentioned as a classification system for skin tone; not a disease, but included as a relevant entity."
+          }
+        },
+        {
+          "mention": "breast surgery",
+          "type": "Disease",
+          "source_span": "breast surgery",
+          "char_start": 0,
+          "char_end": 0,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "breast surgery",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Procedure mentioned as context; not a disease, but included as relevant."
+          }
+        },
+        {
+          "mention": "scar maturation",
+          "type": "Disease",
+          "source_span": "scar maturation",
+          "char_start": 0,
+          "char_end": 0,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "scar maturation",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Central concept of the study."
+          }
+        },
+        {
+          "mention": "vascularity",
+          "type": "Disease",
+          "source_span": "vascularity",
+          "char_start": 0,
+          "char_end": 0,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "vascularity",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Physiological outcome measured."
+          }
+        },
+        {
+          "mention": "pigmentation",
+          "type": "Disease",
+          "source_span": "pigmentation",
+          "char_start": 0,
+          "char_end": 0,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "pigmentation",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Physiological outcome measured."
+          }
+        },
+        {
+          "mention": "scar relief",
+          "type": "Disease",
+          "source_span": "scar relief",
+          "char_start": 0,
+          "char_end": 0,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "scar relief",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Physiological outcome measured."
+          }
+        },
+        {
+          "mention": "Caucasian",
+          "type": "Disease",
+          "source_span": "Caucasian",
+          "char_start": 0,
+          "char_end": 0,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Caucasian",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Racial group mentioned."
+          }
+        },
+        {
+          "mention": "Black",
+          "type": "Disease",
+          "source_span": "Black",
+          "char_start": 0,
+          "char_end": 0,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Black",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Racial group mentioned."
+          }
+        },
+        {
+          "mention": "Hispanic",
+          "type": "Disease",
+          "source_span": "Hispanic",
+          "char_start": 0,
+          "char_end": 0,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Hispanic",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Racial group mentioned."
+          }
+        },
+        {
+          "mention": "Fitzpatrick Types I-II",
+          "type": "Disease",
+          "source_span": "Fitzpatrick Types I-II",
+          "char_start": 0,
+          "char_end": 0,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Fitzpatrick Type I-II",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Skin type category."
+          }
+        },
+        {
+          "mention": "Fitzpatrick Types V-VI",
+          "type": "Disease",
+          "source_span": "Fitzpatrick Types V-VI",
+          "char_start": 0,
+          "char_end": 0,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "Fitzpatrick Type V-VI",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Skin type category."
+          }
+        },
+        {
+          "mention": "modified POSAS",
+          "type": "Disease",
+          "source_span": "modified POSAS",
+          "char_start": 0,
+          "char_end": 0,
+          "grounded": false,
+          "confidence": 0.9,
+          "attributes": {
+            "normalized_id": "modified POSAS",
+            "collaboration_origin": "second_llm_candidate",
+            "collaboration_reason": "Assessment scale used."
+          }
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Fitzpatrick Types I-II",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "vascularity reduction",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "Fitzpatrick Types I-II had the greatest vascularity reduction (-2.06 ± 2.10)",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement of association."
+        },
+        {
+          "subject": "Fitzpatrick Types V-VI",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "vascularity reduction",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "while Types V-VI showed the least improvement (-0.80 ± 1.61)",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement of association."
+        },
+        {
+          "subject": "Fitzpatrick Types V-VI",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "pigmentation",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "Pigmentation increased in Types V-VI (+0.35 ± 1.89)",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement of association."
+        },
+        {
+          "subject": "Black",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "favourable pigmentation outcomes",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "Black and Hispanic patients had significantly lower odds of favourable pigmentation outcomes (p < 0.07)",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement of association."
+        },
+        {
+          "subject": "Hispanic",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "favourable pigmentation outcomes",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "Black and Hispanic patients had significantly lower odds of favourable pigmentation outcomes (p < 0.07)",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement of association."
+        },
+        {
+          "subject": "Fitzpatrick Types V-VI",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "improved scar relief",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "Fitzpatrick Types V-VI also had lower odds of improved scar relief (OR = 0.125, p = 0.034)",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement of association."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Fitzpatrick skin types",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Fitzpatrick skin type",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Mentioned as a classification system for skin tone; not a disease, but included as a relevant entity."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Fitzpatrick skin types",
+            "char_start": 357,
+            "char_end": 379,
+            "grounded": true,
+            "normalized_id": "Fitzpatrick skin type",
+            "canonical_key": "Disease:fitzpatrick skin types",
+            "canonical_mentions": [
+              "Fitzpatrick skin types"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "breast surgery",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "breast surgery",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Procedure mentioned as context; not a disease, but included as relevant."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "breast surgery",
+            "char_start": 584,
+            "char_end": 598,
+            "grounded": true,
+            "normalized_id": "breast surgery",
+            "canonical_key": "Disease:breast surgery",
+            "canonical_mentions": [
+              "breast surgery"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "scar maturation",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "scar maturation",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Central concept of the study."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "scar maturation",
+            "char_start": 334,
+            "char_end": 349,
+            "grounded": true,
+            "normalized_id": "scar maturation",
+            "canonical_key": "Disease:scar maturation",
+            "canonical_mentions": [
+              "scar maturation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "vascularity",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "vascularity",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Physiological outcome measured."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "vascularity",
+            "char_start": 890,
+            "char_end": 901,
+            "grounded": true,
+            "normalized_id": "vascularity",
+            "canonical_key": "Disease:vascularity",
+            "canonical_mentions": [
+              "vascularity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "pigmentation",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "pigmentation",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Physiological outcome measured."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "pigmentation",
+            "char_start": 1149,
+            "char_end": 1161,
+            "grounded": true,
+            "normalized_id": "pigmentation",
+            "canonical_key": "Disease:pigmentation",
+            "canonical_mentions": [
+              "pigmentation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "scar relief",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "scar relief",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Physiological outcome measured."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "scar relief",
+            "char_start": 1238,
+            "char_end": 1249,
+            "grounded": true,
+            "normalized_id": "scar relief",
+            "canonical_key": "Disease:scar relief",
+            "canonical_mentions": [
+              "scar relief"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Caucasian",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Caucasian",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Racial group mentioned."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Caucasian",
+            "char_start": 809,
+            "char_end": 818,
+            "grounded": true,
+            "normalized_id": "Caucasian",
+            "canonical_key": "Disease:caucasian",
+            "canonical_mentions": [
+              "Caucasian"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Black",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Black",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Racial group mentioned."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Black",
+            "char_start": 820,
+            "char_end": 825,
+            "grounded": true,
+            "normalized_id": "Black",
+            "canonical_key": "Disease:black",
+            "canonical_mentions": [
+              "Black"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Hispanic",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Hispanic",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Racial group mentioned."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hispanic",
+            "char_start": 831,
+            "char_end": 839,
+            "grounded": true,
+            "normalized_id": "Hispanic",
+            "canonical_key": "Disease:hispanic",
+            "canonical_mentions": [
+              "Hispanic"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Fitzpatrick Types I-II",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Fitzpatrick Type I-II",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Skin type category."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Fitzpatrick Types I-II",
+            "char_start": 850,
+            "char_end": 872,
+            "grounded": true,
+            "normalized_id": "Fitzpatrick Type I-II",
+            "canonical_key": "Disease:fitzpatrick types i ii",
+            "canonical_mentions": [
+              "Fitzpatrick Types I-II"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Fitzpatrick Types V-VI",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "Fitzpatrick Type V-VI",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Skin type category."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Fitzpatrick Types V-VI",
+            "char_start": 1183,
+            "char_end": 1205,
+            "grounded": true,
+            "normalized_id": "Fitzpatrick Type V-VI",
+            "canonical_key": "Disease:fitzpatrick types v vi",
+            "canonical_mentions": [
+              "Fitzpatrick Types V-VI"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "modified POSAS",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "modified POSAS",
+              "collaboration_origin": "second_llm_candidate",
+              "collaboration_reason": "Assessment scale used."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "modified POSAS",
+            "char_start": 697,
+            "char_end": 711,
+            "grounded": true,
+            "normalized_id": "modified POSAS",
+            "canonical_key": "Disease:modified posas",
+            "canonical_mentions": [
+              "modified POSAS"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Fitzpatrick Types I-II",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "vascularity reduction",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Fitzpatrick Types I-II had the greatest vascularity reduction (-2.06 ± 2.10)",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_endpoint_missing",
+              "object_not_in_entities",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 850,
+            "evidence_char_end": 925,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Fitzpatrick Types I-II",
+            "original_object": "vascularity reduction",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Fitzpatrick Types V-VI",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "vascularity reduction",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "while Types V-VI showed the least improvement (-0.80 ± 1.61)",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_endpoint_missing",
+              "object_not_grounded",
+              "object_not_in_entities",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 928,
+            "evidence_char_end": 987,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Fitzpatrick Types V-VI",
+            "original_object": "vascularity reduction",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Fitzpatrick Types V-VI",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pigmentation",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Pigmentation increased in Types V-VI (+0.35 ± 1.89)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 990,
+            "evidence_char_end": 1040,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Fitzpatrick Types V-VI",
+            "original_object": "pigmentation",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Black",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "favourable pigmentation outcomes",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Black and Hispanic patients had significantly lower odds of favourable pigmentation outcomes (p < 0.07)",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_endpoint_missing",
+              "object_not_in_entities",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1078,
+            "evidence_char_end": 1180,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Black",
+            "original_object": "favourable pigmentation outcomes",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Hispanic",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "favourable pigmentation outcomes",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Black and Hispanic patients had significantly lower odds of favourable pigmentation outcomes (p < 0.07)",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_endpoint_missing",
+              "object_not_in_entities",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1078,
+            "evidence_char_end": 1180,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Hispanic",
+            "original_object": "favourable pigmentation outcomes",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Fitzpatrick Types V-VI",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "improved scar relief",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Fitzpatrick Types V-VI also had lower odds of improved scar relief (OR = 0.125, p = 0.034)",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_endpoint_missing",
+              "object_not_in_entities",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1183,
+            "evidence_char_end": 1272,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Fitzpatrick Types V-VI",
+            "original_object": "improved scar relief",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 12,
+          "raw_entity_count": 12,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 12,
+          "total_relations": 6,
+          "known_relations": 0,
+          "novel_relations": 6,
+          "contradicting_relations": 0,
+          "schema_valid": 6,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.7333,
+          "evidence_score": 0.6333,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 12,
+              "denominator": 12,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 12,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 12,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 12,
+              "denominator": 12,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 4,
+              "denominator": 6,
+              "value": 0.6667
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 5,
+              "denominator": 6,
+              "value": 0.8333
+            },
+            "weak_evidence_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 12,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 12
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 12,
+        "relations": 6,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 18.435438792221248,
+      "prompt_tokens": 2395,
+      "output_tokens": 3230,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Fitzpatrick skin types",
+            "entity_type": "Disease",
+            "source_span": "Fitzpatrick skin types",
+            "char_start": 0,
+            "char_end": 0,
+            "normalized_id": "Fitzpatrick skin type",
+            "confidence": 0.9,
+            "reason": "Mentioned as a classification system for skin tone; not a disease, but included as a relevant entity."
+          },
+          {
+            "mention": "breast surgery",
+            "entity_type": "Disease",
+            "source_span": "breast surgery",
+            "char_start": 0,
+            "char_end": 0,
+            "normalized_id": "breast surgery",
+            "confidence": 0.9,
+            "reason": "Procedure mentioned as context; not a disease, but included as relevant."
+          },
+          {
+            "mention": "scar maturation",
+            "entity_type": "Disease",
+            "source_span": "scar maturation",
+            "char_start": 0,
+            "char_end": 0,
+            "normalized_id": "scar maturation",
+            "confidence": 0.9,
+            "reason": "Central concept of the study."
+          },
+          {
+            "mention": "vascularity",
+            "entity_type": "Disease",
+            "source_span": "vascularity",
+            "char_start": 0,
+            "char_end": 0,
+            "normalized_id": "vascularity",
+            "confidence": 0.9,
+            "reason": "Physiological outcome measured."
+          },
+          {
+            "mention": "pigmentation",
+            "entity_type": "Disease",
+            "source_span": "pigmentation",
+            "char_start": 0,
+            "char_end": 0,
+            "normalized_id": "pigmentation",
+            "confidence": 0.9,
+            "reason": "Physiological outcome measured."
+          },
+          {
+            "mention": "scar relief",
+            "entity_type": "Disease",
+            "source_span": "scar relief",
+            "char_start": 0,
+            "char_end": 0,
+            "normalized_id": "scar relief",
+            "confidence": 0.9,
+            "reason": "Physiological outcome measured."
+          },
+          {
+            "mention": "Caucasian",
+            "entity_type": "Disease",
+            "source_span": "Caucasian",
+            "char_start": 0,
+            "char_end": 0,
+            "normalized_id": "Caucasian",
+            "confidence": 0.9,
+            "reason": "Racial group mentioned."
+          },
+          {
+            "mention": "Black",
+            "entity_type": "Disease",
+            "source_span": "Black",
+            "char_start": 0,
+            "char_end": 0,
+            "normalized_id": "Black",
+            "confidence": 0.9,
+            "reason": "Racial group mentioned."
+          },
+          {
+            "mention": "Hispanic",
+            "entity_type": "Disease",
+            "source_span": "Hispanic",
+            "char_start": 0,
+            "char_end": 0,
+            "normalized_id": "Hispanic",
+            "confidence": 0.9,
+            "reason": "Racial group mentioned."
+          },
+          {
+            "mention": "Fitzpatrick Types I-II",
+            "entity_type": "Disease",
+            "source_span": "Fitzpatrick Types I-II",
+            "char_start": 0,
+            "char_end": 0,
+            "normalized_id": "Fitzpatrick Type I-II",
+            "confidence": 0.9,
+            "reason": "Skin type category."
+          },
+          {
+            "mention": "Fitzpatrick Types V-VI",
+            "entity_type": "Disease",
+            "source_span": "Fitzpatrick Types V-VI",
+            "char_start": 0,
+            "char_end": 0,
+            "normalized_id": "Fitzpatrick Type V-VI",
+            "confidence": 0.9,
+            "reason": "Skin type category."
+          },
+          {
+            "mention": "modified POSAS",
+            "entity_type": "Disease",
+            "source_span": "modified POSAS",
+            "char_start": 0,
+            "char_end": 0,
+            "normalized_id": "modified POSAS",
+            "confidence": 0.9,
+            "reason": "Assessment scale used."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "Fitzpatrick Types I-II",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "vascularity reduction",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "Fitzpatrick Types I-II had the greatest vascularity reduction (-2.06 ± 2.10)",
+            "evidence_span": "Fitzpatrick Types I-II had the greatest vascularity reduction (-2.06 ± 2.10)",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct statement of association."
+          },
+          {
+            "subject": "Fitzpatrick Types V-VI",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "vascularity reduction",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "while Types V-VI showed the least improvement (-0.80 ± 1.61)",
+            "evidence_span": "while Types V-VI showed the least improvement (-0.80 ± 1.61)",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct statement of association."
+          },
+          {
+            "subject": "Fitzpatrick Types V-VI",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pigmentation",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "Pigmentation increased in Types V-VI (+0.35 ± 1.89)",
+            "evidence_span": "Pigmentation increased in Types V-VI (+0.35 ± 1.89)",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct statement of association."
+          },
+          {
+            "subject": "Black",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "favourable pigmentation outcomes",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "Black and Hispanic patients had significantly lower odds of favourable pigmentation outcomes (p < 0.07)",
+            "evidence_span": "Black and Hispanic patients had significantly lower odds of favourable pigmentation outcomes (p < 0.07)",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct statement of association."
+          },
+          {
+            "subject": "Hispanic",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "favourable pigmentation outcomes",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "Black and Hispanic patients had significantly lower odds of favourable pigmentation outcomes (p < 0.07)",
+            "evidence_span": "Black and Hispanic patients had significantly lower odds of favourable pigmentation outcomes (p < 0.07)",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct statement of association."
+          },
+          {
+            "subject": "Fitzpatrick Types V-VI",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "improved scar relief",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "Fitzpatrick Types V-VI also had lower odds of improved scar relief (OR = 0.125, p = 0.034)",
+            "evidence_span": "Fitzpatrick Types V-VI also had lower odds of improved scar relief (OR = 0.125, p = 0.034)",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct statement of association."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "scar outcomes",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Generic term, not specific enough."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "skin tone",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Generic term, not specific enough."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "race",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Generic term, not specific enough."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "patients",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Generic term, not specific enough."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "academic centre",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Not a biomedical entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "postoperative",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Not a biomedical entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "3 months",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Time point, not a biomedical entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "12 months",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Time point, not a biomedical entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "prospective observational study",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Study design, not a biomedical entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "single academic centre",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Not a biomedical entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Fitzpatrick skin types",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Already included as entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "breast surgery",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Already included as entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "scar maturation",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Already included as entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "vascularity",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Already included as entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "pigmentation",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Already included as entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "scar relief",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Already included as entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Caucasian",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Already included as entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Black",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Already included as entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Hispanic",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Already included as entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Fitzpatrick Types I-II",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Already included as entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Fitzpatrick Types V-VI",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Already included as entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "modified POSAS",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Already included as entity."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "Fitzpatrick Types I-II",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "vascularity reduction",
+            "reason": "Already included as relation."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "Fitzpatrick Types V-VI",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "vascularity reduction",
+            "reason": "Already included as relation."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "Fitzpatrick Types V-VI",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pigmentation",
+            "reason": "Already included as relation."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "Black",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "favourable pigmentation outcomes",
+            "reason": "Already included as relation."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "Hispanic",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "favourable pigmentation outcomes",
+            "reason": "Already included as relation."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "Fitzpatrick Types V-VI",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "improved scar relief",
+            "reason": "Already included as relation."
+          }
+        ],
+        "review_reason": "The original model produced no entities or relations. This review extracted relevant entities and relations from the abstract, focusing on skin types, racial groups, and physiological outcomes. Generic terms and non-biomedical concepts were rejected. All relations are directly supported by explicit statements in the abstract.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 12,
+        "relation_additions": 6,
+        "agreements": [],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [],
+        "relations": [],
+        "summary": {
+          "total_entities": 0,
+          "raw_entity_count": 0,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 0,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "type_constraint_pass_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 0,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 0
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 0,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 0.9748973753303289,
+      "prompt_tokens": 1451,
+      "output_tokens": 12,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

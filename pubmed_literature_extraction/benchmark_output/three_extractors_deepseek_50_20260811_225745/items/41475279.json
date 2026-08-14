@@ -1,0 +1,4076 @@
+{
+  "pmid": "41475279",
+  "title": "Gut microbiota's role in NAFLD- and HBV/HCV-related hepatocellular carcinoma: Mechanisms and therapeutic implications.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "Hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 59,
+          "char_end": 83
+        },
+        {
+          "mention": "viral hepatitis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "viral hepatitis"
+          },
+          "grounded": true,
+          "source_span": "viral hepatitis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 298,
+          "char_end": 313
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 318,
+          "char_end": 351
+        },
+        {
+          "mention": "gut-liver axis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "gut-liver axis"
+          },
+          "grounded": true,
+          "source_span": "gut-liver axis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 436,
+          "char_end": 450
+        },
+        {
+          "mention": "liver inflammation",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "liver inflammation"
+          },
+          "grounded": true,
+          "source_span": "liver inflammation",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 576,
+          "char_end": 594
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 596,
+          "char_end": 604
+        },
+        {
+          "mention": "tumor formation",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "tumor formation"
+          },
+          "grounded": true,
+          "source_span": "tumor formation",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 610,
+          "char_end": 625
+        },
+        {
+          "mention": "NAFLD-related HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD-related HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "NAFLD-related HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 630,
+          "char_end": 647
+        },
+        {
+          "mention": "intestinal barrier dysfunction",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "intestinal barrier dysfunction"
+          },
+          "grounded": true,
+          "source_span": "intestinal barrier dysfunction",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 704,
+          "char_end": 734
+        },
+        {
+          "mention": "endotoxemia",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "endotoxemia"
+          },
+          "grounded": true,
+          "source_span": "endotoxemia",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 736,
+          "char_end": 747
+        },
+        {
+          "mention": "metabolic disturbances",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "metabolic disturbances"
+          },
+          "grounded": true,
+          "source_span": "metabolic disturbances",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 753,
+          "char_end": 775
+        },
+        {
+          "mention": "HCC associated with HBV/HCV",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC associated with HBV/HCV",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC associated with HBV/HCV",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 780,
+          "char_end": 807
+        },
+        {
+          "mention": "immune surveillance",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "immune surveillance"
+          },
+          "grounded": true,
+          "source_span": "immune surveillance",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 834,
+          "char_end": 853
+        },
+        {
+          "mention": "viral persistence",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "viral persistence"
+          },
+          "grounded": true,
+          "source_span": "viral persistence",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 858,
+          "char_end": 875
+        },
+        {
+          "mention": "LPS-TLR4 signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "LPS-TLR4 signaling"
+          },
+          "grounded": true,
+          "source_span": "LPS-TLR4 signaling",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 913,
+          "char_end": 931
+        },
+        {
+          "mention": "bile acid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "bile acid"
+          },
+          "grounded": true,
+          "source_span": "bile acid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 933,
+          "char_end": 942
+        },
+        {
+          "mention": "Short-chain fatty acids",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Short-chain fatty acids"
+          },
+          "grounded": true,
+          "source_span": "Short-chain fatty acids",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1264,
+          "char_end": 1287
+        },
+        {
+          "mention": "valeric acid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "valeric acid"
+          },
+          "grounded": true,
+          "source_span": "valeric acid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1292,
+          "char_end": 1304
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1259,
+          "char_end": 1262
+        },
+        {
+          "mention": "IBD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "IBD",
+            "disease_stage": "IBD"
+          },
+          "grounded": true,
+          "source_span": "IBD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1379,
+          "char_end": 1382
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 59,
+            "char_end": 83,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "Hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "viral hepatitis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "viral hepatitis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "viral hepatitis",
+            "char_start": 298,
+            "char_end": 313,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:viral hepatitis",
+            "canonical_mentions": [
+              "viral hepatitis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 318,
+            "char_end": 351,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "gut-liver axis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "gut-liver axis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "gut-liver axis",
+            "char_start": 436,
+            "char_end": 450,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:gut liver axis",
+            "canonical_mentions": [
+              "gut-liver axis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver inflammation",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "liver inflammation"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver inflammation",
+            "char_start": 576,
+            "char_end": 594,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:liver inflammation",
+            "canonical_mentions": [
+              "liver inflammation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tumor formation",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "tumor formation"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tumor formation",
+            "char_start": 610,
+            "char_end": 625,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:tumor formation",
+            "canonical_mentions": [
+              "tumor formation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "NAFLD-related HCC",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "NAFLD-related HCC",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "NAFLD-related HCC",
+            "char_start": 630,
+            "char_end": 647,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:nafld related hcc",
+            "canonical_mentions": [
+              "NAFLD-related HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "intestinal barrier dysfunction",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "intestinal barrier dysfunction"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "intestinal barrier dysfunction",
+            "char_start": 704,
+            "char_end": 734,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:intestinal barrier dysfunction",
+            "canonical_mentions": [
+              "intestinal barrier dysfunction"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "endotoxemia",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "endotoxemia"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "endotoxemia",
+            "char_start": 736,
+            "char_end": 747,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:endotoxemia",
+            "canonical_mentions": [
+              "endotoxemia"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "metabolic disturbances",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "metabolic disturbances"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "metabolic disturbances",
+            "char_start": 753,
+            "char_end": 775,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:metabolic disturbances",
+            "canonical_mentions": [
+              "metabolic disturbances"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "immune surveillance",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "immune surveillance"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "immune surveillance",
+            "char_start": 834,
+            "char_end": 853,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:immune surveillance",
+            "canonical_mentions": [
+              "immune surveillance"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "viral persistence",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "viral persistence"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "viral persistence",
+            "char_start": 858,
+            "char_end": 875,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:viral persistence",
+            "canonical_mentions": [
+              "viral persistence"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "LPS-TLR4 signaling",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "LPS-TLR4 signaling"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "LPS-TLR4 signaling",
+            "char_start": 913,
+            "char_end": 931,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:lps tlr4 signaling",
+            "canonical_mentions": [
+              "LPS-TLR4 signaling"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "bile acid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "bile acid"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "bile acid",
+            "char_start": 933,
+            "char_end": 942,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:bile acid",
+            "canonical_mentions": [
+              "bile acid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Short-chain fatty acids",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Short-chain fatty acids"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Short-chain fatty acids",
+            "char_start": 1264,
+            "char_end": 1287,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:short chain fatty acids",
+            "canonical_mentions": [
+              "Short-chain fatty acids"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "valeric acid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "valeric acid"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "valeric acid",
+            "char_start": 1292,
+            "char_end": 1304,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:valeric acid",
+            "canonical_mentions": [
+              "valeric acid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IBD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "IBD",
+              "disease_stage": "IBD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IBD",
+            "char_start": 1379,
+            "char_end": 1382,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:ibd",
+            "canonical_mentions": [
+              "IBD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 17,
+          "raw_entity_count": 20,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 17,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.9475,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 17,
+              "denominator": 20,
+              "value": 0.85
+            },
+            "generic_entity_rate": {
+              "count": 1,
+              "denominator": 20,
+              "value": 0.05
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 20,
+              "value": 0.05
+            },
+            "type_constraint_pass_rate": {
+              "count": 20,
+              "denominator": 20,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 17,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 17
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 20,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 6.0290774162858725,
+      "prompt_tokens": 526,
+      "output_tokens": 1388,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "Hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 59,
+          "char_end": 83
+        },
+        {
+          "mention": "viral hepatitis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "viral hepatitis"
+          },
+          "grounded": true,
+          "source_span": "viral hepatitis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 298,
+          "char_end": 313
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 318,
+          "char_end": 351
+        },
+        {
+          "mention": "gut-liver axis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "gut-liver axis"
+          },
+          "grounded": true,
+          "source_span": "gut-liver axis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 436,
+          "char_end": 450
+        },
+        {
+          "mention": "liver inflammation",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "liver inflammation"
+          },
+          "grounded": true,
+          "source_span": "liver inflammation",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 576,
+          "char_end": 594
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 596,
+          "char_end": 604
+        },
+        {
+          "mention": "tumor formation",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "tumor formation"
+          },
+          "grounded": true,
+          "source_span": "tumor formation",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 610,
+          "char_end": 625
+        },
+        {
+          "mention": "NAFLD-related HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD-related HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "NAFLD-related HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 630,
+          "char_end": 647
+        },
+        {
+          "mention": "intestinal barrier dysfunction",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "intestinal barrier dysfunction"
+          },
+          "grounded": true,
+          "source_span": "intestinal barrier dysfunction",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 704,
+          "char_end": 734
+        },
+        {
+          "mention": "endotoxemia",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "endotoxemia"
+          },
+          "grounded": true,
+          "source_span": "endotoxemia",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 736,
+          "char_end": 747
+        },
+        {
+          "mention": "metabolic disturbances",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "metabolic disturbances"
+          },
+          "grounded": true,
+          "source_span": "metabolic disturbances",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 753,
+          "char_end": 775
+        },
+        {
+          "mention": "HCC associated with HBV/HCV",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC associated with HBV/HCV",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC associated with HBV/HCV",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 780,
+          "char_end": 807
+        },
+        {
+          "mention": "immune surveillance",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "immune surveillance"
+          },
+          "grounded": true,
+          "source_span": "immune surveillance",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 834,
+          "char_end": 853
+        },
+        {
+          "mention": "viral persistence",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "viral persistence"
+          },
+          "grounded": true,
+          "source_span": "viral persistence",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 858,
+          "char_end": 875
+        },
+        {
+          "mention": "LPS-TLR4 signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "LPS-TLR4 signaling"
+          },
+          "grounded": true,
+          "source_span": "LPS-TLR4 signaling",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 913,
+          "char_end": 931
+        },
+        {
+          "mention": "bile acid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "bile acid"
+          },
+          "grounded": true,
+          "source_span": "bile acid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 933,
+          "char_end": 942
+        },
+        {
+          "mention": "Short-chain fatty acids",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Short-chain fatty acids"
+          },
+          "grounded": true,
+          "source_span": "Short-chain fatty acids",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1264,
+          "char_end": 1287
+        },
+        {
+          "mention": "valeric acid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "valeric acid"
+          },
+          "grounded": true,
+          "source_span": "valeric acid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1292,
+          "char_end": 1304
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1259,
+          "char_end": 1262
+        },
+        {
+          "mention": "IBD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "IBD",
+            "disease_stage": "IBD"
+          },
+          "grounded": true,
+          "source_span": "IBD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1379,
+          "char_end": 1382
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "gut dysbiosis",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver inflammation",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation",
+          "confidence": 0.85,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit causal statement in text."
+        },
+        {
+          "subject": "gut dysbiosis",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation",
+          "confidence": 0.85,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit causal statement in text."
+        },
+        {
+          "subject": "gut dysbiosis",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "tumor formation",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation",
+          "confidence": 0.85,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit causal statement in text."
+        },
+        {
+          "subject": "NAFLD-related HCC",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "intestinal barrier dysfunction",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances",
+          "confidence": 0.85,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit association in text."
+        },
+        {
+          "subject": "NAFLD-related HCC",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "endotoxemia",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances",
+          "confidence": 0.85,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit association in text."
+        },
+        {
+          "subject": "NAFLD-related HCC",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "metabolic disturbances",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances",
+          "confidence": 0.85,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit association in text."
+        },
+        {
+          "subject": "HCC associated with HBV/HCV",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "immune surveillance",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence",
+          "confidence": 0.85,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit association in text."
+        },
+        {
+          "subject": "HCC associated with HBV/HCV",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "viral persistence",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence",
+          "confidence": 0.85,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit association in text."
+        },
+        {
+          "subject": "Short-chain fatty acids",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "IBD",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit anti-IBD effect in text."
+        },
+        {
+          "subject": "valeric acid",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "IBD",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit anti-IBD effect in text."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 59,
+            "char_end": 83,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "Hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "viral hepatitis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "viral hepatitis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "viral hepatitis",
+            "char_start": 298,
+            "char_end": 313,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:viral hepatitis",
+            "canonical_mentions": [
+              "viral hepatitis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 318,
+            "char_end": 351,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "gut-liver axis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "gut-liver axis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "gut-liver axis",
+            "char_start": 436,
+            "char_end": 450,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:gut liver axis",
+            "canonical_mentions": [
+              "gut-liver axis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver inflammation",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "liver inflammation"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver inflammation",
+            "char_start": 576,
+            "char_end": 594,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:liver inflammation",
+            "canonical_mentions": [
+              "liver inflammation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "fibrosis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fibrosis",
+            "char_start": 596,
+            "char_end": 604,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:fibrosis",
+            "canonical_mentions": [
+              "fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "conditional_process_with_direct_evidence"
+          },
+          {
+            "mention": "tumor formation",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "tumor formation"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tumor formation",
+            "char_start": 610,
+            "char_end": 625,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:tumor formation",
+            "canonical_mentions": [
+              "tumor formation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "NAFLD-related HCC",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "NAFLD-related HCC",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "NAFLD-related HCC",
+            "char_start": 630,
+            "char_end": 647,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:nafld related hcc",
+            "canonical_mentions": [
+              "NAFLD-related HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "intestinal barrier dysfunction",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "intestinal barrier dysfunction"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "intestinal barrier dysfunction",
+            "char_start": 704,
+            "char_end": 734,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:intestinal barrier dysfunction",
+            "canonical_mentions": [
+              "intestinal barrier dysfunction"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "endotoxemia",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "endotoxemia"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "endotoxemia",
+            "char_start": 736,
+            "char_end": 747,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:endotoxemia",
+            "canonical_mentions": [
+              "endotoxemia"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "metabolic disturbances",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "metabolic disturbances"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "metabolic disturbances",
+            "char_start": 753,
+            "char_end": 775,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:metabolic disturbances",
+            "canonical_mentions": [
+              "metabolic disturbances"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "immune surveillance",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "immune surveillance"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "immune surveillance",
+            "char_start": 834,
+            "char_end": 853,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:immune surveillance",
+            "canonical_mentions": [
+              "immune surveillance"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "viral persistence",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "viral persistence"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "viral persistence",
+            "char_start": 858,
+            "char_end": 875,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:viral persistence",
+            "canonical_mentions": [
+              "viral persistence"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "LPS-TLR4 signaling",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "LPS-TLR4 signaling"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "LPS-TLR4 signaling",
+            "char_start": 913,
+            "char_end": 931,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:lps tlr4 signaling",
+            "canonical_mentions": [
+              "LPS-TLR4 signaling"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "bile acid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "bile acid"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "bile acid",
+            "char_start": 933,
+            "char_end": 942,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:bile acid",
+            "canonical_mentions": [
+              "bile acid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Short-chain fatty acids",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Short-chain fatty acids"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Short-chain fatty acids",
+            "char_start": 1264,
+            "char_end": 1287,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:short chain fatty acids",
+            "canonical_mentions": [
+              "Short-chain fatty acids"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "valeric acid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "valeric acid"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "valeric acid",
+            "char_start": 1292,
+            "char_end": 1304,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:valeric acid",
+            "canonical_mentions": [
+              "valeric acid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IBD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "IBD",
+              "disease_stage": "IBD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IBD",
+            "char_start": 1379,
+            "char_end": 1382,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:ibd",
+            "canonical_mentions": [
+              "IBD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "gut dysbiosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver inflammation",
+            "subject_type": "Pathway",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_not_in_entities",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 547,
+            "evidence_char_end": 625,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "gut dysbiosis",
+            "original_object": "liver inflammation",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "gut dysbiosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "Pathway",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_not_in_entities",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 547,
+            "evidence_char_end": 625,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "gut dysbiosis",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "gut dysbiosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "tumor formation",
+            "subject_type": "Pathway",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_not_in_entities",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 547,
+            "evidence_char_end": 625,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "gut dysbiosis",
+            "original_object": "tumor formation",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "NAFLD-related HCC",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "intestinal barrier dysfunction",
+            "subject_type": "Disease",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 627,
+            "evidence_char_end": 775,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "NAFLD-related HCC",
+            "original_object": "intestinal barrier dysfunction",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "NAFLD-related HCC",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "endotoxemia",
+            "subject_type": "Disease",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 627,
+            "evidence_char_end": 775,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "NAFLD-related HCC",
+            "original_object": "endotoxemia",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "NAFLD-related HCC",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "metabolic disturbances",
+            "subject_type": "Disease",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 627,
+            "evidence_char_end": 775,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "NAFLD-related HCC",
+            "original_object": "metabolic disturbances",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "HCC associated with HBV/HCV",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "immune surveillance",
+            "subject_type": "Disease",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 777,
+            "evidence_char_end": 875,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "HCC associated with HBV/HCV",
+            "original_object": "immune surveillance",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "HCC associated with HBV/HCV",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "viral persistence",
+            "subject_type": "Disease",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 777,
+            "evidence_char_end": 875,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "HCC associated with HBV/HCV",
+            "original_object": "viral persistence",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Short-chain fatty acids",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "IBD",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1264,
+            "evidence_char_end": 1390,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Short-chain fatty acids",
+            "original_object": "IBD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "valeric acid",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "IBD",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1264,
+            "evidence_char_end": 1390,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "valeric acid",
+            "original_object": "IBD",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 18,
+          "raw_entity_count": 20,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 18,
+          "total_relations": 10,
+          "known_relations": 0,
+          "novel_relations": 10,
+          "contradicting_relations": 0,
+          "schema_valid": 10,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.865,
+          "evidence_score": 0.75,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 18,
+              "denominator": 20,
+              "value": 0.9
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 20,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 20,
+              "value": 0.05
+            },
+            "type_constraint_pass_rate": {
+              "count": 20,
+              "denominator": 20,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 5,
+              "denominator": 10,
+              "value": 0.5
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 10,
+              "value": 0.2
+            },
+            "unresolved_endpoint_rate": {
+              "count": 5,
+              "denominator": 10,
+              "value": 0.5
+            },
+            "weak_evidence_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 18,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 18
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 20,
+        "relations": 10,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 19.309024499263614,
+      "prompt_tokens": 9168,
+      "output_tokens": 4374,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "entity_type": "Disease",
+            "source_span": "Hepatocellular carcinoma",
+            "char_start": 59,
+            "char_end": 83,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, canonical disease entity."
+          },
+          {
+            "mention": "viral hepatitis",
+            "entity_type": "Disease",
+            "source_span": "viral hepatitis",
+            "char_start": 298,
+            "char_end": 313,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "entity_type": "Disease",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 318,
+            "char_end": 351,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "gut-liver axis",
+            "entity_type": "Pathway",
+            "source_span": "gut-liver axis",
+            "char_start": 436,
+            "char_end": 450,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, pathway concept."
+          },
+          {
+            "mention": "liver inflammation",
+            "entity_type": "Pathway",
+            "source_span": "liver inflammation",
+            "char_start": 576,
+            "char_end": 594,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, pathway concept."
+          },
+          {
+            "mention": "tumor formation",
+            "entity_type": "Pathway",
+            "source_span": "tumor formation",
+            "char_start": 610,
+            "char_end": 625,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, pathway concept."
+          },
+          {
+            "mention": "NAFLD-related HCC",
+            "entity_type": "Disease",
+            "source_span": "NAFLD-related HCC",
+            "char_start": 630,
+            "char_end": 647,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "intestinal barrier dysfunction",
+            "entity_type": "Pathway",
+            "source_span": "intestinal barrier dysfunction",
+            "char_start": 704,
+            "char_end": 734,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, pathway concept."
+          },
+          {
+            "mention": "endotoxemia",
+            "entity_type": "Pathway",
+            "source_span": "endotoxemia",
+            "char_start": 736,
+            "char_end": 747,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, pathway concept."
+          },
+          {
+            "mention": "metabolic disturbances",
+            "entity_type": "Pathway",
+            "source_span": "metabolic disturbances",
+            "char_start": 753,
+            "char_end": 775,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, pathway concept."
+          },
+          {
+            "mention": "immune surveillance",
+            "entity_type": "Pathway",
+            "source_span": "immune surveillance",
+            "char_start": 834,
+            "char_end": 853,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, pathway concept."
+          },
+          {
+            "mention": "viral persistence",
+            "entity_type": "Pathway",
+            "source_span": "viral persistence",
+            "char_start": 858,
+            "char_end": 875,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, pathway concept."
+          },
+          {
+            "mention": "LPS-TLR4 signaling",
+            "entity_type": "Pathway",
+            "source_span": "LPS-TLR4 signaling",
+            "char_start": 913,
+            "char_end": 931,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, pathway concept."
+          },
+          {
+            "mention": "bile acid",
+            "entity_type": "Metabolite",
+            "source_span": "bile acid",
+            "char_start": 933,
+            "char_end": 942,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, metabolite."
+          },
+          {
+            "mention": "Short-chain fatty acids",
+            "entity_type": "Metabolite",
+            "source_span": "Short-chain fatty acids",
+            "char_start": 1264,
+            "char_end": 1287,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, metabolite."
+          },
+          {
+            "mention": "valeric acid",
+            "entity_type": "Metabolite",
+            "source_span": "valeric acid",
+            "char_start": 1292,
+            "char_end": 1304,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, metabolite."
+          },
+          {
+            "mention": "IBD",
+            "entity_type": "Disease",
+            "source_span": "IBD",
+            "char_start": 1379,
+            "char_end": 1382,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in text, disease entity."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "gut dysbiosis",
+            "subject_type": "Pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver inflammation",
+            "object_type": "Pathway",
+            "direction": "positive",
+            "evidence": "gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation",
+            "evidence_span": "gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation",
+            "confidence": 0.85,
+            "uncertain": false,
+            "reason": "Explicit causal statement in text."
+          },
+          {
+            "subject": "gut dysbiosis",
+            "subject_type": "Pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "object_type": "Pathway",
+            "direction": "positive",
+            "evidence": "gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation",
+            "evidence_span": "gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation",
+            "confidence": 0.85,
+            "uncertain": false,
+            "reason": "Explicit causal statement in text."
+          },
+          {
+            "subject": "gut dysbiosis",
+            "subject_type": "Pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "tumor formation",
+            "object_type": "Pathway",
+            "direction": "positive",
+            "evidence": "gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation",
+            "evidence_span": "gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation",
+            "confidence": 0.85,
+            "uncertain": false,
+            "reason": "Explicit causal statement in text."
+          },
+          {
+            "subject": "NAFLD-related HCC",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "intestinal barrier dysfunction",
+            "object_type": "Pathway",
+            "direction": "positive",
+            "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances",
+            "evidence_span": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances",
+            "confidence": 0.85,
+            "uncertain": false,
+            "reason": "Explicit association in text."
+          },
+          {
+            "subject": "NAFLD-related HCC",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "endotoxemia",
+            "object_type": "Pathway",
+            "direction": "positive",
+            "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances",
+            "evidence_span": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances",
+            "confidence": 0.85,
+            "uncertain": false,
+            "reason": "Explicit association in text."
+          },
+          {
+            "subject": "NAFLD-related HCC",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "metabolic disturbances",
+            "object_type": "Pathway",
+            "direction": "positive",
+            "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances",
+            "evidence_span": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances",
+            "confidence": 0.85,
+            "uncertain": false,
+            "reason": "Explicit association in text."
+          },
+          {
+            "subject": "HCC associated with HBV/HCV",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "immune surveillance",
+            "object_type": "Pathway",
+            "direction": "positive",
+            "evidence": "In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence",
+            "evidence_span": "In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence",
+            "confidence": 0.85,
+            "uncertain": false,
+            "reason": "Explicit association in text."
+          },
+          {
+            "subject": "HCC associated with HBV/HCV",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "viral persistence",
+            "object_type": "Pathway",
+            "direction": "positive",
+            "evidence": "In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence",
+            "evidence_span": "In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence",
+            "confidence": 0.85,
+            "uncertain": false,
+            "reason": "Explicit association in text."
+          },
+          {
+            "subject": "Short-chain fatty acids",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "IBD",
+            "object_type": "Disease",
+            "direction": "negative",
+            "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects",
+            "evidence_span": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Explicit anti-IBD effect in text."
+          },
+          {
+            "subject": "valeric acid",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "IBD",
+            "object_type": "Disease",
+            "direction": "negative",
+            "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects",
+            "evidence_span": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Explicit anti-IBD effect in text."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "fibrosis",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Bare process without direct evidence; not a specific pathway entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HCC associated with HBV/HCV",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Composite entity; should be split into HCC and HBV/HCV."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HCC",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of Hepatocellular carcinoma; merged."
+          }
+        ],
+        "review_reason": "Corrected entity list to remove duplicates and composite entities, added relations with explicit evidence from text.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 10,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Hepatocellular carcinoma"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "viral hepatitis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "non-alcoholic fatty liver disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "gut-liver axis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver inflammation"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "tumor formation"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "NAFLD-related HCC"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "intestinal barrier dysfunction"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "endotoxemia"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "metabolic disturbances"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "immune surveillance"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "viral persistence"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "LPS-TLR4 signaling"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "bile acid"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Short-chain fatty acids"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "valeric acid"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "IBD"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006528"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "char_start": 59,
+          "char_end": 83
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D065626"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "char_start": 318,
+          "char_end": 351
+        },
+        {
+          "mention": "viral hepatitis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006525"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "viral hepatitis",
+          "char_start": 298,
+          "char_end": 313
+        },
+        {
+          "mention": "gut microbiota",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "C0007869"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "gut microbiota",
+          "char_start": 395,
+          "char_end": 409
+        },
+        {
+          "mention": "gut-liver axis",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "C0007869"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "gut-liver axis",
+          "char_start": 436,
+          "char_end": 450
+        },
+        {
+          "mention": "liver inflammation",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008107"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "liver inflammation",
+          "char_start": 576,
+          "char_end": 594
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D005355"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "fibrosis",
+          "char_start": 596,
+          "char_end": 604
+        },
+        {
+          "mention": "tumor formation",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D009369"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "tumor formation",
+          "char_start": 610,
+          "char_end": 625
+        },
+        {
+          "mention": "intestinal barrier dysfunction",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D007530"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "intestinal barrier dysfunction",
+          "char_start": 704,
+          "char_end": 734
+        },
+        {
+          "mention": "endotoxemia",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D004746"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "endotoxemia",
+          "char_start": 736,
+          "char_end": 747
+        },
+        {
+          "mention": "metabolic disturbances",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008659"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "metabolic disturbances",
+          "char_start": 753,
+          "char_end": 775
+        },
+        {
+          "mention": "HBV",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006509"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "HBV",
+          "char_start": 43,
+          "char_end": 46
+        },
+        {
+          "mention": "HCV",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006526"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "HCV",
+          "char_start": 47,
+          "char_end": 50
+        },
+        {
+          "mention": "immune surveillance",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "D007164"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "immune surveillance",
+          "char_start": 834,
+          "char_end": 853
+        },
+        {
+          "mention": "viral persistence",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D014777"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "viral persistence",
+          "char_start": 858,
+          "char_end": 875
+        },
+        {
+          "mention": "LPS-TLR4 signaling",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "C0007869"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "LPS-TLR4 signaling",
+          "char_start": 913,
+          "char_end": 931
+        },
+        {
+          "mention": "bile acid dysregulation",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "C0007869"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "bile acid dysregulation",
+          "char_start": 933,
+          "char_end": 956
+        },
+        {
+          "mention": "immunosuppressive microenvironments",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "C0007869"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "immunosuppressive microenvironments",
+          "char_start": 962,
+          "char_end": 997
+        },
+        {
+          "mention": "Short-chain fatty acids",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "D000111"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Short-chain fatty acids",
+          "char_start": 1264,
+          "char_end": 1287
+        },
+        {
+          "mention": "valeric acid",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "D000111"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "valeric acid",
+          "char_start": 1292,
+          "char_end": 1304
+        },
+        {
+          "mention": "fecal microbiota transplantation",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "C0007869"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "fecal microbiota transplantation",
+          "char_start": 1398,
+          "char_end": 1430
+        },
+        {
+          "mention": "dietary modulation",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "C0007869"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "dietary modulation",
+          "char_start": 1435,
+          "char_end": 1453
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "gut microbiota",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Recent research has demonstrated that the gut microbiota significantly impacts the gut-liver axis, a crucial aspect of the pathophysiology of HCC.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "gut-liver axis",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Recent research has demonstrated that the gut microbiota significantly impacts the gut-liver axis, a crucial aspect of the pathophysiology of HCC.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "gut dysbiosis",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver inflammation",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "This review emphasizes the mechanisms by which gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "gut dysbiosis",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "This review emphasizes the mechanisms by which gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "gut dysbiosis",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "tumor formation",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "This review emphasizes the mechanisms by which gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "microbiota composition",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "intestinal barrier dysfunction",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "microbiota composition",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "endotoxemia",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "microbiota composition",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "metabolic disturbances",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "microbiome",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "immune surveillance",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "microbiome",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "viral persistence",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "LPS-TLR4 signaling",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Shared pathogenic pathways, such as LPS-TLR4 signaling, bile acid dysregulation, and immunosuppressive microenvironments, highlight the role of microbial imbalance across varied etiologies.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "bile acid dysregulation",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Shared pathogenic pathways, such as LPS-TLR4 signaling, bile acid dysregulation, and immunosuppressive microenvironments, highlight the role of microbial imbalance across varied etiologies.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "immunosuppressive microenvironments",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Shared pathogenic pathways, such as LPS-TLR4 signaling, bile acid dysregulation, and immunosuppressive microenvironments, highlight the role of microbial imbalance across varied etiologies.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "Short-chain fatty acids",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects, while fecal microbiota transplantation and dietary modulation have shown potential in improving outcomes.",
+          "negated": false,
+          "uncertain": true,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "valeric acid",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects, while fecal microbiota transplantation and dietary modulation have shown potential in improving outcomes.",
+          "negated": false,
+          "uncertain": true,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "fecal microbiota transplantation",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects, while fecal microbiota transplantation and dietary modulation have shown potential in improving outcomes.",
+          "negated": false,
+          "uncertain": true,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "dietary modulation",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects, while fecal microbiota transplantation and dietary modulation have shown potential in improving outcomes.",
+          "negated": false,
+          "uncertain": true,
+          "species": "human",
+          "confidence": 0.7
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D006528"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 59,
+            "char_end": 83,
+            "grounded": true,
+            "normalized_id": "D006528",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D065626"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 318,
+            "char_end": 351,
+            "grounded": true,
+            "normalized_id": "D065626",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "viral hepatitis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D006525"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "viral hepatitis",
+            "char_start": 298,
+            "char_end": 313,
+            "grounded": true,
+            "normalized_id": "D006525",
+            "canonical_key": "Disease:viral hepatitis",
+            "canonical_mentions": [
+              "viral hepatitis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "fecal microbiota transplantation",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "C0007869"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fecal microbiota transplantation",
+            "char_start": 1398,
+            "char_end": 1430,
+            "grounded": true,
+            "normalized_id": "C0007869",
+            "canonical_key": "Pathway:fecal microbiota transplantation",
+            "canonical_mentions": [
+              "gut-liver axis",
+              "LPS-TLR4 signaling",
+              "bile acid dysregulation",
+              "immunosuppressive microenvironments",
+              "fecal microbiota transplantation",
+              "dietary modulation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver inflammation",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "D008107"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver inflammation",
+            "char_start": 576,
+            "char_end": 594,
+            "grounded": true,
+            "normalized_id": "D008107",
+            "canonical_key": "Disease:liver inflammation",
+            "canonical_mentions": [
+              "liver inflammation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tumor formation",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "D009369"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tumor formation",
+            "char_start": 610,
+            "char_end": 625,
+            "grounded": true,
+            "normalized_id": "D009369",
+            "canonical_key": "Disease:tumor formation",
+            "canonical_mentions": [
+              "tumor formation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "intestinal barrier dysfunction",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "D007530"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "intestinal barrier dysfunction",
+            "char_start": 704,
+            "char_end": 734,
+            "grounded": true,
+            "normalized_id": "D007530",
+            "canonical_key": "Disease:intestinal barrier dysfunction",
+            "canonical_mentions": [
+              "intestinal barrier dysfunction"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "endotoxemia",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D004746"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "endotoxemia",
+            "char_start": 736,
+            "char_end": 747,
+            "grounded": true,
+            "normalized_id": "D004746",
+            "canonical_key": "Disease:endotoxemia",
+            "canonical_mentions": [
+              "endotoxemia"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "metabolic disturbances",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "D008659"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "metabolic disturbances",
+            "char_start": 753,
+            "char_end": 775,
+            "grounded": true,
+            "normalized_id": "D008659",
+            "canonical_key": "Disease:metabolic disturbances",
+            "canonical_mentions": [
+              "metabolic disturbances"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D006509"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV",
+            "char_start": 43,
+            "char_end": 46,
+            "grounded": true,
+            "normalized_id": "D006509",
+            "canonical_key": "Disease:hbv",
+            "canonical_mentions": [
+              "HBV"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HCV",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D006526"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HCV",
+            "char_start": 47,
+            "char_end": 50,
+            "grounded": true,
+            "normalized_id": "D006526",
+            "canonical_key": "Disease:hcv",
+            "canonical_mentions": [
+              "HCV"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "immune surveillance",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "D007164"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "immune surveillance",
+            "char_start": 834,
+            "char_end": 853,
+            "grounded": true,
+            "normalized_id": "D007164",
+            "canonical_key": "Pathway:immune surveillance",
+            "canonical_mentions": [
+              "immune surveillance"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "viral persistence",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "D014777"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "viral persistence",
+            "char_start": 858,
+            "char_end": 875,
+            "grounded": true,
+            "normalized_id": "D014777",
+            "canonical_key": "Disease:viral persistence",
+            "canonical_mentions": [
+              "viral persistence"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Short-chain fatty acids",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D000111"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Short-chain fatty acids",
+            "char_start": 1264,
+            "char_end": 1287,
+            "grounded": true,
+            "normalized_id": "D000111",
+            "canonical_key": "Metabolite:short chain fatty acids",
+            "canonical_mentions": [
+              "Short-chain fatty acids",
+              "valeric acid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "gut microbiota",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Recent research has demonstrated that the gut microbiota significantly impacts the gut-liver axis, a crucial aspect of the pathophysiology of HCC.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_not_grounded",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 353,
+            "evidence_char_end": 499,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "gut microbiota",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "fecal microbiota transplantation",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Recent research has demonstrated that the gut microbiota significantly impacts the gut-liver axis, a crucial aspect of the pathophysiology of HCC.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 353,
+            "evidence_char_end": 499,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "gut-liver axis",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "gut dysbiosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver inflammation",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "This review emphasizes the mechanisms by which gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_not_in_entities",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 500,
+            "evidence_char_end": 626,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "gut dysbiosis",
+            "original_object": "liver inflammation",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "gut dysbiosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "This review emphasizes the mechanisms by which gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_endpoint_missing",
+              "subject_not_in_entities",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 500,
+            "evidence_char_end": 626,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "gut dysbiosis",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "gut dysbiosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "tumor formation",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "This review emphasizes the mechanisms by which gut dysbiosis contributes to liver inflammation, fibrosis, and tumor formation.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_not_in_entities",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 500,
+            "evidence_char_end": 626,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "gut dysbiosis",
+            "original_object": "tumor formation",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "microbiota composition",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "intestinal barrier dysfunction",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_not_in_entities",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 627,
+            "evidence_char_end": 776,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "microbiota composition",
+            "original_object": "intestinal barrier dysfunction",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "microbiota composition",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "endotoxemia",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_not_in_entities",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 627,
+            "evidence_char_end": 776,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "microbiota composition",
+            "original_object": "endotoxemia",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "microbiota composition",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "metabolic disturbances",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "In NAFLD-related HCC, modification in the microbiota composition facilitates intestinal barrier dysfunction, endotoxemia, and metabolic disturbances.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_not_in_entities",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 627,
+            "evidence_char_end": 776,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "microbiota composition",
+            "original_object": "metabolic disturbances",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "microbiome",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "immune surveillance",
+            "subject_type": "CellType",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_not_in_entities",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 777,
+            "evidence_char_end": 876,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "microbiome",
+            "original_object": "immune surveillance",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "microbiome",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "viral persistence",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "In HCC associated with HBV/HCV, the microbiome modulates immune surveillance and viral persistence.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_not_in_entities",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 777,
+            "evidence_char_end": 876,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "microbiome",
+            "original_object": "viral persistence",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "fecal microbiota transplantation",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Shared pathogenic pathways, such as LPS-TLR4 signaling, bile acid dysregulation, and immunosuppressive microenvironments, highlight the role of microbial imbalance across varied etiologies.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 877,
+            "evidence_char_end": 1066,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "LPS-TLR4 signaling",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "fecal microbiota transplantation",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Shared pathogenic pathways, such as LPS-TLR4 signaling, bile acid dysregulation, and immunosuppressive microenvironments, highlight the role of microbial imbalance across varied etiologies.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 877,
+            "evidence_char_end": 1066,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "bile acid dysregulation",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "fecal microbiota transplantation",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Shared pathogenic pathways, such as LPS-TLR4 signaling, bile acid dysregulation, and immunosuppressive microenvironments, highlight the role of microbial imbalance across varied etiologies.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 877,
+            "evidence_char_end": 1066,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "immunosuppressive microenvironments",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Short-chain fatty acids",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects, while fecal microbiota transplantation and dietary modulation have shown potential in improving outcomes.",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1264,
+            "evidence_char_end": 1497,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Short-chain fatty acids",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Short-chain fatty acids",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects, while fecal microbiota transplantation and dietary modulation have shown potential in improving outcomes.",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1264,
+            "evidence_char_end": 1497,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "valeric acid",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "fecal microbiota transplantation",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects, while fecal microbiota transplantation and dietary modulation have shown potential in improving outcomes.",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1264,
+            "evidence_char_end": 1497,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "fecal microbiota transplantation",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "fecal microbiota transplantation",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Short-chain fatty acids and valeric acid are examples of postbiotics with anti-inflammatory and pro-apoptotic anti-IBD effects, while fecal microbiota transplantation and dietary modulation have shown potential in improving outcomes.",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1264,
+            "evidence_char_end": 1497,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "dietary modulation",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 14,
+          "raw_entity_count": 22,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 6,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 14,
+          "total_relations": 17,
+          "known_relations": 0,
+          "novel_relations": 17,
+          "contradicting_relations": 0,
+          "schema_valid": 17,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5794,
+          "evidence_score": 0.5647,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 14,
+              "denominator": 22,
+              "value": 0.6364
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 22,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 6,
+              "denominator": 22,
+              "value": 0.2727
+            },
+            "type_constraint_pass_rate": {
+              "count": 20,
+              "denominator": 22,
+              "value": 0.9091
+            },
+            "relation_evidence_exactness": {
+              "count": 17,
+              "denominator": 17,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 8,
+              "denominator": 17,
+              "value": 0.4706
+            },
+            "direction_trigger_consistency": {
+              "count": 3,
+              "denominator": 17,
+              "value": 0.1765
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 17,
+              "value": 0.1176
+            },
+            "unresolved_endpoint_rate": {
+              "count": 9,
+              "denominator": 17,
+              "value": 0.5294
+            },
+            "weak_evidence_rate": {
+              "count": 17,
+              "denominator": 17,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 4,
+              "denominator": 17,
+              "value": 0.2353
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 14,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 14
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 22,
+        "relations": 17,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 13.863975666463375,
+      "prompt_tokens": 1496,
+      "output_tokens": 3062,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

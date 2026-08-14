@@ -1,0 +1,2111 @@
+{
+  "pmid": "41891740",
+  "title": "[Severe Hemolytic Anemia Due to Paravalvular Leak Associated with Heart Failure and Congestive Hepatopathy: A Case Report].",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "heart failure",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "heart failure",
+            "disease_stage": "chronic"
+          },
+          "grounded": true,
+          "source_span": "heart failure",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 73,
+          "char_end": 86
+        },
+        {
+          "mention": "hepatic fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic fibrosis"
+          },
+          "grounded": true,
+          "source_span": "hepatic fibrosis",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 173,
+          "char_end": 189
+        },
+        {
+          "mention": "atrial fibrillation",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "atrial fibrillation"
+          },
+          "grounded": true,
+          "source_span": "atrial fibrillation",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 508,
+          "char_end": 527
+        },
+        {
+          "mention": "liver dysfunction",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver dysfunction"
+          },
+          "grounded": true,
+          "source_span": "liver dysfunction",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 529,
+          "char_end": 546
+        },
+        {
+          "mention": "hemolytic anemia",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hemolytic anemia"
+          },
+          "grounded": true,
+          "source_span": "hemolytic anemia",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 15,
+          "char_end": 31
+        },
+        {
+          "mention": "tricuspid regurgitation",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "tricuspid regurgitation"
+          },
+          "grounded": true,
+          "source_span": "tricuspid regurgitation",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 633,
+          "char_end": 656
+        },
+        {
+          "mention": "mitral valve replacement dysfunction",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "mitral valve replacement dysfunction"
+          },
+          "grounded": true,
+          "source_span": "mitral valve replacement dysfunction",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 661,
+          "char_end": 697
+        },
+        {
+          "mention": "paravalvular leak",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "paravalvular leak"
+          },
+          "grounded": true,
+          "source_span": "paravalvular leak",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 706,
+          "char_end": 723
+        },
+        {
+          "mention": "intravascular hemolysis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "intravascular hemolysis"
+          },
+          "grounded": true,
+          "source_span": "intravascular hemolysis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 732,
+          "char_end": 755
+        },
+        {
+          "mention": "venous congestion",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "venous congestion"
+          },
+          "grounded": true,
+          "source_span": "venous congestion",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 866,
+          "char_end": 883
+        },
+        {
+          "mention": "right ventricular dysfunction",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "right ventricular dysfunction"
+          },
+          "grounded": true,
+          "source_span": "right ventricular dysfunction",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 891,
+          "char_end": 920
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "heart failure",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "heart failure",
+              "disease_stage": "chronic"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Heart Failure",
+            "char_start": 73,
+            "char_end": 86,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:heart failure",
+            "canonical_mentions": [
+              "heart failure"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatic fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic fibrosis",
+            "char_start": 173,
+            "char_end": 189,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatic fibrosis",
+            "canonical_mentions": [
+              "hepatic fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "atrial fibrillation",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "atrial fibrillation"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "atrial fibrillation",
+            "char_start": 508,
+            "char_end": 527,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:atrial fibrillation",
+            "canonical_mentions": [
+              "atrial fibrillation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver dysfunction",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "liver dysfunction"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver dysfunction",
+            "char_start": 529,
+            "char_end": 546,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver dysfunction",
+            "canonical_mentions": [
+              "liver dysfunction"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hemolytic anemia",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hemolytic anemia"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hemolytic Anemia",
+            "char_start": 15,
+            "char_end": 31,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hemolytic anemia",
+            "canonical_mentions": [
+              "hemolytic anemia"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tricuspid regurgitation",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "tricuspid regurgitation"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tricuspid regurgitation",
+            "char_start": 633,
+            "char_end": 656,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:tricuspid regurgitation",
+            "canonical_mentions": [
+              "tricuspid regurgitation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "mitral valve replacement dysfunction",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "mitral valve replacement dysfunction"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "mitral valve replacement dysfunction",
+            "char_start": 661,
+            "char_end": 697,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:mitral valve replacement dysfunction",
+            "canonical_mentions": [
+              "mitral valve replacement dysfunction"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "paravalvular leak",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "paravalvular leak"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "paravalvular leak",
+            "char_start": 706,
+            "char_end": 723,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:paravalvular leak",
+            "canonical_mentions": [
+              "paravalvular leak"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "intravascular hemolysis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "intravascular hemolysis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "intravascular hemolysis",
+            "char_start": 732,
+            "char_end": 755,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:intravascular hemolysis",
+            "canonical_mentions": [
+              "intravascular hemolysis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "venous congestion",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "venous congestion"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "venous congestion",
+            "char_start": 866,
+            "char_end": 883,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:venous congestion",
+            "canonical_mentions": [
+              "venous congestion"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "right ventricular dysfunction",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "right ventricular dysfunction"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "right ventricular dysfunction",
+            "char_start": 891,
+            "char_end": 920,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:right ventricular dysfunction",
+            "canonical_mentions": [
+              "right ventricular dysfunction"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 11,
+          "raw_entity_count": 11,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 11,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 11,
+              "denominator": 11,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 11,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 11,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 11,
+              "denominator": 11,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 11,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 11
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 11,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.3565951250493526,
+      "prompt_tokens": 306,
+      "output_tokens": 791,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "heart failure",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "heart failure",
+            "disease_stage": "chronic"
+          },
+          "grounded": true,
+          "source_span": "heart failure",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 73,
+          "char_end": 86
+        },
+        {
+          "mention": "hepatic fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic fibrosis"
+          },
+          "grounded": true,
+          "source_span": "hepatic fibrosis",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 173,
+          "char_end": 189
+        },
+        {
+          "mention": "atrial fibrillation",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "atrial fibrillation"
+          },
+          "grounded": true,
+          "source_span": "atrial fibrillation",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 508,
+          "char_end": 527
+        },
+        {
+          "mention": "liver dysfunction",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver dysfunction"
+          },
+          "grounded": true,
+          "source_span": "liver dysfunction",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 529,
+          "char_end": 546
+        },
+        {
+          "mention": "hemolytic anemia",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hemolytic anemia"
+          },
+          "grounded": true,
+          "source_span": "hemolytic anemia",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 15,
+          "char_end": 31
+        },
+        {
+          "mention": "tricuspid regurgitation",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "tricuspid regurgitation"
+          },
+          "grounded": true,
+          "source_span": "tricuspid regurgitation",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 633,
+          "char_end": 656
+        },
+        {
+          "mention": "mitral valve replacement dysfunction",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "mitral valve replacement dysfunction"
+          },
+          "grounded": true,
+          "source_span": "mitral valve replacement dysfunction",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 661,
+          "char_end": 697
+        },
+        {
+          "mention": "paravalvular leak",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "paravalvular leak"
+          },
+          "grounded": true,
+          "source_span": "paravalvular leak",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 706,
+          "char_end": 723
+        },
+        {
+          "mention": "intravascular hemolysis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "intravascular hemolysis"
+          },
+          "grounded": true,
+          "source_span": "intravascular hemolysis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 732,
+          "char_end": 755
+        },
+        {
+          "mention": "venous congestion",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "venous congestion"
+          },
+          "grounded": true,
+          "source_span": "venous congestion",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 866,
+          "char_end": 883
+        },
+        {
+          "mention": "right ventricular dysfunction",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "right ventricular dysfunction"
+          },
+          "grounded": true,
+          "source_span": "right ventricular dysfunction",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 891,
+          "char_end": 920
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "heart failure",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Chronic heart failure can cause hepatic fibrosis.",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct causal statement in the abstract."
+        },
+        {
+          "subject": "paravalvular leak",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "intravascular hemolysis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "with a paravalvular leak causing intravascular hemolysis.",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct causal statement in the abstract."
+        },
+        {
+          "subject": "right ventricular dysfunction",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "venous congestion",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "hepatic fibrosis associated with venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit causal association in the abstract."
+        },
+        {
+          "subject": "tricuspid regurgitation",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "venous congestion",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "hepatic fibrosis associated with venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit causal association in the abstract."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "heart failure",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "heart failure",
+              "disease_stage": "chronic"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Heart Failure",
+            "char_start": 73,
+            "char_end": 86,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:heart failure",
+            "canonical_mentions": [
+              "heart failure"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatic fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic fibrosis",
+            "char_start": 173,
+            "char_end": 189,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatic fibrosis",
+            "canonical_mentions": [
+              "hepatic fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "atrial fibrillation",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "atrial fibrillation"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "atrial fibrillation",
+            "char_start": 508,
+            "char_end": 527,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:atrial fibrillation",
+            "canonical_mentions": [
+              "atrial fibrillation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver dysfunction",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "liver dysfunction"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver dysfunction",
+            "char_start": 529,
+            "char_end": 546,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver dysfunction",
+            "canonical_mentions": [
+              "liver dysfunction"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hemolytic anemia",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hemolytic anemia"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hemolytic Anemia",
+            "char_start": 15,
+            "char_end": 31,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hemolytic anemia",
+            "canonical_mentions": [
+              "hemolytic anemia"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tricuspid regurgitation",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "tricuspid regurgitation"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tricuspid regurgitation",
+            "char_start": 633,
+            "char_end": 656,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:tricuspid regurgitation",
+            "canonical_mentions": [
+              "tricuspid regurgitation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "mitral valve replacement dysfunction",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "mitral valve replacement dysfunction"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "mitral valve replacement dysfunction",
+            "char_start": 661,
+            "char_end": 697,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:mitral valve replacement dysfunction",
+            "canonical_mentions": [
+              "mitral valve replacement dysfunction"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "paravalvular leak",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "paravalvular leak"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "paravalvular leak",
+            "char_start": 706,
+            "char_end": 723,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:paravalvular leak",
+            "canonical_mentions": [
+              "paravalvular leak"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "intravascular hemolysis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "intravascular hemolysis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "intravascular hemolysis",
+            "char_start": 732,
+            "char_end": 755,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:intravascular hemolysis",
+            "canonical_mentions": [
+              "intravascular hemolysis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "venous congestion",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "venous congestion"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "venous congestion",
+            "char_start": 866,
+            "char_end": 883,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:venous congestion",
+            "canonical_mentions": [
+              "venous congestion"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "right ventricular dysfunction",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "right ventricular dysfunction"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "right ventricular dysfunction",
+            "char_start": 891,
+            "char_end": 920,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:right ventricular dysfunction",
+            "canonical_mentions": [
+              "right ventricular dysfunction"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "heart failure",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic fibrosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Chronic heart failure can cause hepatic fibrosis.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 141,
+            "evidence_char_end": 190,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "heart failure",
+            "original_object": "hepatic fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "paravalvular leak",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "intravascular hemolysis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "with a paravalvular leak causing intravascular hemolysis.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 699,
+            "evidence_char_end": 756,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "paravalvular leak",
+            "original_object": "intravascular hemolysis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "right ventricular dysfunction",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "venous congestion",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "hepatic fibrosis associated with venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 833,
+            "evidence_char_end": 955,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "right ventricular dysfunction",
+            "original_object": "venous congestion",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "tricuspid regurgitation",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "venous congestion",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "hepatic fibrosis associated with venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 833,
+            "evidence_char_end": 955,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "tricuspid regurgitation",
+            "original_object": "venous congestion",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 11,
+          "raw_entity_count": 11,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 11,
+          "total_relations": 4,
+          "known_relations": 0,
+          "novel_relations": 4,
+          "contradicting_relations": 0,
+          "schema_valid": 4,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8,
+          "evidence_score": 0.75,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 11,
+              "denominator": 11,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 11,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 11,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 11,
+              "denominator": 11,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 11,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 11
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 11,
+        "relations": 4,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 9.386959624942392,
+      "prompt_tokens": 7514,
+      "output_tokens": 2287,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "heart failure",
+            "entity_type": "Disease",
+            "source_span": "heart failure",
+            "char_start": 73,
+            "char_end": 86,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned in the abstract as chronic heart failure causing hepatic fibrosis."
+          },
+          {
+            "mention": "hepatic fibrosis",
+            "entity_type": "Disease",
+            "source_span": "hepatic fibrosis",
+            "char_start": 173,
+            "char_end": 189,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as a consequence of chronic heart failure."
+          },
+          {
+            "mention": "atrial fibrillation",
+            "entity_type": "Disease",
+            "source_span": "atrial fibrillation",
+            "char_start": 508,
+            "char_end": 527,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly listed as an observed condition in the patient."
+          },
+          {
+            "mention": "liver dysfunction",
+            "entity_type": "Disease",
+            "source_span": "liver dysfunction",
+            "char_start": 529,
+            "char_end": 546,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as an observed condition."
+          },
+          {
+            "mention": "hemolytic anemia",
+            "entity_type": "Disease",
+            "source_span": "Hemolytic Anemia",
+            "char_start": 15,
+            "char_end": 31,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly in the title and abstract."
+          },
+          {
+            "mention": "tricuspid regurgitation",
+            "entity_type": "Disease",
+            "source_span": "tricuspid regurgitation",
+            "char_start": 633,
+            "char_end": 656,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly revealed by transesophageal echocardiogram."
+          },
+          {
+            "mention": "mitral valve replacement dysfunction",
+            "entity_type": "Disease",
+            "source_span": "mitral valve replacement dysfunction",
+            "char_start": 661,
+            "char_end": 697,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as a finding."
+          },
+          {
+            "mention": "paravalvular leak",
+            "entity_type": "Disease",
+            "source_span": "paravalvular leak",
+            "char_start": 706,
+            "char_end": 723,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as causing intravascular hemolysis."
+          },
+          {
+            "mention": "intravascular hemolysis",
+            "entity_type": "Disease",
+            "source_span": "intravascular hemolysis",
+            "char_start": 732,
+            "char_end": 755,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as caused by paravalvular leak."
+          },
+          {
+            "mention": "venous congestion",
+            "entity_type": "Disease",
+            "source_span": "venous congestion",
+            "char_start": 866,
+            "char_end": 883,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as associated with hepatic fibrosis."
+          },
+          {
+            "mention": "right ventricular dysfunction",
+            "entity_type": "Disease",
+            "source_span": "right ventricular dysfunction",
+            "char_start": 891,
+            "char_end": 920,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Explicitly mentioned as a cause of venous congestion."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "heart failure",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic fibrosis",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "Chronic heart failure can cause hepatic fibrosis.",
+            "evidence_span": "Chronic heart failure can cause hepatic fibrosis.",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct causal statement in the abstract."
+          },
+          {
+            "subject": "paravalvular leak",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "intravascular hemolysis",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "with a paravalvular leak causing intravascular hemolysis.",
+            "evidence_span": "with a paravalvular leak causing intravascular hemolysis.",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct causal statement in the abstract."
+          },
+          {
+            "subject": "right ventricular dysfunction",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "venous congestion",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "hepatic fibrosis associated with venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation",
+            "evidence_span": "hepatic fibrosis associated with venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicit causal association in the abstract."
+          },
+          {
+            "subject": "tricuspid regurgitation",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "venous congestion",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "hepatic fibrosis associated with venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation",
+            "evidence_span": "hepatic fibrosis associated with venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicit causal association in the abstract."
+          }
+        ],
+        "rejected_candidates": [],
+        "review_reason": "All candidate entities are explicitly mentioned in the abstract and retained. Relations were added based on direct causal statements in the text. No candidates were rejected.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 4,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "heart failure"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatic fibrosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "atrial fibrillation"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver dysfunction"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hemolytic anemia"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "tricuspid regurgitation"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "mitral valve replacement dysfunction"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "paravalvular leak"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "intravascular hemolysis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "venous congestion"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "right ventricular dysfunction"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "heart failure",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006331"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "heart failure",
+          "char_start": 149,
+          "char_end": 162
+        },
+        {
+          "mention": "hepatic fibrosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D005213"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "hepatic fibrosis",
+          "char_start": 173,
+          "char_end": 189
+        },
+        {
+          "mention": "hemolytic anemia",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000743"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "hemolytic anemia",
+          "char_start": 552,
+          "char_end": 568
+        },
+        {
+          "mention": "liver dysfunction",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008107"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "liver dysfunction",
+          "char_start": 529,
+          "char_end": 546
+        },
+        {
+          "mention": "tricuspid regurgitation",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D014262"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "tricuspid regurgitation",
+          "char_start": 633,
+          "char_end": 656
+        },
+        {
+          "mention": "paravalvular leak",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D059267"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "paravalvular leak",
+          "char_start": 706,
+          "char_end": 723
+        },
+        {
+          "mention": "venous congestion",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D014654"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "venous congestion",
+          "char_start": 866,
+          "char_end": 883
+        },
+        {
+          "mention": "right ventricular dysfunction",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D012091"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "right ventricular dysfunction",
+          "char_start": 891,
+          "char_end": 920
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "heart failure",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Chronic heart failure can cause hepatic fibrosis.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "venous congestion",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "hepatic fibrosis associated with venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation was diagnosed.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "right ventricular dysfunction",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "venous congestion",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "tricuspid regurgitation",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "venous congestion",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "paravalvular leak",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hemolytic anemia",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "a paravalvular leak causing intravascular hemolysis",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "heart failure",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D006331"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "heart failure",
+            "char_start": 149,
+            "char_end": 162,
+            "grounded": true,
+            "normalized_id": "D006331",
+            "canonical_key": "Disease:heart failure",
+            "canonical_mentions": [
+              "heart failure"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D005213"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic fibrosis",
+            "char_start": 173,
+            "char_end": 189,
+            "grounded": true,
+            "normalized_id": "D005213",
+            "canonical_key": "Disease:hepatic fibrosis",
+            "canonical_mentions": [
+              "hepatic fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hemolytic anemia",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D000743"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hemolytic anemia",
+            "char_start": 552,
+            "char_end": 568,
+            "grounded": true,
+            "normalized_id": "D000743",
+            "canonical_key": "Disease:hemolytic anemia",
+            "canonical_mentions": [
+              "hemolytic anemia"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver dysfunction",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "D008107"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver dysfunction",
+            "char_start": 529,
+            "char_end": 546,
+            "grounded": true,
+            "normalized_id": "D008107",
+            "canonical_key": "Disease:liver dysfunction",
+            "canonical_mentions": [
+              "liver dysfunction"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tricuspid regurgitation",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D014262"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tricuspid regurgitation",
+            "char_start": 633,
+            "char_end": 656,
+            "grounded": true,
+            "normalized_id": "D014262",
+            "canonical_key": "Disease:tricuspid regurgitation",
+            "canonical_mentions": [
+              "tricuspid regurgitation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "paravalvular leak",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D059267"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "paravalvular leak",
+            "char_start": 706,
+            "char_end": 723,
+            "grounded": true,
+            "normalized_id": "D059267",
+            "canonical_key": "Disease:paravalvular leak",
+            "canonical_mentions": [
+              "paravalvular leak"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "venous congestion",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "D014654"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "venous congestion",
+            "char_start": 866,
+            "char_end": 883,
+            "grounded": true,
+            "normalized_id": "D014654",
+            "canonical_key": "Disease:venous congestion",
+            "canonical_mentions": [
+              "venous congestion"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "right ventricular dysfunction",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "D012091"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "right ventricular dysfunction",
+            "char_start": 891,
+            "char_end": 920,
+            "grounded": true,
+            "normalized_id": "D012091",
+            "canonical_key": "Disease:right ventricular dysfunction",
+            "canonical_mentions": [
+              "right ventricular dysfunction"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "heart failure",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic fibrosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Chronic heart failure can cause hepatic fibrosis.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 141,
+            "evidence_char_end": 190,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "heart failure",
+            "original_object": "hepatic fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "venous congestion",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic fibrosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "hepatic fibrosis associated with venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation was diagnosed.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 833,
+            "evidence_char_end": 970,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "venous congestion",
+            "original_object": "hepatic fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "right ventricular dysfunction",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "venous congestion",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 866,
+            "evidence_char_end": 955,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "right ventricular dysfunction",
+            "original_object": "venous congestion",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "tricuspid regurgitation",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "venous congestion",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 866,
+            "evidence_char_end": 955,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "tricuspid regurgitation",
+            "original_object": "venous congestion",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "paravalvular leak",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hemolytic anemia",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "a paravalvular leak causing intravascular hemolysis",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 704,
+            "evidence_char_end": 755,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "paravalvular leak",
+            "original_object": "hemolytic anemia",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 8,
+          "raw_entity_count": 8,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 8,
+          "total_relations": 5,
+          "known_relations": 0,
+          "novel_relations": 5,
+          "contradicting_relations": 0,
+          "schema_valid": 5,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8,
+          "evidence_score": 0.73,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 5,
+              "value": 0.2
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 8,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 8
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 8,
+        "relations": 5,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.66575275035575,
+      "prompt_tokens": 1356,
+      "output_tokens": 890,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

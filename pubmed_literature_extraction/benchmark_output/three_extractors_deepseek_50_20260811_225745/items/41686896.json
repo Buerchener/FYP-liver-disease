@@ -1,0 +1,2409 @@
+{
+  "pmid": "41686896",
+  "title": "Cross-trait genomic modeling reveals the polygenic architecture and systemic impact of MASLD.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 94,
+          "char_end": 99
+        },
+        {
+          "mention": "PNPLA3",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "PNPLA3",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "MASLD",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "MASLD",
+                "evidence": "including established (e.g., PNPLA3 and TM6SF2)"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "PNPLA3",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 660,
+          "char_end": 666
+        },
+        {
+          "mention": "TM6SF2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "TM6SF2",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "MASLD",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "MASLD",
+                "evidence": "including established (e.g., PNPLA3 and TM6SF2)"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "TM6SF2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 671,
+          "char_end": 677
+        },
+        {
+          "mention": "NRXN3",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "NRXN3",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "MASLD",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "MASLD",
+                "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "NRXN3",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 723,
+          "char_end": 728
+        },
+        {
+          "mention": "FRMD5",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "FRMD5",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "MASLD",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "MASLD",
+                "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "FRMD5",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 733,
+          "char_end": 738
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1034,
+          "char_end": 1039
+        },
+        {
+          "mention": "FURIN",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "FURIN",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "FURIN",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1123,
+          "char_end": 1128
+        },
+        {
+          "mention": "aldehyde dehydrogenase 2",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "aldehyde dehydrogenase 2",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "aldehyde dehydrogenase 2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1130,
+          "char_end": 1154
+        },
+        {
+          "mention": "apolipoprotein M",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "apolipoprotein M",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "apolipoprotein M",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1160,
+          "char_end": 1176
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "PNPLA3",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "MASLD",
+          "evidence": "including established (e.g., PNPLA3 and TM6SF2)",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "TM6SF2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "MASLD",
+          "evidence": "including established (e.g., PNPLA3 and TM6SF2)",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "NRXN3",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "MASLD",
+          "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "FRMD5",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "MASLD",
+          "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 94,
+            "char_end": 99,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "PNPLA3",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "PNPLA3",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "MASLD",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "MASLD",
+                  "evidence": "including established (e.g., PNPLA3 and TM6SF2)"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "PNPLA3",
+            "char_start": 660,
+            "char_end": 666,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:pnpla3",
+            "canonical_mentions": [
+              "PNPLA3"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "TM6SF2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "TM6SF2",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "MASLD",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "MASLD",
+                  "evidence": "including established (e.g., PNPLA3 and TM6SF2)"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "TM6SF2",
+            "char_start": 671,
+            "char_end": 677,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:tm6sf2",
+            "canonical_mentions": [
+              "TM6SF2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "NRXN3",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "NRXN3",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "MASLD",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "MASLD",
+                  "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "NRXN3",
+            "char_start": 723,
+            "char_end": 728,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:nrxn3",
+            "canonical_mentions": [
+              "NRXN3"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "FRMD5",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "FRMD5",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "MASLD",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "MASLD",
+                  "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "FRMD5",
+            "char_start": 733,
+            "char_end": 738,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:frmd5",
+            "canonical_mentions": [
+              "FRMD5"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "FURIN",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "FURIN",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "FURIN",
+            "char_start": 1123,
+            "char_end": 1128,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:furin",
+            "canonical_mentions": [
+              "FURIN"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aldehyde dehydrogenase 2",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "aldehyde dehydrogenase 2",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aldehyde dehydrogenase 2",
+            "char_start": 1130,
+            "char_end": 1154,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:aldehyde dehydrogenase 2",
+            "canonical_mentions": [
+              "aldehyde dehydrogenase 2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "apolipoprotein M",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "apolipoprotein M",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "apolipoprotein M",
+            "char_start": 1160,
+            "char_end": 1176,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:apolipoprotein m",
+            "canonical_mentions": [
+              "apolipoprotein M"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "PNPLA3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "including established (e.g., PNPLA3 and TM6SF2)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 631,
+            "evidence_char_end": 678,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "PNPLA3",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "TM6SF2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "including established (e.g., PNPLA3 and TM6SF2)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 631,
+            "evidence_char_end": 678,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "TM6SF2",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "NRXN3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 683,
+            "evidence_char_end": 739,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "NRXN3",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "FRMD5",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 683,
+            "evidence_char_end": 739,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "FRMD5",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 8,
+          "raw_entity_count": 9,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 8,
+          "total_relations": 4,
+          "known_relations": 0,
+          "novel_relations": 4,
+          "contradicting_relations": 0,
+          "schema_valid": 4,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5611,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 8,
+              "denominator": 9,
+              "value": 0.8889
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 9,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 9,
+              "value": 0.1111
+            },
+            "type_constraint_pass_rate": {
+              "count": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 8,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 8
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 9,
+        "relations": 4,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.5717523749917746,
+      "prompt_tokens": 354,
+      "output_tokens": 1197,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 94,
+          "char_end": 99
+        },
+        {
+          "mention": "PNPLA3",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "PNPLA3",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "MASLD",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "MASLD",
+                "evidence": "including established (e.g., PNPLA3 and TM6SF2)"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "PNPLA3",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 660,
+          "char_end": 666
+        },
+        {
+          "mention": "TM6SF2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "TM6SF2",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "MASLD",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "MASLD",
+                "evidence": "including established (e.g., PNPLA3 and TM6SF2)"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "TM6SF2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 671,
+          "char_end": 677
+        },
+        {
+          "mention": "NRXN3",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "NRXN3",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "MASLD",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "MASLD",
+                "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "NRXN3",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 723,
+          "char_end": 728
+        },
+        {
+          "mention": "FRMD5",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "FRMD5",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "MASLD",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "MASLD",
+                "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "FRMD5",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 733,
+          "char_end": 738
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1034,
+          "char_end": 1039
+        },
+        {
+          "mention": "FURIN",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "FURIN",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "FURIN",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1123,
+          "char_end": 1128
+        },
+        {
+          "mention": "aldehyde dehydrogenase 2",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "aldehyde dehydrogenase 2",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "aldehyde dehydrogenase 2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1130,
+          "char_end": 1154
+        },
+        {
+          "mention": "apolipoprotein M",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "apolipoprotein M",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "apolipoprotein M",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1160,
+          "char_end": 1176
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "PNPLA3",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "MASLD",
+          "evidence": "including established (e.g., PNPLA3 and TM6SF2)",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "TM6SF2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "MASLD",
+          "evidence": "including established (e.g., PNPLA3 and TM6SF2)",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "NRXN3",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "MASLD",
+          "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "FRMD5",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "MASLD",
+          "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 94,
+            "char_end": 99,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "PNPLA3",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "PNPLA3",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "MASLD",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "MASLD",
+                  "evidence": "including established (e.g., PNPLA3 and TM6SF2)"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "PNPLA3",
+            "char_start": 660,
+            "char_end": 666,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:pnpla3",
+            "canonical_mentions": [
+              "PNPLA3"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "TM6SF2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "TM6SF2",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "MASLD",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "MASLD",
+                  "evidence": "including established (e.g., PNPLA3 and TM6SF2)"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "TM6SF2",
+            "char_start": 671,
+            "char_end": 677,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:tm6sf2",
+            "canonical_mentions": [
+              "TM6SF2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "NRXN3",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "NRXN3",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "MASLD",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "MASLD",
+                  "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "NRXN3",
+            "char_start": 723,
+            "char_end": 728,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:nrxn3",
+            "canonical_mentions": [
+              "NRXN3"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "FRMD5",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "FRMD5",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "MASLD",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "MASLD",
+                  "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "FRMD5",
+            "char_start": 733,
+            "char_end": 738,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:frmd5",
+            "canonical_mentions": [
+              "FRMD5"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "FURIN",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "FURIN",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "FURIN",
+            "char_start": 1123,
+            "char_end": 1128,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:furin",
+            "canonical_mentions": [
+              "FURIN"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aldehyde dehydrogenase 2",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "aldehyde dehydrogenase 2",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aldehyde dehydrogenase 2",
+            "char_start": 1130,
+            "char_end": 1154,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:aldehyde dehydrogenase 2",
+            "canonical_mentions": [
+              "aldehyde dehydrogenase 2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "apolipoprotein M",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "apolipoprotein M",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "apolipoprotein M",
+            "char_start": 1160,
+            "char_end": 1176,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:apolipoprotein m",
+            "canonical_mentions": [
+              "apolipoprotein M"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "PNPLA3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "including established (e.g., PNPLA3 and TM6SF2)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 631,
+            "evidence_char_end": 678,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "PNPLA3",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "TM6SF2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "including established (e.g., PNPLA3 and TM6SF2)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 631,
+            "evidence_char_end": 678,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "TM6SF2",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "NRXN3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 683,
+            "evidence_char_end": 739,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "NRXN3",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "FRMD5",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "previously unreported candidates (e.g., NRXN3 and FRMD5)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 683,
+            "evidence_char_end": 739,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "FRMD5",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 8,
+          "raw_entity_count": 9,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 8,
+          "total_relations": 4,
+          "known_relations": 0,
+          "novel_relations": 4,
+          "contradicting_relations": 0,
+          "schema_valid": 4,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5611,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 8,
+              "denominator": 9,
+              "value": 0.8889
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 9,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 9,
+              "value": 0.1111
+            },
+            "type_constraint_pass_rate": {
+              "count": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 8,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 8
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 9,
+        "relations": 4,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 9.61407741671428,
+      "prompt_tokens": 9084,
+      "output_tokens": 2236,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "MASLD",
+            "entity_type": "Disease",
+            "source_span": "MASLD",
+            "char_start": 94,
+            "char_end": 99,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in title and abstract; disease entity."
+          },
+          {
+            "mention": "PNPLA3",
+            "entity_type": "Gene",
+            "source_span": "PNPLA3",
+            "char_start": 660,
+            "char_end": 666,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; gene symbol."
+          },
+          {
+            "mention": "TM6SF2",
+            "entity_type": "Gene",
+            "source_span": "TM6SF2",
+            "char_start": 671,
+            "char_end": 677,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; gene symbol."
+          },
+          {
+            "mention": "NRXN3",
+            "entity_type": "Gene",
+            "source_span": "NRXN3",
+            "char_start": 723,
+            "char_end": 728,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; gene symbol."
+          },
+          {
+            "mention": "FRMD5",
+            "entity_type": "Gene",
+            "source_span": "FRMD5",
+            "char_start": 733,
+            "char_end": 738,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; gene symbol."
+          },
+          {
+            "mention": "FURIN",
+            "entity_type": "Protein",
+            "source_span": "FURIN",
+            "char_start": 1123,
+            "char_end": 1128,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; protein name."
+          },
+          {
+            "mention": "aldehyde dehydrogenase 2",
+            "entity_type": "Protein",
+            "source_span": "aldehyde dehydrogenase 2",
+            "char_start": 1130,
+            "char_end": 1154,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; protein name."
+          },
+          {
+            "mention": "apolipoprotein M",
+            "entity_type": "Protein",
+            "source_span": "apolipoprotein M",
+            "char_start": 1160,
+            "char_end": 1176,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; protein name."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "PNPLA3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "reason": "Evidence 'including established (e.g., PNPLA3 and TM6SF2)' does not mention MASLD; endpoint not in evidence, direction unsupported."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "TM6SF2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "reason": "Evidence 'including established (e.g., PNPLA3 and TM6SF2)' does not mention MASLD; endpoint not in evidence, direction unsupported."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "NRXN3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "reason": "Evidence 'previously unreported candidates (e.g., NRXN3 and FRMD5)' does not mention MASLD; endpoint not in evidence, direction unsupported."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "FRMD5",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "reason": "Evidence 'previously unreported candidates (e.g., NRXN3 and FRMD5)' does not mention MASLD; endpoint not in evidence, direction unsupported."
+          }
+        ],
+        "review_reason": "All four candidate relations lack evidence covering both endpoints and direction; the provided evidence snippets do not mention MASLD, so they are rejected. Entities are retained as they are exact matches in the abstract.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "MASLD"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "PNPLA3"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "TM6SF2"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "NRXN3"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "FRMD5"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "FURIN"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "aldehyde dehydrogenase 2"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "apolipoprotein M"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "DOID:0080200"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "MASLD",
+          "char_start": 94,
+          "char_end": 99
+        },
+        {
+          "mention": "hepatic fat",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "UBERON:0002107"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "hepatic fat",
+          "char_start": 448,
+          "char_end": 459
+        },
+        {
+          "mention": "PNPLA3",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:18590"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "PNPLA3",
+          "char_start": 660,
+          "char_end": 666
+        },
+        {
+          "mention": "TM6SF2",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:11861"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "TM6SF2",
+          "char_start": 671,
+          "char_end": 677
+        },
+        {
+          "mention": "NRXN3",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:8011"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "NRXN3",
+          "char_start": 723,
+          "char_end": 728
+        },
+        {
+          "mention": "FRMD5",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:26416"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "FRMD5",
+          "char_start": 733,
+          "char_end": 738
+        },
+        {
+          "mention": "FURIN",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "HGNC:8568"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "FURIN",
+          "char_start": 1123,
+          "char_end": 1128
+        },
+        {
+          "mention": "aldehyde dehydrogenase 2",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "HGNC:400"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "aldehyde dehydrogenase 2",
+          "char_start": 1130,
+          "char_end": 1154
+        },
+        {
+          "mention": "apolipoprotein M",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "HGNC:476"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "apolipoprotein M",
+          "char_start": 1160,
+          "char_end": 1176
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "PNPLA3",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "including established (e.g., PNPLA3 and TM6SF2) and previously unreported candidates (e.g., NRXN3 and FRMD5)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "TM6SF2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "including established (e.g., PNPLA3 and TM6SF2) and previously unreported candidates (e.g., NRXN3 and FRMD5)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "NRXN3",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "including established (e.g., PNPLA3 and TM6SF2) and previously unreported candidates (e.g., NRXN3 and FRMD5)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "FRMD5",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "including established (e.g., PNPLA3 and TM6SF2) and previously unreported candidates (e.g., NRXN3 and FRMD5)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "FURIN",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Validation in population-based cohort pinpointed seven proteins (e.g., FURIN, aldehyde dehydrogenase 2, and apolipoprotein M) mediating up to 50.6% of the cardiometabolic risk attributable to MASLD.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.85
+        },
+        {
+          "subject": "aldehyde dehydrogenase 2",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Validation in population-based cohort pinpointed seven proteins (e.g., FURIN, aldehyde dehydrogenase 2, and apolipoprotein M) mediating up to 50.6% of the cardiometabolic risk attributable to MASLD.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.85
+        },
+        {
+          "subject": "apolipoprotein M",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Validation in population-based cohort pinpointed seven proteins (e.g., FURIN, aldehyde dehydrogenase 2, and apolipoprotein M) mediating up to 50.6% of the cardiometabolic risk attributable to MASLD.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.85
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "DOID:0080200"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 94,
+            "char_end": 99,
+            "grounded": true,
+            "normalized_id": "DOID:0080200",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic fat",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "UBERON:0002107"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic fat",
+            "char_start": 448,
+            "char_end": 459,
+            "grounded": true,
+            "normalized_id": "UBERON:0002107",
+            "canonical_key": "Tissue:hepatic fat",
+            "canonical_mentions": [
+              "hepatic fat"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "PNPLA3",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "HGNC:18590"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "PNPLA3",
+            "char_start": 660,
+            "char_end": 666,
+            "grounded": true,
+            "normalized_id": "HGNC:18590",
+            "canonical_key": "Gene:pnpla3",
+            "canonical_mentions": [
+              "PNPLA3"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "TM6SF2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "HGNC:11861"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "TM6SF2",
+            "char_start": 671,
+            "char_end": 677,
+            "grounded": true,
+            "normalized_id": "HGNC:11861",
+            "canonical_key": "Gene:tm6sf2",
+            "canonical_mentions": [
+              "TM6SF2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "NRXN3",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "HGNC:8011"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "NRXN3",
+            "char_start": 723,
+            "char_end": 728,
+            "grounded": true,
+            "normalized_id": "HGNC:8011",
+            "canonical_key": "Gene:nrxn3",
+            "canonical_mentions": [
+              "NRXN3"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "FRMD5",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "HGNC:26416"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "FRMD5",
+            "char_start": 733,
+            "char_end": 738,
+            "grounded": true,
+            "normalized_id": "HGNC:26416",
+            "canonical_key": "Gene:frmd5",
+            "canonical_mentions": [
+              "FRMD5"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "FURIN",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "HGNC:8568"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "FURIN",
+            "char_start": 1123,
+            "char_end": 1128,
+            "grounded": true,
+            "normalized_id": "HGNC:8568",
+            "canonical_key": "Protein:furin",
+            "canonical_mentions": [
+              "FURIN"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aldehyde dehydrogenase 2",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "HGNC:400"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aldehyde dehydrogenase 2",
+            "char_start": 1130,
+            "char_end": 1154,
+            "grounded": true,
+            "normalized_id": "HGNC:400",
+            "canonical_key": "Protein:aldehyde dehydrogenase 2",
+            "canonical_mentions": [
+              "aldehyde dehydrogenase 2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "apolipoprotein M",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "HGNC:476"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "apolipoprotein M",
+            "char_start": 1160,
+            "char_end": 1176,
+            "grounded": true,
+            "normalized_id": "HGNC:476",
+            "canonical_key": "Protein:apolipoprotein m",
+            "canonical_mentions": [
+              "apolipoprotein M"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "PNPLA3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "including established (e.g., PNPLA3 and TM6SF2) and previously unreported candidates (e.g., NRXN3 and FRMD5)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 631,
+            "evidence_char_end": 739,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PNPLA3",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "TM6SF2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "including established (e.g., PNPLA3 and TM6SF2) and previously unreported candidates (e.g., NRXN3 and FRMD5)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 631,
+            "evidence_char_end": 739,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "TM6SF2",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "NRXN3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "including established (e.g., PNPLA3 and TM6SF2) and previously unreported candidates (e.g., NRXN3 and FRMD5)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 631,
+            "evidence_char_end": 739,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "NRXN3",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "FRMD5",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "including established (e.g., PNPLA3 and TM6SF2) and previously unreported candidates (e.g., NRXN3 and FRMD5)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 631,
+            "evidence_char_end": 739,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "FRMD5",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "FURIN",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Validation in population-based cohort pinpointed seven proteins (e.g., FURIN, aldehyde dehydrogenase 2, and apolipoprotein M) mediating up to 50.6% of the cardiometabolic risk attributable to MASLD.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1052,
+            "evidence_char_end": 1250,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "FURIN",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "aldehyde dehydrogenase 2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Validation in population-based cohort pinpointed seven proteins (e.g., FURIN, aldehyde dehydrogenase 2, and apolipoprotein M) mediating up to 50.6% of the cardiometabolic risk attributable to MASLD.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1052,
+            "evidence_char_end": 1250,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "aldehyde dehydrogenase 2",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "apolipoprotein M",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Validation in population-based cohort pinpointed seven proteins (e.g., FURIN, aldehyde dehydrogenase 2, and apolipoprotein M) mediating up to 50.6% of the cardiometabolic risk attributable to MASLD.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1052,
+            "evidence_char_end": 1250,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "apolipoprotein M",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 9,
+          "raw_entity_count": 9,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 9,
+          "total_relations": 7,
+          "known_relations": 0,
+          "novel_relations": 7,
+          "contradicting_relations": 0,
+          "schema_valid": 7,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6857,
+          "evidence_score": 0.55,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 9,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 9,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 3,
+              "denominator": 7,
+              "value": 0.4286
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 9,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 9
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 9,
+        "relations": 7,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 6.171187875326723,
+      "prompt_tokens": 1414,
+      "output_tokens": 1338,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

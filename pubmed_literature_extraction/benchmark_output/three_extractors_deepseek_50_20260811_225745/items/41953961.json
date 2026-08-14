@@ -1,0 +1,637 @@
+{
+  "pmid": "41953961",
+  "title": "Cost-Effectiveness of De Novo Combination of Tenofovir Alafenamide Fumarate and Peginterferon Alfa-2b Versus Peginterferon Alfa-2b Monotherapy of HBeAg-Positive Chronic Hepatitis B in China.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Chronic hepatitis B",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Chronic hepatitis B",
+            "disease_stage": "CHB"
+          },
+          "grounded": true,
+          "source_span": "Chronic hepatitis B",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 168,
+          "char_end": 187
+        },
+        {
+          "mention": "HBeAg-positive CHB",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HBeAg-positive CHB",
+            "disease_stage": "HBeAg-positive"
+          },
+          "grounded": true,
+          "source_span": "HBeAg-positive CHB",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 733,
+          "char_end": 751
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Chronic hepatitis B",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Chronic hepatitis B",
+              "disease_stage": "CHB"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Chronic Hepatitis B",
+            "char_start": 168,
+            "char_end": 187,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:chronic hepatitis b",
+            "canonical_mentions": [
+              "Chronic hepatitis B"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBeAg-positive CHB",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HBeAg-positive CHB",
+              "disease_stage": "HBeAg-positive"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBeAg-positive CHB",
+            "char_start": 733,
+            "char_end": 751,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hbeag positive chb",
+            "canonical_mentions": [
+              "HBeAg-positive CHB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 2,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 2,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.1149342502467334,
+      "prompt_tokens": 477,
+      "output_tokens": 183,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Chronic hepatitis B",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Chronic hepatitis B",
+            "disease_stage": "CHB"
+          },
+          "grounded": true,
+          "source_span": "Chronic hepatitis B",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 168,
+          "char_end": 187
+        },
+        {
+          "mention": "HBeAg-positive CHB",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HBeAg-positive CHB",
+            "disease_stage": "HBeAg-positive"
+          },
+          "grounded": true,
+          "source_span": "HBeAg-positive CHB",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 733,
+          "char_end": 751
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Chronic hepatitis B",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Chronic hepatitis B",
+              "disease_stage": "CHB"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Chronic Hepatitis B",
+            "char_start": 168,
+            "char_end": 187,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:chronic hepatitis b",
+            "canonical_mentions": [
+              "Chronic hepatitis B"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBeAg-positive CHB",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HBeAg-positive CHB",
+              "disease_stage": "HBeAg-positive"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBeAg-positive CHB",
+            "char_start": 733,
+            "char_end": 751,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hbeag positive chb",
+            "canonical_mentions": [
+              "HBeAg-positive CHB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 2,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 2,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.9972696253098547,
+      "prompt_tokens": 3692,
+      "output_tokens": 413,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Chronic hepatitis B",
+            "entity_type": "Disease",
+            "source_span": "Chronic hepatitis B",
+            "char_start": 168,
+            "char_end": 187,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in abstract; disease entity correctly identified."
+          },
+          {
+            "mention": "HBeAg-positive CHB",
+            "entity_type": "Disease",
+            "source_span": "HBeAg-positive CHB",
+            "char_start": 733,
+            "char_end": 751,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in abstract; disease entity correctly identified."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [],
+        "review_reason": "No relations were proposed by the first model; no additional relations can be inferred from the abstract without explicit evidence. Entities are correctly identified.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Chronic hepatitis B"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HBeAg-positive CHB"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "chronic hepatitis B",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D019359"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Chronic Hepatitis B",
+          "char_start": 168,
+          "char_end": 187
+        },
+        {
+          "mention": "hepatitis B virus",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006509"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "hepatitis B virus",
+          "char_start": 286,
+          "char_end": 303
+        },
+        {
+          "mention": "HBeAg-positive CHB",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D019359"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "HBeAg-positive CHB",
+          "char_start": 733,
+          "char_end": 751
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "chronic hepatitis B",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D019359"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Chronic Hepatitis B",
+            "char_start": 168,
+            "char_end": 187,
+            "grounded": true,
+            "normalized_id": "D019359",
+            "canonical_key": "Disease:chronic hepatitis b",
+            "canonical_mentions": [
+              "chronic hepatitis B",
+              "HBeAg-positive CHB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatitis B virus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D006509"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis B virus",
+            "char_start": 286,
+            "char_end": 303,
+            "grounded": true,
+            "normalized_id": "D006509",
+            "canonical_key": "Disease:hepatitis b virus",
+            "canonical_mentions": [
+              "hepatitis B virus"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8833,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 3,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.5713172499090433,
+      "prompt_tokens": 1586,
+      "output_tokens": 142,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

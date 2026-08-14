@@ -1,0 +1,790 @@
+{
+  "pmid": "41827017",
+  "title": "Immune Checkpoint Inhibitor-Based Adjuvant Treatment Versus Surveillance in Curatively Treated Hepatocellular Carcinoma: a Systematic Review and Meta-Analysis.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 102,
+          "char_end": 126
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1799,
+          "char_end": 1802
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma",
+            "char_start": 102,
+            "char_end": 126,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 1,
+          "raw_entity_count": 2,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 1,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.825,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "type_constraint_pass_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 1,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 1
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 2,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.174354082904756,
+      "prompt_tokens": 516,
+      "output_tokens": 173,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 102,
+          "char_end": 126
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1799,
+          "char_end": 1802
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma",
+            "char_start": 102,
+            "char_end": 126,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 1,
+          "raw_entity_count": 2,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 1,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.825,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "type_constraint_pass_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 1,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 1
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 2,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.9937046240083873,
+      "prompt_tokens": 3483,
+      "output_tokens": 378,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "hepatocellular carcinoma",
+            "entity_type": "Disease",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 102,
+            "char_end": 126,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Explicit disease mention in title and abstract; retained as novel entity."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "HCC",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate abbreviation of hepatocellular carcinoma; merged into canonical entity."
+          }
+        ],
+        "review_reason": "Only one unique disease entity (hepatocellular carcinoma) is explicitly mentioned. The abbreviation HCC is a duplicate and was rejected. No relations are supported by explicit evidence in the abstract.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "hepatocellular carcinoma"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C2239176"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "char_start": 242,
+          "char_end": 266
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C2239176"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "HCC",
+          "char_start": 268,
+          "char_end": 271
+        },
+        {
+          "mention": "immune checkpoint inhibitors",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "C0000000"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "immune checkpoint inhibitors",
+          "char_start": 324,
+          "char_end": 352
+        },
+        {
+          "mention": "ICIs",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "C0000000"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "ICIs",
+          "char_start": 354,
+          "char_end": 358
+        },
+        {
+          "mention": "tyrosine kinase inhibitors",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "C0000000"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "tyrosine kinase inhibitors",
+          "char_start": 579,
+          "char_end": 605
+        },
+        {
+          "mention": "TKIs",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "C0000000"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "TKIs",
+          "char_start": 607,
+          "char_end": 611
+        },
+        {
+          "mention": "anti-angiogenics",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "C0000000"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "anti-angiogenics",
+          "char_start": 616,
+          "char_end": 632
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "immune checkpoint inhibitors",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "RFS was significantly improved by \"all ICI-based\" (HR: 0.51, 95% CI: 0.44-0.60, p < 0.001)",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "tyrosine kinase inhibitors",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "RFS was significantly improved by \"all ICI-based\" (HR: 0.51, 95% CI: 0.44-0.60, p < 0.001)",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "anti-angiogenics",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "RFS was significantly improved by \"all ICI-based\" (HR: 0.51, 95% CI: 0.44-0.60, p < 0.001)",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "C2239176"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 242,
+            "char_end": 266,
+            "grounded": true,
+            "normalized_id": "C2239176",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "immune checkpoint inhibitors",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "C0000000"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "immune checkpoint inhibitors",
+            "char_start": 324,
+            "char_end": 352,
+            "grounded": true,
+            "normalized_id": "C0000000",
+            "canonical_key": "Protein:immune checkpoint inhibitors",
+            "canonical_mentions": [
+              "ICIs",
+              "tyrosine kinase inhibitors",
+              "TKIs",
+              "anti-angiogenics"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "immune checkpoint inhibitors",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "RFS was significantly improved by \"all ICI-based\" (HR: 0.51, 95% CI: 0.44-0.60, p < 0.001)",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1085,
+            "evidence_char_end": 1175,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "immune checkpoint inhibitors",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "immune checkpoint inhibitors",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "RFS was significantly improved by \"all ICI-based\" (HR: 0.51, 95% CI: 0.44-0.60, p < 0.001)",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1085,
+            "evidence_char_end": 1175,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "tyrosine kinase inhibitors",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "immune checkpoint inhibitors",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "RFS was significantly improved by \"all ICI-based\" (HR: 0.51, 95% CI: 0.44-0.60, p < 0.001)",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1085,
+            "evidence_char_end": 1175,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "anti-angiogenics",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 7,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 5,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 3,
+          "known_relations": 0,
+          "novel_relations": 3,
+          "contradicting_relations": 0,
+          "schema_valid": 3,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.35,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 7,
+              "value": 0.2857
+            },
+            "generic_entity_rate": {
+              "count": 1,
+              "denominator": 7,
+              "value": 0.1429
+            },
+            "duplicate_entity_rate": {
+              "count": 5,
+              "denominator": 7,
+              "value": 0.7143
+            },
+            "type_constraint_pass_rate": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 7,
+        "relations": 3,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.910020041745156,
+      "prompt_tokens": 1634,
+      "output_tokens": 717,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

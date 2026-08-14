@@ -1,0 +1,2762 @@
+{
+  "pmid": "41799192",
+  "title": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis in chronic cardiac allograft rejection.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "AREG",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "AREG",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "fibrosis",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "AREG",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 16,
+          "char_end": 20
+        },
+        {
+          "mention": "EGFR",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "EGFR",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "fibrosis",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "EGFR",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 21,
+          "char_end": 25
+        },
+        {
+          "mention": "AREG-EGFR signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "AREG-EGFR signaling"
+          },
+          "grounded": true,
+          "source_span": "AREG-EGFR signaling",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 16,
+          "char_end": 35
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 60,
+          "char_end": 68
+        },
+        {
+          "mention": "Cardiac allograft vasculopathy",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Cardiac allograft vasculopathy",
+            "disease_stage": "CAV"
+          },
+          "grounded": true,
+          "source_span": "Cardiac allograft vasculopathy",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 131,
+          "char_end": 161
+        },
+        {
+          "mention": "aorta",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "aorta"
+          },
+          "grounded": true,
+          "source_span": "aorta",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 587,
+          "char_end": 592
+        },
+        {
+          "mention": "pulmonary artery",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "pulmonary artery"
+          },
+          "grounded": true,
+          "source_span": "pulmonary artery",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 599,
+          "char_end": 615
+        },
+        {
+          "mention": "coronary artery",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "coronary artery"
+          },
+          "grounded": true,
+          "source_span": "coronary artery",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 626,
+          "char_end": 641
+        },
+        {
+          "mention": "fibroblasts",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "fibroblasts"
+          },
+          "grounded": true,
+          "source_span": "fibroblasts",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 989,
+          "char_end": 1000
+        },
+        {
+          "mention": "T cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "T cells"
+          },
+          "grounded": true,
+          "source_span": "T cells",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1147,
+          "char_end": 1154
+        },
+        {
+          "mention": "AREG",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "AREG",
+            "species": "Mus musculus",
+            "interacts_with": [
+              {
+                "target_entity": "EGFR",
+                "target_type": "gene",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "T cells promote FB activation via AREG-EGFR."
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "AREG-EGFR signaling",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "blocking AREG-EGFR signaling significantly reduces fibrosis."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "AREG",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1181,
+          "char_end": 1185
+        },
+        {
+          "mention": "EGFR",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "EGFR",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "EGFR",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1186,
+          "char_end": 1190
+        },
+        {
+          "mention": "AREG-EGFR signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "AREG-EGFR signaling"
+          },
+          "grounded": true,
+          "source_span": "AREG-EGFR signaling",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1258,
+          "char_end": 1277
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "fibrosis",
+            "disease_stage": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1300,
+          "char_end": 1308
+        },
+        {
+          "mention": "CAV",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "CAV",
+            "disease_stage": "CAV"
+          },
+          "grounded": true,
+          "source_span": "CAV",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1424,
+          "char_end": 1427
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "AREG",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "EGFR",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "AREG",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "AREG-EGFR signaling",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "blocking AREG-EGFR signaling significantly reduces fibrosis.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "AREG",
+          "subject_type": "Gene",
+          "predicate": "INTERACTS_WITH",
+          "object": "EGFR",
+          "object_type": "Gene",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "T cells promote FB activation via AREG-EGFR.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "AREG",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "AREG",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "fibrosis",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AREG",
+            "char_start": 16,
+            "char_end": 20,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:areg",
+            "canonical_mentions": [
+              "AREG"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "EGFR",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "EGFR",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "fibrosis",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "EGFR",
+            "char_start": 21,
+            "char_end": 25,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:egfr",
+            "canonical_mentions": [
+              "EGFR"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "AREG-EGFR signaling",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "AREG-EGFR signaling"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AREG-EGFR signaling",
+            "char_start": 16,
+            "char_end": 35,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:areg egfr signaling",
+            "canonical_mentions": [
+              "AREG-EGFR signaling"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "fibrosis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fibrosis",
+            "char_start": 60,
+            "char_end": 68,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:fibrosis",
+            "canonical_mentions": [
+              "fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "conditional_process_with_direct_evidence"
+          },
+          {
+            "mention": "Cardiac allograft vasculopathy",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Cardiac allograft vasculopathy",
+              "disease_stage": "CAV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Cardiac allograft vasculopathy",
+            "char_start": 131,
+            "char_end": 161,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cardiac allograft vasculopathy",
+            "canonical_mentions": [
+              "Cardiac allograft vasculopathy",
+              "CAV"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aorta",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "aorta"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aorta",
+            "char_start": 587,
+            "char_end": 592,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:aorta",
+            "canonical_mentions": [
+              "aorta"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "pulmonary artery",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "pulmonary artery"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "pulmonary artery",
+            "char_start": 599,
+            "char_end": 615,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:pulmonary artery",
+            "canonical_mentions": [
+              "pulmonary artery"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "coronary artery",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "coronary artery"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "coronary artery",
+            "char_start": 626,
+            "char_end": 641,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:coronary artery",
+            "canonical_mentions": [
+              "coronary artery"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "fibroblasts",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "fibroblasts"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fibroblasts",
+            "char_start": 989,
+            "char_end": 1000,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:fibroblasts",
+            "canonical_mentions": [
+              "fibroblasts"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "T cells",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "T cells"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "T cells",
+            "char_start": 1147,
+            "char_end": 1154,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:t cells",
+            "canonical_mentions": [
+              "T cells"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "AREG",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "title_only"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 68,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "AREG",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "EGFR",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "title_only"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 68,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "EGFR",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "AREG",
+            "predicate": "PARTICIPATES_IN",
+            "object": "AREG-EGFR signaling",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "blocking AREG-EGFR signaling significantly reduces fibrosis.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "non_human",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1249,
+            "evidence_char_end": 1309,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "AREG",
+            "original_object": "AREG-EGFR signaling",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "AREG",
+            "predicate": "INTERACTS_WITH",
+            "object": "EGFR",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "T cells promote FB activation via AREG-EGFR.",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "non_human",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1147,
+            "evidence_char_end": 1191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "AREG",
+            "original_object": "EGFR",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 10,
+          "raw_entity_count": 15,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 4,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 10,
+          "total_relations": 4,
+          "known_relations": 0,
+          "novel_relations": 4,
+          "contradicting_relations": 0,
+          "schema_valid": 4,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.75,
+          "evidence_score": 0.875,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 10,
+              "denominator": 15,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 4,
+              "denominator": 15,
+              "value": 0.2667
+            },
+            "type_constraint_pass_rate": {
+              "count": 13,
+              "denominator": 15,
+              "value": 0.8667
+            },
+            "relation_evidence_exactness": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 2,
+              "denominator": 4,
+              "value": 0.5
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 4,
+              "value": 0.5
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 10,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 10
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 15,
+        "relations": 4,
+        "duplicate_entities": 3,
+        "duplicate_relations": 0
+      },
+      "latency_s": 5.627330333925784,
+      "prompt_tokens": 385,
+      "output_tokens": 1544,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "AREG",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "AREG",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "fibrosis",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "AREG",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 16,
+          "char_end": 20
+        },
+        {
+          "mention": "EGFR",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "EGFR",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "fibrosis",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "EGFR",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 21,
+          "char_end": 25
+        },
+        {
+          "mention": "AREG-EGFR signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "AREG-EGFR signaling"
+          },
+          "grounded": true,
+          "source_span": "AREG-EGFR signaling",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 16,
+          "char_end": 35
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 60,
+          "char_end": 68
+        },
+        {
+          "mention": "Cardiac allograft vasculopathy",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Cardiac allograft vasculopathy",
+            "disease_stage": "CAV"
+          },
+          "grounded": true,
+          "source_span": "Cardiac allograft vasculopathy",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 131,
+          "char_end": 161
+        },
+        {
+          "mention": "aorta",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "aorta"
+          },
+          "grounded": true,
+          "source_span": "aorta",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 587,
+          "char_end": 592
+        },
+        {
+          "mention": "pulmonary artery",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "pulmonary artery"
+          },
+          "grounded": true,
+          "source_span": "pulmonary artery",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 599,
+          "char_end": 615
+        },
+        {
+          "mention": "coronary artery",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "coronary artery"
+          },
+          "grounded": true,
+          "source_span": "coronary artery",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 626,
+          "char_end": 641
+        },
+        {
+          "mention": "fibroblasts",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "fibroblasts"
+          },
+          "grounded": true,
+          "source_span": "fibroblasts",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 989,
+          "char_end": 1000
+        },
+        {
+          "mention": "T cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "T cells"
+          },
+          "grounded": true,
+          "source_span": "T cells",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1147,
+          "char_end": 1154
+        },
+        {
+          "mention": "AREG",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "AREG",
+            "species": "Mus musculus",
+            "interacts_with": [
+              {
+                "target_entity": "EGFR",
+                "target_type": "gene",
+                "direction": "unknown",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "T cells promote FB activation via AREG-EGFR."
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "AREG-EGFR signaling",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "blocking AREG-EGFR signaling significantly reduces fibrosis."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "AREG",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1181,
+          "char_end": 1185
+        },
+        {
+          "mention": "EGFR",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "EGFR",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "EGFR",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1186,
+          "char_end": 1190
+        },
+        {
+          "mention": "AREG-EGFR signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "AREG-EGFR signaling"
+          },
+          "grounded": true,
+          "source_span": "AREG-EGFR signaling",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1258,
+          "char_end": 1277
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "fibrosis",
+            "disease_stage": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1300,
+          "char_end": 1308
+        },
+        {
+          "mention": "CAV",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "CAV",
+            "disease_stage": "CAV"
+          },
+          "grounded": true,
+          "source_span": "CAV",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1424,
+          "char_end": 1427
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "AREG",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "EGFR",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "AREG",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "AREG-EGFR signaling",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "blocking AREG-EGFR signaling significantly reduces fibrosis.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "AREG",
+          "subject_type": "Gene",
+          "predicate": "INTERACTS_WITH",
+          "object": "EGFR",
+          "object_type": "Gene",
+          "direction": "unknown",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "T cells promote FB activation via AREG-EGFR.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "T cells",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibroblasts",
+          "object_type": "CellType",
+          "direction": "increase",
+          "evidence": "T cells promote FB activation via AREG-EGFR.",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit statement that T cells promote FB activation."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "AREG",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "AREG",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "fibrosis",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AREG",
+            "char_start": 16,
+            "char_end": 20,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:areg",
+            "canonical_mentions": [
+              "AREG"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "EGFR",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "EGFR",
+              "species": "Homo sapiens",
+              "associated_with": [
+                {
+                  "target_entity": "fibrosis",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis"
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "EGFR",
+            "char_start": 21,
+            "char_end": 25,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:egfr",
+            "canonical_mentions": [
+              "EGFR"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "AREG-EGFR signaling",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "AREG-EGFR signaling"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AREG-EGFR signaling",
+            "char_start": 16,
+            "char_end": 35,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:areg egfr signaling",
+            "canonical_mentions": [
+              "AREG-EGFR signaling"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "fibrosis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fibrosis",
+            "char_start": 60,
+            "char_end": 68,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:fibrosis",
+            "canonical_mentions": [
+              "fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "conditional_process_with_direct_evidence"
+          },
+          {
+            "mention": "Cardiac allograft vasculopathy",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Cardiac allograft vasculopathy",
+              "disease_stage": "CAV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Cardiac allograft vasculopathy",
+            "char_start": 131,
+            "char_end": 161,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cardiac allograft vasculopathy",
+            "canonical_mentions": [
+              "Cardiac allograft vasculopathy",
+              "CAV"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aorta",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "aorta"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aorta",
+            "char_start": 587,
+            "char_end": 592,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:aorta",
+            "canonical_mentions": [
+              "aorta"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "pulmonary artery",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "pulmonary artery"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "pulmonary artery",
+            "char_start": 599,
+            "char_end": 615,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:pulmonary artery",
+            "canonical_mentions": [
+              "pulmonary artery"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "coronary artery",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "coronary artery"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "coronary artery",
+            "char_start": 626,
+            "char_end": 641,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:coronary artery",
+            "canonical_mentions": [
+              "coronary artery"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "fibroblasts",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "fibroblasts"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fibroblasts",
+            "char_start": 989,
+            "char_end": 1000,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:fibroblasts",
+            "canonical_mentions": [
+              "fibroblasts"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "T cells",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "T cells"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "T cells",
+            "char_start": 1147,
+            "char_end": 1154,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:t cells",
+            "canonical_mentions": [
+              "T cells"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "AREG",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "title_only"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 68,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "AREG",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "EGFR",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "title_only"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 68,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "EGFR",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "AREG",
+            "predicate": "PARTICIPATES_IN",
+            "object": "AREG-EGFR signaling",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "blocking AREG-EGFR signaling significantly reduces fibrosis.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "non_human",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1249,
+            "evidence_char_end": 1309,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "AREG",
+            "original_object": "AREG-EGFR signaling",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "AREG",
+            "predicate": "INTERACTS_WITH",
+            "object": "EGFR",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "T cells promote FB activation via AREG-EGFR.",
+            "direction": "unknown",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "non_human",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1147,
+            "evidence_char_end": 1191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "AREG",
+            "original_object": "EGFR",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "T cells",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibroblasts",
+            "subject_type": "CellType",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "T cells promote FB activation via AREG-EGFR.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1147,
+            "evidence_char_end": 1191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "T cells",
+            "original_object": "fibroblasts",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 10,
+          "raw_entity_count": 15,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 4,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 10,
+          "total_relations": 5,
+          "known_relations": 0,
+          "novel_relations": 5,
+          "contradicting_relations": 0,
+          "schema_valid": 4,
+          "import_ready": 0,
+          "structural_score": 0.88,
+          "semantic_score": 0.69,
+          "evidence_score": 0.78,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 10,
+              "denominator": 15,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 4,
+              "denominator": 15,
+              "value": 0.2667
+            },
+            "type_constraint_pass_rate": {
+              "count": 13,
+              "denominator": 15,
+              "value": 0.8667
+            },
+            "relation_evidence_exactness": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "direction_trigger_consistency": {
+              "count": 2,
+              "denominator": 5,
+              "value": 0.4
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 3,
+              "denominator": 5,
+              "value": 0.6
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 10,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 10
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 15,
+        "relations": 5,
+        "duplicate_entities": 3,
+        "duplicate_relations": 0
+      },
+      "latency_s": 13.717469208873808,
+      "prompt_tokens": 9291,
+      "output_tokens": 3100,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "AREG",
+            "entity_type": "Gene",
+            "source_span": "AREG",
+            "char_start": 16,
+            "char_end": 20,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Gene mentioned in title and abstract; evidence supports role in fibrosis."
+          },
+          {
+            "mention": "EGFR",
+            "entity_type": "Gene",
+            "source_span": "EGFR",
+            "char_start": 21,
+            "char_end": 25,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Gene mentioned in title and abstract; evidence supports role in fibrosis."
+          },
+          {
+            "mention": "AREG-EGFR signaling",
+            "entity_type": "Pathway",
+            "source_span": "AREG-EGFR signaling",
+            "char_start": 16,
+            "char_end": 35,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Pathway explicitly named in title and abstract."
+          },
+          {
+            "mention": "fibrosis",
+            "entity_type": "Pathway",
+            "source_span": "fibrosis",
+            "char_start": 60,
+            "char_end": 68,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Pathological process; classified as pathway per schema."
+          },
+          {
+            "mention": "Cardiac allograft vasculopathy",
+            "entity_type": "Disease",
+            "source_span": "Cardiac allograft vasculopathy",
+            "char_start": 131,
+            "char_end": 161,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Disease explicitly defined in abstract."
+          },
+          {
+            "mention": "aorta",
+            "entity_type": "Tissue",
+            "source_span": "aorta",
+            "char_start": 587,
+            "char_end": 592,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Tissue mentioned in methods."
+          },
+          {
+            "mention": "pulmonary artery",
+            "entity_type": "Tissue",
+            "source_span": "pulmonary artery",
+            "char_start": 599,
+            "char_end": 615,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Tissue mentioned in methods."
+          },
+          {
+            "mention": "coronary artery",
+            "entity_type": "Tissue",
+            "source_span": "coronary artery",
+            "char_start": 626,
+            "char_end": 641,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Tissue mentioned in methods."
+          },
+          {
+            "mention": "fibroblasts",
+            "entity_type": "CellType",
+            "source_span": "fibroblasts",
+            "char_start": 989,
+            "char_end": 1000,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Cell type mentioned in results."
+          },
+          {
+            "mention": "T cells",
+            "entity_type": "CellType",
+            "source_span": "T cells",
+            "char_start": 1147,
+            "char_end": 1154,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Cell type mentioned in results."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "AREG",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis",
+            "evidence_span": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Title states blocking AREG-EGFR signaling attenuates fibrosis, implying AREG promotes fibrosis."
+          },
+          {
+            "subject": "EGFR",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis",
+            "evidence_span": "Blocking AREG-EGFR signaling attenuates pan-arterial fibrosis",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Title states blocking AREG-EGFR signaling attenuates fibrosis, implying EGFR promotes fibrosis."
+          },
+          {
+            "subject": "T cells",
+            "subject_type": "CellType",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibroblasts",
+            "object_type": "CellType",
+            "direction": "increase",
+            "evidence": "T cells promote FB activation via AREG-EGFR.",
+            "evidence_span": "T cells promote FB activation via AREG-EGFR.",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicit statement that T cells promote FB activation."
+          },
+          {
+            "subject": "AREG",
+            "subject_type": "Gene",
+            "predicate": "INTERACTS_WITH",
+            "object": "EGFR",
+            "object_type": "Gene",
+            "direction": "unknown",
+            "evidence": "T cells promote FB activation via AREG-EGFR.",
+            "evidence_span": "T cells promote FB activation via AREG-EGFR.",
+            "confidence": 0.7,
+            "uncertain": true,
+            "reason": "AREG-EGFR signaling implies interaction, but direction not specified."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "AREG",
+            "predicate": "PARTICIPATES_IN",
+            "object": "AREG-EGFR signaling",
+            "reason": "Evidence 'blocking AREG-EGFR signaling significantly reduces fibrosis' does not explicitly state AREG participates in the pathway; it is a signaling pathway name, not a direct participation statement."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "fibrosis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Fibrosis is a pathological process, not a disease entity; classified as Pathway."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "CAV",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Abbreviation for Cardiac allograft vasculopathy; already represented by full name."
+          }
+        ],
+        "review_reason": "Corrected entity types and relations based on explicit evidence in abstract. Rejected unsupported participation relation and duplicate/incorrect entities.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 1,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "AREG"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "EGFR"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "AREG-EGFR signaling"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "fibrosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Cardiac allograft vasculopathy"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "aorta"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "pulmonary artery"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "coronary artery"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "fibroblasts"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "T cells"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "AREG",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "EGFR",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "AREG",
+            "predicate": "INTERACTS_WITH",
+            "object": "EGFR"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "cardiac allograft vasculopathy",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "CROGVCardiac allograft vasculopathy"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "Cardiac allograft vasculopathy",
+          "char_start": 131,
+          "char_end": 161
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C0019348"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "fibrosis",
+          "char_start": 60,
+          "char_end": 68
+        },
+        {
+          "mention": "fibroblasts",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000057"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "fibroblasts",
+          "char_start": 989,
+          "char_end": 1000
+        },
+        {
+          "mention": "T cells",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000084"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "T cells",
+          "char_start": 1147,
+          "char_end": 1154
+        },
+        {
+          "mention": "AREG",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:651"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "AREG",
+          "char_start": 16,
+          "char_end": 20
+        },
+        {
+          "mention": "EGFR",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:3236"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "EGFR",
+          "char_start": 21,
+          "char_end": 25
+        },
+        {
+          "mention": "AREG-EGFR signaling",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0007173"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "AREG-EGFR signaling",
+          "char_start": 16,
+          "char_end": 35
+        },
+        {
+          "mention": "aorta",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "UBERON:0001496"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "aorta",
+          "char_start": 587,
+          "char_end": 592
+        },
+        {
+          "mention": "pulmonary artery",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "UBERON:0002012"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "pulmonary artery",
+          "char_start": 599,
+          "char_end": 615
+        },
+        {
+          "mention": "coronary artery",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "UBERON:0001621"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "coronary artery",
+          "char_start": 626,
+          "char_end": 641
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "AREG",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "EGFR",
+          "object_type": "Gene",
+          "direction": "positive",
+          "evidence": "T cells promote FB activation via AREG-EGFR.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "AREG-EGFR signaling",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "blocking AREG-EGFR signaling significantly reduces fibrosis.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "fibroblasts",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "increased fibroblasts (FBs) and extracellular matrix (ECM) remodeling are common features across all three vascular regions.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.85
+        },
+        {
+          "subject": "T cells",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "fibroblasts",
+          "object_type": "CellType",
+          "direction": "positive",
+          "evidence": "T cells promote FB activation via AREG-EGFR.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "fibrosis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "aorta",
+          "object_type": "Tissue",
+          "direction": "positive",
+          "evidence": "vascular fibrosis occurs extensively in AO, PA, and CA",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.85
+        },
+        {
+          "subject": "fibrosis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "pulmonary artery",
+          "object_type": "Tissue",
+          "direction": "positive",
+          "evidence": "vascular fibrosis occurs extensively in AO, PA, and CA",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.85
+        },
+        {
+          "subject": "fibrosis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "coronary artery",
+          "object_type": "Tissue",
+          "direction": "positive",
+          "evidence": "vascular fibrosis occurs extensively in AO, PA, and CA",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.85
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "cardiac allograft vasculopathy",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "CROGVCardiac allograft vasculopathy"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Cardiac allograft vasculopathy",
+            "char_start": 131,
+            "char_end": 161,
+            "grounded": true,
+            "normalized_id": "CROGVCardiac allograft vasculopathy",
+            "canonical_key": "Disease:cardiac allograft vasculopathy",
+            "canonical_mentions": [
+              "cardiac allograft vasculopathy"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "fibroblasts",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "CL:0000057"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fibroblasts",
+            "char_start": 989,
+            "char_end": 1000,
+            "grounded": true,
+            "normalized_id": "CL:0000057",
+            "canonical_key": "CellType:fibroblasts",
+            "canonical_mentions": [
+              "fibroblasts"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "T cells",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "CL:0000084"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "T cells",
+            "char_start": 1147,
+            "char_end": 1154,
+            "grounded": true,
+            "normalized_id": "CL:0000084",
+            "canonical_key": "CellType:t cells",
+            "canonical_mentions": [
+              "T cells"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "AREG",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "HGNC:651"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AREG",
+            "char_start": 16,
+            "char_end": 20,
+            "grounded": true,
+            "normalized_id": "HGNC:651",
+            "canonical_key": "Gene:areg",
+            "canonical_mentions": [
+              "AREG"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "EGFR",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "HGNC:3236"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "EGFR",
+            "char_start": 21,
+            "char_end": 25,
+            "grounded": true,
+            "normalized_id": "HGNC:3236",
+            "canonical_key": "Gene:egfr",
+            "canonical_mentions": [
+              "EGFR"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "AREG-EGFR signaling",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "GO:0007173"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AREG-EGFR signaling",
+            "char_start": 16,
+            "char_end": 35,
+            "grounded": true,
+            "normalized_id": "GO:0007173",
+            "canonical_key": "Pathway:areg egfr signaling",
+            "canonical_mentions": [
+              "AREG-EGFR signaling"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "aorta",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "UBERON:0001496"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "aorta",
+            "char_start": 587,
+            "char_end": 592,
+            "grounded": true,
+            "normalized_id": "UBERON:0001496",
+            "canonical_key": "Tissue:aorta",
+            "canonical_mentions": [
+              "aorta"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "pulmonary artery",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "UBERON:0002012"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "pulmonary artery",
+            "char_start": 599,
+            "char_end": 615,
+            "grounded": true,
+            "normalized_id": "UBERON:0002012",
+            "canonical_key": "Tissue:pulmonary artery",
+            "canonical_mentions": [
+              "pulmonary artery"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "coronary artery",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "UBERON:0001621"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "coronary artery",
+            "char_start": 626,
+            "char_end": 641,
+            "grounded": true,
+            "normalized_id": "UBERON:0001621",
+            "canonical_key": "Tissue:coronary artery",
+            "canonical_mentions": [
+              "coronary artery"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "AREG",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "EGFR",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "T cells promote FB activation via AREG-EGFR.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1147,
+            "evidence_char_end": 1191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "AREG",
+            "original_object": "EGFR",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "AREG-EGFR signaling",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "blocking AREG-EGFR signaling significantly reduces fibrosis.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1249,
+            "evidence_char_end": 1309,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "AREG-EGFR signaling",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "fibroblasts",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibrosis",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "increased fibroblasts (FBs) and extracellular matrix (ECM) remodeling are common features across all three vascular regions.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "object_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 979,
+            "evidence_char_end": 1103,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "fibroblasts",
+            "original_object": "fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "T cells",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "fibroblasts",
+            "subject_type": "CellType",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "T cells promote FB activation via AREG-EGFR.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1147,
+            "evidence_char_end": 1191,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "T cells",
+            "original_object": "fibroblasts",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "fibrosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "aorta",
+            "subject_type": "Disease",
+            "object_type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "vascular fibrosis occurs extensively in AO, PA, and CA",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_not_grounded",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 850,
+            "evidence_char_end": 904,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "fibrosis",
+            "original_object": "aorta",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "fibrosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pulmonary artery",
+            "subject_type": "Disease",
+            "object_type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "vascular fibrosis occurs extensively in AO, PA, and CA",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_not_grounded",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 850,
+            "evidence_char_end": 904,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "fibrosis",
+            "original_object": "pulmonary artery",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "fibrosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "coronary artery",
+            "subject_type": "Disease",
+            "object_type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "vascular fibrosis occurs extensively in AO, PA, and CA",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_not_grounded",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 850,
+            "evidence_char_end": 904,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "fibrosis",
+            "original_object": "coronary artery",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 9,
+          "raw_entity_count": 10,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 9,
+          "total_relations": 7,
+          "known_relations": 0,
+          "novel_relations": 7,
+          "contradicting_relations": 0,
+          "schema_valid": 6,
+          "import_ready": 0,
+          "structural_score": 0.9143,
+          "semantic_score": 0.6257,
+          "evidence_score": 0.5,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 9,
+              "denominator": 10,
+              "value": 0.9
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 9,
+              "denominator": 10,
+              "value": 0.9
+            },
+            "relation_evidence_exactness": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 7,
+              "value": 0.2857
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 7,
+              "value": 0.1429
+            },
+            "filtered_endpoint_rate": {
+              "count": 5,
+              "denominator": 7,
+              "value": 0.7143
+            },
+            "unresolved_endpoint_rate": {
+              "count": 5,
+              "denominator": 7,
+              "value": 0.7143
+            },
+            "weak_evidence_rate": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 9,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 9
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 10,
+        "relations": 7,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 6.434182915836573,
+      "prompt_tokens": 1415,
+      "output_tokens": 1210,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,3888 @@
+{
+  "pmid": "41683641",
+  "title": "Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pathway.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "CILP2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "CILP2",
+            "species": "Mus musculus",
+            "associated_with": [
+              {
+                "target_entity": "MASLD",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "MASLD",
+                "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes."
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "IRE1α/XBP1 pathway",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pathway."
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "hepatocytes",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "CILP2",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 422,
+          "char_end": 427
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 201,
+          "char_end": 206
+        },
+        {
+          "mention": "IRE1α/XBP1 pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "IRE1α/XBP1 pathway"
+          },
+          "grounded": true,
+          "source_span": "IRE1α/XBP1 pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 113,
+          "char_end": 131
+        },
+        {
+          "mention": "hepatocytes",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "hepatocytes"
+          },
+          "grounded": true,
+          "source_span": "hepatocytes",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 297,
+          "char_end": 308
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 186,
+          "char_end": 191
+        },
+        {
+          "mention": "CILP2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "CILP2",
+            "species": "Mus musculus",
+            "associated_with": [
+              {
+                "target_entity": "hepatic steatosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "hepatic steatosis",
+                "evidence": "CILP2 knockout reduced high-fat diet-induced hepatic steatosis"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "IRE1α/XBP1 pathway",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "CILP2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 864,
+          "char_end": 869
+        },
+        {
+          "mention": "Srebp-1c",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Srebp-1c",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Srebp-1c",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 936,
+          "char_end": 944
+        },
+        {
+          "mention": "Fasn",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Fasn",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Fasn",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 946,
+          "char_end": 950
+        },
+        {
+          "mention": "Acc",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Acc",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Acc",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 952,
+          "char_end": 955
+        },
+        {
+          "mention": "Scd1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Scd1",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Scd1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 957,
+          "char_end": 961
+        },
+        {
+          "mention": "Cd36",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Cd36",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Cd36",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 967,
+          "char_end": 971
+        },
+        {
+          "mention": "Il6",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Il6",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Il6",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1061,
+          "char_end": 1064
+        },
+        {
+          "mention": "Tnf",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Tnf",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Tnf",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1066,
+          "char_end": 1069
+        },
+        {
+          "mention": "Il1b",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Il1b",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Il1b",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1075,
+          "char_end": 1079
+        },
+        {
+          "mention": "IRE1α/XBP1 pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "IRE1α/XBP1 pathway"
+          },
+          "grounded": true,
+          "source_span": "IRE1α/XBP1 pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1498,
+          "char_end": 1516
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1570,
+          "char_end": 1575
+        },
+        {
+          "mention": "lipid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "lipid"
+          },
+          "grounded": true,
+          "source_span": "lipid",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 983,
+          "char_end": 988
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "MASLD",
+          "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "IRE1α/XBP1 pathway",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pathway.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "hepatocytes",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic steatosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "hepatic steatosis",
+          "evidence": "CILP2 knockout reduced high-fat diet-induced hepatic steatosis",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "IRE1α/XBP1 pathway",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "CILP2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "CILP2",
+              "species": "Mus musculus",
+              "associated_with": [
+                {
+                  "target_entity": "MASLD",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "MASLD",
+                  "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes."
+                }
+              ],
+              "participates_in": [
+                {
+                  "target_entity": "IRE1α/XBP1 pathway",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pathway."
+                }
+              ],
+              "expressed_in": [
+                {
+                  "target_entity": "hepatocytes",
+                  "target_type": "cell_type",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CILP2",
+            "char_start": 422,
+            "char_end": 427,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:cilp2",
+            "canonical_mentions": [
+              "CILP2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 201,
+            "char_end": 206,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IRE1α/XBP1 pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "IRE1α/XBP1 pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IRE1α/XBP1 Pathway",
+            "char_start": 113,
+            "char_end": 131,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:ire1α xbp1 pathway",
+            "canonical_mentions": [
+              "IRE1α/XBP1 pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocytes",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "hepatocytes"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocytes",
+            "char_start": 297,
+            "char_end": 308,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:hepatocytes",
+            "canonical_mentions": [
+              "hepatocytes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 186,
+            "char_end": 191,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "Srebp-1c",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Srebp-1c",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Srebp-1c",
+            "char_start": 936,
+            "char_end": 944,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:srebp 1c",
+            "canonical_mentions": [
+              "Srebp-1c"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Fasn",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Fasn",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Fasn",
+            "char_start": 946,
+            "char_end": 950,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:fasn",
+            "canonical_mentions": [
+              "Fasn"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Acc",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Acc",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Acc",
+            "char_start": 952,
+            "char_end": 955,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:acc",
+            "canonical_mentions": [
+              "Acc"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Scd1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Scd1",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Scd1",
+            "char_start": 957,
+            "char_end": 961,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:scd1",
+            "canonical_mentions": [
+              "Scd1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Cd36",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Cd36",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Cd36",
+            "char_start": 967,
+            "char_end": 971,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:cd36",
+            "canonical_mentions": [
+              "Cd36"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Il6",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Il6",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Il6",
+            "char_start": 1061,
+            "char_end": 1064,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:il6",
+            "canonical_mentions": [
+              "Il6"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Tnf",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Tnf",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Tnf",
+            "char_start": 1066,
+            "char_end": 1069,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:tnf",
+            "canonical_mentions": [
+              "Tnf"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Il1b",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Il1b",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Il1b",
+            "char_start": 1075,
+            "char_end": 1079,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:il1b",
+            "canonical_mentions": [
+              "Il1b"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "lipid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "lipid"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "lipid",
+            "char_start": 983,
+            "char_end": 988,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:lipid",
+            "canonical_mentions": [
+              "lipid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 788,
+            "evidence_char_end": 863,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "IRE1α/XBP1 pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pathway.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "title_only",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 132,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "CILP2",
+            "original_object": "IRE1α/XBP1 pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 788,
+            "evidence_char_end": 863,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "hepatocytes",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic steatosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 knockout reduced high-fat diet-induced hepatic steatosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_endpoint_missing",
+              "object_not_in_entities",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1094,
+            "evidence_char_end": 1156,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "CILP2",
+            "original_object": "hepatic steatosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "IRE1α/XBP1 pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1207,
+            "evidence_char_end": 1269,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "IRE1α/XBP1 pathway",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 14,
+          "raw_entity_count": 17,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 14,
+          "total_relations": 5,
+          "known_relations": 0,
+          "novel_relations": 5,
+          "contradicting_relations": 0,
+          "schema_valid": 5,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6582,
+          "evidence_score": 0.59,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 14,
+              "denominator": 17,
+              "value": 0.8235
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 17,
+              "value": 0.1765
+            },
+            "type_constraint_pass_rate": {
+              "count": 17,
+              "denominator": 17,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 5,
+              "value": 0.4
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 5,
+              "value": 0.2
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 1,
+              "denominator": 5,
+              "value": 0.2
+            },
+            "weak_evidence_rate": {
+              "count": 4,
+              "denominator": 5,
+              "value": 0.8
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 14,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 14
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 17,
+        "relations": 5,
+        "duplicate_entities": 3,
+        "duplicate_relations": 1
+      },
+      "latency_s": 3.4021302089095116,
+      "prompt_tokens": 398,
+      "output_tokens": 1876,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "CILP2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "CILP2",
+            "species": "Mus musculus",
+            "associated_with": [
+              {
+                "target_entity": "MASLD",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "MASLD",
+                "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes."
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "IRE1α/XBP1 pathway",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pathway."
+              }
+            ],
+            "expressed_in": [
+              {
+                "target_entity": "hepatocytes",
+                "target_type": "cell_type",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes."
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "CILP2",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 422,
+          "char_end": 427
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 201,
+          "char_end": 206
+        },
+        {
+          "mention": "IRE1α/XBP1 pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "IRE1α/XBP1 pathway"
+          },
+          "grounded": true,
+          "source_span": "IRE1α/XBP1 pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 113,
+          "char_end": 131
+        },
+        {
+          "mention": "hepatocytes",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "hepatocytes"
+          },
+          "grounded": true,
+          "source_span": "hepatocytes",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 297,
+          "char_end": 308
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 186,
+          "char_end": 191
+        },
+        {
+          "mention": "CILP2",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "CILP2",
+            "species": "Mus musculus",
+            "associated_with": [
+              {
+                "target_entity": "hepatic steatosis",
+                "target_type": "disease",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "disease_stage": "hepatic steatosis",
+                "evidence": "CILP2 knockout reduced high-fat diet-induced hepatic steatosis"
+              }
+            ],
+            "participates_in": [
+              {
+                "target_entity": "IRE1α/XBP1 pathway",
+                "target_type": "pathway",
+                "direction": "increase",
+                "negated": false,
+                "uncertain": false,
+                "evidence": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "CILP2",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 864,
+          "char_end": 869
+        },
+        {
+          "mention": "Srebp-1c",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Srebp-1c",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Srebp-1c",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 936,
+          "char_end": 944
+        },
+        {
+          "mention": "Fasn",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Fasn",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Fasn",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 946,
+          "char_end": 950
+        },
+        {
+          "mention": "Acc",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Acc",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Acc",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 952,
+          "char_end": 955
+        },
+        {
+          "mention": "Scd1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Scd1",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Scd1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 957,
+          "char_end": 961
+        },
+        {
+          "mention": "Cd36",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Cd36",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Cd36",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 967,
+          "char_end": 971
+        },
+        {
+          "mention": "Il6",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Il6",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Il6",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1061,
+          "char_end": 1064
+        },
+        {
+          "mention": "Tnf",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Tnf",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Tnf",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1066,
+          "char_end": 1069
+        },
+        {
+          "mention": "Il1b",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "Il1b",
+            "species": "Mus musculus"
+          },
+          "grounded": true,
+          "source_span": "Il1b",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1075,
+          "char_end": 1079
+        },
+        {
+          "mention": "IRE1α/XBP1 pathway",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "IRE1α/XBP1 pathway"
+          },
+          "grounded": true,
+          "source_span": "IRE1α/XBP1 pathway",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1498,
+          "char_end": 1516
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1570,
+          "char_end": 1575
+        },
+        {
+          "mention": "lipid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "lipid"
+          },
+          "grounded": true,
+          "source_span": "lipid",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 983,
+          "char_end": 988
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "MASLD",
+          "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "IRE1α/XBP1 pathway",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pathway.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "hepatocytes",
+          "object_type": "CellType",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic steatosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "hepatic steatosis",
+          "evidence": "CILP2 knockout reduced high-fat diet-induced hepatic steatosis",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "IRE1α/XBP1 pathway",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "negated": false,
+          "uncertain": false,
+          "disease_stage": "",
+          "evidence": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway",
+          "species": "Mus musculus",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic steatosis",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "CILP2 knockout reduced high-fat diet-induced hepatic steatosis",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Knockout reduces steatosis, so CILP2 is positively associated with steatosis; direction should be increase, but evidence says reduced, so direction is decrease for the knockout effect. Corrected to decrease."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "CILP2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "CILP2",
+              "species": "Mus musculus",
+              "associated_with": [
+                {
+                  "target_entity": "MASLD",
+                  "target_type": "disease",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "disease_stage": "MASLD",
+                  "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes."
+                }
+              ],
+              "participates_in": [
+                {
+                  "target_entity": "IRE1α/XBP1 pathway",
+                  "target_type": "pathway",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pathway."
+                }
+              ],
+              "expressed_in": [
+                {
+                  "target_entity": "hepatocytes",
+                  "target_type": "cell_type",
+                  "direction": "increase",
+                  "negated": false,
+                  "uncertain": false,
+                  "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes."
+                }
+              ]
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CILP2",
+            "char_start": 422,
+            "char_end": 427,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:cilp2",
+            "canonical_mentions": [
+              "CILP2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 201,
+            "char_end": 206,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IRE1α/XBP1 pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "IRE1α/XBP1 pathway"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IRE1α/XBP1 Pathway",
+            "char_start": 113,
+            "char_end": 131,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:ire1α xbp1 pathway",
+            "canonical_mentions": [
+              "IRE1α/XBP1 pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocytes",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "hepatocytes"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocytes",
+            "char_start": 297,
+            "char_end": 308,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:hepatocytes",
+            "canonical_mentions": [
+              "hepatocytes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 186,
+            "char_end": 191,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "Srebp-1c",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Srebp-1c",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Srebp-1c",
+            "char_start": 936,
+            "char_end": 944,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:srebp 1c",
+            "canonical_mentions": [
+              "Srebp-1c"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Fasn",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Fasn",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Fasn",
+            "char_start": 946,
+            "char_end": 950,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:fasn",
+            "canonical_mentions": [
+              "Fasn"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Acc",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Acc",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Acc",
+            "char_start": 952,
+            "char_end": 955,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:acc",
+            "canonical_mentions": [
+              "Acc"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Scd1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Scd1",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Scd1",
+            "char_start": 957,
+            "char_end": 961,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:scd1",
+            "canonical_mentions": [
+              "Scd1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Cd36",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Cd36",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Cd36",
+            "char_start": 967,
+            "char_end": 971,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:cd36",
+            "canonical_mentions": [
+              "Cd36"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Il6",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Il6",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Il6",
+            "char_start": 1061,
+            "char_end": 1064,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:il6",
+            "canonical_mentions": [
+              "Il6"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Tnf",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Tnf",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Tnf",
+            "char_start": 1066,
+            "char_end": 1069,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:tnf",
+            "canonical_mentions": [
+              "Tnf"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Il1b",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "Il1b",
+              "species": "Mus musculus"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Il1b",
+            "char_start": 1075,
+            "char_end": 1079,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Gene:il1b",
+            "canonical_mentions": [
+              "Il1b"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "lipid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "lipid"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "lipid",
+            "char_start": 983,
+            "char_end": 988,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:lipid",
+            "canonical_mentions": [
+              "lipid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 788,
+            "evidence_char_end": 863,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "IRE1α/XBP1 pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Cartilage Intermediate Layer Protein 2 Aggravates Hepatic Lipid Accumulation and Inflammation Through the IRE1α/XBP1 Pathway.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "title_only",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 7,
+            "evidence_char_end": 132,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "CILP2",
+            "original_object": "IRE1α/XBP1 pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 788,
+            "evidence_char_end": 863,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "hepatocytes",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic steatosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 knockout reduced high-fat diet-induced hepatic steatosis",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_endpoint_missing",
+              "object_not_in_entities",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1094,
+            "evidence_char_end": 1156,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "CILP2",
+            "original_object": "hepatic steatosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "IRE1α/XBP1 pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1207,
+            "evidence_char_end": 1269,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "IRE1α/XBP1 pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic steatosis",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 knockout reduced high-fat diet-induced hepatic steatosis",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_endpoint_missing",
+              "object_not_in_entities",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1094,
+            "evidence_char_end": 1156,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "CILP2",
+            "original_object": "hepatic steatosis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 14,
+          "raw_entity_count": 17,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 14,
+          "total_relations": 6,
+          "known_relations": 0,
+          "novel_relations": 6,
+          "contradicting_relations": 0,
+          "schema_valid": 6,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6716,
+          "evidence_score": 0.6167,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 14,
+              "denominator": 17,
+              "value": 0.8235
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 17,
+              "value": 0.1765
+            },
+            "type_constraint_pass_rate": {
+              "count": 17,
+              "denominator": 17,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 3,
+              "denominator": 6,
+              "value": 0.5
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 6,
+              "value": 0.1667
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "weak_evidence_rate": {
+              "count": 5,
+              "denominator": 6,
+              "value": 0.8333
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 14,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 14
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 17,
+        "relations": 6,
+        "duplicate_entities": 3,
+        "duplicate_relations": 2
+      },
+      "latency_s": 12.946577541530132,
+      "prompt_tokens": 10020,
+      "output_tokens": 3760,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "CILP2",
+            "entity_type": "Gene",
+            "source_span": "CILP2",
+            "char_start": 422,
+            "char_end": 427,
+            "normalized_id": "CILP2",
+            "confidence": 0.9,
+            "reason": "Gene symbol explicitly mentioned in abstract; multiple occurrences."
+          },
+          {
+            "mention": "MASLD",
+            "entity_type": "Disease",
+            "source_span": "MASLD",
+            "char_start": 201,
+            "char_end": 206,
+            "normalized_id": "MASLD",
+            "confidence": 0.9,
+            "reason": "Disease abbreviation defined in abstract."
+          },
+          {
+            "mention": "IRE1α/XBP1 pathway",
+            "entity_type": "Pathway",
+            "source_span": "IRE1α/XBP1 pathway",
+            "char_start": 113,
+            "char_end": 131,
+            "normalized_id": "IRE1α/XBP1 pathway",
+            "confidence": 0.9,
+            "reason": "Pathway explicitly named in title and abstract."
+          },
+          {
+            "mention": "hepatocytes",
+            "entity_type": "CellType",
+            "source_span": "hepatocytes",
+            "char_start": 297,
+            "char_end": 308,
+            "normalized_id": "hepatocytes",
+            "confidence": 0.9,
+            "reason": "Cell type explicitly mentioned."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 186,
+            "char_end": 191,
+            "normalized_id": "liver",
+            "confidence": 0.9,
+            "reason": "Tissue explicitly mentioned."
+          },
+          {
+            "mention": "Srebp-1c",
+            "entity_type": "Gene",
+            "source_span": "Srebp-1c",
+            "char_start": 936,
+            "char_end": 944,
+            "normalized_id": "Srebp-1c",
+            "confidence": 0.9,
+            "reason": "Gene symbol explicitly listed."
+          },
+          {
+            "mention": "Fasn",
+            "entity_type": "Gene",
+            "source_span": "Fasn",
+            "char_start": 946,
+            "char_end": 950,
+            "normalized_id": "Fasn",
+            "confidence": 0.9,
+            "reason": "Gene symbol explicitly listed."
+          },
+          {
+            "mention": "Acc",
+            "entity_type": "Gene",
+            "source_span": "Acc",
+            "char_start": 952,
+            "char_end": 955,
+            "normalized_id": "Acc",
+            "confidence": 0.9,
+            "reason": "Gene symbol explicitly listed."
+          },
+          {
+            "mention": "Scd1",
+            "entity_type": "Gene",
+            "source_span": "Scd1",
+            "char_start": 957,
+            "char_end": 961,
+            "normalized_id": "Scd1",
+            "confidence": 0.9,
+            "reason": "Gene symbol explicitly listed."
+          },
+          {
+            "mention": "Cd36",
+            "entity_type": "Gene",
+            "source_span": "Cd36",
+            "char_start": 967,
+            "char_end": 971,
+            "normalized_id": "Cd36",
+            "confidence": 0.9,
+            "reason": "Gene symbol explicitly listed."
+          },
+          {
+            "mention": "Il6",
+            "entity_type": "Gene",
+            "source_span": "Il6",
+            "char_start": 1061,
+            "char_end": 1064,
+            "normalized_id": "Il6",
+            "confidence": 0.9,
+            "reason": "Gene symbol explicitly listed."
+          },
+          {
+            "mention": "Tnf",
+            "entity_type": "Gene",
+            "source_span": "Tnf",
+            "char_start": 1066,
+            "char_end": 1069,
+            "normalized_id": "Tnf",
+            "confidence": 0.9,
+            "reason": "Gene symbol explicitly listed."
+          },
+          {
+            "mention": "Il1b",
+            "entity_type": "Gene",
+            "source_span": "Il1b",
+            "char_start": 1075,
+            "char_end": 1079,
+            "normalized_id": "Il1b",
+            "confidence": 0.9,
+            "reason": "Gene symbol explicitly listed."
+          },
+          {
+            "mention": "lipid",
+            "entity_type": "Metabolite",
+            "source_span": "lipid",
+            "char_start": 983,
+            "char_end": 988,
+            "normalized_id": "lipid",
+            "confidence": 0.9,
+            "reason": "Metabolite explicitly mentioned."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "CILP2",
+            "subject_type": "Gene",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes",
+            "object_type": "CellType",
+            "direction": "increase",
+            "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+            "evidence_span": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct statement of upregulation in hepatocytes."
+          },
+          {
+            "subject": "CILP2",
+            "subject_type": "Gene",
+            "predicate": "PARTICIPATES_IN",
+            "object": "IRE1α/XBP1 pathway",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway",
+            "evidence_span": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct statement of activation."
+          },
+          {
+            "subject": "CILP2",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+            "evidence_span": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+            "confidence": 0.6,
+            "uncertain": true,
+            "reason": "Upregulation in steatotic tissue implies association but not direct causal statement."
+          },
+          {
+            "subject": "CILP2",
+            "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic steatosis",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "CILP2 knockout reduced high-fat diet-induced hepatic steatosis",
+            "evidence_span": "CILP2 knockout reduced high-fat diet-induced hepatic steatosis",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Knockout reduces steatosis, so CILP2 is positively associated with steatosis; direction should be increase, but evidence says reduced, so direction is decrease for the knockout effect. Corrected to decrease."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "CILP2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "IRE1α/XBP1 pathway",
+            "reason": "Evidence from title only, not sufficient for relation."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "reason": "Evidence does not directly link CILP2 to MASLD; only upregulation in steatotic tissue."
+          }
+        ],
+        "review_reason": "Corrected entities and relations based on explicit statements in abstract. Rejected relations lacking direct evidence.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 1,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "CILP2"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "MASLD"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "IRE1α/XBP1 pathway"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatocytes"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Srebp-1c"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Fasn"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Acc"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Scd1"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Cd36"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Il6"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Tnf"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Il1b"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "lipid"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "CILP2",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "CILP2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "IRE1α/XBP1 pathway"
+          },
+          {
+            "candidate_type": "relation",
+            "status": "already_rejected_by_phase_a",
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "DOID:0080208"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "MASLD",
+          "char_start": 201,
+          "char_end": 206
+        },
+        {
+          "mention": "CILP2",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:1983"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "CILP2",
+          "char_start": 422,
+          "char_end": 427
+        },
+        {
+          "mention": "IRE1α/XBP1 pathway",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "GO:0036498"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "IRE1α/XBP1 pathway",
+          "char_start": 1498,
+          "char_end": 1516
+        },
+        {
+          "mention": "hepatic lipid accumulation",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MP:0005378"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "hepatic lipid accumulation",
+          "char_start": 385,
+          "char_end": 411
+        },
+        {
+          "mention": "inflammation",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "DOID:1398"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "inflammation",
+          "char_start": 348,
+          "char_end": 360
+        },
+        {
+          "mention": "hepatocytes",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000182"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "hepatocytes",
+          "char_start": 297,
+          "char_end": 308
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "UBERON:0002107"
+          },
+          "confidence": 0.95,
+          "grounded": true,
+          "source_span": "liver",
+          "char_start": 186,
+          "char_end": 191
+        },
+        {
+          "mention": "Srebp-1c",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:11217"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Srebp-1c",
+          "char_start": 936,
+          "char_end": 944
+        },
+        {
+          "mention": "Fasn",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:3594"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Fasn",
+          "char_start": 946,
+          "char_end": 950
+        },
+        {
+          "mention": "Acc",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:84"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "Acc",
+          "char_start": 71,
+          "char_end": 74
+        },
+        {
+          "mention": "Scd1",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:10571"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Scd1",
+          "char_start": 957,
+          "char_end": 961
+        },
+        {
+          "mention": "Cd36",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:1664"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Cd36",
+          "char_start": 967,
+          "char_end": 971
+        },
+        {
+          "mention": "Il6",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:6018"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Il6",
+          "char_start": 1061,
+          "char_end": 1064
+        },
+        {
+          "mention": "Tnf",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:11892"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Tnf",
+          "char_start": 1066,
+          "char_end": 1069
+        },
+        {
+          "mention": "Il1b",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "HGNC:5992"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Il1b",
+          "char_start": 1075,
+          "char_end": 1079
+        },
+        {
+          "mention": "4-PBA",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:50673"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "4-PBA",
+          "char_start": 1365,
+          "char_end": 1370
+        },
+        {
+          "mention": "STF-083010",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:90857"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "STF-083010",
+          "char_start": 1375,
+          "char_end": 1385
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASLD",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "CILP2 contributes to hepatic lipid accumulation and inflammation via the IRE1α/XBP1 pathway and may represent a potential therapeutic target for MASLD intervention.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic lipid accumulation",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "CILP2 overexpression upregulated genes related to fatty acid synthesis (Srebp-1c, Fasn, Acc, Scd1, and Cd36), promoted lipid accumulation",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "inflammation",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "elevated the expression of proinflammatory cytokines (Il6, Tnf, and Il1b)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "PARTICIPATES_IN",
+          "object": "IRE1α/XBP1 pathway",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "hepatocytes",
+          "object_type": "CellType",
+          "direction": "positive",
+          "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "EXPRESSED_IN",
+          "object": "liver",
+          "object_type": "Tissue",
+          "direction": "positive",
+          "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Srebp-1c",
+          "object_type": "Gene",
+          "direction": "increase",
+          "evidence": "CILP2 overexpression upregulated genes related to fatty acid synthesis (Srebp-1c, Fasn, Acc, Scd1, and Cd36)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Fasn",
+          "object_type": "Gene",
+          "direction": "increase",
+          "evidence": "CILP2 overexpression upregulated genes related to fatty acid synthesis (Srebp-1c, Fasn, Acc, Scd1, and Cd36)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Acc",
+          "object_type": "Gene",
+          "direction": "increase",
+          "evidence": "CILP2 overexpression upregulated genes related to fatty acid synthesis (Srebp-1c, Fasn, Acc, Scd1, and Cd36)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Scd1",
+          "object_type": "Gene",
+          "direction": "increase",
+          "evidence": "CILP2 overexpression upregulated genes related to fatty acid synthesis (Srebp-1c, Fasn, Acc, Scd1, and Cd36)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Cd36",
+          "object_type": "Gene",
+          "direction": "increase",
+          "evidence": "CILP2 overexpression upregulated genes related to fatty acid synthesis (Srebp-1c, Fasn, Acc, Scd1, and Cd36)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Il6",
+          "object_type": "Gene",
+          "direction": "increase",
+          "evidence": "elevated the expression of proinflammatory cytokines (Il6, Tnf, and Il1b)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Tnf",
+          "object_type": "Gene",
+          "direction": "increase",
+          "evidence": "elevated the expression of proinflammatory cytokines (Il6, Tnf, and Il1b)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "CILP2",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Il1b",
+          "object_type": "Gene",
+          "direction": "increase",
+          "evidence": "elevated the expression of proinflammatory cytokines (Il6, Tnf, and Il1b)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.9
+        },
+        {
+          "subject": "IRE1α/XBP1 pathway",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic lipid accumulation",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway, thereby promoting lipid synthesis and inflammation",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.8
+        },
+        {
+          "subject": "IRE1α/XBP1 pathway",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "inflammation",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway, thereby promoting lipid synthesis and inflammation",
+          "negated": false,
+          "uncertain": false,
+          "species": "Mus musculus",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "DOID:0080208"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 201,
+            "char_end": 206,
+            "grounded": true,
+            "normalized_id": "DOID:0080208",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CILP2",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "HGNC:1983"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CILP2",
+            "char_start": 422,
+            "char_end": 427,
+            "grounded": true,
+            "normalized_id": "HGNC:1983",
+            "canonical_key": "Gene:cilp2",
+            "canonical_mentions": [
+              "CILP2"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "IRE1α/XBP1 pathway",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "GO:0036498"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "IRE1α/XBP1 pathway",
+            "char_start": 1498,
+            "char_end": 1516,
+            "grounded": true,
+            "normalized_id": "GO:0036498",
+            "canonical_key": "Pathway:ire1α xbp1 pathway",
+            "canonical_mentions": [
+              "IRE1α/XBP1 pathway"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic lipid accumulation",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "MP:0005378"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic lipid accumulation",
+            "char_start": 385,
+            "char_end": 411,
+            "grounded": true,
+            "normalized_id": "MP:0005378",
+            "canonical_key": "Disease:hepatic lipid accumulation",
+            "canonical_mentions": [
+              "hepatic lipid accumulation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocytes",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "CL:0000182"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocytes",
+            "char_start": 297,
+            "char_end": 308,
+            "grounded": true,
+            "normalized_id": "CL:0000182",
+            "canonical_key": "CellType:hepatocytes",
+            "canonical_mentions": [
+              "hepatocytes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.95,
+            "attributes": {
+              "normalized_id": "UBERON:0002107"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 186,
+            "char_end": 191,
+            "grounded": true,
+            "normalized_id": "UBERON:0002107",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "Srebp-1c",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "HGNC:11217"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Srebp-1c",
+            "char_start": 936,
+            "char_end": 944,
+            "grounded": true,
+            "normalized_id": "HGNC:11217",
+            "canonical_key": "Gene:srebp 1c",
+            "canonical_mentions": [
+              "Srebp-1c"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Fasn",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "HGNC:3594"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Fasn",
+            "char_start": 946,
+            "char_end": 950,
+            "grounded": true,
+            "normalized_id": "HGNC:3594",
+            "canonical_key": "Gene:fasn",
+            "canonical_mentions": [
+              "Fasn"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Acc",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "HGNC:84"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Acc",
+            "char_start": 71,
+            "char_end": 74,
+            "grounded": true,
+            "normalized_id": "HGNC:84",
+            "canonical_key": "Gene:acc",
+            "canonical_mentions": [
+              "Acc"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Scd1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "HGNC:10571"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Scd1",
+            "char_start": 957,
+            "char_end": 961,
+            "grounded": true,
+            "normalized_id": "HGNC:10571",
+            "canonical_key": "Gene:scd1",
+            "canonical_mentions": [
+              "Scd1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Cd36",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "HGNC:1664"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Cd36",
+            "char_start": 967,
+            "char_end": 971,
+            "grounded": true,
+            "normalized_id": "HGNC:1664",
+            "canonical_key": "Gene:cd36",
+            "canonical_mentions": [
+              "Cd36"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Il6",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "HGNC:6018"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Il6",
+            "char_start": 1061,
+            "char_end": 1064,
+            "grounded": true,
+            "normalized_id": "HGNC:6018",
+            "canonical_key": "Gene:il6",
+            "canonical_mentions": [
+              "Il6"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Tnf",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "HGNC:11892"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Tnf",
+            "char_start": 1066,
+            "char_end": 1069,
+            "grounded": true,
+            "normalized_id": "HGNC:11892",
+            "canonical_key": "Gene:tnf",
+            "canonical_mentions": [
+              "Tnf"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Il1b",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "HGNC:5992"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Il1b",
+            "char_start": 1075,
+            "char_end": 1079,
+            "grounded": true,
+            "normalized_id": "HGNC:5992",
+            "canonical_key": "Gene:il1b",
+            "canonical_mentions": [
+              "Il1b"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "4-PBA",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "CHEBI:50673"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "4-PBA",
+            "char_start": 1365,
+            "char_end": 1370,
+            "grounded": true,
+            "normalized_id": "CHEBI:50673",
+            "canonical_key": "Metabolite:4 pba",
+            "canonical_mentions": [
+              "4-PBA"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "STF-083010",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "CHEBI:90857"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "STF-083010",
+            "char_start": 1375,
+            "char_end": 1385,
+            "grounded": true,
+            "normalized_id": "CHEBI:90857",
+            "canonical_key": "Metabolite:stf 083010",
+            "canonical_mentions": [
+              "STF-083010"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASLD",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 contributes to hepatic lipid accumulation and inflammation via the IRE1α/XBP1 pathway and may represent a potential therapeutic target for MASLD intervention.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1425,
+            "evidence_char_end": 1589,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "MASLD",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic lipid accumulation",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 overexpression upregulated genes related to fatty acid synthesis (Srebp-1c, Fasn, Acc, Scd1, and Cd36), promoted lipid accumulation",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 864,
+            "evidence_char_end": 1001,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "hepatic lipid accumulation",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "inflammation",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "elevated the expression of proinflammatory cytokines (Il6, Tnf, and Il1b)",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "object_not_grounded",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1007,
+            "evidence_char_end": 1080,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "inflammation",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "PARTICIPATES_IN",
+            "object": "IRE1α/XBP1 pathway",
+            "subject_type": "Gene",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1207,
+            "evidence_char_end": 1269,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "IRE1α/XBP1 pathway",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "EXPRESSED_IN",
+            "object": "hepatocytes",
+            "subject_type": "Gene",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 788,
+            "evidence_char_end": 863,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "hepatocytes",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "EXPRESSED_IN",
+            "object": "liver",
+            "subject_type": "Gene",
+            "object_type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 expression was upregulated in steatotic liver tissue and hepatocytes.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 788,
+            "evidence_char_end": 863,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "liver",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Srebp-1c",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 overexpression upregulated genes related to fatty acid synthesis (Srebp-1c, Fasn, Acc, Scd1, and Cd36)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 864,
+            "evidence_char_end": 972,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "Srebp-1c",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Fasn",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 overexpression upregulated genes related to fatty acid synthesis (Srebp-1c, Fasn, Acc, Scd1, and Cd36)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 864,
+            "evidence_char_end": 972,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "Fasn",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Acc",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 overexpression upregulated genes related to fatty acid synthesis (Srebp-1c, Fasn, Acc, Scd1, and Cd36)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 864,
+            "evidence_char_end": 972,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "Acc",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Scd1",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 overexpression upregulated genes related to fatty acid synthesis (Srebp-1c, Fasn, Acc, Scd1, and Cd36)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 864,
+            "evidence_char_end": 972,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "Scd1",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Cd36",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 overexpression upregulated genes related to fatty acid synthesis (Srebp-1c, Fasn, Acc, Scd1, and Cd36)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 864,
+            "evidence_char_end": 972,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "Cd36",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Il6",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "elevated the expression of proinflammatory cytokines (Il6, Tnf, and Il1b)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1007,
+            "evidence_char_end": 1080,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "Il6",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Tnf",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "elevated the expression of proinflammatory cytokines (Il6, Tnf, and Il1b)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1007,
+            "evidence_char_end": 1080,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "Tnf",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "CILP2",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Il1b",
+            "subject_type": "Gene",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "elevated the expression of proinflammatory cytokines (Il6, Tnf, and Il1b)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1007,
+            "evidence_char_end": 1080,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CILP2",
+            "original_object": "Il1b",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IRE1α/XBP1 pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic lipid accumulation",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway, thereby promoting lipid synthesis and inflammation",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "non_human",
+              "object_not_grounded",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1207,
+            "evidence_char_end": 1321,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IRE1α/XBP1 pathway",
+            "original_object": "hepatic lipid accumulation",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "IRE1α/XBP1 pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "inflammation",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "CILP2 activated the IRE1α/XBP1 branch of the ER stress pathway, thereby promoting lipid synthesis and inflammation",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "non_human",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1207,
+            "evidence_char_end": 1321,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "IRE1α/XBP1 pathway",
+            "original_object": "inflammation",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 16,
+          "raw_entity_count": 17,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 16,
+          "total_relations": 16,
+          "known_relations": 0,
+          "novel_relations": 16,
+          "contradicting_relations": 0,
+          "schema_valid": 16,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.7647,
+          "evidence_score": 0.6844,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 16,
+              "denominator": 17,
+              "value": 0.9412
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 17,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 16,
+              "denominator": 17,
+              "value": 0.9412
+            },
+            "relation_evidence_exactness": {
+              "count": 16,
+              "denominator": 16,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 8,
+              "denominator": 16,
+              "value": 0.5
+            },
+            "direction_trigger_consistency": {
+              "count": 8,
+              "denominator": 16,
+              "value": 0.5
+            },
+            "filtered_endpoint_rate": {
+              "count": 2,
+              "denominator": 16,
+              "value": 0.125
+            },
+            "unresolved_endpoint_rate": {
+              "count": 2,
+              "denominator": 16,
+              "value": 0.125
+            },
+            "weak_evidence_rate": {
+              "count": 9,
+              "denominator": 16,
+              "value": 0.5625
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 16,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 1,
+              "denominator": 16,
+              "value": 0.0625
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 16,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 16,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 16
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 17,
+        "relations": 16,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 11.811753417365253,
+      "prompt_tokens": 1480,
+      "output_tokens": 2706,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

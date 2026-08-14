@@ -1,0 +1,1368 @@
+{
+  "pmid": "41482383",
+  "title": "Prurigo Nodularis Increases Risk of Non-alcoholic Fatty Liver Disease and Liver Cirrhosis: A Global-federated Retrospective Cohort Study.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Prurigo nodularis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Prurigo nodularis",
+            "disease_stage": "PN"
+          },
+          "grounded": true,
+          "source_span": "Prurigo nodularis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 7,
+          "char_end": 24
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 43,
+          "char_end": 76
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver fibrosis"
+          },
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 499,
+          "char_end": 513
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 514,
+          "char_end": 523
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "NAFLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1171,
+          "char_end": 1176
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver fibrosis",
+            "disease_stage": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1209,
+          "char_end": 1223
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis",
+            "disease_stage": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1224,
+          "char_end": 1233
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Prurigo nodularis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Prurigo nodularis",
+              "disease_stage": "PN"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Prurigo Nodularis",
+            "char_start": 7,
+            "char_end": 24,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:prurigo nodularis",
+            "canonical_mentions": [
+              "Prurigo nodularis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Non-alcoholic Fatty Liver Disease",
+            "char_start": 43,
+            "char_end": 76,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease",
+              "NAFLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "liver fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver fibrosis",
+            "char_start": 499,
+            "char_end": 513,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver fibrosis",
+            "canonical_mentions": [
+              "liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhosis",
+            "char_start": 514,
+            "char_end": 523,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 4,
+          "raw_entity_count": 7,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 4,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.85,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 4,
+              "denominator": 7,
+              "value": 0.5714
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 7,
+              "value": 0.4286
+            },
+            "type_constraint_pass_rate": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 4,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 4
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 7,
+        "relations": 0,
+        "duplicate_entities": 2,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.723959708120674,
+      "prompt_tokens": 458,
+      "output_tokens": 514,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Prurigo nodularis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Prurigo nodularis",
+            "disease_stage": "PN"
+          },
+          "grounded": true,
+          "source_span": "Prurigo nodularis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 7,
+          "char_end": 24
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 43,
+          "char_end": 76
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver fibrosis",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate mention of liver fibrosis; merged into canonical entity."
+          },
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 499,
+          "char_end": 513
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate mention of cirrhosis; merged into canonical entity."
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 514,
+          "char_end": 523
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "NAFLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1171,
+          "char_end": 1176
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver fibrosis",
+            "disease_stage": "fibrosis",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate mention of liver fibrosis; merged into canonical entity."
+          },
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1209,
+          "char_end": 1223
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis",
+            "disease_stage": "cirrhosis",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Duplicate mention of cirrhosis; merged into canonical entity."
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1224,
+          "char_end": 1233
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Prurigo nodularis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic fatty liver disease",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38)",
+          "confidence": 0.95,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement in results: PN associated with elevated risk of NAFLD."
+        },
+        {
+          "subject": "Prurigo nodularis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38) and liver fibrosis/cirrhosis (HR=2.01, 95% CI=1.65-2.45)",
+          "confidence": 0.95,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement in results: PN associated with elevated risk of liver fibrosis/cirrhosis."
+        },
+        {
+          "subject": "Prurigo nodularis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "cirrhosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38) and liver fibrosis/cirrhosis (HR=2.01, 95% CI=1.65-2.45)",
+          "confidence": 0.95,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement in results: PN associated with elevated risk of liver fibrosis/cirrhosis."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Prurigo nodularis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Prurigo nodularis",
+              "disease_stage": "PN"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Prurigo Nodularis",
+            "char_start": 7,
+            "char_end": 24,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:prurigo nodularis",
+            "canonical_mentions": [
+              "Prurigo nodularis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Non-alcoholic Fatty Liver Disease",
+            "char_start": 43,
+            "char_end": 76,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease",
+              "NAFLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "liver fibrosis",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate mention of liver fibrosis; merged into canonical entity."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver fibrosis",
+            "char_start": 499,
+            "char_end": 513,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver fibrosis",
+            "canonical_mentions": [
+              "liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Duplicate mention of cirrhosis; merged into canonical entity."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhosis",
+            "char_start": 514,
+            "char_end": 523,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Prurigo nodularis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1128,
+            "evidence_char_end": 1204,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Prurigo nodularis",
+            "original_object": "non-alcoholic fatty liver disease",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Prurigo nodularis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38) and liver fibrosis/cirrhosis (HR=2.01, 95% CI=1.65-2.45)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1128,
+            "evidence_char_end": 1261,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Prurigo nodularis",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Prurigo nodularis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "cirrhosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38) and liver fibrosis/cirrhosis (HR=2.01, 95% CI=1.65-2.45)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1128,
+            "evidence_char_end": 1261,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Prurigo nodularis",
+            "original_object": "cirrhosis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 4,
+          "raw_entity_count": 7,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 4,
+          "total_relations": 3,
+          "known_relations": 0,
+          "novel_relations": 3,
+          "contradicting_relations": 0,
+          "schema_valid": 3,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.45,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 4,
+              "denominator": 7,
+              "value": 0.5714
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 7,
+              "value": 0.4286
+            },
+            "type_constraint_pass_rate": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 4,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 4
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 7,
+        "relations": 3,
+        "duplicate_entities": 2,
+        "duplicate_relations": 0
+      },
+      "latency_s": 8.140098582953215,
+      "prompt_tokens": 5308,
+      "output_tokens": 1690,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Prurigo nodularis",
+            "entity_type": "Disease",
+            "source_span": "Prurigo nodularis",
+            "char_start": 7,
+            "char_end": 24,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in title and abstract; disease entity."
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "entity_type": "Disease",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 43,
+            "char_end": 76,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "liver fibrosis",
+            "entity_type": "Disease",
+            "source_span": "liver fibrosis",
+            "char_start": 499,
+            "char_end": 513,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "cirrhosis",
+            "entity_type": "Disease",
+            "source_span": "cirrhosis",
+            "char_start": 514,
+            "char_end": 523,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract; disease entity."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "Prurigo nodularis",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38)",
+            "evidence_span": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38)",
+            "confidence": 0.95,
+            "uncertain": false,
+            "reason": "Direct statement in results: PN associated with elevated risk of NAFLD."
+          },
+          {
+            "subject": "Prurigo nodularis",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38) and liver fibrosis/cirrhosis (HR=2.01, 95% CI=1.65-2.45)",
+            "evidence_span": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38) and liver fibrosis/cirrhosis (HR=2.01, 95% CI=1.65-2.45)",
+            "confidence": 0.95,
+            "uncertain": false,
+            "reason": "Direct statement in results: PN associated with elevated risk of liver fibrosis/cirrhosis."
+          },
+          {
+            "subject": "Prurigo nodularis",
+            "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "cirrhosis",
+            "object_type": "Disease",
+            "direction": "increase",
+            "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38) and liver fibrosis/cirrhosis (HR=2.01, 95% CI=1.65-2.45)",
+            "evidence_span": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38) and liver fibrosis/cirrhosis (HR=2.01, 95% CI=1.65-2.45)",
+            "confidence": 0.95,
+            "uncertain": false,
+            "reason": "Direct statement in results: PN associated with elevated risk of liver fibrosis/cirrhosis."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "NAFLD",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate abbreviation of non-alcoholic fatty liver disease; merged into canonical entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver fibrosis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate mention of liver fibrosis; merged into canonical entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhosis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate mention of cirrhosis; merged into canonical entity."
+          }
+        ],
+        "review_reason": "Corrected entity list to remove duplicates and added relations explicitly supported by the abstract's results section. All relations are directly stated with hazard ratios and confidence intervals, providing strong evidence for increased risk.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 3,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Prurigo nodularis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "non-alcoholic fatty liver disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver fibrosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhosis"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "liver fibrosis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate mention of liver fibrosis; merged into canonical entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhosis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate mention of cirrhosis; merged into canonical entity."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "Prurigo nodularis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D011536"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Prurigo nodularis",
+          "char_start": 171,
+          "char_end": 188
+        },
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D065626"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "char_start": 453,
+          "char_end": 486
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D005355"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "char_start": 499,
+          "char_end": 513
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008103"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "char_start": 514,
+          "char_end": 523
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Prurigo nodularis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic fatty liver disease",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.95
+        },
+        {
+          "subject": "Prurigo nodularis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38) and liver fibrosis/cirrhosis (HR=2.01, 95% CI=1.65-2.45)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.95
+        },
+        {
+          "subject": "Prurigo nodularis",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "cirrhosis",
+          "object_type": "Disease",
+          "direction": "increase",
+          "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38) and liver fibrosis/cirrhosis (HR=2.01, 95% CI=1.65-2.45)",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.95
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Prurigo nodularis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D011536"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Prurigo nodularis",
+            "char_start": 171,
+            "char_end": 188,
+            "grounded": true,
+            "normalized_id": "D011536",
+            "canonical_key": "Disease:prurigo nodularis",
+            "canonical_mentions": [
+              "Prurigo nodularis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D065626"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 453,
+            "char_end": 486,
+            "grounded": true,
+            "normalized_id": "D065626",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D005355"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver fibrosis",
+            "char_start": 499,
+            "char_end": 513,
+            "grounded": true,
+            "normalized_id": "D005355",
+            "canonical_key": "Disease:liver fibrosis",
+            "canonical_mentions": [
+              "liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D008103"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhosis",
+            "char_start": 514,
+            "char_end": 523,
+            "grounded": true,
+            "normalized_id": "D008103",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Prurigo nodularis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1128,
+            "evidence_char_end": 1204,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Prurigo nodularis",
+            "original_object": "non-alcoholic fatty liver disease",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Prurigo nodularis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38) and liver fibrosis/cirrhosis (HR=2.01, 95% CI=1.65-2.45)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1128,
+            "evidence_char_end": 1261,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Prurigo nodularis",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Prurigo nodularis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "cirrhosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "PN was associated with an elevated risk of NAFLD (HR=1.27, 95% CI=1.17-1.38) and liver fibrosis/cirrhosis (HR=2.01, 95% CI=1.65-2.45)",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1128,
+            "evidence_char_end": 1261,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Prurigo nodularis",
+            "original_object": "cirrhosis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 4,
+          "raw_entity_count": 4,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 4,
+          "total_relations": 3,
+          "known_relations": 0,
+          "novel_relations": 3,
+          "contradicting_relations": 0,
+          "schema_valid": 3,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 4,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 4
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 4,
+        "relations": 3,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.4530383739620447,
+      "prompt_tokens": 1520,
+      "output_tokens": 630,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

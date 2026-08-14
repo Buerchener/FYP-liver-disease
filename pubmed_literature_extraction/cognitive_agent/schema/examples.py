@@ -22,8 +22,21 @@ Entity classes (choose exactly one):
 - protein: proteins like "p53", "collagen", "ALT"
 - pathway: pathways/processes like "ferroptosis", "apoptosis"
 - metabolite: small molecules like "glucose", "triglycerides"
-- tissue: tissues/organs like "liver", "tumor microenvironment"
-- cell_type: cell types like "hepatocyte", "immune cell", "T cell"
+- tissue: anatomical tissues/organs only, like "liver", "hepatic tissue", "kidney"
+- cell_type: specific cell types, like "hepatocyte", "Kupffer cell", "T cell"
+
+Do NOT extract methods, statistics, databases, experimental steps, generic category
+words, contextual microenvironment phrases, or unspecified treatment/drug/immune
+classes as entities.  A Tissue must be anatomical.  A CellType must name a
+specific cell type.  A Pathway must be a specific pathway, signaling axis, or
+explicitly discussed mechanism.  Disease must not be guessed from a symptom,
+injury, phenotype, or generic pathological process.
+
+Conditional processes such as inflammation, oxidative stress, angiogenesis,
+metastasis, fibrosis, apoptosis, proliferation, and immune activation may be
+entities only when the source explicitly discusses the process as a mechanism
+and gives it a grounded span.  Do not globally discard a specific supported
+mechanism such as ferroptosis, TNF signaling pathway, or AREG-EGFR signaling.
 
 For each entity, include these attributes:
   gene: gene_symbol, species, normalized_id
@@ -47,12 +60,22 @@ Each relationship entry MUST be a dict with these fields:
   {"target_entity": "...", "target_type": "...", "direction": "increase/decrease/unknown", "negated": false, "uncertain": false, "evidence": "quote from text"}
 
 Important rules:
-1. Use EXACT text from source — do not paraphrase
-2. Gene symbols in UPPERCASE
-3. Only extract what the text directly supports
+1. Every entity mention and relationship evidence must be an EXACT continuous
+   span from the source. Do not paraphrase evidence.
+2. Assign Gene versus Protein only from the source wording. Never convert one
+   into the other from background knowledge or name similarity.
+3. Only extract what the current article directly supports. Do not infer a fact
+   from title co-occurrence, background, research aims, database screening,
+   molecular docking, network pharmacology, enrichment, predictions, or hedging.
 4. If no relationships are found, omit the relationship attributes — DO NOT output empty lists or "null"
 5. For review articles without experimental data, still extract entity mentions
 6. If the text describes findings in non-human species, mark species accordingly
+7. Output one canonical entity for an explicitly defined long form (ABBR),
+   preferring the long form. Relationship endpoints must use that canonical form.
+8. Do not split a phrase such as AREG-EGFR signaling into extra entities or
+   relations unless the source explicitly states those separate facts.
+9. A relation must be supported by evidence containing both endpoints (or their
+   explicitly defined article-local abbreviations) and a predicate/direction cue.
 """
 
 # ═══════════════════════════════════════════════════
@@ -82,7 +105,11 @@ EXAMPLE_GENE_DISEASE = lx.data.ExampleData(
                     }
                 ],
                 "encodes": [
-                    {"target_entity": "p53", "target_type": "protein"}
+                    {
+                        "target_entity": "p53", "target_type": "protein",
+                        "direction": "none", "negated": False, "uncertain": False,
+                        "evidence": "The TP53 gene encodes the p53 tumor suppressor protein.",
+                    }
                 ],
             },
         ),
@@ -133,7 +160,11 @@ EXAMPLE_METABOLIC_PATHWAY = lx.data.ExampleData(
                     }
                 ],
                 "participates_in": [
-                    {"target_entity": "ferroptosis", "target_type": "pathway"}
+                    {
+                        "target_entity": "ferroptosis", "target_type": "pathway",
+                        "direction": "none", "negated": False, "uncertain": False,
+                        "evidence": "SLC7A11 deficiency accelerated MASLD progression via ferroptosis in mice.",
+                    }
                 ],
             },
         ),
@@ -158,17 +189,6 @@ EXAMPLE_METABOLIC_PATHWAY = lx.data.ExampleData(
             attributes={
                 "gene_symbol": "Nrf2",
                 "species": "Mus musculus",
-                "associated_with": [
-                    {
-                        "target_entity": "MASLD",
-                        "target_type": "disease",
-                        "direction": "decrease",
-                        "negated": False,
-                        "uncertain": True,
-                        "disease_stage": "progression",
-                        "evidence": "Nrf2 activation suppressed this effect.",
-                    }
-                ],
             },
         ),
     ],
@@ -189,7 +209,11 @@ EXAMPLE_EXPRESSION = lx.data.ExampleData(
                 "gene_symbol": "CYP2E1",
                 "species": "Homo sapiens",
                 "expressed_in": [
-                    {"target_entity": "hepatocytes", "target_type": "cell_type"}
+                    {
+                        "target_entity": "hepatocytes", "target_type": "cell_type",
+                        "direction": "increase", "negated": False, "uncertain": False,
+                        "evidence": "CYP2E1 is highly expressed in hepatocytes and contributes to oxidative stress in alcoholic liver disease.",
+                    }
                 ],
                 "associated_with": [
                     {
@@ -199,7 +223,7 @@ EXAMPLE_EXPRESSION = lx.data.ExampleData(
                         "negated": False,
                         "uncertain": False,
                         "disease_stage": "ALD",
-                        "evidence": "CYP2E1 contributes to oxidative stress in alcoholic liver disease.",
+                        "evidence": "CYP2E1 is highly expressed in hepatocytes and contributes to oxidative stress in alcoholic liver disease.",
                     }
                 ],
             },
@@ -236,10 +260,11 @@ EXAMPLE_PROTEIN_INTERACTION = lx.data.ExampleData(
                 "protein_name": "p38 MAPK",
                 "species": "Homo sapiens",
                 "interacts_with": [
-                    {"target_entity": "NF-kB", "target_type": "protein"}
-                ],
-                "participates_in": [
-                    {"target_entity": "inflammatory cytokine release", "target_type": "pathway"}
+                    {
+                        "target_entity": "NF-kB", "target_type": "protein",
+                        "direction": "none", "negated": False, "uncertain": False,
+                        "evidence": "p38 MAPK interacts with NF-kB to promote inflammatory cytokine release in NASH.",
+                    }
                 ],
             },
         ),
@@ -276,14 +301,6 @@ EXAMPLE_REVIEW_NO_RELS = lx.data.ExampleData(
             extraction_text="Non-alcoholic fatty liver disease",
             attributes={
                 "disease_name": "Non-alcoholic fatty liver disease",
-                "disease_stage": "NAFLD",
-            },
-        ),
-        lx.data.Extraction(
-            extraction_class="disease",
-            extraction_text="NAFLD",
-            attributes={
-                "disease_name": "NAFLD",
                 "disease_stage": "NAFLD",
             },
         ),
@@ -333,17 +350,6 @@ EXAMPLE_BIOINFORMATICS = lx.data.ExampleData(
             attributes={
                 "gene_symbol": "AKT1",
                 "species": "Homo sapiens",
-                "associated_with": [
-                    {
-                        "target_entity": "hepatitis B virus-related HCC",
-                        "target_type": "disease",
-                        "direction": "increase",
-                        "negated": False,
-                        "uncertain": False,
-                        "disease_stage": "HCC",
-                        "evidence": "Network pharmacology identified AKT1 as key hub gene in HBV-related HCC.",
-                    }
-                ],
             },
         ),
         lx.data.Extraction(
@@ -374,6 +380,109 @@ EXAMPLE_BIOINFORMATICS = lx.data.ExampleData(
     ],
 )
 
+# ═══════════════════════════════════════════════════
+# Gold 示例 7: 人体证据中的互作 + 细胞定位
+# 来源于项目 50 篇人工金标；只保留一个可独立判定的原文证据单元。
+# ═══════════════════════════════════════════════════
+
+EXAMPLE_GOLD_OTUD5 = lx.data.ExampleData(
+    text=(
+        "This study focused on the overexpression of OTUD5 and its interaction "
+        "with MAVS within macrophage subset 11 in patients with primary biliary "
+        "cholangitis (PBC)."
+    ),
+    extractions=[
+        lx.data.Extraction(
+            extraction_class="gene",
+            extraction_text="OTUD5",
+            attributes={
+                "gene_symbol": "OTUD5",
+                "species": "Homo sapiens",
+                "interacts_with": [{
+                    "target_entity": "MAVS", "target_type": "protein",
+                    "direction": "none", "negated": False, "uncertain": False,
+                    "evidence": (
+                        "This study focused on the overexpression of OTUD5 and its "
+                        "interaction with MAVS within macrophage subset 11 in patients "
+                        "with primary biliary cholangitis (PBC)."
+                    ),
+                }],
+                "expressed_in": [{
+                    "target_entity": "macrophage subset 11", "target_type": "cell_type",
+                    "direction": "increase", "negated": False, "uncertain": False,
+                    "evidence": (
+                        "This study focused on the overexpression of OTUD5 and its "
+                        "interaction with MAVS within macrophage subset 11 in patients "
+                        "with primary biliary cholangitis (PBC)."
+                    ),
+                }],
+            },
+        ),
+        lx.data.Extraction(
+            extraction_class="protein", extraction_text="MAVS",
+            attributes={
+                "protein_name": "MAVS", "species": "Homo sapiens",
+                "expressed_in": [{
+                    "target_entity": "macrophage subset 11", "target_type": "cell_type",
+                    "direction": "increase", "negated": False, "uncertain": False,
+                    "evidence": (
+                        "This study focused on the overexpression of OTUD5 and its "
+                        "interaction with MAVS within macrophage subset 11 in patients "
+                        "with primary biliary cholangitis (PBC)."
+                    ),
+                }],
+            },
+        ),
+        lx.data.Extraction(
+            extraction_class="cell_type", extraction_text="macrophage subset 11",
+            attributes={"cell_type_name": "macrophage subset 11"},
+        ),
+        lx.data.Extraction(
+            extraction_class="disease", extraction_text="primary biliary cholangitis",
+            attributes={"disease_name": "primary biliary cholangitis"},
+        ),
+    ],
+)
+
+# ═══════════════════════════════════════════════════
+# Gold 示例 8: 临床同一证据中的一对多疾病关联
+# ═══════════════════════════════════════════════════
+
+EXAMPLE_GOLD_CLINICAL_MULTI = lx.data.ExampleData(
+    text="PN is associated with an increased risk of NAFLD, liver fibrosis, and cirrhosis.",
+    extractions=[
+        lx.data.Extraction(
+            extraction_class="disease", extraction_text="PN",
+            attributes={
+                "disease_name": "PN",
+                "associated_with": [
+                    {
+                        "target_entity": target, "target_type": "disease",
+                        "direction": "increase", "negated": False, "uncertain": False,
+                        "evidence": (
+                            "PN is associated with an increased risk of NAFLD, liver "
+                            "fibrosis, and cirrhosis."
+                        ),
+                    }
+                    for target in ("NAFLD", "liver fibrosis", "cirrhosis")
+                ],
+            },
+        ),
+        lx.data.Extraction(
+            extraction_class="disease", extraction_text="NAFLD",
+            attributes={"disease_name": "NAFLD"},
+        ),
+        lx.data.Extraction(
+            extraction_class="disease", extraction_text="liver fibrosis",
+            attributes={"disease_name": "liver fibrosis"},
+        ),
+        lx.data.Extraction(
+            extraction_class="disease", extraction_text="cirrhosis",
+            attributes={"disease_name": "cirrhosis"},
+        ),
+    ],
+)
+
 # ── 所有示例 ──
 
 ALL_EXAMPLES = [
@@ -383,6 +492,8 @@ ALL_EXAMPLES = [
     EXAMPLE_PROTEIN_INTERACTION,
     EXAMPLE_REVIEW_NO_RELS,
     EXAMPLE_BIOINFORMATICS,
+    EXAMPLE_GOLD_OTUD5,
+    EXAMPLE_GOLD_CLINICAL_MULTI,
 ]
 
 # ── 默认示例集 (v2 — 从 2 个扩展到 4 个核心示例) ──

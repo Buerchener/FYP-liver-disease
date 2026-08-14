@@ -75,18 +75,13 @@ class StrategyManager:
             "use_extended_examples": self.state.use_extended_examples,
         }
 
-        # Adapt extraction mode based on KG coverage
+        # KG coverage controls retrieval focus, not evidence standards.  Low
+        # coverage must not silently switch a medical extractor to broad mode.
         coverage = context_card.coverage_score
-        if coverage < 0.2:
-            strategy["extraction_mode"] = "exploratory"
-        elif coverage > 0.6:
+        if coverage > 0.6:
             strategy["extraction_mode"] = "focused"
-
-        # In exploratory mode, lower thresholds slightly
-        if strategy["extraction_mode"] == "exploratory":
-            strategy["entity_confidence_threshold"] = max(
-                0.4, self.state.entity_creation_confidence - 0.1
-            )
+        elif coverage < 0.2:
+            strategy["extraction_mode"] = "balanced"
 
         return strategy
 
@@ -157,7 +152,7 @@ class StrategyManager:
     def _pick_extraction_mode(self, context_card: ContextCard) -> str:
         """Choose extraction mode based on context."""
         if "exploratory_extraction" in context_card.extraction_goals:
-            return "exploratory"
+            return "balanced"
         if "focused_extraction" in context_card.extraction_goals:
             return "focused"
         return "balanced"

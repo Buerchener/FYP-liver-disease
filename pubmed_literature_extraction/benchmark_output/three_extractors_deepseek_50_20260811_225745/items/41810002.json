@@ -1,0 +1,1357 @@
+{
+  "pmid": "41810002",
+  "title": "Hydrogel-Based Immunomodulation of Tumor Immune Microenvironment in Hepatocellular Carcinoma: Current Strategies and Future Directions.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "Hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 75,
+          "char_end": 99
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 179,
+          "char_end": 182
+        },
+        {
+          "mention": "immune cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "immune cell"
+          },
+          "grounded": true,
+          "source_span": "immune cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 722,
+          "char_end": 733
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1483,
+          "char_end": 1486
+        },
+        {
+          "mention": "CAR-T cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "CAR-T cell"
+          },
+          "grounded": true,
+          "source_span": "CAR-T cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1064,
+          "char_end": 1074
+        },
+        {
+          "mention": "antitumor immunity",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "antitumor immunity"
+          },
+          "grounded": true,
+          "source_span": "antitumor immunity",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1165,
+          "char_end": 1183
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma",
+            "char_start": 75,
+            "char_end": 99,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "Hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Hepatocellular Carcinoma: Current",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HCC",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma: Current",
+            "char_start": 75,
+            "char_end": 108,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma current",
+            "canonical_mentions": [
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CAR-T cell",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "CAR-T cell"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CAR-T cell",
+            "char_start": 1064,
+            "char_end": 1074,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:car t cell",
+            "canonical_mentions": [
+              "CAR-T cell"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "antitumor immunity",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "antitumor immunity"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "antitumor immunity",
+            "char_start": 1165,
+            "char_end": 1183,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:antitumor immunity",
+            "canonical_mentions": [
+              "antitumor immunity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 4,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 4,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8417,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 4,
+              "denominator": 6,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 5,
+              "denominator": 6,
+              "value": 0.8333
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 4,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 4
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.237020292319357,
+      "prompt_tokens": 424,
+      "output_tokens": 441,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatocellular carcinoma",
+            "disease_stage": "HCC"
+          },
+          "grounded": true,
+          "source_span": "Hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 75,
+          "char_end": 99
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Overlapping span with title; not a distinct entity."
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 179,
+          "char_end": 182
+        },
+        {
+          "mention": "immune cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "immune cell"
+          },
+          "grounded": true,
+          "source_span": "immune cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 722,
+          "char_end": 733
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HCC",
+            "disease_stage": "HCC",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Overlapping span with title; not a distinct entity."
+          },
+          "grounded": true,
+          "source_span": "HCC",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1483,
+          "char_end": 1486
+        },
+        {
+          "mention": "CAR-T cell",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "CAR-T cell"
+          },
+          "grounded": true,
+          "source_span": "CAR-T cell",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1064,
+          "char_end": 1074
+        },
+        {
+          "mention": "antitumor immunity",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "antitumor immunity"
+          },
+          "grounded": true,
+          "source_span": "antitumor immunity",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1165,
+          "char_end": 1183
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatocellular carcinoma",
+              "disease_stage": "HCC"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma",
+            "char_start": 75,
+            "char_end": 99,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "Hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Hepatocellular Carcinoma: Current",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HCC",
+              "disease_stage": "HCC",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Overlapping span with title; not a distinct entity."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma: Current",
+            "char_start": 75,
+            "char_end": 108,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma current",
+            "canonical_mentions": [
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "CAR-T cell",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "CAR-T cell"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "CAR-T cell",
+            "char_start": 1064,
+            "char_end": 1074,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:car t cell",
+            "canonical_mentions": [
+              "CAR-T cell"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "antitumor immunity",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "antitumor immunity"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "antitumor immunity",
+            "char_start": 1165,
+            "char_end": 1183,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:antitumor immunity",
+            "canonical_mentions": [
+              "antitumor immunity"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 4,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 4,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8417,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 4,
+              "denominator": 6,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 5,
+              "denominator": 6,
+              "value": 0.8333
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 4,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 4
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 7.800938000436872,
+      "prompt_tokens": 4982,
+      "output_tokens": 1020,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Hepatocellular carcinoma",
+            "entity_type": "Disease",
+            "source_span": "Hepatocellular carcinoma",
+            "char_start": 75,
+            "char_end": 99,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in title and abstract; canonical disease entity."
+          },
+          {
+            "mention": "HCC",
+            "entity_type": "Disease",
+            "source_span": "HCC",
+            "char_start": 179,
+            "char_end": 182,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Abbreviation for hepatocellular carcinoma, explicitly defined in abstract."
+          },
+          {
+            "mention": "immune cell",
+            "entity_type": "CellType",
+            "source_span": "immune cell",
+            "char_start": 722,
+            "char_end": 733,
+            "normalized_id": "",
+            "confidence": 0.6,
+            "reason": "Mentioned as 'immune cell infiltration'; generic but retained as cell type."
+          },
+          {
+            "mention": "CAR-T cell",
+            "entity_type": "CellType",
+            "source_span": "CAR-T cell",
+            "char_start": 1064,
+            "char_end": 1074,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Specific cell type mentioned in therapy context."
+          },
+          {
+            "mention": "antitumor immunity",
+            "entity_type": "Pathway",
+            "source_span": "antitumor immunity",
+            "char_start": 1165,
+            "char_end": 1183,
+            "normalized_id": "",
+            "confidence": 0.5,
+            "reason": "Generic term; retained as pathway with lower confidence."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "HCC",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate of HCC at char 179; merged into canonical HCC entity."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Hepatocellular Carcinoma: Current",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Overlapping span with title; not a distinct entity."
+          }
+        ],
+        "review_reason": "Corrected entity list to remove duplicates and overlapping spans; retained only distinct entities from abstract. No relations were extracted due to lack of explicit relational statements.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Hepatocellular carcinoma"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HCC",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "immune cell",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "CAR-T cell"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "antitumor immunity"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "Hepatocellular Carcinoma: Current",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Overlapping span with title; not a distinct entity."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "Hepatocellular carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0007256"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Hepatocellular carcinoma",
+          "char_start": 153,
+          "char_end": 177
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0007256"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "HCC",
+          "char_start": 179,
+          "char_end": 182
+        },
+        {
+          "mention": "tumor immune microenvironment",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "UBERON:0000178"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "tumor immune microenvironment",
+          "char_start": 326,
+          "char_end": 355
+        },
+        {
+          "mention": "immune cell infiltration",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000738"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "immune cell infiltration",
+          "char_start": 722,
+          "char_end": 746
+        },
+        {
+          "mention": "immune checkpoint inhibitors",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "PR:000000001"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "immune checkpoint inhibitors",
+          "char_start": 861,
+          "char_end": 889
+        },
+        {
+          "mention": "cytokines",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "PR:000000001"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "cytokines",
+          "char_start": 891,
+          "char_end": 900
+        },
+        {
+          "mention": "tumor antigens",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "PR:000000001"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "tumor antigens",
+          "char_start": 902,
+          "char_end": 916
+        },
+        {
+          "mention": "adjuvants",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "PR:000000001"
+          },
+          "confidence": 0.6,
+          "grounded": true,
+          "source_span": "adjuvants",
+          "char_start": 922,
+          "char_end": 931
+        },
+        {
+          "mention": "CAR-T cell therapy",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000623"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "CAR-T cell therapy",
+          "char_start": 1064,
+          "char_end": 1082
+        },
+        {
+          "mention": "tumor vaccines",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "PR:000000001"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "tumor vaccines",
+          "char_start": 1088,
+          "char_end": 1102
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "HCC",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "tumor immune microenvironment",
+          "object_type": "Tissue",
+          "direction": "positive",
+          "evidence": "Hepatocellular carcinoma (HCC) remains one of the most aggressive malignancies, with poor prognosis and limited treatment options, particularly due to the immunosuppressive tumor immune microenvironment (TIME).",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "immune checkpoint inhibitors",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Hydrogels can be engineered to encapsulate a range of therapeutic agents, including immune checkpoint inhibitors, cytokines, tumor antigens, and adjuvants, allowing for sustained release and targeted action within the tumor.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        },
+        {
+          "subject": "cytokines",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Hydrogels can be engineered to encapsulate a range of therapeutic agents, including immune checkpoint inhibitors, cytokines, tumor antigens, and adjuvants, allowing for sustained release and targeted action within the tumor.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        },
+        {
+          "subject": "tumor antigens",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Hydrogels can be engineered to encapsulate a range of therapeutic agents, including immune checkpoint inhibitors, cytokines, tumor antigens, and adjuvants, allowing for sustained release and targeted action within the tumor.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        },
+        {
+          "subject": "adjuvants",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Hydrogels can be engineered to encapsulate a range of therapeutic agents, including immune checkpoint inhibitors, cytokines, tumor antigens, and adjuvants, allowing for sustained release and targeted action within the tumor.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.6
+        },
+        {
+          "subject": "CAR-T cell therapy",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "The integration of hydrogels with therapies such as ablation, CAR-T cell therapy, and tumor vaccines has demonstrated synergistic effects, significantly enhancing antitumor immunity and reducing tumor recurrence.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "tumor vaccines",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HCC",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "The integration of hydrogels with therapies such as ablation, CAR-T cell therapy, and tumor vaccines has demonstrated synergistic effects, significantly enhancing antitumor immunity and reducing tumor recurrence.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatocellular Carcinoma: Current",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "MONDO:0007256"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma: Current",
+            "char_start": 75,
+            "char_end": 108,
+            "grounded": true,
+            "normalized_id": "MONDO:0007256",
+            "canonical_key": "Disease:hepatocellular carcinoma current",
+            "canonical_mentions": [
+              "Hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tumor vaccines",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "PR:000000001"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tumor vaccines",
+            "char_start": 1088,
+            "char_end": 1102,
+            "grounded": true,
+            "normalized_id": "PR:000000001",
+            "canonical_key": "Protein:tumor vaccines",
+            "canonical_mentions": [
+              "adjuvants",
+              "tumor vaccines"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Hepatocellular Carcinoma: Current",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "tumor immune microenvironment",
+            "subject_type": "Disease",
+            "object_type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Hepatocellular carcinoma (HCC) remains one of the most aggressive malignancies, with poor prognosis and limited treatment options, particularly due to the immunosuppressive tumor immune microenvironment (TIME).",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "filtered_endpoint",
+              "object_endpoint_missing",
+              "object_filtered",
+              "subject_novel",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 153,
+            "evidence_char_end": 363,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "HCC",
+            "original_object": "tumor immune microenvironment",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "immune checkpoint inhibitors",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatocellular Carcinoma: Current",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Hydrogels can be engineered to encapsulate a range of therapeutic agents, including immune checkpoint inhibitors, cytokines, tumor antigens, and adjuvants, allowing for sustained release and targeted action within the tumor.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_not_grounded",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 777,
+            "evidence_char_end": 1001,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "immune checkpoint inhibitors",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "cytokines",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatocellular Carcinoma: Current",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Hydrogels can be engineered to encapsulate a range of therapeutic agents, including immune checkpoint inhibitors, cytokines, tumor antigens, and adjuvants, allowing for sustained release and targeted action within the tumor.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_not_grounded",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 777,
+            "evidence_char_end": 1001,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "cytokines",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "tumor antigens",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatocellular Carcinoma: Current",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Hydrogels can be engineered to encapsulate a range of therapeutic agents, including immune checkpoint inhibitors, cytokines, tumor antigens, and adjuvants, allowing for sustained release and targeted action within the tumor.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_not_grounded",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 777,
+            "evidence_char_end": 1001,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "tumor antigens",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "tumor vaccines",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatocellular Carcinoma: Current",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Hydrogels can be engineered to encapsulate a range of therapeutic agents, including immune checkpoint inhibitors, cytokines, tumor antigens, and adjuvants, allowing for sustained release and targeted action within the tumor.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 777,
+            "evidence_char_end": 1001,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "adjuvants",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "CAR-T cell therapy",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatocellular Carcinoma: Current",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The integration of hydrogels with therapies such as ablation, CAR-T cell therapy, and tumor vaccines has demonstrated synergistic effects, significantly enhancing antitumor immunity and reducing tumor recurrence.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "filtered_endpoint",
+              "object_not_grounded",
+              "object_novel",
+              "subject_endpoint_missing",
+              "subject_filtered",
+              "trigger_missing",
+              "unresolved_endpoint",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1002,
+            "evidence_char_end": 1214,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "CAR-T cell therapy",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "tumor vaccines",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatocellular Carcinoma: Current",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The integration of hydrogels with therapies such as ablation, CAR-T cell therapy, and tumor vaccines has demonstrated synergistic effects, significantly enhancing antitumor immunity and reducing tumor recurrence.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1002,
+            "evidence_char_end": 1214,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "tumor vaccines",
+            "original_object": "HCC",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 10,
+          "filtered_entity_count": 6,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 7,
+          "known_relations": 0,
+          "novel_relations": 7,
+          "contradicting_relations": 0,
+          "schema_valid": 7,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.2986,
+          "evidence_score": 0.45,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 10,
+              "value": 0.2
+            },
+            "generic_entity_rate": {
+              "count": 4,
+              "denominator": 10,
+              "value": 0.4
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 10,
+              "value": 0.3
+            },
+            "type_constraint_pass_rate": {
+              "count": 8,
+              "denominator": 10,
+              "value": 0.8
+            },
+            "relation_evidence_exactness": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 7,
+              "value": 0.1429
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 5,
+              "denominator": 7,
+              "value": 0.7143
+            },
+            "unresolved_endpoint_rate": {
+              "count": 5,
+              "denominator": 7,
+              "value": 0.7143
+            },
+            "weak_evidence_rate": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 10,
+        "relations": 7,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 6.544175582937896,
+      "prompt_tokens": 1416,
+      "output_tokens": 1372,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

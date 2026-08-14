@@ -1,0 +1,2591 @@
+{
+  "pmid": "41823026",
+  "title": "Early Adoption and Prescribing Patterns of Resmetirom: A Multi-Institutional National Analysis.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "MASH",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASH",
+            "disease_stage": "noncirrhotic"
+          },
+          "grounded": true,
+          "source_span": "MASH",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 198,
+          "char_end": 202
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "fibrosis",
+            "disease_stage": "moderate-to-advanced"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 229,
+          "char_end": 237
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 600,
+          "char_end": 605
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 687,
+          "char_end": 696
+        },
+        {
+          "mention": "dyslipidaemia",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "dyslipidaemia"
+          },
+          "grounded": true,
+          "source_span": "dyslipidaemia",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 734,
+          "char_end": 747
+        },
+        {
+          "mention": "hypertension",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hypertension"
+          },
+          "grounded": true,
+          "source_span": "hypertension",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 755,
+          "char_end": 767
+        },
+        {
+          "mention": "type 2 diabetes",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "type 2 diabetes"
+          },
+          "grounded": true,
+          "source_span": "type 2 diabetes",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 778,
+          "char_end": 793
+        },
+        {
+          "mention": "GLP-1 receptor agonists",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "GLP-1 receptor agonists"
+          },
+          "grounded": true,
+          "source_span": "GLP-1 receptor agonists",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 801,
+          "char_end": 824
+        },
+        {
+          "mention": "semaglutide",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "semaglutide"
+          },
+          "grounded": true,
+          "source_span": "semaglutide",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 856,
+          "char_end": 867
+        },
+        {
+          "mention": "tirzepatide",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "tirzepatide"
+          },
+          "grounded": true,
+          "source_span": "tirzepatide",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 880,
+          "char_end": 891
+        },
+        {
+          "mention": "dulaglutide",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "dulaglutide"
+          },
+          "grounded": true,
+          "source_span": "dulaglutide",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 903,
+          "char_end": 914
+        },
+        {
+          "mention": "liraglutide",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "liraglutide"
+          },
+          "grounded": true,
+          "source_span": "liraglutide",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 929,
+          "char_end": 940
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASH",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASH",
+              "disease_stage": "noncirrhotic"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASH",
+            "char_start": 198,
+            "char_end": 202,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:mash",
+            "canonical_mentions": [
+              "MASH"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 600,
+            "char_end": 605,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhosis",
+            "char_start": 687,
+            "char_end": 696,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "dyslipidaemia",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "dyslipidaemia"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "dyslipidaemia",
+            "char_start": 734,
+            "char_end": 747,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:dyslipidaemia",
+            "canonical_mentions": [
+              "dyslipidaemia"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hypertension",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hypertension"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hypertension",
+            "char_start": 755,
+            "char_end": 767,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hypertension",
+            "canonical_mentions": [
+              "hypertension"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "type 2 diabetes",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "type 2 diabetes"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes",
+            "char_start": 778,
+            "char_end": 793,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:type 2 diabetes",
+            "canonical_mentions": [
+              "type 2 diabetes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "GLP-1 receptor agonists",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "GLP-1 receptor agonists"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "GLP-1 receptor agonists",
+            "char_start": 801,
+            "char_end": 824,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:glp 1 receptor agonists",
+            "canonical_mentions": [
+              "GLP-1 receptor agonists"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "semaglutide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "semaglutide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "semaglutide",
+            "char_start": 856,
+            "char_end": 867,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:semaglutide",
+            "canonical_mentions": [
+              "semaglutide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tirzepatide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "tirzepatide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tirzepatide",
+            "char_start": 880,
+            "char_end": 891,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:tirzepatide",
+            "canonical_mentions": [
+              "tirzepatide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "dulaglutide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "dulaglutide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "dulaglutide",
+            "char_start": 903,
+            "char_end": 914,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:dulaglutide",
+            "canonical_mentions": [
+              "dulaglutide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liraglutide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "liraglutide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liraglutide",
+            "char_start": 929,
+            "char_end": 940,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:liraglutide",
+            "canonical_mentions": [
+              "liraglutide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 11,
+          "raw_entity_count": 12,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 11,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.95,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 11,
+              "denominator": 12,
+              "value": 0.9167
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 12,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 12,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 11,
+              "denominator": 12,
+              "value": 0.9167
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 11,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 11
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 12,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.777066749986261,
+      "prompt_tokens": 366,
+      "output_tokens": 786,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "MASH",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASH",
+            "disease_stage": "noncirrhotic"
+          },
+          "grounded": true,
+          "source_span": "MASH",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 198,
+          "char_end": 202
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "fibrosis",
+            "disease_stage": "moderate-to-advanced"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 229,
+          "char_end": 237
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 600,
+          "char_end": 605
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 687,
+          "char_end": 696
+        },
+        {
+          "mention": "dyslipidaemia",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "dyslipidaemia"
+          },
+          "grounded": true,
+          "source_span": "dyslipidaemia",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 734,
+          "char_end": 747
+        },
+        {
+          "mention": "hypertension",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hypertension"
+          },
+          "grounded": true,
+          "source_span": "hypertension",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 755,
+          "char_end": 767
+        },
+        {
+          "mention": "type 2 diabetes",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "type 2 diabetes"
+          },
+          "grounded": true,
+          "source_span": "type 2 diabetes",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 778,
+          "char_end": 793
+        },
+        {
+          "mention": "GLP-1 receptor agonists",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "GLP-1 receptor agonists"
+          },
+          "grounded": true,
+          "source_span": "GLP-1 receptor agonists",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 801,
+          "char_end": 824
+        },
+        {
+          "mention": "semaglutide",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "semaglutide"
+          },
+          "grounded": true,
+          "source_span": "semaglutide",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 856,
+          "char_end": 867
+        },
+        {
+          "mention": "tirzepatide",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "tirzepatide"
+          },
+          "grounded": true,
+          "source_span": "tirzepatide",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 880,
+          "char_end": 891
+        },
+        {
+          "mention": "dulaglutide",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "dulaglutide"
+          },
+          "grounded": true,
+          "source_span": "dulaglutide",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 903,
+          "char_end": 914
+        },
+        {
+          "mention": "liraglutide",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "liraglutide"
+          },
+          "grounded": true,
+          "source_span": "liraglutide",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 929,
+          "char_end": 940
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASH",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASH",
+              "disease_stage": "noncirrhotic"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASH",
+            "char_start": 198,
+            "char_end": 202,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:mash",
+            "canonical_mentions": [
+              "MASH"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 600,
+            "char_end": 605,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhosis",
+            "char_start": 687,
+            "char_end": 696,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "dyslipidaemia",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "dyslipidaemia"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "dyslipidaemia",
+            "char_start": 734,
+            "char_end": 747,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:dyslipidaemia",
+            "canonical_mentions": [
+              "dyslipidaemia"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hypertension",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hypertension"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hypertension",
+            "char_start": 755,
+            "char_end": 767,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hypertension",
+            "canonical_mentions": [
+              "hypertension"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "type 2 diabetes",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "type 2 diabetes"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes",
+            "char_start": 778,
+            "char_end": 793,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:type 2 diabetes",
+            "canonical_mentions": [
+              "type 2 diabetes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "GLP-1 receptor agonists",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "GLP-1 receptor agonists"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "GLP-1 receptor agonists",
+            "char_start": 801,
+            "char_end": 824,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:glp 1 receptor agonists",
+            "canonical_mentions": [
+              "GLP-1 receptor agonists"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "semaglutide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "semaglutide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "semaglutide",
+            "char_start": 856,
+            "char_end": 867,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:semaglutide",
+            "canonical_mentions": [
+              "semaglutide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tirzepatide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "tirzepatide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tirzepatide",
+            "char_start": 880,
+            "char_end": 891,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:tirzepatide",
+            "canonical_mentions": [
+              "tirzepatide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "dulaglutide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "dulaglutide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "dulaglutide",
+            "char_start": 903,
+            "char_end": 914,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:dulaglutide",
+            "canonical_mentions": [
+              "dulaglutide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liraglutide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "liraglutide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liraglutide",
+            "char_start": 929,
+            "char_end": 940,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:liraglutide",
+            "canonical_mentions": [
+              "liraglutide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 11,
+          "raw_entity_count": 12,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 11,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.95,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 11,
+              "denominator": 12,
+              "value": 0.9167
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 12,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 12,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 11,
+              "denominator": 12,
+              "value": 0.9167
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 11,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 11
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 12,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 7.890670916065574,
+      "prompt_tokens": 7934,
+      "output_tokens": 1775,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "MASH",
+            "entity_type": "Disease",
+            "source_span": "MASH",
+            "char_start": 198,
+            "char_end": 202,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "MASLD",
+            "entity_type": "Disease",
+            "source_span": "MASLD",
+            "char_start": 600,
+            "char_end": 605,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "cirrhosis",
+            "entity_type": "Disease",
+            "source_span": "cirrhosis",
+            "char_start": 687,
+            "char_end": 696,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "dyslipidaemia",
+            "entity_type": "Disease",
+            "source_span": "dyslipidaemia",
+            "char_start": 734,
+            "char_end": 747,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "hypertension",
+            "entity_type": "Disease",
+            "source_span": "hypertension",
+            "char_start": 755,
+            "char_end": 767,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "type 2 diabetes",
+            "entity_type": "Disease",
+            "source_span": "type 2 diabetes",
+            "char_start": 778,
+            "char_end": 793,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, disease entity."
+          },
+          {
+            "mention": "GLP-1 receptor agonists",
+            "entity_type": "Protein",
+            "source_span": "GLP-1 receptor agonists",
+            "char_start": 801,
+            "char_end": 824,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, protein class entity."
+          },
+          {
+            "mention": "semaglutide",
+            "entity_type": "Protein",
+            "source_span": "semaglutide",
+            "char_start": 856,
+            "char_end": 867,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, protein entity."
+          },
+          {
+            "mention": "tirzepatide",
+            "entity_type": "Protein",
+            "source_span": "tirzepatide",
+            "char_start": 880,
+            "char_end": 891,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, protein entity."
+          },
+          {
+            "mention": "dulaglutide",
+            "entity_type": "Protein",
+            "source_span": "dulaglutide",
+            "char_start": 903,
+            "char_end": 914,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, protein entity."
+          },
+          {
+            "mention": "liraglutide",
+            "entity_type": "Protein",
+            "source_span": "liraglutide",
+            "char_start": 929,
+            "char_end": 940,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in text, protein entity."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "fibrosis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Pathological process, not a disease entity per schema."
+          }
+        ],
+        "review_reason": "All extracted entities verified against text; fibrosis rejected as non-disease. No relations extracted due to lack of explicit relational statements.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "MASH"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "MASLD"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "dyslipidaemia"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hypertension"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "type 2 diabetes"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "GLP-1 receptor agonists"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "semaglutide"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "tirzepatide"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "dulaglutide"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liraglutide"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "MASH",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MASH"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "MASH",
+          "char_start": 198,
+          "char_end": 202
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MASLD"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "MASLD",
+          "char_start": 600,
+          "char_end": 605
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "cirrhosis"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "char_start": 687,
+          "char_end": 696
+        },
+        {
+          "mention": "dyslipidaemia",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "dyslipidaemia"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "dyslipidaemia",
+          "char_start": 734,
+          "char_end": 747
+        },
+        {
+          "mention": "hypertension",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "hypertension"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hypertension",
+          "char_start": 755,
+          "char_end": 767
+        },
+        {
+          "mention": "type 2 diabetes",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "type 2 diabetes"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "type 2 diabetes",
+          "char_start": 778,
+          "char_end": 793
+        },
+        {
+          "mention": "resmetirom",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "resmetirom"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "resmetirom",
+          "char_start": 1089,
+          "char_end": 1099
+        },
+        {
+          "mention": "semaglutide",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "semaglutide"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "semaglutide",
+          "char_start": 856,
+          "char_end": 867
+        },
+        {
+          "mention": "tirzepatide",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "tirzepatide"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "tirzepatide",
+          "char_start": 880,
+          "char_end": 891
+        },
+        {
+          "mention": "dulaglutide",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "dulaglutide"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "dulaglutide",
+          "char_start": 903,
+          "char_end": 914
+        },
+        {
+          "mention": "liraglutide",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "liraglutide"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "liraglutide",
+          "char_start": 929,
+          "char_end": 940
+        },
+        {
+          "mention": "GLP-1 receptor agonists",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "GLP-1 receptor agonists"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "GLP-1 receptor agonists",
+          "char_start": 801,
+          "char_end": 824
+        },
+        {
+          "mention": "statins",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "statins"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "statins",
+          "char_start": 1215,
+          "char_end": 1222
+        },
+        {
+          "mention": "metformin",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "metformin"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "metformin",
+          "char_start": 1224,
+          "char_end": 1233
+        },
+        {
+          "mention": "ARBs",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "ARBs"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "ARBs",
+          "char_start": 1237,
+          "char_end": 1241
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "resmetirom",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Resmetirom received FDA approval in March 2024 as the first therapy for noncirrhotic MASH with moderate-to-advanced fibrosis.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "MASLD",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "MASLD and MASH diagnoses were documented in 72% and 56% of patients",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "MASH",
+          "subject_type": "Disease",
+          "predicate": "PROGRESSES_TO",
+          "object": "cirrhosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "noncirrhotic MASH with moderate-to-advanced fibrosis",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "dyslipidaemia",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Common comorbidities included dyslipidaemia (55%), hypertension (52%) and type 2 diabetes (41%).",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "hypertension",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Common comorbidities included dyslipidaemia (55%), hypertension (52%) and type 2 diabetes (41%).",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "type 2 diabetes",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Common comorbidities included dyslipidaemia (55%), hypertension (52%) and type 2 diabetes (41%).",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "GLP-1 receptor agonists",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "GLP-1 receptor agonists were commonly prescribed, with semaglutide (n = 1124), tirzepatide (n = 842), dulaglutide (n = 391) and liraglutide (n = 203) representing the most frequently used agents.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "semaglutide",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "GLP-1 receptor agonists were commonly prescribed, with semaglutide (n = 1124), tirzepatide (n = 842), dulaglutide (n = 391) and liraglutide (n = 203) representing the most frequently used agents.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "tirzepatide",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "GLP-1 receptor agonists were commonly prescribed, with semaglutide (n = 1124), tirzepatide (n = 842), dulaglutide (n = 391) and liraglutide (n = 203) representing the most frequently used agents.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "dulaglutide",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "GLP-1 receptor agonists were commonly prescribed, with semaglutide (n = 1124), tirzepatide (n = 842), dulaglutide (n = 391) and liraglutide (n = 203) representing the most frequently used agents.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "liraglutide",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "GLP-1 receptor agonists were commonly prescribed, with semaglutide (n = 1124), tirzepatide (n = 842), dulaglutide (n = 391) and liraglutide (n = 203) representing the most frequently used agents.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "statins",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Treated patients were more frequently Asian or Hispanic and more likely to be prescribed GLP-1 receptor agonists, statins, metformin or ARBs (all p < 0.01).",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "metformin",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Treated patients were more frequently Asian or Hispanic and more likely to be prescribed GLP-1 receptor agonists, statins, metformin or ARBs (all p < 0.01).",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        },
+        {
+          "subject": "ARBs",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "MASH",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Treated patients were more frequently Asian or Hispanic and more likely to be prescribed GLP-1 receptor agonists, statins, metformin or ARBs (all p < 0.01).",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "MASH",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "MASH"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASH",
+            "char_start": 198,
+            "char_end": 202,
+            "grounded": true,
+            "normalized_id": "MASH",
+            "canonical_key": "Disease:mash",
+            "canonical_mentions": [
+              "MASH"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 600,
+            "char_end": 605,
+            "grounded": true,
+            "normalized_id": "MASLD",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhosis",
+            "char_start": 687,
+            "char_end": 696,
+            "grounded": true,
+            "normalized_id": "cirrhosis",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "dyslipidaemia",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "dyslipidaemia"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "dyslipidaemia",
+            "char_start": 734,
+            "char_end": 747,
+            "grounded": true,
+            "normalized_id": "dyslipidaemia",
+            "canonical_key": "Disease:dyslipidaemia",
+            "canonical_mentions": [
+              "dyslipidaemia"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hypertension",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "hypertension"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hypertension",
+            "char_start": 755,
+            "char_end": 767,
+            "grounded": true,
+            "normalized_id": "hypertension",
+            "canonical_key": "Disease:hypertension",
+            "canonical_mentions": [
+              "hypertension"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "type 2 diabetes",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "type 2 diabetes"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "type 2 diabetes",
+            "char_start": 778,
+            "char_end": 793,
+            "grounded": true,
+            "normalized_id": "type 2 diabetes",
+            "canonical_key": "Disease:type 2 diabetes",
+            "canonical_mentions": [
+              "type 2 diabetes"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "resmetirom",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "resmetirom"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "resmetirom",
+            "char_start": 1089,
+            "char_end": 1099,
+            "grounded": true,
+            "normalized_id": "resmetirom",
+            "canonical_key": "Protein:resmetirom",
+            "canonical_mentions": [
+              "resmetirom"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "semaglutide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "semaglutide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "semaglutide",
+            "char_start": 856,
+            "char_end": 867,
+            "grounded": true,
+            "normalized_id": "semaglutide",
+            "canonical_key": "Protein:semaglutide",
+            "canonical_mentions": [
+              "semaglutide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tirzepatide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "tirzepatide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "tirzepatide",
+            "char_start": 880,
+            "char_end": 891,
+            "grounded": true,
+            "normalized_id": "tirzepatide",
+            "canonical_key": "Protein:tirzepatide",
+            "canonical_mentions": [
+              "tirzepatide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "dulaglutide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "dulaglutide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "dulaglutide",
+            "char_start": 903,
+            "char_end": 914,
+            "grounded": true,
+            "normalized_id": "dulaglutide",
+            "canonical_key": "Protein:dulaglutide",
+            "canonical_mentions": [
+              "dulaglutide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liraglutide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "liraglutide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liraglutide",
+            "char_start": 929,
+            "char_end": 940,
+            "grounded": true,
+            "normalized_id": "liraglutide",
+            "canonical_key": "Protein:liraglutide",
+            "canonical_mentions": [
+              "liraglutide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "GLP-1 receptor agonists",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "GLP-1 receptor agonists"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "GLP-1 receptor agonists",
+            "char_start": 801,
+            "char_end": 824,
+            "grounded": true,
+            "normalized_id": "GLP-1 receptor agonists",
+            "canonical_key": "Protein:glp 1 receptor agonists",
+            "canonical_mentions": [
+              "GLP-1 receptor agonists"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "statins",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "statins"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "statins",
+            "char_start": 1215,
+            "char_end": 1222,
+            "grounded": true,
+            "normalized_id": "statins",
+            "canonical_key": "Protein:statins",
+            "canonical_mentions": [
+              "statins"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "metformin",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "metformin"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "metformin",
+            "char_start": 1224,
+            "char_end": 1233,
+            "grounded": true,
+            "normalized_id": "metformin",
+            "canonical_key": "Protein:metformin",
+            "canonical_mentions": [
+              "metformin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ARBs",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "ARBs"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ARBs",
+            "char_start": 1237,
+            "char_end": 1241,
+            "grounded": true,
+            "normalized_id": "ARBs",
+            "canonical_key": "Protein:arbs",
+            "canonical_mentions": [
+              "ARBs"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "resmetirom",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Resmetirom received FDA approval in March 2024 as the first therapy for noncirrhotic MASH with moderate-to-advanced fibrosis.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 113,
+            "evidence_char_end": 238,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "resmetirom",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "MASLD",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "MASLD and MASH diagnoses were documented in 72% and 56% of patients",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 600,
+            "evidence_char_end": 667,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "MASLD",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "MASH",
+            "predicate": "PROGRESSES_TO",
+            "object": "cirrhosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "noncirrhotic MASH with moderate-to-advanced fibrosis",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 185,
+            "evidence_char_end": 237,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "MASH",
+            "original_object": "cirrhosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "dyslipidaemia",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Common comorbidities included dyslipidaemia (55%), hypertension (52%) and type 2 diabetes (41%).",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 704,
+            "evidence_char_end": 800,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "dyslipidaemia",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "hypertension",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Common comorbidities included dyslipidaemia (55%), hypertension (52%) and type 2 diabetes (41%).",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 704,
+            "evidence_char_end": 800,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "hypertension",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "type 2 diabetes",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Common comorbidities included dyslipidaemia (55%), hypertension (52%) and type 2 diabetes (41%).",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 704,
+            "evidence_char_end": 800,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "type 2 diabetes",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "GLP-1 receptor agonists",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "GLP-1 receptor agonists were commonly prescribed, with semaglutide (n = 1124), tirzepatide (n = 842), dulaglutide (n = 391) and liraglutide (n = 203) representing the most frequently used agents.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 801,
+            "evidence_char_end": 996,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "GLP-1 receptor agonists",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "semaglutide",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "GLP-1 receptor agonists were commonly prescribed, with semaglutide (n = 1124), tirzepatide (n = 842), dulaglutide (n = 391) and liraglutide (n = 203) representing the most frequently used agents.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 801,
+            "evidence_char_end": 996,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "semaglutide",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "tirzepatide",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "GLP-1 receptor agonists were commonly prescribed, with semaglutide (n = 1124), tirzepatide (n = 842), dulaglutide (n = 391) and liraglutide (n = 203) representing the most frequently used agents.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 801,
+            "evidence_char_end": 996,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "tirzepatide",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "dulaglutide",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "GLP-1 receptor agonists were commonly prescribed, with semaglutide (n = 1124), tirzepatide (n = 842), dulaglutide (n = 391) and liraglutide (n = 203) representing the most frequently used agents.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 801,
+            "evidence_char_end": 996,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "dulaglutide",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "liraglutide",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "GLP-1 receptor agonists were commonly prescribed, with semaglutide (n = 1124), tirzepatide (n = 842), dulaglutide (n = 391) and liraglutide (n = 203) representing the most frequently used agents.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 801,
+            "evidence_char_end": 996,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "liraglutide",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "statins",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Treated patients were more frequently Asian or Hispanic and more likely to be prescribed GLP-1 receptor agonists, statins, metformin or ARBs (all p < 0.01).",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1101,
+            "evidence_char_end": 1257,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "statins",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "metformin",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Treated patients were more frequently Asian or Hispanic and more likely to be prescribed GLP-1 receptor agonists, statins, metformin or ARBs (all p < 0.01).",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1101,
+            "evidence_char_end": 1257,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "metformin",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "ARBs",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "MASH",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Treated patients were more frequently Asian or Hispanic and more likely to be prescribed GLP-1 receptor agonists, statins, metformin or ARBs (all p < 0.01).",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1101,
+            "evidence_char_end": 1257,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "ARBs",
+            "original_object": "MASH",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 15,
+          "raw_entity_count": 15,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 15,
+          "total_relations": 14,
+          "known_relations": 0,
+          "novel_relations": 14,
+          "contradicting_relations": 0,
+          "schema_valid": 14,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6286,
+          "evidence_score": 0.45,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 15,
+              "denominator": 15,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 15,
+              "denominator": 15,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 14,
+              "denominator": 14,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 14,
+              "value": 0.1429
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 14,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 14,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 14,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 14,
+              "denominator": 14,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 14,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 3,
+              "denominator": 14,
+              "value": 0.2143
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 14,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 15,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 15
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 15,
+        "relations": 14,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 11.129526665899903,
+      "prompt_tokens": 1490,
+      "output_tokens": 2508,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

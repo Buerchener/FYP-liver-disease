@@ -11,17 +11,50 @@ cognitive_agent/extraction_kernel.py — LangExtract 提取内核 v2
 
 from __future__ import annotations
 from typing import Optional
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field, is_dataclass
+import copy
+import hashlib
+from importlib.metadata import PackageNotFoundError, version as package_version
+import json
 import time
 import langextract as lx
 from langextract.factory import ModelConfig
 from cognitive_agent.schema.examples import KG_EXTRACTION_PROMPT, DEFAULT_EXAMPLES
 from cognitive_agent.schema.entity_classes import EXTRACTION_CLASS_TO_LABEL
+from cognitive_agent.article_chunker import ArticleChunk
+from cognitive_agent.extraction_cache import LightweightExtractionCache
+from cognitive_agent.golden_examples import GOLDEN_EXAMPLE_VERSION
+from cognitive_agent.schema.ontology import ONTOLOGY_VERSION
+
+# These phrases describe broad context or intervention classes, not KG entities.
+# Keep this deterministic because model output is otherwise prone to over-labeling them.
+GENERIC_ENTITY_TERMS = frozenset({
+    "cancer", "tumor", "tumour", "immune regulation", "immunomodulation",
+    "immune modulation", "immune suppression", "immunosuppression",
+    "immune activation", "immune evasion", "immune cell infiltration",
+    "antitumor immunity", "tumor immune microenvironment",
+    "tumor microenvironment", "immune microenvironment", "immunotherapy",
+    "immune checkpoint inhibitors", "cytokines", "tumor antigens",
+})
+
+# A tissue must be anatomical; microenvironments are contextual descriptions.
+TISSUE_CONTEXT_TERMS = frozenset({
+    "tumor immune microenvironment", "tumor microenvironment", "immune microenvironment",
+})
 
 # 重试配置 (原生 Gemini 模式: schema 错误已消除, 仅应对网络瞬时故障)
 MAX_RETRIES = 1
 RETRY_BASE_DELAY = 2.0
 RETRY_BACKOFF = 1.5
+EXTRACTION_CACHE_KEY_VERSION = "langextract-candidates-v2"
+PROMPT_VERSION = "kg-extraction-prompt-v2"
+
+
+def _langextract_version() -> str:
+    try:
+        return package_version("langextract")
+    except PackageNotFoundError:
+        return "unknown"
 
 
 @dataclass
@@ -33,6 +66,8 @@ class RawExtraction:
     error: str = ""
     retry_count: int = 0          # 实际重试次数
     warnings: list[str] = field(default_factory=list)  # 非致命警告
+    chunk_count: int = 1
+    chunks: list[dict] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {
@@ -43,14 +78,117 @@ class RawExtraction:
             "relations": self.relations,
             "error": self.error,
             "retry_count": self.retry_count,
+            "warnings": self.warnings,
+            "chunk_count": self.chunk_count,
+            "chunks": self.chunks,
         }
 
 
 class ExtractionKernel:
     """LangExtract + Gemini 提取内核 — v2 重试 + 容错版"""
 
-    def __init__(self, model_config: ModelConfig):
+    def __init__(self, model_config: ModelConfig,
+                 cache: LightweightExtractionCache | None = None,
+                 inner_max_workers: int = 2):
         self.model_config = model_config
+        self.cache = cache or LightweightExtractionCache(mode="off")
+        self.inner_max_workers = max(1, int(inner_max_workers))
+
+    @staticmethod
+    def _stable_value(value):
+        if is_dataclass(value):
+            return ExtractionKernel._stable_value(asdict(value))
+        if isinstance(value, dict):
+            return {str(k): ExtractionKernel._stable_value(v) for k, v in sorted(value.items())}
+        if isinstance(value, (list, tuple)):
+            return [ExtractionKernel._stable_value(v) for v in value]
+        if isinstance(value, (str, int, float, bool)) or value is None:
+            return value
+        return repr(value)
+
+    def _cache_key(self, *, text: str, examples: list, prompt: str,
+                   retry_on_empty: bool) -> str:
+        provider_kwargs = getattr(self.model_config, "provider_kwargs", {}) or {}
+        http_options = provider_kwargs.get("http_options", {}) or {}
+        endpoint = provider_kwargs.get("base_url") or http_options.get("base_url") or ""
+        endpoint = str(endpoint).rstrip("/")
+        text_hash = hashlib.sha256(text.encode("utf-8")).hexdigest()
+        prompt_hash = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
+        examples_value = self._stable_value(examples)
+        examples_hash = hashlib.sha256(json.dumps(
+            examples_value, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+        ).encode("utf-8")).hexdigest()
+        payload = {
+            "version": EXTRACTION_CACHE_KEY_VERSION,
+            "langextract_version": _langextract_version(),
+            "provider": str(getattr(self.model_config, "provider", "") or ""),
+            "model_id": str(getattr(self.model_config, "model_id", "") or ""),
+            # Endpoint identity affects model behavior; credentials deliberately
+            # do not participate in the key and are never cached.
+            "endpoint_identity": endpoint,
+            "prompt_version": PROMPT_VERSION,
+            "prompt_hash": prompt_hash,
+            "golden_shot_version": GOLDEN_EXAMPLE_VERSION,
+            "golden_shot_hash": examples_hash,
+            "ontology_version": ONTOLOGY_VERSION,
+            "chunk_content_hash": text_hash,
+            "temperature": 0, "schema_constraints": False,
+            "extraction_passes": 1,
+            "inner_max_workers": self.inner_max_workers,
+            "retry_on_empty": bool(retry_on_empty),
+        }
+        raw = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        return hashlib.sha256(raw.encode("utf-8")).hexdigest()
+
+    @staticmethod
+    def _payload(result: RawExtraction) -> dict:
+        return {
+            "entities": copy.deepcopy(result.entities),
+            "relations": copy.deepcopy(result.relations),
+            "error": result.error, "retry_count": result.retry_count,
+            "warnings": list(result.warnings), "chunk_count": result.chunk_count,
+            "chunks": copy.deepcopy(result.chunks),
+        }
+
+    @staticmethod
+    def _from_payload(payload: dict, document_id: str, cache_status: str) -> RawExtraction:
+        result = RawExtraction(
+            pmid=document_id,
+            entities=copy.deepcopy(payload.get("entities", [])),
+            relations=copy.deepcopy(payload.get("relations", [])),
+            error=str(payload.get("error", "") or ""),
+            retry_count=int(payload.get("retry_count", 0) or 0),
+            warnings=list(payload.get("warnings", []) or []),
+            chunk_count=int(payload.get("chunk_count", 1) or 1),
+            chunks=copy.deepcopy(payload.get("chunks", []) or []),
+        )
+        result.warnings.append(f"extraction_cache:{cache_status}")
+        return result
+
+    @staticmethod
+    def _is_cacheable_payload(payload: dict) -> bool:
+        """Accept replayable zero-result responses, but never cache failures.
+
+        A valid empty extraction is a deterministic model result and must be
+        reusable for a 100% warm replay.  Transport/provider errors, parse
+        failures and malformed payloads remain deliberately non-cacheable.
+        """
+        if payload.get("error"):
+            return False
+        if not isinstance(payload.get("entities"), list):
+            return False
+        if not isinstance(payload.get("relations"), list):
+            return False
+        fatal_warning_tokens = (
+            "parse error:", "unexpected lx.extract return type",
+            "unexpected element in results:", "attempt 1 error:",
+        )
+        warnings = [str(item).casefold() for item in payload.get("warnings", []) or []]
+        return not any(
+            token in warning
+            for warning in warnings
+            for token in fatal_warning_tokens
+        )
 
     def extract(
         self,
@@ -58,6 +196,7 @@ class ExtractionKernel:
         document_id: str = "",
         examples: list | None = None,
         prompt: str = KG_EXTRACTION_PROMPT,
+        retry_on_empty: bool = True,
     ) -> RawExtraction:
         """提取实体和关系，0 实体时自动重试。
 
@@ -73,12 +212,35 @@ class ExtractionKernel:
         if examples is None:
             examples = DEFAULT_EXAMPLES
 
+        cache_key = self._cache_key(
+            text=text, examples=examples, prompt=prompt, retry_on_empty=retry_on_empty,
+        )
+        def compute() -> tuple[dict, float]:
+            started = time.perf_counter()
+            result = self._extract_uncached(
+                text=text, document_id=document_id, examples=examples,
+                prompt=prompt, retry_on_empty=retry_on_empty,
+            )
+            return self._payload(result), time.perf_counter() - started
+        payload, cache_status = self.cache.get_or_compute(
+            cache_key, compute,
+            cacheable=self._is_cacheable_payload,
+        )
+        return self._from_payload(payload, document_id, cache_status)
+
+    def _extract_uncached(
+        self, *, text: str, document_id: str, examples: list,
+        prompt: str, retry_on_empty: bool,
+    ) -> RawExtraction:
+        """Execute one uncached LangExtract request sequence."""
+
         result = RawExtraction(pmid=document_id)
 
-        for attempt in range(1 + MAX_RETRIES):
+        retry_budget = MAX_RETRIES if retry_on_empty else 0
+        for attempt in range(1 + retry_budget):
             if attempt > 0:
                 delay = RETRY_BASE_DELAY * (RETRY_BACKOFF ** (attempt - 1))
-                print(f"    [Extract] Retry {attempt}/{MAX_RETRIES} for {document_id} "
+                print(f"    [Extract] Retry {attempt}/{retry_budget} for {document_id} "
                       f"(sleep {delay:.1f}s)...")
                 time.sleep(delay)
                 # 清空之前的实体，准备重新提取
@@ -95,7 +257,7 @@ class ExtractionKernel:
                     examples=examples,
                     config=self.model_config,
                     temperature=0,
-                    max_workers=2,                # 降低并发：proxy 模型更稳定
+                    max_workers=self.inner_max_workers,
                     use_schema_constraints=False,  # 宽松模式
                     show_progress=False,
                     extraction_passes=1,           # 单次提取（稳定性优先）
@@ -124,7 +286,7 @@ class ExtractionKernel:
                         continue
 
                     try:
-                        self._parse(annotated, result)
+                        self._parse(annotated, result, source_text=text)
                     except Exception as parse_err:
                         result.warnings.append(f"Parse error: {parse_err}")
                         # 不 break — 尝试解析剩余的 extractions
@@ -133,36 +295,163 @@ class ExtractionKernel:
                 if len(result.entities) > 0:
                     result.retry_count = attempt
                     break  # 成功，跳出重试循环
-                elif attempt < MAX_RETRIES:
+                elif attempt < retry_budget:
                     result.warnings.append(
                         f"Attempt {attempt+1}: 0 entities extracted"
                     )
                 else:
                     result.warnings.append(
-                        f"All {MAX_RETRIES+1} attempts produced 0 entities"
+                        f"All {retry_budget+1} attempts produced 0 entities"
                     )
 
             except Exception as e:
                 result.error = str(e)
                 result.warnings.append(f"Attempt {attempt+1} error: {e}")
-                if attempt >= MAX_RETRIES:
+                if attempt >= retry_budget:
                     print(f"    [Extract] All retries exhausted for {document_id}: {e}")
 
         return result
 
-    def _parse(self, annotated, result: RawExtraction):
+    def extract_chunked(
+        self,
+        chunks: list[ArticleChunk],
+        *,
+        full_text: str,
+        document_id: str = "",
+        examples: list | None = None,
+        prompt: str = KG_EXTRACTION_PROMPT,
+    ) -> RawExtraction:
+        """Extract exact source chunks, rebase spans, then deduplicate overlap."""
+        if len(chunks) <= 1:
+            result = self.extract(
+                full_text, document_id=document_id, examples=examples, prompt=prompt
+            )
+            result.chunk_count = 1
+            result.chunks = [chunks[0].to_dict()] if chunks else []
+            return result
+
+        combined = RawExtraction(
+            pmid=document_id,
+            chunk_count=len(chunks),
+            chunks=[chunk.to_dict() for chunk in chunks],
+        )
+        raw_results = []
+        for chunk in chunks:
+            partial = self.extract(
+                chunk.text,
+                document_id=f"{document_id}:{chunk.chunk_id}",
+                examples=examples,
+                prompt=(
+                    f"{prompt}\n\nCurrent extraction window: {chunk.chunk_id}; "
+                    f"sections: {', '.join(chunk.sections)}. Extract only claims "
+                    "whose evidence is fully contained in this window."
+                ),
+                retry_on_empty=False,
+            )
+            raw_results.append(partial.raw_lx_result)
+            for entity in partial.entities:
+                rebased = copy.deepcopy(entity)
+                if isinstance(rebased.get("char_start"), int):
+                    rebased["char_start"] += chunk.char_start
+                if isinstance(rebased.get("char_end"), int):
+                    rebased["char_end"] += chunk.char_start
+                combined.entities.append(rebased)
+            combined.relations.extend(copy.deepcopy(partial.relations))
+            combined.warnings.extend(
+                f"{chunk.chunk_id}: {warning}" for warning in partial.warnings
+            )
+            if partial.error:
+                combined.warnings.append(f"{chunk.chunk_id}: {partial.error}")
+            combined.retry_count += partial.retry_count
+
+        combined.raw_lx_result = raw_results
+        combined.entities = self._merge_overlap_entities(combined.entities)
+        combined.relations = self._dedupe_relations(combined.relations)
+        if not combined.entities:
+            fallback = self.extract(
+                full_text, document_id=document_id, examples=examples, prompt=prompt
+            )
+            fallback.chunk_count = len(chunks)
+            fallback.chunks = [chunk.to_dict() for chunk in chunks]
+            fallback.warnings.insert(0, "chunked extraction empty; used one-shot fallback")
+            return fallback
+        return combined
+
+    @staticmethod
+    def _merge_overlap_entities(entities: list[dict]) -> list[dict]:
+        merged: dict[tuple, dict] = {}
+        for entity in entities:
+            key = (
+                str(entity.get("mention", "")).casefold(), entity.get("type", ""),
+                entity.get("char_start"), entity.get("char_end"),
+            )
+            if key not in merged:
+                merged[key] = copy.deepcopy(entity)
+                continue
+            target = merged[key].setdefault("attributes", {})
+            for name, value in (entity.get("attributes", {}) or {}).items():
+                if name not in target:
+                    target[name] = copy.deepcopy(value)
+                elif isinstance(target[name], list) and isinstance(value, list):
+                    seen = {json.dumps(item, sort_keys=True, default=str) for item in target[name]}
+                    target[name].extend(
+                        copy.deepcopy(item) for item in value
+                        if json.dumps(item, sort_keys=True, default=str) not in seen
+                    )
+        return list(merged.values())
+
+    @staticmethod
+    def _dedupe_relations(relations: list[dict]) -> list[dict]:
+        output: list[dict] = []
+        seen: set[tuple] = set()
+        for relation in relations:
+            key = tuple(str(relation.get(name, "") or "").casefold() for name in (
+                "subject", "subject_type", "predicate", "object", "object_type",
+                "direction", "evidence",
+            ))
+            if key not in seen:
+                seen.add(key)
+                output.append(relation)
+        return output
+
+    def _parse(self, annotated, result: RawExtraction, source_text: str = ""):
         """解析 LangExtract 返回的 AnnotatedDocument。
 
         容错: 单个 extraction 解析失败不影响其他 extraction。
         """
         for ext in annotated.extractions:
             try:
-                has_g = ext.char_interval is not None and ext.char_interval.start_pos is not None
+                has_interval = (
+                    ext.char_interval is not None
+                    and ext.char_interval.start_pos is not None
+                    and ext.char_interval.end_pos is not None
+                )
                 # 类型映射
                 raw_class = getattr(ext, 'extraction_class', 'unknown')
                 entity_type = EXTRACTION_CLASS_TO_LABEL.get(raw_class, raw_class)
 
-                # 属性安全转换
+                # Preserve every raw candidate.  The Phase-A quality gate records
+                # rejected entities and whether relations referenced them; dropping
+                # candidates here would destroy that audit trail.
+                mention = str(getattr(ext, 'extraction_text', '') or '').strip()
+                aligned_source = ""
+                if has_interval:
+                    aligned_source = source_text[
+                        ext.char_interval.start_pos:ext.char_interval.end_pos
+                    ]
+                # LangExtract MATCH_LESSER may expand a source token (e.g.
+                # "TNF") into a broader unsupported concept ("TNF signalling").
+                # Preserve it for audit but never call it grounded.
+                has_g = bool(
+                    has_interval
+                    and " ".join(mention.casefold().split())
+                    == " ".join(aligned_source.casefold().split())
+                )
+                if mention.casefold() in GENERIC_ENTITY_TERMS:
+                    result.warnings.append(f"Generic entity candidate retained for review: {mention}")
+                if entity_type == "Tissue" and mention.casefold() in TISSUE_CONTEXT_TERMS:
+                    result.warnings.append(f"Contextual tissue candidate retained for review: {mention}")
+
                 try:
                     attrs = dict(ext.attributes) if ext.attributes else {}
                 except Exception:
@@ -193,6 +482,7 @@ class ExtractionKernel:
                     "extraction_class": raw_class,
                     "attributes": clean_attrs,
                     "grounded": has_g,
+                    "source_span": aligned_source if has_interval else "",
                     "alignment_status": (
                         ext.alignment_status.name
                         if hasattr(ext, "alignment_status") and ext.alignment_status
@@ -261,6 +551,8 @@ class ExtractionKernel:
                         "uncertain": rd.get("uncertain", False),
                         "disease_stage": rd.get("disease_stage", ""),
                         "evidence": rd.get("evidence", ""),
+                        "species": rd.get("species", attrs.get("species", "")),
+                        "confidence": rd.get("confidence", attrs.get("confidence", 0.7)),
                         "grounded": entity.get("grounded", False),
                     })
                 except Exception:

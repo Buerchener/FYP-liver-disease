@@ -1,0 +1,803 @@
+{
+  "pmid": "41811796",
+  "title": "Recompensation of Liver Cirrhosis: Definition, Mechanism, Etiological Differences, Prognosis, and Challenges.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Liver Cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Liver Cirrhosis",
+            "disease_stage": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "Liver Cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 25,
+          "char_end": 40
+        },
+        {
+          "mention": "decompensated cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "decompensated cirrhosis",
+            "disease_stage": "decompensated"
+          },
+          "grounded": true,
+          "source_span": "decompensated cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 163,
+          "char_end": 186
+        },
+        {
+          "mention": "compensated cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "compensated cirrhosis",
+            "disease_stage": "compensated"
+          },
+          "grounded": true,
+          "source_span": "compensated cirrhosis",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 148,
+          "char_end": 186
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Liver Cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Liver Cirrhosis",
+              "disease_stage": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Liver Cirrhosis",
+            "char_start": 25,
+            "char_end": 40,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver cirrhosis",
+            "canonical_mentions": [
+              "Liver Cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "decompensated cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "decompensated cirrhosis",
+              "disease_stage": "decompensated"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "decompensated cirrhosis",
+            "char_start": 163,
+            "char_end": 186,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:decompensated cirrhosis",
+            "canonical_mentions": [
+              "decompensated cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "compensated cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "compensated cirrhosis",
+              "disease_stage": "compensated"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "compensated cirrhosis",
+            "char_start": 165,
+            "char_end": 186,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:compensated cirrhosis",
+            "canonical_mentions": [
+              "compensated cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.614503167103976,
+      "prompt_tokens": 216,
+      "output_tokens": 261,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Liver Cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Liver Cirrhosis",
+            "disease_stage": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "Liver Cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 25,
+          "char_end": 40
+        },
+        {
+          "mention": "decompensated cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "decompensated cirrhosis",
+            "disease_stage": "decompensated"
+          },
+          "grounded": true,
+          "source_span": "decompensated cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 163,
+          "char_end": 186
+        },
+        {
+          "mention": "compensated cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "compensated cirrhosis",
+            "disease_stage": "compensated"
+          },
+          "grounded": true,
+          "source_span": "compensated cirrhosis",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 148,
+          "char_end": 186
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Liver Cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Liver Cirrhosis",
+              "disease_stage": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Liver Cirrhosis",
+            "char_start": 25,
+            "char_end": 40,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver cirrhosis",
+            "canonical_mentions": [
+              "Liver Cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "decompensated cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "decompensated cirrhosis",
+              "disease_stage": "decompensated"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "decompensated cirrhosis",
+            "char_start": 163,
+            "char_end": 186,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:decompensated cirrhosis",
+            "canonical_mentions": [
+              "decompensated cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "compensated cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "compensated cirrhosis",
+              "disease_stage": "compensated"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "compensated cirrhosis",
+            "char_start": 165,
+            "char_end": 186,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:compensated cirrhosis",
+            "canonical_mentions": [
+              "compensated cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.025840667076409,
+      "prompt_tokens": 3665,
+      "output_tokens": 612,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Liver Cirrhosis",
+            "entity_type": "Disease",
+            "source_span": "Liver Cirrhosis",
+            "char_start": 25,
+            "char_end": 40,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in title; valid disease entity."
+          },
+          {
+            "mention": "decompensated cirrhosis",
+            "entity_type": "Disease",
+            "source_span": "decompensated cirrhosis",
+            "char_start": 163,
+            "char_end": 186,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in abstract; valid disease entity."
+          },
+          {
+            "mention": "compensated cirrhosis",
+            "entity_type": "Disease",
+            "source_span": "compensated cirrhosis",
+            "char_start": 165,
+            "char_end": 186,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Exact match in abstract; valid disease entity."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [],
+        "review_reason": "All three candidate entities are correctly identified and grounded in the text. No relations were proposed by the first model, and no explicit relations are stated in the abstract. The abstract mentions progression from compensated to decompensated cirrhosis, but it is a general statement without specific causal or associative claims suitable for relation extraction. Therefore, no relations are added.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Liver Cirrhosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "decompensated cirrhosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "compensated cirrhosis"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "compensated cirrhosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000103"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "compensated cirrhosis",
+          "char_start": 165,
+          "char_end": 186
+        },
+        {
+          "mention": "decompensated cirrhosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000103"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "decompensated cirrhosis",
+          "char_start": 163,
+          "char_end": 186
+        },
+        {
+          "mention": "recompensation",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000103"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "recompensation",
+          "char_start": 308,
+          "char_end": 322
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "compensated cirrhosis",
+          "subject_type": "Disease",
+          "predicate": "PROGRESSES_TO",
+          "object": "decompensated cirrhosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "The progression from compensated to decompensated cirrhosis has historically been considered irreversible.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "decompensated cirrhosis",
+          "subject_type": "Disease",
+          "predicate": "PROGRESSES_TO",
+          "object": "recompensation",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "a subset of patients with decompensated cirrhosis may regain a compensated state following successful etiological control",
+          "negated": false,
+          "uncertain": true,
+          "species": "human",
+          "confidence": 0.7
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "decompensated cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "D000103"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "decompensated cirrhosis",
+            "char_start": 163,
+            "char_end": 186,
+            "grounded": true,
+            "normalized_id": "D000103",
+            "canonical_key": "Disease:decompensated cirrhosis",
+            "canonical_mentions": [
+              "compensated cirrhosis",
+              "decompensated cirrhosis",
+              "recompensation"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "decompensated cirrhosis",
+            "predicate": "PROGRESSES_TO",
+            "object": "decompensated cirrhosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "The progression from compensated to decompensated cirrhosis has historically been considered irreversible.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 127,
+            "evidence_char_end": 233,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "compensated cirrhosis",
+            "original_object": "decompensated cirrhosis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "decompensated cirrhosis",
+            "predicate": "PROGRESSES_TO",
+            "object": "decompensated cirrhosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "a subset of patients with decompensated cirrhosis may regain a compensated state following successful etiological control",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "object_novel",
+              "prediction_only",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 343,
+            "evidence_char_end": 464,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "decompensated cirrhosis",
+            "original_object": "recompensation",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 1,
+          "raw_entity_count": 3,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 1,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5667,
+          "evidence_score": 0.75,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 3,
+              "value": 0.6667
+            },
+            "type_constraint_pass_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 1,
+              "denominator": 2,
+              "value": 0.5
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 1,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 1
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 3,
+        "relations": 2,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.3124246653169394,
+      "prompt_tokens": 1283,
+      "output_tokens": 370,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

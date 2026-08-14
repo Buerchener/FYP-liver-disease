@@ -67,7 +67,12 @@ class ContextActivator:
     def __init__(self, kg_memory: KGMemory):
         self.kg_memory = kg_memory
 
-    def activate(self, text: str, pmid: str = "") -> ContextCard:
+    def activate(
+        self,
+        text: str,
+        pmid: str = "",
+        max_mentions: int | None = None,
+    ) -> ContextCard:
         """
         扫描文本，查询 Neo4j，构建上下文卡片。
 
@@ -86,6 +91,10 @@ class ContextActivator:
 
         # 1. 快速扫描实体提及
         surface_mentions = self._scan_mentions(text)
+        if max_mentions is not None and max_mentions > 0:
+            # Preserve document order and bound graph round trips.  Verified
+            # entities can still receive post-extraction RAG context.
+            surface_mentions = dict(list(surface_mentions.items())[:max_mentions])
         if not surface_mentions:
             card.extraction_goals = ["full_extraction"]
             return card
@@ -114,9 +123,10 @@ class ContextActivator:
             # 尝试模糊匹配
             fuzzy = self.kg_memory.find_entity_fuzzy(mention, entity_type=etype)
             if fuzzy:
+                gap_type = "ambiguous_match" if fuzzy.get("ambiguous") else "fuzzy_match"
                 card.knowledge_gaps.append({
                     "mention": mention,
-                    "type": "fuzzy_match",
+                    "type": gap_type,
                     "candidates": fuzzy.get("fuzzy_matches", []),
                 })
             else:

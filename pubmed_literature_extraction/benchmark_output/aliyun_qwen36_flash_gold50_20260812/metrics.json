@@ -1,0 +1,66 @@
+{
+  "qwen3.6-flash": {
+    "entity_endpoint_core_disease": {
+      "tp": 99,
+      "fp": 322,
+      "fn": 18,
+      "precision": 0.23515439429928742,
+      "recall": 0.8461538461538461,
+      "f1": 0.36802973977695164
+    },
+    "gene_protein_type_accuracy": 0.9047619047619048,
+    "gene_protein_type_counts": {
+      "correct": 19,
+      "matched": 21
+    },
+    "semantic_relation_triples": {
+      "tp": 14,
+      "fp": 21,
+      "fn": 31,
+      "precision": 0.4,
+      "recall": 0.3111111111111111,
+      "f1": 0.35000000000000003
+    },
+    "strict_import_ready_relation_triples": {
+      "tp": 8,
+      "fp": 12,
+      "fn": 14,
+      "precision": 0.4,
+      "recall": 0.36363636363636365,
+      "f1": 0.380952380952381
+    },
+    "evidence_span_precision_iou_0_5": 0.2857142857142857,
+    "evidence_source_contiguous_rate": 1.0,
+    "evidence_counts": {
+      "correct": 10,
+      "predicted_relations": 35
+    },
+    "duplicate_candidate_rate": 0.09922822491730982,
+    "duplicate_counts": {
+      "duplicates": 90,
+      "candidates": 907
+    },
+    "latency_seconds": {
+      "mean": 2.49983425501734,
+      "p50": 0.004645354114472866,
+      "p95": 12.186056483210994,
+      "sum_article_latency": 124.99171275086701,
+      "wall_clock": 17.344456875231117
+    },
+    "usage_and_cost": {
+      "prompt_tokens": 34696,
+      "output_tokens": 16273,
+      "estimated_cost_usd": null,
+      "price_reference_usd_per_million": {
+        "input": 0.0,
+        "output": 0.0
+      },
+      "cost_kind": "workspace_price_not_available"
+    },
+    "invalid_json_attempt_rate": 0.0,
+    "invalid_json_attempts": 0,
+    "model_attempts": 15,
+    "article_failure_rate": 0.0,
+    "failed_articles": 0
+  }
+}

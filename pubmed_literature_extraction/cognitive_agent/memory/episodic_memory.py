@@ -26,8 +26,14 @@ class Episode:
     entity_name: str = ""
     predicate: str = ""
     object_name: str = ""
+    object_type: str = ""
     confidence: float = 0.0
     reasoning: str = ""
+    evidence: str = ""
+    study_type: str = ""
+    outcome: str = ""              # accepted | rejected | manual_review
+    reason_code: str = ""
+    supervision_source: str = "agent"  # agent | deterministic | curator | gold
 
     def to_dict(self) -> dict:
         return {
@@ -37,8 +43,14 @@ class Episode:
             "entity_name": self.entity_name,
             "predicate": self.predicate,
             "object_name": self.object_name,
+            "object_type": self.object_type,
             "confidence": self.confidence,
             "reasoning": self.reasoning,
+            "evidence": self.evidence,
+            "study_type": self.study_type,
+            "outcome": self.outcome,
+            "reason_code": self.reason_code,
+            "supervision_source": self.supervision_source,
         }
 
 
@@ -102,6 +114,28 @@ class EpisodicMemory:
     def recent_decisions(self, n: int = 20) -> list[Episode]:
         """Return the most recent N decisions."""
         return self.episodes[-n:] if self.episodes else []
+
+    def trusted_hard_negatives(
+        self,
+        subject_type: str,
+        object_type: str,
+        predicate: str = "",
+        limit: int = 4,
+    ) -> list[Episode]:
+        """Return only curator/gold rejections for contrastive prompting.
+
+        Model self-judgments are deliberately excluded so an error cannot be
+        reinforced across articles.
+        """
+        matches = [
+            episode for episode in self.episodes
+            if episode.outcome == "rejected"
+            and episode.supervision_source in {"curator", "gold"}
+            and episode.entity_type == subject_type
+            and episode.object_type == object_type
+            and (not predicate or episode.predicate == predicate)
+        ]
+        return matches[-max(0, limit):]
 
     def count_by_action(self, action_type: str) -> int:
         """Count decisions of a given action type."""

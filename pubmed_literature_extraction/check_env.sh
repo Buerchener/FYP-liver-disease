@@ -58,6 +58,7 @@ if [ -n "${NEO4J_PASSWORD:-}" ]; then
     echo -n "Neo4j connectivity: "
     "$PYTHON_BIN" - <<'PY'
 import os
+from urllib.parse import urlparse
 
 try:
     from neo4j import GraphDatabase
@@ -65,11 +66,13 @@ except Exception as exc:
     print(f"SKIP - neo4j driver is not importable: {exc}")
     raise SystemExit(0)
 
-uri = os.environ.get("NEO4J_URI", "bolt://100.104.181.96:7687")
+uri = os.environ.get("NEO4J_URI", "bolt://localhost:7687")
 user = os.environ.get("NEO4J_USER", "neo4j")
 password = os.environ["NEO4J_PASSWORD"]
 
 try:
+    if urlparse(uri).hostname not in {"localhost", "127.0.0.1", "::1"}:
+        raise ValueError("Neo4j connections are restricted to localhost")
     driver = GraphDatabase.driver(uri, auth=(user, password))
     driver.verify_connectivity()
     driver.close()

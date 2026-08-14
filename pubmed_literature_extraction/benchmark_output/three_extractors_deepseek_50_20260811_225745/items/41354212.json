@@ -1,0 +1,1078 @@
+{
+  "pmid": "41354212",
+  "title": "Association of nitrogen dioxide with non-alcoholic fatty liver disease in Chinese rural older adults: The mediating role of fasting plasma glucose.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 44,
+          "char_end": 77
+        },
+        {
+          "mention": "nitrogen dioxide",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "nitrogen dioxide"
+          },
+          "grounded": true,
+          "source_span": "nitrogen dioxide",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 22,
+          "char_end": 38
+        },
+        {
+          "mention": "fasting plasma glucose",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "fasting plasma glucose"
+          },
+          "grounded": true,
+          "source_span": "fasting plasma glucose",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 131,
+          "char_end": 153
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "NAFLD",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1121,
+          "char_end": 1126
+        },
+        {
+          "mention": "FPG",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "FPG"
+          },
+          "grounded": true,
+          "source_span": "FPG",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1063,
+          "char_end": 1066
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "NAFLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1823,
+          "char_end": 1828
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 44,
+            "char_end": 77,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease",
+              "NAFLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "nitrogen dioxide",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "nitrogen dioxide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "nitrogen dioxide",
+            "char_start": 22,
+            "char_end": 38,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:nitrogen dioxide",
+            "canonical_mentions": [
+              "nitrogen dioxide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "fasting plasma glucose",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "fasting plasma glucose"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fasting plasma glucose",
+            "char_start": 131,
+            "char_end": 153,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:fasting plasma glucose",
+            "canonical_mentions": [
+              "fasting plasma glucose",
+              "FPG"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.825,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 6,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 6,
+              "value": 0.5
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.4688559588976204,
+      "prompt_tokens": 478,
+      "output_tokens": 441,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "non-alcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 44,
+          "char_end": 77
+        },
+        {
+          "mention": "nitrogen dioxide",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "nitrogen dioxide"
+          },
+          "grounded": true,
+          "source_span": "nitrogen dioxide",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 22,
+          "char_end": 38
+        },
+        {
+          "mention": "fasting plasma glucose",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "fasting plasma glucose"
+          },
+          "grounded": true,
+          "source_span": "fasting plasma glucose",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 131,
+          "char_end": 153
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "NAFLD",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1121,
+          "char_end": 1126
+        },
+        {
+          "mention": "FPG",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "FPG"
+          },
+          "grounded": true,
+          "source_span": "FPG",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1063,
+          "char_end": 1066
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "NAFLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1823,
+          "char_end": 1828
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "nitrogen dioxide",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic fatty liver disease",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Long-term NO2 exposure is positively associated with NAFLD prevalence among older adults in China",
+          "confidence": 0.95,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement in conclusions; positive association."
+        },
+        {
+          "subject": "fasting plasma glucose",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic fatty liver disease",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "FPG partially mediates this association",
+          "confidence": 0.8,
+          "uncertain": true,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Mediation implies association but direction not explicitly stated; partial mediation."
+        },
+        {
+          "subject": "nitrogen dioxide",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH_METABOLITE",
+          "object": "fasting plasma glucose",
+          "object_type": "Metabolite",
+          "direction": "positive",
+          "evidence": "FPG accounted for 3.84 % (95 % CI: 0.28 %-11.19 %) of the total association between NO2 exposure and NAFLD",
+          "confidence": 0.7,
+          "uncertain": true,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Mediation suggests NO2 affects FPG, but direction not explicitly stated; indirect evidence."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "non-alcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 44,
+            "char_end": 77,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease",
+              "NAFLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "nitrogen dioxide",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "nitrogen dioxide"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "nitrogen dioxide",
+            "char_start": 22,
+            "char_end": 38,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:nitrogen dioxide",
+            "canonical_mentions": [
+              "nitrogen dioxide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "fasting plasma glucose",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "fasting plasma glucose"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fasting plasma glucose",
+            "char_start": 131,
+            "char_end": 153,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:fasting plasma glucose",
+            "canonical_mentions": [
+              "fasting plasma glucose",
+              "FPG"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "nitrogen dioxide",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Long-term NO2 exposure is positively associated with NAFLD prevalence among older adults in China",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1574,
+            "evidence_char_end": 1671,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "nitrogen dioxide",
+            "original_object": "non-alcoholic fatty liver disease",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "fasting plasma glucose",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "FPG partially mediates this association",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1677,
+            "evidence_char_end": 1716,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "fasting plasma glucose",
+            "original_object": "non-alcoholic fatty liver disease",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "nitrogen dioxide",
+            "predicate": "ASSOCIATED_WITH_METABOLITE",
+            "object": "fasting plasma glucose",
+            "subject_type": "Metabolite",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "FPG accounted for 3.84 % (95 % CI: 0.28 %-11.19 %) of the total association between NO2 exposure and NAFLD",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "schema_mismatch",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1453,
+            "evidence_char_end": 1559,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "nitrogen dioxide",
+            "original_object": "fasting plasma glucose",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 3,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 3,
+          "total_relations": 3,
+          "known_relations": 0,
+          "novel_relations": 3,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 0.8,
+          "semantic_score": 0.425,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 3,
+              "denominator": 6,
+              "value": 0.5
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 6,
+              "value": 0.5
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 2,
+              "denominator": 3,
+              "value": 0.6667
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 3,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 3
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 3,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 6.398362166713923,
+      "prompt_tokens": 4833,
+      "output_tokens": 1348,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "entity_type": "Disease",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 44,
+            "char_end": 77,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in title and abstract; canonical disease entity."
+          },
+          {
+            "mention": "nitrogen dioxide",
+            "entity_type": "Metabolite",
+            "source_span": "nitrogen dioxide",
+            "char_start": 22,
+            "char_end": 38,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in title and abstract; environmental pollutant."
+          },
+          {
+            "mention": "fasting plasma glucose",
+            "entity_type": "Metabolite",
+            "source_span": "fasting plasma glucose",
+            "char_start": 131,
+            "char_end": 153,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in title and abstract; mediator."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "nitrogen dioxide",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "Long-term NO2 exposure is positively associated with NAFLD prevalence among older adults in China",
+            "evidence_span": "Long-term NO2 exposure is positively associated with NAFLD prevalence among older adults in China",
+            "confidence": 0.95,
+            "uncertain": false,
+            "reason": "Direct statement in conclusions; positive association."
+          },
+          {
+            "subject": "fasting plasma glucose",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "FPG partially mediates this association",
+            "evidence_span": "FPG partially mediates this association",
+            "confidence": 0.8,
+            "uncertain": true,
+            "reason": "Mediation implies association but direction not explicitly stated; partial mediation."
+          },
+          {
+            "subject": "nitrogen dioxide",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH_METABOLITE",
+            "object": "fasting plasma glucose",
+            "object_type": "Metabolite",
+            "direction": "positive",
+            "evidence": "FPG accounted for 3.84 % (95 % CI: 0.28 %-11.19 %) of the total association between NO2 exposure and NAFLD",
+            "evidence_span": "FPG accounted for 3.84 % (95 % CI: 0.28 %-11.19 %) of the total association between NO2 exposure and NAFLD",
+            "confidence": 0.7,
+            "uncertain": true,
+            "reason": "Mediation suggests NO2 affects FPG, but direction not explicitly stated; indirect evidence."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "NAFLD",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate abbreviation of non-alcoholic fatty liver disease; merged."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "FPG",
+            "entity_type": "Metabolite",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate abbreviation of fasting plasma glucose; merged."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "NAFLD",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Duplicate abbreviation of non-alcoholic fatty liver disease; merged."
+          }
+        ],
+        "review_reason": "Corrected entities to canonical forms and added relations supported by explicit statements in the abstract. Rejected duplicate mentions.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 3,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "non-alcoholic fatty liver disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "nitrogen dioxide"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "fasting plasma glucose"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "non-alcoholic fatty liver disease",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000069283"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "non-alcoholic fatty liver disease",
+          "char_start": 44,
+          "char_end": 77
+        },
+        {
+          "mention": "fasting plasma glucose",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "C0000000"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "fasting plasma glucose",
+          "char_start": 131,
+          "char_end": 153
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "fasting plasma glucose",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "non-alcoholic fatty liver disease",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "FPG accounted for 3.84 % (95 % CI: 0.28 %-11.19 %) of the total association between NO2 exposure and NAFLD.",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "non-alcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D000069283"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "non-alcoholic fatty liver disease",
+            "char_start": 44,
+            "char_end": 77,
+            "grounded": true,
+            "normalized_id": "D000069283",
+            "canonical_key": "Disease:non alcoholic fatty liver disease",
+            "canonical_mentions": [
+              "non-alcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "fasting plasma glucose",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "C0000000"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fasting plasma glucose",
+            "char_start": 131,
+            "char_end": 153,
+            "grounded": true,
+            "normalized_id": "C0000000",
+            "canonical_key": "Metabolite:fasting plasma glucose",
+            "canonical_mentions": [
+              "fasting plasma glucose"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "fasting plasma glucose",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "non-alcoholic fatty liver disease",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "FPG accounted for 3.84 % (95 % CI: 0.28 %-11.19 %) of the total association between NO2 exposure and NAFLD.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1453,
+            "evidence_char_end": 1559,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "fasting plasma glucose",
+            "original_object": "non-alcoholic fatty liver disease",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 2,
+          "raw_entity_count": 2,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 2,
+          "total_relations": 1,
+          "known_relations": 0,
+          "novel_relations": 1,
+          "contradicting_relations": 0,
+          "schema_valid": 1,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 2,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 2
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 2,
+        "relations": 1,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 2.068106833845377,
+      "prompt_tokens": 1528,
+      "output_tokens": 242,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,1371 @@
+{
+  "pmid": "41884271",
+  "title": "High Dihydromyricetin Loaded Biomimetic Nanoemulsion Ameliorated Early Nonalcoholic Fatty Liver Disease by Hepatic Ferroptosis Inhibition.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Nonalcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Nonalcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "Nonalcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 78,
+          "char_end": 110
+        },
+        {
+          "mention": "ferroptosis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "ferroptosis"
+          },
+          "grounded": true,
+          "source_span": "ferroptosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 122,
+          "char_end": 133
+        },
+        {
+          "mention": "Dihydromyricetin",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Dihydromyricetin"
+          },
+          "grounded": true,
+          "source_span": "Dihydromyricetin",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 12,
+          "char_end": 28
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 189,
+          "char_end": 194
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "NAFLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1141,
+          "char_end": 1146
+        },
+        {
+          "mention": "ferroptosis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "ferroptosis"
+          },
+          "grounded": true,
+          "source_span": "ferroptosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1233,
+          "char_end": 1244
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Nonalcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Nonalcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Nonalcoholic Fatty Liver Disease",
+            "char_start": 78,
+            "char_end": 110,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:nonalcoholic fatty liver disease",
+            "canonical_mentions": [
+              "Nonalcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ferroptosis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "ferroptosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Ferroptosis",
+            "char_start": 122,
+            "char_end": 133,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:ferroptosis",
+            "canonical_mentions": [
+              "ferroptosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Dihydromyricetin",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Dihydromyricetin"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Dihydromyricetin",
+            "char_start": 12,
+            "char_end": 28,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:dihydromyricetin",
+            "canonical_mentions": [
+              "Dihydromyricetin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 189,
+            "char_end": 194,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "Nonalcoholic Fatty Liver Disease by",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "NAFLD",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Nonalcoholic Fatty Liver Disease by",
+            "char_start": 78,
+            "char_end": 113,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:nonalcoholic fatty liver disease by",
+            "canonical_mentions": [
+              "NAFLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 5,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 5,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.9417,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 5,
+              "denominator": 6,
+              "value": 0.8333
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 5,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 5
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.7552384161390364,
+      "prompt_tokens": 354,
+      "output_tokens": 426,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Nonalcoholic fatty liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Nonalcoholic fatty liver disease",
+            "disease_stage": "NAFLD"
+          },
+          "grounded": true,
+          "source_span": "Nonalcoholic fatty liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 78,
+          "char_end": 110
+        },
+        {
+          "mention": "ferroptosis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "ferroptosis"
+          },
+          "grounded": true,
+          "source_span": "ferroptosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 122,
+          "char_end": 133
+        },
+        {
+          "mention": "Dihydromyricetin",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "Dihydromyricetin"
+          },
+          "grounded": true,
+          "source_span": "Dihydromyricetin",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 12,
+          "char_end": 28
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 189,
+          "char_end": 194
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "NAFLD",
+            "disease_stage": "NAFLD",
+            "collaboration_status": "manual_review",
+            "collaboration_reason": "Overlapping span with 'Nonalcoholic fatty liver disease' and includes extraneous 'by'; duplicate entity."
+          },
+          "grounded": true,
+          "source_span": "NAFLD",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1141,
+          "char_end": 1146
+        },
+        {
+          "mention": "ferroptosis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "ferroptosis"
+          },
+          "grounded": true,
+          "source_span": "ferroptosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1233,
+          "char_end": 1244
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Dihydromyricetin",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Nonalcoholic fatty liver disease",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Dihydromyricetin (DMY), a flavonoid from Ampelopsis grossedentata, exhibits anti-NAFLD efficiency",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit statement of anti-NAFLD effect; direction negative (ameliorates)."
+        },
+        {
+          "subject": "Dihydromyricetin",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "ferroptosis",
+          "object_type": "Pathway",
+          "direction": "decrease",
+          "evidence": "DMY-bNE significantly ameliorated the disease progression by inhibiting hepatic ferroptosis",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "DMY-bNE inhibits ferroptosis; DMY is the active component, so association with decrease."
+        },
+        {
+          "subject": "ferroptosis",
+          "subject_type": "Pathway",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "Nonalcoholic fatty liver disease",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Nonalcoholic fatty liver disease (NAFLD) is a metabolic disorder characterized by lipid accumulation in the liver, and is often linked to ferroptosis",
+          "confidence": 0.85,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit link between NAFLD and ferroptosis; direction positive (associated)."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Nonalcoholic fatty liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Nonalcoholic fatty liver disease",
+              "disease_stage": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Nonalcoholic Fatty Liver Disease",
+            "char_start": 78,
+            "char_end": 110,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:nonalcoholic fatty liver disease",
+            "canonical_mentions": [
+              "Nonalcoholic fatty liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ferroptosis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "ferroptosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Ferroptosis",
+            "char_start": 122,
+            "char_end": 133,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:ferroptosis",
+            "canonical_mentions": [
+              "ferroptosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Dihydromyricetin",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "Dihydromyricetin"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Dihydromyricetin",
+            "char_start": 12,
+            "char_end": 28,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:dihydromyricetin",
+            "canonical_mentions": [
+              "Dihydromyricetin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 189,
+            "char_end": 194,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "Nonalcoholic Fatty Liver Disease by",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "NAFLD",
+              "disease_stage": "NAFLD",
+              "collaboration_status": "manual_review",
+              "collaboration_reason": "Overlapping span with 'Nonalcoholic fatty liver disease' and includes extraneous 'by'; duplicate entity."
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Nonalcoholic Fatty Liver Disease by",
+            "char_start": 78,
+            "char_end": 113,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:nonalcoholic fatty liver disease by",
+            "canonical_mentions": [
+              "NAFLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Dihydromyricetin",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Nonalcoholic fatty liver disease",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Dihydromyricetin (DMY), a flavonoid from Ampelopsis grossedentata, exhibits anti-NAFLD efficiency",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "background_only",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 391,
+            "evidence_char_end": 488,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Dihydromyricetin",
+            "original_object": "Nonalcoholic fatty liver disease",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Dihydromyricetin",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "ferroptosis",
+            "subject_type": "Metabolite",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "DMY-bNE significantly ameliorated the disease progression by inhibiting hepatic ferroptosis",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_missing",
+              "trigger_not_linking_endpoints",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1153,
+            "evidence_char_end": 1244,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Dihydromyricetin",
+            "original_object": "ferroptosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "ferroptosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Nonalcoholic fatty liver disease",
+            "subject_type": "Pathway",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Nonalcoholic fatty liver disease (NAFLD) is a metabolic disorder characterized by lipid accumulation in the liver, and is often linked to ferroptosis",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "background_only",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel"
+            ],
+            "evidence_char_start": 170,
+            "evidence_char_end": 319,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "ferroptosis",
+            "original_object": "Nonalcoholic fatty liver disease",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 5,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 5,
+          "total_relations": 3,
+          "known_relations": 0,
+          "novel_relations": 3,
+          "contradicting_relations": 0,
+          "schema_valid": 3,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.675,
+          "evidence_score": 0.6,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 5,
+              "denominator": 6,
+              "value": 0.8333
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 6,
+              "value": 0.3333
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 3,
+              "value": 0.6667
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 5,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 5
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 3,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 7.610849249176681,
+      "prompt_tokens": 5212,
+      "output_tokens": 1494,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Nonalcoholic fatty liver disease",
+            "entity_type": "Disease",
+            "source_span": "Nonalcoholic fatty liver disease",
+            "char_start": 78,
+            "char_end": 110,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in title and abstract; canonical disease entity."
+          },
+          {
+            "mention": "ferroptosis",
+            "entity_type": "Pathway",
+            "source_span": "ferroptosis",
+            "char_start": 122,
+            "char_end": 133,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract; defined as iron-dependent programmed cell death."
+          },
+          {
+            "mention": "Dihydromyricetin",
+            "entity_type": "Metabolite",
+            "source_span": "Dihydromyricetin",
+            "char_start": 12,
+            "char_end": 28,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in title and abstract; flavonoid compound."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 189,
+            "char_end": 194,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in abstract; anatomical tissue."
+          },
+          {
+            "mention": "NAFLD",
+            "entity_type": "Disease",
+            "source_span": "NAFLD",
+            "char_start": 1141,
+            "char_end": 1146,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Abbreviation for Nonalcoholic fatty liver disease; explicit in abstract."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "Dihydromyricetin",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Nonalcoholic fatty liver disease",
+            "object_type": "Disease",
+            "direction": "negative",
+            "evidence": "Dihydromyricetin (DMY), a flavonoid from Ampelopsis grossedentata, exhibits anti-NAFLD efficiency",
+            "evidence_span": "Dihydromyricetin (DMY), a flavonoid from Ampelopsis grossedentata, exhibits anti-NAFLD efficiency",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Explicit statement of anti-NAFLD effect; direction negative (ameliorates)."
+          },
+          {
+            "subject": "Dihydromyricetin",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "ferroptosis",
+            "object_type": "Pathway",
+            "direction": "decrease",
+            "evidence": "DMY-bNE significantly ameliorated the disease progression by inhibiting hepatic ferroptosis",
+            "evidence_span": "DMY-bNE significantly ameliorated the disease progression by inhibiting hepatic ferroptosis",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "DMY-bNE inhibits ferroptosis; DMY is the active component, so association with decrease."
+          },
+          {
+            "subject": "ferroptosis",
+            "subject_type": "Pathway",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Nonalcoholic fatty liver disease",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "Nonalcoholic fatty liver disease (NAFLD) is a metabolic disorder characterized by lipid accumulation in the liver, and is often linked to ferroptosis",
+            "evidence_span": "Nonalcoholic fatty liver disease (NAFLD) is a metabolic disorder characterized by lipid accumulation in the liver, and is often linked to ferroptosis",
+            "confidence": 0.85,
+            "uncertain": false,
+            "reason": "Explicit link between NAFLD and ferroptosis; direction positive (associated)."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "Nonalcoholic Fatty Liver Disease by",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Overlapping span with 'Nonalcoholic fatty liver disease' and includes extraneous 'by'; duplicate entity."
+          }
+        ],
+        "review_reason": "Corrected entity list to remove duplicate/overlapping disease mention; added relations supported by explicit evidence in abstract. Rejected candidate due to span overlap and redundancy.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 3,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Nonalcoholic fatty liver disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "ferroptosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Dihydromyricetin"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "NAFLD",
+            "status": "already_rejected_by_phase_a"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": [
+          {
+            "candidate_type": "entity",
+            "mention": "Nonalcoholic Fatty Liver Disease by",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Overlapping span with 'Nonalcoholic fatty liver disease' and includes extraneous 'by'; duplicate entity."
+          }
+        ]
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "Nonalcoholic fatty liver disease",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "NAFLD"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Nonalcoholic fatty liver disease",
+          "char_start": 170,
+          "char_end": 202
+        },
+        {
+          "mention": "NAFLD",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "NAFLD"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "NAFLD",
+          "char_start": 204,
+          "char_end": 209
+        },
+        {
+          "mention": "ferroptosis",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "ferroptosis"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "ferroptosis",
+          "char_start": 308,
+          "char_end": 319
+        },
+        {
+          "mention": "Dihydromyricetin",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "DMY"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Dihydromyricetin",
+          "char_start": 12,
+          "char_end": 28
+        },
+        {
+          "mention": "DMY",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "DMY"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "DMY",
+          "char_start": 409,
+          "char_end": 412
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "attributes": {
+            "normalized_id": "liver"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "liver",
+          "char_start": 189,
+          "char_end": 194
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "NAFLD",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "ferroptosis",
+          "object_type": "Pathway",
+          "direction": "positive",
+          "evidence": "Nonalcoholic fatty liver disease (NAFLD) is a metabolic disorder characterized by lipid accumulation in the liver, and is often linked to ferroptosis",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "DMY",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "NAFLD",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Dihydromyricetin (DMY), a flavonoid from Ampelopsis grossedentata, exhibits anti-NAFLD efficiency",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "DMY",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "ferroptosis",
+          "object_type": "Pathway",
+          "direction": "negative",
+          "evidence": "DMY-bNE significantly ameliorated the disease progression by inhibiting hepatic ferroptosis",
+          "negated": false,
+          "uncertain": false,
+          "species": "mouse",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Nonalcoholic Fatty Liver Disease by",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "NAFLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Nonalcoholic Fatty Liver Disease by",
+            "char_start": 78,
+            "char_end": 113,
+            "grounded": true,
+            "normalized_id": "NAFLD",
+            "canonical_key": "Disease:nonalcoholic fatty liver disease by",
+            "canonical_mentions": [
+              "Nonalcoholic fatty liver disease",
+              "NAFLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ferroptosis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "ferroptosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ferroptosis",
+            "char_start": 308,
+            "char_end": 319,
+            "grounded": true,
+            "normalized_id": "ferroptosis",
+            "canonical_key": "Pathway:ferroptosis",
+            "canonical_mentions": [
+              "ferroptosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Dihydromyricetin",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "DMY"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Dihydromyricetin",
+            "char_start": 12,
+            "char_end": 28,
+            "grounded": true,
+            "normalized_id": "DMY",
+            "canonical_key": "Metabolite:dihydromyricetin",
+            "canonical_mentions": [
+              "Dihydromyricetin",
+              "DMY"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 189,
+            "char_end": 194,
+            "grounded": true,
+            "normalized_id": "liver",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Nonalcoholic Fatty Liver Disease by",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "ferroptosis",
+            "subject_type": "Disease",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Nonalcoholic fatty liver disease (NAFLD) is a metabolic disorder characterized by lipid accumulation in the liver, and is often linked to ferroptosis",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "background_only",
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 170,
+            "evidence_char_end": 319,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "NAFLD",
+            "original_object": "ferroptosis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Dihydromyricetin",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Nonalcoholic Fatty Liver Disease by",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Dihydromyricetin (DMY), a flavonoid from Ampelopsis grossedentata, exhibits anti-NAFLD efficiency",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "background_only",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 391,
+            "evidence_char_end": 488,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "DMY",
+            "original_object": "NAFLD",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Dihydromyricetin",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "ferroptosis",
+            "subject_type": "Metabolite",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "DMY-bNE significantly ameliorated the disease progression by inhibiting hepatic ferroptosis",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "non_human",
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 1153,
+            "evidence_char_end": 1244,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "DMY",
+            "original_object": "ferroptosis",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 4,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 4,
+          "total_relations": 3,
+          "known_relations": 0,
+          "novel_relations": 3,
+          "contradicting_relations": 0,
+          "schema_valid": 3,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8167,
+          "evidence_score": 0.9167,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 4,
+              "denominator": 6,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 6,
+              "value": 0.5
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 2,
+              "denominator": 3,
+              "value": 0.6667
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 4,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 4
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 3,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.3187029575929046,
+      "prompt_tokens": 1441,
+      "output_tokens": 625,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

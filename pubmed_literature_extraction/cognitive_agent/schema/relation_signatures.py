@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-cognitive_agent/schema/relation_signatures.py — 关系类型签名定义
+cognitive_agent/schema/relation_signatures.py — 统一关系签名
 
-定义8种目标关系类型及其允许的 (subject_type, object_type) 组合。
+v1 baseline、v2/v3 Cognitive Agent 和 entity-linking preflight 共用本文件。
+关系签名只描述类型合法性；是否可写和证据边界由 ontology.py 统一定义。
 """
 
 # ── 关系签名 ──

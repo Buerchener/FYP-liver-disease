@@ -1,0 +1,2008 @@
+{
+  "pmid": "41579096",
+  "title": "Heterogeneous Magnetic Resonance Nanoprobe for Assisting Liver Fibrosis Three-Dimensional Reconstruction and Cascaded Therapy.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Liver fibrosis",
+            "disease_stage": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "Liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 64,
+          "char_end": 78
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 229,
+          "char_end": 238
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 243,
+          "char_end": 267
+        },
+        {
+          "mention": "Collagen I",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "Collagen I"
+          },
+          "grounded": true,
+          "source_span": "Collagen I",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 605,
+          "char_end": 615
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 661,
+          "char_end": 666
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver fibrosis",
+            "disease_stage": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1050,
+          "char_end": 1064
+        },
+        {
+          "mention": "glucose",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "glucose"
+          },
+          "grounded": true,
+          "source_span": "glucose",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1083,
+          "char_end": 1090
+        },
+        {
+          "mention": "hepatic stellate cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "hepatic stellate cells"
+          },
+          "grounded": true,
+          "source_span": "hepatic stellate cells",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1268,
+          "char_end": 1290
+        },
+        {
+          "mention": "collagen",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "collagen"
+          },
+          "grounded": true,
+          "source_span": "collagen",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1308,
+          "char_end": 1316
+        },
+        {
+          "mention": "ferroptosis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "ferroptosis"
+          },
+          "grounded": true,
+          "source_span": "ferroptosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1376,
+          "char_end": 1387
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Liver fibrosis",
+              "disease_stage": "fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Liver Fibrosis",
+            "char_start": 64,
+            "char_end": 78,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver fibrosis",
+            "canonical_mentions": [
+              "Liver fibrosis",
+              "liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhosis",
+            "char_start": 229,
+            "char_end": 238,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 243,
+            "char_end": 267,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Collagen I",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "Collagen I"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Collagen I",
+            "char_start": 605,
+            "char_end": 615,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:collagen i",
+            "canonical_mentions": [
+              "Collagen I"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 661,
+            "char_end": 666,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "glucose",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "glucose"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "glucose",
+            "char_start": 1083,
+            "char_end": 1090,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:glucose",
+            "canonical_mentions": [
+              "glucose"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic stellate cells",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "hepatic stellate cells"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic stellate cells",
+            "char_start": 1268,
+            "char_end": 1290,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:hepatic stellate cells",
+            "canonical_mentions": [
+              "hepatic stellate cells"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "collagen",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "collagen"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "collagen",
+            "char_start": 1308,
+            "char_end": 1316,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:collagen",
+            "canonical_mentions": [
+              "collagen"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ferroptosis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "ferroptosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ferroptosis",
+            "char_start": 1376,
+            "char_end": 1387,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:ferroptosis",
+            "canonical_mentions": [
+              "ferroptosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 9,
+          "raw_entity_count": 10,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 9,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.965,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 9,
+              "denominator": 10,
+              "value": 0.9
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 10,
+              "value": 0.1
+            },
+            "type_constraint_pass_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 9,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 9
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 10,
+        "relations": 0,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.8302652910351753,
+      "prompt_tokens": 412,
+      "output_tokens": 675,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Liver fibrosis",
+            "disease_stage": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "Liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 64,
+          "char_end": 78
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "cirrhosis"
+          },
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 229,
+          "char_end": 238
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 243,
+          "char_end": 267
+        },
+        {
+          "mention": "Collagen I",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "Collagen I"
+          },
+          "grounded": true,
+          "source_span": "Collagen I",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 605,
+          "char_end": 615
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 661,
+          "char_end": 666
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "liver fibrosis",
+            "disease_stage": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1050,
+          "char_end": 1064
+        },
+        {
+          "mention": "glucose",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "glucose"
+          },
+          "grounded": true,
+          "source_span": "glucose",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1083,
+          "char_end": 1090
+        },
+        {
+          "mention": "hepatic stellate cells",
+          "type": "CellType",
+          "extraction_class": "cell_type",
+          "attributes": {
+            "cell_type_name": "hepatic stellate cells"
+          },
+          "grounded": true,
+          "source_span": "hepatic stellate cells",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1268,
+          "char_end": 1290
+        },
+        {
+          "mention": "collagen",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "collagen"
+          },
+          "grounded": true,
+          "source_span": "collagen",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1308,
+          "char_end": 1316
+        },
+        {
+          "mention": "ferroptosis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "ferroptosis"
+          },
+          "grounded": true,
+          "source_span": "ferroptosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1376,
+          "char_end": 1387
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Liver fibrosis",
+          "subject_type": "Disease",
+          "predicate": "PROGRESSES_TO",
+          "object": "cirrhosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Liver fibrosis is a chronic, progressive liver disease that can lead to irreversible cirrhosis",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit statement that liver fibrosis can lead to cirrhosis."
+        },
+        {
+          "subject": "Liver fibrosis",
+          "subject_type": "Disease",
+          "predicate": "PROGRESSES_TO",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Liver fibrosis is a chronic, progressive liver disease that can lead to irreversible cirrhosis and hepatocellular carcinoma",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Explicit statement that liver fibrosis can lead to hepatocellular carcinoma."
+        },
+        {
+          "subject": "Collagen I",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "L10, with a strong affinity for Collagen I, can mediate this nanoplatform to target the liver fibrosis region",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Collagen I is targeted in liver fibrosis region, indicating association."
+        },
+        {
+          "subject": "glucose",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH_METABOLITE",
+          "object": "hepatic stellate cells",
+          "object_type": "CellType",
+          "direction": "decrease",
+          "evidence": "GOx, with strong glucose consumption, can enhance the catalase- and peroxidase-like activities of the nanoplatform in a cascade. Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells",
+          "confidence": 0.7,
+          "uncertain": true,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Glucose consumption by GOx is part of mechanism leading to inhibition of hepatic stellate cell activation, but direct relation is indirect."
+        },
+        {
+          "subject": "hepatic stellate cells",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "collagen",
+          "object_type": "Protein",
+          "direction": "decrease",
+          "evidence": "Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells and reduce their collagen production",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Hepatic stellate cells produce collagen; inhibition reduces collagen production."
+        },
+        {
+          "subject": "hepatic stellate cells",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "ferroptosis",
+          "object_type": "Pathway",
+          "direction": "increase",
+          "evidence": "Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells and reduce their collagen production by alleviating liver fibrosis hypoxia, inducing ferroptosis, and achieving starvation therapy",
+          "confidence": 0.8,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Inducing ferroptosis is part of mechanism to inhibit hepatic stellate cells."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Liver fibrosis",
+              "disease_stage": "fibrosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Liver Fibrosis",
+            "char_start": 64,
+            "char_end": 78,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:liver fibrosis",
+            "canonical_mentions": [
+              "Liver fibrosis",
+              "liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "cirrhosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhosis",
+            "char_start": 229,
+            "char_end": 238,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 243,
+            "char_end": 267,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Collagen I",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "Collagen I"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Collagen I",
+            "char_start": 605,
+            "char_end": 615,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:collagen i",
+            "canonical_mentions": [
+              "Collagen I"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 661,
+            "char_end": 666,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "glucose",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "glucose"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "glucose",
+            "char_start": 1083,
+            "char_end": 1090,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:glucose",
+            "canonical_mentions": [
+              "glucose"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic stellate cells",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "cell_type_name": "hepatic stellate cells"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic stellate cells",
+            "char_start": 1268,
+            "char_end": 1290,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "CellType:hepatic stellate cells",
+            "canonical_mentions": [
+              "hepatic stellate cells"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "collagen",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "collagen"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "collagen",
+            "char_start": 1308,
+            "char_end": 1316,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:collagen",
+            "canonical_mentions": [
+              "collagen"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ferroptosis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "ferroptosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ferroptosis",
+            "char_start": 1376,
+            "char_end": 1387,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:ferroptosis",
+            "canonical_mentions": [
+              "ferroptosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Liver fibrosis",
+            "predicate": "PROGRESSES_TO",
+            "object": "cirrhosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Liver fibrosis is a chronic, progressive liver disease that can lead to irreversible cirrhosis",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 144,
+            "evidence_char_end": 238,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Liver fibrosis",
+            "original_object": "cirrhosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Liver fibrosis",
+            "predicate": "PROGRESSES_TO",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Liver fibrosis is a chronic, progressive liver disease that can lead to irreversible cirrhosis and hepatocellular carcinoma",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 144,
+            "evidence_char_end": 267,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Liver fibrosis",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Collagen I",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Liver fibrosis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "L10, with a strong affinity for Collagen I, can mediate this nanoplatform to target the liver fibrosis region",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 573,
+            "evidence_char_end": 682,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Collagen I",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "glucose",
+            "predicate": "ASSOCIATED_WITH_METABOLITE",
+            "object": "hepatic stellate cells",
+            "subject_type": "Metabolite",
+            "object_type": "CellType",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "GOx, with strong glucose consumption, can enhance the catalase- and peroxidase-like activities of the nanoplatform in a cascade. Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "cross_sentence",
+              "object_novel",
+              "schema_mismatch",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1066,
+            "evidence_char_end": 1290,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "glucose",
+            "original_object": "hepatic stellate cells",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "hepatic stellate cells",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "collagen",
+            "subject_type": "CellType",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells and reduce their collagen production",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "schema_mismatch",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1195,
+            "evidence_char_end": 1327,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "hepatic stellate cells",
+            "original_object": "collagen",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "hepatic stellate cells",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "ferroptosis",
+            "subject_type": "CellType",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells and reduce their collagen production by alleviating liver fibrosis hypoxia, inducing ferroptosis, and achieving starvation therapy",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1195,
+            "evidence_char_end": 1421,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "hepatic stellate cells",
+            "original_object": "ferroptosis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 9,
+          "raw_entity_count": 10,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 9,
+          "total_relations": 6,
+          "known_relations": 0,
+          "novel_relations": 6,
+          "contradicting_relations": 0,
+          "schema_valid": 4,
+          "import_ready": 0,
+          "structural_score": 0.8,
+          "semantic_score": 0.765,
+          "evidence_score": 0.75,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 9,
+              "denominator": 10,
+              "value": 0.9
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 10,
+              "value": 0.1
+            },
+            "type_constraint_pass_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 1,
+              "denominator": 6,
+              "value": 0.1667
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 9,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 9
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 10,
+        "relations": 6,
+        "duplicate_entities": 1,
+        "duplicate_relations": 0
+      },
+      "latency_s": 11.664851124864072,
+      "prompt_tokens": 6893,
+      "output_tokens": 2683,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Liver fibrosis",
+            "entity_type": "Disease",
+            "source_span": "Liver fibrosis",
+            "char_start": 64,
+            "char_end": 78,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, disease entity."
+          },
+          {
+            "mention": "cirrhosis",
+            "entity_type": "Disease",
+            "source_span": "cirrhosis",
+            "char_start": 229,
+            "char_end": 238,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, disease entity."
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "entity_type": "Disease",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 243,
+            "char_end": 267,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, disease entity."
+          },
+          {
+            "mention": "Collagen I",
+            "entity_type": "Protein",
+            "source_span": "Collagen I",
+            "char_start": 605,
+            "char_end": 615,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, protein entity."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 661,
+            "char_end": 666,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, tissue entity."
+          },
+          {
+            "mention": "liver fibrosis",
+            "entity_type": "Disease",
+            "source_span": "liver fibrosis",
+            "char_start": 1050,
+            "char_end": 1064,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, disease entity."
+          },
+          {
+            "mention": "glucose",
+            "entity_type": "Metabolite",
+            "source_span": "glucose",
+            "char_start": 1083,
+            "char_end": 1090,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, metabolite entity."
+          },
+          {
+            "mention": "hepatic stellate cells",
+            "entity_type": "CellType",
+            "source_span": "hepatic stellate cells",
+            "char_start": 1268,
+            "char_end": 1290,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, cell type entity."
+          },
+          {
+            "mention": "collagen",
+            "entity_type": "Protein",
+            "source_span": "collagen",
+            "char_start": 1308,
+            "char_end": 1316,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, protein entity."
+          },
+          {
+            "mention": "ferroptosis",
+            "entity_type": "Pathway",
+            "source_span": "ferroptosis",
+            "char_start": 1376,
+            "char_end": 1387,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract, pathway entity."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "Liver fibrosis",
+            "subject_type": "Disease",
+            "predicate": "PROGRESSES_TO",
+            "object": "cirrhosis",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "Liver fibrosis is a chronic, progressive liver disease that can lead to irreversible cirrhosis",
+            "evidence_span": "Liver fibrosis is a chronic, progressive liver disease that can lead to irreversible cirrhosis",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicit statement that liver fibrosis can lead to cirrhosis."
+          },
+          {
+            "subject": "Liver fibrosis",
+            "subject_type": "Disease",
+            "predicate": "PROGRESSES_TO",
+            "object": "hepatocellular carcinoma",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "Liver fibrosis is a chronic, progressive liver disease that can lead to irreversible cirrhosis and hepatocellular carcinoma",
+            "evidence_span": "Liver fibrosis is a chronic, progressive liver disease that can lead to irreversible cirrhosis and hepatocellular carcinoma",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Explicit statement that liver fibrosis can lead to hepatocellular carcinoma."
+          },
+          {
+            "subject": "Collagen I",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "object_type": "Disease",
+            "direction": "positive",
+            "evidence": "L10, with a strong affinity for Collagen I, can mediate this nanoplatform to target the liver fibrosis region",
+            "evidence_span": "L10, with a strong affinity for Collagen I, can mediate this nanoplatform to target the liver fibrosis region",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Collagen I is targeted in liver fibrosis region, indicating association."
+          },
+          {
+            "subject": "glucose",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH_METABOLITE",
+            "object": "hepatic stellate cells",
+            "object_type": "CellType",
+            "direction": "decrease",
+            "evidence": "GOx, with strong glucose consumption, can enhance the catalase- and peroxidase-like activities of the nanoplatform in a cascade. Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells",
+            "evidence_span": "GOx, with strong glucose consumption, can enhance the catalase- and peroxidase-like activities of the nanoplatform in a cascade. Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells",
+            "confidence": 0.7,
+            "uncertain": true,
+            "reason": "Glucose consumption by GOx is part of mechanism leading to inhibition of hepatic stellate cell activation, but direct relation is indirect."
+          },
+          {
+            "subject": "hepatic stellate cells",
+            "subject_type": "CellType",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "collagen",
+            "object_type": "Protein",
+            "direction": "decrease",
+            "evidence": "Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells and reduce their collagen production",
+            "evidence_span": "Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells and reduce their collagen production",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Hepatic stellate cells produce collagen; inhibition reduces collagen production."
+          },
+          {
+            "subject": "hepatic stellate cells",
+            "subject_type": "CellType",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "ferroptosis",
+            "object_type": "Pathway",
+            "direction": "increase",
+            "evidence": "Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells and reduce their collagen production by alleviating liver fibrosis hypoxia, inducing ferroptosis, and achieving starvation therapy",
+            "evidence_span": "Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells and reduce their collagen production by alleviating liver fibrosis hypoxia, inducing ferroptosis, and achieving starvation therapy",
+            "confidence": 0.8,
+            "uncertain": false,
+            "reason": "Inducing ferroptosis is part of mechanism to inhibit hepatic stellate cells."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "liver fibrosis",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver",
+            "reason": "No explicit relation between liver fibrosis and liver tissue in text; only mentions targeting liver fibrosis region."
+          },
+          {
+            "candidate_type": "relation",
+            "mention": "",
+            "entity_type": "",
+            "subject": "glucose",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "ferroptosis",
+            "reason": "No direct relation between glucose and ferroptosis in text; glucose consumption is part of starvation therapy, not directly linked to ferroptosis."
+          }
+        ],
+        "review_reason": "Corrected entities and relations based on explicit statements in abstract. Added relations for disease progression, collagen association, and hepatic stellate cell mechanisms. Rejected relations lacking direct evidence.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 6,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Liver fibrosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "cirrhosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatocellular carcinoma"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Collagen I"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver fibrosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "glucose"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatic stellate cells"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "collagen"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "ferroptosis"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008107"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "char_start": 314,
+          "char_end": 328
+        },
+        {
+          "mention": "cirrhosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D008103"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "cirrhosis",
+          "char_start": 229,
+          "char_end": 238
+        },
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006528"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "char_start": 243,
+          "char_end": 267
+        },
+        {
+          "mention": "Collagen I",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P02452"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Collagen I",
+          "char_start": 605,
+          "char_end": 615
+        },
+        {
+          "mention": "hepatic stellate cells",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL_0000632"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatic stellate cells",
+          "char_start": 1268,
+          "char_end": 1290
+        },
+        {
+          "mention": "glucose oxidase",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P13006"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "glucose oxidase",
+          "char_start": 446,
+          "char_end": 461
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "liver fibrosis",
+          "subject_type": "Disease",
+          "predicate": "PROGRESSES_TO",
+          "object": "cirrhosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Liver fibrosis is a chronic, progressive liver disease that can lead to irreversible cirrhosis and hepatocellular carcinoma.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "liver fibrosis",
+          "subject_type": "Disease",
+          "predicate": "PROGRESSES_TO",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Liver fibrosis is a chronic, progressive liver disease that can lead to irreversible cirrhosis and hepatocellular carcinoma.",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "Collagen I",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "L10, with a strong affinity for Collagen I, can mediate this nanoplatform to target the liver fibrosis region",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "hepatic stellate cells",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "liver fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells and reduce their collagen production by alleviating liver fibrosis hypoxia",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "liver fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D008107"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver fibrosis",
+            "char_start": 314,
+            "char_end": 328,
+            "grounded": true,
+            "normalized_id": "D008107",
+            "canonical_key": "Disease:liver fibrosis",
+            "canonical_mentions": [
+              "liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "cirrhosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D008103"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "cirrhosis",
+            "char_start": 229,
+            "char_end": 238,
+            "grounded": true,
+            "normalized_id": "D008103",
+            "canonical_key": "Disease:cirrhosis",
+            "canonical_mentions": [
+              "cirrhosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D006528"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 243,
+            "char_end": 267,
+            "grounded": true,
+            "normalized_id": "D006528",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Collagen I",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "P02452"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Collagen I",
+            "char_start": 605,
+            "char_end": 615,
+            "grounded": true,
+            "normalized_id": "P02452",
+            "canonical_key": "Protein:collagen i",
+            "canonical_mentions": [
+              "Collagen I"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic stellate cells",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "CL_0000632"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic stellate cells",
+            "char_start": 1268,
+            "char_end": 1290,
+            "grounded": true,
+            "normalized_id": "CL_0000632",
+            "canonical_key": "CellType:hepatic stellate cells",
+            "canonical_mentions": [
+              "hepatic stellate cells"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "glucose oxidase",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "P13006"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "glucose oxidase",
+            "char_start": 446,
+            "char_end": 461,
+            "grounded": true,
+            "normalized_id": "P13006",
+            "canonical_key": "Protein:glucose oxidase",
+            "canonical_mentions": [
+              "glucose oxidase"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "liver fibrosis",
+            "predicate": "PROGRESSES_TO",
+            "object": "cirrhosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Liver fibrosis is a chronic, progressive liver disease that can lead to irreversible cirrhosis and hepatocellular carcinoma.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 144,
+            "evidence_char_end": 268,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "liver fibrosis",
+            "original_object": "cirrhosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "liver fibrosis",
+            "predicate": "PROGRESSES_TO",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Liver fibrosis is a chronic, progressive liver disease that can lead to irreversible cirrhosis and hepatocellular carcinoma.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 144,
+            "evidence_char_end": 268,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "liver fibrosis",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Collagen I",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "L10, with a strong affinity for Collagen I, can mediate this nanoplatform to target the liver fibrosis region",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 573,
+            "evidence_char_end": 682,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Collagen I",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "hepatic stellate cells",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "liver fibrosis",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Systemic delivery of GPPGL can synergistically inhibit the activation of hepatic stellate cells and reduce their collagen production by alleviating liver fibrosis hypoxia",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1195,
+            "evidence_char_end": 1365,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "hepatic stellate cells",
+            "original_object": "liver fibrosis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 6,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 6,
+          "total_relations": 4,
+          "known_relations": 0,
+          "novel_relations": 4,
+          "contradicting_relations": 0,
+          "schema_valid": 4,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8,
+          "evidence_score": 0.75,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 6,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 6
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 4,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.116649875417352,
+      "prompt_tokens": 1433,
+      "output_tokens": 736,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

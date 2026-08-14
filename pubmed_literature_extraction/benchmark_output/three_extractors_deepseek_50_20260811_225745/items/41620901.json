@@ -1,0 +1,2434 @@
+{
+  "pmid": "41620901",
+  "title": "Network pharmacology and molecular docking for exploring the mechanism of Hedyotis diffusa against hepatitis B virus infection.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Hepatitis B virus infection",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatitis B virus infection",
+            "disease_stage": "HBV"
+          },
+          "grounded": true,
+          "source_span": "Hepatitis B virus infection",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 106,
+          "char_end": 133
+        },
+        {
+          "mention": "HBV-related liver diseases",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HBV-related liver diseases"
+          },
+          "grounded": true,
+          "source_span": "HBV-related liver diseases",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 343,
+          "char_end": 369
+        },
+        {
+          "mention": "AKT1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "AKT1",
+            "species": "Homo sapiens",
+            "normalized_id": "HGNC:391"
+          },
+          "grounded": true,
+          "source_span": "AKT1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1152,
+          "char_end": 1156
+        },
+        {
+          "mention": "ALB",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "ALB",
+            "species": "Homo sapiens",
+            "normalized_id": "HGNC:399"
+          },
+          "grounded": true,
+          "source_span": "ALB",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1158,
+          "char_end": 1161
+        },
+        {
+          "mention": "GAPDH",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "GAPDH",
+            "species": "Homo sapiens",
+            "normalized_id": "HGNC:4141"
+          },
+          "grounded": true,
+          "source_span": "GAPDH",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1166,
+          "char_end": 1171
+        },
+        {
+          "mention": "TNF signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "TNF signaling"
+          },
+          "grounded": true,
+          "source_span": "TNF signaling",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 1332,
+          "char_end": 1335
+        },
+        {
+          "mention": "FoxO signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "FoxO signaling"
+          },
+          "grounded": true,
+          "source_span": "FoxO signaling",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 1337,
+          "char_end": 1341
+        },
+        {
+          "mention": "estrogen signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "estrogen signaling"
+          },
+          "grounded": true,
+          "source_span": "estrogen signaling",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 1343,
+          "char_end": 1351
+        },
+        {
+          "mention": "prolactin signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "prolactin signaling"
+          },
+          "grounded": true,
+          "source_span": "prolactin signaling",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 1353,
+          "char_end": 1362
+        },
+        {
+          "mention": "ErbB signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "ErbB signaling"
+          },
+          "grounded": true,
+          "source_span": "ErbB signaling",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 1367,
+          "char_end": 1371
+        },
+        {
+          "mention": "ferulic acid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "ferulic acid"
+          },
+          "grounded": true,
+          "source_span": "ferulic acid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1433,
+          "char_end": 1445
+        },
+        {
+          "mention": "coumarin",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "coumarin"
+          },
+          "grounded": true,
+          "source_span": "coumarin",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1447,
+          "char_end": 1455
+        },
+        {
+          "mention": "digitolutein",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "digitolutein"
+          },
+          "grounded": true,
+          "source_span": "digitolutein",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1460,
+          "char_end": 1472
+        },
+        {
+          "mention": "EGFR",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "EGFR",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "EGFR",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1626,
+          "char_end": 1630
+        },
+        {
+          "mention": "MAPK",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "MAPK",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "MAPK",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1672,
+          "char_end": 1676
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatitis B virus infection",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatitis B virus infection",
+              "disease_stage": "HBV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis B virus infection",
+            "char_start": 106,
+            "char_end": 133,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis b virus infection",
+            "canonical_mentions": [
+              "Hepatitis B virus infection"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV-related liver diseases",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HBV-related liver diseases"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV-related liver diseases",
+            "char_start": 343,
+            "char_end": 369,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hbv related liver diseases",
+            "canonical_mentions": [
+              "HBV-related liver diseases"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "AKT1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "AKT1",
+              "species": "Homo sapiens",
+              "normalized_id": "HGNC:391"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AKT1",
+            "char_start": 1152,
+            "char_end": 1156,
+            "grounded": true,
+            "normalized_id": "HGNC:391",
+            "canonical_key": "Gene:akt1",
+            "canonical_mentions": [
+              "AKT1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ALB",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "ALB",
+              "species": "Homo sapiens",
+              "normalized_id": "HGNC:399"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ALB",
+            "char_start": 1158,
+            "char_end": 1161,
+            "grounded": true,
+            "normalized_id": "HGNC:399",
+            "canonical_key": "Gene:alb",
+            "canonical_mentions": [
+              "ALB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "GAPDH",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "GAPDH",
+              "species": "Homo sapiens",
+              "normalized_id": "HGNC:4141"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "GAPDH",
+            "char_start": 1166,
+            "char_end": 1171,
+            "grounded": true,
+            "normalized_id": "HGNC:4141",
+            "canonical_key": "Gene:gapdh",
+            "canonical_mentions": [
+              "GAPDH"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ferulic acid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "ferulic acid"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ferulic acid",
+            "char_start": 1433,
+            "char_end": 1445,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:ferulic acid",
+            "canonical_mentions": [
+              "ferulic acid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "coumarin",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "coumarin"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "coumarin",
+            "char_start": 1447,
+            "char_end": 1455,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:coumarin",
+            "canonical_mentions": [
+              "coumarin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "digitolutein",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "digitolutein"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "digitolutein",
+            "char_start": 1460,
+            "char_end": 1472,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:digitolutein",
+            "canonical_mentions": [
+              "digitolutein"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "EGFR",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "EGFR",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "EGFR",
+            "char_start": 1626,
+            "char_end": 1630,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:egfr",
+            "canonical_mentions": [
+              "EGFR"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MAPK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "MAPK",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MAPK",
+            "char_start": 1672,
+            "char_end": 1676,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:mapk",
+            "canonical_mentions": [
+              "MAPK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 10,
+          "raw_entity_count": 15,
+          "filtered_entity_count": 5,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 10,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.8833,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 10,
+              "denominator": 15,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 15,
+              "denominator": 15,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 10,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 10
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 15,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 5.851550417020917,
+      "prompt_tokens": 503,
+      "output_tokens": 1035,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Hepatitis B virus infection",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Hepatitis B virus infection",
+            "disease_stage": "HBV"
+          },
+          "grounded": true,
+          "source_span": "Hepatitis B virus infection",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 106,
+          "char_end": 133
+        },
+        {
+          "mention": "HBV-related liver diseases",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "HBV-related liver diseases"
+          },
+          "grounded": true,
+          "source_span": "HBV-related liver diseases",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 343,
+          "char_end": 369
+        },
+        {
+          "mention": "AKT1",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "AKT1",
+            "species": "Homo sapiens",
+            "normalized_id": "HGNC:391"
+          },
+          "grounded": true,
+          "source_span": "AKT1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1152,
+          "char_end": 1156
+        },
+        {
+          "mention": "ALB",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "ALB",
+            "species": "Homo sapiens",
+            "normalized_id": "HGNC:399"
+          },
+          "grounded": true,
+          "source_span": "ALB",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1158,
+          "char_end": 1161
+        },
+        {
+          "mention": "GAPDH",
+          "type": "Gene",
+          "extraction_class": "gene",
+          "attributes": {
+            "gene_symbol": "GAPDH",
+            "species": "Homo sapiens",
+            "normalized_id": "HGNC:4141"
+          },
+          "grounded": true,
+          "source_span": "GAPDH",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1166,
+          "char_end": 1171
+        },
+        {
+          "mention": "TNF signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "TNF signaling"
+          },
+          "grounded": true,
+          "source_span": "TNF signaling",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 1332,
+          "char_end": 1335
+        },
+        {
+          "mention": "FoxO signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "FoxO signaling"
+          },
+          "grounded": true,
+          "source_span": "FoxO signaling",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 1337,
+          "char_end": 1341
+        },
+        {
+          "mention": "estrogen signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "estrogen signaling"
+          },
+          "grounded": true,
+          "source_span": "estrogen signaling",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 1343,
+          "char_end": 1351
+        },
+        {
+          "mention": "prolactin signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "prolactin signaling"
+          },
+          "grounded": true,
+          "source_span": "prolactin signaling",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 1353,
+          "char_end": 1362
+        },
+        {
+          "mention": "ErbB signaling",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "ErbB signaling"
+          },
+          "grounded": true,
+          "source_span": "ErbB signaling",
+          "alignment_status": "MATCH_LESSER",
+          "char_start": 1367,
+          "char_end": 1371
+        },
+        {
+          "mention": "ferulic acid",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "ferulic acid"
+          },
+          "grounded": true,
+          "source_span": "ferulic acid",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1433,
+          "char_end": 1445
+        },
+        {
+          "mention": "coumarin",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "coumarin"
+          },
+          "grounded": true,
+          "source_span": "coumarin",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1447,
+          "char_end": 1455
+        },
+        {
+          "mention": "digitolutein",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "digitolutein"
+          },
+          "grounded": true,
+          "source_span": "digitolutein",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1460,
+          "char_end": 1472
+        },
+        {
+          "mention": "EGFR",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "EGFR",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "EGFR",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1626,
+          "char_end": 1630
+        },
+        {
+          "mention": "MAPK",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "MAPK",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "MAPK",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1672,
+          "char_end": 1676
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "ferulic acid",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH_METABOLITE",
+          "object": "EGFR",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+          "confidence": 0.7,
+          "uncertain": true,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Docking prediction suggests modulation, not experimentally confirmed."
+        },
+        {
+          "subject": "ferulic acid",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH_METABOLITE",
+          "object": "AKT1",
+          "object_type": "Gene",
+          "direction": "positive",
+          "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+          "confidence": 0.7,
+          "uncertain": true,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Docking prediction suggests modulation, not experimentally confirmed."
+        },
+        {
+          "subject": "ferulic acid",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH_METABOLITE",
+          "object": "MAPK",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+          "confidence": 0.7,
+          "uncertain": true,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Docking prediction suggests modulation, not experimentally confirmed."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatitis B virus infection",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Hepatitis B virus infection",
+              "disease_stage": "HBV"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatitis B virus infection",
+            "char_start": 106,
+            "char_end": 133,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatitis b virus infection",
+            "canonical_mentions": [
+              "Hepatitis B virus infection"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "HBV-related liver diseases",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "HBV-related liver diseases"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "HBV-related liver diseases",
+            "char_start": 343,
+            "char_end": 369,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hbv related liver diseases",
+            "canonical_mentions": [
+              "HBV-related liver diseases"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "AKT1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "AKT1",
+              "species": "Homo sapiens",
+              "normalized_id": "HGNC:391"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AKT1",
+            "char_start": 1152,
+            "char_end": 1156,
+            "grounded": true,
+            "normalized_id": "HGNC:391",
+            "canonical_key": "Gene:akt1",
+            "canonical_mentions": [
+              "AKT1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ALB",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "ALB",
+              "species": "Homo sapiens",
+              "normalized_id": "HGNC:399"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ALB",
+            "char_start": 1158,
+            "char_end": 1161,
+            "grounded": true,
+            "normalized_id": "HGNC:399",
+            "canonical_key": "Gene:alb",
+            "canonical_mentions": [
+              "ALB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "GAPDH",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "gene_symbol": "GAPDH",
+              "species": "Homo sapiens",
+              "normalized_id": "HGNC:4141"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "GAPDH",
+            "char_start": 1166,
+            "char_end": 1171,
+            "grounded": true,
+            "normalized_id": "HGNC:4141",
+            "canonical_key": "Gene:gapdh",
+            "canonical_mentions": [
+              "GAPDH"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ferulic acid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "ferulic acid"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ferulic acid",
+            "char_start": 1433,
+            "char_end": 1445,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:ferulic acid",
+            "canonical_mentions": [
+              "ferulic acid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "coumarin",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "coumarin"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "coumarin",
+            "char_start": 1447,
+            "char_end": 1455,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:coumarin",
+            "canonical_mentions": [
+              "coumarin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "digitolutein",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "digitolutein"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "digitolutein",
+            "char_start": 1460,
+            "char_end": 1472,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:digitolutein",
+            "canonical_mentions": [
+              "digitolutein"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "EGFR",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "EGFR",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "EGFR",
+            "char_start": 1626,
+            "char_end": 1630,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:egfr",
+            "canonical_mentions": [
+              "EGFR"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MAPK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "MAPK",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MAPK",
+            "char_start": 1672,
+            "char_end": 1676,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:mapk",
+            "canonical_mentions": [
+              "MAPK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "ferulic acid",
+            "predicate": "ASSOCIATED_WITH_METABOLITE",
+            "object": "EGFR",
+            "subject_type": "Metabolite",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "method_only",
+              "object_novel",
+              "schema_mismatch",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1493,
+            "evidence_char_end": 1690,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "ferulic acid",
+            "original_object": "EGFR",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "ferulic acid",
+            "predicate": "ASSOCIATED_WITH_METABOLITE",
+            "object": "AKT1",
+            "subject_type": "Metabolite",
+            "object_type": "Gene",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "method_only",
+              "object_novel",
+              "schema_mismatch",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1493,
+            "evidence_char_end": 1690,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "ferulic acid",
+            "original_object": "AKT1",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "ferulic acid",
+            "predicate": "ASSOCIATED_WITH_METABOLITE",
+            "object": "MAPK",
+            "subject_type": "Metabolite",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "method_only",
+              "object_novel",
+              "schema_mismatch",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1493,
+            "evidence_char_end": 1690,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "ferulic acid",
+            "original_object": "MAPK",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 10,
+          "raw_entity_count": 15,
+          "filtered_entity_count": 5,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 10,
+          "total_relations": 3,
+          "known_relations": 0,
+          "novel_relations": 3,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 0.4,
+          "semantic_score": 0.6833,
+          "evidence_score": 0.75,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 10,
+              "denominator": 15,
+              "value": 0.6667
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 15,
+              "denominator": 15,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 10,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 10
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 15,
+        "relations": 3,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 16.027061083819717,
+      "prompt_tokens": 9029,
+      "output_tokens": 3278,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Hepatitis B virus infection",
+            "entity_type": "Disease",
+            "source_span": "Hepatitis B virus infection",
+            "char_start": 106,
+            "char_end": 133,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in title and abstract; disease entity."
+          },
+          {
+            "mention": "HBV-related liver diseases",
+            "entity_type": "Disease",
+            "source_span": "HBV-related liver diseases",
+            "char_start": 343,
+            "char_end": 369,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "AKT1",
+            "entity_type": "Gene",
+            "source_span": "AKT1",
+            "char_start": 1152,
+            "char_end": 1156,
+            "normalized_id": "HGNC:391",
+            "confidence": 0.95,
+            "reason": "Exact match; gene symbol."
+          },
+          {
+            "mention": "ALB",
+            "entity_type": "Gene",
+            "source_span": "ALB",
+            "char_start": 1158,
+            "char_end": 1161,
+            "normalized_id": "HGNC:399",
+            "confidence": 0.95,
+            "reason": "Exact match; gene symbol."
+          },
+          {
+            "mention": "GAPDH",
+            "entity_type": "Gene",
+            "source_span": "GAPDH",
+            "char_start": 1166,
+            "char_end": 1171,
+            "normalized_id": "HGNC:4141",
+            "confidence": 0.95,
+            "reason": "Exact match; gene symbol."
+          },
+          {
+            "mention": "TNF signaling",
+            "entity_type": "Pathway",
+            "source_span": "TNF, FoxO, estrogen, prolactin and ErbB signalling",
+            "char_start": 1332,
+            "char_end": 1371,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Pathway mentioned in abstract; source span covers full list."
+          },
+          {
+            "mention": "FoxO signaling",
+            "entity_type": "Pathway",
+            "source_span": "TNF, FoxO, estrogen, prolactin and ErbB signalling",
+            "char_start": 1332,
+            "char_end": 1371,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Pathway mentioned in abstract; source span covers full list."
+          },
+          {
+            "mention": "estrogen signaling",
+            "entity_type": "Pathway",
+            "source_span": "TNF, FoxO, estrogen, prolactin and ErbB signalling",
+            "char_start": 1332,
+            "char_end": 1371,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Pathway mentioned in abstract; source span covers full list."
+          },
+          {
+            "mention": "prolactin signaling",
+            "entity_type": "Pathway",
+            "source_span": "TNF, FoxO, estrogen, prolactin and ErbB signalling",
+            "char_start": 1332,
+            "char_end": 1371,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Pathway mentioned in abstract; source span covers full list."
+          },
+          {
+            "mention": "ErbB signaling",
+            "entity_type": "Pathway",
+            "source_span": "TNF, FoxO, estrogen, prolactin and ErbB signalling",
+            "char_start": 1332,
+            "char_end": 1371,
+            "normalized_id": "",
+            "confidence": 0.8,
+            "reason": "Pathway mentioned in abstract; source span covers full list."
+          },
+          {
+            "mention": "ferulic acid",
+            "entity_type": "Metabolite",
+            "source_span": "ferulic acid",
+            "char_start": 1433,
+            "char_end": 1445,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match; metabolite component."
+          },
+          {
+            "mention": "coumarin",
+            "entity_type": "Metabolite",
+            "source_span": "coumarin",
+            "char_start": 1447,
+            "char_end": 1455,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match; metabolite component."
+          },
+          {
+            "mention": "digitolutein",
+            "entity_type": "Metabolite",
+            "source_span": "digitolutein",
+            "char_start": 1460,
+            "char_end": 1472,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match; metabolite component."
+          },
+          {
+            "mention": "EGFR",
+            "entity_type": "Protein",
+            "source_span": "EGFR",
+            "char_start": 1626,
+            "char_end": 1630,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match; protein target."
+          },
+          {
+            "mention": "MAPK",
+            "entity_type": "Protein",
+            "source_span": "MAPK",
+            "char_start": 1672,
+            "char_end": 1676,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match; protein target."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "ferulic acid",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH_METABOLITE",
+            "object": "EGFR",
+            "object_type": "Protein",
+            "direction": "positive",
+            "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+            "evidence_span": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+            "confidence": 0.7,
+            "uncertain": true,
+            "reason": "Docking prediction suggests modulation, not experimentally confirmed."
+          },
+          {
+            "subject": "ferulic acid",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH_METABOLITE",
+            "object": "AKT1",
+            "object_type": "Gene",
+            "direction": "positive",
+            "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+            "evidence_span": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+            "confidence": 0.7,
+            "uncertain": true,
+            "reason": "Docking prediction suggests modulation, not experimentally confirmed."
+          },
+          {
+            "subject": "ferulic acid",
+            "subject_type": "Metabolite",
+            "predicate": "ASSOCIATED_WITH_METABOLITE",
+            "object": "MAPK",
+            "object_type": "Protein",
+            "direction": "positive",
+            "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+            "evidence_span": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+            "confidence": 0.7,
+            "uncertain": true,
+            "reason": "Docking prediction suggests modulation, not experimentally confirmed."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "TNF signaling",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Original span was too short; corrected to full list span."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "FoxO signaling",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Original span was too short; corrected to full list span."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "estrogen signaling",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Original span was too short; corrected to full list span."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "prolactin signaling",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Original span was too short; corrected to full list span."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "ErbB signaling",
+            "entity_type": "Pathway",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Original span was too short; corrected to full list span."
+          }
+        ],
+        "review_reason": "Corrected pathway spans to cover full list; added relations for ferulic acid docking predictions with uncertainty due to computational nature.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 3,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Hepatitis B virus infection"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "HBV-related liver diseases"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "AKT1"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "ALB"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "GAPDH"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "TNF signaling",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "FoxO signaling",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "estrogen signaling",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "prolactin signaling",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "ErbB signaling",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "ferulic acid"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "coumarin"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "digitolutein"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "EGFR"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "MAPK"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "Hepatitis B virus",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006509"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Hepatitis B virus",
+          "char_start": 157,
+          "char_end": 174
+        },
+        {
+          "mention": "HBV",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D006509"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "HBV",
+          "char_start": 176,
+          "char_end": 179
+        },
+        {
+          "mention": "AKT1",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "P31749"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "AKT1",
+          "char_start": 1152,
+          "char_end": 1156
+        },
+        {
+          "mention": "ALB",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "P02768"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "ALB",
+          "char_start": 1158,
+          "char_end": 1161
+        },
+        {
+          "mention": "GAPDH",
+          "type": "Gene",
+          "attributes": {
+            "normalized_id": "P04406"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "GAPDH",
+          "char_start": 1166,
+          "char_end": 1171
+        },
+        {
+          "mention": "TNF",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "hsa04668"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "TNF",
+          "char_start": 1332,
+          "char_end": 1335
+        },
+        {
+          "mention": "FoxO",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "hsa04068"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "FoxO",
+          "char_start": 1337,
+          "char_end": 1341
+        },
+        {
+          "mention": "estrogen",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "hsa04915"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "estrogen",
+          "char_start": 1343,
+          "char_end": 1351
+        },
+        {
+          "mention": "prolactin",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "hsa04917"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "prolactin",
+          "char_start": 1353,
+          "char_end": 1362
+        },
+        {
+          "mention": "ErbB",
+          "type": "Pathway",
+          "attributes": {
+            "normalized_id": "hsa04012"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "ErbB",
+          "char_start": 1367,
+          "char_end": 1371
+        },
+        {
+          "mention": "ferulic acid",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:17620"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "ferulic acid",
+          "char_start": 1433,
+          "char_end": 1445
+        },
+        {
+          "mention": "coumarin",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:28794"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "coumarin",
+          "char_start": 1447,
+          "char_end": 1455
+        },
+        {
+          "mention": "digitolutein",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "CHEBI:??"
+          },
+          "confidence": 0.7,
+          "grounded": true,
+          "source_span": "digitolutein",
+          "char_start": 1460,
+          "char_end": 1472
+        },
+        {
+          "mention": "EGFR",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P00533"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "EGFR",
+          "char_start": 1626,
+          "char_end": 1630
+        },
+        {
+          "mention": "MAPK",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P28482"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "MAPK",
+          "char_start": 1672,
+          "char_end": 1676
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "AKT1",
+          "subject_type": "Gene",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HBV",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.6
+        },
+        {
+          "subject": "EGFR",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HBV",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.6
+        },
+        {
+          "subject": "MAPK",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HBV",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.6
+        },
+        {
+          "subject": "ferulic acid",
+          "subject_type": "Metabolite",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "HBV",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+          "negated": false,
+          "uncertain": true,
+          "species": "Homo sapiens",
+          "confidence": 0.6
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Hepatitis B virus",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D006509"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatitis B virus",
+            "char_start": 157,
+            "char_end": 174,
+            "grounded": true,
+            "normalized_id": "D006509",
+            "canonical_key": "Disease:hepatitis b virus",
+            "canonical_mentions": [
+              "Hepatitis B virus",
+              "HBV"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "AKT1",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "P31749"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "AKT1",
+            "char_start": 1152,
+            "char_end": 1156,
+            "grounded": true,
+            "normalized_id": "P31749",
+            "canonical_key": "Gene:akt1",
+            "canonical_mentions": [
+              "AKT1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ALB",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "P02768"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ALB",
+            "char_start": 1158,
+            "char_end": 1161,
+            "grounded": true,
+            "normalized_id": "P02768",
+            "canonical_key": "Gene:alb",
+            "canonical_mentions": [
+              "ALB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "GAPDH",
+            "type": "Gene",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "P04406"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "GAPDH",
+            "char_start": 1166,
+            "char_end": 1171,
+            "grounded": true,
+            "normalized_id": "P04406",
+            "canonical_key": "Gene:gapdh",
+            "canonical_mentions": [
+              "GAPDH"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "TNF",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "hsa04668"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "TNF",
+            "char_start": 1332,
+            "char_end": 1335,
+            "grounded": true,
+            "normalized_id": "hsa04668",
+            "canonical_key": "Pathway:tnf",
+            "canonical_mentions": [
+              "TNF"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "FoxO",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "hsa04068"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "FoxO",
+            "char_start": 1337,
+            "char_end": 1341,
+            "grounded": true,
+            "normalized_id": "hsa04068",
+            "canonical_key": "Pathway:foxo",
+            "canonical_mentions": [
+              "FoxO"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "estrogen",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "hsa04915"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "estrogen",
+            "char_start": 1343,
+            "char_end": 1351,
+            "grounded": true,
+            "normalized_id": "hsa04915",
+            "canonical_key": "Pathway:estrogen",
+            "canonical_mentions": [
+              "estrogen"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "prolactin",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "hsa04917"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "prolactin",
+            "char_start": 1353,
+            "char_end": 1362,
+            "grounded": true,
+            "normalized_id": "hsa04917",
+            "canonical_key": "Pathway:prolactin",
+            "canonical_mentions": [
+              "prolactin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ErbB",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "hsa04012"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ErbB",
+            "char_start": 1367,
+            "char_end": 1371,
+            "grounded": true,
+            "normalized_id": "hsa04012",
+            "canonical_key": "Pathway:erbb",
+            "canonical_mentions": [
+              "ErbB"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ferulic acid",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEBI:17620"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ferulic acid",
+            "char_start": 1433,
+            "char_end": 1445,
+            "grounded": true,
+            "normalized_id": "CHEBI:17620",
+            "canonical_key": "Metabolite:ferulic acid",
+            "canonical_mentions": [
+              "ferulic acid"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "coumarin",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEBI:28794"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "coumarin",
+            "char_start": 1447,
+            "char_end": 1455,
+            "grounded": true,
+            "normalized_id": "CHEBI:28794",
+            "canonical_key": "Metabolite:coumarin",
+            "canonical_mentions": [
+              "coumarin"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "digitolutein",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "normalized_id": "CHEBI:??"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "digitolutein",
+            "char_start": 1460,
+            "char_end": 1472,
+            "grounded": true,
+            "normalized_id": "CHEBI:??",
+            "canonical_key": "Metabolite:digitolutein",
+            "canonical_mentions": [
+              "digitolutein"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "EGFR",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "P00533"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "EGFR",
+            "char_start": 1626,
+            "char_end": 1630,
+            "grounded": true,
+            "normalized_id": "P00533",
+            "canonical_key": "Protein:egfr",
+            "canonical_mentions": [
+              "EGFR"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MAPK",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "P28482"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MAPK",
+            "char_start": 1672,
+            "char_end": 1676,
+            "grounded": true,
+            "normalized_id": "P28482",
+            "canonical_key": "Protein:mapk",
+            "canonical_mentions": [
+              "MAPK"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "AKT1",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatitis B virus",
+            "subject_type": "Gene",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "method_only",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1493,
+            "evidence_char_end": 1690,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "AKT1",
+            "original_object": "HBV",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "EGFR",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatitis B virus",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "method_only",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1493,
+            "evidence_char_end": 1690,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "EGFR",
+            "original_object": "HBV",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "MAPK",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatitis B virus",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "method_only",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1493,
+            "evidence_char_end": 1690,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "MAPK",
+            "original_object": "HBV",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "ferulic acid",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Hepatitis B virus",
+            "subject_type": "Metabolite",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Ferulic acid docked favourably to all seven selected kinases (-7.1 to -5.3 kcal mol-¹), suggesting direct modulation of viral entry (EGFR), replication (AKT1) and immune-evasion (MAPK) checkpoints.",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "method_only",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1493,
+            "evidence_char_end": 1690,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "ferulic acid",
+            "original_object": "HBV",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 14,
+          "raw_entity_count": 15,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 14,
+          "total_relations": 4,
+          "known_relations": 0,
+          "novel_relations": 4,
+          "contradicting_relations": 0,
+          "schema_valid": 4,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5767,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 14,
+              "denominator": 15,
+              "value": 0.9333
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 15,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 15,
+              "value": 0.0667
+            },
+            "type_constraint_pass_rate": {
+              "count": 15,
+              "denominator": 15,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 4,
+              "denominator": 4,
+              "value": 1.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 14,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 14
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 15,
+        "relations": 4,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 6.210208333097398,
+      "prompt_tokens": 1543,
+      "output_tokens": 1226,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

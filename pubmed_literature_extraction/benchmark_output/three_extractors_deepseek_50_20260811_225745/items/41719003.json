@@ -1,0 +1,2243 @@
+{
+  "pmid": "41719003",
+  "title": "The relationship between acromegaly and hepatic steatosis: insights from FibroScan imaging.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "acromegaly",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "acromegaly",
+            "disease_stage": "acromegaly"
+          },
+          "grounded": true,
+          "source_span": "acromegaly",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 32,
+          "char_end": 42
+        },
+        {
+          "mention": "metabolic dysfunction-associated steatotic liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "metabolic dysfunction-associated steatotic liver disease",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "metabolic dysfunction-associated steatotic liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 143,
+          "char_end": 199
+        },
+        {
+          "mention": "growth hormone",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "growth hormone",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "growth hormone",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 274,
+          "char_end": 288
+        },
+        {
+          "mention": "gluconeogenesis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "gluconeogenesis"
+          },
+          "grounded": true,
+          "source_span": "gluconeogenesis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 309,
+          "char_end": 324
+        },
+        {
+          "mention": "glycogenolysis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "glycogenolysis"
+          },
+          "grounded": true,
+          "source_span": "glycogenolysis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 326,
+          "char_end": 340
+        },
+        {
+          "mention": "lipolysis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "lipolysis"
+          },
+          "grounded": true,
+          "source_span": "lipolysis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 346,
+          "char_end": 355
+        },
+        {
+          "mention": "free fatty acids",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "free fatty acids"
+          },
+          "grounded": true,
+          "source_span": "free fatty acids",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 368,
+          "char_end": 384
+        },
+        {
+          "mention": "hepatic steatosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic steatosis",
+            "disease_stage": "hepatic steatosis"
+          },
+          "grounded": true,
+          "source_span": "hepatic steatosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 769,
+          "char_end": 786
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "fibrosis",
+            "disease_stage": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 791,
+          "char_end": 799
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 861,
+          "char_end": 866
+        },
+        {
+          "mention": "steatosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "steatosis",
+            "disease_stage": "moderate to severe"
+          },
+          "grounded": true,
+          "source_span": "steatosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 962,
+          "char_end": 971
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "fibrosis",
+            "disease_stage": "significant"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1019,
+          "char_end": 1027
+        },
+        {
+          "mention": "acromegaly",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "acromegaly"
+          },
+          "grounded": true,
+          "source_span": "acromegaly",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1060,
+          "char_end": 1070
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1635,
+          "char_end": 1640
+        },
+        {
+          "mention": "triglycerides",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "triglycerides"
+          },
+          "grounded": true,
+          "source_span": "triglycerides",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1764,
+          "char_end": 1777
+        },
+        {
+          "mention": "GH",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "GH"
+          },
+          "grounded": true,
+          "source_span": "GH",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1586,
+          "char_end": 1588
+        },
+        {
+          "mention": "hepatic steatosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic steatosis",
+            "disease_stage": "unknown"
+          },
+          "grounded": true,
+          "source_span": "hepatic steatosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1860,
+          "char_end": 1877
+        },
+        {
+          "mention": "acromegaly",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "acromegaly",
+            "disease_stage": "unknown"
+          },
+          "grounded": true,
+          "source_span": "acromegaly",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1899,
+          "char_end": 1909
+        },
+        {
+          "mention": "GH",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "GH",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "hepatic steatosis",
+                "target_type": "disease",
+                "direction": "decrease",
+                "negated": false,
+                "uncertain": true,
+                "evidence": "GH was inversely associated with hepatic steatosis scores"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "GH",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1960,
+          "char_end": 1962
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "GH",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic steatosis",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "negated": false,
+          "uncertain": true,
+          "disease_stage": "",
+          "evidence": "GH was inversely associated with hepatic steatosis scores",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "acromegaly",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "acromegaly",
+              "disease_stage": "acromegaly"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "acromegaly",
+            "char_start": 32,
+            "char_end": 42,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:acromegaly",
+            "canonical_mentions": [
+              "acromegaly"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "metabolic dysfunction-associated steatotic liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "metabolic dysfunction-associated steatotic liver disease",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "metabolic dysfunction-associated steatotic liver disease",
+            "char_start": 143,
+            "char_end": 199,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:metabolic dysfunction associated steatotic liver disease",
+            "canonical_mentions": [
+              "metabolic dysfunction-associated steatotic liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "growth hormone",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "growth hormone",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "growth hormone",
+            "char_start": 274,
+            "char_end": 288,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:growth hormone",
+            "canonical_mentions": [
+              "growth hormone",
+              "GH"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "gluconeogenesis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "gluconeogenesis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "gluconeogenesis",
+            "char_start": 309,
+            "char_end": 324,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:gluconeogenesis",
+            "canonical_mentions": [
+              "gluconeogenesis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "glycogenolysis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "glycogenolysis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "glycogenolysis",
+            "char_start": 326,
+            "char_end": 340,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:glycogenolysis",
+            "canonical_mentions": [
+              "glycogenolysis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "lipolysis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "lipolysis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "lipolysis",
+            "char_start": 346,
+            "char_end": 355,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:lipolysis",
+            "canonical_mentions": [
+              "lipolysis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "free fatty acids",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "free fatty acids"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "free fatty acids",
+            "char_start": 368,
+            "char_end": 384,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:free fatty acids",
+            "canonical_mentions": [
+              "free fatty acids"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic steatosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatic steatosis",
+              "disease_stage": "hepatic steatosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatic steatosis",
+            "char_start": 769,
+            "char_end": 786,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatic steatosis",
+            "canonical_mentions": [
+              "hepatic steatosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 861,
+            "char_end": 866,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "steatosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "steatosis",
+              "disease_stage": "moderate to severe"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "steatosis",
+            "char_start": 962,
+            "char_end": 971,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:steatosis",
+            "canonical_mentions": [
+              "steatosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 1635,
+            "char_end": 1640,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "triglycerides",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "triglycerides"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "triglycerides",
+            "char_start": 1764,
+            "char_end": 1777,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:triglycerides",
+            "canonical_mentions": [
+              "triglycerides"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "growth hormone",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic steatosis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "GH was inversely associated with hepatic steatosis scores",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1960,
+            "evidence_char_end": 2017,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "GH",
+            "original_object": "hepatic steatosis",
+            "endpoint_remapped": true
+          }
+        ],
+        "summary": {
+          "total_entities": 12,
+          "raw_entity_count": 19,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 5,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 12,
+          "total_relations": 1,
+          "known_relations": 0,
+          "novel_relations": 1,
+          "contradicting_relations": 0,
+          "schema_valid": 1,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6447,
+          "evidence_score": 0.75,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 12,
+              "denominator": 19,
+              "value": 0.6316
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 19,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 5,
+              "denominator": 19,
+              "value": 0.2632
+            },
+            "type_constraint_pass_rate": {
+              "count": 17,
+              "denominator": 19,
+              "value": 0.8947
+            },
+            "relation_evidence_exactness": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 12,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 12
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 19,
+        "relations": 1,
+        "duplicate_entities": 5,
+        "duplicate_relations": 0
+      },
+      "latency_s": 5.453720499761403,
+      "prompt_tokens": 526,
+      "output_tokens": 1445,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "acromegaly",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "acromegaly",
+            "disease_stage": "acromegaly"
+          },
+          "grounded": true,
+          "source_span": "acromegaly",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 32,
+          "char_end": 42
+        },
+        {
+          "mention": "metabolic dysfunction-associated steatotic liver disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "metabolic dysfunction-associated steatotic liver disease",
+            "disease_stage": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "metabolic dysfunction-associated steatotic liver disease",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 143,
+          "char_end": 199
+        },
+        {
+          "mention": "growth hormone",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "growth hormone",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "growth hormone",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 274,
+          "char_end": 288
+        },
+        {
+          "mention": "gluconeogenesis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "gluconeogenesis"
+          },
+          "grounded": true,
+          "source_span": "gluconeogenesis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 309,
+          "char_end": 324
+        },
+        {
+          "mention": "glycogenolysis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "glycogenolysis"
+          },
+          "grounded": true,
+          "source_span": "glycogenolysis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 326,
+          "char_end": 340
+        },
+        {
+          "mention": "lipolysis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "lipolysis"
+          },
+          "grounded": true,
+          "source_span": "lipolysis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 346,
+          "char_end": 355
+        },
+        {
+          "mention": "free fatty acids",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "free fatty acids"
+          },
+          "grounded": true,
+          "source_span": "free fatty acids",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 368,
+          "char_end": 384
+        },
+        {
+          "mention": "hepatic steatosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic steatosis",
+            "disease_stage": "hepatic steatosis"
+          },
+          "grounded": true,
+          "source_span": "hepatic steatosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 769,
+          "char_end": 786
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "fibrosis",
+            "disease_stage": "fibrosis"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 791,
+          "char_end": 799
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": true,
+          "source_span": "liver",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 861,
+          "char_end": 866
+        },
+        {
+          "mention": "steatosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "steatosis",
+            "disease_stage": "moderate to severe"
+          },
+          "grounded": true,
+          "source_span": "steatosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 962,
+          "char_end": 971
+        },
+        {
+          "mention": "fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "fibrosis",
+            "disease_stage": "significant"
+          },
+          "grounded": true,
+          "source_span": "fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1019,
+          "char_end": 1027
+        },
+        {
+          "mention": "acromegaly",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "acromegaly"
+          },
+          "grounded": true,
+          "source_span": "acromegaly",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1060,
+          "char_end": 1070
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "MASLD"
+          },
+          "grounded": true,
+          "source_span": "MASLD",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1635,
+          "char_end": 1640
+        },
+        {
+          "mention": "triglycerides",
+          "type": "Metabolite",
+          "extraction_class": "metabolite",
+          "attributes": {
+            "metabolite_name": "triglycerides"
+          },
+          "grounded": true,
+          "source_span": "triglycerides",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1764,
+          "char_end": 1777
+        },
+        {
+          "mention": "GH",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "GH"
+          },
+          "grounded": true,
+          "source_span": "GH",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1586,
+          "char_end": 1588
+        },
+        {
+          "mention": "hepatic steatosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatic steatosis",
+            "disease_stage": "unknown"
+          },
+          "grounded": true,
+          "source_span": "hepatic steatosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1860,
+          "char_end": 1877
+        },
+        {
+          "mention": "acromegaly",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "acromegaly",
+            "disease_stage": "unknown"
+          },
+          "grounded": true,
+          "source_span": "acromegaly",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1899,
+          "char_end": 1909
+        },
+        {
+          "mention": "GH",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "GH",
+            "species": "Homo sapiens",
+            "associated_with": [
+              {
+                "target_entity": "hepatic steatosis",
+                "target_type": "disease",
+                "direction": "decrease",
+                "negated": false,
+                "uncertain": true,
+                "evidence": "GH was inversely associated with hepatic steatosis scores"
+              }
+            ]
+          },
+          "grounded": true,
+          "source_span": "GH",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1960,
+          "char_end": 1962
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "GH",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic steatosis",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "negated": false,
+          "uncertain": true,
+          "disease_stage": "",
+          "evidence": "GH was inversely associated with hepatic steatosis scores",
+          "species": "Homo sapiens",
+          "confidence": 0.7,
+          "grounded": true
+        },
+        {
+          "subject": "growth hormone",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic steatosis",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "GH was inversely associated with hepatic steatosis scores",
+          "confidence": 0.7,
+          "uncertain": true,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Evidence explicitly states inverse association; direction decrease is consistent with 'inversely associated'."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "acromegaly",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "acromegaly",
+              "disease_stage": "acromegaly"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "acromegaly",
+            "char_start": 32,
+            "char_end": 42,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:acromegaly",
+            "canonical_mentions": [
+              "acromegaly"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "metabolic dysfunction-associated steatotic liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "metabolic dysfunction-associated steatotic liver disease",
+              "disease_stage": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "metabolic dysfunction-associated steatotic liver disease",
+            "char_start": 143,
+            "char_end": 199,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:metabolic dysfunction associated steatotic liver disease",
+            "canonical_mentions": [
+              "metabolic dysfunction-associated steatotic liver disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "growth hormone",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "growth hormone",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "growth hormone",
+            "char_start": 274,
+            "char_end": 288,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:growth hormone",
+            "canonical_mentions": [
+              "growth hormone",
+              "GH"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "gluconeogenesis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "gluconeogenesis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "gluconeogenesis",
+            "char_start": 309,
+            "char_end": 324,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:gluconeogenesis",
+            "canonical_mentions": [
+              "gluconeogenesis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "glycogenolysis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "glycogenolysis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "glycogenolysis",
+            "char_start": 326,
+            "char_end": 340,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:glycogenolysis",
+            "canonical_mentions": [
+              "glycogenolysis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "lipolysis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "lipolysis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "lipolysis",
+            "char_start": 346,
+            "char_end": 355,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:lipolysis",
+            "canonical_mentions": [
+              "lipolysis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "free fatty acids",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "free fatty acids"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "free fatty acids",
+            "char_start": 368,
+            "char_end": 384,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:free fatty acids",
+            "canonical_mentions": [
+              "free fatty acids"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic steatosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatic steatosis",
+              "disease_stage": "hepatic steatosis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatic steatosis",
+            "char_start": 769,
+            "char_end": 786,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatic steatosis",
+            "canonical_mentions": [
+              "hepatic steatosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "liver",
+            "type": "Tissue",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "tissue_name": "liver"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "liver",
+            "char_start": 861,
+            "char_end": 866,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Tissue:liver",
+            "canonical_mentions": [
+              "liver"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "anatomical_tissue"
+          },
+          {
+            "mention": "steatosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "steatosis",
+              "disease_stage": "moderate to severe"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "steatosis",
+            "char_start": 962,
+            "char_end": 971,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:steatosis",
+            "canonical_mentions": [
+              "steatosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "MASLD",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "MASLD"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "MASLD",
+            "char_start": 1635,
+            "char_end": 1640,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:masld",
+            "canonical_mentions": [
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "triglycerides",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "metabolite_name": "triglycerides"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "triglycerides",
+            "char_start": 1764,
+            "char_end": 1777,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Metabolite:triglycerides",
+            "canonical_mentions": [
+              "triglycerides"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "growth hormone",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic steatosis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "GH was inversely associated with hepatic steatosis scores",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1960,
+            "evidence_char_end": 2017,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "GH",
+            "original_object": "hepatic steatosis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "growth hormone",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic steatosis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "GH was inversely associated with hepatic steatosis scores",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": true,
+            "quality_flags": [
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "uncertain",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1960,
+            "evidence_char_end": 2017,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": false,
+            "original_subject": "growth hormone",
+            "original_object": "hepatic steatosis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 12,
+          "raw_entity_count": 19,
+          "filtered_entity_count": 2,
+          "merged_entity_count": 5,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 12,
+          "total_relations": 2,
+          "known_relations": 0,
+          "novel_relations": 2,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6447,
+          "evidence_score": 0.75,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 12,
+              "denominator": 19,
+              "value": 0.6316
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 19,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 5,
+              "denominator": 19,
+              "value": 0.2632
+            },
+            "type_constraint_pass_rate": {
+              "count": 17,
+              "denominator": 19,
+              "value": 0.8947
+            },
+            "relation_evidence_exactness": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 2,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 12,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 12
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 19,
+        "relations": 2,
+        "duplicate_entities": 5,
+        "duplicate_relations": 0
+      },
+      "latency_s": 141.80669058300555,
+      "prompt_tokens": 9518,
+      "output_tokens": 3040,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "acromegaly",
+            "entity_type": "Disease",
+            "source_span": "acromegaly",
+            "char_start": 32,
+            "char_end": 42,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in title and abstract; disease entity."
+          },
+          {
+            "mention": "metabolic dysfunction-associated steatotic liver disease",
+            "entity_type": "Disease",
+            "source_span": "metabolic dysfunction-associated steatotic liver disease",
+            "char_start": 143,
+            "char_end": 199,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "growth hormone",
+            "entity_type": "Protein",
+            "source_span": "growth hormone",
+            "char_start": 274,
+            "char_end": 288,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; protein entity."
+          },
+          {
+            "mention": "gluconeogenesis",
+            "entity_type": "Pathway",
+            "source_span": "gluconeogenesis",
+            "char_start": 309,
+            "char_end": 324,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; pathway entity."
+          },
+          {
+            "mention": "glycogenolysis",
+            "entity_type": "Pathway",
+            "source_span": "glycogenolysis",
+            "char_start": 326,
+            "char_end": 340,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; pathway entity."
+          },
+          {
+            "mention": "lipolysis",
+            "entity_type": "Pathway",
+            "source_span": "lipolysis",
+            "char_start": 346,
+            "char_end": 355,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; pathway entity."
+          },
+          {
+            "mention": "free fatty acids",
+            "entity_type": "Metabolite",
+            "source_span": "free fatty acids",
+            "char_start": 368,
+            "char_end": 384,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; metabolite entity."
+          },
+          {
+            "mention": "hepatic steatosis",
+            "entity_type": "Disease",
+            "source_span": "hepatic steatosis",
+            "char_start": 769,
+            "char_end": 786,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "source_span": "liver",
+            "char_start": 861,
+            "char_end": 866,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; tissue entity."
+          },
+          {
+            "mention": "steatosis",
+            "entity_type": "Disease",
+            "source_span": "steatosis",
+            "char_start": 962,
+            "char_end": 971,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "MASLD",
+            "entity_type": "Disease",
+            "source_span": "MASLD",
+            "char_start": 1635,
+            "char_end": 1640,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Abbreviation for metabolic dysfunction-associated steatotic liver disease; disease entity."
+          },
+          {
+            "mention": "triglycerides",
+            "entity_type": "Metabolite",
+            "source_span": "triglycerides",
+            "char_start": 1764,
+            "char_end": 1777,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; metabolite entity."
+          },
+          {
+            "mention": "GH",
+            "entity_type": "Protein",
+            "source_span": "GH",
+            "char_start": 1586,
+            "char_end": 1588,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Abbreviation for growth hormone; protein entity."
+          },
+          {
+            "mention": "hepatic steatosis",
+            "entity_type": "Disease",
+            "source_span": "hepatic steatosis",
+            "char_start": 1860,
+            "char_end": 1877,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "acromegaly",
+            "entity_type": "Disease",
+            "source_span": "acromegaly",
+            "char_start": 1899,
+            "char_end": 1909,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact match in abstract; disease entity."
+          },
+          {
+            "mention": "GH",
+            "entity_type": "Protein",
+            "source_span": "GH",
+            "char_start": 1960,
+            "char_end": 1962,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Abbreviation for growth hormone; protein entity."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "growth hormone",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic steatosis",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "GH was inversely associated with hepatic steatosis scores",
+            "evidence_span": "GH was inversely associated with hepatic steatosis scores",
+            "confidence": 0.7,
+            "uncertain": true,
+            "reason": "Evidence explicitly states inverse association; direction decrease is consistent with 'inversely associated'."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "fibrosis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Fibrosis is a pathological process, not a disease entity; rejected."
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "fibrosis",
+            "entity_type": "Disease",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Fibrosis is a pathological process, not a disease entity; rejected."
+          }
+        ],
+        "review_reason": "Reviewed and corrected entities and relations based on article text. Rejected fibrosis as non-disease. Corrected relation subject to canonical 'growth hormone' and evidence span verified.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 1,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "acromegaly"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "metabolic dysfunction-associated steatotic liver disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "growth hormone"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "gluconeogenesis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "glycogenolysis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "lipolysis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "free fatty acids"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatic steatosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "liver"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "steatosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "MASLD"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "triglycerides"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "GH",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "hepatic steatosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "acromegaly"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "GH",
+            "status": "already_rejected_by_phase_a"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "acromegaly",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "D000172"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "acromegaly",
+          "char_start": 32,
+          "char_end": 42
+        },
+        {
+          "mention": "metabolic dysfunction-associated steatotic liver disease",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C536238"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "metabolic dysfunction-associated steatotic liver disease",
+          "char_start": 143,
+          "char_end": 199
+        },
+        {
+          "mention": "MASLD",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C536238"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "MASLD",
+          "char_start": 201,
+          "char_end": 206
+        },
+        {
+          "mention": "growth hormone",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P01241"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "growth hormone",
+          "char_start": 274,
+          "char_end": 288
+        },
+        {
+          "mention": "GH",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P01241"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "GH",
+          "char_start": 290,
+          "char_end": 292
+        },
+        {
+          "mention": "hepatic steatosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C0238063"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatic steatosis",
+          "char_start": 47,
+          "char_end": 64
+        },
+        {
+          "mention": "liver fibrosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "C0238063"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "liver fibrosis",
+          "char_start": 1510,
+          "char_end": 1524
+        },
+        {
+          "mention": "free fatty acids",
+          "type": "Metabolite",
+          "attributes": {
+            "normalized_id": "C0004755"
+          },
+          "confidence": 0.8,
+          "grounded": true,
+          "source_span": "free fatty acids",
+          "char_start": 368,
+          "char_end": 384
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "acromegaly",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic steatosis",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Hepatic steatosis was less frequent in acromegaly than in metabolically comparable individuals",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "GH",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatic steatosis",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "GH was inversely associated with hepatic steatosis scores",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.9
+        },
+        {
+          "subject": "growth hormone",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "free fatty acids",
+          "object_type": "Metabolite",
+          "direction": "increase",
+          "evidence": "GH stimulates gluconeogenesis, glycogenolysis, and lipolysis, increasing free fatty acids",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "acromegaly",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "D000172"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "acromegaly",
+            "char_start": 32,
+            "char_end": 42,
+            "grounded": true,
+            "normalized_id": "D000172",
+            "canonical_key": "Disease:acromegaly",
+            "canonical_mentions": [
+              "acromegaly"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "metabolic dysfunction-associated steatotic liver disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "C536238"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "metabolic dysfunction-associated steatotic liver disease",
+            "char_start": 143,
+            "char_end": 199,
+            "grounded": true,
+            "normalized_id": "C536238",
+            "canonical_key": "Disease:metabolic dysfunction associated steatotic liver disease",
+            "canonical_mentions": [
+              "metabolic dysfunction-associated steatotic liver disease",
+              "MASLD"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "growth hormone",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "P01241"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "growth hormone",
+            "char_start": 274,
+            "char_end": 288,
+            "grounded": true,
+            "normalized_id": "P01241",
+            "canonical_key": "Protein:growth hormone",
+            "canonical_mentions": [
+              "growth hormone",
+              "GH"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatic steatosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "C0238063"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatic steatosis",
+            "char_start": 47,
+            "char_end": 64,
+            "grounded": true,
+            "normalized_id": "C0238063",
+            "canonical_key": "Disease:hepatic steatosis",
+            "canonical_mentions": [
+              "hepatic steatosis",
+              "liver fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "free fatty acids",
+            "type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.8,
+            "attributes": {
+              "normalized_id": "C0004755"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "free fatty acids",
+            "char_start": 368,
+            "char_end": 384,
+            "grounded": true,
+            "normalized_id": "C0004755",
+            "canonical_key": "Metabolite:free fatty acids",
+            "canonical_mentions": [
+              "free fatty acids"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "acromegaly",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic steatosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Hepatic steatosis was less frequent in acromegaly than in metabolically comparable individuals",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1860,
+            "evidence_char_end": 1954,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "acromegaly",
+            "original_object": "hepatic steatosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "growth hormone",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatic steatosis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": true,
+            "evidence": "GH was inversely associated with hepatic steatosis scores",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "subject_novel"
+            ],
+            "evidence_char_start": 1960,
+            "evidence_char_end": 2017,
+            "evidence_contiguous": true,
+            "evidence_level": 1,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": true,
+            "direction_trigger_consistent": true,
+            "original_subject": "GH",
+            "original_object": "hepatic steatosis",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "growth hormone",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "free fatty acids",
+            "subject_type": "Protein",
+            "object_type": "Metabolite",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": false,
+            "import_ready": false,
+            "evidence": "GH stimulates gluconeogenesis, glycogenolysis, and lipolysis, increasing free fatty acids",
+            "direction": "increase",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "object_novel",
+              "schema_mismatch",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 295,
+            "evidence_char_end": 384,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "growth hormone",
+            "original_object": "free fatty acids",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 5,
+          "raw_entity_count": 8,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 3,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 5,
+          "total_relations": 3,
+          "known_relations": 0,
+          "novel_relations": 3,
+          "contradicting_relations": 0,
+          "schema_valid": 2,
+          "import_ready": 1,
+          "structural_score": 0.8,
+          "semantic_score": 0.7354,
+          "evidence_score": 0.8333,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 5,
+              "denominator": 8,
+              "value": 0.625
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 3,
+              "denominator": 8,
+              "value": 0.375
+            },
+            "type_constraint_pass_rate": {
+              "count": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 3,
+              "denominator": 3,
+              "value": 1.0
+            },
+            "direction_trigger_consistency": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 2,
+              "denominator": 3,
+              "value": 0.6667
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 3,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 1,
+              "denominator": 3,
+              "value": 0.3333
+            }
+          },
+          "linking_stats": {
+            "total": 5,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 5
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 8,
+        "relations": 3,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.199888332281262,
+      "prompt_tokens": 1659,
+      "output_tokens": 685,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

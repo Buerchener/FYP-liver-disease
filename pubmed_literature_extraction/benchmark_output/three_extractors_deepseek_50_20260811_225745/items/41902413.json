@@ -1,0 +1,1961 @@
+{
+  "pmid": "41902413",
+  "title": "Peptide Angio-3 Attenuates Pulmonary Fibrosis Via Modulation of the Coagulation Factor Xa-Protease-Activated Receptor-1 Signaling Axis.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "Pulmonary fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Pulmonary fibrosis",
+            "disease_stage": "PF"
+          },
+          "grounded": true,
+          "source_span": "Pulmonary fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 34,
+          "char_end": 52
+        },
+        {
+          "mention": "interstitial lung disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "interstitial lung disease"
+          },
+          "grounded": true,
+          "source_span": "interstitial lung disease",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 220,
+          "char_end": 245
+        },
+        {
+          "mention": "coagulation factor Xa-protease-activated receptor-1 signaling axis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "coagulation factor Xa-protease-activated receptor-1 signaling axis"
+          },
+          "grounded": true,
+          "source_span": "coagulation factor Xa-protease-activated receptor-1 signaling axis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 75,
+          "char_end": 141
+        },
+        {
+          "mention": "Angio-3",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "Angio-3",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "Angio-3",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 696,
+          "char_end": 703
+        },
+        {
+          "mention": "plasminogen kringle 3-derived decapeptide",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "plasminogen kringle 3-derived decapeptide",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "plasminogen kringle 3-derived decapeptide",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 707,
+          "char_end": 748
+        },
+        {
+          "mention": "PF",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "PF",
+            "disease_stage": "PF"
+          },
+          "grounded": true,
+          "source_span": "PF",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 974,
+          "char_end": 976
+        },
+        {
+          "mention": "PAR-1",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "PAR-1",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "PAR-1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1075,
+          "char_end": 1080
+        },
+        {
+          "mention": "FXa",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "FXa",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "FXa",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1134,
+          "char_end": 1137
+        },
+        {
+          "mention": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "coagulation factor Xa (FXa)-PAR-1 signaling axis"
+          },
+          "grounded": true,
+          "source_span": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1111,
+          "char_end": 1159
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": false,
+          "source_span": "",
+          "alignment_status": "UNKNOWN",
+          "char_start": null,
+          "char_end": null
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Pulmonary fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Pulmonary fibrosis",
+              "disease_stage": "PF"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Pulmonary Fibrosis",
+            "char_start": 34,
+            "char_end": 52,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:pulmonary fibrosis",
+            "canonical_mentions": [
+              "Pulmonary fibrosis",
+              "PF"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "interstitial lung disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "interstitial lung disease"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "interstitial lung disease",
+            "char_start": 220,
+            "char_end": 245,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:interstitial lung disease",
+            "canonical_mentions": [
+              "interstitial lung disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "coagulation factor Xa-protease-activated receptor-1 signaling axis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "coagulation factor Xa-protease-activated receptor-1 signaling axis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Coagulation Factor Xa-Protease-Activated Receptor-1 Signaling Axis",
+            "char_start": 75,
+            "char_end": 141,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:coagulation factor xa protease activated receptor 1 signaling axis",
+            "canonical_mentions": [
+              "coagulation factor Xa-protease-activated receptor-1 signaling axis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Angio-3",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "Angio-3",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Angio-3",
+            "char_start": 696,
+            "char_end": 703,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:angio 3",
+            "canonical_mentions": [
+              "Angio-3"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "plasminogen kringle 3-derived decapeptide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "plasminogen kringle 3-derived decapeptide",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "plasminogen kringle 3-derived decapeptide",
+            "char_start": 707,
+            "char_end": 748,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:plasminogen kringle 3 derived decapeptide",
+            "canonical_mentions": [
+              "plasminogen kringle 3-derived decapeptide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "PAR-1",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "PAR-1",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "PAR-1",
+            "char_start": 1075,
+            "char_end": 1080,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:par 1",
+            "canonical_mentions": [
+              "PAR-1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "factor Xa",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "FXa",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "factor Xa",
+            "char_start": 1123,
+            "char_end": 1132,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:factor xa",
+            "canonical_mentions": [
+              "FXa"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "coagulation factor Xa (FXa)-PAR-1 signaling axis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "char_start": 1111,
+            "char_end": 1159,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:coagulation factor xa fxa par 1 signaling axis",
+            "canonical_mentions": [
+              "coagulation factor Xa (FXa)-PAR-1 signaling axis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 8,
+          "raw_entity_count": 10,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 8,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.93,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 8,
+              "denominator": 10,
+              "value": 0.8
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 10,
+              "value": 0.2
+            },
+            "type_constraint_pass_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 8,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 8
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 10,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.81666204193607,
+      "prompt_tokens": 393,
+      "output_tokens": 765,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "Pulmonary fibrosis",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "Pulmonary fibrosis",
+            "disease_stage": "PF"
+          },
+          "grounded": true,
+          "source_span": "Pulmonary fibrosis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 34,
+          "char_end": 52
+        },
+        {
+          "mention": "interstitial lung disease",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "interstitial lung disease"
+          },
+          "grounded": true,
+          "source_span": "interstitial lung disease",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 220,
+          "char_end": 245
+        },
+        {
+          "mention": "coagulation factor Xa-protease-activated receptor-1 signaling axis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "coagulation factor Xa-protease-activated receptor-1 signaling axis"
+          },
+          "grounded": true,
+          "source_span": "coagulation factor Xa-protease-activated receptor-1 signaling axis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 75,
+          "char_end": 141
+        },
+        {
+          "mention": "Angio-3",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "Angio-3",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "Angio-3",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 696,
+          "char_end": 703
+        },
+        {
+          "mention": "plasminogen kringle 3-derived decapeptide",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "plasminogen kringle 3-derived decapeptide",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "plasminogen kringle 3-derived decapeptide",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 707,
+          "char_end": 748
+        },
+        {
+          "mention": "PF",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "PF",
+            "disease_stage": "PF"
+          },
+          "grounded": true,
+          "source_span": "PF",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 974,
+          "char_end": 976
+        },
+        {
+          "mention": "PAR-1",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "PAR-1",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "PAR-1",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1075,
+          "char_end": 1080
+        },
+        {
+          "mention": "FXa",
+          "type": "Protein",
+          "extraction_class": "protein",
+          "attributes": {
+            "protein_name": "FXa",
+            "species": "Homo sapiens"
+          },
+          "grounded": true,
+          "source_span": "FXa",
+          "alignment_status": "MATCH_FUZZY",
+          "char_start": 1134,
+          "char_end": 1137
+        },
+        {
+          "mention": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+          "type": "Pathway",
+          "extraction_class": "pathway",
+          "attributes": {
+            "pathway_name": "coagulation factor Xa (FXa)-PAR-1 signaling axis"
+          },
+          "grounded": true,
+          "source_span": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 1111,
+          "char_end": 1159
+        },
+        {
+          "mention": "liver",
+          "type": "Tissue",
+          "extraction_class": "tissue",
+          "attributes": {
+            "tissue_name": "liver"
+          },
+          "grounded": false,
+          "source_span": "",
+          "alignment_status": "UNKNOWN",
+          "char_start": null,
+          "char_end": null
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "Angio-3",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "PF",
+          "object_type": "Disease",
+          "direction": "decrease",
+          "evidence": "Angio-3 significantly alleviates PF",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement in abstract: Angio-3 alleviates PF."
+        },
+        {
+          "subject": "Angio-3",
+          "subject_type": "Protein",
+          "predicate": "INTERACTS_WITH",
+          "object": "PAR-1",
+          "object_type": "Protein",
+          "direction": "negative",
+          "evidence": "functions as a protease-activated receptor-1 (PAR-1) antagonist",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "States Angio-3 is a PAR-1 antagonist, indicating inhibitory interaction."
+        },
+        {
+          "subject": "Angio-3",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+          "object_type": "Pathway",
+          "direction": "decrease",
+          "evidence": "disrupts the coagulation factor Xa (FXa)-PAR-1 signaling axis",
+          "confidence": 0.9,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Direct statement: Angio-3 disrupts the signaling axis."
+        },
+        {
+          "subject": "PAR-1",
+          "subject_type": "Protein",
+          "predicate": "PARTICIPATES_IN",
+          "object": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+          "object_type": "Pathway",
+          "direction": "none",
+          "evidence": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+          "confidence": 0.95,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "PAR-1 is part of the named signaling axis."
+        },
+        {
+          "subject": "factor Xa",
+          "subject_type": "Protein",
+          "predicate": "PARTICIPATES_IN",
+          "object": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+          "object_type": "Pathway",
+          "direction": "none",
+          "evidence": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+          "confidence": 0.95,
+          "uncertain": false,
+          "negated": false,
+          "quality_flags": [
+            "second_llm_candidate"
+          ],
+          "collaboration_reason": "Factor Xa is part of the named signaling axis."
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "Pulmonary fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "Pulmonary fibrosis",
+              "disease_stage": "PF"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Pulmonary Fibrosis",
+            "char_start": 34,
+            "char_end": 52,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:pulmonary fibrosis",
+            "canonical_mentions": [
+              "Pulmonary fibrosis",
+              "PF"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "interstitial lung disease",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "interstitial lung disease"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "interstitial lung disease",
+            "char_start": 220,
+            "char_end": 245,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:interstitial lung disease",
+            "canonical_mentions": [
+              "interstitial lung disease"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "coagulation factor Xa-protease-activated receptor-1 signaling axis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "coagulation factor Xa-protease-activated receptor-1 signaling axis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Coagulation Factor Xa-Protease-Activated Receptor-1 Signaling Axis",
+            "char_start": 75,
+            "char_end": 141,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:coagulation factor xa protease activated receptor 1 signaling axis",
+            "canonical_mentions": [
+              "coagulation factor Xa-protease-activated receptor-1 signaling axis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Angio-3",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "Angio-3",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Angio-3",
+            "char_start": 696,
+            "char_end": 703,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:angio 3",
+            "canonical_mentions": [
+              "Angio-3"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "plasminogen kringle 3-derived decapeptide",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "plasminogen kringle 3-derived decapeptide",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "plasminogen kringle 3-derived decapeptide",
+            "char_start": 707,
+            "char_end": 748,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:plasminogen kringle 3 derived decapeptide",
+            "canonical_mentions": [
+              "plasminogen kringle 3-derived decapeptide"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "PAR-1",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "PAR-1",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "PAR-1",
+            "char_start": 1075,
+            "char_end": 1080,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:par 1",
+            "canonical_mentions": [
+              "PAR-1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "factor Xa",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "protein_name": "FXa",
+              "species": "Homo sapiens"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "factor Xa",
+            "char_start": 1123,
+            "char_end": 1132,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Protein:factor xa",
+            "canonical_mentions": [
+              "FXa"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "pathway_name": "coagulation factor Xa (FXa)-PAR-1 signaling axis"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "char_start": 1111,
+            "char_end": 1159,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Pathway:coagulation factor xa fxa par 1 signaling axis",
+            "canonical_mentions": [
+              "coagulation factor Xa (FXa)-PAR-1 signaling axis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "Angio-3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "Pulmonary fibrosis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Angio-3 significantly alleviates PF",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 941,
+            "evidence_char_end": 976,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Angio-3",
+            "original_object": "PF",
+            "endpoint_remapped": true
+          },
+          {
+            "subject": "Angio-3",
+            "predicate": "INTERACTS_WITH",
+            "object": "PAR-1",
+            "subject_type": "Protein",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "functions as a protease-activated receptor-1 (PAR-1) antagonist",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1029,
+            "evidence_char_end": 1092,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Angio-3",
+            "original_object": "PAR-1",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Angio-3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "disrupts the coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "direction": "decrease",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1098,
+            "evidence_char_end": 1159,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Angio-3",
+            "original_object": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "PAR-1",
+            "predicate": "PARTICIPATES_IN",
+            "object": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1111,
+            "evidence_char_end": 1159,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "PAR-1",
+            "original_object": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "factor Xa",
+            "predicate": "PARTICIPATES_IN",
+            "object": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "subject_type": "Protein",
+            "object_type": "Pathway",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "object_novel",
+              "second_llm_candidate",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1111,
+            "evidence_char_end": 1159,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "factor Xa",
+            "original_object": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 8,
+          "raw_entity_count": 10,
+          "filtered_entity_count": 1,
+          "merged_entity_count": 2,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 8,
+          "total_relations": 5,
+          "known_relations": 0,
+          "novel_relations": 5,
+          "contradicting_relations": 0,
+          "schema_valid": 5,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.65,
+          "evidence_score": 0.61,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 8,
+              "denominator": 10,
+              "value": 0.8
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 10,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 2,
+              "denominator": 10,
+              "value": 0.2
+            },
+            "type_constraint_pass_rate": {
+              "count": 10,
+              "denominator": 10,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 3,
+              "denominator": 5,
+              "value": 0.6
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 8,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 8
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 10,
+        "relations": 5,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 12.710006333887577,
+      "prompt_tokens": 7409,
+      "output_tokens": 2397,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "Pulmonary fibrosis",
+            "entity_type": "Disease",
+            "source_span": "Pulmonary fibrosis",
+            "char_start": 34,
+            "char_end": 52,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact match in title and abstract; canonical disease term."
+          },
+          {
+            "mention": "interstitial lung disease",
+            "entity_type": "Disease",
+            "source_span": "interstitial lung disease",
+            "char_start": 220,
+            "char_end": 245,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact phrase in abstract; disease entity."
+          },
+          {
+            "mention": "coagulation factor Xa-protease-activated receptor-1 signaling axis",
+            "entity_type": "Pathway",
+            "source_span": "coagulation factor Xa-protease-activated receptor-1 signaling axis",
+            "char_start": 75,
+            "char_end": 141,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact phrase in title; pathway entity."
+          },
+          {
+            "mention": "Angio-3",
+            "entity_type": "Protein",
+            "source_span": "Angio-3",
+            "char_start": 696,
+            "char_end": 703,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact mention in abstract; peptide therapeutic agent."
+          },
+          {
+            "mention": "plasminogen kringle 3-derived decapeptide",
+            "entity_type": "Protein",
+            "source_span": "plasminogen kringle 3-derived decapeptide",
+            "char_start": 707,
+            "char_end": 748,
+            "normalized_id": "",
+            "confidence": 0.9,
+            "reason": "Exact phrase in abstract; describes Angio-3."
+          },
+          {
+            "mention": "PF",
+            "entity_type": "Disease",
+            "source_span": "PF",
+            "char_start": 974,
+            "char_end": 976,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Abbreviation for pulmonary fibrosis; explicitly used in abstract."
+          },
+          {
+            "mention": "PAR-1",
+            "entity_type": "Protein",
+            "source_span": "PAR-1",
+            "char_start": 1075,
+            "char_end": 1080,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact mention in abstract; protease-activated receptor-1."
+          },
+          {
+            "mention": "factor Xa",
+            "entity_type": "Protein",
+            "source_span": "factor Xa",
+            "char_start": 1123,
+            "char_end": 1132,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact phrase in abstract; coagulation factor Xa."
+          },
+          {
+            "mention": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "entity_type": "Pathway",
+            "source_span": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "char_start": 1111,
+            "char_end": 1159,
+            "normalized_id": "",
+            "confidence": 0.95,
+            "reason": "Exact phrase in abstract; pathway entity."
+          }
+        ],
+        "corrected_relations": [
+          {
+            "subject": "Angio-3",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "PF",
+            "object_type": "Disease",
+            "direction": "decrease",
+            "evidence": "Angio-3 significantly alleviates PF",
+            "evidence_span": "Angio-3 significantly alleviates PF",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct statement in abstract: Angio-3 alleviates PF."
+          },
+          {
+            "subject": "Angio-3",
+            "subject_type": "Protein",
+            "predicate": "INTERACTS_WITH",
+            "object": "PAR-1",
+            "object_type": "Protein",
+            "direction": "negative",
+            "evidence": "functions as a protease-activated receptor-1 (PAR-1) antagonist",
+            "evidence_span": "functions as a protease-activated receptor-1 (PAR-1) antagonist",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "States Angio-3 is a PAR-1 antagonist, indicating inhibitory interaction."
+          },
+          {
+            "subject": "Angio-3",
+            "subject_type": "Protein",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "object_type": "Pathway",
+            "direction": "decrease",
+            "evidence": "disrupts the coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "evidence_span": "disrupts the coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "confidence": 0.9,
+            "uncertain": false,
+            "reason": "Direct statement: Angio-3 disrupts the signaling axis."
+          },
+          {
+            "subject": "PAR-1",
+            "subject_type": "Protein",
+            "predicate": "PARTICIPATES_IN",
+            "object": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "object_type": "Pathway",
+            "direction": "none",
+            "evidence": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "evidence_span": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "confidence": 0.95,
+            "uncertain": false,
+            "reason": "PAR-1 is part of the named signaling axis."
+          },
+          {
+            "subject": "factor Xa",
+            "subject_type": "Protein",
+            "predicate": "PARTICIPATES_IN",
+            "object": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "object_type": "Pathway",
+            "direction": "none",
+            "evidence": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "evidence_span": "coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "confidence": 0.95,
+            "uncertain": false,
+            "reason": "Factor Xa is part of the named signaling axis."
+          }
+        ],
+        "rejected_candidates": [
+          {
+            "candidate_type": "entity",
+            "mention": "liver",
+            "entity_type": "Tissue",
+            "subject": "",
+            "predicate": "",
+            "object": "",
+            "reason": "Mention 'liver' not present in source text; only 'hepatomegaly' appears, which is not a tissue mention."
+          }
+        ],
+        "review_reason": "Corrected entity list to remove unsupported 'liver' and added relations explicitly supported by abstract statements. All evidence spans are verbatim from the abstract.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 5,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "Pulmonary fibrosis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "interstitial lung disease"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "coagulation factor Xa-protease-activated receptor-1 signaling axis"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "Angio-3"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "plasminogen kringle 3-derived decapeptide"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "PF",
+            "status": "already_rejected_by_phase_a"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "PAR-1"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "factor Xa"
+          },
+          {
+            "candidate_type": "entity",
+            "mention": "coagulation factor Xa (FXa)-PAR-1 signaling axis"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "pulmonary fibrosis",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0004975"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "Pulmonary Fibrosis",
+          "char_start": 34,
+          "char_end": 52
+        },
+        {
+          "mention": "fibroblast",
+          "type": "CellType",
+          "attributes": {
+            "normalized_id": "CL:0000057"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "fibroblast",
+          "char_start": 288,
+          "char_end": 298
+        },
+        {
+          "mention": "coagulation factor Xa",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P00742"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "coagulation factor Xa",
+          "char_start": 1111,
+          "char_end": 1132
+        },
+        {
+          "mention": "protease-activated receptor-1",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "P25116"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "protease-activated receptor-1",
+          "char_start": 1044,
+          "char_end": 1073
+        },
+        {
+          "mention": "Angio-3",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "unknown"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Angio-3",
+          "char_start": 15,
+          "char_end": 22
+        },
+        {
+          "mention": "hepatomegaly",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0001390"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "hepatomegaly",
+          "char_start": 1288,
+          "char_end": 1300
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "coagulation factor Xa",
+          "subject_type": "Protein",
+          "predicate": "INTERACTS_WITH",
+          "object": "protease-activated receptor-1",
+          "object_type": "Protein",
+          "direction": "positive",
+          "evidence": "disrupts the coagulation factor Xa (FXa)-PAR-1 signaling axis",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "Angio-3",
+          "subject_type": "Protein",
+          "predicate": "INTERACTS_WITH",
+          "object": "protease-activated receptor-1",
+          "object_type": "Protein",
+          "direction": "negative",
+          "evidence": "functions as a protease-activated receptor-1 (PAR-1) antagonist",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "Angio-3",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "pulmonary fibrosis",
+          "object_type": "Disease",
+          "direction": "negative",
+          "evidence": "Angio-3 significantly alleviates PF",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.9
+        },
+        {
+          "subject": "fibroblast",
+          "subject_type": "CellType",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "pulmonary fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "inhibiting fibroblast invasion and migration",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.8
+        },
+        {
+          "subject": "hepatomegaly",
+          "subject_type": "Disease",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "pulmonary fibrosis",
+          "object_type": "Disease",
+          "direction": "positive",
+          "evidence": "only mild hepatomegaly at a supratherapeutic dose",
+          "negated": false,
+          "uncertain": false,
+          "species": "human",
+          "confidence": 0.7
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "pulmonary fibrosis",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "MONDO:0004975"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Pulmonary Fibrosis",
+            "char_start": 34,
+            "char_end": 52,
+            "grounded": true,
+            "normalized_id": "MONDO:0004975",
+            "canonical_key": "Disease:pulmonary fibrosis",
+            "canonical_mentions": [
+              "pulmonary fibrosis"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "fibroblast",
+            "type": "CellType",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CL:0000057"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "fibroblast",
+            "char_start": 288,
+            "char_end": 298,
+            "grounded": true,
+            "normalized_id": "CL:0000057",
+            "canonical_key": "CellType:fibroblast",
+            "canonical_mentions": [
+              "fibroblast"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "coagulation factor Xa",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "P00742"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "coagulation factor Xa",
+            "char_start": 1111,
+            "char_end": 1132,
+            "grounded": true,
+            "normalized_id": "P00742",
+            "canonical_key": "Protein:coagulation factor xa",
+            "canonical_mentions": [
+              "coagulation factor Xa"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "protease-activated receptor-1",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "P25116"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "protease-activated receptor-1",
+            "char_start": 1044,
+            "char_end": 1073,
+            "grounded": true,
+            "normalized_id": "P25116",
+            "canonical_key": "Protein:protease activated receptor 1",
+            "canonical_mentions": [
+              "protease-activated receptor-1"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "Angio-3",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "unknown"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Angio-3",
+            "char_start": 15,
+            "char_end": 22,
+            "grounded": true,
+            "normalized_id": "unknown",
+            "canonical_key": "Protein:angio 3",
+            "canonical_mentions": [
+              "Angio-3"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "hepatomegaly",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "MONDO:0001390"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatomegaly",
+            "char_start": 1288,
+            "char_end": 1300,
+            "grounded": true,
+            "normalized_id": "MONDO:0001390",
+            "canonical_key": "Disease:hepatomegaly",
+            "canonical_mentions": [
+              "hepatomegaly"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "coagulation factor Xa",
+            "predicate": "INTERACTS_WITH",
+            "object": "protease-activated receptor-1",
+            "subject_type": "Protein",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "disrupts the coagulation factor Xa (FXa)-PAR-1 signaling axis",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1098,
+            "evidence_char_end": 1159,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "coagulation factor Xa",
+            "original_object": "protease-activated receptor-1",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Angio-3",
+            "predicate": "INTERACTS_WITH",
+            "object": "protease-activated receptor-1",
+            "subject_type": "Protein",
+            "object_type": "Protein",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "functions as a protease-activated receptor-1 (PAR-1) antagonist",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_novel",
+              "subject_not_grounded",
+              "subject_novel",
+              "trigger_direction_mismatch",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1029,
+            "evidence_char_end": 1092,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": false,
+            "object_grounded_in_evidence": true,
+            "trigger_present": false,
+            "direction_trigger_consistent": false,
+            "original_subject": "Angio-3",
+            "original_object": "protease-activated receptor-1",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "Angio-3",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pulmonary fibrosis",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Angio-3 significantly alleviates PF",
+            "direction": "negative",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 941,
+            "evidence_char_end": 976,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "Angio-3",
+            "original_object": "pulmonary fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "fibroblast",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pulmonary fibrosis",
+            "subject_type": "CellType",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "inhibiting fibroblast invasion and migration",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 980,
+            "evidence_char_end": 1024,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "fibroblast",
+            "original_object": "pulmonary fibrosis",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "hepatomegaly",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "pulmonary fibrosis",
+            "subject_type": "Disease",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "only mild hepatomegaly at a supratherapeutic dose",
+            "direction": "positive",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "article_out_of_scope",
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 1278,
+            "evidence_char_end": 1327,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "hepatomegaly",
+            "original_object": "pulmonary fibrosis",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 6,
+          "raw_entity_count": 6,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 6,
+          "total_relations": 5,
+          "known_relations": 0,
+          "novel_relations": 5,
+          "contradicting_relations": 0,
+          "schema_valid": 5,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.6,
+          "evidence_score": 0.4,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 6,
+              "denominator": 6,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 5,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 6,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 6
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 6,
+        "relations": 5,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 4.171574292238802,
+      "prompt_tokens": 1437,
+      "output_tokens": 816,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}

@@ -1,0 +1,1106 @@
+{
+  "pmid": "41799527",
+  "title": "Advances in Systemic Therapy for Unresectable Hepatocellular Carcinoma: Commentary on The Impact of the STRIDE Regimen in HIMALAYA Trial.",
+  "arms": {
+    "original_agent": {
+      "raw_entities": [
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "unresectable"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 53,
+          "char_end": 77
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "unresectable"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma",
+            "char_start": 53,
+            "char_end": 77,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 1,
+          "raw_entity_count": 1,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 1,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 1,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 1
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 1,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 1.0623572077602148,
+      "prompt_tokens": 408,
+      "output_tokens": 113,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    },
+    "langextract_llm_hybrid": {
+      "raw_entities": [
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "extraction_class": "disease",
+          "attributes": {
+            "disease_name": "hepatocellular carcinoma",
+            "disease_stage": "unresectable"
+          },
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "alignment_status": "MATCH_EXACT",
+          "char_start": 53,
+          "char_end": 77
+        }
+      ],
+      "raw_relations": [],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.7,
+            "attributes": {
+              "disease_name": "hepatocellular carcinoma",
+              "disease_stage": "unresectable"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Hepatocellular Carcinoma",
+            "char_start": 53,
+            "char_end": 77,
+            "grounded": true,
+            "normalized_id": "",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [],
+        "summary": {
+          "total_entities": 1,
+          "raw_entity_count": 1,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 0,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 1,
+          "total_relations": 0,
+          "known_relations": 0,
+          "novel_relations": 0,
+          "contradicting_relations": 0,
+          "schema_valid": 0,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 1.0,
+          "evidence_score": 1.0,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "type_constraint_pass_rate": {
+              "count": 1,
+              "denominator": 1,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "weak_evidence_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "linking_stats": {
+            "total": 1,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 1
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 1,
+        "relations": 0,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 3.5823753331787884,
+      "prompt_tokens": 2957,
+      "output_tokens": 333,
+      "attempts": 2,
+      "invalid_json_attempts": 0,
+      "error": "",
+      "collaboration": {
+        "status": "OK",
+        "triggered": true,
+        "trigger_reasons": [
+          "mode_always"
+        ],
+        "corrected_entities": [
+          {
+            "mention": "hepatocellular carcinoma",
+            "entity_type": "Disease",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 53,
+            "char_end": 77,
+            "normalized_id": "",
+            "confidence": 0.7,
+            "reason": "Entity is correctly identified in the abstract; no correction needed."
+          }
+        ],
+        "corrected_relations": [],
+        "rejected_candidates": [],
+        "review_reason": "The single entity is correctly extracted. No relations were proposed by the first model, and the abstract does not contain explicit relational statements suitable for extraction without inference. All other potential entities (e.g., STRIDE, sorafenib, atezolizumab, bevacizumab, nivolumab, ipilimumab) are drug names or regimen names not in the allowed entity types, and no clear relations with the disease are explicitly stated in the text. Therefore, no additional entities or relations are added.",
+        "parse_warnings": [],
+        "error": "",
+        "model_id": "deepseek-chat"
+      },
+      "merge": {
+        "entity_additions": 0,
+        "relation_additions": 0,
+        "agreements": [
+          {
+            "candidate_type": "entity",
+            "mention": "hepatocellular carcinoma"
+          }
+        ],
+        "manual_review": [],
+        "second_model_rejections": []
+      }
+    },
+    "deepseek_direct": {
+      "raw_entities": [
+        {
+          "mention": "hepatocellular carcinoma",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0007256"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "hepatocellular carcinoma",
+          "char_start": 168,
+          "char_end": 192
+        },
+        {
+          "mention": "HCC",
+          "type": "Disease",
+          "attributes": {
+            "normalized_id": "MONDO:0007256"
+          },
+          "confidence": 1.0,
+          "grounded": true,
+          "source_span": "HCC",
+          "char_start": 194,
+          "char_end": 197
+        },
+        {
+          "mention": "sorafenib",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "CHEMBL1200958"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "sorafenib",
+          "char_start": 582,
+          "char_end": 591
+        },
+        {
+          "mention": "atezolizumab",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "CHEMBL3137310"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "atezolizumab",
+          "char_start": 891,
+          "char_end": 903
+        },
+        {
+          "mention": "bevacizumab",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "CHEMBL1201580"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "bevacizumab",
+          "char_start": 909,
+          "char_end": 920
+        },
+        {
+          "mention": "nivolumab",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "CHEMBL3137309"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "nivolumab",
+          "char_start": 925,
+          "char_end": 934
+        },
+        {
+          "mention": "ipilimumab",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "CHEMBL1201431"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "ipilimumab",
+          "char_start": 940,
+          "char_end": 950
+        },
+        {
+          "mention": "tremelimumab",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "CHEMBL3137311"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Tremelimumab",
+          "char_start": 400,
+          "char_end": 412
+        },
+        {
+          "mention": "durvalumab",
+          "type": "Protein",
+          "attributes": {
+            "normalized_id": "CHEMBL3137312"
+          },
+          "confidence": 0.9,
+          "grounded": true,
+          "source_span": "Durvalumab",
+          "char_start": 430,
+          "char_end": 440
+        }
+      ],
+      "raw_relations": [
+        {
+          "subject": "sorafenib",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "none",
+          "evidence": "compared to 13.77 months with sorafenib",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "atezolizumab",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "none",
+          "evidence": "alongside other regimens such as atezolizumab plus bevacizumab",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        },
+        {
+          "subject": "bevacizumab",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "none",
+          "evidence": "alongside other regimens such as atezolizumab plus bevacizumab",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        },
+        {
+          "subject": "nivolumab",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "none",
+          "evidence": "alongside other regimens such as ... nivolumab plus ipilimumab",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        },
+        {
+          "subject": "ipilimumab",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "none",
+          "evidence": "alongside other regimens such as ... nivolumab plus ipilimumab",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.7
+        },
+        {
+          "subject": "tremelimumab",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "none",
+          "evidence": "Single Tremelimumab Regular Interval Durvalumab (STRIDE) regimen",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        },
+        {
+          "subject": "durvalumab",
+          "subject_type": "Protein",
+          "predicate": "ASSOCIATED_WITH",
+          "object": "hepatocellular carcinoma",
+          "object_type": "Disease",
+          "direction": "none",
+          "evidence": "Single Tremelimumab Regular Interval Durvalumab (STRIDE) regimen",
+          "negated": false,
+          "uncertain": false,
+          "species": "Homo sapiens",
+          "confidence": 0.8
+        }
+      ],
+      "prediction": {
+        "entities": [
+          {
+            "mention": "hepatocellular carcinoma",
+            "type": "Disease",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 1.0,
+            "attributes": {
+              "normalized_id": "MONDO:0007256"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "hepatocellular carcinoma",
+            "char_start": 168,
+            "char_end": 192,
+            "grounded": true,
+            "normalized_id": "MONDO:0007256",
+            "canonical_key": "Disease:hepatocellular carcinoma",
+            "canonical_mentions": [
+              "hepatocellular carcinoma",
+              "HCC"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "sorafenib",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEMBL1200958"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "sorafenib",
+            "char_start": 582,
+            "char_end": 591,
+            "grounded": true,
+            "normalized_id": "CHEMBL1200958",
+            "canonical_key": "Protein:sorafenib",
+            "canonical_mentions": [
+              "sorafenib"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "atezolizumab",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEMBL3137310"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "atezolizumab",
+            "char_start": 891,
+            "char_end": 903,
+            "grounded": true,
+            "normalized_id": "CHEMBL3137310",
+            "canonical_key": "Protein:atezolizumab",
+            "canonical_mentions": [
+              "atezolizumab"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "bevacizumab",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEMBL1201580"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "bevacizumab",
+            "char_start": 909,
+            "char_end": 920,
+            "grounded": true,
+            "normalized_id": "CHEMBL1201580",
+            "canonical_key": "Protein:bevacizumab",
+            "canonical_mentions": [
+              "bevacizumab"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "nivolumab",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEMBL3137309"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "nivolumab",
+            "char_start": 925,
+            "char_end": 934,
+            "grounded": true,
+            "normalized_id": "CHEMBL3137309",
+            "canonical_key": "Protein:nivolumab",
+            "canonical_mentions": [
+              "nivolumab"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "ipilimumab",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEMBL1201431"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "ipilimumab",
+            "char_start": 940,
+            "char_end": 950,
+            "grounded": true,
+            "normalized_id": "CHEMBL1201431",
+            "canonical_key": "Protein:ipilimumab",
+            "canonical_mentions": [
+              "ipilimumab"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "tremelimumab",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEMBL3137311"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Tremelimumab",
+            "char_start": 400,
+            "char_end": 412,
+            "grounded": true,
+            "normalized_id": "CHEMBL3137311",
+            "canonical_key": "Protein:tremelimumab",
+            "canonical_mentions": [
+              "tremelimumab"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          },
+          {
+            "mention": "durvalumab",
+            "type": "Protein",
+            "neo4j_status": "NOVEL",
+            "neo4j_node_id": "",
+            "confidence": 0.9,
+            "attributes": {
+              "normalized_id": "CHEMBL3137312"
+            },
+            "candidates": [],
+            "ambiguity_reason": "",
+            "source_span": "Durvalumab",
+            "char_start": 430,
+            "char_end": 440,
+            "grounded": true,
+            "normalized_id": "CHEMBL3137312",
+            "canonical_key": "Protein:durvalumab",
+            "canonical_mentions": [
+              "durvalumab"
+            ],
+            "filter_status": "retained",
+            "filter_reason": "type_constraints_passed"
+          }
+        ],
+        "relations": [
+          {
+            "subject": "sorafenib",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "compared to 13.77 months with sorafenib",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 552,
+            "evidence_char_end": 591,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "sorafenib",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "atezolizumab",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "alongside other regimens such as atezolizumab plus bevacizumab",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 858,
+            "evidence_char_end": 920,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "atezolizumab",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "bevacizumab",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "alongside other regimens such as atezolizumab plus bevacizumab",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 858,
+            "evidence_char_end": 920,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "bevacizumab",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "nivolumab",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "alongside other regimens such as ... nivolumab plus ipilimumab",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "cross_sentence",
+              "endpoint_not_in_evidence",
+              "evidence_not_contiguous",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": -1,
+            "evidence_char_end": -1,
+            "evidence_contiguous": false,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "nivolumab",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "ipilimumab",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "alongside other regimens such as ... nivolumab plus ipilimumab",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "cross_sentence",
+              "endpoint_not_in_evidence",
+              "evidence_not_contiguous",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": -1,
+            "evidence_char_end": -1,
+            "evidence_contiguous": false,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "ipilimumab",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "tremelimumab",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Single Tremelimumab Regular Interval Durvalumab (STRIDE) regimen",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 393,
+            "evidence_char_end": 457,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "tremelimumab",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          },
+          {
+            "subject": "durvalumab",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "hepatocellular carcinoma",
+            "subject_type": "Protein",
+            "object_type": "Disease",
+            "neo4j_status": "NOVEL",
+            "existing_rel_id": "",
+            "existing_confidence": 0.0,
+            "existing_direction": "",
+            "schema_valid": true,
+            "import_ready": false,
+            "evidence": "Single Tremelimumab Regular Interval Durvalumab (STRIDE) regimen",
+            "direction": "none",
+            "negated": false,
+            "uncertain": false,
+            "quality_flags": [
+              "endpoint_not_in_evidence",
+              "object_not_grounded",
+              "object_novel",
+              "subject_novel",
+              "trigger_missing",
+              "weak_evidence"
+            ],
+            "evidence_char_start": 393,
+            "evidence_char_end": 457,
+            "evidence_contiguous": true,
+            "evidence_level": 3,
+            "subject_grounded_in_evidence": true,
+            "object_grounded_in_evidence": false,
+            "trigger_present": false,
+            "direction_trigger_consistent": true,
+            "original_subject": "durvalumab",
+            "original_object": "hepatocellular carcinoma",
+            "endpoint_remapped": false
+          }
+        ],
+        "summary": {
+          "total_entities": 8,
+          "raw_entity_count": 9,
+          "filtered_entity_count": 0,
+          "merged_entity_count": 1,
+          "exact_matches": 0,
+          "fuzzy_matches": 0,
+          "ambiguous_entities": 0,
+          "novel_entities": 8,
+          "total_relations": 7,
+          "known_relations": 0,
+          "novel_relations": 7,
+          "contradicting_relations": 0,
+          "schema_valid": 7,
+          "import_ready": 0,
+          "structural_score": 1.0,
+          "semantic_score": 0.5611,
+          "evidence_score": 0.2857,
+          "quality_metrics": {
+            "valid_entity_ratio": {
+              "count": 8,
+              "denominator": 9,
+              "value": 0.8889
+            },
+            "generic_entity_rate": {
+              "count": 0,
+              "denominator": 9,
+              "value": 0.0
+            },
+            "duplicate_entity_rate": {
+              "count": 1,
+              "denominator": 9,
+              "value": 0.1111
+            },
+            "type_constraint_pass_rate": {
+              "count": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "relation_evidence_exactness": {
+              "count": 5,
+              "denominator": 7,
+              "value": 0.7143
+            },
+            "relation_endpoint_coverage": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "direction_trigger_consistency": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "filtered_endpoint_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "unresolved_endpoint_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "weak_evidence_rate": {
+              "count": 7,
+              "denominator": 7,
+              "value": 1.0
+            },
+            "negated_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "uncertain_relation_count": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            },
+            "import_ready_relation_rate": {
+              "count": 0,
+              "denominator": 7,
+              "value": 0.0
+            }
+          },
+          "linking_stats": {
+            "total": 8,
+            "exact_matches": 0,
+            "fuzzy_matches": 0,
+            "ambiguous": 0,
+            "novel": 8
+          }
+        }
+      },
+      "candidate_counts": {
+        "entities": 9,
+        "relations": 7,
+        "duplicate_entities": 0,
+        "duplicate_relations": 0
+      },
+      "latency_s": 5.686768166255206,
+      "prompt_tokens": 1457,
+      "output_tokens": 1193,
+      "attempts": 1,
+      "invalid_json_attempts": 0,
+      "error": ""
+    }
+  }
+}
