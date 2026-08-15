@@ -331,10 +331,12 @@ class BioREDPairClassifier:
         backend: PairPredictionBackend | None = None,
         evidence_selector: EvidenceSelector | None = None,
         rule_memory: RuleMemory | None = None,
+        evidence_selector_enabled: bool = True,
     ):
         self.config = config or PairClassifierConfig()
         self.backend = backend or build_pair_backend(self.config)
         self.evidence_selector = evidence_selector or EvidenceSelector()
+        self.evidence_selector_enabled = bool(evidence_selector_enabled)
         self.rule_memory = rule_memory
         if self.config.mode not in {"off", "shadow", "active"}:
             raise ValueError("pair classifier mode must be off, shadow, or active")
@@ -412,7 +414,7 @@ class BioREDPairClassifier:
                     evidence_confidence = 0.0
                     evidence_entailment = "NOT_ENOUGH_INFORMATION"
                     evidence_trigger_predicate = ""
-                    if source_text:
+                    if source_text and self.evidence_selector_enabled:
                         selections = []
                         for predicate in allowed:
                             selected = self.evidence_selector.select(

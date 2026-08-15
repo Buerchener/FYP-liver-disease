@@ -39,7 +39,7 @@ def main() -> int:
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--shadow-completed", action="store_true")
     parser.add_argument("--aux-primary-model", default="deepseek-v4-flash")
-    parser.add_argument("--aux-critic-model", default="qwen-flash")
+    parser.add_argument("--aux-critic-model", default="qwen3.6-flash")
     parser.add_argument("--timeout", type=float, default=90.0)
     args = parser.parse_args()
 

@@ -21,6 +21,7 @@ import sys
 import time
 import argparse
 import threading
+import copy
 from urllib.parse import urlparse
 from pathlib import Path
 from dataclasses import dataclass, field
@@ -128,13 +129,18 @@ class AgentConfig:
     rule_max_rules_per_article: int = 8
     rule_max_induction_rounds: int = 3
     aux_primary_model: str = "deepseek-v4-flash"
-    aux_critic_model: str = "qwen-flash"
+    aux_critic_model: str = "qwen3.6-flash"
     evidence_entailment_mode: str = "off"  # off | shadow | active
     risk_router_mode: str = "off"  # off | shadow | active
     conformal_calibration: str = ""
     conformal_alpha_import_ready: float = 0.05
     conformal_alpha_semantic: float = 0.10
     conformal_min_group_size: int = 20
+    qwen_critic_enabled: bool = True
+    evidence_selector_enabled: bool = True
+    causal_conflict_enabled: bool = True
+    frozen_candidates_path: str = ""
+    article_checkpoint_dir: str = ""
 
     # 调试期可选的 LLM 抽取审稿器；默认关闭，不属于最终生产链路
     reviewer_enabled: bool = False
@@ -375,7 +381,7 @@ class CognitiveAgent:
         self.evidence_selector = EvidenceSelector()
         self.aux_models = AuxModelRegistry.from_environment(
             primary_model=config.aux_primary_model,
-            critic_model=config.aux_critic_model,
+            critic_model=(config.aux_critic_model if config.qwen_critic_enabled else ""),
         )
         self.evidence_entailment = EvidenceEntailmentEngine(self.aux_models)
         self.risk_router = ConformalRiskRouter.from_path(
@@ -394,7 +400,26 @@ class CognitiveAgent:
             uncertainty_floor=config.pair_classifier_uncertainty_floor,
             max_candidates=config.pair_classifier_max_candidates,
             max_low_confidence_candidates=config.pair_classifier_max_llm_candidates,
-        ), evidence_selector=self.evidence_selector, rule_memory=self.rule_memory)
+        ), evidence_selector=self.evidence_selector, rule_memory=self.rule_memory,
+            evidence_selector_enabled=config.evidence_selector_enabled)
+        self.frozen_candidates: dict[str, dict] = {}
+        if config.frozen_candidates_path:
+            frozen_path = Path(config.frozen_candidates_path)
+            payload = json.loads(frozen_path.read_text(encoding="utf-8"))
+            if isinstance(payload, dict) and isinstance(payload.get("candidates"), dict):
+                self.frozen_candidates = {
+                    str(key): dict(value) for key, value in payload["candidates"].items()
+                }
+            else:
+                records = payload.get("records", []) if isinstance(payload, dict) else payload
+                self.frozen_candidates = {
+                    str(item.get("pmid", "")): dict(
+                        item.get("phases", {}).get("extraction", {}) or {}
+                    )
+                    for item in records if item.get("pmid")
+                }
+            if not self.frozen_candidates:
+                raise ValueError("frozen candidate snapshot contains no article candidates")
         self.verifier = KGVerifier(self.kg_memory)
         self.reviewer = ExtractionReviewer(
             ReviewerConfig(
@@ -757,7 +782,24 @@ class CognitiveAgent:
             # Phase 2: Extract + Ground — LangExtract 提取
             # ═══════════════════════════════════════════════════
             t2 = time.time()
-            if len(extraction_chunks) > 1:
+            frozen_extraction = self.frozen_candidates.get(str(pmid))
+            if self.config.frozen_candidates_path and frozen_extraction is None:
+                raise ValueError(f"frozen candidate snapshot missing PMID {pmid}")
+            if frozen_extraction is not None:
+                raw_extraction = RawExtraction(
+                    pmid=str(pmid),
+                    entities=copy.deepcopy(frozen_extraction.get("entities", []) or []),
+                    relations=copy.deepcopy(frozen_extraction.get("relations", []) or []),
+                    error=str(frozen_extraction.get("error", "") or ""),
+                    retry_count=int(frozen_extraction.get("retry_count", 0) or 0),
+                    warnings=[
+                        *list(frozen_extraction.get("warnings", []) or []),
+                        "extraction_cache:frozen_snapshot",
+                    ],
+                    chunk_count=int(frozen_extraction.get("chunk_count", 1) or 1),
+                    chunks=copy.deepcopy(frozen_extraction.get("chunks", []) or []),
+                )
+            elif len(extraction_chunks) > 1:
                 raw_extraction = self.extraction_kernel.extract_chunked(
                     chunks=extraction_chunks,
                     full_text=text,
@@ -777,6 +819,9 @@ class CognitiveAgent:
                     chunk.to_dict() for chunk in extraction_chunks
                 ]
             record["phases"]["extraction"] = raw_extraction.to_dict()
+            record["phases"]["extraction"]["candidate_source"] = (
+                "frozen_snapshot" if frozen_extraction is not None else "live_or_cache"
+            )
             t2_end = time.time()
 
             # BioRED-style relation core: classify grounded, schema-compatible
@@ -791,7 +836,7 @@ class CognitiveAgent:
             selected_evidence = []
             candidate_payloads: dict[str, dict] = {}
             prediction_by_id = {item.candidate_id: item for item in pair_result.predictions}
-            for candidate in pair_result.candidates:
+            for candidate in pair_result.candidates if self.config.evidence_selector_enabled else []:
                 prediction = prediction_by_id.get(candidate.candidate_id)
                 predicate = (
                     prediction.label if prediction and prediction.label != "NO_RELATION"
@@ -867,6 +912,7 @@ class CognitiveAgent:
                     self.config.evidence_entailment_mode == "active"
                     and self.config.pair_classifier_mode == "active"
                 ),
+                "evidence_selector_enabled": self.config.evidence_selector_enabled,
             }
             if self.config.pair_classifier_mode == "active":
                 entailment_by_id = {item.candidate_id: item for item in entailment_decisions}
@@ -1640,11 +1686,17 @@ class CognitiveAgent:
             # Phase 3+: Causal chain inference
             causal_call = execution_post_plan.should_call("causal_reasoner")
             causal_reason = execution_post_plan.decisions["causal_reasoner"].reason
+            if not self.config.causal_conflict_enabled:
+                causal_call = False
+                causal_reason = "disabled_by_ablation"
             v2_causal_call = False
             if v2_state is not None:
                 v2_causal_call, v2_causal_reason = self.central_agent_v2.should_run_causal(v2_state)
                 if self.central_agent_v2.active:
                     causal_call, causal_reason = v2_causal_call, v2_causal_reason
+            if not self.config.causal_conflict_enabled:
+                causal_call = False
+                causal_reason = "disabled_by_ablation"
             causal_before = v2_state.fingerprint() if v2_state is not None else ""
             causal_chains = (
                 self.causal_reasoner.infer_causal_chains(
@@ -1714,11 +1766,17 @@ class CognitiveAgent:
             t4 = time.time()
             conflict_call = execution_post_plan.should_call("conflict_resolver")
             conflict_reason = execution_post_plan.decisions["conflict_resolver"].reason
+            if not self.config.causal_conflict_enabled:
+                conflict_call = False
+                conflict_reason = "disabled_by_ablation"
             v2_conflict_call = False
             if v2_state is not None:
                 v2_conflict_call, v2_conflict_reason = self.central_agent_v2.should_run_conflict(v2_state)
                 if self.central_agent_v2.active:
                     conflict_call, conflict_reason = v2_conflict_call, v2_conflict_reason
+            if not self.config.causal_conflict_enabled:
+                conflict_call = False
+                conflict_reason = "disabled_by_ablation"
             conflict_before = v2_state.fingerprint() if v2_state is not None else ""
             resolution = (
                 self.conflict_resolver.resolve(verified)
@@ -2122,6 +2180,11 @@ class CognitiveAgent:
                     "rule_max_rules_per_article": self.config.rule_max_rules_per_article,
                     "aux_primary_model": self.config.aux_primary_model,
                     "aux_critic_model": self.config.aux_critic_model,
+                    "qwen_critic_enabled": self.config.qwen_critic_enabled,
+                    "evidence_selector_enabled": self.config.evidence_selector_enabled,
+                    "causal_conflict_enabled": self.config.causal_conflict_enabled,
+                    "frozen_candidates_path": self.config.frozen_candidates_path,
+                    "article_checkpoint_dir": self.config.article_checkpoint_dir,
                     "evidence_entailment_mode": self.config.evidence_entailment_mode,
                     "risk_router_mode": self.config.risk_router_mode,
                     "conformal_calibration_version": self.risk_router.calibration.version,
@@ -2182,6 +2245,19 @@ class CognitiveAgent:
 
         record = self.process_article(article)
         record["_batch_index"] = index
+        if self.config.article_checkpoint_dir:
+            checkpoint_dir = Path(self.config.article_checkpoint_dir)
+            checkpoint_dir.mkdir(parents=True, exist_ok=True)
+            safe_pmid = "".join(
+                ch for ch in str(pmid) if ch.isalnum() or ch in {"-", "_"}
+            )
+            checkpoint_path = checkpoint_dir / f"{safe_pmid}.json"
+            checkpoint_tmp = checkpoint_path.with_suffix(".json.tmp")
+            checkpoint_tmp.write_text(
+                json.dumps(record, ensure_ascii=False, indent=2, default=str),
+                encoding="utf-8",
+            )
+            checkpoint_tmp.replace(checkpoint_path)
 
         # 线程安全：更新进度（history 已在 process_article 内部写入）
         with lock:
@@ -3152,7 +3228,27 @@ def main():
         "--aux-primary-model", default=os.environ.get("AUX_PRIMARY_MODEL", "deepseek-v4-flash"),
     )
     parser.add_argument(
-        "--aux-critic-model", default=os.environ.get("AUX_CRITIC_MODEL", "qwen-flash"),
+        "--aux-critic-model", default=os.environ.get("AUX_CRITIC_MODEL", "qwen3.6-flash"),
+    )
+    parser.add_argument(
+        "--disable-qwen-critic", action="store_true",
+        help="Ablation: disable the independent Qwen critic while keeping DeepSeek enabled",
+    )
+    parser.add_argument(
+        "--disable-evidence-selector", action="store_true",
+        help="Ablation: bypass minimal-span EvidenceSelector in pair generation and entailment",
+    )
+    parser.add_argument(
+        "--disable-causal-conflict", action="store_true",
+        help="Ablation: disable both CausalReasoner and ConflictResolver",
+    )
+    parser.add_argument(
+        "--frozen-candidates", default=os.environ.get("FROZEN_CANDIDATES", ""),
+        help="Replay an immutable PMID-to-extraction snapshot instead of calling the primary model",
+    )
+    parser.add_argument(
+        "--article-checkpoint-dir", default="",
+        help="Atomically persist each completed article record for resumable experiments",
     )
     parser.add_argument(
         "--evidence-entailment-mode", choices=("off", "shadow", "active"),
@@ -3465,6 +3561,11 @@ def main():
         rule_max_induction_rounds=args.rule_max_induction_rounds,
         aux_primary_model=args.aux_primary_model,
         aux_critic_model=args.aux_critic_model,
+        qwen_critic_enabled=not args.disable_qwen_critic,
+        evidence_selector_enabled=not args.disable_evidence_selector,
+        causal_conflict_enabled=not args.disable_causal_conflict,
+        frozen_candidates_path=args.frozen_candidates,
+        article_checkpoint_dir=args.article_checkpoint_dir,
         evidence_entailment_mode=args.evidence_entailment_mode,
         risk_router_mode=args.risk_router_mode,
         conformal_calibration=args.conformal_calibration,

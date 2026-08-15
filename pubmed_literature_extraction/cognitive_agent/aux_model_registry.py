@@ -77,7 +77,7 @@ class AuxModelRegistry:
     @classmethod
     def from_environment(
         cls, *, primary_model: str = "deepseek-v4-flash",
-        critic_model: str = "qwen-flash", timeout_s: float = 90.0,
+        critic_model: str = "qwen3.6-flash", timeout_s: float = 90.0,
     ) -> "AuxModelRegistry":
         primary = AuxModelSpec(
             role="primary", provider="openai", model_id=primary_model,
