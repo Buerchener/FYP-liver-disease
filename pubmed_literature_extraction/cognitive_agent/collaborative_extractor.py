@@ -18,6 +18,7 @@ from typing import Any, Callable, Optional
 
 from cognitive_agent.evidence_units import ArticleEvidenceReader, EvidenceUnit
 from cognitive_agent.extraction_quality import normalize_surface
+from cognitive_agent.relation_contract import SEMANTIC_REJECT_FLAGS
 from cognitive_agent.schema.entity_classes import ENTITY_CLASSES
 from cognitive_agent.schema.relation_signatures import RELATION_SIGNATURES
 
@@ -41,15 +42,10 @@ REASON_CODES = frozenset({
 # These flags indicate that a candidate cannot become a current-article fact by
 # semantic reinterpretation.  Keeping them in the final relation list inflated
 # candidate metrics and repeatedly triggered the expensive reviewer.
-HARD_RELATION_BLOCKERS = frozenset({
-    "schema_mismatch", "negated", "non_human", "contradiction",
-    "subject_endpoint_missing", "object_endpoint_missing", "empty_evidence",
-    "evidence_not_contiguous", "subject_not_grounded", "object_not_grounded",
-    "endpoint_not_in_evidence", "method_only", "prediction_only",
-    "filtered_endpoint", "unresolved_endpoint", "title_only", "background_only",
-    "objective_only", "method_section_only", "article_out_of_scope",
-    "non_human_article", "ambiguous_endpoint",
-})
+# Only claims that are not valid current-article semantics are pruned.  Study
+# scope, species and linking ambiguity are Safe Write concerns and must remain
+# available as semantic-only/review relations.
+HARD_RELATION_BLOCKERS = SEMANTIC_REJECT_FLAGS
 
 # A relation changed by an agent action has a higher burden than an untouched
 # first-pass candidate.  It must survive the verifier with direct endpoint-

@@ -19,6 +19,11 @@ from cognitive_agent.extraction_quality import (
     prepare_extraction,
     ratio_metric,
 )
+from cognitive_agent.relation_contract import (
+    SEMANTIC_REJECT_FLAGS,
+    SEMANTIC_REVIEW_FLAGS,
+    WRITE_BLOCK_FLAGS,
+)
 
 
 @dataclass
@@ -106,6 +111,13 @@ class VerifiedRelation:
     evidence_entailment: str = ""
     rule_score_delta: float = 0.0
     rule_matches: list[dict] = field(default_factory=list)
+    provenance: list[str] = field(default_factory=list)
+    subject_family: str = ""
+    object_family: str = ""
+    semantic_status: str = "UNVERIFIED"
+    write_status: str = "UNASSESSED"
+    semantic_reasons: list[str] = field(default_factory=list)
+    write_reasons: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {k: v for k, v in self.__dict__.items()}
@@ -226,6 +238,18 @@ class KGVerifier:
         total_relations = len(result.relations)
         schema_valid = sum(1 for rel in result.relations if rel.schema_valid)
         import_ready = sum(1 for rel in result.relations if rel.import_ready)
+        semantic_accepted = sum(
+            1 for rel in result.relations if rel.semantic_status == "ACCEPTED"
+        )
+        semantic_review = sum(
+            1 for rel in result.relations if rel.semantic_status == "REVIEW"
+        )
+        semantic_rejected = sum(
+            1 for rel in result.relations if rel.semantic_status == "REJECTED"
+        )
+        semantic_only = sum(
+            1 for rel in result.relations if rel.write_status == "SEMANTIC_ONLY"
+        )
         filtered_generic = sum(
             1 for entity in result.filtered_entities
             if entity.get("filter_reason") in {
@@ -323,6 +347,10 @@ class KGVerifier:
             "contradicting_relations": sum(1 for r in result.relations if r.neo4j_status == "CONTRADICTING"),
             "schema_valid": schema_valid,
             "import_ready": import_ready,
+            "semantic_accepted": semantic_accepted,
+            "semantic_review": semantic_review,
+            "semantic_rejected": semantic_rejected,
+            "semantic_only": semantic_only,
             "structural_score": structural_score,
             "semantic_score": semantic_score,
             "evidence_score": evidence_score,
@@ -465,6 +493,9 @@ class KGVerifier:
             evidence_entailment=str(relation.get("evidence_entailment", "") or ""),
             rule_score_delta=float(relation.get("rule_score_delta", 0.0) or 0.0),
             rule_matches=list(relation.get("rule_matches", []) or []),
+            provenance=list(relation.get("provenance", []) or []),
+            subject_family=str(relation.get("subject_family", "") or ""),
+            object_family=str(relation.get("object_family", "") or ""),
         )
 
         # ── 1. Schema 合规检查 ──
@@ -555,29 +586,37 @@ class KGVerifier:
                 setattr(vr, key, value)
         vr.quality_flags = sorted(set(evidence_result["quality_flags"]))
 
-        # ── 8. Import-ready 判定 ──
-        blocking_flags = {
-            "schema_mismatch", "invalid_direction", "negated", "uncertain",
-            "non_human", "contradiction", "subject_endpoint_missing",
-            "object_endpoint_missing", "empty_evidence", "evidence_not_contiguous",
-            "subject_not_grounded", "object_not_grounded", "endpoint_not_in_evidence",
-            "trigger_missing", "trigger_direction_mismatch", "method_only",
-            "prediction_only", "filtered_endpoint", "weak_evidence",
-            "unresolved_endpoint", "manual_review", "second_llm_rejected",
-            "title_only", "background_only", "objective_only",
-            "method_section_only", "trigger_not_linking_endpoints",
-            "article_out_of_scope", "non_human_article",
-            "ambiguous_endpoint", "pair_low_confidence",
-            "pair_ambiguous_predicate",
-        }
+        # ── 8. Separate semantic validity from Safe Write eligibility ──
+        # Animal/cell/case-report evidence can be a correct semantic relation
+        # while remaining ineligible for automatic graph import.
+        flags = set(vr.quality_flags)
+        semantic_reject = sorted(flags & SEMANTIC_REJECT_FLAGS)
+        semantic_review = sorted(flags & SEMANTIC_REVIEW_FLAGS)
+        if semantic_reject:
+            vr.semantic_status = "REJECTED"
+            vr.semantic_reasons = semantic_reject
+        elif semantic_review:
+            vr.semantic_status = "REVIEW"
+            vr.semantic_reasons = semantic_review
+        else:
+            vr.semantic_status = "ACCEPTED"
+            vr.semantic_reasons = []
+        vr.write_reasons = sorted(flags & WRITE_BLOCK_FLAGS)
         vr.import_ready = (
-            vr.schema_valid
+            vr.semantic_status == "ACCEPTED"
+            and vr.schema_valid
             and bool(vr.subject and vr.object)
             and not vr.negated
             and not vr.uncertain
             and vr.neo4j_status != "AMBIGUOUS"
             and vr.evidence_level in {1, 2}
-            and not (set(vr.quality_flags) & blocking_flags)
+            and not vr.write_reasons
         )
+        if vr.import_ready:
+            vr.write_status = "IMPORT_READY"
+        elif vr.semantic_status == "REJECTED":
+            vr.write_status = "BLOCKED"
+        else:
+            vr.write_status = "SEMANTIC_ONLY"
 
         return vr

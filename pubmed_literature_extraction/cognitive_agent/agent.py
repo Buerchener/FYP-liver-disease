@@ -66,6 +66,7 @@ from cognitive_agent.relation_pair_classifier import (
     BioREDPairClassifier,
     PairClassifierConfig,
 )
+from cognitive_agent.relation_contract import RelationCandidateProjector
 from cognitive_agent.central_agent_v2 import CentralAgentV2
 from cognitive_agent.rule_memory import RuleMemory, error_cards_from_records
 from cognitive_agent.aux_model_registry import AuxModelRegistry
@@ -402,6 +403,7 @@ class CognitiveAgent:
             max_low_confidence_candidates=config.pair_classifier_max_llm_candidates,
         ), evidence_selector=self.evidence_selector, rule_memory=self.rule_memory,
             evidence_selector_enabled=config.evidence_selector_enabled)
+        self.relation_projector = RelationCandidateProjector()
         self.frozen_candidates: dict[str, dict] = {}
         if config.frozen_candidates_path:
             frozen_path = Path(config.frozen_candidates_path)
@@ -824,11 +826,21 @@ class CognitiveAgent:
             )
             t2_end = time.time()
 
+            projection = self.relation_projector.project(
+                raw_extraction.entities, raw_extraction.relations, text=text,
+            )
+            projected_relations = projection.relations
+            record["phases"]["relation_candidate_projection"] = {
+                **projection.audit,
+                "relations": copy.deepcopy(projected_relations),
+                "production_applied": self.config.pair_classifier_mode == "active",
+            }
+
             # BioRED-style relation core: classify grounded, schema-compatible
             # entity pairs.  LangExtract relations are hints, never labels.
             pair_result = self.pair_classifier.classify(
                 entities=raw_extraction.entities,
-                relations=raw_extraction.relations,
+                relations=projected_relations,
                 units=evidence_units,
                 source_text=text,
             )
@@ -916,8 +928,15 @@ class CognitiveAgent:
             }
             if self.config.pair_classifier_mode == "active":
                 entailment_by_id = {item.candidate_id: item for item in entailment_decisions}
-                relation_core_relations = []
+                # The pair classifier augments the extractor ledger; it must
+                # never replace grounded top-level/attribute relations.
+                relation_core_relations = copy.deepcopy(projected_relations)
                 relation_core_keys: set[tuple] = set()
+                for relation in relation_core_relations:
+                    relation_core_keys.add((
+                        relation.get("candidate_id"), relation.get("predicate"),
+                        relation.get("subject"), relation.get("object"),
+                    ))
                 for relation in [
                     *pair_result.accepted_relations,
                     *pair_result.low_confidence_relations,
@@ -939,16 +958,23 @@ class CognitiveAgent:
                     if key not in relation_core_keys:
                         relation_core_keys.add(key)
                         relation_core_relations.append(relation)
+                relation_core_relations = self.relation_projector.consolidate(
+                    relation_core_relations, text=text,
+                )
             else:
+                # Preserve the historical legacy path byte-for-byte.  The
+                # projected ledger remains available in the trace for shadow
+                # diagnostics but is active only in Agent v3.
                 relation_core_relations = raw_extraction.relations
             record["phases"]["relation_core_selection"] = {
                 "mode": self.config.pair_classifier_mode,
                 "production_source": (
-                    "biored_entity_pair_classifier"
+                    "unified_projected_and_pair_candidates"
                     if self.config.pair_classifier_mode == "active"
                     else "langextract_legacy_relations"
                 ),
                 "langextract_relation_count": len(raw_extraction.relations),
+                "projected_relation_count": len(projected_relations),
                 "pair_relation_count": len(pair_result.accepted_relations),
                 "production_relation_count": len(relation_core_relations),
                 "dry_run_guard": self.config.skip_neo4j_write,
