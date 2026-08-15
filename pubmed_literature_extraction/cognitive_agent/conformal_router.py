@@ -72,10 +72,18 @@ class CalibrationExample:
     risk_score: float
     error: int
     mondrian_group: str = "global"
+    risk_target: str = "semantic"  # semantic | write
 
     @classmethod
-    def from_features(cls, features: RiskFeatures, *, error: bool) -> "CalibrationExample":
-        return cls(features.candidate_id, features.risk_score(), int(bool(error)), features.mondrian_group)
+    def from_features(
+        cls, features: RiskFeatures, *, error: bool, risk_target: str = "semantic",
+    ) -> "CalibrationExample":
+        if risk_target not in {"semantic", "write"}:
+            raise ValueError("risk_target must be semantic or write")
+        return cls(
+            features.candidate_id, features.risk_score(), int(bool(error)),
+            features.mondrian_group, risk_target,
+        )
 
 
 @dataclass
@@ -99,11 +107,21 @@ class ConformalCalibration:
             "examples": [asdict(item) for item in self.examples],
         }
 
-    def pool(self, group: str, min_group_size: int) -> tuple[list[CalibrationExample], str]:
-        grouped = [item for item in self.examples if item.mondrian_group == group]
+    def pool(
+        self, group: str, min_group_size: int, risk_target: str = "semantic",
+    ) -> tuple[list[CalibrationExample], str]:
+        target_examples = [
+            item for item in self.examples if item.risk_target == risk_target
+        ]
+        grouped = [item for item in target_examples if item.mondrian_group == group]
         if len(grouped) >= min_group_size:
             return grouped, group
-        return list(self.examples), "global_fallback"
+        return target_examples, "global_fallback"
+
+    def is_viable(self, risk_target: str, minimum: int = 20) -> bool:
+        examples = [item for item in self.examples if item.risk_target == risk_target]
+        outcomes = {int(item.error) for item in examples}
+        return len(examples) >= minimum and outcomes == {0, 1}
 
     @staticmethod
     def _finite_sample_quantile(values: list[float], probability: float) -> float:
@@ -115,9 +133,9 @@ class ConformalCalibration:
 
     def upper_error_risk(
         self, *, predicted_risk: float, group: str, alpha: float,
-        min_group_size: int,
+        min_group_size: int, risk_target: str = "semantic",
     ) -> tuple[float, str, int, float]:
-        pool, group_used = self.pool(group, min_group_size)
+        pool, group_used = self.pool(group, min_group_size, risk_target)
         residuals = [float(item.error) - float(item.risk_score) for item in pool]
         qhat = self._finite_sample_quantile(residuals, 1.0 - alpha)
         upper = max(0.0, min(1.0, float(predicted_risk) + qhat))
@@ -160,10 +178,12 @@ class ConformalRiskRouter:
 
     def route(self, features: RiskFeatures) -> RiskRoute:
         alpha = self.alpha_semantic if features.semantic_only else self.alpha_import_ready
+        risk_target = "semantic" if features.semantic_only else "write"
         predicted = features.risk_score()
         upper, group, size, qhat = self.calibration.upper_error_risk(
             predicted_risk=predicted, group=features.mondrian_group,
             alpha=alpha, min_group_size=self.min_group_size,
+            risk_target=risk_target,
         )
         flags = set(features.verifier_flags)
         hard_flags = sorted(flags & HARD_VERIFIER_FLAGS)

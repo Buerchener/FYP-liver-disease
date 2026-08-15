@@ -15,6 +15,8 @@ import time
 from dataclasses import dataclass, field
 from typing import Any
 
+from cognitive_agent.relation_contract import SEMANTIC_REJECT_FLAGS
+
 
 ROUTE_ORDER = {"FAST": 0, "STANDARD": 1, "DEEP": 2}
 ROUTE_BUDGETS = {
@@ -23,15 +25,7 @@ ROUTE_BUDGETS = {
     "DEEP": {"max_actions": 28, "max_aux_remote_calls": 6, "max_neo4j_calls": 6, "soft_timeout_s": 120.0},
 }
 
-HARD_RELATION_FLAGS = frozenset({
-    "schema_mismatch", "negated", "non_human", "contradiction",
-    "subject_endpoint_missing", "object_endpoint_missing", "empty_evidence",
-    "evidence_not_contiguous", "subject_not_grounded", "object_not_grounded",
-    "endpoint_not_in_evidence", "method_only", "prediction_only",
-    "filtered_endpoint", "unresolved_endpoint", "title_only", "background_only",
-    "objective_only", "method_section_only", "article_out_of_scope",
-    "non_human_article", "ambiguous_endpoint",
-})
+HARD_RELATION_FLAGS = SEMANTIC_REJECT_FLAGS
 REVIEWABLE_FLAGS = frozenset({
     "trigger_missing", "trigger_not_linking_endpoints", "trigger_direction_mismatch",
     "weak_evidence", "uncertain", "pair_low_confidence", "pair_ambiguous_predicate",
@@ -117,6 +111,7 @@ class ArticleAgentState:
     entities: list[dict] = field(default_factory=list)
     candidate_pairs: list[dict] = field(default_factory=list)
     verified_relations: list[dict] = field(default_factory=list)
+    semantic_relations: list[dict] = field(default_factory=list)
     accepted_relations: list[dict] = field(default_factory=list)
     rejected_relations: list[dict] = field(default_factory=list)
     review_relations: list[dict] = field(default_factory=list)
@@ -167,6 +162,7 @@ class ArticleAgentState:
                 "entity_count": len(self.entities),
                 "candidate_pair_count": len(self.candidate_pairs),
                 "verified_relation_count": len(self.verified_relations),
+                "semantic_relation_count": len(self.semantic_relations),
                 "accepted_relation_count": len(self.accepted_relations),
                 "rejected_relation_count": len(self.rejected_relations),
                 "review_relation_count": len(self.review_relations),
@@ -253,17 +249,23 @@ class CentralAgentV2:
         return state
 
     @staticmethod
-    def _relation_partition(relations: list[dict]) -> tuple[list[dict], list[dict], list[dict]]:
-        accepted, rejected, review = [], [], []
+    def _relation_partition(
+        relations: list[dict],
+    ) -> tuple[list[dict], list[dict], list[dict], list[dict]]:
+        accepted, rejected, review, semantic = [], [], [], []
         for relation in relations:
             flags = set(relation.get("quality_flags", []) or [])
-            if relation.get("import_ready"):
-                accepted.append(relation)
-            elif flags & HARD_RELATION_FLAGS:
+            semantic_status = str(relation.get("semantic_status", "") or "")
+            if semantic_status == "REJECTED" or flags & HARD_RELATION_FLAGS:
                 rejected.append(relation)
+            elif relation.get("import_ready"):
+                accepted.append(relation)
+                semantic.append(relation)
+            elif semantic_status == "ACCEPTED":
+                semantic.append(relation)
             else:
                 review.append(relation)
-        return accepted, rejected, review
+        return accepted, rejected, review, semantic
 
     def observe(
         self, state: ArticleAgentState, *, entities: list[dict],
@@ -273,10 +275,13 @@ class CentralAgentV2:
         state.entities = list(entities or [])
         state.candidate_pairs = list(candidate_pairs or [])
         state.verified_relations = list(verification.get("relations", []) or [])
-        accepted, rejected, review = self._relation_partition(state.verified_relations)
+        accepted, rejected, review, semantic = self._relation_partition(
+            state.verified_relations
+        )
         state.accepted_relations = accepted
         state.rejected_relations = rejected
         state.review_relations = review
+        state.semantic_relations = semantic
         state.linking_ambiguity = any(
             item.get("ambiguity_reason") or len(item.get("candidates", []) or []) > 1
             for item in verification.get("entities", []) or []

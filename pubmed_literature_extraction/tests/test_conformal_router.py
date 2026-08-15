@@ -26,7 +26,9 @@ def features(**updates):
 class ConformalRiskRouterTests(unittest.TestCase):
     def calibration(self, size=40, *, group="global", error_indexes=()):
         return ConformalCalibration(examples=[
-            CalibrationExample(f"c-{index}", 0.02, int(index in error_indexes), group)
+            CalibrationExample(
+                f"c-{index}", 0.02, int(index in error_indexes), group, "write"
+            )
             for index in range(size)
         ])
 
@@ -55,13 +57,13 @@ class ConformalRiskRouterTests(unittest.TestCase):
     def test_mondrian_group_requires_twenty_then_falls_back_global(self):
         target = features().mondrian_group
         calibration = ConformalCalibration(examples=[
-            *[CalibrationExample(f"g-{i}", 0.02, 0, target) for i in range(19)],
-            *[CalibrationExample(f"o-{i}", 0.02, 0, "other") for i in range(21)],
+            *[CalibrationExample(f"g-{i}", 0.02, 0, target, "write") for i in range(19)],
+            *[CalibrationExample(f"o-{i}", 0.02, 0, "other", "write") for i in range(21)],
         ])
         router = ConformalRiskRouter(calibration, min_group_size=20)
         route = router.route(features())
         self.assertEqual(route.calibration_group, "global_fallback")
-        calibration.examples.append(CalibrationExample("g-20", 0.02, 0, target))
+        calibration.examples.append(CalibrationExample("g-20", 0.02, 0, target, "write"))
         route = router.route(features())
         self.assertEqual(route.calibration_group, target)
         self.assertEqual(route.calibration_size, 20)
@@ -71,6 +73,16 @@ class ConformalRiskRouterTests(unittest.TestCase):
         route = router.route(features())
         self.assertNotEqual(route.decision, ACCEPT_LOCAL)
         self.assertGreater(route.conformal_upper_risk, route.alpha)
+
+    def test_semantic_and_write_calibration_are_separate_and_require_both_outcomes(self):
+        calibration = ConformalCalibration(examples=[
+            *[CalibrationExample(f"s-{i}", 0.1, int(i == 0), "global", "semantic")
+              for i in range(20)],
+            *[CalibrationExample(f"w-{i}", 0.1, 0, "global", "write")
+              for i in range(20)],
+        ])
+        self.assertTrue(calibration.is_viable("semantic"))
+        self.assertFalse(calibration.is_viable("write"))
 
     def test_conformal_layer_never_upgrades_failed_verifier(self):
         router = ConformalRiskRouter(self.calibration())

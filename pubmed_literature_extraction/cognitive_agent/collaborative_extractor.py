@@ -152,6 +152,7 @@ class CollaborationResult:
     total_tokens: int = 0
     finish_reason: str = ""
     invalid_json_attempts: int = 0
+    critic_audit: dict = field(default_factory=dict)
     # Deprecated compatibility fields.  They intentionally remain empty.
     corrected_entities: list[dict] = field(default_factory=list)
     corrected_relations: list[dict] = field(default_factory=list)

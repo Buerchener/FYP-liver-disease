@@ -16,13 +16,49 @@ from cognitive_agent.rule_memory import (
 
 
 RULE_INDUCTION_SCHEMA = {
-    "rules": [{
-        "kind": "prompt_guidance|pair_prior|routing|downgrade",
-        "conditions": {}, "action": "allowed closed action",
-        "value": "number or string or null", "guidance": "bounded text",
-        "rationale": "general biomedical rationale",
-        "support_error_ids": ["error id"],
-    }]
+    "type": "object",
+    "additionalProperties": False,
+    "required": ["rules"],
+    "properties": {
+        "rules": {
+            "type": "array", "maxItems": 24,
+            "items": {
+                "type": "object", "additionalProperties": False,
+                "required": [
+                    "kind", "conditions", "action", "value", "guidance",
+                    "rationale", "support_error_ids",
+                ],
+                "properties": {
+                    "kind": {"type": "string", "enum": [
+                        "prompt_guidance", "pair_prior", "routing", "downgrade",
+                    ]},
+                    "conditions": {"type": "object"},
+                    "action": {"type": "string", "enum": [
+                        "ADD_GUIDANCE", "ADJUST_PAIR_SCORE", "CALL_DEEPSEEK",
+                        "CALL_QWEN_CRITIC", "ABSTAIN", "REVIEW", "REJECT",
+                    ]},
+                    "value": {}, "guidance": {"type": "string", "maxLength": 400},
+                    "rationale": {"type": "string", "maxLength": 800},
+                    "support_error_ids": {"type": "array", "items": {"type": "string"}},
+                },
+            },
+        },
+    },
+}
+
+ACTION_ALIASES = {
+    "add_guidance": "ADD_GUIDANCE",
+    "adjust_pair_score": "ADJUST_PAIR_SCORE",
+    "call_deepseek": "CALL_DEEPSEEK",
+    "call_qwen_critic": "CALL_QWEN_CRITIC",
+    "abstain": "ABSTAIN", "review": "REVIEW", "reject": "REJECT",
+}
+CONDITION_ALIASES = {
+    "predicate": "predicates", "subject_type": "subject_types",
+    "object_type": "object_types", "study_type": "study_types",
+    "section": "sections", "direction": "directions",
+    "lexical_cue": "lexical_cues", "forbidden_cue": "forbidden_cues",
+    "quality_flag": "quality_flags",
 }
 
 
@@ -67,11 +103,37 @@ class RuleLearner:
             "Never include PMID, exact article text, entity-specific memorization, executable code, "
             "schema changes, or permission to bypass verification. Rules may only add prompt guidance, "
             "adjust pair score within [-0.20,0.20], route to a model, or downgrade/reject. "
-            "Return strict JSON.\nERROR_CARDS=" + json.dumps(safe_cards, ensure_ascii=False)
+            "Use only these exact action enums: ADD_GUIDANCE, ADJUST_PAIR_SCORE, "
+            "CALL_DEEPSEEK, CALL_QWEN_CRITIC, ABSTAIN, REVIEW, REJECT. "
+            "Condition keys are plural: predicates, subject_types, object_types, "
+            "study_types, sections, lexical_cues, forbidden_cues, directions, "
+            "quality_flags; numeric confidence bounds and requires_both_endpoints are also allowed. "
+            "Return strict JSON matching the supplied schema.\nERROR_CARDS="
+            + json.dumps(safe_cards, ensure_ascii=False)
         )
 
     @staticmethod
+    def _normalize_protocol(payload: dict[str, Any]) -> dict[str, Any]:
+        """Normalize only documented spelling aliases; unknown DSL stays invalid."""
+        normalized = dict(payload)
+        raw_action = str(normalized.get("action", "") or "")
+        normalized["action"] = ACTION_ALIASES.get(raw_action, raw_action)
+        conditions: dict[str, Any] = {}
+        for raw_key, raw_value in dict(normalized.get("conditions", {}) or {}).items():
+            key = CONDITION_ALIASES.get(str(raw_key), str(raw_key))
+            value = raw_value
+            if key not in {
+                "requires_both_endpoints", "min_evidence_confidence",
+                "max_evidence_confidence",
+            } and not isinstance(value, list):
+                value = [value]
+            conditions[key] = value
+        normalized["conditions"] = conditions
+        return normalized
+
+    @staticmethod
     def _rule_from_payload(payload: dict[str, Any], cards: list[ErrorCard], model: str) -> SoftRule:
+        payload = RuleLearner._normalize_protocol(payload)
         support_ids = [str(item) for item in payload.get("support_error_ids", [])]
         by_id = {card.error_id: card for card in cards}
         support_pmids = sorted({by_id[item].pmid for item in support_ids if item in by_id})
@@ -107,11 +169,15 @@ class RuleLearner:
         if result.status != "OK":
             return [], result, rejected
         rules: list[SoftRule] = []
-        for index, payload in enumerate(result.payload.get("rules", []) or []):
+        raw_rules = result.payload.get("rules", []) or []
+        for index, payload in enumerate(raw_rules):
             try:
                 rules.append(self._rule_from_payload(payload, cards, result.model_id))
             except Exception as exc:
                 rejected.append({"index": index, "reason": f"induction_validation:{exc}"})
+        if raw_rules and not rules:
+            result.status = "PROTOCOL_INVALID"
+            result.error = "all induced rules violated the closed DSL"
         return merge_candidate_rules(rules), result, rejected
 
     def critique(self, rule: SoftRule) -> StructuredModelResult:

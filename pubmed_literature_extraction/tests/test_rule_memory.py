@@ -134,6 +134,48 @@ class RuleMemoryTests(unittest.TestCase):
         self.assertEqual(audit.status, "NO_PROMOTION")
         self.assertEqual(audit.rejected[-1]["reasons"], ["critic_unavailable"])
 
+    def test_rule_induction_normalizes_only_documented_protocol_aliases(self):
+        cards = [ErrorCard(f"e-{i}", str(10000000 + i), "false_negative") for i in range(3)]
+        payload = {"rules": [{
+            "kind": "prompt_guidance",
+            "conditions": {
+                "predicate": "ASSOCIATED_WITH",
+                "subject_type": "Gene",
+                "object_type": "Disease",
+            },
+            "action": "add_guidance", "value": None,
+            "guidance": "Require an explicit association statement.",
+            "rationale": "Recover grounded gene-disease false negatives.",
+            "support_error_ids": ["e-0", "e-1", "e-2"],
+        }]}
+        specs = [AuxModelSpec("primary", "test", "deepseek-test", "test://", "secret")]
+        learner = RuleLearner(AuxModelRegistry(specs, generate={"primary": lambda _: payload}))
+
+        rules, result, rejected = learner.induce(cards)
+
+        self.assertEqual(result.status, "OK")
+        self.assertEqual(rejected, [])
+        self.assertEqual(rules[0].action, "ADD_GUIDANCE")
+        self.assertEqual(rules[0].conditions["predicates"], ["ASSOCIATED_WITH"])
+        self.assertEqual(rules[0].conditions["subject_types"], ["Gene"])
+
+    def test_rule_induction_fails_closed_when_every_action_is_unknown(self):
+        cards = [ErrorCard("e-0", "10000000", "false_negative")]
+        payload = {"rules": [{
+            "kind": "prompt_guidance", "conditions": {},
+            "action": "EXECUTE_ARBITRARY_TOOL", "value": None,
+            "guidance": "Unsafe protocol expansion.", "rationale": "bad",
+            "support_error_ids": ["e-0"],
+        }]}
+        specs = [AuxModelSpec("primary", "test", "deepseek-test", "test://", "secret")]
+        learner = RuleLearner(AuxModelRegistry(specs, generate={"primary": lambda _: payload}))
+
+        rules, result, rejected = learner.induce(cards)
+
+        self.assertEqual(rules, [])
+        self.assertEqual(result.status, "PROTOCOL_INVALID")
+        self.assertEqual(len(rejected), 1)
+
     def test_auxiliary_registry_never_serializes_api_key(self):
         spec = AuxModelSpec("primary", "test", "model", "https://example.invalid", "top-secret")
         registry = AuxModelRegistry([spec], generate={"primary": lambda _: {"ok": True}})

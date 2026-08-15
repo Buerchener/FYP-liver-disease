@@ -587,6 +587,108 @@ class CognitiveAgent:
         result = ReviewResult(**{key: value for key, value in payload.items() if key in fields})
         return result, cache_status, time.perf_counter() - started
 
+    def _criticize_collaboration_cache_first(self, collaboration: CollaborationResult):
+        """Let Qwen independently approve high-value DeepSeek edits.
+
+        The critic has a deliberately smaller action space: it can only approve
+        or veto a proposed edit.  A veto restores the original candidate; a
+        vetoed recovery addition is rejected.  Consequently the critic cannot
+        create entities, relations, predicates, or evidence.
+        """
+        high_value = {
+            "CHANGE_PREDICATE", "CHANGE_DIRECTION", "CHANGE_EVIDENCE", "ADD_RELATION",
+        }
+        proposals = [
+            item for item in collaboration.review_decisions
+            if str(item.get("action", "")).upper() in high_value
+        ]
+        if not proposals or not self.config.qwen_critic_enabled:
+            return collaboration, {"status": "NOT_TRIGGERED", "proposal_count": len(proposals)}, "not_applicable", 0.0
+        if not self.aux_models.configured("critic"):
+            return collaboration, {"status": "UNCONFIGURED", "proposal_count": len(proposals)}, "not_applicable", 0.0
+
+        candidate_map = {
+            str(item.get("candidate_id", "")): item
+            for item in collaboration.review_candidates
+        }
+        compact = []
+        for decision in proposals:
+            candidate = candidate_map.get(str(decision.get("candidate_id", "")), {})
+            compact.append({
+                "candidate_id": decision.get("candidate_id", ""),
+                "candidate_kind": decision.get("candidate_kind", "review"),
+                "original": {
+                    key: candidate.get(key, "") for key in (
+                        "subject", "subject_type", "predicate", "object", "object_type", "evidence",
+                    )
+                },
+                "proposal": {
+                    key: decision.get(key, "") for key in (
+                        "action", "new_predicate", "new_direction", "evidence_text",
+                        "swap_endpoints", "reason_code", "reason", "confidence",
+                    )
+                },
+            })
+        cache_payload = {
+            "tool_version": "qwen-edit-critic-v1",
+            "model_id": self.config.aux_critic_model,
+            "proposals": compact,
+        }
+        key = self.central_agent_v2.tool_cache_key("qwen_edit_critic", cache_payload)
+
+        def factory():
+            started = time.perf_counter()
+            result = self.aux_models.call_json(
+                "critic",
+                system_prompt=(
+                    "You are an independent biomedical relation edit critic. "
+                    "Only approve or veto each supplied proposal. Never add a candidate, "
+                    "change a field, or infer beyond the quoted evidence. Return JSON only."
+                ),
+                user_prompt=json.dumps({"proposals": compact}, ensure_ascii=False),
+                schema_hint={
+                    "reviews": [{"candidate_id": "string", "approved": True, "reason": "string"}],
+                },
+            )
+            return result.to_dict(), time.perf_counter() - started
+
+        started = time.perf_counter()
+        payload, cache_status = self.auxiliary_cache.get_or_compute(
+            key, factory, cacheable=lambda value: value.get("status") == "OK",
+        )
+        reviews = payload.get("payload", {}).get("reviews", []) if payload.get("status") == "OK" else []
+        approvals = {
+            str(item.get("candidate_id", "")): bool(item.get("approved", False))
+            for item in reviews if isinstance(item, dict)
+        }
+        vetoed: list[str] = []
+        revised: list[dict] = []
+        proposal_ids = {str(item.get("candidate_id", "")) for item in proposals}
+        for decision in collaboration.review_decisions:
+            candidate_id = str(decision.get("candidate_id", ""))
+            if candidate_id not in proposal_ids or approvals.get(candidate_id, False):
+                revised.append(decision)
+                continue
+            vetoed.append(candidate_id)
+            fallback = dict(decision)
+            fallback["action"] = (
+                "REJECT" if decision.get("candidate_kind") == "recovery" else "KEEP"
+            )
+            fallback["reason_code"] = "INSUFFICIENT_SUPPORT"
+            fallback["reason"] = "Qwen critic did not approve the high-value edit."
+            revised.append(fallback)
+        collaboration.review_decisions = revised
+        collaboration.critic_audit = {
+            "status": payload.get("status", "FALLBACK"),
+            "model_id": payload.get("model_id", self.config.aux_critic_model),
+            "proposal_count": len(proposals), "approved_count": len(proposals) - len(vetoed),
+            "vetoed_candidate_ids": vetoed, "cache_status": cache_status,
+            "latency_s": payload.get("latency_s", 0.0),
+            "prompt_tokens": payload.get("prompt_tokens", 0),
+            "output_tokens": payload.get("output_tokens", 0),
+        }
+        return collaboration, collaboration.critic_audit, cache_status, time.perf_counter() - started
+
     def process_article(self, article: dict) -> dict:
         """
         处理单篇 PubMed 文章 — 完整的认知推理循环
@@ -1008,6 +1110,11 @@ class CognitiveAgent:
                 )
                 linking_ambiguity = ambiguous_entities / max(len(initial_verified.entities), 1)
                 for relation in initial_verified.relations:
+                    risk_target = "semantic" if not relation.import_ready else "write"
+                    if not self.risk_router.calibration.is_viable(
+                        risk_target, self.config.conformal_min_group_size
+                    ):
+                        continue
                     semantic_passed = bool(
                         relation.schema_valid
                         and relation.evidence_contiguous
@@ -1047,7 +1154,13 @@ class CognitiveAgent:
                 "calibration_version": self.risk_router.calibration.version,
                 "calibration_size": len(self.risk_router.calibration.examples),
                 "routes": [item.to_dict() for item in risk_routes],
-                "production_applied": self.config.risk_router_mode == "active",
+                "production_applied": (
+                    self.config.risk_router_mode == "active" and bool(risk_routes)
+                ),
+                "disabled_reason": (
+                    "" if risk_routes or self.config.risk_router_mode == "off"
+                    else "calibration_not_viable_requires_both_correct_and_error_examples"
+                ),
                 "safety_policy": "downgrade_or_add_review_only",
             }
             self.agentic_controller.add_recovery_observation(
@@ -1265,6 +1378,17 @@ class CognitiveAgent:
                     review_reason=llm_reason,
                     model_id=self.config.second_llm_model_id,
                 )
+            critic_audit = {"status": "NOT_TRIGGERED", "proposal_count": 0}
+            critic_cache_status = "not_applicable"
+            critic_actual_latency = 0.0
+            critic_budget_available = bool(
+                self.central_agent_v2.active and v2_state is not None
+                and v2_state.aux_remote_calls + 2 <= v2_state.budget.max_aux_remote_calls
+            )
+            if collaboration.status == "OK" and critic_budget_available:
+                collaboration, critic_audit, critic_cache_status, critic_actual_latency = (
+                    self._criticize_collaboration_cache_first(collaboration)
+                )
             merged = self.collaborative_extractor.merge(
                 raw_entities=raw_extraction.entities,
                 raw_relations=agent_plan.repaired_relations,
@@ -1377,6 +1501,25 @@ class CognitiveAgent:
                     retry_count=collaboration_retry_count,
                     details={"round": 1, "shadow": not self.central_agent_v2.active},
                 )
+                if critic_audit.get("status") not in {"NOT_TRIGGERED", "UNCONFIGURED"}:
+                    self.central_agent_v2.record_action(
+                        v2_state,
+                        tool="qwen_edit_critic",
+                        decision="CALL",
+                        reason="independent_review_of_high_value_deepseek_edit",
+                        latency_s=critic_actual_latency,
+                        cache_status=critic_cache_status,
+                        remote=True,
+                        result_status=str(critic_audit.get("status", "")),
+                        prompt_tokens=int(critic_audit.get("prompt_tokens", 0) or 0),
+                        output_tokens=int(critic_audit.get("output_tokens", 0) or 0),
+                        attempt_count=1,
+                        details={
+                            "proposal_count": critic_audit.get("proposal_count", 0),
+                            "approved_count": critic_audit.get("approved_count", 0),
+                            "vetoed_candidate_ids": critic_audit.get("vetoed_candidate_ids", []),
+                        },
+                    )
 
             if self.central_agent_v2.active and v2_state is not None:
                 for round_index in range(2, 5):

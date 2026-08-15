@@ -577,6 +577,11 @@ def fit_fold_artifacts(
     for round_index in range(1, 4):
         tracker.set(f"fold{fold['fold']}:rule_induction_round{round_index}")
         candidates, primary_result, rejected = learner.induce(cards)
+        if primary_result.status == "PROTOCOL_INVALID":
+            raise RuntimeError(
+                f"fold {fold['fold']} rule induction protocol invalid: "
+                f"{len(rejected)} rejected rules"
+            )
         critic_results = []
         approved: list[SoftRule] = []
         for rule in candidates:
@@ -683,6 +688,11 @@ def fit_fold_artifacts(
     for record in calibration_records:
         pmid = str(record["pmid"])
         gold_keys = set(relation_map(gold_by_id[pmid].get("relations", []) or []))
+        gold_strict_keys = {
+            key for key, value in relation_map(
+                gold_by_id[pmid].get("relations", []) or []
+            ).items() if value.get("import_ready")
+        }
         study_type = rule_profile(by_id[pmid].get("title", ""), by_id[pmid].get("abstract", "")).primary_study_type
         verification = record.get("phases", {}).get("verification", {}) or {}
         semantic = float(verification.get("summary", {}).get("semantic_score", 0.0) or 0.0)
@@ -698,14 +708,28 @@ def fit_fold_artifacts(
                 rule_conflict=any(item.get("action") in {"REJECT", "ABSTAIN", "REVIEW"} for item in relation.get("rule_matches", []) or []),
                 study_type=study_type, predicate=str(relation.get("predicate", "unknown")),
                 section=str(relation.get("evidence_role", "ABSTRACT")),
-                semantic_only=not bool(relation.get("import_ready")),
+                semantic_only=True,
             )
             calibration_examples.append(CalibrationExample.from_features(
                 features, error=triple(relation) not in gold_keys,
+                risk_target="semantic",
+            ))
+            write_features = RiskFeatures(**{
+                **features.__dict__,
+                "verifier_passed": bool(relation.get("import_ready")),
+                "semantic_only": False,
+            })
+            calibration_examples.append(CalibrationExample.from_features(
+                write_features,
+                error=(
+                    not bool(relation.get("import_ready"))
+                    or triple(relation) not in gold_strict_keys
+                ),
+                risk_target="write",
             ))
     calibration = ConformalCalibration(
         examples=calibration_examples,
-        version=f"agent-v3-conformal-fold{fold['fold']}-v1",
+        version=f"agent-v3-conformal-fold{fold['fold']}-v2-dual-risk",
         source_manifest_hash=manifest_hash,
     )
     atomic_json(final_calibration, calibration.to_dict())
@@ -730,6 +754,7 @@ def arm_args(
         "--evidence-entailment-mode", "active", "--risk-router-mode", "active",
         "--conformal-calibration", str(calibration), "--second-llm-enabled",
         "--second-llm-mode", "conditional",
+        "--agent-mode", "recall",
     ]
     if arm == "v3_no_rule_memory":
         index = args.index("--rule-memory-mode")
