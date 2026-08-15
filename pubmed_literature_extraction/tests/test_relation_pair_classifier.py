@@ -43,6 +43,18 @@ class RelationPairClassifierTests(unittest.TestCase):
         self.assertIn("ASSOCIATED_WITH", candidate.allowed_predicates)
         self.assertEqual(text[candidate.evidence_char_start:candidate.evidence_char_end], candidate.evidence)
 
+    def test_article_local_abbreviation_can_pair_long_form_entity_in_later_sentence(self):
+        text = (
+            "TITLE: Study\nABSTRACT: Icaritin (ICT) was administered. "
+            "RESULTS: ICT directly interacted with GSTA1."
+        )
+        entities = [entity("Icaritin", "Metabolite"), entity("GSTA1", "Protein")]
+        result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
+            entities, [], self.reader.read(text), source_text=text,
+        )
+        pairs = {(item.subject, item.object) for item in result.candidates}
+        self.assertIn(("Icaritin", "GSTA1"), pairs)
+
     def test_no_relation_is_an_explicit_class(self):
         text = "TITLE: Study\nABSTRACT: RESULTS: TP53 and HCC samples were measured."
         result = self.classify(text)

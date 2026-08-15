@@ -162,11 +162,17 @@ NON_HUMAN_TITLE_RE = re.compile(
     r"\b(?:in mice|in rats|murine|mouse model|rat model)\b",
     re.IGNORECASE,
 )
+REVIEW_OR_GUIDANCE_TITLE_RE = re.compile(
+    r"\b(?:narrative|scoping|umbrella)\s+review\b|\bclinical\s+(?:practice\s+)?guidelines?\b|"
+    r"\bpractice\s+guidance\b|\bconsensus\s+(?:statement|recommendations?)\b|"
+    r"\bscreening\s+and\s+management\b",
+    re.IGNORECASE,
+)
 COMPOSITE_ENTITY_RE = re.compile(
     r"\b[A-Z0-9][A-Z0-9-]{1,}/[A-Z0-9][A-Z0-9-]{1,}\b"
 )
 GENERIC_DISEASE_CATEGORY_RE = re.compile(
-    r"^(?:(?:chronic|acute)\s+)?(?:liver|hepatic)?\s*diseases?$",
+    r"^(?:(?:(?:chronic|acute)\s+)?(?:liver|hepatic)?\s*diseases?|infections?)$",
     re.IGNORECASE,
 )
 
@@ -547,6 +553,8 @@ def article_quality_flags(text: str) -> set[str]:
         flags.add("article_out_of_scope")
     if NON_HUMAN_TITLE_RE.search(title):
         flags.add("non_human_article")
+    if REVIEW_OR_GUIDANCE_TITLE_RE.search(title):
+        flags.add("review_article")
     return flags
 
 

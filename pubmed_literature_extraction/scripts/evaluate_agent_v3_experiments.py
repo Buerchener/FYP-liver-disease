@@ -18,7 +18,8 @@ REQUIRED_ABLATIONS = (
     "v3_no_conformal_router", "v3_no_causal_conflict", "v3_no_cache",
 )
 CORE_BOOTSTRAP_METRICS = (
-    "relation_f1", "strict_precision", "strict_f1", "evidence_iou_precision",
+    "relation_f1", "alias_relation_f1", "family_relation_f1",
+    "strict_precision", "strict_f1", "evidence_iou_precision",
     "evidence_iou_f1", "article_exact_rate", "zero_relation_specificity",
 )
 
@@ -79,6 +80,8 @@ def calibration_metrics(pairs: list[list[float]]) -> dict[str, float]:
 def metrics(rows: list[dict]) -> dict[str, Any]:
     sum_fields = (
         "entity_tp", "entity_fp", "entity_fn", "tp", "fp", "fn",
+        "alias_tp", "alias_fp", "alias_fn", "family_tp", "family_fp", "family_fn",
+        "gene_protein_type_matched", "gene_protein_type_correct",
         "strict_tp", "strict_fp", "strict_fn", "evidence_exact_tp",
         "evidence_iou_tp", "evidence_pred", "evidence_gold", "evidence_contiguous",
         "endpoint_coverage", "trigger_coverage", "direction_confusion",
@@ -88,10 +91,15 @@ def metrics(rows: list[dict]) -> dict[str, Any]:
         "remote_attempted", "remote_successful", "remote_failed", "remote_retried",
         "aux_calls", "state_changes", "zero_change_calls", "prompt_tokens",
         "output_tokens", "article_exact", "predicate_direction_errors",
+        "semantic_accepted", "semantic_review", "semantic_rejected", "semantic_only",
+        "candidate_projected", "candidate_attribute_sources", "candidate_top_level_sources",
+        "candidate_pair_count", "candidate_verified_count",
     )
     totals = {key: sum(float(row.get(key, 0) or 0) for row in rows) for key in sum_fields}
     entity_p, entity_r, entity_f1 = prf(totals["entity_tp"], totals["entity_fp"], totals["entity_fn"])
     relation_p, relation_r, relation_f1 = prf(totals["tp"], totals["fp"], totals["fn"])
+    alias_p, alias_r, alias_f1 = prf(totals["alias_tp"], totals["alias_fp"], totals["alias_fn"])
+    family_p, family_r, family_f1 = prf(totals["family_tp"], totals["family_fp"], totals["family_fn"])
     strict_p, strict_r, strict_f1 = prf(totals["strict_tp"], totals["strict_fp"], totals["strict_fn"])
     evidence_exact_p, evidence_exact_r, evidence_exact_f1 = prf(
         totals["evidence_exact_tp"], totals["evidence_pred"] - totals["evidence_exact_tp"],
@@ -131,6 +139,13 @@ def metrics(rows: list[dict]) -> dict[str, Any]:
         "entity_endpoint_f1": entity_f1,
         "relation_precision": relation_p, "relation_recall": relation_r,
         "relation_f1": relation_f1, "relation_macro_f1": macro_f1,
+        "alias_relation_precision": alias_p, "alias_relation_recall": alias_r,
+        "alias_relation_f1": alias_f1,
+        "family_relation_precision": family_p, "family_relation_recall": family_r,
+        "family_relation_f1": family_f1,
+        "gene_protein_type_accuracy": safe_div(
+            totals["gene_protein_type_correct"], totals["gene_protein_type_matched"], empty=1.0,
+        ),
         "article_exact_rate": safe_div(totals["article_exact"], len(rows)),
         "strict_precision": strict_p, "strict_recall": strict_r, "strict_f1": strict_f1,
         "strict_coverage": safe_div(totals["strict_tp"] + totals["strict_fp"], totals["tp"] + totals["fp"]),
@@ -176,6 +191,19 @@ def metrics(rows: list[dict]) -> dict[str, Any]:
         "latency": latency_summary(latencies),
         "phase_latency": {key: latency_summary(values) for key, values in sorted(phase_latency.items())},
         "candidate_sources": dict(candidate_sources),
+        "semantic_write_funnel": {
+            "semantic_accepted": int(totals["semantic_accepted"]),
+            "semantic_review": int(totals["semantic_review"]),
+            "semantic_rejected": int(totals["semantic_rejected"]),
+            "semantic_only": int(totals["semantic_only"]),
+        },
+        "candidate_funnel": {
+            "top_level_sources": int(totals["candidate_top_level_sources"]),
+            "attribute_sources": int(totals["candidate_attribute_sources"]),
+            "projected_after_dedup": int(totals["candidate_projected"]),
+            "pair_candidates": int(totals["candidate_pair_count"]),
+            "verified_candidates": int(totals["candidate_verified_count"]),
+        },
         "raw_denominators": {key: int(value) for key, value in totals.items()},
         "cost": {
             "estimated_usd": None,

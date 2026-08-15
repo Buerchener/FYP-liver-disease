@@ -53,6 +53,7 @@ class ExtractionQualityTests(unittest.TestCase):
         entities = [
             entity("tumor immune microenvironment", "Tissue"),
             entity("cancer", "Disease"),
+            entity("infections", "Disease"),
             entity("cells", "CellType"),
             entity("pathway", "Pathway"),
             entity("response", "Pathway"),
@@ -389,6 +390,19 @@ class ExtractionQualityTests(unittest.TestCase):
                 result = self.verify(text, relations=[relation(evidence="TP53 is associated with HCC.")])
                 self.assertFalse(result.relations[0].import_ready)
                 self.assertIn(expected_flag, result.relations[0].quality_flags)
+
+    def test_screening_and_management_review_is_semantic_review_not_import_ready(self):
+        text = (
+            "TITLE: Screening and management of metabolic liver disease.\n"
+            "ABSTRACT: MASLD is associated with HCC."
+        )
+        result = self.verify(text, relations=[relation(
+            subject="MASLD", subject_type="Disease", evidence="MASLD is associated with HCC."
+        )],
+                             entities=[entity("MASLD", "Disease"), entity("HCC", "Disease")])
+        self.assertEqual(result.relations[0].semantic_status, "REVIEW")
+        self.assertFalse(result.relations[0].import_ready)
+        self.assertIn("review_article", result.relations[0].quality_flags)
 
     def test_composite_and_generic_disease_entities_are_rejected(self):
         text = "HBV/HCV and liver diseases were discussed."

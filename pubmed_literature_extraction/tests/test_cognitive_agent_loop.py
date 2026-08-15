@@ -1,6 +1,7 @@
 import threading
 import unittest
 from concurrent.futures import ThreadPoolExecutor
+from types import SimpleNamespace
 from unittest.mock import patch
 
 from cognitive_agent.agent import AgentConfig, CognitiveAgent
@@ -12,6 +13,10 @@ from cognitive_agent.decision_engine import Action, DecisionEngine, ExecutionLog
 from cognitive_agent.schema.examples import ALL_EXAMPLES, DEFAULT_EXAMPLES, KG_EXTRACTION_PROMPT
 from cognitive_agent.strategy_manager import StrategyManager
 from cognitive_agent.verifier import KGVerifier, VerifiedEntity, VerifiedRelation
+from cognitive_agent.collaborative_extractor import CollaborationResult
+from cognitive_agent.aux_model_registry import StructuredModelResult
+from cognitive_agent.central_agent_v2 import CentralAgentV2
+from cognitive_agent.extraction_cache import LightweightExtractionCache
 
 
 class FakeKGMemory:
@@ -34,6 +39,43 @@ class FakeKGMemory:
 
 
 class CognitiveAgentLoopTests(unittest.TestCase):
+    def test_qwen_critic_veto_cannot_promote_low_confidence_keep(self):
+        class Critic:
+            @staticmethod
+            def configured(role):
+                return role == "critic"
+
+            @staticmethod
+            def call_json(*args, **kwargs):
+                return StructuredModelResult(
+                    "critic", "qwen-test", "OK",
+                    payload={"reviews": [{"candidate_id": "c1", "approved": False, "reason": "weak"}]},
+                )
+
+        agent = CognitiveAgent.__new__(CognitiveAgent)
+        agent.config = SimpleNamespace(qwen_critic_enabled=True, aux_critic_model="qwen-test")
+        agent.aux_models = Critic()
+        agent.auxiliary_cache = LightweightExtractionCache(mode="memory")
+        agent.central_agent_v2 = CentralAgentV2(execution_mode="agent-v2")
+        collaboration = CollaborationResult(
+            status="OK",
+            review_candidates=[{
+                "candidate_id": "c1", "subject": "TP53", "subject_type": "Gene",
+                "predicate": "ASSOCIATED_WITH", "object": "HCC", "object_type": "Disease",
+                "evidence": "TP53 and HCC were measured.",
+                "quality_flags": ["pair_low_confidence", "manual_review"],
+            }],
+            review_decisions=[{
+                "candidate_id": "c1", "candidate_kind": "review", "raw_index": 0,
+                "action": "KEEP", "reason_code": "EXPLICIT_DIRECT_RELATION",
+                "reason": "claimed", "confidence": 0.95,
+            }],
+        )
+        revised, audit, _, _ = agent._criticize_collaboration_cache_first(collaboration)
+        self.assertEqual(audit["vetoed_candidate_ids"], ["c1"])
+        self.assertEqual(revised.review_decisions[0]["action"], "KEEP")
+        self.assertEqual(revised.review_decisions[0]["confidence"], 0.0)
+        self.assertEqual(revised.review_decisions[0]["reason_code"], "INSUFFICIENT_SUPPORT")
     def test_low_kg_coverage_does_not_lower_medical_evidence_thresholds(self):
         manager = StrategyManager()
         card = ContextCard(

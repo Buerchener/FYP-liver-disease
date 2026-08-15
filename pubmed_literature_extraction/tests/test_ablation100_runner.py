@@ -9,11 +9,13 @@ from pathlib import Path
 from scripts.evaluate_agent_v3_experiments import metrics
 from scripts.run_agent_v3_ablation100 import (
     ARMS,
+    article_metric,
     atomic_json,
     arm_args,
     build_manifest,
     load_jsonl,
     validate_manifest,
+    verification_relations,
 )
 
 
@@ -104,6 +106,51 @@ class Ablation100RunnerTests(unittest.TestCase):
         self.assertIn("ASSOCIATED_WITH", result["predicate_metrics"])
         self.assertIn("brier", result["calibration"])
         self.assertEqual(result["remote_usage"]["attempted"], 1)
+
+    def test_semantic_metrics_keep_safe_write_blocks_and_report_alias_family_views(self):
+        accepted = {
+            "subject": "TP53", "subject_type": "Protein", "predicate": "ASSOCIATED_WITH",
+            "object": "HCC", "object_type": "Disease", "evidence": "TP53 is associated with HCC.",
+            "semantic_status": "ACCEPTED", "write_status": "BLOCKED", "import_ready": False,
+            "schema_valid": True,
+        }
+        rejected = {
+            **accepted, "predicate": "TREATS", "semantic_status": "REJECTED",
+        }
+        record = {
+            "pmid": "1", "timing": {}, "phases": {
+                "verification": {
+                    "entities": [
+                        {"mention": "TP53", "canonical_name": "TP53", "type": "Protein"},
+                        {"mention": "HCC", "canonical_name": "Hepatocellular carcinoma", "type": "Disease"},
+                    ],
+                    "relations": [accepted, rejected],
+                },
+                "relation_candidate_projection": {
+                    "top_level_relation_count": 1, "attribute_relation_count": 1,
+                    "projected_relation_count": 1,
+                },
+                "relation_pair_classification": {"candidate_count": 2},
+            },
+        }
+        gold = {
+            "entities": [
+                {"mention": "TP53", "canonical": "TP53", "type": "Gene"},
+                {"mention": "Hepatocellular carcinoma", "canonical": "Hepatocellular carcinoma", "type": "Disease"},
+            ],
+            "relations": [{
+                "subject": "TP53", "subject_type": "Gene", "predicate": "ASSOCIATED_WITH",
+                "object": "Hepatocellular carcinoma", "object_type": "Disease",
+                "evidence": "TP53 is associated with HCC.", "import_ready": False,
+            }],
+        }
+        self.assertEqual(verification_relations(record), [accepted])
+        row = article_metric(record, gold, {"title": "", "abstract": "TP53 is associated with HCC."})
+        self.assertEqual(row["tp"], 0)
+        self.assertEqual(row["family_tp"], 1)
+        self.assertEqual(row["semantic_only"], 1)
+        self.assertEqual(row["semantic_rejected"], 1)
+        self.assertEqual(row["candidate_projected"], 1)
 
 
 if __name__ == "__main__":

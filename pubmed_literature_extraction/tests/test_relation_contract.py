@@ -9,6 +9,26 @@ class OfflineKG:
 
 
 class RelationContractTests(unittest.TestCase):
+    def test_article_abbreviation_family_deduplicates_relation_core(self):
+        text = (
+            "Metabolic dysfunction-associated fatty liver disease (MAFLD) was studied. "
+            "Testosterone was associated with MAFLD."
+        )
+        entities = [
+            {"mention": "Testosterone", "type": "Metabolite", "attributes": {}},
+            {"mention": "MAFLD", "type": "Disease", "attributes": {}},
+            {"mention": "Metabolic dysfunction-associated fatty liver disease", "type": "Disease", "attributes": {}},
+        ]
+        relations = [
+            {"subject": "Testosterone", "subject_type": "Metabolite", "predicate": "ASSOCIATED_WITH",
+             "object": "MAFLD", "object_type": "Disease", "evidence": "Testosterone was associated with MAFLD."},
+            {"subject": "Testosterone", "subject_type": "Metabolite", "predicate": "ASSOCIATED_WITH",
+             "object": "Metabolic dysfunction-associated fatty liver disease", "object_type": "Disease",
+             "evidence": "Metabolic dysfunction-associated fatty liver disease (MAFLD) was studied."},
+        ]
+        result = RelationCandidateProjector().consolidate(relations, text=text, entities=entities)
+        self.assertEqual(len(result), 1)
+
     def test_attribute_and_top_level_relations_share_one_candidate_ledger(self):
         text = (
             "Bile salt export pump (BSEP) is associated with hepatocellular "

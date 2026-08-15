@@ -166,6 +166,19 @@ class AbbreviationDetector:
             if long_form:
                 abbr_map.add(long_form, short_form)
 
+        # Curated aliases are still article-local: activate them only when both
+        # forms occur in this article. This covers established liver acronyms
+        # whose letters do not follow strict initials (for example MAFLD),
+        # without injecting unrelated global aliases into the candidate set.
+        for short_form, long_form in CURATED_ABBREVIATIONS.items():
+            short_present = re.search(
+                r"(?<![A-Za-z0-9])" + re.escape(short_form) + r"(?![A-Za-z0-9])",
+                text, re.IGNORECASE,
+            )
+            long_present = re.search(re.escape(long_form), text, re.IGNORECASE)
+            if short_present and long_present:
+                abbr_map.add(long_form, short_form)
+
         return abbr_map
 
     def _find_long_form(self, text_before_paren: str, short_form: str) -> str:
@@ -266,6 +279,7 @@ CURATED_ABBREVIATIONS: dict[str, str] = {
     "NASH": "non-alcoholic steatohepatitis",
     "MASLD": "metabolic dysfunction-associated steatotic liver disease",
     "MASH": "metabolic dysfunction-associated steatohepatitis",
+    "MAFLD": "metabolic dysfunction-associated fatty liver disease",
     "HCC": "hepatocellular carcinoma",
     "ALD": "alcoholic liver disease",
     "PBC": "primary biliary cholangitis",

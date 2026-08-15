@@ -51,13 +51,14 @@ SEMANTIC_REVIEW_FLAGS = frozenset({
     "trigger_not_linking_endpoints", "trigger_direction_mismatch",
     "ambiguous_endpoint", "manual_review", "pair_low_confidence",
     "pair_ambiguous_predicate", "evidence_not_entailed", "title_only",
+    "review_article",
 })
 
 # Write policy is deliberately stricter than semantic acceptance.
 WRITE_BLOCK_FLAGS = frozenset({
     *SEMANTIC_REJECT_FLAGS, *SEMANTIC_REVIEW_FLAGS,
     "invalid_direction", "non_human", "non_human_article",
-    "article_out_of_scope", "second_llm_rejected",
+    "article_out_of_scope", "second_llm_rejected", "review_article",
 })
 
 
@@ -103,6 +104,7 @@ class ArticleEntityRegistry:
                 attrs.get("normalized_id")
                 or attrs.get("gene_symbol")
                 or attrs.get("protein_name")
+                or (abbreviation_map.canonical_name(mention) if abbreviation_map else "")
                 or mention
             )
             entry = EntityRegistryEntry(
@@ -156,10 +158,10 @@ class RelationCandidateProjector:
     @staticmethod
     def _triple_key(relation: dict) -> tuple[str, str, str, str, str]:
         return (
-            normalize_surface(relation.get("subject")),
+            normalize_surface(relation.get("subject_family") or relation.get("subject")),
             normalize_entity_type(relation.get("subject_type")),
             str(relation.get("predicate", "")).upper(),
-            normalize_surface(relation.get("object")),
+            normalize_surface(relation.get("object_family") or relation.get("object")),
             normalize_entity_type(relation.get("object_type")),
         )
 
@@ -284,8 +286,16 @@ class RelationCandidateProjector:
             "semantic_write_contract": "separate_v1",
         })
 
-    def consolidate(self, relations: list[dict], text: str = "") -> list[dict]:
+    def consolidate(
+        self, relations: list[dict], text: str = "", entities: list[dict] | None = None,
+    ) -> list[dict]:
         """Deduplicate already projected/pair candidates without entity rewriting."""
+        if entities:
+            registry = ArticleEntityRegistry(entities, text)
+            relations = [
+                self._normalize_relation(item, registry, text, "relation_core")
+                for item in relations
+            ]
         grouped: dict[tuple[str, str, str, str, str], list[dict]] = {}
         for relation in relations:
             grouped.setdefault(self._triple_key(relation), []).append(copy.deepcopy(relation))

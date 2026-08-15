@@ -587,7 +587,10 @@ class CognitiveAgent:
         result = ReviewResult(**{key: value for key, value in payload.items() if key in fields})
         return result, cache_status, time.perf_counter() - started
 
-    def _criticize_collaboration_cache_first(self, collaboration: CollaborationResult):
+    def _criticize_collaboration_cache_first(
+        self, collaboration: CollaborationResult, *, article_title: str = "",
+        study_type: str = "",
+    ):
         """Let Qwen independently approve high-value DeepSeek edits.
 
         The critic has a deliberately smaller action space: it can only approve
@@ -598,19 +601,28 @@ class CognitiveAgent:
         high_value = {
             "CHANGE_PREDICATE", "CHANGE_DIRECTION", "CHANGE_EVIDENCE", "ADD_RELATION",
         }
-        proposals = [
-            item for item in collaboration.review_decisions
-            if str(item.get("action", "")).upper() in high_value
-        ]
+        candidate_map = {
+            str(item.get("candidate_id", "")): item
+            for item in collaboration.review_candidates
+        }
+        proposals = []
+        for item in collaboration.review_decisions:
+            action = str(item.get("action", "")).upper()
+            candidate = candidate_map.get(str(item.get("candidate_id", "")), {})
+            flags = set(candidate.get("quality_flags", []) or [])
+            # KEEP is a high-value action when merge() uses it to clear pair
+            # uncertainty/manual-review flags. That is a status upgrade, not a
+            # no-op, and therefore requires independent Qwen approval too.
+            upgrades_uncertain_pair = action == "KEEP" and bool(
+                flags & {"pair_low_confidence", "manual_review", "pair_ambiguous_predicate"}
+            )
+            if action in high_value or upgrades_uncertain_pair:
+                proposals.append(item)
         if not proposals or not self.config.qwen_critic_enabled:
             return collaboration, {"status": "NOT_TRIGGERED", "proposal_count": len(proposals)}, "not_applicable", 0.0
         if not self.aux_models.configured("critic"):
             return collaboration, {"status": "UNCONFIGURED", "proposal_count": len(proposals)}, "not_applicable", 0.0
 
-        candidate_map = {
-            str(item.get("candidate_id", "")): item
-            for item in collaboration.review_candidates
-        }
         compact = []
         for decision in proposals:
             candidate = candidate_map.get(str(decision.get("candidate_id", "")), {})
@@ -630,8 +642,10 @@ class CognitiveAgent:
                 },
             })
         cache_payload = {
-            "tool_version": "qwen-edit-critic-v1",
+            "tool_version": "qwen-edit-critic-v2-ontology",
             "model_id": self.config.aux_critic_model,
+            "article_title": article_title,
+            "study_type": study_type,
             "proposals": compact,
         }
         key = self.central_agent_v2.tool_cache_key("qwen_edit_critic", cache_payload)
@@ -643,9 +657,17 @@ class CognitiveAgent:
                 system_prompt=(
                     "You are an independent biomedical relation edit critic. "
                     "Only approve or veto each supplied proposal. Never add a candidate, "
-                    "change a field, or infer beyond the quoted evidence. Return JSON only."
+                    "change a field, or infer beyond the quoted evidence. Enforce the project ontology: "
+                    "Metabolite means a biochemical metabolite, not a medication or drug class; "
+                    "Disease means a diagnosable disorder, not a physiological measurement, procedure, "
+                    "or treatment outcome. Narrative reviews, guidelines, screening/management articles, "
+                    "and background claims are not current-study findings and must not be promoted. "
+                    "Return JSON only."
                 ),
-                user_prompt=json.dumps({"proposals": compact}, ensure_ascii=False),
+                user_prompt=json.dumps({
+                    "article_title": article_title, "study_type": study_type,
+                    "proposals": compact,
+                }, ensure_ascii=False),
                 schema_hint={
                     "reviews": [{"candidate_id": "string", "approved": True, "reason": "string"}],
                 },
@@ -676,6 +698,7 @@ class CognitiveAgent:
             )
             fallback["reason_code"] = "INSUFFICIENT_SUPPORT"
             fallback["reason"] = "Qwen critic did not approve the high-value edit."
+            fallback["confidence"] = 0.0
             revised.append(fallback)
         collaboration.review_decisions = revised
         collaboration.critic_audit = {
@@ -1061,7 +1084,7 @@ class CognitiveAgent:
                         relation_core_keys.add(key)
                         relation_core_relations.append(relation)
                 relation_core_relations = self.relation_projector.consolidate(
-                    relation_core_relations, text=text,
+                    relation_core_relations, text=text, entities=raw_extraction.entities,
                 )
             else:
                 # Preserve the historical legacy path byte-for-byte.  The
@@ -1387,7 +1410,13 @@ class CognitiveAgent:
             )
             if collaboration.status == "OK" and critic_budget_available:
                 collaboration, critic_audit, critic_cache_status, critic_actual_latency = (
-                    self._criticize_collaboration_cache_first(collaboration)
+                    self._criticize_collaboration_cache_first(
+                        collaboration,
+                        article_title=title,
+                        study_type=str(
+                            getattr(prepared.profile, "primary_study_type", "") or ""
+                        ),
+                    )
                 )
             merged = self.collaborative_extractor.merge(
                 raw_entities=raw_extraction.entities,

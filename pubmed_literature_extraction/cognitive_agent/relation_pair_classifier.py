@@ -19,6 +19,7 @@ import re
 from dataclasses import dataclass, field
 from typing import Protocol
 
+from cognitive_agent.abbreviation_detector import AbbreviationDetector
 from cognitive_agent.evidence_units import EvidenceUnit
 from cognitive_agent.evidence_selector import EvidenceSelector
 from cognitive_agent.extraction_quality import normalize_surface
@@ -382,11 +383,33 @@ class BioREDPairClassifier:
         source_text: str = "",
     ) -> tuple[list[RelationPairCandidate], int]:
         hints = self._hint_index(relations)
+        # Pairing must see article-local abbreviations. Otherwise an entity
+        # discovered at its long-form mention cannot pair with its short form
+        # in a later result sentence (Icaritin/ICT, PBC, T2DM, and similar).
+        # This is deterministic source-derived alias expansion, not entity
+        # generation.
+        abbreviation_map = AbbreviationDetector().detect(source_text) if source_text else None
+        pairing_entities: list[dict] = []
+        for entity in entities:
+            enriched = dict(entity)
+            mentions = list(enriched.get("canonical_mentions", []) or [])
+            mention = str(enriched.get("mention", "") or "")
+            if abbreviation_map and mention:
+                mentions.extend([
+                    abbreviation_map.resolve_to_long(mention),
+                    abbreviation_map.resolve_to_short(mention),
+                ])
+            enriched["canonical_mentions"] = list(dict.fromkeys(
+                str(value).strip() for value in mentions
+                if str(value or "").strip()
+                and str(value).strip().casefold() != mention.casefold()
+            ))
+            pairing_entities.append(enriched)
         candidates: list[RelationPairCandidate] = []
         seen: set[tuple[str, str, str, str, str]] = set()
         for unit in units:
             local: list[tuple[dict, tuple[int, int]]] = []
-            for entity in entities:
+            for entity in pairing_entities:
                 span = self._mention_span(unit, entity)
                 if span:
                     local.append((entity, span))
@@ -466,6 +489,8 @@ class BioREDPairClassifier:
         candidates.sort(key=lambda item: (
             not bool(item.source_predicates),
             item.evidence_section not in RESULT_SECTIONS,
+            not bool(item.evidence_trigger_predicate),
+            -float(item.evidence_confidence or 0.0),
             item.endpoint_distance if item.endpoint_distance >= 0 else 10_000,
             item.candidate_id,
         ))

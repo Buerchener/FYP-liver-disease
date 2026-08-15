@@ -445,7 +445,52 @@ def run_agent_records(
 
 
 def verification_relations(record: dict) -> list[dict]:
-    return record.get("phases", {}).get("verification", {}).get("relations", []) or []
+    relations = record.get("phases", {}).get("verification", {}).get("relations", []) or []
+    # Semantic extraction metrics include accepted-but-not-writable claims.
+    # REVIEW is abstention/candidate coverage, not a positive prediction;
+    # rejected candidates are likewise excluded. Legacy records predate this
+    # field and remain accepted for compatibility.
+    return [
+        item for item in relations
+        if str(item.get("semantic_status") or "ACCEPTED").upper() == "ACCEPTED"
+    ]
+
+
+def endpoint_aliases(gold: dict, verification_entities: list[dict]) -> tuple[dict[str, str], dict[str, str]]:
+    gold_aliases: dict[str, str] = {}
+    gold_types: dict[str, str] = {}
+    for entity in gold.get("entities", []) or []:
+        canonical = norm(entity.get("canonical") or entity.get("mention"))
+        if not canonical:
+            continue
+        gold_types[canonical] = str(entity.get("type", ""))
+        for value in (entity.get("mention"), entity.get("canonical"), *(entity.get("aliases", []) or [])):
+            if norm(value):
+                gold_aliases[norm(value)] = canonical
+    predicted_aliases: dict[str, str] = {}
+    for entity in verification_entities:
+        values = (
+            entity.get("mention"), entity.get("canonical"), entity.get("canonical_name"),
+            entity.get("normalized_name"),
+        )
+        resolved = next((gold_aliases[norm(value)] for value in values if norm(value) in gold_aliases), "")
+        canonical = resolved or norm(entity.get("canonical") or entity.get("canonical_name") or entity.get("mention"))
+        for value in values:
+            if norm(value):
+                predicted_aliases[norm(value)] = canonical
+    return {**gold_aliases, **predicted_aliases}, gold_types
+
+
+def normalized_triple(relation: dict, aliases: dict[str, str], *, family: bool = False) -> tuple[str, str, str, str, str]:
+    def entity_type(value: Any) -> str:
+        label = str(value or "")
+        return "GeneOrProtein" if family and label in {"Gene", "Protein"} else label
+    subject = aliases.get(norm(relation.get("subject")), norm(relation.get("subject")))
+    object_ = aliases.get(norm(relation.get("object")), norm(relation.get("object")))
+    return (
+        subject, entity_type(relation.get("subject_type")),
+        str(relation.get("predicate", "")), object_, entity_type(relation.get("object_type")),
+    )
 
 
 def quick_counts(records: list[dict], gold_by_id: dict[str, dict]) -> dict:
@@ -463,10 +508,13 @@ def quick_counts(records: list[dict], gold_by_id: dict[str, dict]) -> dict:
             "strict_tp": len(pred_strict & gold_strict),
             "strict_fp": len(pred_strict - gold_strict),
             "strict_fn": len(gold_strict - pred_strict),
-            "dangerous_writes": sum(
-                bool(set(item.get("quality_flags", []) or []) & HARD_FLAGS)
-                for item in pred.values() if item.get("import_ready")
-            ),
+            "dangerous_writes": len({
+                key for key, item in pred.items()
+                if item.get("import_ready") and (
+                    key not in gold_strict
+                    or bool(set(item.get("quality_flags", []) or []) & HARD_FLAGS)
+                )
+            }),
         }
         rows.append(row)
         totals.update(row)
@@ -786,11 +834,25 @@ def article_metric(record: dict, gold: dict, source: dict) -> dict:
     pred = relation_map(relations)
     gold_relations = gold.get("relations", []) or []
     gold_map = relation_map(gold_relations)
+    verification_entities = record.get("phases", {}).get("verification", {}).get("entities", []) or []
     pred_entities = {
         (norm(item.get("mention")), str(item.get("type", item.get("entity_type", ""))))
-        for item in record.get("phases", {}).get("verification", {}).get("entities", []) or []
+        for item in verification_entities
     }
     gold_entities = {(norm(item.get("canonical", item.get("mention"))), str(item.get("type", ""))) for item in gold.get("entities", []) or []}
+    aliases, gold_types = endpoint_aliases(gold, verification_entities)
+    pred_alias = {normalized_triple(item, aliases) for item in relations}
+    gold_alias = {normalized_triple(item, aliases) for item in gold_relations}
+    pred_family = {normalized_triple(item, aliases, family=True) for item in relations}
+    gold_family = {normalized_triple(item, aliases, family=True) for item in gold_relations}
+    gp_matched = gp_correct = 0
+    for entity in verification_entities:
+        canonical = aliases.get(norm(entity.get("mention")), norm(entity.get("mention")))
+        expected = gold_types.get(canonical, "")
+        if expected not in {"Gene", "Protein"}:
+            continue
+        gp_matched += 1
+        gp_correct += str(entity.get("type", entity.get("entity_type", ""))) == expected
     pred_strict = {key for key, value in pred.items() if value.get("import_ready")}
     gold_strict = {key for key, value in gold_map.items() if value.get("import_ready")}
     evidence_exact = evidence_iou = endpoint_coverage = trigger_coverage = 0
@@ -833,10 +895,19 @@ def article_metric(record: dict, gold: dict, source: dict) -> dict:
     successful = sum(int(item.get("status") == "OK") for item in remote_results)
     failed = sum(int(item.get("status") in {"FALLBACK", "ERROR"}) for item in remote_results)
     state_changes = sum(int(collaboration.get("merge", {}).get(key, 0) or 0) for key in ("relation_additions", "relation_edits", "relation_rejections"))
+    relation_states = Counter(
+        str(item.get("semantic_status", item.get("status", "ACCEPTED"))).upper()
+        for item in verification.get("relations", []) or []
+    )
+    projection = record.get("phases", {}).get("relation_candidate_projection", {}) or {}
+    pair_phase = record.get("phases", {}).get("relation_pair_classification", {}) or {}
     return {
         "pmid": str(record["pmid"]),
         "entity_tp": len(pred_entities & gold_entities), "entity_fp": len(pred_entities - gold_entities), "entity_fn": len(gold_entities - pred_entities),
         "tp": len(set(pred) & set(gold_map)), "fp": len(set(pred) - set(gold_map)), "fn": len(set(gold_map) - set(pred)),
+        "alias_tp": len(pred_alias & gold_alias), "alias_fp": len(pred_alias - gold_alias), "alias_fn": len(gold_alias - pred_alias),
+        "family_tp": len(pred_family & gold_family), "family_fp": len(pred_family - gold_family), "family_fn": len(gold_family - pred_family),
+        "gene_protein_type_matched": gp_matched, "gene_protein_type_correct": gp_correct,
         "strict_tp": len(pred_strict & gold_strict), "strict_fp": len(pred_strict - gold_strict), "strict_fn": len(gold_strict - pred_strict),
         "evidence_exact_tp": evidence_exact, "evidence_iou_tp": evidence_iou,
         "evidence_pred": len(relations), "evidence_gold": len(gold_relations),
@@ -845,7 +916,13 @@ def article_metric(record: dict, gold: dict, source: dict) -> dict:
         "direction_confusion": direction_confusion,
         "zero_relation_gold": int(not gold_relations), "zero_relation_correct": int(not gold_relations and not relations),
         "hard_negative_fp": len(relations) if not gold_relations else 0,
-        "dangerous_writes": sum(bool(set(item.get("quality_flags", []) or []) & HARD_FLAGS) for item in relations if item.get("import_ready")),
+        "dangerous_writes": len({
+            key for key, item in pred.items()
+            if item.get("import_ready") and (
+                key not in gold_strict
+                or bool(set(item.get("quality_flags", []) or []) & HARD_FLAGS)
+            )
+        }),
         "schema_violations": sum(not bool(item.get("schema_valid", True)) for item in relations),
         "negation_background_method_fp": sum(bool(set(item.get("quality_flags", []) or []) & {"hard_negation", "background_only", "method_only"}) for item in relations),
         "linking_ambiguous": ambiguous, "linking_total": len(entities),
@@ -866,6 +943,18 @@ def article_metric(record: dict, gold: dict, source: dict) -> dict:
         "candidate_source": record.get("phases", {}).get("extraction", {}).get("candidate_source", "unknown"),
         "predicate_direction_errors": direction_confusion,
         "article_exact": int(set(pred) == set(gold_map)),
+        "semantic_accepted": relation_states["ACCEPTED"],
+        "semantic_review": relation_states["REVIEW"],
+        "semantic_rejected": relation_states["REJECTED"],
+        "semantic_only": sum(
+            bool(item.get("semantic_status") == "ACCEPTED" and not item.get("import_ready"))
+            for item in verification.get("relations", []) or []
+        ),
+        "candidate_projected": int(projection.get("projected_relation_count", len(projection.get("relations", []) or [])) or 0),
+        "candidate_attribute_sources": int(projection.get("attribute_relation_count", 0) or 0),
+        "candidate_top_level_sources": int(projection.get("top_level_relation_count", 0) or 0),
+        "candidate_pair_count": int(pair_phase.get("candidate_count", len(pair_phase.get("candidates", []) or [])) or 0),
+        "candidate_verified_count": len(verification.get("relations", []) or []),
     }
 
 
