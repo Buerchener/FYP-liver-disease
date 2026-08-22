@@ -140,6 +140,8 @@ class CognitiveAgentLoopTests(unittest.TestCase):
             object_type="Disease",
             neo4j_status="NOVEL",
             schema_valid=True,
+            candidate_schema_valid=True,
+            write_contract_valid=True,
             import_ready=True,
             evidence="TP53 mutations are associated with HCC.",
         )
@@ -219,7 +221,7 @@ class CognitiveAgentLoopTests(unittest.TestCase):
         self.assertEqual(without_relation.actions, [])
 
         endpoint = VerifiedEntity(
-            mention="liver", entity_type="Tissue",
+            mention="TP53", entity_type="Gene",
             neo4j_status="NOVEL", confidence=0.9,
         )
         disease = VerifiedEntity(
@@ -227,9 +229,10 @@ class CognitiveAgentLoopTests(unittest.TestCase):
             neo4j_status="NOVEL", confidence=0.9,
         )
         verified_relation = VerifiedRelation(
-            subject="HCC", subject_type="Disease",
-            predicate="ASSOCIATED_WITH", object="liver", object_type="Tissue",
-            neo4j_status="NOVEL", schema_valid=True, import_ready=True,
+            subject="TP53", subject_type="Gene",
+            predicate="ASSOCIATED_WITH", object="HCC", object_type="Disease",
+            neo4j_status="NOVEL", schema_valid=True, candidate_schema_valid=True,
+            write_contract_valid=True, import_ready=True,
             evidence_level=1,
         )
         with_relation = engine.decide(
@@ -246,9 +249,9 @@ class CognitiveAgentLoopTests(unittest.TestCase):
         })
         resolution = {
             "items": [{
-                "subject": "HCC",
+                "subject": "TP53",
                 "predicate": "ASSOCIATED_WITH",
-                "object": "liver",
+                "object": "HCC",
                 "decision": "CREATE_WITH_FLAG",
                 "adjusted_confidence": 0.5,
             }]
@@ -284,7 +287,8 @@ class CognitiveAgentLoopTests(unittest.TestCase):
             subject="CCND1", subject_type="Gene",
             predicate="ASSOCIATED_WITH",
             object="HBV-related liver fibrosis", object_type="Disease",
-            neo4j_status="NOVEL", schema_valid=True, import_ready=True,
+            neo4j_status="NOVEL", schema_valid=True, candidate_schema_valid=True,
+            write_contract_valid=True, import_ready=True,
             evidence="CCND1 is associated with HBV-related liver fibrosis.",
             evidence_level=1,
         )
@@ -445,11 +449,13 @@ class CognitiveAgentLoopTests(unittest.TestCase):
         )
         with patch("cognitive_agent.agent.KGMemory"):
             agent = CognitiveAgent(config)
-        self.assertEqual(agent.extraction_kernel.model_config.provider, "openai")
+        self.assertEqual(agent.extraction_kernel.model_config.provider, "liverkg_timeout_openai")
         self.assertEqual(
             agent.extraction_kernel.model_config.provider_kwargs["base_url"],
             "https://api-666.cc/v1",
         )
+        self.assertEqual(agent.extraction_kernel.model_config.provider_kwargs["request_timeout_s"], 60.0)
+        self.assertEqual(agent.extraction_kernel.model_config.provider_kwargs["max_output_tokens"], 4096)
 
     def test_extraction_inner_worker_setting_reaches_kernel(self):
         config = AgentConfig(api_key="unused", extraction_inner_max_workers=1)

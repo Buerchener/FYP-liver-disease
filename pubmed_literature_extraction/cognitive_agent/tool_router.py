@@ -828,14 +828,13 @@ class ArticleToolRouter:
         has_schema_issue = any("schema_mismatch" in item.get("quality_flags", []) for item in relations)
         has_evidence_issue = any(evidence_flags & set(item.get("quality_flags", [])) for item in relations)
         semantic_hard_blockers = {
-            "schema_mismatch", "negated", "non_human", "contradiction",
+            "schema_mismatch", "negated", "scoped_negation", "evidence_contradicted",
             "subject_endpoint_missing", "object_endpoint_missing", "empty_evidence",
-            "evidence_not_contiguous", "subject_not_grounded", "object_not_grounded",
-            "endpoint_not_in_evidence", "method_only", "prediction_only",
-            "filtered_endpoint", "unresolved_endpoint", "title_only", "background_only",
-            "objective_only", "method_section_only", "article_out_of_scope",
-            "non_human_article", "ambiguous_endpoint",
+            "filtered_endpoint", "unresolved_endpoint",
         }
+        # Semantic uncertainty (weak trigger heuristics, hedging, judge
+        # uncertainty, high-risk predicates) is exactly what the bounded
+        # second model is for.  Deterministic hard blockers stay local.
         reviewable_relations = [
             item for item in relations
             if item.get("schema_valid", True)
@@ -845,6 +844,7 @@ class ArticleToolRouter:
                     "trigger_missing", "trigger_not_linking_endpoints",
                     "trigger_direction_mismatch", "weak_evidence", "uncertain",
                     "pair_low_confidence", "pair_ambiguous_predicate",
+                    "judge_uncertain", "judge_verifier_conflict",
                 })
                 or str(item.get("predicate", "")).upper() in {
                     "PROGNOSTIC_IN", "INTERACTS_WITH", "EXPRESSED_IN", "PROGRESSES_TO",
@@ -855,12 +855,6 @@ class ArticleToolRouter:
                     str(item.get("evidence", "") or ""),
                     re.IGNORECASE,
                 ))
-            )
-            and (
-                not pair_core_active
-                or bool(set(item.get("quality_flags", [])) & {
-                    "pair_low_confidence", "pair_ambiguous_predicate",
-                })
             )
         ]
         has_reviewable_relation = bool(reviewable_relations)
@@ -964,11 +958,9 @@ class ArticleToolRouter:
         extraction_failed = bool(extraction.get("error"))
         all_flags = [set(item.get("quality_flags", []) or []) for item in relations]
         hard_flags = {
-            "schema_mismatch", "empty_evidence", "evidence_not_contiguous",
-            "subject_endpoint_missing", "object_endpoint_missing", "subject_not_grounded",
-            "object_not_grounded", "endpoint_not_in_evidence", "filtered_endpoint",
-            "unresolved_endpoint", "ambiguous_endpoint", "prediction_only", "method_only",
-            "background_only", "objective_only", "method_section_only", "non_human_article",
+            "schema_mismatch", "negated", "scoped_negation", "evidence_contradicted",
+            "empty_evidence", "subject_endpoint_missing", "object_endpoint_missing",
+            "filtered_endpoint", "unresolved_endpoint",
         }
         semantic_flags = {
             "trigger_missing", "trigger_not_linking_endpoints", "trigger_direction_mismatch",
@@ -1070,32 +1062,27 @@ class ArticleToolRouter:
         semantic_flags = {
             "trigger_missing", "trigger_not_linking_endpoints", "trigger_direction_mismatch",
             "weak_evidence", "uncertain", "pair_low_confidence",
-            "pair_ambiguous_predicate",
+            "pair_ambiguous_predicate", "judge_uncertain", "judge_verifier_conflict",
         }
         hard_flags = {
-            "schema_mismatch", "negated", "non_human", "contradiction",
+            "schema_mismatch", "negated", "scoped_negation", "evidence_contradicted",
             "subject_endpoint_missing", "object_endpoint_missing", "empty_evidence",
-            "evidence_not_contiguous", "subject_not_grounded", "object_not_grounded",
-            "endpoint_not_in_evidence", "method_only", "prediction_only", "filtered_endpoint",
-            "unresolved_endpoint", "title_only", "background_only", "objective_only",
-            "method_section_only", "article_out_of_scope", "non_human_article",
-            "ambiguous_endpoint", "subject_ambiguous", "object_ambiguous",
+            "filtered_endpoint", "unresolved_endpoint",
         }
+        # Deterministic hard blockers never reach the second model.  Semantic
+        # uncertainty (weak trigger heuristics, hedging, judge uncertainty,
+        # high-risk predicates) always may: starving the adjudicator turned
+        # out to cost far more precision than the calls it saved.
         reviewable = [
             item for item, flags in zip(relations, relation_flags)
             if item.get("schema_valid", True) and not (flags & hard_flags)
-            and (bool(item.get("import_ready")) or "pair_low_confidence" in flags)
-            and (flags & semantic_flags or item.get("predicate") in {
-                "PROGNOSTIC_IN", "INTERACTS_WITH", "EXPRESSED_IN", "PROGRESSES_TO",
-            })
-        ]
-        if any("pair_classifier_candidate" in flags for flags in relation_flags):
-            reviewable = [
-                item for item in reviewable
-                if set(item.get("quality_flags", []) or []) & {
-                    "pair_low_confidence", "pair_ambiguous_predicate",
+            and (
+                flags & semantic_flags
+                or item.get("predicate") in {
+                    "PROGNOSTIC_IN", "INTERACTS_WITH", "EXPRESSED_IN", "PROGRESSES_TO",
                 }
-            ]
+            )
+        ]
         # Layer 1 carries forward immutable article-policy masks and adds
         # candidate-level masks. A later utility score can never undo them.
         pre_trace = shadow_pre_plan.layer_trace or {}

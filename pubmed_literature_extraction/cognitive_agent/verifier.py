@@ -10,18 +10,32 @@ cognitive_agent/verifier.py — Phase 3: 图谱溯源验证
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from cognitive_agent.memory.kg_memory import KGMemory
-from cognitive_agent.schema.relation_signatures import RELATION_SIGNATURES, ALLOWED_DIRECTIONS
+from cognitive_agent.schema.relation_signatures import (
+    LITERATURE_CANDIDATE_SIGNATURES,
+    ALLOWED_DIRECTIONS,
+)
+from cognitive_agent.schema.write_contract import SchemaAdapter
 from cognitive_agent.extraction_quality import (
     article_quality_flags,
     evaluate_relation_evidence,
+    locate_contiguous,
     prepare_extraction,
     ratio_metric,
 )
 from cognitive_agent.relation_contract import (
+    FACTUAL_REJECT_FLAGS,
+    FACTUAL_REVIEW_FLAGS,
+    JUDGE_BACKEND_NAMES,
+    JUDGE_SEMANTIC_OVERRIDABLE_FLAGS,
+    MODEL_OVERRIDABLE_WRITE_FLAGS,
     SEMANTIC_REJECT_FLAGS,
     SEMANTIC_REVIEW_FLAGS,
+    TIERED_SEMANTIC_REJECT_FLAGS,
+    TIERED_SEMANTIC_REVIEW_FLAGS,
+    WRITE_REVIEW_FLAGS,
     WRITE_BLOCK_FLAGS,
 )
 
@@ -80,7 +94,13 @@ class VerifiedRelation:
     existing_rel_id: str = ""
     existing_confidence: float = 0.0
     existing_direction: str = ""
+    # ``schema_valid`` is retained for existing semantic consumers.  It means
+    # valid in the broad literature candidate schema, never Neo4j-writable.
     schema_valid: bool = False
+    candidate_schema_valid: bool = False
+    write_contract_valid: bool = False
+    schema_gap_reasons: list[str] = field(default_factory=list)
+    write_contract_version: str = ""
     import_ready: bool = False
     evidence: str = ""
     direction: str = ""
@@ -114,8 +134,11 @@ class VerifiedRelation:
     provenance: list[str] = field(default_factory=list)
     subject_family: str = ""
     object_family: str = ""
+    factual_status: str = "VALID"
     semantic_status: str = "UNVERIFIED"
     write_status: str = "UNASSESSED"
+    claim_role: str = "CURRENT_FINDING"
+    evidence_spans: list[dict] = field(default_factory=list)
     semantic_reasons: list[str] = field(default_factory=list)
     write_reasons: list[str] = field(default_factory=list)
 
@@ -166,8 +189,12 @@ class VerifiedExtraction:
 class KGVerifier:
     """Phase 3: 图谱溯源验证器"""
 
-    def __init__(self, kg_memory: KGMemory):
+    def __init__(self, kg_memory: KGMemory, verification_policy: str = "legacy"):
+        if verification_policy not in {"legacy", "tiered-v2"}:
+            raise ValueError("verification_policy must be legacy or tiered-v2")
         self.kg_memory = kg_memory
+        self.verification_policy = verification_policy
+        self.schema_adapter = SchemaAdapter()
 
     def verify(
         self,
@@ -210,6 +237,10 @@ class KGVerifier:
             result.entities.append(ve)
 
         # 关系验证
+        standardized_entities = {
+            (entity.mention, entity.entity_type): entity
+            for entity in result.entities
+        }
         article_flags = article_quality_flags(text)
         for rel in prepared.relations:
             rel.setdefault("quality_flags", [])
@@ -219,6 +250,10 @@ class KGVerifier:
                 verified_entities,
                 text=text,
                 aliases_by_canonical=prepared.aliases_by_canonical,
+            )
+            self.schema_adapter.apply(
+                vr,
+                standardized_entities=standardized_entities,
             )
             result.relations.append(vr)
 
@@ -237,6 +272,9 @@ class KGVerifier:
         retained_entities = len(result.entities)
         total_relations = len(result.relations)
         schema_valid = sum(1 for rel in result.relations if rel.schema_valid)
+        write_contract_valid = sum(
+            1 for rel in result.relations if rel.write_contract_valid
+        )
         import_ready = sum(1 for rel in result.relations if rel.import_ready)
         semantic_accepted = sum(
             1 for rel in result.relations if rel.semantic_status == "ACCEPTED"
@@ -249,6 +287,12 @@ class KGVerifier:
         )
         semantic_only = sum(
             1 for rel in result.relations if rel.write_status == "SEMANTIC_ONLY"
+        )
+        human_review = sum(
+            1 for rel in result.relations if rel.write_status == "HUMAN_REVIEW"
+        )
+        blocked_relations = sum(
+            1 for rel in result.relations if rel.write_status == "BLOCKED"
         )
         filtered_generic = sum(
             1 for entity in result.filtered_entities
@@ -304,6 +348,9 @@ class KGVerifier:
             "negated_relation_count": ratio_metric(negated, total_relations),
             "uncertain_relation_count": ratio_metric(uncertain, total_relations),
             "import_ready_relation_rate": ratio_metric(import_ready, total_relations),
+            "main_kg_write_contract_rate": ratio_metric(
+                write_contract_valid, total_relations
+            ),
         }
         schema_metric = ratio_metric(schema_valid, total_relations)
         required_metric = ratio_metric(required_fields, total_relations)
@@ -346,11 +393,15 @@ class KGVerifier:
             "novel_relations": sum(1 for r in result.relations if r.neo4j_status == "NOVEL"),
             "contradicting_relations": sum(1 for r in result.relations if r.neo4j_status == "CONTRADICTING"),
             "schema_valid": schema_valid,
+            "candidate_schema_valid": schema_valid,
+            "write_contract_valid": write_contract_valid,
             "import_ready": import_ready,
             "semantic_accepted": semantic_accepted,
             "semantic_review": semantic_review,
             "semantic_rejected": semantic_rejected,
             "semantic_only": semantic_only,
+            "human_review": human_review,
+            "blocked_relations": blocked_relations,
             "structural_score": structural_score,
             "semantic_score": semantic_score,
             "evidence_score": evidence_score,
@@ -366,6 +417,82 @@ class KGVerifier:
         except (TypeError, ValueError):
             confidence = 0.7
         return max(0.0, min(1.0, confidence))
+
+    @staticmethod
+    def _normalize_claim_role(value: str, flags: set[str]) -> str:
+        role = str(value or "").strip().upper()
+        mapping = {
+            "DIRECT_FINDING": "CURRENT_FINDING",
+            "CURRENT": "CURRENT_FINDING",
+            "CURRENT_FINDING": "CURRENT_FINDING",
+            "PRIOR_WORK": "PRIOR_WORK",
+            "BACKGROUND": "BACKGROUND",
+            "BACKGROUND_ONLY": "BACKGROUND",
+            "METHOD": "METHOD",
+            "METHOD_ONLY": "METHOD",
+            "PREDICTION": "PREDICTION",
+            "PREDICTION_ONLY": "PREDICTION",
+            "OBJECTIVE": "BACKGROUND",
+            "OBJECTIVE_ONLY": "BACKGROUND",
+        }
+        if role in mapping:
+            return mapping[role]
+        if flags & {"background_only", "objective_only"}:
+            return "BACKGROUND"
+        if flags & {"method_only", "method_section_only"}:
+            return "METHOD"
+        if "prediction_only" in flags:
+            return "PREDICTION"
+        if "non_current_finding_role" in flags:
+            return "BACKGROUND"
+        return "CURRENT_FINDING"
+
+    @staticmethod
+    def _model_dual_endorsed(flags: set[str]) -> bool:
+        """Return True only for independent DeepSeek + Qwen style agreement."""
+        return bool(
+            "adjudicator_entailed" in flags
+            and (
+                "critic_approved" in flags
+                or "qwen_critic_approved" in flags
+                or "qwen_approved" in flags
+                or "dual_model_entailed" in flags
+            )
+        )
+
+    @staticmethod
+    def _evidence_spans(evidence: str, text: str) -> list[dict]:
+        """Locate up to three quoted evidence fragments for audit."""
+        if not evidence or not text:
+            return []
+        fragments = [
+            item.strip()
+            for item in re.split(r"(?<=[.!?])\s+|\n+", evidence)
+            if item.strip()
+        ]
+        if len(fragments) <= 1:
+            fragments = [evidence.strip()]
+        spans: list[dict] = []
+        sentence_boundaries = [
+            (match.start(), match.end())
+            for match in re.finditer(r"[^.!?\n]+[.!?]?", text)
+        ]
+        for fragment in fragments[:3]:
+            grounded, start, end = locate_contiguous(fragment, text)
+            if not grounded:
+                continue
+            sentence_index = -1
+            for index, (s_start, s_end) in enumerate(sentence_boundaries):
+                if s_start <= start < s_end:
+                    sentence_index = index
+                    break
+            spans.append({
+                "text": fragment,
+                "start": start,
+                "end": end,
+                "sentence_index": sentence_index,
+            })
+        return spans
 
     def _verify_entity(self, entity: dict) -> VerifiedEntity:
         """验证单个实体"""
@@ -496,14 +623,16 @@ class KGVerifier:
             provenance=list(relation.get("provenance", []) or []),
             subject_family=str(relation.get("subject_family", "") or ""),
             object_family=str(relation.get("object_family", "") or ""),
+            claim_role=str(relation.get("claim_role", "") or "CURRENT_FINDING"),
         )
 
         # ── 1. Schema 合规检查 ──
-        allowed_pairs = RELATION_SIGNATURES.get(vr.predicate, set())
+        allowed_pairs = LITERATURE_CANDIDATE_SIGNATURES.get(vr.predicate, set())
         pair = (vr.subject_type, vr.object_type)
-        vr.schema_valid = pair in allowed_pairs
+        vr.candidate_schema_valid = pair in allowed_pairs
+        vr.schema_valid = vr.candidate_schema_valid
 
-        if not vr.schema_valid:
+        if not vr.candidate_schema_valid:
             vr.quality_flags.append("schema_mismatch")
 
         # ── 2. 方向检查 ──
@@ -522,7 +651,7 @@ class KGVerifier:
             vr.quality_flags.append("non_human")
 
         # ── 5. Neo4j 关系验证 ──
-        if self.kg_memory.is_connected and vr.schema_valid:
+        if self.kg_memory.is_connected and vr.candidate_schema_valid:
             existing = self._check_relation(
                 vr.subject, vr.predicate, vr.object,
                 subject_type=vr.subject_type, object_type=vr.object_type,
@@ -586,12 +715,54 @@ class KGVerifier:
                 setattr(vr, key, value)
         vr.quality_flags = sorted(set(evidence_result["quality_flags"]))
 
+        vr.evidence_spans = self._evidence_spans(vr.evidence, text)
+
         # ── 8. Separate semantic validity from Safe Write eligibility ──
         # Animal/cell/case-report evidence can be a correct semantic relation
         # while remaining ineligible for automatic graph import.
         flags = set(vr.quality_flags)
+        vr.claim_role = self._normalize_claim_role(vr.claim_role, flags)
+        if vr.claim_role != "CURRENT_FINDING":
+            flags.add("non_current_finding_role")
+            vr.quality_flags = sorted(flags)
+        if self.verification_policy == "tiered-v2":
+            self._apply_tiered_v2_status(vr, flags)
+            return vr
+        self._apply_legacy_status(vr, flags)
+        return vr
+
+    def _apply_legacy_status(self, vr: VerifiedRelation, flags: set[str]) -> None:
         semantic_reject = sorted(flags & SEMANTIC_REJECT_FLAGS)
         semantic_review = sorted(flags & SEMANTIC_REVIEW_FLAGS)
+        # A single-model judge-ENTAILED proposal is a semantic PROPOSAL, not
+        # an override: it never clears the deterministic trigger/weak-evidence
+        # flags by itself.  Only the independent second-model endorsement
+        # (`adjudicator_entailed`, set by a DeepSeek KEEP during bounded
+        # adjudication) may clear them.  When the judge's proposal conflicts
+        # with the deterministic flags the conflict is recorded as
+        # `judge_verifier_conflict` and the relation goes to REVIEW, which
+        # routes it to the independent adjudicator.  Hard blockers
+        # (SEMANTIC_REJECT_FLAGS) are never touched and the Safe Write gate
+        # is unchanged: every overridable flag still blocks import_ready.
+        if (
+            vr.classifier_source in JUDGE_BACKEND_NAMES
+            and vr.evidence_entailment == "ENTAILED"
+            and "adjudicator_entailed" in flags
+        ):
+            semantic_review = sorted(
+                set(semantic_review) - JUDGE_SEMANTIC_OVERRIDABLE_FLAGS
+            )
+        elif (
+            vr.classifier_source in JUDGE_BACKEND_NAMES
+            and vr.evidence_entailment == "ENTAILED"
+            and set(semantic_review) & JUDGE_SEMANTIC_OVERRIDABLE_FLAGS
+        ):
+            vr.quality_flags.append("judge_verifier_conflict")
+            vr.quality_flags = sorted(set(vr.quality_flags))
+            semantic_review = sorted(
+                set(semantic_review) | {"judge_verifier_conflict"}
+            )
+        vr.factual_status = "REJECTED" if semantic_reject else "VALID"
         if semantic_reject:
             vr.semantic_status = "REJECTED"
             vr.semantic_reasons = semantic_reject
@@ -604,7 +775,7 @@ class KGVerifier:
         vr.write_reasons = sorted(flags & WRITE_BLOCK_FLAGS)
         vr.import_ready = (
             vr.semantic_status == "ACCEPTED"
-            and vr.schema_valid
+            and vr.candidate_schema_valid
             and bool(vr.subject and vr.object)
             and not vr.negated
             and not vr.uncertain
@@ -619,4 +790,75 @@ class KGVerifier:
         else:
             vr.write_status = "SEMANTIC_ONLY"
 
-        return vr
+    def _apply_tiered_v2_status(self, vr: VerifiedRelation, flags: set[str]) -> None:
+        hard_reject = set(flags & FACTUAL_REJECT_FLAGS)
+        factual_review = set(flags & FACTUAL_REVIEW_FLAGS)
+        semantic_reject = set(flags & TIERED_SEMANTIC_REJECT_FLAGS)
+        semantic_review = set(flags & TIERED_SEMANTIC_REVIEW_FLAGS)
+        dual_endorsed = self._model_dual_endorsed(flags)
+
+        # Independent model endorsement may clear semantic uncertainty and
+        # write-scope flags, but never the four non-overridable factual gates.
+        if dual_endorsed or (
+            vr.classifier_source in JUDGE_BACKEND_NAMES
+            and vr.evidence_entailment == "ENTAILED"
+            and "adjudicator_entailed" in flags
+        ):
+            semantic_review -= JUDGE_SEMANTIC_OVERRIDABLE_FLAGS
+            if dual_endorsed:
+                semantic_review -= MODEL_OVERRIDABLE_WRITE_FLAGS
+
+        if hard_reject:
+            vr.factual_status = "REJECTED"
+        elif factual_review:
+            vr.factual_status = "REVIEW"
+        else:
+            vr.factual_status = "VALID"
+
+        if vr.factual_status == "REJECTED" or semantic_reject:
+            vr.semantic_status = "REJECTED"
+            vr.semantic_reasons = sorted(hard_reject | semantic_reject)
+        elif semantic_review:
+            vr.semantic_status = "REVIEW"
+            vr.semantic_reasons = sorted(semantic_review)
+        else:
+            vr.semantic_status = "ACCEPTED"
+            vr.semantic_reasons = []
+
+        write_reasons = set(flags & WRITE_REVIEW_FLAGS)
+        if dual_endorsed:
+            write_reasons -= MODEL_OVERRIDABLE_WRITE_FLAGS
+        if vr.factual_status == "REJECTED":
+            write_reasons |= hard_reject
+        vr.write_reasons = sorted(write_reasons)
+
+        fast_path = (
+            vr.factual_status == "VALID"
+            and vr.semantic_status == "ACCEPTED"
+            and vr.candidate_schema_valid
+            and bool(vr.subject and vr.object)
+            and not vr.negated
+            and vr.evidence_contiguous
+            and vr.subject_grounded_in_evidence
+            and vr.object_grounded_in_evidence
+            and vr.evidence_level in {1, 2}
+            and not vr.write_reasons
+        )
+        scoped_import = (
+            dual_endorsed
+            and vr.factual_status == "VALID"
+            and vr.semantic_status == "ACCEPTED"
+            and vr.candidate_schema_valid
+            and bool(vr.subject and vr.object)
+            and vr.evidence_contiguous
+            and not (FACTUAL_REJECT_FLAGS & flags)
+        )
+        vr.import_ready = bool(fast_path or scoped_import)
+        if vr.import_ready:
+            vr.write_status = "IMPORT_READY"
+        elif vr.factual_status == "REJECTED" or vr.semantic_status == "REJECTED":
+            vr.write_status = "BLOCKED"
+        elif vr.factual_status == "REVIEW" or vr.semantic_status == "REVIEW":
+            vr.write_status = "HUMAN_REVIEW"
+        else:
+            vr.write_status = "SEMANTIC_ONLY"

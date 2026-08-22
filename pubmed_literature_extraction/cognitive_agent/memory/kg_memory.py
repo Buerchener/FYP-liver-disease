@@ -18,7 +18,11 @@ from typing import Optional
 from urllib.parse import urlparse
 from neo4j import GraphDatabase, Driver
 from cognitive_agent.schema.entity_classes import ENTITY_CLASSES
-from cognitive_agent.schema.relation_signatures import NEO4J_IMPORTABLE_PREDICATES
+from cognitive_agent.schema.write_contract import (
+    MAIN_KG_WRITE_CONTRACT,
+    NEO4J_IMPORTABLE_PREDICATES,
+    is_main_kg_write_signature,
+)
 
 
 ALLOWED_ENTITY_TYPES = frozenset(spec["neo4j_label"] for spec in ENTITY_CLASSES.values())
@@ -871,28 +875,47 @@ class KGMemory:
             return []
         import hashlib
         import time
-        grouped: dict[str, list[dict]] = {}
+        grouped: dict[tuple[str, str], list[dict]] = {}
         for rel in relations:
-            predicate = rel.get("predicate", "")
-            if predicate not in ALLOWED_RELATION_TYPES or not rel.get("subject_element_id") or not rel.get("object_element_id"):
+            predicate = str(rel.get("predicate", "") or "").upper()
+            subject_type = str(rel.get("subject_type", "") or "")
+            object_type = str(rel.get("object_type", "") or "")
+            if (
+                predicate not in ALLOWED_RELATION_TYPES
+                or not rel.get("subject_element_id")
+                or not rel.get("object_element_id")
+                or not is_main_kg_write_signature(
+                    predicate, subject_type, object_type
+                )
+            ):
                 continue
+            relation_id_property = MAIN_KG_WRITE_CONTRACT[
+                (predicate, subject_type, object_type)
+            ]
             relation_key = f"{predicate}|{rel.get('subject_element_id')}|{rel.get('object_element_id')}"
             relation_id = f"LLM_{predicate}:{hashlib.sha256(relation_key.encode()).hexdigest()[:20]}"
             row = dict(rel)
-            row.update({"relation_id": relation_id, "source": f"PubMed:{pmid}" if pmid else "LLM_extraction", "updated_at": time.time()})
-            grouped.setdefault(predicate, []).append(row)
+            row.update({
+                "relation_id": relation_id,
+                relation_id_property: relation_id,
+                "source": f"PubMed:{pmid}" if pmid else "LLM_extraction",
+                "updated_at": time.time(),
+            })
+            grouped.setdefault((predicate, relation_id_property), []).append(row)
+        if not grouped:
+            return []
         written: list[str] = []
         with self._driver.session(database=self.database) as session:
-            for predicate, rows in grouped.items():
+            for (predicate, relation_id_property), rows in grouped.items():
                 query = f"""
                 UNWIND $rows AS row
                 MATCH (s) WHERE elementId(s) = row.subject_element_id
                 MATCH (o) WHERE elementId(o) = row.object_element_id
-                MERGE (s)-[r:{predicate} {{relation_id: row.relation_id}}]->(o)
+                MERGE (s)-[r:{predicate} {{{relation_id_property}: row.{relation_id_property}}}]->(o)
                 ON CREATE SET r = row
                 ON MATCH SET r.confidence = CASE WHEN row.confidence > coalesce(r.confidence, 0) THEN row.confidence ELSE r.confidence END,
                               r.updated_at = row.updated_at
-                RETURN row.relation_id AS relation_id
+                RETURN row.{relation_id_property} AS relation_id
                 """
                 written.extend(record["relation_id"] for record in session.run(query, {"rows": rows}))
         return written
@@ -1040,9 +1063,19 @@ class KGMemory:
         evidence: str = "",
         pmid: str = "",
         confidence: float = 0.7,
+        subject_type: str = "",
+        object_type: str = "",
     ) -> Optional[str]:
         """在 Neo4j 中创建新关系"""
-        if not self._driver or not self._write_target_allowed or predicate not in ALLOWED_RELATION_TYPES:
+        predicate = str(predicate or "").upper()
+        if (
+            not self._driver
+            or not self._write_target_allowed
+            or predicate not in ALLOWED_RELATION_TYPES
+            or not is_main_kg_write_signature(
+                predicate, subject_type, object_type
+            )
+        ):
             return None
 
         import hashlib
@@ -1051,9 +1084,13 @@ class KGMemory:
         # 生成稳定的 relation_id；不包含 PMID/evidence，便于跨文章聚合同一条关系。
         id_payload = f"{predicate}|{subject_element_id}|{object_element_id}"
         relation_id = f"LLM_{predicate}:{hashlib.sha256(id_payload.encode()).hexdigest()[:20]}"
+        relation_id_property = MAIN_KG_WRITE_CONTRACT[
+            (predicate, subject_type, object_type)
+        ]
 
         props = {
             "relation_id": relation_id,
+            relation_id_property: relation_id,
             "source": f"PubMed:{pmid}" if pmid else "LLM_extraction",
             "confidence": confidence,
             "evidence": evidence,
@@ -1067,7 +1104,7 @@ class KGMemory:
                     f"""
                     MATCH (s) WHERE elementId(s) = $subj_id
                     MATCH (o) WHERE elementId(o) = $obj_id
-                    MERGE (s)-[r:{predicate} {{relation_id: $relation_id}}]->(o)
+                    MERGE (s)-[r:{predicate} {{{relation_id_property}: $relation_id}}]->(o)
                     ON CREATE SET r = $props
                     ON MATCH SET
                         r.confidence = CASE

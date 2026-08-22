@@ -3,13 +3,14 @@
 cognitive_agent/schema/relation_signatures.py — 统一关系签名
 
 v1 baseline、v2/v3 Cognitive Agent 和 entity-linking preflight 共用本文件。
-关系签名只描述类型合法性；是否可写和证据边界由 ontology.py 统一定义。
+文献候选签名只描述语义上可表达的类型组合；主库写入契约由
+``write_contract.py`` 单独定义。两层绝不能混用。
 """
 
 # ── 关系签名 ──
 # key: 关系谓词
 # value: 允许的 (subject Neo4j label, object Neo4j label) 集合
-RELATION_SIGNATURES: dict[str, set[tuple[str, str]]] = {
+LITERATURE_CANDIDATE_SIGNATURES: dict[str, set[tuple[str, str]]] = {
     # ASSOCIATED_WITH 是通用关联谓词，覆盖分子生物学中常见的二元关系。
     # v2 扩展：从 4 → 18 种签名，消除 56% 的误杀率。
     "ASSOCIATED_WITH": {
@@ -78,29 +79,13 @@ RELATION_SIGNATURES: dict[str, set[tuple[str, str]]] = {
     },
 }
 
-# ── Neo4j 可导入谓词 ──
-NEO4J_IMPORTABLE_PREDICATES: set[str] = {
-    "ASSOCIATED_WITH",
-    "PROGNOSTIC_IN",
-    "INTERACTS_WITH",
-    "PARTICIPATES_IN",
-    "EXPRESSED_IN",
-    "ASSOCIATED_WITH_METABOLITE",
-    "PROGRESSES_TO",
-    "ENCODES",
-}
+# Backwards-compatible name for extractors and semantic tooling.  It must not
+# be used to authorise a Neo4j write; use MAIN_KG_WRITE_CONTRACT instead.
+RELATION_SIGNATURES = LITERATURE_CANDIDATE_SIGNATURES
 
-# ── 关系 ID 属性名 (Neo4j 中存储用) ──
-RELATION_ID_PROPERTY: dict[str, str] = {
-    "ASSOCIATED_WITH": "relation_id",
-    "PROGNOSTIC_IN": "relationship_id",
-    "INTERACTS_WITH": "interaction_id",
-    "PARTICIPATES_IN": "relationship_id",
-    "EXPRESSED_IN": "relationship_id",
-    "ASSOCIATED_WITH_METABOLITE": "relationship_id",
-    "PROGRESSES_TO": "relationship_id",
-    "ENCODES": "relationship_id",
-}
+# Deprecated compatibility exports for older pipeline modules.  New Neo4j
+# write code imports these directly from ``write_contract``.
+from .write_contract import NEO4J_IMPORTABLE_PREDICATES, RELATION_ID_PROPERTY  # noqa: E402
 
 # ── 方向类型 ──
 ALLOWED_DIRECTIONS: set[str] = {"positive", "negative", "increase", "decrease", "none", "unknown"}

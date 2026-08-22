@@ -257,7 +257,11 @@ class ArticleToolRouterTests(unittest.TestCase):
         self.assertEqual(shadow_post.route, "RECOVERY")
         self.assertFalse(shadow_post.should_call("second_llm_refiner"))
 
-    def test_shadow_semantic_llm_requires_import_ready_candidate(self):
+    def test_shadow_semantic_uncertainty_reaches_second_llm(self):
+        # Semantic uncertainty (weak trigger heuristics, hedging) is exactly
+        # what the bounded second model is for.  Starving it here costs far
+        # more precision than the calls it saves; deterministic hard blockers
+        # alone stay local.
         title, abstract = "Prognostic study", "TP53 may be prognostic in HCC."
         legacy_pre = self.pre(title, abstract)
         shadow_pre = self.router.shadow_plan_before_extraction(
@@ -275,7 +279,7 @@ class ArticleToolRouterTests(unittest.TestCase):
             shadow_pre, legacy_post, extraction, verification,
             memory_available=False, rag_enabled=False, second_llm_enabled=True,
         )
-        self.assertFalse(shadow_post.should_call("second_llm_refiner"))
+        self.assertTrue(shadow_post.should_call("second_llm_refiner"))
         self.assertEqual(shadow_post.route, "DEEP")
         self.assertTrue(
             shadow_post.layer_trace["layer_3_sufficiency_judgment"]["deep_audit_required"]

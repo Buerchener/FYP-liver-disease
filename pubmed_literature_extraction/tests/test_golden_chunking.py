@@ -35,6 +35,20 @@ class GoldenExampleSelectorTests(unittest.TestCase):
             sum(name.startswith("negative_") for name in selected.names), 2
         )
 
+    def test_single_example_uses_the_most_relevant_positive(self):
+        selected = GoldenExampleSelector().select(
+            "RESULTS: OTUD5 interacted with MAVS in macrophages.",
+            "human_omics", max_examples=1,
+        )
+        self.assertEqual(selected.names, ["gold_otud5_interaction_expression"])
+
+    def test_single_review_example_preserves_the_negative_boundary(self):
+        selected = GoldenExampleSelector().select(
+            "This review summarizes therapeutic strategies for HCC.",
+            "review", max_examples=1,
+        )
+        self.assertEqual(selected.names, ["negative_review_no_asserted_relation"])
+
 
 class ArticleChunkerTests(unittest.TestCase):
     def setUp(self):

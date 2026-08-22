@@ -31,7 +31,9 @@ ALLOWED_CONDITION_KEYS = frozenset({
 })
 FORBIDDEN_TEXT = re.compile(
     r"(?:\bPMID\b|\b\d{7,9}\b|import_ready\s*=\s*true|bypass|override\s+verifier|"
-    r"schema\s+(?:change|extension)|safe\s*write\s+(?:bypass|override)|```|__import__|eval\(|exec\()",
+    r"schema\s+(?:change|extension)|safe\s*write\s+(?:bypass|override)|"
+    r"main_kg_write_contract|write_contract_valid|candidate_schema_valid|"
+    r"schema_gap_reasons|relation_id_property|```|__import__|eval\(|exec\()",
     re.IGNORECASE,
 )
 SAFE_TOKEN_RE = re.compile(r"^[\w\s\-+./():,%]+$", re.UNICODE)

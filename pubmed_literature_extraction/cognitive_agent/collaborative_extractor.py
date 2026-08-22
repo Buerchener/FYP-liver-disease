@@ -132,6 +132,11 @@ class CollaborativeConfig:
     generic_rate_threshold: float = 0.20
     duplicate_rate_threshold: float = 0.20
     evidence_failure_threshold: float = 0.40
+    # Round-4: the second model is an INDEPENDENT VERIFIER of already-positive,
+    # semantically-uncertain relations (CONFIRM / REJECT / REVIEW).  It must
+    # NOT add new relations on its own; recovery-candidate ADD_RELATION is
+    # disabled unless explicitly re-enabled.
+    add_relations: bool = False
 
 
 @dataclass
@@ -250,10 +255,6 @@ class CollaborativeExtractor:
 
     def build_review_candidates(self, verification: dict) -> list[dict]:
         candidates: list[dict] = []
-        pair_core_active = any(
-            "pair_classifier_candidate" in set(item.get("quality_flags", []) or [])
-            for item in verification.get("relations", []) or []
-        )
         for raw_index, relation in enumerate(verification.get("relations", []) or []):
             flags = set(relation.get("quality_flags", []) or [])
             if flags & HARD_RELATION_BLOCKERS:
@@ -273,7 +274,7 @@ class CollaborativeExtractor:
                 "trigger_missing", "trigger_not_linking_endpoints",
                 "trigger_direction_mismatch", "weak_evidence", "uncertain",
                 "agent_evidence_repaired", "pair_low_confidence",
-                "pair_ambiguous_predicate",
+                "pair_ambiguous_predicate", "judge_uncertain",
             }
             high_risk_predicate = predicate in {
                 "PROGNOSTIC_IN", "INTERACTS_WITH", "EXPRESSED_IN", "PROGRESSES_TO",
@@ -284,12 +285,10 @@ class CollaborativeExtractor:
                 evidence,
                 re.IGNORECASE,
             ))
-            # CoRE policy: after the pair core is active, DeepSeek receives only
-            # uncertainty-band candidates, not every high-risk predicate.
-            if pair_core_active and not (
-                flags & {"pair_low_confidence", "pair_ambiguous_predicate"}
-            ):
-                continue
+            # Semantic uncertainty is precisely what the bounded second model
+            # exists for: hard blockers stay local, everything uncertain may
+            # be adjudicated.  The old pair-core gate starved the adjudicator
+            # and cost more precision than the calls it saved.
             if not (flags & fixable_flags or high_risk_predicate or hedged_or_proxy):
                 continue
             candidates.append({
@@ -574,6 +573,11 @@ class CollaborativeExtractor:
             if candidate_kind == "recovery" and action not in {"ADD_RELATION", "REJECT"}:
                 warnings.append("invalid_recovery_action_ignored")
                 continue
+            if action == "ADD_RELATION" and not self.config.add_relations:
+                # Round-4: the second model is an independent verifier; it
+                # cannot add new relations.  Recovery ADD_RELATION is disabled.
+                warnings.append("second_llm_relation_addition_disabled")
+                continue
             if candidate_kind != "recovery" and action == "ADD_RELATION":
                 warnings.append("open_relation_addition_ignored")
                 continue
@@ -610,6 +614,7 @@ class CollaborativeExtractor:
             decisions.append({
                 "candidate_id": candidate_id,
                 "raw_index": candidate["raw_index"],
+                "pair_candidate_id": candidate.get("pair_candidate_id", ""),
                 "candidate_kind": candidate_kind,
                 "action": action,
                 "new_predicate": new_predicate,

@@ -38,11 +38,11 @@ from pathlib import Path
 from typing import Any
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from cognitive_agent.schema.ontology import (
-    RELATION_SIGNATURES,
+from cognitive_agent.schema.ontology import annotate_relation_evidence
+from cognitive_agent.schema.relation_signatures import RELATION_SIGNATURES
+from cognitive_agent.schema.write_contract import (
     NEO4J_IMPORTABLE_PREDICATES,
-    RELATION_ID_PROPERTY as SHARED_RELATION_ID_PROPERTY,
-    annotate_relation_evidence,
+    write_contract_assessment,
 )
 
 LLM_API_KEY = os.environ.get("LLM_API_KEY", "") or os.environ.get("GEMINI_API_KEY", "") or os.environ.get("LLM_API_KEY", "")
@@ -57,8 +57,6 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 OUTPUT_DIR = SCRIPT_DIR / "extraction_output"
 
 ALLOWED_ENTITY_TYPES = {"Gene", "Disease", "Protein", "Pathway", "Metabolite", "Tissue", "CellType"}
-NEO4J_RELATION_ID_PROPERTY = dict(SHARED_RELATION_ID_PROPERTY)
-
 ALLOWED_DIRECTIONS = {"positive", "negative", "increase", "decrease", "none", "unknown"}
 NON_HUMAN_SPECIES = {"mus musculus", "mouse", "mice", "rat", "rattus norvegicus"}
 GENERIC_PROGRESSION_CUES = (
@@ -1014,6 +1012,7 @@ def write_to_neo4j(extraction: dict, record: dict) -> dict:
         "relations_skipped_quality": 0,
         "relations_skipped_schema": 0,
         "relations_skipped_non_importable_predicate": 0,
+        "relations_skipped_write_contract": 0,
         "relations_skipped_unmatched_endpoint": 0,
         "errors": [],
     }
@@ -1038,6 +1037,10 @@ def write_to_neo4j(extraction: dict, record: dict) -> dict:
                 if pred not in NEO4J_IMPORTABLE_PREDICATES:
                     stats["relations_skipped_non_importable_predicate"] += 1
                     continue
+                contract = write_contract_assessment(rel)
+                if not contract.valid:
+                    stats["relations_skipped_write_contract"] += 1
+                    continue
 
                 source_node = _match_neo4j_node(
                     session=session,
@@ -1059,7 +1062,7 @@ def write_to_neo4j(extraction: dict, record: dict) -> dict:
                     continue
 
                 evidence = rel.get("evidence", rel.get("evidence_sentence", ""))
-                id_property = NEO4J_RELATION_ID_PROPERTY[pred]
+                id_property = contract.relation_id_property
                 rel_id = _neo4j_candidate_relationship_id(
                     predicate=pred,
                     pmid=pmid,

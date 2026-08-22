@@ -29,7 +29,7 @@ HARD_RELATION_FLAGS = SEMANTIC_REJECT_FLAGS
 REVIEWABLE_FLAGS = frozenset({
     "trigger_missing", "trigger_not_linking_endpoints", "trigger_direction_mismatch",
     "weak_evidence", "uncertain", "pair_low_confidence", "pair_ambiguous_predicate",
-    "agent_evidence_repaired", "manual_review",
+    "judge_uncertain", "judge_verifier_conflict", "agent_evidence_repaired", "manual_review",
 })
 
 
@@ -317,7 +317,15 @@ class CentralAgentV2:
         if state.consecutive_remote_no_change >= 2:
             return False, "two_remote_calls_without_state_change"
         usage = state.remote_usage.get(tool, RemoteToolUsage())
-        per_tool_limit = {"article_profiler": 1, "second_llm_refiner": 4, "debug_reviewer": 1}.get(tool, 4)
+        per_tool_limit = {
+            "article_profiler": 1,
+            "entity_recovery": 1,
+            "pairwise_judge": 4,
+            "evidence_entailment": 2,
+            "second_llm_refiner": 4,
+            "debug_reviewer": 1,
+            "qwen_edit_critic": 1,
+        }.get(tool, 4)
         if usage.attempted >= per_tool_limit:
             return False, "per_tool_remote_budget_exhausted"
         return True, "within_remote_budget"
@@ -402,6 +410,7 @@ class CentralAgentV2:
         if remote:
             usage = state.remote_usage.setdefault(tool, RemoteToolUsage())
             cached = cache_status in {"memory_hit", "persistent_hit", "singleflight_shared"}
+            defer_state_change = bool((details or {}).get("defer_state_change"))
             if cached:
                 usage.cached += 1
             else:
@@ -412,7 +421,12 @@ class CentralAgentV2:
                 usage.prompt_tokens += int(prompt_tokens or 0)
                 usage.output_tokens += int(output_tokens or 0)
                 usage.latency_s += float(latency_s or 0.0)
-                if changed:
+                if defer_state_change:
+                    # Some batched tools update article state only after all
+                    # model responses have been validated.  Their broker will
+                    # resolve state-change accounting once that phase commits.
+                    pass
+                elif changed:
                     usage.state_changes += 1
                     state.consecutive_remote_no_change = 0
                 else:

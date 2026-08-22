@@ -59,7 +59,8 @@ PREDICATE_PATTERNS: dict[str, tuple[str, ...]] = {
     "ASSOCIATED_WITH": (
         r"\bassociated\s+with\b", r"\bassociation\s+(?:between|with)\b",
         r"\bcorrelat(?:e|es|ed|ion)\s+with\b", r"\blinked\s+to\b",
-        r"\brelated\s+to\b", r"\b(?:increase|decrease)d?\b.{0,35}\bin\b",
+        r"\bclosely\s+linked\s+to\b", r"\brelated\s+to\b",
+        r"\b(?:increase|decrease)d?\b.{0,35}\bin\b",
     ),
 }
 
@@ -76,9 +77,15 @@ class PairClassifierConfig:
     high_confidence_threshold: float = 0.78
     relation_threshold: float = 0.48
     uncertainty_floor: float = 0.35
-    max_candidates: int = 64
-    max_low_confidence_candidates: int = 12
-    include_adjacent_units: bool = False
+    max_candidates: int = 128
+    max_low_confidence_candidates: int = 24
+    # High-recall candidate generation: pair entities that co-occur in the
+    # same clause, the same sentence, or adjacent sentences.  A missing
+    # trigger must never delete an ASSOCIATED_WITH-style candidate before the
+    # downstream judge sees it.
+    include_parent_sentences: bool = True
+    include_adjacent_windows: bool = True
+    adjacent_windows_require_trigger: bool = True
 
 
 @dataclass
@@ -375,6 +382,48 @@ class BioREDPairClassifier:
             output.setdefault(key, []).append(rel)
         return output
 
+    @staticmethod
+    def _pairing_windows(
+        source_text: str, units: list[EvidenceUnit], config: "PairClassifierConfig",
+    ) -> list[EvidenceUnit]:
+        """Clause units plus lossless sentence and adjacent-sentence windows.
+
+        The lattice is a high-recall candidate generator: pairing windows are
+        widened (clause -> sentence -> adjacent sentences) so that coordinated
+        endpoints split by clause boundaries or sentence boundaries still form
+        a candidate.  Every window remains an exact source substring, so the
+        evidence contract is untouched.
+        """
+        from cognitive_agent.evidence_units import ArticleEvidenceReader
+
+        windows: list[EvidenceUnit] = list(units or [])
+        parents: list[EvidenceUnit] = []
+        # Parent/adjacent windows are exact source substrings; without the
+        # source text they would be empty and must never replace clauses.
+        if source_text and config.include_parent_sentences:
+            parents = ArticleEvidenceReader.parent_units(source_text, windows)
+            windows.extend(parents)
+        if source_text and config.include_adjacent_windows and parents:
+            windows.extend(
+                ArticleEvidenceReader.adjacent_sentence_windows(source_text, parents)
+            )
+        unique: dict[tuple[int, int], EvidenceUnit] = {}
+        for window in windows:
+            key = (window.char_start, window.char_end)
+            previous = unique.get(key)
+            if previous is None or len(window.text) < len(previous.text):
+                unique[key] = window
+        return sorted(unique.values(), key=lambda item: (item.char_start, item.char_end))
+
+    @staticmethod
+    def _has_explicit_relation_trigger(text: str) -> bool:
+        """Whether a widened cross-sentence window contains a schema cue."""
+        return any(
+            re.search(pattern, text or "", re.IGNORECASE)
+            for patterns in PREDICATE_PATTERNS.values()
+            for pattern in patterns
+        )
+
     def build_candidates(
         self,
         entities: list[dict],
@@ -405,12 +454,23 @@ class BioREDPairClassifier:
                 and str(value).strip().casefold() != mention.casefold()
             ))
             pairing_entities.append(enriched)
-        candidates: list[RelationPairCandidate] = []
-        seen: set[tuple[str, str, str, str, str]] = set()
-        for unit in units:
+
+        windows = self._pairing_windows(source_text, units, self.config)
+
+        # Pass 1: enumerate schema-compatible pairs per window.  The type
+        # signature mask stays a hard constraint; co-occurrence alone is
+        # enough to form a candidate.  No trigger is required here.
+        pair_rows: dict[tuple[str, str, str, str], dict] = {}
+        for window in windows:
+            if (
+                self.config.adjacent_windows_require_trigger
+                and window.unit_id.startswith("w")
+                and not self._has_explicit_relation_trigger(window.text)
+            ):
+                continue
             local: list[tuple[dict, tuple[int, int]]] = []
             for entity in pairing_entities:
-                span = self._mention_span(unit, entity)
+                span = self._mention_span(window, entity)
                 if span:
                     local.append((entity, span))
             for subject, subject_span in local:
@@ -422,70 +482,102 @@ class BioREDPairClassifier:
                     allowed = self._allowed(subject_type, object_type)
                     if not allowed:
                         continue
-                    key = (
+                    pair_key = (
                         normalize_surface(subject.get("mention", "")), subject_type,
-                        normalize_surface(obj.get("mention", "")), object_type, unit.unit_id,
+                        normalize_surface(obj.get("mention", "")), object_type,
                     )
-                    if key in seen:
-                        continue
-                    seen.add(key)
-                    pair_hints = hints.get(key[:4], [])
-                    digest = hashlib.sha1("|".join(key).encode("utf-8")).hexdigest()[:10]
-                    evidence_text = unit.text
-                    evidence_start = unit.char_start
-                    evidence_end = unit.char_end
-                    evidence_confidence = 0.0
-                    evidence_entailment = "NOT_ENOUGH_INFORMATION"
-                    evidence_trigger_predicate = ""
-                    if source_text and self.evidence_selector_enabled:
-                        selections = []
-                        for predicate in allowed:
-                            selected = self.evidence_selector.select(
-                                candidate_id=f"p-{digest}",
-                                subject_mentions=self._mentions(subject),
-                                object_mentions=self._mentions(obj),
-                                predicate=predicate, units=[unit], source_text=source_text,
-                            )
-                            if selected:
-                                selections.append((
-                                    selected.trigger_span is None,
-                                    selected.section not in RESULT_SECTIONS,
-                                    len(selected.text), predicate, selected,
-                                ))
-                        if selections:
-                            _, _, _, evidence_trigger_predicate, selected = min(selections)
-                            evidence_text = selected.text
-                            evidence_start = selected.char_start
-                            evidence_end = selected.char_end
-                            evidence_confidence = selected.evidence_confidence
-                            evidence_entailment = selected.local_label
-                    candidates.append(RelationPairCandidate(
-                        candidate_id=f"p-{digest}",
-                        subject=str(subject.get("mention", "")), subject_type=subject_type,
-                        object=str(obj.get("mention", "")), object_type=object_type,
-                        allowed_predicates=allowed,
-                        evidence=evidence_text,
-                        evidence_unit_id=unit.unit_id,
-                        evidence_section=unit.section,
-                        evidence_char_start=evidence_start,
-                        evidence_char_end=evidence_end,
-                        source_predicates=list(dict.fromkeys(
-                            str(item.get("predicate", "")).upper() for item in pair_hints
-                            if str(item.get("predicate", "")).upper() in allowed
-                        )),
-                        source_directions=list(dict.fromkeys(
-                            str(item.get("direction", "unknown")) for item in pair_hints
-                        )),
-                        endpoint_distance=max(
-                            0, max(subject_span[0], object_span[0]) - min(subject_span[1], object_span[1])
-                        ),
-                        evidence_confidence=evidence_confidence,
-                        evidence_entailment=evidence_entailment,
-                        evidence_trigger_predicate=evidence_trigger_predicate,
-                    ))
+                    row = pair_rows.get(pair_key)
+                    if row is None:
+                        digest = hashlib.sha1("|".join(pair_key).encode("utf-8")).hexdigest()[:10]
+                        pair_rows[pair_key] = {
+                            "candidate_id": f"p-{digest}",
+                            "subject": subject,
+                            "subject_type": subject_type,
+                            "object": obj,
+                            "object_type": object_type,
+                            "allowed": allowed,
+                            "pair_hints": hints.get(pair_key, []),
+                            "windows": [],
+                        }
+                        row = pair_rows[pair_key]
+                    row["windows"].append((window, subject_span, object_span))
 
-        # Evidence-local pairs with a LangExtract hint are most valuable, then
-        # result/conclusion assertions, then close pairs.  This bounds N^2.
+        # Pass 2: choose the best pairing window per pair and run the
+        # minimal-span EvidenceSelector over it best-effort.  A missing
+        # trigger downgrades ranking but never deletes the candidate.
+        candidates: list[RelationPairCandidate] = []
+        for pair_key in sorted(pair_rows):
+            row = pair_rows[pair_key]
+            pair_windows = row["windows"]
+            pair_windows.sort(key=lambda item: (
+                item[0].section not in RESULT_SECTIONS,
+                len(item[0].text),
+                item[0].char_start,
+            ))
+            window, subject_span, object_span = pair_windows[0]
+            subject, obj = row["subject"], row["object"]
+            evidence_text = window.text
+            evidence_start = window.char_start
+            evidence_end = window.char_end
+            evidence_confidence = 0.0
+            evidence_entailment = "NOT_ENOUGH_INFORMATION"
+            evidence_trigger_predicate = ""
+            selectable = [
+                item[0] for item in pair_windows
+                if BioREDPairClassifier._mention_span(item[0], subject)
+                and BioREDPairClassifier._mention_span(item[0], obj)
+            ]
+            if source_text and self.evidence_selector_enabled:
+                selections = []
+                for predicate in row["allowed"]:
+                    selected = self.evidence_selector.select(
+                        candidate_id=row["candidate_id"],
+                        subject_mentions=self._mentions(subject),
+                        object_mentions=self._mentions(obj),
+                        predicate=predicate, units=selectable or [window],
+                        source_text=source_text,
+                    )
+                    if selected:
+                        selections.append((
+                            selected.trigger_span is None,
+                            selected.section not in RESULT_SECTIONS,
+                            len(selected.text), predicate, selected,
+                        ))
+                if selections:
+                    _, _, _, evidence_trigger_predicate, selected = min(selections)
+                    evidence_text = selected.text
+                    evidence_start = selected.char_start
+                    evidence_end = selected.char_end
+                    evidence_confidence = selected.evidence_confidence
+                    evidence_entailment = selected.local_label
+            candidates.append(RelationPairCandidate(
+                candidate_id=row["candidate_id"],
+                subject=str(subject.get("mention", "")), subject_type=row["subject_type"],
+                object=str(obj.get("mention", "")), object_type=row["object_type"],
+                allowed_predicates=row["allowed"],
+                evidence=evidence_text,
+                evidence_unit_id=window.unit_id,
+                evidence_section=window.section,
+                evidence_char_start=evidence_start,
+                evidence_char_end=evidence_end,
+                source_predicates=list(dict.fromkeys(
+                    str(item.get("predicate", "")).upper() for item in row["pair_hints"]
+                    if str(item.get("predicate", "")).upper() in row["allowed"]
+                )),
+                source_directions=list(dict.fromkeys(
+                    str(item.get("direction", "unknown")) for item in row["pair_hints"]
+                )),
+                endpoint_distance=max(
+                    0, max(subject_span[0], object_span[0]) - min(subject_span[1], object_span[1])
+                ),
+                evidence_confidence=evidence_confidence,
+                evidence_entailment=evidence_entailment,
+                evidence_trigger_predicate=evidence_trigger_predicate,
+            ))
+
+        # Candidates with a LangExtract hint are most valuable, then
+        # result/conclusion assertions, then trigger-bearing pairs, then
+        # close pairs.  The raised cap absorbs the widened windows.
         candidates.sort(key=lambda item: (
             not bool(item.source_predicates),
             item.evidence_section not in RESULT_SECTIONS,
@@ -604,6 +696,18 @@ class BioREDPairClassifier:
         for candidate, prediction in zip(candidates, predictions):
             prediction = self._apply_rule_priors(candidate, prediction)
             plausible_relation = prediction.relation_probability >= self.config.uncertainty_floor
+            # A deterministic NO_RELATION score is only terminal for bare
+            # co-occurrence.  Candidate extraction, result-bearing evidence,
+            # or an evidence-derived predicate cue is enough to justify a
+            # bounded independent review of the strongest allowed predicate.
+            supported_negative_abstention = (
+                prediction.label == NO_RELATION
+                and bool(
+                    candidate.source_predicates
+                    or candidate.evidence_trigger_predicate
+                    or candidate.evidence_section in RESULT_SECTIONS
+                )
+            )
             prediction.routed_to_llm = prediction.routed_to_llm or bool(
                 plausible_relation
                 and (
@@ -611,6 +715,9 @@ class BioREDPairClassifier:
                     or prediction.margin < 0.18
                 )
             )
+            if supported_negative_abstention:
+                prediction.routed_to_llm = True
+                prediction.reason_codes.append("supported_no_relation_routed")
             result.predictions.append(prediction)
             if prediction.label == NO_RELATION:
                 # CoRE also routes uncertain negative decisions.  Represent the

@@ -11,8 +11,9 @@ in exactly the same source order.
   annotations.
 - Allowed entity types are `Gene`, `Protein`, `Disease`, `Pathway`,
   `Metabolite`, `Tissue`, and `CellType`.
-- Allowed predicates are the eight predicates defined in
-  `cognitive_agent/schema/relation_signatures.py`.
+- Allowed predicate names are the eight project predicates. Endpoint
+  signatures are now evaluated in two layers: broad literature candidates and
+  the narrower current Neo4j write contract.
 - The set is relation-centric, not an exhaustive NER corpus. `entities`
   contains relation endpoints and enough core disease context to make
   deliberate zero-relation records interpretable.
@@ -55,7 +56,10 @@ claims were downgraded where automatic ingestion would overstate the evidence.
 - In-scope documents: 159
 - Deliberate zero-relation documents: 123
 - Semantic relations: 172
-- Strict `import_ready=true` relations: 29
+- Current Neo4j write-contract semantic relations: 70
+- Candidate-only semantic relations: 102
+- Current Neo4j strict `import_ready=true` relations: 15
+- Legacy wide-schema `import_ready=true` relations in the frozen source file: 29
 - Predicate counts:
   - `ASSOCIATED_WITH`: 117
   - `INTERACTS_WITH`: 15
@@ -68,10 +72,33 @@ claims were downgraded where automatic ingestion would overstate the evidence.
 
 ## Files
 
-- `pubmed_200_gold_v2_strict.jsonl`: final combined, strictly adjudicated set.
+- `pubmed_200_gold_v2_strict.jsonl`: frozen combined source annotation. It is
+  kept unchanged for traceability and still contains broad candidate-layer
+  relations.
+- `pubmed_200_gold_v2_candidate_view.jsonl`: all 172 semantic relations with
+  `gold_write_status=WRITE_CONTRACT|CANDIDATE_ONLY` added to each relation.
+- `pubmed_200_gold_v2_write_contract.jsonl`: 70 semantic relations whose
+  predicate and endpoint types match the current main Neo4j write contract.
+- `pubmed_200_gold_v2_strict_import_ready.jsonl`: 15 relations that both match
+  the current main Neo4j write contract and have `import_ready=true`.
+- `pubmed_200_gold_v2_write_contract_audit.json`: generated audit report for
+  the split above.
 - `pubmed_50_gold_v1.jsonl`: historical first-50 component, with exact-span
   corrections made during v2 review.
 - `pubmed_51_200_gold_v2_strict.jsonl`: manually annotated records 51–200.
+
+## Evaluation views
+
+- Semantic candidate recall/review: evaluate against
+  `pubmed_200_gold_v2_candidate_view.jsonl`.
+- Main-KG relation classification: evaluate against
+  `pubmed_200_gold_v2_write_contract.jsonl`.
+- Strict automatic write quality: evaluate against
+  `pubmed_200_gold_v2_strict_import_ready.jsonl`.
+
+The 102 `CANDIDATE_ONLY` relations should not be deleted. They are valid
+literature-candidate gold labels for the new candidate relation store, but they
+must not be counted as mandatory Neo4j main-schema writes.
 
 All rows in the final combined file carry
 `review_status="llm_manual_v2_strict_adjudicated"`.

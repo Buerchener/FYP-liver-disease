@@ -3,21 +3,16 @@ from __future__ import annotations
 
 from typing import Any
 
-from .relation_signatures import RELATION_SIGNATURES, NEO4J_IMPORTABLE_PREDICATES, RELATION_ID_PROPERTY
+from .relation_signatures import LITERATURE_CANDIDATE_SIGNATURES
+from .write_contract import is_main_kg_write_signature
 
 
 ONTOLOGY_VERSION = "liver-kg-ontology-v1"
 
-# A relation can be schema-valid but still deliberately read-only.
-WRITE_POLICY = {
-    predicate: ("write_candidate" if predicate in NEO4J_IMPORTABLE_PREDICATES else "identify_only")
-    for predicate in RELATION_SIGNATURES
-}
-
 # Direct means the edge itself states a disease/prognosis/progression claim.
 DIRECT_DISEASE_SIGNATURES = {
     (predicate, signature)
-    for predicate, signatures in RELATION_SIGNATURES.items()
+    for predicate, signatures in LITERATURE_CANDIDATE_SIGNATURES.items()
     for signature in signatures
     if "Disease" in signature and predicate in {"ASSOCIATED_WITH", "PROGNOSTIC_IN", "PROGRESSES_TO"}
 }
@@ -28,11 +23,22 @@ CONTEXT_RELATIONS = {
 
 
 def relation_schema_valid(predicate: str, subject_type: str, object_type: str) -> bool:
-    return (subject_type, object_type) in RELATION_SIGNATURES.get(predicate, set())
+    return (
+        (subject_type, object_type)
+        in LITERATURE_CANDIDATE_SIGNATURES.get(predicate, set())
+    )
 
 
-def relation_write_policy(predicate: str) -> str:
-    return WRITE_POLICY.get(predicate, "reject")
+def relation_write_policy(
+    predicate: str,
+    subject_type: str = "",
+    object_type: str = "",
+) -> str:
+    if is_main_kg_write_signature(predicate, subject_type, object_type):
+        return "write_candidate"
+    if relation_schema_valid(predicate, subject_type, object_type):
+        return "identify_only"
+    return "reject"
 
 
 def classify_evidence(
@@ -69,5 +75,9 @@ def annotate_relation_evidence(rel: dict[str, Any], *, source: str = "PubMed") -
     )
     rel["evidence_class"] = evidence_class
     rel["evidence_basis"] = basis
-    rel["write_policy"] = relation_write_policy(rel.get("predicate", ""))
+    rel["write_policy"] = relation_write_policy(
+        rel.get("predicate", ""),
+        rel.get("subject_type", ""),
+        rel.get("object_type", ""),
+    )
     return rel

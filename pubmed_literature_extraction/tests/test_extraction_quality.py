@@ -431,7 +431,10 @@ class ExtractionQualityTests(unittest.TestCase):
 
         accepted = self.verifier.verify(entities, [positive], text=text).relations[0]
         rejected = self.verifier.verify(entities, [negative], text=text).relations[0]
-        self.assertTrue(accepted.import_ready)
+        self.assertEqual(accepted.semantic_status, "ACCEPTED")
+        self.assertTrue(accepted.candidate_schema_valid)
+        self.assertFalse(accepted.write_contract_valid)
+        self.assertEqual(accepted.write_status, "SEMANTIC_ONLY")
         self.assertFalse(rejected.import_ready)
         self.assertIn("trigger_direction_mismatch", rejected.quality_flags)
 
@@ -446,7 +449,11 @@ class ExtractionQualityTests(unittest.TestCase):
             "cholestasis", "Disease", text, "none",
         )
         result = self.verifier.verify(entities, [rel], text=text)
-        self.assertTrue(result.relations[0].import_ready)
+        checked = result.relations[0]
+        self.assertEqual(checked.semantic_status, "ACCEPTED")
+        self.assertTrue(checked.candidate_schema_valid)
+        self.assertFalse(checked.write_contract_valid)
+        self.assertEqual(checked.write_status, "SEMANTIC_ONLY")
 
     def test_strict_adjacent_sentence_evidence_can_be_level_two(self):
         text = "TP53 was measured in HCC patients. TP53 is associated with HCC."

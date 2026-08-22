@@ -154,6 +154,28 @@ class RelationPairClassifierTests(unittest.TestCase):
         self.assertIn("pair_low_confidence", flags)
         self.assertIn("pair_no_relation_abstention", flags)
 
+    def test_supported_high_confidence_no_relation_routes_to_judge(self):
+        class OverconfidentBackend:
+            name = "overconfident-test"
+
+            def predict(self, candidate):
+                return PairPrediction(
+                    candidate_id=candidate.candidate_id, label=NO_RELATION,
+                    confidence=0.92, relation_probability=0.08,
+                    no_relation_probability=0.92, margin=0.84,
+                    backend=self.name, predicate_scores={"ASSOCIATED_WITH": 0.08},
+                )
+
+        classifier = BioREDPairClassifier(
+            PairClassifierConfig(mode="active"), backend=OverconfidentBackend()
+        )
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 and HCC were jointly evaluated."
+        result = classifier.classify(self.entities, [], self.reader.read(text))
+        self.assertEqual(result.predictions[0].label, NO_RELATION)
+        self.assertTrue(result.predictions[0].routed_to_llm)
+        self.assertIn("supported_no_relation_routed", result.predictions[0].reason_codes)
+        self.assertEqual(len(result.low_confidence_relations), 1)
+
     def test_active_rule_prior_is_bounded_and_audited(self):
         rule_payload = {
             "kind": "pair_prior", "conditions": {"predicates": ["ASSOCIATED_WITH"]},

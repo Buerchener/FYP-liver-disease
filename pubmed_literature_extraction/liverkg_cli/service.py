@@ -101,6 +101,8 @@ def agent_command(spec: RunSpec, *, resume: bool = False) -> list[str]:
         profile_args.get("execution_mode", "agent-v2"),
         "--agent-budget-profile",
         profile_args.get("agent_budget_profile", "quality"),
+        "--verification-policy",
+        profile_args.get("verification_policy", "legacy"),
         "--rule-memory-mode",
         profile_args.get("rule_memory_mode", "active"),
         "--evidence-entailment-mode",
@@ -113,6 +115,13 @@ def agent_command(spec: RunSpec, *, resume: bool = False) -> list[str]:
         profile_args.get("relation_authority", "unified-active"),
         "--extraction-cache-mode",
         profile_args.get("extraction_cache_mode", "persistent"),
+        "--candidate-store-mode",
+        profile_args.get("candidate_store_mode", "sqlite"),
+        "--candidate-store-path",
+        profile_args.get(
+            "candidate_store_path",
+            str(run_dir(spec.run_id) / "candidate_relations.sqlite3"),
+        ),
         "--aux-primary-model",
         spec.aux_primary_model,
         "--aux-critic-model",
@@ -120,6 +129,29 @@ def agent_command(spec: RunSpec, *, resume: bool = False) -> list[str]:
         "--article-checkpoint-dir",
         str(run_dir(spec.run_id) / "checkpoints"),
     ]
+    optional_value_flags = {
+        "agent_max_aux_remote_calls": "--agent-max-aux-remote-calls",
+        "agent_soft_timeout": "--agent-soft-timeout",
+        "agent_hard_timeout": "--agent-hard-timeout",
+        "pairwise_judge_mode": "--pairwise-judge-mode",
+        "pairwise_judge_model": "--pairwise-judge-model",
+        "pairwise_judge_max_pairs": "--pairwise-judge-max-pairs",
+        "pairwise_judge_max_calls": "--pairwise-judge-max-calls",
+        "pairwise_judge_min_confidence": "--pairwise-judge-min-confidence",
+        "second_llm_timeout": "--second-llm-timeout",
+    }
+    for key, flag in optional_value_flags.items():
+        if key in profile_args and profile_args[key] is not None:
+            cmd += [flag, str(profile_args[key])]
+    optional_switch_flags = {
+        "pairwise_judge_claim_gate": "--pairwise-judge-claim-gate",
+        "pairwise_judge_hinted_only": "--pairwise-judge-hinted-only",
+        "disable_causal_conflict": "--disable-causal-conflict",
+        "disable_qwen_critic": "--disable-qwen-critic",
+    }
+    for key, flag in optional_switch_flags.items():
+        if profile_args.get(key):
+            cmd.append(flag)
     if spec.rule_bundle:
         cmd += ["--rule-bundle", spec.rule_bundle]
     if spec.conformal_calibration:

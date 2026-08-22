@@ -58,10 +58,12 @@ class Neo4jIntegrationTests(unittest.TestCase):
         first = self.kg.create_relation(
             gene, "ASSOCIATED_WITH", disease, {"test_marker": self.marker},
             evidence="relation-evidence", pmid="test", confidence=0.8,
+            subject_type="Gene", object_type="Disease",
         )
         second = self.kg.create_relation(
             gene, "ASSOCIATED_WITH", disease, {"test_marker": self.marker},
             evidence="relation-evidence", pmid="test", confidence=0.6,
+            subject_type="Gene", object_type="Disease",
         )
         self.assertEqual(first, second)
 

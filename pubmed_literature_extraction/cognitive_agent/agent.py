@@ -62,12 +62,20 @@ from cognitive_agent.article_chunker import ArticleChunker
 from cognitive_agent.golden_examples import GoldenExampleSelector
 from cognitive_agent.article_preprocessing import ParallelArticlePreprocessor
 from cognitive_agent.extraction_cache import LightweightExtractionCache
+from cognitive_agent.candidate_store import CandidateRelationStore
 from cognitive_agent.relation_pair_classifier import (
     BioREDPairClassifier,
     PairClassifierConfig,
 )
-from cognitive_agent.relation_contract import RelationCandidateProjector
+from cognitive_agent.relation_contract import (
+    JUDGE_BACKEND_NAMES,
+    RelationCandidateProjector,
+)
+from cognitive_agent.few_shot_retriever import FewShotRetriever
+from cognitive_agent.pairwise_judge import PairwiseJudge, PairwiseJudgeConfig
+from cognitive_agent.entity_recovery import EntityRecovery, EntityRecoveryConfig
 from cognitive_agent.central_agent_v2 import CentralAgentV2
+from cognitive_agent.remote_call_broker import ArticleRemoteCallBroker
 from cognitive_agent.rule_memory import RuleMemory, error_cards_from_records
 from cognitive_agent.aux_model_registry import AuxModelRegistry
 from cognitive_agent.evidence_selector import (
@@ -158,6 +166,9 @@ class AgentConfig:
     second_llm_model_id: str = "deepseek-v4-flash"
     second_llm_mode: str = "conditional"
     second_llm_timeout: float = 45.0
+    second_llm_max_retries: int = 4
+    second_llm_retry_base_delay_s: float = 2.0
+    second_llm_retry_max_delay_s: float = 45.0
     # Omit provider max_tokens by default; DeepSeek enforces its model limit.
     second_llm_max_output_tokens: int | None = None
     second_llm_thinking_enabled: bool = False
@@ -190,6 +201,8 @@ class AgentConfig:
     extraction_cache_max_entries: int = 2000
     extraction_cache_max_mb: int = 200
     extraction_cache_ttl_days: int = 30
+    candidate_store_mode: str = "off"  # off | sqlite
+    candidate_store_path: str = ".cache/literature_candidates.sqlite3"
 
     # BioRED-style entity-pair relation classification.  Shadow is the safe
     # default: it records counterfactual predictions without changing the
@@ -201,8 +214,52 @@ class AgentConfig:
     pair_classifier_high_confidence: float = 0.78
     pair_classifier_relation_threshold: float = 0.48
     pair_classifier_uncertainty_floor: float = 0.35
-    pair_classifier_max_candidates: int = 64
-    pair_classifier_max_llm_candidates: int = 12
+    pair_classifier_max_candidates: int = 128
+    pair_classifier_max_llm_candidates: int = 24
+
+    # Relation authority is deliberately independent from whether the pair
+    # classifier/Judge is executed.  Shadow tools may observe and audit, but
+    # they must never replace the legacy relation ledger.  Only the explicit
+    # unified-active mode may make the lattice the production authority, and
+    # that mode remains dry-run only.
+    relation_authority: str = "legacy"  # legacy | unified-shadow | unified-active
+    verification_policy: str = "legacy"  # legacy | tiered-v2
+
+    # Pair-centric LLM relation judgement over the high-recall lattice.  The
+    # judge is the semantic authority for pair candidates; the deterministic
+    # verifier keeps owning facts and the Safe Write boundary.  Shadow records
+    # counterfactual decisions; active is restricted to dry-run.
+    pairwise_judge_mode: str = "off"  # off | shadow | active
+    pairwise_judge_model: str = "deepseek-v4-flash"
+    pairwise_judge_max_pairs: int = 32
+    pairwise_judge_max_calls: int = 2
+    pairwise_judge_min_confidence: float = 0.70
+    pairwise_judge_hinted_only: bool = False
+    pairwise_judge_rule_context: bool = False
+    pairwise_judge_claim_gate: bool = False
+    # Ablation switch: gate on, predicate stage off — DIRECT_FINDING survivors
+    # keep their local backend prediction (isolates the gate's own effect).
+    pairwise_judge_predicate_stage: bool = True
+    few_shot_mode: str = "off"  # off | retrieval
+    few_shot_pool: str = ""
+    few_shot_source: str = ""
+    few_shot_max_examples: int = 4
+    few_shot_exclude_pmids: str = ""
+
+    # Entity Coverage Critic → Missing Entity Recovery.  A single bounded LLM
+    # pass proposes schema-typed entities the primary extractor dropped; every
+    # proposal must be a contiguous source span and passes alias-aware dedup.
+    # Recovery adds entities only — never relations.  Shadow records
+    # counterfactual proposals; active appends validated entities to the
+    # inventory before the pair lattice is built.
+    entity_recovery_mode: str = "off"  # off | shadow | active
+    entity_recovery_model: str = "deepseek-v4-flash"
+    entity_recovery_max_proposals: int = 12
+    entity_recovery_max_accepted: int = 10
+    # Never enable demonstration guidance by default.  Any future fold-specific
+    # examples must be generated from the training partition and provenance
+    # checked by the experiment runner.
+    entity_recovery_golden_shot: bool = False
 
     # 阈值
     entity_creation_min_confidence: float = 0.7
@@ -223,6 +280,10 @@ class AgentState:
     total_disputed: int = 0
     total_discarded: int = 0
     total_import_ready: int = 0
+    total_candidate_schema_valid: int = 0
+    total_write_contract_valid: int = 0
+    total_semantic_only: int = 0
+    total_human_review: int = 0
     quality_scores: list[float] = field(default_factory=list)
     structural_scores: list[float] = field(default_factory=list)
     semantic_scores: list[float] = field(default_factory=list)
@@ -271,10 +332,26 @@ class CognitiveAgent:
             raise ValueError("active_shadow router is restricted to dry-run execution")
         if config.extraction_cache_mode not in LightweightExtractionCache.VALID_MODES:
             raise ValueError("invalid extraction_cache_mode")
+        if config.candidate_store_mode not in {"off", "sqlite"}:
+            raise ValueError("candidate_store_mode must be off or sqlite")
         if config.pair_classifier_mode not in {"off", "shadow", "active"}:
             raise ValueError("pair_classifier_mode must be off, shadow, or active")
         if config.pair_classifier_mode == "active" and not config.skip_neo4j_write:
             raise ValueError("active pair classifier is restricted to dry-run execution")
+        if config.relation_authority not in {"legacy", "unified-shadow", "unified-active"}:
+            raise ValueError("relation_authority must be legacy, unified-shadow, or unified-active")
+        if config.verification_policy not in {"legacy", "tiered-v2"}:
+            raise ValueError("verification_policy must be legacy or tiered-v2")
+        if config.relation_authority == "unified-active" and not config.skip_neo4j_write:
+            raise ValueError("unified-active relation authority is restricted to dry-run execution")
+        if config.pairwise_judge_mode not in {"off", "shadow", "active"}:
+            raise ValueError("pairwise_judge_mode must be off, shadow, or active")
+        if config.pairwise_judge_mode == "active" and not config.skip_neo4j_write:
+            raise ValueError("active pairwise judge is restricted to dry-run execution")
+        if config.few_shot_mode not in {"off", "retrieval", "error_pattern"}:
+            raise ValueError("few_shot_mode must be off, retrieval, or error_pattern")
+        if config.entity_recovery_mode not in {"off", "shadow", "active"}:
+            raise ValueError("entity_recovery_mode must be off, shadow, or active")
         if config.execution_mode not in CentralAgentV2.VALID_MODES:
             raise ValueError("invalid central Agent v2 execution_mode")
         if config.execution_mode == "agent-v2" and not config.skip_neo4j_write:
@@ -333,6 +410,10 @@ class CognitiveAgent:
                 "api_key": config.api_key,
                 "base_url": config.api_base,
                 "temperature": 0.0,
+                "connect_timeout_s": float(os.environ.get("PRIMARY_LLM_CONNECT_TIMEOUT_S", "20")),
+                "request_timeout_s": float(os.environ.get("PRIMARY_LLM_REQUEST_TIMEOUT_S", "60")),
+                "max_output_tokens": int(os.environ.get("PRIMARY_LLM_MAX_OUTPUT_TOKENS", "4096")),
+                "reasoning_effort": os.environ.get("PRIMARY_LLM_REASONING_EFFORT", "minimal"),
             }
             if openai_compatible_endpoint
             else {
@@ -341,6 +422,11 @@ class CognitiveAgent:
                 "temperature": 0.0,
             }
         )
+        if openai_compatible_endpoint:
+            # Import registers the bounded provider before LangExtract resolves
+            # the explicit provider name below.
+            from cognitive_agent.timeout_openai_provider import LiverKGTimeoutOpenAIModel  # noqa: F401
+            extraction_provider = "liverkg_timeout_openai"
         # LangExtract model configuration.  Provider choice is transport-level;
         # `count.gmcli-gemini-3-flash-preview` remains the model identifier.
         lx_config = ModelConfig(
@@ -368,6 +454,10 @@ class CognitiveAgent:
             persistent_max_mb=config.extraction_cache_max_mb,
             ttl_days=config.extraction_cache_ttl_days,
         )
+        self.candidate_store = CandidateRelationStore(
+            mode=config.candidate_store_mode,
+            path=config.candidate_store_path,
+        )
         self.extraction_kernel = ExtractionKernel(
             lx_config,
             cache=self.extraction_cache,
@@ -383,8 +473,48 @@ class CognitiveAgent:
         self.aux_models = AuxModelRegistry.from_environment(
             primary_model=config.aux_primary_model,
             critic_model=(config.aux_critic_model if config.qwen_critic_enabled else ""),
+            judge_model=config.pairwise_judge_model,
+            recovery_model=config.entity_recovery_model,
         )
         self.evidence_entailment = EvidenceEntailmentEngine(self.aux_models)
+        self.few_shot_retriever = FewShotRetriever(
+            pool_path=config.few_shot_pool,
+            source_path=config.few_shot_source,
+            max_examples=config.few_shot_max_examples,
+            exclude_pmids={
+                str(item).strip() for item in config.few_shot_exclude_pmids.split(",")
+                if str(item).strip()
+            },
+        )
+        self.pairwise_judge = PairwiseJudge(
+            PairwiseJudgeConfig(
+                mode=config.pairwise_judge_mode,
+                model_id=config.pairwise_judge_model,
+                max_pairs_per_call=config.pairwise_judge_max_pairs,
+                max_calls_per_article=config.pairwise_judge_max_calls,
+                min_confidence=config.pairwise_judge_min_confidence,
+                judge_only_hinted=config.pairwise_judge_hinted_only,
+                few_shot_mode=config.few_shot_mode,
+                few_shot_pool=config.few_shot_pool,
+                few_shot_source=config.few_shot_source,
+                few_shot_max_examples=config.few_shot_max_examples,
+                include_rule_context=config.pairwise_judge_rule_context,
+                claim_gate_enabled=config.pairwise_judge_claim_gate,
+                predicate_stage_enabled=config.pairwise_judge_predicate_stage,
+            ),
+            registry=self.aux_models,
+            few_shot_retriever=self.few_shot_retriever,
+        )
+        self.entity_recovery = EntityRecovery(
+            EntityRecoveryConfig(
+                mode=config.entity_recovery_mode,
+                model_id=config.entity_recovery_model,
+                max_proposals=config.entity_recovery_max_proposals,
+                max_accepted=config.entity_recovery_max_accepted,
+                golden_shot=config.entity_recovery_golden_shot,
+            ),
+            registry=self.aux_models,
+        )
         self.risk_router = ConformalRiskRouter.from_path(
             config.conformal_calibration,
             alpha_import_ready=config.conformal_alpha_import_ready,
@@ -422,7 +552,10 @@ class CognitiveAgent:
                 }
             if not self.frozen_candidates:
                 raise ValueError("frozen candidate snapshot contains no article candidates")
-        self.verifier = KGVerifier(self.kg_memory)
+        self.verifier = KGVerifier(
+            self.kg_memory,
+            verification_policy=config.verification_policy,
+        )
         self.reviewer = ExtractionReviewer(
             ReviewerConfig(
                 api_key=config.reviewer_api_key or config.api_key,
@@ -499,6 +632,47 @@ class CognitiveAgent:
         self.history: list[dict] = []
         self.current_examples = list(DEFAULT_EXAMPLES)
 
+    @staticmethod
+    def _apply_adjudicator_entailment(relations: list[dict], collaboration: Any) -> int:
+        """Upgrade judge-uncertain relations endorsed by the second model.
+
+        A DeepSeek KEEP/CHANGE_EVIDENCE on a judge-uncertain candidate is an
+        independent LLM semantic endorsement.  It sets the entailment label to
+        ENTAILED before re-verification; the deterministic verifier still owns
+        facts (schema, endpoints, negation, evidence continuity) and the write
+        gate, which are never relaxed here.
+        """
+        if not getattr(collaboration, "triggered", False):
+            return 0
+        keep_decisions = {
+            str(item.get("pair_candidate_id") or item.get("candidate_id", "") or ""): item
+            for item in (getattr(collaboration, "review_decisions", []) or [])
+            if str(item.get("action", "") or "").upper() in {"KEEP", "CHANGE_EVIDENCE"}
+            and str(item.get("pair_candidate_id", "") or "")
+        }
+        keep_ids = set(keep_decisions)
+        if not keep_ids:
+            return 0
+        upgrades = 0
+        for relation in relations:
+            flags = set(relation.get("quality_flags", []) or [])
+            if "judge_uncertain" not in flags:
+                continue
+            if str(relation.get("candidate_id", "") or "") not in keep_ids:
+                continue
+            decision = keep_decisions.get(str(relation.get("candidate_id", "") or ""), {})
+            relation["evidence_entailment"] = "ENTAILED"
+            relation["uncertain"] = False
+            flags.discard("judge_uncertain")
+            flags.discard("pair_low_confidence")
+            flags.discard("judge_no_write_endorsement")
+            new_flags = set(flags) | {"adjudicator_entailed"}
+            if bool(decision.get("critic_approved", False)):
+                new_flags.update({"qwen_critic_approved", "dual_model_entailed"})
+            relation["quality_flags"] = sorted(new_flags)
+            upgrades += 1
+        return upgrades
+
     def _collaborate_cache_first(self, *, enabled: bool, max_retries: int = 0, **kwargs):
         """Run the auxiliary adjudicator through the shared bounded cache.
 
@@ -529,13 +703,23 @@ class CognitiveAgent:
             started = time.perf_counter()
             retries = 0
             value = self.collaborative_extractor.collaborate(**kwargs)
-            while retries < max(0, min(2, int(max_retries))) and value.status == "FALLBACK":
+            retry_limit = min(
+                max(0, int(self.config.second_llm_max_retries)),
+                max(0, int(max_retries)),
+            )
+            while retries < retry_limit and value.status == "FALLBACK":
                 retryable = any(token in str(value.error).casefold() for token in (
-                    "timeout", "timed out", "rate", "429", "json", "temporar", "connection",
+                    "timeout", "timed out", "rate", "429", "502", "503", "504", "json",
+                    "temporar", "connection", "bad gateway", "service unavailable",
                 ))
                 if not retryable:
                     break
                 retries += 1
+                delay_s = min(
+                    float(self.config.second_llm_retry_max_delay_s),
+                    float(self.config.second_llm_retry_base_delay_s) * (2 ** (retries - 1)),
+                )
+                time.sleep(max(0.0, delay_s))
                 value = self.collaborative_extractor.collaborate(**kwargs)
             payload = value.to_dict()
             payload["_agent_v2_retry_count"] = retries
@@ -652,6 +836,20 @@ class CognitiveAgent:
 
         def factory():
             started = time.perf_counter()
+            scope_instruction = (
+                "Under tiered-v2, background, method, prediction, non-human or "
+                "out-of-scope assertions may still be approved as ordinary semantic "
+                "facts when the quoted source supports them; preserve provenance and "
+                "claim role rather than vetoing solely for scope. Veto only invalid "
+                "schema, missing endpoints, ungrounded evidence, explicit scoped "
+                "negation, or unsupported edits."
+                if getattr(self.config, "verification_policy", "legacy") == "tiered-v2"
+                else (
+                    "Narrative reviews, guidelines, screening/management articles, "
+                    "and background claims are not current-study findings and must "
+                    "not be promoted."
+                )
+            )
             result = self.aux_models.call_json(
                 "critic",
                 system_prompt=(
@@ -660,14 +858,14 @@ class CognitiveAgent:
                     "change a field, or infer beyond the quoted evidence. Enforce the project ontology: "
                     "Metabolite means a biochemical metabolite, not a medication or drug class; "
                     "Disease means a diagnosable disorder, not a physiological measurement, procedure, "
-                    "or treatment outcome. Narrative reviews, guidelines, screening/management articles, "
-                    "and background claims are not current-study findings and must not be promoted. "
+                    "or treatment outcome. "
+                    + scope_instruction + " "
                     "Return JSON only."
                 ),
                 user_prompt=json.dumps({
                     "article_title": article_title, "study_type": study_type,
                     "proposals": compact,
-                }, ensure_ascii=False),
+                }, ensure_ascii=False, sort_keys=True, separators=(",", ":")),
                 schema_hint={
                     "reviews": [{"candidate_id": "string", "approved": True, "reason": "string"}],
                 },
@@ -688,8 +886,14 @@ class CognitiveAgent:
         proposal_ids = {str(item.get("candidate_id", "")) for item in proposals}
         for decision in collaboration.review_decisions:
             candidate_id = str(decision.get("candidate_id", ""))
-            if candidate_id not in proposal_ids or approvals.get(candidate_id, False):
+            if candidate_id not in proposal_ids:
                 revised.append(decision)
+                continue
+            if approvals.get(candidate_id, False):
+                approved = dict(decision)
+                approved["critic_approved"] = True
+                approved["critic_model"] = self.config.aux_critic_model
+                revised.append(approved)
                 continue
             vetoed.append(candidate_id)
             fallback = dict(decision)
@@ -809,6 +1013,17 @@ class CognitiveAgent:
                 "pre_plan_source": execution_pre_plan.plan_status,
                 "dry_run_guard": self.config.skip_neo4j_write,
             }
+            # Start the Controller before any auxiliary tool can run.  This is
+            # essential: Judge/Recovery calls otherwise escape the per-article
+            # budget and only appear in the trace after the fact.
+            v2_state = None
+            if self.central_agent_v2.enabled:
+                v2_state = self.central_agent_v2.start(pmid, execution_pre_plan.route)
+            remote_broker = ArticleRemoteCallBroker(
+                cache=self.auxiliary_cache,
+                controller=self.central_agent_v2 if v2_state is not None else None,
+                state=v2_state,
+            )
 
             # ═══════════════════════════════════════════════════
             # Phase 1: Context Activation — 先验知识激活
@@ -951,6 +1166,47 @@ class CognitiveAgent:
             )
             t2_end = time.time()
 
+            # ── v3.1: Entity Coverage Critic → Missing Entity Recovery ──
+            # The primary extractor drops some schema endpoints (Pathway /
+            # Metabolite / Tissue names especially; 12.7% of lattice misses on
+            # the frozen dev snapshot were endpoint_missing).  One bounded LLM
+            # pass proposes missing entity spans; only contiguous, alias-dedup,
+            # schema-typed proposals are appended in active mode.  Entities
+            # only — relation decisions stay downstream with the judge and the
+            # deterministic verifier.
+            if self.config.entity_recovery_mode in {"shadow", "active"}:
+                with self.aux_models.intercept_calls(remote_broker.intercept):
+                    with remote_broker.scope("entity_recovery"):
+                        recovery_result = self.entity_recovery.run(
+                            pmid=str(pmid),
+                            text=text,
+                            entities=raw_extraction.entities,
+                            abbr_map=abbr_map,
+                            study_type=str(
+                                getattr(getattr(prepared, "profile", None), "primary_study_type", "")
+                                or getattr(prepared, "study_type", "") or ""
+                            ),
+                        )
+                record["phases"]["entity_recovery"] = recovery_result.to_dict()
+                record["phases"]["entity_recovery"]["applied"] = bool(
+                    self.config.entity_recovery_mode == "active"
+                    and self.config.relation_authority == "unified-active"
+                    and recovery_result.recovered
+                )
+                record["phases"]["entity_recovery"]["authority_guard"] = (
+                    self.config.relation_authority
+                )
+                if record["phases"]["entity_recovery"]["applied"]:
+                    raw_extraction.entities = (
+                        list(raw_extraction.entities) + recovery_result.recovered
+                    )
+                    if v2_state is not None:
+                        v2_state.entities = list(raw_extraction.entities)
+                remote_broker.mark_effect(
+                    "entity_recovery",
+                    state_changed=bool(record["phases"]["entity_recovery"]["applied"]),
+                )
+
             projection = self.relation_projector.project(
                 raw_extraction.entities, raw_extraction.relations, text=text,
             )
@@ -958,7 +1214,7 @@ class CognitiveAgent:
             record["phases"]["relation_candidate_projection"] = {
                 **projection.audit,
                 "relations": copy.deepcopy(projected_relations),
-                "production_applied": self.config.pair_classifier_mode == "active",
+                "production_applied": self.config.relation_authority == "unified-active",
             }
 
             # BioRED-style relation core: classify grounded, schema-compatible
@@ -970,6 +1226,55 @@ class CognitiveAgent:
                 source_text=text,
             )
             record["phases"]["relation_pair_classification"] = pair_result.to_dict()
+
+            # ═══════════════════════════════════════════════════
+            # Phase 2.5: pair-centric LLM relation judgement
+            # ═══════════════════════════════════════════════════
+            # The high-recall lattice proposes schema-compatible pairs; the
+            # judge decides predicate/NO_RELATION, the exact evidence quote,
+            # orientation and entailment.  Deterministic verification still
+            # runs afterwards and owns every factual and write decision.
+            if self.config.pairwise_judge_mode in {"shadow", "active"}:
+                with self.aux_models.intercept_calls(remote_broker.intercept):
+                    with remote_broker.scope("pairwise_judge"):
+                        judge_pair_result = self.pairwise_judge.refine_pair_result(
+                            pair_result,
+                            text=text,
+                            entities=raw_extraction.entities,
+                            pmid=str(pmid),
+                            study_type=str(
+                                getattr(getattr(prepared, "profile", None), "primary_study_type", "")
+                                or getattr(prepared, "study_type", "") or ""
+                            ),
+                            rule_context=(
+                                rule_prompt_context
+                                if self.config.pairwise_judge_rule_context and rule_guidance_applied
+                                else ""
+                            ),
+                        )
+                record["phases"]["pairwise_judge"] = self.pairwise_judge.phase_payload(
+                    judge_pair_result
+                )
+                record["phases"]["pairwise_judge"]["production_applied"] = (
+                    self.config.pairwise_judge_mode == "active"
+                    and self.config.relation_authority == "unified-active"
+                )
+                judge_changed_pair_state = judge_pair_result.to_dict() != pair_result.to_dict()
+                if (
+                    self.config.pairwise_judge_mode == "active"
+                    and self.config.relation_authority == "unified-active"
+                ):
+                    pair_result = judge_pair_result
+                remote_broker.mark_effect(
+                    "pairwise_judge",
+                    state_changed=(
+                        self.config.relation_authority == "unified-active"
+                        and judge_changed_pair_state
+                    ),
+                )
+            else:
+                record["phases"]["pairwise_judge"] = {"mode": "off"}
+
             selected_evidence = []
             candidate_payloads: dict[str, dict] = {}
             prediction_by_id = {item.candidate_id: item for item in pair_result.predictions}
@@ -1007,10 +1312,18 @@ class CognitiveAgent:
 
             def compute_entailment():
                 started = time.perf_counter()
-                decisions, audit = self.evidence_entailment.assess(
-                    selected_evidence, source_text=text, candidate_payloads=candidate_payloads,
-                    allow_remote=self.config.evidence_entailment_mode in {"shadow", "active"},
-                )
+                # Judge-ENTAILED pairs already carry their own entailment
+                # label and grounded quote; the local entailment engine only
+                # adds remote calls, never a stronger decision.
+                with self.aux_models.intercept_calls(remote_broker.intercept):
+                    with remote_broker.scope("evidence_entailment"):
+                        decisions, audit = self.evidence_entailment.assess(
+                            selected_evidence, source_text=text, candidate_payloads=candidate_payloads,
+                            allow_remote=(
+                                self.config.evidence_entailment_mode in {"shadow", "active"}
+                                and self.config.pairwise_judge_mode != "active"
+                            ),
+                        )
                 return {
                     "decisions": [item.to_dict() for item in decisions],
                     "audit": audit,
@@ -1047,25 +1360,54 @@ class CognitiveAgent:
                 "audit": entailment_audit,
                 "production_applied": (
                     self.config.evidence_entailment_mode == "active"
-                    and self.config.pair_classifier_mode == "active"
+                    and self.config.relation_authority == "unified-active"
                 ),
                 "evidence_selector_enabled": self.config.evidence_selector_enabled,
             }
-            if self.config.pair_classifier_mode == "active":
+            remote_broker.mark_effect(
+                "evidence_entailment",
+                state_changed=any(
+                    item.source in {"deepseek", "qwen"}
+                    for item in entailment_decisions
+                ),
+            )
+            # ── Relation authority contract ───────────────────────────
+            # LangExtract relations are always available as evidence/pairing
+            # hints.  The legacy ledger remains the production source unless
+            # the caller explicitly opts into unified-active.  This keeps
+            # legacy and shadow output byte-for-byte comparable while still
+            # allowing the lattice/Judge to be inspected in every run.
+            relation_core_relations: list[dict] = []
+            relation_core_keys: set[tuple] = set()
+            include_judge_uncertain = False
+            unified_active = self.config.relation_authority == "unified-active"
+            if unified_active:
                 entailment_by_id = {item.candidate_id: item for item in entailment_decisions}
-                # The pair classifier augments the extractor ledger; it must
-                # never replace grounded top-level/attribute relations.
-                relation_core_relations = copy.deepcopy(projected_relations)
-                relation_core_keys: set[tuple] = set()
-                for relation in relation_core_relations:
-                    relation_core_keys.add((
-                        relation.get("candidate_id"), relation.get("predicate"),
-                        relation.get("subject"), relation.get("object"),
-                    ))
+                # Lattice / judge relations are the sole producers of
+                # production relations; LangExtract hints were already
+                # consumed by build_candidates via _hint_index.
+                include_judge_uncertain = bool(
+                    self.config.pairwise_judge_mode == "active"
+                    and self.config.second_llm_enabled
+                )
                 for relation in [
                     *pair_result.accepted_relations,
-                    *pair_result.low_confidence_relations,
+                    *(
+                        pair_result.low_confidence_relations
+                        if include_judge_uncertain
+                        else []
+                    ),
                 ]:
+                    # Pairwise-judge relations carry their own entailment
+                    # decision and grounded quote; the entailment engine must
+                    # not downgrade them with its local trigger heuristics.
+                    if str(relation.get("classifier_source", "")) in JUDGE_BACKEND_NAMES:
+                        relation_core_keys.add((
+                            relation.get("candidate_id"), relation.get("predicate"),
+                            relation.get("subject"), relation.get("object"),
+                        ))
+                        relation_core_relations.append(relation)
+                        continue
                     entailment = entailment_by_id.get(str(relation.get("candidate_id", "")))
                     if self.config.evidence_entailment_mode == "active" and entailment:
                         relation["evidence_entailment"] = entailment.label
@@ -1087,21 +1429,28 @@ class CognitiveAgent:
                     relation_core_relations, text=text, entities=raw_extraction.entities,
                 )
             else:
-                # Preserve the historical legacy path byte-for-byte.  The
-                # projected ledger remains available in the trace for shadow
-                # diagnostics but is active only in Agent v3.
-                relation_core_relations = raw_extraction.relations
+                # Preserve the historical production ledger in both legacy
+                # and unified-shadow modes.  Pair results remain in their own
+                # phase payload and can be scored counterfactually.
+                relation_core_relations = copy.deepcopy(raw_extraction.relations)
             record["phases"]["relation_core_selection"] = {
                 "mode": self.config.pair_classifier_mode,
+                "relation_authority": self.config.relation_authority,
                 "production_source": (
-                    "unified_projected_and_pair_candidates"
-                    if self.config.pair_classifier_mode == "active"
-                    else "langextract_legacy_relations"
+                    "unified_pair_candidates_only"
+                    if unified_active else "legacy_raw_relations"
                 ),
                 "langextract_relation_count": len(raw_extraction.relations),
                 "projected_relation_count": len(projected_relations),
                 "pair_relation_count": len(pair_result.accepted_relations),
                 "production_relation_count": len(relation_core_relations),
+                "judge_no_relation_decisions": sum(
+                    1 for item in pair_result.predictions
+                    if str(item.backend) in JUDGE_BACKEND_NAMES
+                    and str(item.label).upper() == "NO_RELATION"
+                ),
+                "judge_uncertain_included": bool(include_judge_uncertain),
+                "legacy_bypass": not unified_active,
                 "dry_run_guard": self.config.skip_neo4j_write,
             }
 
@@ -1237,10 +1586,7 @@ class CognitiveAgent:
             # Agent v2 observes the exact same grounded candidates as legacy.
             # Shadow mode only records counterfactual decisions; active mode may
             # replace post-verification tool gates, but can never bypass verify.
-            v2_state = None
             if self.central_agent_v2.enabled:
-                v2_route_source = shadow_post_plan or post_plan
-                v2_state = self.central_agent_v2.start(pmid, v2_route_source.route)
                 self.central_agent_v2.observe(
                     v2_state,
                     entities=[item.to_dict() for item in initial_verified.entities],
@@ -1280,6 +1626,29 @@ class CognitiveAgent:
                         "cache_statuses": primary_cache_statuses,
                     }),
                     ("biored_pair_classifier", {"candidate_count": len(pair_result.candidates)}),
+                    ("pairwise_judge", {
+                        "mode": self.config.pairwise_judge_mode,
+                        "call_count": sum(
+                            1 for item in (
+                                record["phases"].get("pairwise_judge", {}).get("audits", []) or []
+                            ) if item.get("status") == "OK"
+                        ),
+                        "positive_predictions": int(
+                            record["phases"].get("pairwise_judge", {})
+                            .get("positive_prediction_count", 0) or 0
+                        ),
+                    }),
+                    ("entity_recovery", {
+                        "mode": self.config.entity_recovery_mode,
+                        "recovered_count": int(
+                            record["phases"].get("entity_recovery", {})
+                            .get("recovered_count", 0) or 0
+                        ),
+                        "proposal_count": int(
+                            record["phases"].get("entity_recovery", {})
+                            .get("proposal_count", 0) or 0
+                        ),
+                    }),
                     ("deterministic_verifier", {
                         "relation_count": len(initial_verified.relations),
                     }),
@@ -1335,6 +1704,16 @@ class CognitiveAgent:
 
             llm_call = execution_post_plan.should_call("second_llm_refiner")
             llm_reason = execution_post_plan.decisions["second_llm_refiner"].reason
+            if (
+                self.config.second_llm_enabled
+                and self.config.second_llm_mode == "always"
+                and not raw_extraction.error
+            ):
+                # Explicit always-on adjudication bypasses the document-level
+                # gate entirely (the bounded-candidate and per-article budgets
+                # still apply inside the extractor).
+                llm_call = True
+                llm_reason = "always_on_second_model_adjudication"
             if self.config.risk_router_mode == "active" and risk_routes:
                 risk_force_deepseek = any(item.decision == CALL_DEEPSEEK for item in risk_routes)
                 llm_call = bool(self.config.second_llm_enabled and risk_force_deepseek)
@@ -1358,8 +1737,11 @@ class CognitiveAgent:
                     )
                 if self.central_agent_v2.active:
                     llm_call, llm_reason = v2_llm_call, v2_llm_reason
-                elif not v2_llm_call:
-                    llm_reason = v2_llm_reason
+                elif llm_call and not v2_llm_call:
+                    # Shadow mode preserves legacy *results*, not unbounded
+                    # provider traffic.  A real legacy-routed call still has
+                    # to respect the same article budget and timeout guard.
+                    llm_call, llm_reason = False, v2_llm_reason
 
             collaboration_cache_status = "not_applicable"
             collaboration_actual_latency = 0.0
@@ -1368,10 +1750,10 @@ class CognitiveAgent:
             if llm_call:
                 collaboration, collaboration_cache_status, collaboration_actual_latency, collaboration_retry_count = (
                     self._collaborate_cache_first(
-                        enabled=self.central_agent_v2.active,
+                        enabled=v2_state is not None,
                         max_retries=(
-                            min(2, max(0, v2_state.budget.max_aux_remote_calls - v2_state.aux_remote_calls - 1))
-                            if v2_state is not None and self.central_agent_v2.active else 0
+                            min(4, max(0, v2_state.budget.max_aux_remote_calls - v2_state.aux_remote_calls - 1))
+                            if v2_state is not None else 0
                         ),
                         text=text,
                         extraction=raw_extraction.to_dict(),
@@ -1389,7 +1771,7 @@ class CognitiveAgent:
                         recovery_candidates=agent_plan.recovery_candidates,
                         pair_review_candidates=(
                             pair_result.low_confidence_relations
-                            if self.config.pair_classifier_mode == "active" else []
+                            if self.config.relation_authority == "unified-active" else []
                         ),
                     )
                 )
@@ -1424,8 +1806,12 @@ class CognitiveAgent:
                 initial_verification=initial_verified.to_dict(),
                 collaboration=collaboration,
             )
+            adjudicator_upgrades = self._apply_adjudicator_entailment(
+                merged.relations, collaboration
+            )
             collaboration_payload = collaboration.to_dict()
             collaboration_payload["merge"] = merged.to_dict()
+            collaboration_payload["adjudicator_entailment_upgrades"] = adjudicator_upgrades
             collaboration_payload["phase_a_reverification_required"] = bool(
                 merged.entity_additions
                 or merged.relation_additions
@@ -1433,6 +1819,7 @@ class CognitiveAgent:
                 or merged.relation_rejections
                 or merged.deterministic_rejections
                 or merged.second_model_rejections
+                or adjudicator_upgrades
             )
             record["phases"]["collaboration"] = collaboration_payload
             record["phases"]["tool_marginal_benefit"] = {
@@ -1522,7 +1909,7 @@ class CognitiveAgent:
                     after=v2_llm_after,
                     latency_s=collaboration_actual_latency,
                     cache_status=collaboration_cache_status,
-                    remote=bool(llm_call and self.central_agent_v2.active),
+                    remote=bool(collaboration.triggered),
                     result_status=collaboration.status,
                     prompt_tokens=collaboration.prompt_tokens,
                     output_tokens=collaboration.output_tokens,
@@ -1586,7 +1973,7 @@ class CognitiveAgent:
                     next_collaboration, next_cache_status, next_actual_latency, next_retry_count = (
                         self._collaborate_cache_first(
                             enabled=True,
-                            max_retries=min(2, max(
+                            max_retries=min(4, max(
                                 0,
                                 v2_state.budget.max_aux_remote_calls
                                 - v2_state.aux_remote_calls - 1,
@@ -1607,7 +1994,7 @@ class CognitiveAgent:
                             recovery_candidates=agent_plan.recovery_candidates,
                             pair_review_candidates=(
                                 pair_result.low_confidence_relations
-                                if self.config.pair_classifier_mode == "active" else []
+                                if self.config.relation_authority == "unified-active" else []
                             ),
                         )
                     )
@@ -1617,10 +2004,14 @@ class CognitiveAgent:
                         initial_verification=verified.to_dict(),
                         collaboration=next_collaboration,
                     )
+                    next_upgrades = self._apply_adjudicator_entailment(
+                        next_merged.relations, next_collaboration
+                    )
                     round_changes = (
                         next_merged.relation_additions
                         + next_merged.relation_edits
                         + next_merged.relation_rejections
+                        + next_upgrades
                     )
                     if round_changes:
                         merged = next_merged
@@ -1770,6 +2161,12 @@ class CognitiveAgent:
                 ]
             collaboration_payload["recovery_partition"] = shadow_payload
             record["phases"]["verification"] = verified.to_dict()
+            record["phases"]["candidate_store"] = self.candidate_store.record_verified(
+                pmid=pmid,
+                title=title,
+                run_id=getattr(self, "current_run_id", ""),
+                verified=verified,
+            ).to_dict()
             agent_plan.current_round = 2 if collaboration_payload[
                 "phase_a_reverification_required"
             ] or finalization_changed else 1
@@ -2115,6 +2512,10 @@ class CognitiveAgent:
             total_disputed=log.disputed,
             total_discarded=log.discarded,
             total_import_ready=verified.summary.get("import_ready", 0),
+            total_candidate_schema_valid=verified.summary.get("candidate_schema_valid", 0),
+            total_write_contract_valid=verified.summary.get("write_contract_valid", 0),
+            total_semantic_only=verified.summary.get("semantic_only", 0),
+            total_human_review=verified.summary.get("human_review", 0),
         )
 
         # Keep structural, semantic, evidence, and linking signals separate.
@@ -2254,6 +2655,7 @@ class CognitiveAgent:
             f"({self.config.agent_budget_profile})"
         )
         print(f"  Extraction Cache: {self.config.extraction_cache_mode}")
+        print(f"  Candidate Store: {self.config.candidate_store_mode}")
         print(
             f"  Pair Classifier: {self.config.pair_classifier_mode.upper()} "
             f"({self.config.pair_classifier_backend})"
@@ -2266,6 +2668,7 @@ class CognitiveAgent:
         print(f"{'='*65}\n")
 
         t_batch_start = time.time()
+        self.current_run_id = run_id
         completed = [0]  # mutable counter for thread-safe progress
         completed_lock = threading.Lock()
 
@@ -2354,6 +2757,8 @@ class CognitiveAgent:
                     "extraction_cache_max_entries": self.config.extraction_cache_max_entries,
                     "extraction_cache_max_mb": self.config.extraction_cache_max_mb,
                     "extraction_cache_ttl_days": self.config.extraction_cache_ttl_days,
+                    "candidate_store_mode": self.config.candidate_store_mode,
+                    "candidate_store_path": self.config.candidate_store_path,
                     "skip_neo4j_write": self.config.skip_neo4j_write,
                     "reflection_interval": self.config.reflection_interval,
                     "max_workers": max_workers,
@@ -2825,7 +3230,7 @@ class CognitiveAgent:
             "enabled": self.config.pair_classifier_enabled,
             "mode": self.config.pair_classifier_mode,
             "backend": self.config.pair_classifier_backend,
-            "production_execution_unchanged": self.config.pair_classifier_mode != "active",
+            "production_execution_unchanged": self.config.relation_authority != "unified-active",
             "articles": len(pair_phases),
             "candidate_count": sum(int(item.get("candidate_count", 0) or 0) for item in pair_phases),
             "positive_prediction_count": sum(
@@ -3031,6 +3436,10 @@ class CognitiveAgent:
             },
             "decisions": {
                 "total_import_ready": s.total_import_ready,
+                "candidate_schema_valid": s.total_candidate_schema_valid,
+                "write_contract_valid": s.total_write_contract_valid,
+                "semantic_only": s.total_semantic_only,
+                "human_review": s.total_human_review,
                 "entities_proposed": proposed_entities,
                 "relations_proposed": proposed_relations,
                 "relation_updates_proposed": proposed_updates,
@@ -3068,6 +3477,7 @@ class CognitiveAgent:
             "preprocessing_cache": self.article_preprocessor.cache.stats(),
             "extraction_cache": self.extraction_cache.stats(),
             "auxiliary_cache": self.auxiliary_cache.stats(),
+            "candidate_store": self.candidate_store.stats(),
             "extraction_planning": extraction_planning_report,
             "agent_controller": agent_controller_report,
             "relation_pair_classifier": pair_classifier_report,
@@ -3126,7 +3536,9 @@ class CognitiveAgent:
                 for key in (
                     "subject", "subject_type", "predicate", "object", "object_type",
                     "direction", "evidence", "evidence_char_start", "evidence_char_end",
-                    "evidence_level", "quality_flags", "schema_valid", "import_ready",
+                    "evidence_level", "quality_flags", "schema_valid",
+                    "candidate_schema_valid", "write_contract_valid",
+                    "schema_gap_reasons", "write_contract_version", "import_ready",
                 )
             }
             for relation in verification.get("relations", [])
@@ -3204,6 +3616,11 @@ class CognitiveAgent:
         print(
             f"  Tool Router:      {'开启' if router.get('enabled') else '兼容模式'} | "
             f"路径 {router.get('route_counts', {})}"
+        )
+        candidate_store = report.get("candidate_store", {})
+        print(
+            f"  候选关系层:      {candidate_store.get('mode', 'off')} | "
+            f"记录 {candidate_store.get('entries', 0)}"
         )
         controller = report.get("agent_controller", {})
         print(
@@ -3297,12 +3714,12 @@ def main():
     )
     parser.add_argument(
         "--disable-golden-shot", action="store_true",
-        help="关闭动态 3+1 golden-shot，回退到旧固定示例",
+        help="关闭动态 golden-shot，回退到旧固定示例",
     )
     parser.add_argument(
         "--golden-shot-max-examples", type=int,
         default=int(os.environ.get("GOLDEN_SHOT_MAX_EXAMPLES", "4")),
-        help="每篇使用 3–4 个动态示范（默认 4）",
+        help="每篇使用 1–4 个动态示范（默认 4）",
     )
     parser.add_argument(
         "--disable-chunked-extraction", action="store_true",
@@ -3344,6 +3761,16 @@ def main():
     parser.add_argument(
         "--extraction-cache-ttl-days", type=int,
         default=int(os.environ.get("EXTRACTION_CACHE_TTL_DAYS", "30")),
+    )
+    parser.add_argument(
+        "--candidate-store-mode", choices=("off", "sqlite"),
+        default=os.environ.get("CANDIDATE_STORE_MODE", "off"),
+        help="候选关系持久层：off 默认关闭；sqlite 记录 verifier 后全部关系候选",
+    )
+    parser.add_argument(
+        "--candidate-store-path",
+        default=os.environ.get("CANDIDATE_STORE_PATH", ".cache/literature_candidates.sqlite3"),
+        help="候选关系 SQLite ledger 路径",
     )
     parser.add_argument(
         "--disable-tool-router", action="store_true",
@@ -3478,6 +3905,18 @@ def main():
         help="BioRED式实体对分类：shadow默认只审计；active仅允许dry-run",
     )
     parser.add_argument(
+        "--relation-authority",
+        choices=("legacy", "unified-shadow", "unified-active"),
+        default=os.environ.get("RELATION_AUTHORITY", "legacy"),
+        help="关系生产权威：legacy 保持历史输出；unified-shadow 仅记录反事实；"
+        "unified-active 才允许 pair lattice 产出关系（仅 dry-run）",
+    )
+    parser.add_argument(
+        "--verification-policy", choices=("legacy", "tiered-v2"),
+        default=os.environ.get("VERIFICATION_POLICY", "legacy"),
+        help="Verifier 策略：legacy 为历史强门控；tiered-v2 分离事实合法性、语义可信度和写入资格",
+    )
+    parser.add_argument(
         "--pair-classifier-backend", choices=("deterministic", "sklearn"),
         default=os.environ.get("PAIR_CLASSIFIER_BACKEND", "deterministic"),
     )
@@ -3500,11 +3939,104 @@ def main():
     )
     parser.add_argument(
         "--pair-classifier-max-candidates", type=int,
-        default=int(os.environ.get("PAIR_CLASSIFIER_MAX_CANDIDATES", "64")),
+        default=int(os.environ.get("PAIR_CLASSIFIER_MAX_CANDIDATES", "128")),
     )
     parser.add_argument(
         "--pair-classifier-max-llm-candidates", type=int,
-        default=int(os.environ.get("PAIR_CLASSIFIER_MAX_LLM_CANDIDATES", "12")),
+        default=int(os.environ.get("PAIR_CLASSIFIER_MAX_LLM_CANDIDATES", "24")),
+    )
+    parser.add_argument(
+        "--pairwise-judge-mode", choices=("off", "shadow", "active"),
+        default=os.environ.get("PAIRWISE_JUDGE_MODE", "off"),
+        help="实体对 LLM 裁判：closed-label predicate/NO_RELATION 判定；active 仅允许 dry-run",
+    )
+    parser.add_argument(
+        "--pairwise-judge-model",
+        default=os.environ.get("PAIRWISE_JUDGE_MODEL", "deepseek-v4-flash"),
+        help="pairwise judge 模型 ID（OpenAI 兼容协议，默认 DeepSeek）",
+    )
+    parser.add_argument(
+        "--pairwise-judge-max-pairs", type=int,
+        default=int(os.environ.get("PAIRWISE_JUDGE_MAX_PAIRS", "32")),
+    )
+    parser.add_argument(
+        "--pairwise-judge-max-calls", type=int,
+        default=int(os.environ.get("PAIRWISE_JUDGE_MAX_CALLS", "2")),
+    )
+    parser.add_argument(
+        "--pairwise-judge-min-confidence", type=float,
+        default=float(os.environ.get("PAIRWISE_JUDGE_MIN_CONFIDENCE", "0.70")),
+        help="judge 置信度低于该值的候选进入 DeepSeek 裁定",
+    )
+    parser.add_argument(
+        "--pairwise-judge-hinted-only", action="store_true",
+        help="judge 只判定带 extractor hint 或显式 trigger 的候选，纯共现候选直接 NO_RELATION 弃权",
+    )
+    parser.add_argument(
+        "--pairwise-judge-rule-context", action="store_true",
+        help="将激活的 RuleMemory 文本注入 judge prompt（inference-time guidance）",
+    )
+    parser.add_argument(
+        "--pairwise-judge-claim-gate", action="store_true",
+        help="两阶段裁判：Stage A Claim Gate 只放行 DIRECT_FINDING，其余 "
+        "(BACKGROUND/PRIOR_WORK/COHORT_CONTEXT/METHOD/PREDICTION_ONLY/SPECULATIVE/"
+        "NO_EXPLICIT_RELATION) 一律 NO_RELATION，不进谓词判定",
+    )
+    parser.add_argument(
+        "--pairwise-judge-predicate-off", action="store_true",
+        help="消融开关：保留 Claim Gate 但关闭 Stage B 谓词判定，"
+        "DIRECT_FINDING 幸存者保留本地后端预测（隔离 gate 自身效果）",
+    )
+    parser.add_argument(
+        "--few-shot-mode", choices=("off", "retrieval", "error_pattern"),
+        default=os.environ.get("FEW_SHOT_MODE", "off"),
+        help="judge 示范检索：retrieval=type-pair/predicate/ngram 相似度；"
+        "error_pattern=按 8 类错误签名检索同类 hard negative + positive + 易混淆谓词",
+    )
+    parser.add_argument(
+        "--few-shot-pool", default=os.environ.get("FEW_SHOT_POOL", ""),
+        help="few-shot 示例池 gold JSONL（仅用于推理期示范，不训练）",
+    )
+    parser.add_argument(
+        "--few-shot-source", default=os.environ.get("FEW_SHOT_SOURCE", ""),
+        help="与 few-shot 池配套的 PubMed source JSONL（提供 title/abstract 文本）",
+    )
+    parser.add_argument(
+        "--few-shot-max-examples", type=int,
+        default=int(os.environ.get("FEW_SHOT_MAX_EXAMPLES", "4")),
+    )
+    parser.add_argument(
+        "--few-shot-exclude-pmids",
+        default=os.environ.get("FEW_SHOT_EXCLUDE_PMIDS", ""),
+        help="逗号分隔的 PMID 黑名单（fold 实验时排除当前评估集）",
+    )
+    parser.add_argument(
+        "--entity-recovery-mode", choices=("off", "shadow", "active"),
+        default=os.environ.get("ENTITY_RECOVERY_MODE", "off"),
+        help="实体覆盖 critic + 缺失实体恢复：active 将校验通过的实体加入清单（只补实体，不生成关系）",
+    )
+    parser.add_argument(
+        "--entity-recovery-model",
+        default=os.environ.get("ENTITY_RECOVERY_MODEL", "deepseek-v4-flash"),
+        help="entity recovery 模型 ID（OpenAI 兼容协议，默认 DeepSeek）",
+    )
+    parser.add_argument(
+        "--entity-recovery-max-proposals", type=int,
+        default=int(os.environ.get("ENTITY_RECOVERY_MAX_PROPOSALS", "12")),
+    )
+    parser.add_argument(
+        "--entity-recovery-max-accepted", type=int,
+        default=int(os.environ.get("ENTITY_RECOVERY_MAX_ACCEPTED", "10")),
+    )
+    parser.add_argument(
+        "--entity-recovery-generic-guidance", action="store_true",
+        default=os.environ.get("ENTITY_RECOVERY_GENERIC_GUIDANCE", "false").casefold()
+        in {"1", "true", "yes", "on"},
+        help="启用不含 gold 文本或 PMID 的实体恢复通用提示；默认关闭",
+    )
+    parser.add_argument(
+        "--entity-recovery-no-golden-shot", action="store_true",
+        help="兼容旧命令：实体恢复示范现已默认关闭，此参数不再改变行为",
     )
     parser.add_argument(
         "--reviewer-enabled", action="store_true",
@@ -3590,8 +4122,18 @@ def main():
         second_llm_timeout = float(
             os.environ.get("SECOND_LLM_TIMEOUT", str(args.second_llm_timeout))
         )
+        second_llm_max_retries = max(
+            0, int(os.environ.get("SECOND_LLM_MAX_RETRIES", "4"))
+        )
+        second_llm_retry_base_delay_s = max(
+            0.0, float(os.environ.get("SECOND_LLM_RETRY_BASE_DELAY_S", "2"))
+        )
+        second_llm_retry_max_delay_s = max(
+            second_llm_retry_base_delay_s,
+            float(os.environ.get("SECOND_LLM_RETRY_MAX_DELAY_S", "45")),
+        )
     except ValueError:
-        print("[ERROR] SECOND_LLM_TIMEOUT must be numeric")
+        print("[ERROR] SECOND_LLM retry settings must be numeric")
         sys.exit(1)
     neo4j_rag_enabled = args.neo4j_rag_enabled or os.environ.get(
         "NEO4J_RAG_ENABLED", ""
@@ -3660,8 +4202,8 @@ def main():
     if args.pair_classifier_backend == "sklearn" and not args.pair_classifier_model_path:
         print("[ERROR] sklearn pair classifier requires --pair-classifier-model-path")
         sys.exit(1)
-    if not 3 <= args.golden_shot_max_examples <= 4:
-        print("[ERROR] --golden-shot-max-examples must be 3 or 4")
+    if not 1 <= args.golden_shot_max_examples <= 4:
+        print("[ERROR] --golden-shot-max-examples must be between 1 and 4")
         sys.exit(1)
     if args.extraction_chunk_max_chars < 800:
         print("[ERROR] --extraction-chunk-max-chars must be >= 800")
@@ -3740,6 +4282,8 @@ def main():
         extraction_cache_max_entries=args.extraction_cache_max_entries,
         extraction_cache_max_mb=args.extraction_cache_max_mb,
         extraction_cache_ttl_days=args.extraction_cache_ttl_days,
+        candidate_store_mode=args.candidate_store_mode,
+        candidate_store_path=args.candidate_store_path,
         tool_router_enabled=not args.disable_tool_router,
         shadow_router_enabled=not args.disable_shadow_router,
         router_execution_mode=args.router_execution_mode,
@@ -3772,6 +4316,8 @@ def main():
         conformal_min_group_size=args.conformal_min_group_size,
         pair_classifier_mode=args.pair_classifier_mode,
         pair_classifier_enabled=args.pair_classifier_mode != "off",
+        relation_authority=args.relation_authority,
+        verification_policy=args.verification_policy,
         pair_classifier_backend=args.pair_classifier_backend,
         pair_classifier_model_path=args.pair_classifier_model_path,
         pair_classifier_high_confidence=args.pair_classifier_high_confidence,
@@ -3779,6 +4325,28 @@ def main():
         pair_classifier_uncertainty_floor=args.pair_classifier_uncertainty_floor,
         pair_classifier_max_candidates=args.pair_classifier_max_candidates,
         pair_classifier_max_llm_candidates=args.pair_classifier_max_llm_candidates,
+        pairwise_judge_mode=args.pairwise_judge_mode,
+        pairwise_judge_model=args.pairwise_judge_model,
+        pairwise_judge_max_pairs=args.pairwise_judge_max_pairs,
+        pairwise_judge_max_calls=args.pairwise_judge_max_calls,
+        pairwise_judge_min_confidence=args.pairwise_judge_min_confidence,
+        pairwise_judge_hinted_only=args.pairwise_judge_hinted_only,
+        pairwise_judge_rule_context=args.pairwise_judge_rule_context,
+        pairwise_judge_claim_gate=args.pairwise_judge_claim_gate,
+        pairwise_judge_predicate_stage=not args.pairwise_judge_predicate_off,
+        entity_recovery_mode=args.entity_recovery_mode,
+        entity_recovery_model=args.entity_recovery_model,
+        entity_recovery_max_proposals=args.entity_recovery_max_proposals,
+        entity_recovery_max_accepted=args.entity_recovery_max_accepted,
+        entity_recovery_golden_shot=(
+            args.entity_recovery_generic_guidance
+            and not args.entity_recovery_no_golden_shot
+        ),
+        few_shot_mode=args.few_shot_mode,
+        few_shot_pool=args.few_shot_pool,
+        few_shot_source=args.few_shot_source,
+        few_shot_max_examples=args.few_shot_max_examples,
+        few_shot_exclude_pmids=args.few_shot_exclude_pmids,
         reviewer_enabled=args.reviewer_enabled,
         reviewer_model_id=args.reviewer_model_id,
         reviewer_api_base=args.reviewer_api_base,
@@ -3789,6 +4357,9 @@ def main():
         second_llm_model_id=second_llm_model_id,
         second_llm_mode=second_llm_mode,
         second_llm_timeout=second_llm_timeout,
+        second_llm_max_retries=second_llm_max_retries,
+        second_llm_retry_base_delay_s=second_llm_retry_base_delay_s,
+        second_llm_retry_max_delay_s=second_llm_retry_max_delay_s,
         neo4j_rag_enabled=neo4j_rag_enabled,
         **rag_limits,
     )
@@ -3805,6 +4376,7 @@ def main():
         agent.article_preprocessor.close()
         agent.extraction_cache.close()
         agent.auxiliary_cache.close()
+        agent.candidate_store.close()
         agent.kg_memory.close()
 
     return report

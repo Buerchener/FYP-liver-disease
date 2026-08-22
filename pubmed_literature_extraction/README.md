@@ -116,6 +116,9 @@ Important variables:
 | `RULE_MEMORY_MODE`, `RULE_BUNDLE` | Frozen Agent v3 soft-rule memory. |
 | `EVIDENCE_ENTAILMENT_MODE` | Local-first evidence adjudication. |
 | `RISK_ROUTER_MODE`, `CONFORMAL_CALIBRATION` | Selective conformal routing. |
+| `PAIRWISE_JUDGE_MODE`, `PAIRWISE_JUDGE_MODEL` | Pair-centric LLM relation judge (`off/shadow/active`). |
+| `FEW_SHOT_MODE`, `FEW_SHOT_POOL`, `FEW_SHOT_SOURCE` | Dynamic few-shot demonstration retrieval. |
+| `RELATION_AUTHORITY` | `legacy` by default; only `unified-active` lets pair-lattice relations reach production dry-runs. |
 
 ## Running the system
 
@@ -210,7 +213,10 @@ fall back to a production database.
 | `cognitive_agent/agent.py` | End-to-end execution and compatibility layer. |
 | `cognitive_agent/central_agent_v2.py` | State, budgets, routing and action audit. |
 | `cognitive_agent/verifier.py` | Evidence, endpoint and schema validation. |
-| `cognitive_agent/relation_pair_classifier.py` | BioRED-style pair lattice and classification. |
+| `cognitive_agent/pairwise_judge.py` | Pair-centric LLM relation judge over the lattice. |
+| `cognitive_agent/few_shot_retriever.py` | Dynamic few-shot demonstration retrieval from dev gold. |
+| `cognitive_agent/remote_call_broker.py` | Cache-first, budgeted Judge/Recovery remote-call boundary. |
+| `cognitive_agent/relation_pair_classifier.py` | BioRED-style high-recall pair lattice and classification. |
 | `cognitive_agent/rule_memory.py` | Closed rule DSL, lifecycle and promotion gates. |
 | `cognitive_agent/evidence_selector.py` | Minimal exact spans and entailment closure. |
 | `cognitive_agent/conformal_router.py` | Global/Mondrian non-parametric risk routing. |

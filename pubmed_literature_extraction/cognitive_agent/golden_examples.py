@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic 3–4 shot selection for article-local extraction prompts."""
+"""Deterministic article-local demonstration selection."""
 
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ from cognitive_agent.schema.examples import (
 )
 
 
-GOLDEN_EXAMPLE_VERSION = "dynamic-golden-shot-v1"
+GOLDEN_EXAMPLE_VERSION = "dynamic-golden-shot-v2"
 
 
 @dataclass(frozen=True)
@@ -90,7 +90,7 @@ NEGATIVE_EXAMPLES = (
 
 
 class GoldenExampleSelector:
-    """Pick three positive demonstrations plus one boundary/negative example."""
+    """Pick relevant demonstrations while respecting the provider prompt budget."""
 
     def select(
         self,
@@ -100,7 +100,7 @@ class GoldenExampleSelector:
         max_examples: int = 4,
         document_id: str = "",
     ) -> GoldenSelection:
-        max_examples = max(3, min(4, int(max_examples)))
+        max_examples = max(1, min(4, int(max_examples)))
         low = str(text or "").casefold()
 
         def score(item: GoldenExample) -> tuple[float, list[str]]:
@@ -124,15 +124,29 @@ class GoldenExampleSelector:
             value, reasons = score(item)
             ranked.append((-value, index, item, reasons or ["coverage_diversity"]))
         ranked.sort(key=lambda row: (row[0], row[1]))
-        negative_count = 2 if study_type in {"computational", "review"} else 1
-        positives = ranked[: max_examples - negative_count]
-
         negative_ranked = []
         for index, item in enumerate(NEGATIVE_EXAMPLES):
             value, reasons = score(item)
             negative_ranked.append((-value, index, item, reasons or ["boundary_control"]))
         negative_ranked.sort(key=lambda row: (row[0], row[1]))
-        chosen = [*positives, *negative_ranked[:negative_count]]
+        if max_examples == 1:
+            best_positive = ranked[0]
+            best_negative = negative_ranked[0]
+            prefer_boundary = study_type in {"computational", "review"}
+            chosen = [
+                best_negative
+                if best_negative[0] < best_positive[0]
+                or (best_negative[0] == best_positive[0] and prefer_boundary)
+                else best_positive
+            ]
+        else:
+            negative_count = (
+                min(2, max_examples - 1)
+                if study_type in {"computational", "review"}
+                else 1
+            )
+            positives = ranked[: max_examples - negative_count]
+            chosen = [*positives, *negative_ranked[:negative_count]]
         return GoldenSelection(
             examples=[row[2].example for row in chosen],
             names=[row[2].name for row in chosen],

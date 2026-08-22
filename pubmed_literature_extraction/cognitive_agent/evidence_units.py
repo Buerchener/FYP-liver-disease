@@ -144,3 +144,70 @@ class ArticleEvidenceReader:
             return min(exact, key=lambda item: len(item.text))
         reverse = [unit for unit in units if unit.text in evidence]
         return max(reverse, key=lambda item: len(item.text), default=None)
+
+    @staticmethod
+    def parent_units(text: str, units: list[EvidenceUnit]) -> list[EvidenceUnit]:
+        """Full-sentence units for clause-level child units.
+
+        Clause splitting can separate two coordinated entity mentions that a
+        relation actually connects.  Parent sentences provide a lossless
+        pairing window that is still an exact source substring.
+        """
+        grouped: dict[str, list[EvidenceUnit]] = {}
+        for unit in units:
+            grouped.setdefault(unit.parent_sentence_id, []).append(unit)
+        parents: list[EvidenceUnit] = []
+        for parent_id, children in grouped.items():
+            ordered = sorted(children, key=lambda item: item.char_start)
+            start, end = ordered[0].char_start, ordered[-1].char_end
+            if end <= start:
+                continue
+            parents.append(EvidenceUnit(
+                unit_id=f"p{parent_id[1:]}",
+                section=ordered[0].section,
+                text=text[start:end],
+                char_start=start,
+                char_end=end,
+                parent_sentence_id=parent_id,
+            ))
+        parents.sort(key=lambda item: item.char_start)
+        return parents
+
+    @staticmethod
+    def adjacent_sentence_windows(
+        text: str, sentences: list[EvidenceUnit], *, max_chars: int = 900,
+    ) -> list[EvidenceUnit]:
+        """Contiguous two-sentence windows for cross-sentence relation pairs.
+
+        A relation whose endpoints sit in neighbouring sentences can never be
+        recovered from a per-clause lattice.  The window is the exact source
+        substring from the first sentence start to the second sentence end;
+        the downstream judge selects its own minimal quote inside it.
+        """
+        windows: list[EvidenceUnit] = []
+        ordered = sorted(sentences, key=lambda item: item.char_start)
+        for index, first in enumerate(ordered[:-1]):
+            second = ordered[index + 1]
+            if second.char_start <= first.char_end:
+                continue  # overlapping spans: keep the shortest pairing window
+            # Never fabricate an evidence unit across structured-abstract
+            # sections or paragraphs.  Besides weakening the evidence claim,
+            # a METHODS→RESULTS window inherits the wrong section label and
+            # can defeat section-aware verifier policy.
+            if first.section != second.section:
+                continue
+            separator = text[first.char_end:second.char_start]
+            if "\n\n" in separator:
+                continue
+            start, end = first.char_start, second.char_end
+            if end - start > max_chars:
+                continue
+            windows.append(EvidenceUnit(
+                unit_id=f"w{index:03d}",
+                section=first.section,
+                text=text[start:end],
+                char_start=start,
+                char_end=end,
+                parent_sentence_id=first.parent_sentence_id,
+            ))
+        return windows

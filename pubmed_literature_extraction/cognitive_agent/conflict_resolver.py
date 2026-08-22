@@ -113,10 +113,18 @@ class ConflictResolver:
 
         # ── No existing evidence → create or discard ──
         if rel.neo4j_status == "NOVEL":
-            if not rel.schema_valid:
+            if not getattr(rel, "candidate_schema_valid", rel.schema_valid):
                 item.decision = "DISCARD"
                 item.conflict_type = "NONE"
-                item.reasoning_trace = "Schema invalid — discard"
+                item.reasoning_trace = "Candidate schema invalid — discard"
+            elif not getattr(rel, "write_contract_valid", False):
+                item.decision = "NO_ACTION"
+                item.conflict_type = "NONE"
+                reasons = getattr(rel, "schema_gap_reasons", []) or []
+                item.reasoning_trace = (
+                    "Main-KG schema gap — preserve candidate"
+                    + (f" ({', '.join(reasons[:4])})" if reasons else "")
+                )
             elif new_conf > 0.7:
                 item.decision = "CREATE"
                 item.conflict_type = "NONE"

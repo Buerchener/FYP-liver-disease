@@ -52,13 +52,83 @@ SEMANTIC_REVIEW_FLAGS = frozenset({
     "ambiguous_endpoint", "manual_review", "pair_low_confidence",
     "pair_ambiguous_predicate", "evidence_not_entailed", "title_only",
     "review_article",
+    # A single-model judge-ENTAILED semantic proposal conflicts with the
+    # deterministic semantic flags: the conflict is a REVIEW-worthy flag that
+    # routes the relation to the independent (second-model) adjudicator.
+    "judge_verifier_conflict",
 })
+
+# Trigger/evidence heuristics that ONLY the independent second-model
+# endorsement (flag `adjudicator_entailed`, set by a DeepSeek KEEP during
+# bounded adjudication) may clear for SEMANTIC acceptance.  A single-model
+# judge-ENTAILED proposal alone never overrides these; it only produces a
+# `judge_verifier_conflict` REVIEW.  The verifier's factual checks (schema,
+# endpoints, negation, method/background sections, evidence continuity)
+# always stay in force, and the write gate (WRITE_BLOCK_FLAGS) is untouched:
+# these flags still block import_ready.
+JUDGE_SEMANTIC_OVERRIDABLE_FLAGS = frozenset({
+    "trigger_missing", "trigger_not_linking_endpoints",
+    "trigger_direction_mismatch", "weak_evidence",
+})
+
+JUDGE_BACKEND_NAMES = frozenset({"pairwise_judge_v1"})
 
 # Write policy is deliberately stricter than semantic acceptance.
 WRITE_BLOCK_FLAGS = frozenset({
     *SEMANTIC_REJECT_FLAGS, *SEMANTIC_REVIEW_FLAGS,
     "invalid_direction", "non_human", "non_human_article",
     "article_out_of_scope", "second_llm_rejected", "review_article",
+    # An asserted prior/background claim can remain a semantic relation, but
+    # it is not this article's new importable evidence.
+    "non_current_finding_role",
+    # Judge-sourced relations may only be auto-written with very high judge
+    # confidence; the bounded adjudicator's KEEP clears this flag.
+    "judge_no_write_endorsement",
+})
+
+# Tiered-v2 separates factual legality, semantic confidence, and write
+# eligibility.  These sets are intentionally narrower than the legacy
+# precision gate above; callers opt in via --verification-policy tiered-v2.
+FACTUAL_REJECT_FLAGS = frozenset({
+    "schema_mismatch", "negated", "scoped_negation", "evidence_contradicted",
+    "subject_endpoint_missing", "object_endpoint_missing", "empty_evidence",
+    "filtered_endpoint", "unresolved_endpoint",
+})
+
+FACTUAL_REVIEW_FLAGS = frozenset({
+    "contradiction", "evidence_not_contiguous", "subject_not_grounded",
+    "object_not_grounded", "endpoint_not_in_evidence",
+    "ambiguous_endpoint", "subject_ambiguous", "object_ambiguous",
+    "judge_quote_not_in_source",
+})
+
+TIERED_SEMANTIC_REJECT_FLAGS = frozenset()
+
+TIERED_SEMANTIC_REVIEW_FLAGS = frozenset({
+    "uncertain", "weak_evidence", "trigger_missing",
+    "trigger_not_linking_endpoints", "trigger_direction_mismatch",
+    "manual_review", "pair_low_confidence", "pair_ambiguous_predicate",
+    "evidence_not_entailed", "judge_verifier_conflict",
+    "judge_entailment_without_trigger_support",
+    "cross_sentence", "prediction_only", "method_only", "background_only",
+    "objective_only", "method_section_only", "title_only", "review_article",
+})
+
+WRITE_REVIEW_FLAGS = frozenset({
+    *FACTUAL_REVIEW_FLAGS, *TIERED_SEMANTIC_REVIEW_FLAGS,
+    "invalid_direction", "non_human", "non_human_article",
+    "article_out_of_scope", "second_llm_rejected", "review_article",
+    "non_current_finding_role", "judge_no_write_endorsement",
+})
+
+MODEL_OVERRIDABLE_WRITE_FLAGS = frozenset({
+    "non_human", "non_human_article", "article_out_of_scope",
+    "non_current_finding_role", "review_article", "title_only",
+    "method_only", "prediction_only", "background_only", "objective_only",
+    "method_section_only", "judge_no_write_endorsement", "manual_review",
+    "pair_low_confidence", "weak_evidence", "trigger_missing",
+    "trigger_not_linking_endpoints", "trigger_direction_mismatch",
+    "cross_sentence", "uncertain",
 })
 
 

@@ -16,6 +16,15 @@ logs/
 extraction_output/*
 .cache/
 tmp/
+*.pid
+*.lock
+status.json
+heartbeat*
+
+# Large, reproducible experiment artifacts stay local or in archival storage.
+# Add a compact report explicitly when it has been reviewed; never bulk-add
+# benchmark output directories.
+benchmark_output/
 
 # Keep small source samples and selected benchmark artifacts.
 !extraction_output/pubmed_converted_500.jsonl

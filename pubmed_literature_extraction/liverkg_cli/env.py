@@ -8,9 +8,11 @@ from .paths import project_root
 
 
 LOCAL_ENV_FILES = (
-    ".env",
     "workstreams/literature_hmdb_kegg/.env",
     "workstreams/literature_hmdb_kegg/active-gemini.env",
+    # Project-local credentials are the explicit final override for an
+    # experiment and must not be shadowed by a historical workstream key.
+    ".env",
 )
 
 

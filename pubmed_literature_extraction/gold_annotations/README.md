@@ -4,6 +4,22 @@ The current strict 200-document gold set is documented in
 `README_pubmed_200_gold_v2_strict.md` and stored in
 `pubmed_200_gold_v2_strict.jsonl`.
 
+The v2 gold set now has explicit evaluation views for the separated candidate
+and write layers:
+
+- `pubmed_200_gold_v2_strict.jsonl`: frozen source annotation.
+- `pubmed_200_gold_v2_candidate_view.jsonl`: all 172 semantic gold relations,
+  each annotated with `gold_write_status=WRITE_CONTRACT|CANDIDATE_ONLY`.
+- `pubmed_200_gold_v2_write_contract.jsonl`: the 70 semantic relations whose
+  predicate and endpoint types match the current Neo4j write contract.
+- `pubmed_200_gold_v2_strict_import_ready.jsonl`: the 15 relations that both
+  match the current Neo4j write contract and retain `import_ready=true`.
+- `pubmed_200_gold_v2_write_contract_audit.json`: reproducible audit summary.
+
+Use the candidate view for semantic candidate recall/review metrics, the
+write-contract view for main-KG relation classification, and the strict
+import-ready view for automatic Neo4j write precision/recall.
+
 The remainder of this file describes the historical 50-document v1 set.
 
 # PubMed 50 relation gold set v1

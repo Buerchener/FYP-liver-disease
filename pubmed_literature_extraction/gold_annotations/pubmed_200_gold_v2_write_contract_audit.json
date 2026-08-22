@@ -1,0 +1,791 @@
+{
+  "article_count": 200,
+  "candidate_only_relation_count": 102,
+  "candidate_only_signature_counts": {
+    "ASSOCIATED_WITH_METABOLITE|Protein|Metabolite": 1,
+    "ASSOCIATED_WITH|CellType|Disease": 7,
+    "ASSOCIATED_WITH|CellType|Pathway": 1,
+    "ASSOCIATED_WITH|CellType|Tissue": 2,
+    "ASSOCIATED_WITH|Disease|Disease": 16,
+    "ASSOCIATED_WITH|Disease|Pathway": 3,
+    "ASSOCIATED_WITH|Disease|Tissue": 1,
+    "ASSOCIATED_WITH|Gene|Gene": 2,
+    "ASSOCIATED_WITH|Gene|Pathway": 1,
+    "ASSOCIATED_WITH|Pathway|Disease": 15,
+    "ASSOCIATED_WITH|Protein|Disease": 24,
+    "ASSOCIATED_WITH|Protein|Protein": 1,
+    "EXPRESSED_IN|Protein|CellType": 5,
+    "EXPRESSED_IN|Protein|Tissue": 1,
+    "INTERACTS_WITH|CellType|CellType": 1,
+    "INTERACTS_WITH|Gene|Protein": 1,
+    "INTERACTS_WITH|Metabolite|Protein": 8,
+    "PARTICIPATES_IN|CellType|Pathway": 1,
+    "PARTICIPATES_IN|Metabolite|Pathway": 1,
+    "PARTICIPATES_IN|Protein|Pathway": 7,
+    "PROGNOSTIC_IN|Protein|Disease": 3
+  },
+  "outside_examples": [
+    {
+      "pmid": "41650163",
+      "relation": {
+        "claim_role": null,
+        "evidence": "The expression of OTUD5 and MAVS is increased in patients with PBC and is a potential target for the diagnosis and treatment of PBC.",
+        "object": "Primary biliary cholangitis",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "MAVS",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Protein",
+        "Disease"
+      ],
+      "title": "A multifaceted analysis of OTUD5 integrated MAVS in innate immunity of Primary Biliary Cholangitis."
+    },
+    {
+      "pmid": "41650163",
+      "relation": {
+        "claim_role": null,
+        "evidence": "This study focused on the overexpression of OTUD5 and its interaction with MAVS within macrophage subset 11 in patients with primary biliary cholangitis (PBC).",
+        "object": "MAVS",
+        "object_type": "Protein",
+        "predicate": "INTERACTS_WITH",
+        "subject": "OTUD5",
+        "subject_type": "Gene"
+      },
+      "signature": [
+        "INTERACTS_WITH",
+        "Gene",
+        "Protein"
+      ],
+      "title": "A multifaceted analysis of OTUD5 integrated MAVS in innate immunity of Primary Biliary Cholangitis."
+    },
+    {
+      "pmid": "41650163",
+      "relation": {
+        "claim_role": null,
+        "evidence": "This study focused on the overexpression of OTUD5 and its interaction with MAVS within macrophage subset 11 in patients with primary biliary cholangitis (PBC).",
+        "object": "macrophage subset 11",
+        "object_type": "CellType",
+        "predicate": "EXPRESSED_IN",
+        "subject": "MAVS",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "EXPRESSED_IN",
+        "Protein",
+        "CellType"
+      ],
+      "title": "A multifaceted analysis of OTUD5 integrated MAVS in innate immunity of Primary Biliary Cholangitis."
+    },
+    {
+      "pmid": "41650163",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Compared with those of healthy controls, the liver tissues of patients with PBC presented increased NK cell activation, monocyte/mast cell numbers, and eosinophil numbers.",
+        "object": "NK cell activation",
+        "object_type": "Pathway",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Primary biliary cholangitis",
+        "subject_type": "Disease"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Disease",
+        "Pathway"
+      ],
+      "title": "A multifaceted analysis of OTUD5 integrated MAVS in innate immunity of Primary Biliary Cholangitis."
+    },
+    {
+      "pmid": "41581151",
+      "relation": {
+        "claim_role": null,
+        "evidence": "We further identify a subset of liver endothelial cells termed \"Endo4\" as the source of Wnt9b. Immunostaining for the Endo4 marker VWF using tissue clearing and 3D imaging reveals VWF+ vasculature juxtaposing activated hepatic stellate cells that penetrate deep into the fibrotic septa and exhibit in situ protease activity, establishing them as de facto scar-associated endothelial cells and a regulatory node in murine MASH fibrosis regression.",
+        "object": "Hepatic stellate cells",
+        "object_type": "CellType",
+        "predicate": "INTERACTS_WITH",
+        "subject": "Endo4 liver endothelial cells",
+        "subject_type": "CellType"
+      },
+      "signature": [
+        "INTERACTS_WITH",
+        "CellType",
+        "CellType"
+      ],
+      "title": "Scar-associated endothelial-stellate cellular crosstalk drives fibrosis resolution in MASH."
+    },
+    {
+      "pmid": "41475279",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Hepatocellular carcinoma (HCC) is one of the leading causes of cancer-related mortality globally and has been closely linked to chronic liver conditions, such as viral hepatitis and non-alcoholic fatty liver disease.",
+        "object": "Hepatocellular carcinoma",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Non-alcoholic fatty liver disease",
+        "subject_type": "Disease"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Disease",
+        "Disease"
+      ],
+      "title": "Gut microbiota's role in NAFLD- and HBV/HCV-related hepatocellular carcinoma: Mechanisms and therapeutic implications."
+    },
+    {
+      "pmid": "41719003",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Hepatic steatosis was less frequent in acromegaly than in metabolically comparable individuals, and GH was inversely associated with hepatic steatosis scores, possibly suggesting a protective role of GH independent of metabolic comorbidities.",
+        "object": "Hepatic steatosis",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Acromegaly",
+        "subject_type": "Disease"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Disease",
+        "Disease"
+      ],
+      "title": "The relationship between acromegaly and hepatic steatosis: insights from FibroScan imaging."
+    },
+    {
+      "pmid": "41719003",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Hepatic steatosis was less frequent in acromegaly than in metabolically comparable individuals, and GH was inversely associated with hepatic steatosis scores, possibly suggesting a protective role of GH independent of metabolic comorbidities.",
+        "object": "Hepatic steatosis",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Growth hormone",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Protein",
+        "Disease"
+      ],
+      "title": "The relationship between acromegaly and hepatic steatosis: insights from FibroScan imaging."
+    },
+    {
+      "pmid": "41884271",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Nonalcoholic fatty liver disease (NAFLD) is a metabolic disorder characterized by lipid accumulation in the liver, and is often linked to ferroptosis, an iron-dependent programmed cell death driven by lipid peroxidation.",
+        "object": "Hepatic ferroptosis",
+        "object_type": "Pathway",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Nonalcoholic fatty liver disease",
+        "subject_type": "Disease"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Disease",
+        "Pathway"
+      ],
+      "title": "High Dihydromyricetin Loaded Biomimetic Nanoemulsion Ameliorated Early Nonalcoholic Fatty Liver Disease by Hepatic Ferroptosis Inhibition."
+    },
+    {
+      "pmid": "41640520",
+      "relation": {
+        "claim_role": null,
+        "evidence": "A high prevalence rate of HCV infection was observed among children with SCA and was significantly associated with a modifiable variable.",
+        "object": "Hepatitis C virus infection",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Sickle cell anaemia",
+        "subject_type": "Disease"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Disease",
+        "Disease"
+      ],
+      "title": "Prevalence and Correlates of Hepatitis B and C infections in Sickle cell anaemic (SCA) children compared to Controls in a Tertiary Hospital, Abakaliki, Southeast, Nigeria."
+    },
+    {
+      "pmid": "41977422",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Metabolic dysfunction-associated steatotic liver disease (MASLD) has emerged as a leading driver of hepatocellular carcinoma (HCC) worldwide.",
+        "object": "Hepatocellular carcinoma",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "MASLD",
+        "subject_type": "Disease"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Disease",
+        "Disease"
+      ],
+      "title": "Risk Assessment and Prediction of Hepatocellular Carcinoma in Noncirrhotic Metabolic Dysfunction-Associated Steatotic Liver Disease."
+    },
+    {
+      "pmid": "41977422",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Accumulating evidence demonstrates that HCC risk in MASLD is modulated not only by histologic severity but also by metabolic comorbidities, particularly type 2 diabetes mellitus, which can significantly amplify cancer risk even in pre-cirrhotic stages.",
+        "object": "Hepatocellular carcinoma",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Type 2 diabetes mellitus",
+        "subject_type": "Disease"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Disease",
+        "Disease"
+      ],
+      "title": "Risk Assessment and Prediction of Hepatocellular Carcinoma in Noncirrhotic Metabolic Dysfunction-Associated Steatotic Liver Disease."
+    },
+    {
+      "pmid": "41800244",
+      "relation": {
+        "claim_role": null,
+        "evidence": "The NF-κB signaling pathway is particularly associated with liver diseases including hepatitis B virus (HBV) infection.",
+        "object": "Hepatitis B virus infection",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "NF-κB signaling pathway",
+        "subject_type": "Pathway"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Pathway",
+        "Disease"
+      ],
+      "title": "New Insights into the Role of NF-κB in Hepatitis B Virus Infection."
+    },
+    {
+      "pmid": "41940593",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Correlation analysis using GEPIA2 supported inverse relationship between COP1 and AKR1D1 expression and positive relationship between COP1 and TMEM65 expression in HCC clinical samples.",
+        "object": "AKR1D1",
+        "object_type": "Gene",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "COP1",
+        "subject_type": "Gene"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Gene",
+        "Gene"
+      ],
+      "title": "Functional Role of COP1 Gene in Hepatocellular Carcinoma Lipid Metabolism and Stemness."
+    },
+    {
+      "pmid": "41940593",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Correlation analysis using GEPIA2 supported inverse relationship between COP1 and AKR1D1 expression and positive relationship between COP1 and TMEM65 expression in HCC clinical samples.",
+        "object": "TMEM65",
+        "object_type": "Gene",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "COP1",
+        "subject_type": "Gene"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Gene",
+        "Gene"
+      ],
+      "title": "Functional Role of COP1 Gene in Hepatocellular Carcinoma Lipid Metabolism and Stemness."
+    },
+    {
+      "pmid": "41940593",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Collectively, our findings indicate that the COP1 is functionally correlated with HCC lipid metabolism and stemness.",
+        "object": "HCC lipid metabolism",
+        "object_type": "Pathway",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "COP1",
+        "subject_type": "Gene"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Gene",
+        "Pathway"
+      ],
+      "title": "Functional Role of COP1 Gene in Hepatocellular Carcinoma Lipid Metabolism and Stemness."
+    },
+    {
+      "pmid": "41961385",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Immunofluorescence showed increased macrophage number and uptake during inflammation, decreasing during resolution.",
+        "object": "Inflammation",
+        "object_type": "Pathway",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Macrophage",
+        "subject_type": "CellType"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "CellType",
+        "Pathway"
+      ],
+      "title": "Inflammatory and resolution stages of hepatic injury: imaging with USPIO-enhanced MRI in mice."
+    },
+    {
+      "pmid": "41703857",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Mechanistically, CSC EVs activated the SIRT-1/AMPK signalling pathway, a key regulator of lipid metabolism.",
+        "object": "SIRT1/AMPK signaling pathway",
+        "object_type": "Pathway",
+        "predicate": "PARTICIPATES_IN",
+        "subject": "SIRT1",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "PARTICIPATES_IN",
+        "Protein",
+        "Pathway"
+      ],
+      "title": "Cardoon cell cultures as a biofactory for extracellular vesicles with antisteatotic activity in an in vitro model of non-alcoholic fatty liver disease."
+    },
+    {
+      "pmid": "41703857",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Mechanistically, CSC EVs activated the SIRT-1/AMPK signalling pathway, a key regulator of lipid metabolism.",
+        "object": "SIRT1/AMPK signaling pathway",
+        "object_type": "Pathway",
+        "predicate": "PARTICIPATES_IN",
+        "subject": "AMPK",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "PARTICIPATES_IN",
+        "Protein",
+        "Pathway"
+      ],
+      "title": "Cardoon cell cultures as a biofactory for extracellular vesicles with antisteatotic activity in an in vitro model of non-alcoholic fatty liver disease."
+    },
+    {
+      "pmid": "41482383",
+      "relation": {
+        "claim_role": null,
+        "evidence": "PN is associated with an increased risk of NAFLD, liver fibrosis, and cirrhosis.",
+        "object": "Non-alcoholic fatty liver disease",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Prurigo nodularis",
+        "subject_type": "Disease"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Disease",
+        "Disease"
+      ],
+      "title": "Prurigo Nodularis Increases Risk of Non-alcoholic Fatty Liver Disease and Liver Cirrhosis: A Global-federated Retrospective Cohort Study."
+    },
+    {
+      "pmid": "41482383",
+      "relation": {
+        "claim_role": null,
+        "evidence": "PN is associated with an increased risk of NAFLD, liver fibrosis, and cirrhosis.",
+        "object": "Liver fibrosis",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Prurigo nodularis",
+        "subject_type": "Disease"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Disease",
+        "Disease"
+      ],
+      "title": "Prurigo Nodularis Increases Risk of Non-alcoholic Fatty Liver Disease and Liver Cirrhosis: A Global-federated Retrospective Cohort Study."
+    },
+    {
+      "pmid": "41482383",
+      "relation": {
+        "claim_role": null,
+        "evidence": "PN is associated with an increased risk of NAFLD, liver fibrosis, and cirrhosis.",
+        "object": "Cirrhosis",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Prurigo nodularis",
+        "subject_type": "Disease"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Disease",
+        "Disease"
+      ],
+      "title": "Prurigo Nodularis Increases Risk of Non-alcoholic Fatty Liver Disease and Liver Cirrhosis: A Global-federated Retrospective Cohort Study."
+    },
+    {
+      "pmid": "41891740",
+      "relation": {
+        "claim_role": null,
+        "evidence": "After ruling out infectious causes and assessing prosthetic valve function, hepatic fibrosis associated with venous congestion due to right ventricular dysfunction and severe tricuspid regurgitation was diagnosed.",
+        "object": "Hepatic fibrosis",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Right ventricular dysfunction",
+        "subject_type": "Disease"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Disease",
+        "Disease"
+      ],
+      "title": "[Severe Hemolytic Anemia Due to Paravalvular Leak Associated with Heart Failure and Congestive Hepatopathy: A Case Report]."
+    },
+    {
+      "pmid": "41435869",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Metabolic dysfunction-associated steatotic liver disease (MASLD) is quickly emerging as a global public health concern, primarily fueled by the rising consumption of processed and ultraprocessed foods. This global health issue, showing a 50% increase in prevalence over two decades to 38% of the global population, is now the second most common cause of end-stage liver disease and liver transplants in Europe and the United States and an emerging driver of hepatocellular carcinoma, particularly in Hispanic and non-Hispanic White populations.",
+        "object": "Hepatocellular carcinoma",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "MASLD",
+        "subject_type": "Disease"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Disease",
+        "Disease"
+      ],
+      "title": "Modern Diets, Metabolic Inequity, and Race-Ethnic Disparities: Unraveling the Associations With MASLD and Cancer Risk."
+    },
+    {
+      "pmid": "41764726",
+      "relation": {
+        "claim_role": null,
+        "evidence": "In conclusion, our results suggest that IL-17A-producing neutrophils, via the triggering of NET formation, play a key profibrogenic role in MASLD.",
+        "object": "MASLD",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "IL-17A",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Protein",
+        "Disease"
+      ],
+      "title": "IL-17A-induced NETs are profibrogenic in mice with metabolic dysfunction-associated steatotic liver disease (MASLD)."
+    },
+    {
+      "pmid": "41764726",
+      "relation": {
+        "claim_role": null,
+        "evidence": "In conclusion, our results suggest that IL-17A-producing neutrophils, via the triggering of NET formation, play a key profibrogenic role in MASLD.",
+        "object": "NET formation",
+        "object_type": "Pathway",
+        "predicate": "PARTICIPATES_IN",
+        "subject": "neutrophils",
+        "subject_type": "CellType"
+      },
+      "signature": [
+        "PARTICIPATES_IN",
+        "CellType",
+        "Pathway"
+      ],
+      "title": "IL-17A-induced NETs are profibrogenic in mice with metabolic dysfunction-associated steatotic liver disease (MASLD)."
+    },
+    {
+      "pmid": "41731656",
+      "relation": {
+        "claim_role": null,
+        "evidence": "As proof of concept, Pentraxin-2 mRNA (mPTX-2)-loaded FOCUS LNPs drive localized PTX-2 production in murine models of pulmonary and hepatic fibrosis, reducing collagen deposition by 60-80% while avoiding systemic side effects like impaired wound healing.",
+        "object": "fibrotic liver",
+        "object_type": "Tissue",
+        "predicate": "EXPRESSED_IN",
+        "subject": "Pentraxin-2",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "EXPRESSED_IN",
+        "Protein",
+        "Tissue"
+      ],
+      "title": "FAP-Synergistic Organ-Targeted mRNA-LNP for Overcoming Delivery Barriers in Hepatic and Pulmonary Fibrosis."
+    },
+    {
+      "pmid": "41799205",
+      "relation": {
+        "claim_role": null,
+        "evidence": "We found that MTT significantly prolonged the patients' PFS compared with RFA and identified a novel T cell subset characterized by CX3CR1 and GPR56 that specifically correlated with the efficacy of MTT.",
+        "object": "CX3CR1+GPR56+ T cells",
+        "object_type": "CellType",
+        "predicate": "EXPRESSED_IN",
+        "subject": "CX3CR1",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "EXPRESSED_IN",
+        "Protein",
+        "CellType"
+      ],
+      "title": "Multimodal tumor thermal therapy enhances antitumor immunity by expanding tumor-reactive CX3CR1⁺GPR56⁺ T cells in hepatocellular carcinoma."
+    },
+    {
+      "pmid": "41799205",
+      "relation": {
+        "claim_role": null,
+        "evidence": "We found that MTT significantly prolonged the patients' PFS compared with RFA and identified a novel T cell subset characterized by CX3CR1 and GPR56 that specifically correlated with the efficacy of MTT.",
+        "object": "CX3CR1+GPR56+ T cells",
+        "object_type": "CellType",
+        "predicate": "EXPRESSED_IN",
+        "subject": "GPR56",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "EXPRESSED_IN",
+        "Protein",
+        "CellType"
+      ],
+      "title": "Multimodal tumor thermal therapy enhances antitumor immunity by expanding tumor-reactive CX3CR1⁺GPR56⁺ T cells in hepatocellular carcinoma."
+    },
+    {
+      "pmid": "41679350",
+      "relation": {
+        "claim_role": null,
+        "evidence": "We systematically characterize the stage-specific functional shifts of Gal-1 in liver disease: it serves as a double-edged immunomodulator during hepatitis, acts as a core driver of fibrosis progression, and ultimately functions as a multifunctional pro-tumorigenic factor in established HCC.",
+        "object": "Liver fibrosis",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Galectin-1",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Protein",
+        "Disease"
+      ],
+      "title": "A functional switch of Galectin-1: A glycan-dependent driver of liver cancer progression."
+    },
+    {
+      "pmid": "41679350",
+      "relation": {
+        "claim_role": null,
+        "evidence": "We systematically characterize the stage-specific functional shifts of Gal-1 in liver disease: it serves as a double-edged immunomodulator during hepatitis, acts as a core driver of fibrosis progression, and ultimately functions as a multifunctional pro-tumorigenic factor in established HCC.",
+        "object": "Hepatocellular carcinoma",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "Galectin-1",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Protein",
+        "Disease"
+      ],
+      "title": "A functional switch of Galectin-1: A glycan-dependent driver of liver cancer progression."
+    },
+    {
+      "pmid": "41903671",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Integrating RNA-seq and public cohort data, we found consistent downregulation of the bile salt export pump (BSEP/ABCB11) in TKI-resistant HCC associated with poorer prognosis and reduced clinical response.",
+        "object": "Hepatocellular carcinoma",
+        "object_type": "Disease",
+        "predicate": "PROGNOSTIC_IN",
+        "subject": "BSEP",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "PROGNOSTIC_IN",
+        "Protein",
+        "Disease"
+      ],
+      "title": "Potentiating BSEP-mediated bile acid efflux reverses first-line tyrosine kinase inhibitor resistance in hepatocellular carcinoma."
+    },
+    {
+      "pmid": "41903671",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Functional in vitro and xenograft studies, using BSEP overexpression/knockdown and TKI-resistant cell lines plus targeted metabolomics, showed BSEP expression deficiency leads to intracellular accumulation of primary conjugated bile acids (BAs)-especially glycocholic acid (GCA)-which activates EGFR signaling and drives resistance; restoring BSEP enhances BA efflux and resensitizes cells and tumors to TKIs.",
+        "object": "Glycocholic acid",
+        "object_type": "Metabolite",
+        "predicate": "ASSOCIATED_WITH_METABOLITE",
+        "subject": "BSEP",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "ASSOCIATED_WITH_METABOLITE",
+        "Protein",
+        "Metabolite"
+      ],
+      "title": "Potentiating BSEP-mediated bile acid efflux reverses first-line tyrosine kinase inhibitor resistance in hepatocellular carcinoma."
+    },
+    {
+      "pmid": "41903671",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Mechanistic assays revealed that ursodeoxycholic acid (UDCA) upregulated BSEP and reversed resistance via an FXR-independent mechanism: UDCA directly binds cortactin (CTTN), reduces its PRMT1-dependent mono-methylation, and promotes CTTN degradation via chaperone-mediated autophagy (CMA), thereby enabling YY1 nuclear translocation and transcriptional activation of BSEP.",
+        "object": "CTTN",
+        "object_type": "Protein",
+        "predicate": "INTERACTS_WITH",
+        "subject": "Ursodeoxycholic acid",
+        "subject_type": "Metabolite"
+      },
+      "signature": [
+        "INTERACTS_WITH",
+        "Metabolite",
+        "Protein"
+      ],
+      "title": "Potentiating BSEP-mediated bile acid efflux reverses first-line tyrosine kinase inhibitor resistance in hepatocellular carcinoma."
+    },
+    {
+      "pmid": "41905442",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Molecular docking, immunofluorescence and protein assays indicated that DAM binds to Wnt1 and β-catenin with high affinity and inhibits Wnt/β-catenin signaling by downregulating Wnt1, β-catenin, p-GSK-3β, Axin2, c-Myc and Cyclin D1.",
+        "object": "Wnt1",
+        "object_type": "Protein",
+        "predicate": "INTERACTS_WITH",
+        "subject": "DAM",
+        "subject_type": "Metabolite"
+      },
+      "signature": [
+        "INTERACTS_WITH",
+        "Metabolite",
+        "Protein"
+      ],
+      "title": "Deacetylasperulosidic acid methyl ester attenuates liver fibrosis by modulating the SCFAs-Wnt/β-catenin signaling axis."
+    },
+    {
+      "pmid": "41905442",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Molecular docking, immunofluorescence and protein assays indicated that DAM binds to Wnt1 and β-catenin with high affinity and inhibits Wnt/β-catenin signaling by downregulating Wnt1, β-catenin, p-GSK-3β, Axin2, c-Myc and Cyclin D1.",
+        "object": "β-catenin",
+        "object_type": "Protein",
+        "predicate": "INTERACTS_WITH",
+        "subject": "DAM",
+        "subject_type": "Metabolite"
+      },
+      "signature": [
+        "INTERACTS_WITH",
+        "Metabolite",
+        "Protein"
+      ],
+      "title": "Deacetylasperulosidic acid methyl ester attenuates liver fibrosis by modulating the SCFAs-Wnt/β-catenin signaling axis."
+    },
+    {
+      "pmid": "41801145",
+      "relation": {
+        "claim_role": null,
+        "evidence": "These findings suggest that CHI3L1 combined with Th17/Treg cells may serve as a novel biomarker for staging hepatitis B virus-related liver fibrosis.",
+        "object": "HBV-related liver fibrosis",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "CHI3L1",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Protein",
+        "Disease"
+      ],
+      "title": "CHI3L1 combined with Th17/Treg cells: a novel marker for the degree of HBV-related liver fibrosis."
+    },
+    {
+      "pmid": "41761978",
+      "relation": {
+        "claim_role": null,
+        "evidence": "The LXN-THBS2 signaling axis may promote liver fibrosis progression by inducing the activation of HSCs.",
+        "object": "Liver fibrosis",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "LXN",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Protein",
+        "Disease"
+      ],
+      "title": "LXN-THBS2 Signaling Axis Regulates Hepatic Stellate Cell Activation and Promotes the Development of Liver Fibrosis."
+    },
+    {
+      "pmid": "41761978",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Thrombospondin-2 (THBS2), a secreted extracellular matrix glycoprotein encoded by the TSP gene family, has been found to activate the TLR4-transforming growth factor-β (TGF-β)/FAK signaling axis and HSCs through autocrine signalling, thereby contributing to the development of liver fibrosis.",
+        "object": "Liver fibrosis",
+        "object_type": "Disease",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "THBS2",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Protein",
+        "Disease"
+      ],
+      "title": "LXN-THBS2 Signaling Axis Regulates Hepatic Stellate Cell Activation and Promotes the Development of Liver Fibrosis."
+    },
+    {
+      "pmid": "41761978",
+      "relation": {
+        "claim_role": null,
+        "evidence": "Furthermore, LXN demonstrates a substantial positive correlation with THBS2, and LXN knockdown was capable of downregulating THBS2.",
+        "object": "THBS2",
+        "object_type": "Protein",
+        "predicate": "ASSOCIATED_WITH",
+        "subject": "LXN",
+        "subject_type": "Protein"
+      },
+      "signature": [
+        "ASSOCIATED_WITH",
+        "Protein",
+        "Protein"
+      ],
+      "title": "LXN-THBS2 Signaling Axis Regulates Hepatic Stellate Cell Activation and Promotes the Development of Liver Fibrosis."
+    }
+  ],
+  "predicate_counts": {
+    "ASSOCIATED_WITH": 117,
+    "ASSOCIATED_WITH_METABOLITE": 1,
+    "EXPRESSED_IN": 11,
+    "INTERACTS_WITH": 15,
+    "PARTICIPATES_IN": 12,
+    "PROGNOSTIC_IN": 3,
+    "PROGRESSES_TO": 13
+  },
+  "recommendation": "Do not delete candidate-only gold relations. Add an evaluation view: write_contract_gold for strict import-ready scoring and candidate_gold for semantic candidate recall/review scoring.",
+  "relation_count": 172,
+  "signature_counts": {
+    "ASSOCIATED_WITH_METABOLITE|Protein|Metabolite": 1,
+    "ASSOCIATED_WITH|CellType|Disease": 7,
+    "ASSOCIATED_WITH|CellType|Pathway": 1,
+    "ASSOCIATED_WITH|CellType|Tissue": 2,
+    "ASSOCIATED_WITH|Disease|Disease": 16,
+    "ASSOCIATED_WITH|Disease|Pathway": 3,
+    "ASSOCIATED_WITH|Disease|Tissue": 1,
+    "ASSOCIATED_WITH|Gene|Disease": 28,
+    "ASSOCIATED_WITH|Gene|Gene": 2,
+    "ASSOCIATED_WITH|Gene|Pathway": 1,
+    "ASSOCIATED_WITH|Metabolite|Disease": 16,
+    "ASSOCIATED_WITH|Pathway|Disease": 15,
+    "ASSOCIATED_WITH|Protein|Disease": 24,
+    "ASSOCIATED_WITH|Protein|Protein": 1,
+    "EXPRESSED_IN|Gene|CellType": 5,
+    "EXPRESSED_IN|Protein|CellType": 5,
+    "EXPRESSED_IN|Protein|Tissue": 1,
+    "INTERACTS_WITH|CellType|CellType": 1,
+    "INTERACTS_WITH|Gene|Protein": 1,
+    "INTERACTS_WITH|Metabolite|Protein": 8,
+    "INTERACTS_WITH|Protein|Protein": 5,
+    "PARTICIPATES_IN|CellType|Pathway": 1,
+    "PARTICIPATES_IN|Gene|Pathway": 3,
+    "PARTICIPATES_IN|Metabolite|Pathway": 1,
+    "PARTICIPATES_IN|Protein|Pathway": 7,
+    "PROGNOSTIC_IN|Protein|Disease": 3,
+    "PROGRESSES_TO|Disease|Disease": 13
+  },
+  "strict_import_ready_write_contract_relation_count": 15,
+  "write_contract_relation_count": 70
+}

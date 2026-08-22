@@ -95,7 +95,7 @@ class DecisionEngine:
 
         决策逻辑:
         1. 实体: NOVEL + 高置信 + 满足创建策略 → CREATE_ENTITY
-        2. 关系: NOVEL + schema_valid + import_ready → CREATE_RELATION
+        2. 关系: NOVEL + write_contract_valid + import_ready → CREATE_RELATION
         3. 关系: CONTRADICTING + 新证据更可靠 → UPDATE_RELATION
         4. 关系: CONTRADICTING + 双方高置信 → MARK_DISPUTED
         5. 关系: 质量差 → DISCARD
@@ -117,11 +117,11 @@ class DecisionEngine:
             eligible_endpoints = {
                 (relation.subject, relation.subject_type)
                 for relation in verified_relations
-                if relation.import_ready
+                if relation.import_ready and relation.write_contract_valid
             } | {
                 (relation.object, relation.object_type)
                 for relation in verified_relations
-                if relation.import_ready
+                if relation.import_ready and relation.write_contract_valid
             }
             canonical_entities = [
                 entity for entity in canonical_entities
@@ -153,11 +153,13 @@ class DecisionEngine:
                 continue
             current = decision_relations[current_index]
             current_rank = (
-                bool(current.import_ready), -int(current.evidence_level),
+                bool(current.import_ready and current.write_contract_valid),
+                -int(current.evidence_level),
                 len(current.evidence or ""),
             )
             candidate_rank = (
-                bool(relation.import_ready), -int(relation.evidence_level),
+                bool(relation.import_ready and relation.write_contract_valid),
+                -int(relation.evidence_level),
                 len(relation.evidence or ""),
             )
             if candidate_rank > current_rank:
@@ -376,6 +378,16 @@ class DecisionEngine:
             "evidence": relation.evidence,
             "existing_rel_id": relation.existing_rel_id,
             "existing_confidence": relation.existing_confidence,
+            "candidate_schema_valid": getattr(
+                relation, "candidate_schema_valid", relation.schema_valid
+            ),
+            "write_contract_valid": getattr(relation, "write_contract_valid", False),
+            "schema_gap_reasons": list(
+                getattr(relation, "schema_gap_reasons", []) or []
+            ),
+            "write_contract_version": str(
+                getattr(relation, "write_contract_version", "") or ""
+            ),
         }
 
         if relation.neo4j_status == "INVERTED":
@@ -386,6 +398,21 @@ class DecisionEngine:
                 confidence=relation.existing_confidence,
             )
 
+        write_status = str(getattr(relation, "write_status", "") or "").upper()
+        semantic_status = str(getattr(relation, "semantic_status", "") or "").upper()
+        factual_status = str(getattr(relation, "factual_status", "") or "").upper()
+        if write_status in {"HUMAN_REVIEW", "SEMANTIC_ONLY"}:
+            reasons = getattr(relation, "write_reasons", []) or getattr(relation, "semantic_reasons", []) or []
+            return Action(
+                type="NO_ACTION",
+                relation=rel_info,
+                reason=(
+                    f"{write_status}: relation preserved for review"
+                    + (f" ({', '.join(reasons[:8])})" if reasons else "")
+                ),
+                confidence=getattr(relation, "classifier_confidence", 0.0) or 0.0,
+            )
+
         if "manual_review" in relation.quality_flags:
             return Action(
                 type="NO_ACTION",
@@ -394,12 +421,16 @@ class DecisionEngine:
                 confidence=0.0,
             )
 
-        # 1. 质量过滤
-        if not relation.schema_valid:
+        # 1. Factual candidate-schema failure is terminal.  Main-KG schema
+        # gaps are deliberately handled below as preserved NO_ACTION cases.
+        if not getattr(relation, "candidate_schema_valid", relation.schema_valid):
             return Action(
                 type="DISCARD",
                 relation=rel_info,
-                reason=f"Schema mismatch: ({relation.subject_type})-[:{relation.predicate}]->({relation.object_type})",
+                reason=(
+                    "Candidate schema mismatch: "
+                    f"({relation.subject_type})-[:{relation.predicate}]->({relation.object_type})"
+                ),
                 confidence=0.0,
             )
 
@@ -411,9 +442,43 @@ class DecisionEngine:
                 confidence=0.0,
             )
 
-        if not relation.import_ready:
+        if (
+            factual_status == "REJECTED"
+            or semantic_status == "REJECTED"
+            or write_status == "BLOCKED"
+        ):
             return Action(
                 type="DISCARD",
+                relation=rel_info,
+                reason=(
+                    "Factual or semantic hard gate rejected relation: "
+                    + ", ".join(relation.quality_flags[:8])
+                ),
+                confidence=0.0,
+            )
+
+        if not getattr(relation, "write_contract_valid", False):
+            reasons = getattr(relation, "schema_gap_reasons", []) or []
+            return Action(
+                type="NO_ACTION",
+                relation=rel_info,
+                reason=(
+                    "MAIN_KG_WRITE_CONTRACT: relation preserved in candidate store"
+                    + (f" ({', '.join(reasons[:8])})" if reasons else "")
+                ),
+                confidence=getattr(relation, "classifier_confidence", 0.0) or 0.0,
+            )
+
+        if not relation.import_ready:
+            action_type = (
+                "DISCARD"
+                if write_status in {"", "UNASSESSED", "BLOCKED"}
+                or semantic_status == "REJECTED"
+                or factual_status == "REJECTED"
+                else "NO_ACTION"
+            )
+            return Action(
+                type=action_type,
                 relation=rel_info,
                 reason=(
                     "Deterministic quality gate blocked relation: "
@@ -639,7 +704,11 @@ class DecisionEngine:
                     + " (flagged for review; aggressive mode required to create)",
                     confidence=confidence,
                 )
-            if not relation.schema_valid or relation.negated or "non_human" in relation.quality_flags:
+            if (
+                not getattr(relation, "write_contract_valid", False)
+                or relation.negated
+                or "non_human" in relation.quality_flags
+            ):
                 return Action(
                     type="NO_ACTION",
                     relation=rel_info,
@@ -873,6 +942,8 @@ class DecisionEngine:
                 evidence=evidence,
                 pmid=log.pmid,
                 confidence=action.confidence,
+                subject_type=subj_type,
+                object_type=obj_type,
             )
             if rel_element_id:
                 rel["created_rel_id"] = rel_element_id

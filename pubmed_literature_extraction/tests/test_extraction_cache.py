@@ -193,6 +193,31 @@ class ExtractionKernelCacheTests(unittest.TestCase):
             ExtractionKernel(config, inner_max_workers=2)._cache_key(**args),
         )
 
+    def test_timeout_has_a_separate_small_retry_budget(self):
+        kernel = self.make_kernel()
+        with (
+            patch.dict(
+                "os.environ",
+                {
+                    "PRIMARY_LLM_MAX_RETRIES": "5",
+                    "PRIMARY_LLM_TIMEOUT_MAX_RETRIES": "1",
+                    "PRIMARY_LLM_RETRY_BASE_DELAY_S": "0",
+                },
+            ),
+            patch(
+                "cognitive_agent.extraction_kernel.lx.extract",
+                side_effect=TimeoutError("Request timed out."),
+            ) as remote,
+            patch("cognitive_agent.extraction_kernel.time.sleep"),
+        ):
+            result = kernel._extract_uncached(
+                text="text", document_id="timeout", examples=[],
+                prompt="prompt", retry_on_empty=False,
+            )
+        self.assertEqual(remote.call_count, 2)
+        self.assertEqual(result.retry_count, 1)
+        self.assertIn("timed out", result.error)
+
 
 if __name__ == "__main__":
     unittest.main()

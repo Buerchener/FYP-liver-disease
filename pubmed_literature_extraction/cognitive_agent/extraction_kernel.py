@@ -10,6 +10,8 @@ cognitive_agent/extraction_kernel.py — LangExtract 提取内核 v2
 """
 
 from __future__ import annotations
+import os
+import re
 from typing import Optional
 from dataclasses import asdict, dataclass, field, is_dataclass
 import copy
@@ -25,6 +27,7 @@ from cognitive_agent.article_chunker import ArticleChunk
 from cognitive_agent.extraction_cache import LightweightExtractionCache
 from cognitive_agent.golden_examples import GOLDEN_EXAMPLE_VERSION
 from cognitive_agent.schema.ontology import ONTOLOGY_VERSION
+from cognitive_agent.provider_errors import is_retryable_provider_error
 
 # These phrases describe broad context or intervention classes, not KG entities.
 # Keep this deterministic because model output is otherwise prone to over-labeling them.
@@ -42,10 +45,9 @@ TISSUE_CONTEXT_TERMS = frozenset({
     "tumor immune microenvironment", "tumor microenvironment", "immune microenvironment",
 })
 
-# 重试配置 (原生 Gemini 模式: schema 错误已消除, 仅应对网络瞬时故障)
-MAX_RETRIES = 1
-RETRY_BASE_DELAY = 2.0
-RETRY_BACKOFF = 1.5
+# Empty responses get one retry. Transport/provider failures have a separate,
+# configurable budget so a transient 429/502 does not empty an entire run.
+EMPTY_RESULT_MAX_RETRIES = 1
 EXTRACTION_CACHE_KEY_VERSION = "langextract-candidates-v2"
 PROMPT_VERSION = "kg-extraction-prompt-v2"
 
@@ -134,11 +136,20 @@ class ExtractionKernel:
             "chunk_content_hash": text_hash,
             "temperature": 0, "schema_constraints": False,
             "extraction_passes": 1,
+            "max_char_buffer": self._max_char_buffer(),
+            "max_output_tokens": provider_kwargs.get("max_output_tokens"),
+            "reasoning_effort": provider_kwargs.get("reasoning_effort"),
             "inner_max_workers": self.inner_max_workers,
             "retry_on_empty": bool(retry_on_empty),
         }
         raw = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         return hashlib.sha256(raw.encode("utf-8")).hexdigest()
+
+    @staticmethod
+    def _max_char_buffer() -> int:
+        # Agent-level chunks are already bounded and span aligned. Avoid the
+        # LangExtract 1,000-character default splitting each chunk a second time.
+        return max(1000, int(os.environ.get("PRIMARY_LLM_MAX_CHAR_BUFFER", "4000")))
 
     @staticmethod
     def _payload(result: RawExtraction) -> dict:
@@ -236,18 +247,18 @@ class ExtractionKernel:
 
         result = RawExtraction(pmid=document_id)
 
-        retry_budget = MAX_RETRIES if retry_on_empty else 0
-        for attempt in range(1 + retry_budget):
-            if attempt > 0:
-                delay = RETRY_BASE_DELAY * (RETRY_BACKOFF ** (attempt - 1))
-                print(f"    [Extract] Retry {attempt}/{retry_budget} for {document_id} "
-                      f"(sleep {delay:.1f}s)...")
-                time.sleep(delay)
-                # 清空之前的实体，准备重新提取
-                result.entities = []
-                result.relations = []
-                result.error = ""
-                result.warnings = []
+        empty_retry_budget = EMPTY_RESULT_MAX_RETRIES if retry_on_empty else 0
+        provider_retry_budget = max(0, int(os.environ.get("PRIMARY_LLM_MAX_RETRIES", "5")))
+        timeout_retry_budget = max(
+            0, int(os.environ.get("PRIMARY_LLM_TIMEOUT_MAX_RETRIES", "1"))
+        )
+        retry_base_delay = max(0.0, float(os.environ.get("PRIMARY_LLM_RETRY_BASE_DELAY_S", "2")))
+        retry_max_delay = max(
+            retry_base_delay,
+            float(os.environ.get("PRIMARY_LLM_RETRY_MAX_DELAY_S", "45")),
+        )
+        empty_retries = provider_retries = total_retries = 0
+        while True:
 
             try:
                 doc = lx.data.Document(document_id=document_id, text=text)
@@ -261,6 +272,7 @@ class ExtractionKernel:
                     use_schema_constraints=False,  # 宽松模式
                     show_progress=False,
                     extraction_passes=1,           # 单次提取（稳定性优先）
+                    max_char_buffer=self._max_char_buffer(),
                     # 去掉 resolver_params — fuzzy alignment 会导致 chunk 被丢弃
                 )
 
@@ -293,22 +305,54 @@ class ExtractionKernel:
 
                 # ── 重试判断：有实体 → 成功，无实体 → 可能重试 ──
                 if len(result.entities) > 0:
-                    result.retry_count = attempt
                     break  # 成功，跳出重试循环
-                elif attempt < retry_budget:
+                if empty_retries < empty_retry_budget:
+                    empty_retries += 1
+                    total_retries += 1
                     result.warnings.append(
-                        f"Attempt {attempt+1}: 0 entities extracted"
+                        f"Attempt {total_retries}: 0 entities extracted"
                     )
                 else:
                     result.warnings.append(
-                        f"All {retry_budget+1} attempts produced 0 entities"
+                        f"All {empty_retry_budget + 1} attempts produced 0 entities"
                     )
+                    break
 
             except Exception as e:
                 result.error = str(e)
-                result.warnings.append(f"Attempt {attempt+1} error: {e}")
-                if attempt >= retry_budget:
-                    print(f"    [Extract] All retries exhausted for {document_id}: {e}")
+                retryable = is_retryable_provider_error(result.error)
+                is_timeout = any(
+                    token in result.error.casefold()
+                    for token in ("timeout", "timed out")
+                )
+                effective_retry_budget = (
+                    min(provider_retry_budget, timeout_retry_budget)
+                    if is_timeout else provider_retry_budget
+                )
+                if not retryable or provider_retries >= effective_retry_budget:
+                    result.warnings.append(f"Extraction error: {e}")
+                    print(f"    [Extract] Retries exhausted for {document_id}: {e}")
+                    break
+                provider_retries += 1
+                total_retries += 1
+                result.warnings.append(f"Retryable provider error: {e}")
+
+            delay = min(retry_max_delay, retry_base_delay * (2 ** max(0, total_retries - 1)))
+            retry_after = re.search(r"retry[- ]after\s*[:=]\s*(\d+(?:\.\d+)?)", result.error, re.IGNORECASE)
+            if retry_after:
+                delay = min(retry_max_delay, max(0.0, float(retry_after.group(1))))
+            print(
+                f"    [Extract] Retry {total_retries} for {document_id} "
+                f"(sleep {delay:.1f}s)..."
+            )
+            time.sleep(delay)
+            # Clear partial state before the next independent request.
+            result.entities = []
+            result.relations = []
+            result.error = ""
+            result.warnings = []
+
+        result.retry_count = total_retries
 
         return result
 

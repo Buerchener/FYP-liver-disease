@@ -652,6 +652,39 @@ def _subject_is_negatively_perturbed(evidence: str, aliases: list[str]) -> bool:
     return False
 
 
+def _endpoint_support_scope(
+    evidence: str,
+    subject_aliases: list[str],
+    object_aliases: list[str],
+) -> str:
+    """Return the smallest local text scope that contains both endpoints."""
+    subject_spans = _alias_spans(evidence, subject_aliases)
+    object_spans = _alias_spans(evidence, object_aliases)
+    if not subject_spans or not object_spans:
+        return evidence
+    best: tuple[int, int] | None = None
+    for subject_span in subject_spans:
+        for object_span in object_spans:
+            start = min(subject_span[0], object_span[0])
+            end = max(subject_span[1], object_span[1])
+            if best is None or end - start < best[1] - best[0]:
+                best = (start, end)
+    if best is None:
+        return evidence
+    sentence_start = evidence.rfind(".", 0, best[0]) + 1
+    sentence_start = max(sentence_start, evidence.rfind(";", 0, best[0]) + 1)
+    sentence_end_candidates = [
+        index for index in (
+            evidence.find(".", best[1]),
+            evidence.find(";", best[1]),
+            evidence.find("\n", best[1]),
+        ) if index >= 0
+    ]
+    sentence_end = min(sentence_end_candidates) if sentence_end_candidates else len(evidence)
+    clause = evidence[sentence_start:sentence_end].strip()
+    return clause or evidence
+
+
 def evaluate_relation_evidence(
     relation: dict,
     text: str,
@@ -688,6 +721,7 @@ def evaluate_relation_evidence(
         str(relation.get("object", "") or ""),
         *aliases_by_canonical.get(str(relation.get("object", "") or ""), []),
     ]))
+    support_scope = _endpoint_support_scope(evidence, subject_aliases, object_aliases)
     raw_trigger_present = _has_predicate_trigger(predicate, evidence)
     trigger_present = raw_trigger_present and _predicate_trigger_links_endpoints(
         predicate, evidence, subject_aliases, object_aliases
@@ -716,14 +750,17 @@ def evaluate_relation_evidence(
     if not direction_consistent:
         flags.add("trigger_direction_mismatch")
 
-    method_signal = bool(METHOD_EVIDENCE_RE.search(evidence))
+    method_signal = bool(METHOD_EVIDENCE_RE.search(support_scope))
     method_only = bool(
         method_signal
-        and not VALIDATION_RE.search(evidence)
-        and (METHOD_ONLY_STRONG_RE.search(evidence) or not trigger_present)
+        and not VALIDATION_RE.search(support_scope)
+        and (METHOD_ONLY_STRONG_RE.search(support_scope) or not trigger_present)
     )
-    prediction_only = bool(PREDICTION_RE.search(evidence) and not VALIDATION_RE.search(evidence))
-    negation_text = re.sub(r"\bnot\s+only\b", "notonly", evidence, flags=re.IGNORECASE)
+    prediction_only = bool(
+        PREDICTION_RE.search(support_scope)
+        and not VALIDATION_RE.search(support_scope)
+    )
+    negation_text = re.sub(r"\bnot\s+only\b", "notonly", support_scope, flags=re.IGNORECASE)
     negated = bool(relation.get("negated")) or bool(NEGATION_RE.search(negation_text))
     uncertain = bool(relation.get("uncertain")) or prediction_only
     if method_only:
@@ -732,6 +769,7 @@ def evaluate_relation_evidence(
         flags.add("prediction_only")
     if negated:
         flags.add("negated")
+        flags.add("scoped_negation")
     if uncertain:
         flags.add("uncertain")
     if grounded:
