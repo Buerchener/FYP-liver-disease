@@ -55,6 +55,81 @@ class RelationPairClassifierTests(unittest.TestCase):
         pairs = {(item.subject, item.object) for item in result.candidates}
         self.assertIn(("Icaritin", "GSTA1"), pairs)
 
+    def test_abbreviation_family_is_deduplicated_before_pairing(self):
+        text = (
+            "TITLE: Study\nABSTRACT: Hepatocellular carcinoma (HCC) was studied. "
+            "RESULTS: TP53 was associated with HCC."
+        )
+        entities = [
+            entity("Hepatocellular carcinoma", "Disease"),
+            entity("HCC", "Disease"),
+            entity("TP53", "Gene"),
+        ]
+        result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
+            entities, [], self.reader.read(text), source_text=text,
+        )
+        gene_disease = [
+            item for item in result.candidates
+            if item.subject_type == "Gene" and item.object_type == "Disease"
+        ]
+        self.assertEqual(len(gene_disease), 1)
+        self.assertEqual(gene_disease[0].object, "Hepatocellular carcinoma")
+
+    def test_celltype_descriptor_anchor_recovers_crosstalk_window(self):
+        text = (
+            "TITLE: Study\nABSTRACT: We identify a subset of liver endothelial cells "
+            "termed Endo4 liver endothelial cells as the source of Wnt9b. "
+            "Immunostaining for the Endo4 marker reveals VWF+ vasculature juxtaposing "
+            "activated hepatic stellate cells."
+        )
+        entities = [
+            entity("Endo4 liver endothelial cells", "CellType"),
+            entity("hepatic stellate cells", "CellType"),
+        ]
+        result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
+            entities, [], self.reader.read(text), source_text=text,
+        )
+        pairs = {(item.subject, item.object): item for item in result.candidates}
+        candidate = pairs[("Endo4 liver endothelial cells", "hepatic stellate cells")]
+        self.assertIn("INTERACTS_WITH", candidate.allowed_predicates)
+        self.assertEqual(candidate.evidence_trigger_predicate, "INTERACTS_WITH")
+        self.assertEqual(
+            text[candidate.evidence_char_start:candidate.evidence_char_end],
+            candidate.evidence,
+        )
+
+    def test_incomplete_exact_hint_becomes_routed_review_candidate(self):
+        text = (
+            "TITLE: Study\nABSTRACT: RESULTS: TP53 expression increased. "
+            "Controls remained stable. HCC cases were enrolled."
+        )
+        hint = [{
+            "subject": "TP53", "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HCC", "object_type": "Disease",
+            "evidence": "TP53 expression increased.",
+        }]
+        result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
+            self.entities, hint, self.reader.read(text), source_text=text,
+        )
+        candidate = result.candidates[0]
+        self.assertIn("incomplete_evidence_boundary", candidate.quality_flags)
+        self.assertTrue(result.predictions[0].routed_to_llm)
+        self.assertEqual(result.accepted_relations, [])
+        self.assertEqual(len(result.low_confidence_relations), 1)
+        flags = set(result.low_confidence_relations[0]["quality_flags"])
+        self.assertIn("endpoint_not_in_evidence", flags)
+        self.assertIn("manual_review", flags)
+        verified = KGVerifier(
+            OfflineKG(), verification_policy="tiered-v2"
+        ).verify(
+            self.entities, result.low_confidence_relations, text=text,
+        ).relations[0]
+        self.assertEqual(verified.factual_status, "REVIEW")
+        self.assertNotEqual(verified.semantic_status, "REJECTED")
+        self.assertEqual(verified.write_status, "HUMAN_REVIEW")
+        self.assertFalse(verified.import_ready)
+
     def test_no_relation_is_an_explicit_class(self):
         text = "TITLE: Study\nABSTRACT: RESULTS: TP53 and HCC samples were measured."
         result = self.classify(text)

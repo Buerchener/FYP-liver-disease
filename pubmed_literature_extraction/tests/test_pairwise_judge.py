@@ -448,6 +448,39 @@ class ClaimGateTests(unittest.TestCase):
         self.assertTrue(payload["claim_gate_enabled"])
         self.assertEqual(payload["claim_gate"]["direct_finding_pass"], 1)
 
+    def test_stage_b_preserves_prior_work_claim_role(self):
+        pair_result = self.pair_result()
+        direct_id = self.candidate_id(pair_result, "TP53", "HCC")
+        gate_payload = {"decisions": [{
+            "candidate_id": direct_id,
+            "relation_asserted": "ASSERTED", "claim_role": "PRIOR_WORK",
+            "rationale": "reported by previous studies",
+        }]}
+        predicate_payload = {"decisions": [{
+            "candidate_id": direct_id,
+            "subject": "TP53", "object": "HCC",
+            "predicate": "ASSOCIATED_WITH",
+            "evidence_quote": "TP53 expression was associated with HCC progression.",
+            "direction": "A_TO_B", "decision": ENTAILED, "confidence": 0.9,
+        }]}
+        judge = self.two_stage_judge(gate_payload, predicate_payload)
+        refined = judge.refine_pair_result(
+            pair_result, text=self.TEXT,
+            entities=[
+                entity("TP53", "Gene"), entity("HCC", "Disease"),
+                entity("ALT", "Metabolite"), entity("NAFLD", "Disease"),
+                entity("lipotoxicity", "Pathway"),
+            ],
+            pmid="1",
+        )
+        relation = next(
+            item for item in refined.accepted_relations
+            if item["candidate_id"] == direct_id
+        )
+        self.assertEqual(relation["claim_role"], "PRIOR_WORK")
+        self.assertIn("non_current_finding_role", relation["quality_flags"])
+        self.assertIn("manual_review", relation["quality_flags"])
+
     def test_gate_only_direct_finding_reaches_predicate_stage(self):
         pair_result = self.pair_result()
         direct_id = self.candidate_id(pair_result, "TP53", "HCC")

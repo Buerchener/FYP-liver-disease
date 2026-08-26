@@ -71,6 +71,7 @@ from cognitive_agent.relation_contract import (
     JUDGE_BACKEND_NAMES,
     RelationCandidateProjector,
 )
+from cognitive_agent.extraction_quality import prepare_extraction
 from cognitive_agent.few_shot_retriever import FewShotRetriever
 from cognitive_agent.pairwise_judge import PairwiseJudge, PairwiseJudgeConfig
 from cognitive_agent.entity_recovery import EntityRecovery, EntityRecoveryConfig
@@ -1219,13 +1220,22 @@ class CognitiveAgent:
 
             # BioRED-style relation core: classify grounded, schema-compatible
             # entity pairs.  LangExtract relations are hints, never labels.
+            pairing_prepared = prepare_extraction(
+                raw_extraction.entities, projected_relations, text=text,
+            )
             pair_result = self.pair_classifier.classify(
-                entities=raw_extraction.entities,
-                relations=projected_relations,
+                entities=pairing_prepared.entities,
+                relations=pairing_prepared.relations,
                 units=evidence_units,
                 source_text=text,
             )
             record["phases"]["relation_pair_classification"] = pair_result.to_dict()
+            record["phases"]["relation_pair_classification"].update({
+                "raw_entity_pool_count": len(raw_extraction.entities),
+                "pairing_entity_pool_count": len(pairing_prepared.entities),
+                "filtered_before_pairing": len(pairing_prepared.filtered_entities),
+                "aliases_merged_before_pairing": len(pairing_prepared.merged_entities),
+            })
 
             # ═══════════════════════════════════════════════════
             # Phase 2.5: pair-centric LLM relation judgement
@@ -1240,7 +1250,7 @@ class CognitiveAgent:
                         judge_pair_result = self.pairwise_judge.refine_pair_result(
                             pair_result,
                             text=text,
-                            entities=raw_extraction.entities,
+                            entities=pairing_prepared.entities,
                             pmid=str(pmid),
                             study_type=str(
                                 getattr(getattr(prepared, "profile", None), "primary_study_type", "")

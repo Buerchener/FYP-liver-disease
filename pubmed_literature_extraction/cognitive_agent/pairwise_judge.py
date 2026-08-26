@@ -123,7 +123,11 @@ JUDGE_ENTAILMENT_TRIGGERS: dict[str, tuple[str, ...]] = {
         r"\bprogress\w* (?:in)?to\b", r"\bdevelop\w* into\b", r"\bevolv\w* into\b",
     ),
     "ENCODES": (r"\bencod\w+",),
-    "INTERACTS_WITH": (r"\binteract\w* with\b", r"\bbind\w* (?:to|with)\b"),
+    "INTERACTS_WITH": (
+        r"\binteract\w* with\b", r"\bbind\w* (?:to|with)\b",
+        r"\bcross[- ]?talk\b", r"\bcell(?:ular)?[- ]cell communication\b",
+        r"\bjuxtapos\w*\b",
+    ),
     "PARTICIPATES_IN": (
         r"\bparticipat\w* in\b", r"\bmediat\w+", r"\bplays? a role in\b",
     ),
@@ -891,6 +895,10 @@ PMID: {pmid}
         direction = "unknown"
         if decision.direction == "B_TO_A" and decision.label not in SYMMETRIC_PREDICATES:
             subject, object_ = object_, subject
+        claim_role = decision.claim_role or candidate.claim_role or CLAIM_ROLE_CURRENT_FINDING
+        non_current_finding = bool(
+            decision.non_current_finding or claim_role in NON_CURRENT_FINDING_ROLES
+        )
         flags = ["pair_classifier_candidate", "pairwise_judge"]
         if uncertain:
             flags.extend(["pair_low_confidence", "judge_uncertain"])
@@ -901,7 +909,7 @@ PMID: {pmid}
             # independent second-model endorsement; the deterministic write
             # gate stays untouched otherwise.
             flags.append("judge_no_write_endorsement")
-        if decision.non_current_finding:
+        if non_current_finding:
             # Claim Gate v2: the relation is asserted but its claim_role
             # (PRIOR_WORK / BACKGROUND / METHOD / PREDICTION / SPECULATIVE /
             # OTHER) means it is not THIS article's new writeable evidence.
@@ -935,7 +943,7 @@ PMID: {pmid}
             "evidence_char_start": quote_start,
             "evidence_char_end": quote_end,
             "predicate_candidates": {decision.label: decision.confidence},
-            "claim_role": decision.claim_role,
+            "claim_role": claim_role,
             "quality_flags": sorted(set(flags)),
         }
 
@@ -1023,6 +1031,22 @@ PMID: {pmid}
                         study_type=study_type, rule_context=rule_context,
                         claim_status_by_id=claim_status_by_id,
                     )
+                    # Stage B owns only the predicate decision. Preserve the
+                    # independent Stage A role metadata; otherwise asserted
+                    # PRIOR_WORK/BACKGROUND claims silently fall back to the
+                    # verifier's CURRENT_FINDING default.
+                    for candidate_id, decision in decisions.items():
+                        gate_decision = gate_decisions.get(candidate_id)
+                        if gate_decision is None:
+                            continue
+                        decision.claim_status = gate_decision.claim_status
+                        decision.relation_asserted = gate_decision.relation_asserted
+                        decision.claim_role = gate_decision.claim_role
+                        decision.non_current_finding = gate_decision.non_current_finding
+                        decision.reason_codes = list(dict.fromkeys([
+                            *gate_decision.reason_codes,
+                            *decision.reason_codes,
+                        ]))
                     decision_by_id.update(decisions)
                     batch_audits.append(audit)
                     if audit.status != "OK":

@@ -121,7 +121,10 @@ PREDICATE_TRIGGERS: dict[str, tuple[str, ...]] = {
     "PROGNOSTIC_IN": (r"prognostic", r"predict(?:s|ed) survival", r"associated with survival"),
     "PROGRESSES_TO": (r"progress(?:es|ed|ion) to", r"develop(?:s|ed) into", r"evolv(?:es|ed) into"),
     "ENCODES": (r"encod(?:es|ed)",),
-    "INTERACTS_WITH": (r"interact(?:s|ed|ion) with", r"bind(?:s|ing|bound) to"),
+    "INTERACTS_WITH": (
+        r"interact(?:s|ed|ion) with", r"bind(?:s|ing|bound) to",
+        r"cross[- ]?talk", r"cell(?:ular)?[- ]cell communication", r"juxtapos\w*",
+    ),
     "PARTICIPATES_IN": (r"participat(?:es|ed) in", r"involved in", r"mediates?", r"\bvia\b"),
     "EXPRESSED_IN": (
         r"express(?:ed|ion|ion level|ion levels|ion of).{0,100}\b(?:in|within)\b",
@@ -251,6 +254,42 @@ def _relation_references(mention: str, entity_type: str, relations: list[dict]) 
     return False
 
 
+def _cell_type_definition_long_form(mention: str, text: str) -> str:
+    """Resolve article-local subtype labels defined with ``termed/called``.
+
+    This is a narrow coreference rule for phrases such as ``a subset of liver
+    endothelial cells termed \"Endo4\"``.  It never creates an entity: both the
+    subtype label and the specific cell-type long form must occur verbatim in
+    the current source.
+    """
+    mention = str(mention or "").strip()
+    if not mention or not text:
+        return ""
+    cell_head = (
+        r"(?:hepatocytes?|kupffer cells?|macrophages?|neutrophils?|"
+        r"(?:regulatory )?t cells?|b cells?|stellate cells?|endothelial cells?|"
+        r"cholangiocytes?|fibroblasts?|monocytes?|natural killer cells?)"
+    )
+    pattern = re.compile(
+        rf"(?P<long>(?:[A-Za-z0-9+/-]+\s+){{0,3}}{cell_head})\s+"
+        rf"(?:termed|called|named)\s+[\"']?{re.escape(mention)}[\"']?",
+        re.IGNORECASE,
+    )
+    matches = list(pattern.finditer(text))
+    if not matches:
+        return ""
+    long_form = matches[-1].group("long").strip()
+    while True:
+        cleaned = re.sub(
+            r"^(?:a|an|the|of|subset of)\s+", "", long_form,
+            flags=re.IGNORECASE,
+        ).strip()
+        if cleaned == long_form:
+            break
+        long_form = cleaned
+    return long_form if SPECIFIC_CELL_RE.search(long_form) else ""
+
+
 def _conditional_process_supported(mention: str, relations: list[dict], text: str) -> bool:
     for rel in relations:
         endpoints = (normalize_surface(rel.get("subject", "")), normalize_surface(rel.get("object", "")))
@@ -315,8 +354,15 @@ def entity_filter_reason(entity: dict, relations: list[dict], text: str) -> tupl
     if entity_type == "CellType":
         if normalized in {"cells", "cell", "immune cells", "tumor cells", "cancer cells"}:
             return "rejected", "non_specific_cell_type"
-        if not (SPECIFIC_CELL_RE.search(mention) or SPECIFIC_CELL_SUBSET_RE.search(mention)):
+        defined_long_form = _cell_type_definition_long_form(mention, text)
+        if not (
+            SPECIFIC_CELL_RE.search(mention)
+            or SPECIFIC_CELL_SUBSET_RE.search(mention)
+            or defined_long_form
+        ):
             return "rejected", "cell_type_not_specific"
+        if defined_long_form:
+            return "retained", "article_local_cell_subtype_alias"
 
     if entity_type == "Pathway":
         if normalized in {"pathway", "pathways", "signaling", "response", "process", "mechanism"}:
@@ -397,6 +443,12 @@ def prepare_extraction(
 
     abbr_map = AbbreviationDetector().detect(text) if text else None
     explicit_abbr = dict(abbr_map.abbr_to_long) if abbr_map else {}
+    for entity in retained:
+        if entity.get("type") != "CellType":
+            continue
+        long_form = _cell_type_definition_long_form(entity.get("mention", ""), text)
+        if long_form:
+            explicit_abbr[str(entity.get("mention", ""))] = long_form
     groups: dict[int, list[dict]] = {}
     group_order: list[int] = []
     key_to_group: dict[tuple[str, str], int] = {}

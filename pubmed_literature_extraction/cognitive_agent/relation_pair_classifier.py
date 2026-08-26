@@ -20,9 +20,12 @@ from dataclasses import dataclass, field
 from typing import Protocol
 
 from cognitive_agent.abbreviation_detector import AbbreviationDetector
-from cognitive_agent.evidence_units import EvidenceUnit
+from cognitive_agent.evidence_units import ArticleEvidenceReader, EvidenceUnit
 from cognitive_agent.evidence_selector import EvidenceSelector
-from cognitive_agent.extraction_quality import normalize_surface
+from cognitive_agent.extraction_quality import (
+    locate_contiguous,
+    normalize_surface,
+)
 from cognitive_agent.rule_memory import RuleMatch, RuleMemory
 from cognitive_agent.schema.relation_signatures import RELATION_SIGNATURES
 
@@ -30,6 +33,29 @@ from cognitive_agent.schema.relation_signatures import RELATION_SIGNATURES
 NO_RELATION = "NO_RELATION"
 RESULT_SECTIONS = frozenset({"RESULT", "RESULTS", "CONCLUSION", "CONCLUSIONS", "DISCUSSION"})
 BACKGROUND_SECTIONS = frozenset({"BACKGROUND", "INTRODUCTION", "OBJECTIVE", "OBJECTIVES", "AIM", "AIMS", "PURPOSE"})
+METHOD_SECTIONS = frozenset({"METHOD", "METHODS", "MATERIALS_AND_METHODS"})
+SYMMETRIC_PREDICATES = frozenset({"ASSOCIATED_WITH", "INTERACTS_WITH"})
+
+PRIOR_WORK_RE = re.compile(
+    r"\b(?:previous|prior|earlier) (?:stud(?:y|ies)|work|research)|"
+    r"\b(?:has|have) been (?:reported|shown|demonstrated)|\bis known to\b",
+    re.IGNORECASE,
+)
+REVIEW_ARTICLE_RE = re.compile(
+    r"\b(?:systematic |scoping |narrative )?review\b|\bthis review\b",
+    re.IGNORECASE,
+)
+PREDICTION_ONLY_RE = re.compile(
+    r"\b(?:in silico|bioinformatics|computational|molecular docking|"
+    r"predicted?|prediction|screened?)\b",
+    re.IGNORECASE,
+)
+DISTINCTIVE_DESCRIPTOR_RE = re.compile(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z][A-Za-z0-9-]{2,}$")
+LIGHT_COREFERENCE_RE = re.compile(
+    r"\b(?:these|those|such) (?:cells?|populations?|subsets?)\b|"
+    r"\b(?:they|them|their)\b",
+    re.IGNORECASE,
+)
 
 # Predicate definitions serve two purposes: local fallback classification and
 # ontology-constrained predicate retrieval.  The latter avoids asking a model
@@ -43,7 +69,8 @@ PREDICATE_PATTERNS: dict[str, tuple[str, ...]] = {
     "PROGRESSES_TO": (r"\bprogress(?:es|ed|ion)?\s+(?:in)?to\b", r"\bevolv(?:e|es|ed)\s+into\b"),
     "INTERACTS_WITH": (
         r"\binteract(?:s|ed|ion)?\s+with\b", r"\bbind(?:s|ing|bound)?\s+(?:to|with)\b",
-        r"\bcomplex(?:es)?\s+with\b",
+        r"\bcomplex(?:es)?\s+with\b", r"\bcross[- ]?talk\b",
+        r"\bcell(?:ular)?[- ]cell communication\b", r"\bjuxtapos\w*\b",
     ),
     "PARTICIPATES_IN": (
         r"\bparticipat(?:e|es|ed|ing)\s+in\b", r"\b(?:regulat|mediat|activat|inhibit)(?:e|es|ed|ing|ion)?\b",
@@ -86,6 +113,7 @@ class PairClassifierConfig:
     include_parent_sentences: bool = True
     include_adjacent_windows: bool = True
     adjacent_windows_require_trigger: bool = True
+    max_incomplete_evidence_candidates: int = 12
 
 
 @dataclass
@@ -108,6 +136,8 @@ class RelationPairCandidate:
     evidence_confidence: float = 0.0
     evidence_entailment: str = "NOT_ENOUGH_INFORMATION"
     evidence_trigger_predicate: str = ""
+    claim_role: str = "CURRENT_FINDING"
+    quality_flags: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return {key: value for key, value in self.__dict__.items()}
@@ -355,6 +385,106 @@ class BioREDPairClassifier:
         return list(dict.fromkeys(str(value).strip() for value in values if str(value).strip()))
 
     @staticmethod
+    def _distinctive_descriptor_aliases(entity: dict, source_text: str) -> list[str]:
+        """Return conservative article-local subtype anchors such as ``Endo4``.
+
+        Biomedical cell subsets are often introduced with a long descriptive
+        name and referred to by a distinctive alphanumeric token in the next
+        sentence (for example ``Endo4 liver endothelial cells`` -> ``Endo4
+        marker``).  Only tokens that occur at least twice in the current source
+        are admitted, so this cannot inject an article-external alias.
+        """
+        if not source_text or str(entity.get("type", "")) != "CellType":
+            return []
+        aliases: list[str] = []
+        for token in re.findall(r"[A-Za-z][A-Za-z0-9-]{2,}", str(entity.get("mention", ""))):
+            if not DISTINCTIVE_DESCRIPTOR_RE.fullmatch(token):
+                continue
+            occurrences = re.findall(
+                r"(?<![A-Za-z0-9])" + re.escape(token) + r"(?![A-Za-z0-9])",
+                source_text,
+                re.IGNORECASE,
+            )
+            if len(occurrences) >= 2:
+                aliases.append(token)
+        return aliases
+
+    @classmethod
+    def _deduplicate_pairing_entities(
+        cls, entities: list[dict], abbreviation_map: object | None, source_text: str,
+    ) -> list[dict]:
+        """Collapse only same-type, source-derived alias families for pairing.
+
+        This is deliberately narrower than entity linking: stable IDs and
+        article-local abbreviation families may merge, but Gene/Protein views
+        and unrelated same-surface types remain separate.
+        """
+        groups: dict[tuple[str, str], list[dict]] = {}
+        order: list[tuple[str, str]] = []
+        for original in entities:
+            entity = dict(original)
+            mention = str(entity.get("mention", "") or "").strip()
+            entity_type = str(entity.get("type", entity.get("entity_type", "")) or "")
+            if not mention or not entity_type:
+                continue
+            attrs = entity.get("attributes", {}) or {}
+            normalized_id = str(
+                attrs.get("normalized_id", entity.get("normalized_id", "")) or ""
+            ).strip()
+            canonical = (
+                abbreviation_map.canonical_name(mention)
+                if abbreviation_map is not None else mention
+            )
+            family = f"id:{normalized_id.casefold()}" if normalized_id else (
+                f"name:{normalize_surface(canonical)}"
+            )
+            key = (entity_type, family)
+            if key not in groups:
+                groups[key] = []
+                order.append(key)
+            aliases = [mention, *(entity.get("canonical_mentions", []) or [])]
+            if abbreviation_map is not None:
+                aliases.extend([
+                    abbreviation_map.resolve_to_long(mention),
+                    abbreviation_map.resolve_to_short(mention),
+                ])
+            aliases.extend(cls._distinctive_descriptor_aliases(entity, source_text))
+            entity["canonical_mentions"] = list(dict.fromkeys(
+                str(value).strip() for value in aliases if str(value or "").strip()
+            ))
+            groups[key].append(entity)
+
+        output: list[dict] = []
+        for key in order:
+            variants = groups[key]
+            winner = max(variants, key=lambda item: (
+                len(str(item.get("mention", "")).split()),
+                len(str(item.get("mention", ""))),
+                bool(item.get("grounded", False)),
+            ))
+            merged = dict(winner)
+            merged["canonical_mentions"] = list(dict.fromkeys(
+                alias
+                for item in variants
+                for alias in cls._mentions(item)
+                if alias.casefold() != str(winner.get("mention", "")).casefold()
+            ))
+            output.append(merged)
+        return output
+
+    @staticmethod
+    def _infer_claim_role(evidence: str, section: str, source_text: str) -> str:
+        if section in METHOD_SECTIONS:
+            return "METHOD"
+        if PRIOR_WORK_RE.search(evidence):
+            return "PRIOR_WORK"
+        if PREDICTION_ONLY_RE.search(evidence):
+            return "PREDICTION"
+        if section in BACKGROUND_SECTIONS or REVIEW_ARTICLE_RE.search(source_text):
+            return "BACKGROUND"
+        return "CURRENT_FINDING"
+
+    @staticmethod
     def _mention_span(unit: EvidenceUnit, entity: dict) -> tuple[int, int] | None:
         matches: list[tuple[int, int]] = []
         for mention in BioREDPairClassifier._mentions(entity):
@@ -394,8 +524,6 @@ class BioREDPairClassifier:
         a candidate.  Every window remains an exact source substring, so the
         evidence contract is untouched.
         """
-        from cognitive_agent.evidence_units import ArticleEvidenceReader
-
         windows: list[EvidenceUnit] = list(units or [])
         parents: list[EvidenceUnit] = []
         # Parent/adjacent windows are exact source substrings; without the
@@ -431,29 +559,43 @@ class BioREDPairClassifier:
         units: list[EvidenceUnit],
         source_text: str = "",
     ) -> tuple[list[RelationPairCandidate], int]:
-        hints = self._hint_index(relations)
         # Pairing must see article-local abbreviations. Otherwise an entity
         # discovered at its long-form mention cannot pair with its short form
         # in a later result sentence (Icaritin/ICT, PBC, T2DM, and similar).
         # This is deterministic source-derived alias expansion, not entity
         # generation.
         abbreviation_map = AbbreviationDetector().detect(source_text) if source_text else None
-        pairing_entities: list[dict] = []
-        for entity in entities:
-            enriched = dict(entity)
-            mentions = list(enriched.get("canonical_mentions", []) or [])
-            mention = str(enriched.get("mention", "") or "")
-            if abbreviation_map and mention:
-                mentions.extend([
-                    abbreviation_map.resolve_to_long(mention),
-                    abbreviation_map.resolve_to_short(mention),
-                ])
-            enriched["canonical_mentions"] = list(dict.fromkeys(
-                str(value).strip() for value in mentions
-                if str(value or "").strip()
-                and str(value).strip().casefold() != mention.casefold()
+        pairing_entities = self._deduplicate_pairing_entities(
+            entities, abbreviation_map, source_text,
+        )
+        entity_by_alias_type: dict[tuple[str, str], dict] = {}
+        for entity in pairing_entities:
+            entity_type = str(entity.get("type", entity.get("entity_type", "")) or "")
+            for alias in self._mentions(entity):
+                entity_by_alias_type.setdefault(
+                    (normalize_surface(alias), entity_type), entity,
+                )
+
+        # Canonicalise extractor hints through the same article-local alias
+        # registry.  Otherwise an HCC hint would not reach a pair represented
+        # by its long form after abbreviation deduplication.
+        hints: dict[tuple[str, str, str, str], list[dict]] = {}
+        for relation in relations:
+            subject_type = str(relation.get("subject_type", "") or "")
+            object_type = str(relation.get("object_type", "") or "")
+            subject = entity_by_alias_type.get((
+                normalize_surface(relation.get("subject", "")), subject_type,
             ))
-            pairing_entities.append(enriched)
+            obj = entity_by_alias_type.get((
+                normalize_surface(relation.get("object", "")), object_type,
+            ))
+            if subject is None or obj is None:
+                continue
+            key = (
+                normalize_surface(subject.get("mention", "")), subject_type,
+                normalize_surface(obj.get("mention", "")), object_type,
+            )
+            hints.setdefault(key, []).append(relation)
 
         windows = self._pairing_windows(source_text, units, self.config)
 
@@ -473,6 +615,9 @@ class BioREDPairClassifier:
                 span = self._mention_span(window, entity)
                 if span:
                     local.append((entity, span))
+            local.sort(key=lambda item: (
+                item[1][0], item[1][1], str(item[0].get("mention", "")),
+            ))
             for subject, subject_span in local:
                 for obj, object_span in local:
                     if subject is obj:
@@ -486,6 +631,20 @@ class BioREDPairClassifier:
                         normalize_surface(subject.get("mention", "")), subject_type,
                         normalize_surface(obj.get("mention", "")), object_type,
                     )
+                    pair_hints = hints.get(pair_key, [])
+                    reverse_key = (
+                        normalize_surface(obj.get("mention", "")), object_type,
+                        normalize_surface(subject.get("mention", "")), subject_type,
+                    )
+                    # Purely symmetric type signatures need one candidate, not
+                    # A->B and B->A duplicates.  Mixed signatures that include
+                    # a directional predicate (notably Disease->Disease with
+                    # PROGRESSES_TO) retain both orientations.
+                    if set(allowed) <= SYMMETRIC_PREDICATES and reverse_key in pair_rows:
+                        pair_rows[reverse_key]["windows"].append(
+                            (window, object_span, subject_span)
+                        )
+                        continue
                     row = pair_rows.get(pair_key)
                     if row is None:
                         digest = hashlib.sha1("|".join(pair_key).encode("utf-8")).hexdigest()[:10]
@@ -496,7 +655,7 @@ class BioREDPairClassifier:
                             "object": obj,
                             "object_type": object_type,
                             "allowed": allowed,
-                            "pair_hints": hints.get(pair_key, []),
+                            "pair_hints": pair_hints,
                             "windows": [],
                         }
                         row = pair_rows[pair_key]
@@ -550,6 +709,10 @@ class BioREDPairClassifier:
                     evidence_end = selected.char_end
                     evidence_confidence = selected.evidence_confidence
                     evidence_entailment = selected.local_label
+            cross_sentence = window.unit_id.startswith("w")
+            quality_flags = ["cross_sentence"] if cross_sentence else []
+            if cross_sentence and LIGHT_COREFERENCE_RE.search(window.text):
+                quality_flags.append("light_coreference_window")
             candidates.append(RelationPairCandidate(
                 candidate_id=row["candidate_id"],
                 subject=str(subject.get("mention", "")), subject_type=row["subject_type"],
@@ -567,13 +730,104 @@ class BioREDPairClassifier:
                 source_directions=list(dict.fromkeys(
                     str(item.get("direction", "unknown")) for item in row["pair_hints"]
                 )),
+                same_sentence=not cross_sentence,
                 endpoint_distance=max(
                     0, max(subject_span[0], object_span[0]) - min(subject_span[1], object_span[1])
                 ),
                 evidence_confidence=evidence_confidence,
                 evidence_entailment=evidence_entailment,
                 evidence_trigger_predicate=evidence_trigger_predicate,
+                claim_role=self._infer_claim_role(
+                    evidence_text, window.section, source_text,
+                ),
+                quality_flags=quality_flags,
             ))
+
+        # Review fallback for extractor-proposed relations whose quote is an
+        # exact source span but covers only one local endpoint.  Both typed
+        # endpoints must still resolve to grounded article entities, so this
+        # never relaxes missing-endpoint or no-source-trace hard gates.  These
+        # candidates are explicitly routed and cannot be locally write-ready.
+        existing_pair_keys = {
+            (
+                normalize_surface(item.subject), item.subject_type,
+                normalize_surface(item.object), item.object_type,
+            )
+            for item in candidates
+        }
+        fallback_candidates: list[RelationPairCandidate] = []
+        for pair_key, pair_hints in sorted(hints.items()):
+            if pair_key in existing_pair_keys:
+                continue
+            subject = entity_by_alias_type.get((pair_key[0], pair_key[1]))
+            obj = entity_by_alias_type.get((pair_key[2], pair_key[3]))
+            if subject is None or obj is None:
+                continue
+            allowed = self._allowed(pair_key[1], pair_key[3])
+            for hint in pair_hints:
+                predicate = str(hint.get("predicate", "") or "").upper()
+                if predicate not in allowed:
+                    continue
+                evidence = str(hint.get("evidence", "") or "").strip()
+                grounded, start, end = locate_contiguous(evidence, source_text)
+                if not grounded:
+                    continue
+                subject_present = self._mention_span(EvidenceUnit(
+                    unit_id="hint", section="ABSTRACT", text=evidence,
+                    char_start=start, char_end=end, parent_sentence_id="hint",
+                ), subject)
+                object_present = self._mention_span(EvidenceUnit(
+                    unit_id="hint", section="ABSTRACT", text=evidence,
+                    char_start=start, char_end=end, parent_sentence_id="hint",
+                ), obj)
+                if bool(subject_present) == bool(object_present):
+                    continue
+                # The endpoints must each be traceable somewhere in the
+                # current article even though this local quote is incomplete.
+                if not all(
+                    any(locate_contiguous(alias, source_text)[0] for alias in self._mentions(entity))
+                    for entity in (subject, obj)
+                ):
+                    continue
+                container = ArticleEvidenceReader.containing_unit(evidence, units)
+                section = container.section if container else "ABSTRACT"
+                digest = hashlib.sha1("|".join(pair_key).encode("utf-8")).hexdigest()[:10]
+                missing_side = "object" if subject_present else "subject"
+                fallback_candidates.append(RelationPairCandidate(
+                    candidate_id=f"p-{digest}",
+                    subject=str(subject.get("mention", "")),
+                    subject_type=pair_key[1],
+                    object=str(obj.get("mention", "")),
+                    object_type=pair_key[3],
+                    allowed_predicates=allowed,
+                    evidence=evidence,
+                    evidence_unit_id=(container.unit_id if container else f"h{len(fallback_candidates):03d}"),
+                    evidence_section=section,
+                    evidence_char_start=start,
+                    evidence_char_end=end,
+                    source_predicates=[predicate],
+                    source_directions=[str(hint.get("direction", "unknown") or "unknown")],
+                    same_sentence=True,
+                    endpoint_distance=-1,
+                    evidence_confidence=0.2,
+                    evidence_entailment="NOT_ENOUGH_INFORMATION",
+                    evidence_trigger_predicate=(
+                        predicate if any(
+                            re.search(pattern, evidence, re.IGNORECASE)
+                            for pattern in PREDICATE_PATTERNS.get(predicate, ())
+                        ) else ""
+                    ),
+                    claim_role=self._infer_claim_role(evidence, section, source_text),
+                    quality_flags=[
+                        "incomplete_evidence_boundary", "endpoint_not_in_evidence",
+                        f"{missing_side}_not_grounded", "manual_review",
+                    ],
+                ))
+                existing_pair_keys.add(pair_key)
+                break
+            if len(fallback_candidates) >= self.config.max_incomplete_evidence_candidates:
+                break
+        candidates.extend(fallback_candidates)
 
         # Candidates with a LangExtract hint are most valuable, then
         # result/conclusion assertions, then trigger-bearing pairs, then
@@ -591,7 +845,9 @@ class BioREDPairClassifier:
 
     @staticmethod
     def _as_relation(candidate: RelationPairCandidate, prediction: PairPrediction) -> dict:
-        flags = ["pair_classifier_candidate"]
+        flags = ["pair_classifier_candidate", *candidate.quality_flags]
+        if not candidate.same_sentence:
+            flags.append("cross_sentence")
         if prediction.routed_to_llm:
             flags.extend(["pair_low_confidence", "manual_review"])
         if len([value for value in prediction.predicate_scores.values() if value >= 0.45]) > 1:
@@ -621,6 +877,7 @@ class BioREDPairClassifier:
             "rule_score_delta": prediction.rule_score_delta,
             "rule_matches": prediction.rule_matches,
             "predicate_candidates": prediction.predicate_scores,
+            "claim_role": candidate.claim_role,
             "quality_flags": sorted(set(flags)),
         }
 
@@ -695,6 +952,9 @@ class BioREDPairClassifier:
         )
         for candidate, prediction in zip(candidates, predictions):
             prediction = self._apply_rule_priors(candidate, prediction)
+            if "incomplete_evidence_boundary" in candidate.quality_flags:
+                prediction.routed_to_llm = True
+                prediction.reason_codes.append("incomplete_evidence_routed")
             plausible_relation = prediction.relation_probability >= self.config.uncertainty_floor
             # A deterministic NO_RELATION score is only terminal for bare
             # co-occurrence.  Candidate extraction, result-bearing evidence,

@@ -5,6 +5,7 @@ __pycache__/
 # Local environments and secrets
 .venv/
 .venv-*/
+.uv-python/
 venv/
 .env
 active-gemini.env

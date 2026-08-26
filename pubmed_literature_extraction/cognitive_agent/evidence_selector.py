@@ -31,7 +31,11 @@ TRIGGER_PATTERNS: dict[str, tuple[str, ...]] = {
     "ENCODES": (r"\bencod(?:e|es|ed|ing)\b",),
     "PROGNOSTIC_IN": (r"\bprognos(?:is|tic)\b", r"\bsurvival\b", r"\brecurren\w*\b"),
     "PROGRESSES_TO": (r"\bprogress\w*\s+(?:in)?to\b", r"\bevolv\w*\s+into\b"),
-    "INTERACTS_WITH": (r"\binteract\w*\s+with\b", r"\bbind\w*\s+(?:to|with)\b"),
+    "INTERACTS_WITH": (
+        r"\binteract\w*\s+with\b", r"\bbind\w*\s+(?:to|with)\b",
+        r"\bcross[- ]?talk\b", r"\bcell(?:ular)?[- ]cell communication\b",
+        r"\bjuxtapos\w*\b",
+    ),
     "PARTICIPATES_IN": (r"\bparticipat\w*\s+in\b", r"\b(?:regulat|mediat|activat|inhibit)\w*\b"),
     "EXPRESSED_IN": (r"\bexpress\w*\s+(?:in|by|within)\b", r"\blocali[sz]\w*\s+(?:in|to)\b"),
     "ASSOCIATED_WITH_METABOLITE": (r"\bmetabol\w*\b", r"\b(?:associat|correlat)\w*\b"),

@@ -225,6 +225,32 @@ class ExtractionQualityTests(unittest.TestCase):
         self.assertTrue(result.relations[0].import_ready)
         self.assertTrue(result.merged_entities)
 
+    def test_article_local_cell_subtype_label_merges_with_specific_long_form(self):
+        text = (
+            'We identify a subset of liver endothelial cells termed "Endo4". '
+            "The Endo4 marker was detected near hepatic stellate cells."
+        )
+        prepared = prepare_extraction([
+            entity("liver endothelial cells", "CellType"),
+            entity("Endo4", "CellType"),
+            entity("hepatic stellate cells", "CellType"),
+        ], [], text=text)
+        mentions = {item["mention"] for item in prepared.entities}
+        self.assertIn("liver endothelial cells", mentions)
+        self.assertNotIn("Endo4", mentions)
+        endothelial = next(
+            item for item in prepared.entities
+            if item["mention"] == "liver endothelial cells"
+        )
+        self.assertIn("Endo4", endothelial["canonical_mentions"])
+        self.assertEqual(
+            prepared.mention_to_canonical["Endo4"], "liver endothelial cells"
+        )
+        self.assertTrue(any(
+            item["merge_reason"] == "explicit_article_abbreviation"
+            for item in prepared.merged_entities
+        ))
+
     def test_undefined_abbreviation_is_not_automatically_merged(self):
         text = "Alpha beta complex and ABC were independently measured."
         prepared = prepare_extraction(
