@@ -235,7 +235,7 @@ class AgentConfig:
     pairwise_judge_max_pairs: int = 32
     pairwise_judge_max_calls: int = 2
     pairwise_judge_min_confidence: float = 0.70
-    pairwise_judge_hinted_only: bool = False
+    pairwise_judge_hinted_only: bool = True
     pairwise_judge_rule_context: bool = False
     pairwise_judge_claim_gate: bool = False
     # Ablation switch: gate on, predicate stage off — DIRECT_FINDING survivors
@@ -406,6 +406,9 @@ class CognitiveAgent:
         api_base_normalized = str(config.api_base or "").rstrip("/").casefold()
         openai_compatible_endpoint = api_base_normalized.endswith("/v1")
         extraction_provider = "openai" if openai_compatible_endpoint else "gemini"
+        primary_reasoning_effort = os.environ.get(
+            "PRIMARY_LLM_REASONING_EFFORT", ""
+        ).strip()
         extraction_provider_kwargs = (
             {
                 "api_key": config.api_key,
@@ -414,7 +417,10 @@ class CognitiveAgent:
                 "connect_timeout_s": float(os.environ.get("PRIMARY_LLM_CONNECT_TIMEOUT_S", "20")),
                 "request_timeout_s": float(os.environ.get("PRIMARY_LLM_REQUEST_TIMEOUT_S", "60")),
                 "max_output_tokens": int(os.environ.get("PRIMARY_LLM_MAX_OUTPUT_TOKENS", "4096")),
-                "reasoning_effort": os.environ.get("PRIMARY_LLM_REASONING_EFFORT", "minimal"),
+                **(
+                    {"reasoning_effort": primary_reasoning_effort}
+                    if primary_reasoning_effort else {}
+                ),
             }
             if openai_compatible_endpoint
             else {
@@ -1300,6 +1306,13 @@ class CognitiveAgent:
                     candidate_id=candidate.candidate_id,
                     subject_mentions=[candidate.subject], object_mentions=[candidate.object],
                     predicate=predicate, units=evidence_units, source_text=text,
+                    other_mentions=[
+                        str(entity.get("mention", "") or "")
+                        for entity in pairing_prepared.entities
+                        if str(entity.get("mention", "") or "") not in {
+                            candidate.subject, candidate.object,
+                        }
+                    ],
                 )
                 if selection:
                     selected_evidence.append(selection)
@@ -3979,8 +3992,16 @@ def main():
         help="judge 置信度低于该值的候选进入 DeepSeek 裁定",
     )
     parser.add_argument(
-        "--pairwise-judge-hinted-only", action="store_true",
+        "--pairwise-judge-hinted-only", dest="pairwise_judge_hinted_only",
+        action="store_true",
+        default=os.environ.get("PAIRWISE_JUDGE_HINTED_ONLY", "true").strip().lower()
+        in {"1", "true", "yes", "on"},
         help="judge 只判定带 extractor hint 或显式 trigger 的候选，纯共现候选直接 NO_RELATION 弃权",
+    )
+    parser.add_argument(
+        "--pairwise-judge-all-pairs", dest="pairwise_judge_hinted_only",
+        action="store_false",
+        help="诊断用：连同纯共现候选一起送入 judge（更慢且更易产生 pair explosion）",
     )
     parser.add_argument(
         "--pairwise-judge-rule-context", action="store_true",

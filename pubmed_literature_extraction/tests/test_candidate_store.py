@@ -110,6 +110,32 @@ class CandidateStoreTests(unittest.TestCase):
 
         self.assertEqual(stats["entries"], 1)
 
+    def test_out_of_scope_relations_are_counted_outside_review_queue(self):
+        text = (
+            "TITLE: TP53 in pulmonary fibrosis\nABSTRACT: RESULTS: "
+            "TP53 was associated with HCC."
+        )
+        verified = KGVerifier(OfflineKG(), verification_policy="tiered-v2").verify(
+            [entity("TP53", "Gene"), entity("HCC", "Disease")],
+            [relation("TP53 was associated with HCC.", candidate_id="scope-1")],
+            pmid="scope", text=text,
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            db_path = Path(tmp) / "candidates.sqlite3"
+            store = CandidateRelationStore(mode="sqlite", path=db_path)
+            summary = store.record_verified(pmid="scope", verified=verified)
+            stats = store.stats()
+            store.close()
+            con = sqlite3.connect(db_path)
+            scope_status = con.execute(
+                "SELECT scope_status FROM candidate_relations"
+            ).fetchone()[0]
+            con.close()
+        self.assertEqual(summary.out_of_scope_count, 1)
+        self.assertEqual(summary.human_review_count, 0)
+        self.assertEqual(scope_status, "OUT_OF_SCOPE")
+        self.assertEqual(stats["by_scope_status"]["OUT_OF_SCOPE"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

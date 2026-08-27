@@ -48,7 +48,7 @@ TISSUE_CONTEXT_TERMS = frozenset({
 # Empty responses get one retry. Transport/provider failures have a separate,
 # configurable budget so a transient 429/502 does not empty an entire run.
 EMPTY_RESULT_MAX_RETRIES = 1
-EXTRACTION_CACHE_KEY_VERSION = "langextract-candidates-v2"
+EXTRACTION_CACHE_KEY_VERSION = "langextract-candidates-v3"
 PROMPT_VERSION = "kg-extraction-prompt-v2"
 
 
@@ -135,6 +135,7 @@ class ExtractionKernel:
             "ontology_version": ONTOLOGY_VERSION,
             "chunk_content_hash": text_hash,
             "temperature": 0, "schema_constraints": False,
+            "fence_output": True,
             "extraction_passes": 1,
             "max_char_buffer": self._max_char_buffer(),
             "max_output_tokens": provider_kwargs.get("max_output_tokens"),
@@ -270,6 +271,10 @@ class ExtractionKernel:
                     temperature=0,
                     max_workers=self.inner_max_workers,
                     use_schema_constraints=False,  # 宽松模式
+                    # Compatible proxies may still wrap otherwise valid JSON
+                    # in a single ```json fence.  LangExtract's lenient fence
+                    # mode accepts both fenced and raw JSON.
+                    fence_output=True,
                     show_progress=False,
                     extraction_passes=1,           # 单次提取（稳定性优先）
                     max_char_buffer=self._max_char_buffer(),

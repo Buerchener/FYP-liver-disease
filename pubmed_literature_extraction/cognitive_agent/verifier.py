@@ -137,6 +137,7 @@ class VerifiedRelation:
     factual_status: str = "VALID"
     semantic_status: str = "UNVERIFIED"
     write_status: str = "UNASSESSED"
+    scope_status: str = "IN_SCOPE"
     claim_role: str = "CURRENT_FINDING"
     evidence_spans: list[dict] = field(default_factory=list)
     semantic_reasons: list[str] = field(default_factory=list)
@@ -250,6 +251,9 @@ class KGVerifier:
                 verified_entities,
                 text=text,
                 aliases_by_canonical=prepared.aliases_by_canonical,
+            )
+            vr.scope_status = (
+                "OUT_OF_SCOPE" if "article_out_of_scope" in article_flags else "IN_SCOPE"
             )
             self.schema_adapter.apply(
                 vr,

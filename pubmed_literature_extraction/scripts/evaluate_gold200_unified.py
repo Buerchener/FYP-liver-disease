@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -33,7 +34,35 @@ GOLD_VIEWS = {
     "strict_import_ready": ROOT / "gold_annotations/pubmed_200_gold_v2_strict_import_ready.jsonl",
 }
 SOURCE_PATH = ROOT / "extraction_output/pubmed_converted_500.jsonl"
-SYMMETRIC_PREDICATES = frozenset({"INTERACTS_WITH"})
+SYMMETRIC_PREDICATES = frozenset({"ASSOCIATED_WITH", "INTERACTS_WITH"})
+
+
+def cell_subset_signature(value: str) -> tuple[str, str] | None:
+    """Normalize exact numbered cell-subset paraphrases for scoring only."""
+    surface = normalize_surface(value)
+    identifier = r"(?:\d+[a-z0-9]*|[a-z]+\d[a-z0-9]*)"
+    prefix = re.fullmatch(
+        rf"(?:subpopulation|subset|subgroup|cluster)s?\s+({identifier})\s+(.+)",
+        surface,
+    )
+    suffix = re.fullmatch(
+        rf"(.+?)\s+(?:subpopulation|subset|subgroup|cluster)s?\s+({identifier})",
+        surface,
+    )
+    if prefix:
+        subset_id, cell_text = prefix.group(1), prefix.group(2)
+    elif suffix:
+        cell_text, subset_id = suffix.group(1), suffix.group(2)
+    else:
+        return None
+    families = (
+        "macrophage", "endothelial cell", "stellate cell", "kupffer cell",
+        "neutrophil", "monocyte", "natural killer cell", "nk cell",
+        "regulatory t cell", "t cell", "b cell", "cholangiocyte",
+        "fibroblast", "hepatocyte",
+    )
+    family = next((item for item in families if item in cell_text), "")
+    return (family, subset_id) if family else None
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -76,7 +105,21 @@ def aliases(gold: dict[str, Any], text: str) -> dict[str, set[tuple[str, str]]]:
 def canonical_endpoint(value: str, entity_type: str, alias_map: dict) -> str:
     surface = normalize_surface(value)
     exact = [canonical for canonical, kind in alias_map.get(surface, set()) if kind == entity_type]
-    return exact[0] if len(exact) == 1 else surface
+    if len(exact) == 1:
+        return exact[0]
+    if entity_type == "CellType":
+        signature = cell_subset_signature(surface)
+        if signature:
+            matches = {
+                canonical
+                for alias_surface, typed_values in alias_map.items()
+                if cell_subset_signature(alias_surface) == signature
+                for canonical, kind in typed_values
+                if kind == entity_type
+            }
+            if len(matches) == 1:
+                return next(iter(matches))
+    return surface
 
 
 def relation_key(relation: dict[str, Any], alias_map: dict) -> tuple[str, str, str, str, str]:
@@ -93,14 +136,32 @@ def relation_key(relation: dict[str, Any], alias_map: dict) -> tuple[str, str, s
 
 
 def semantic_kept(relation: dict[str, Any]) -> bool:
+    """Positive semantic prediction: ACCEPTED only, REVIEW is abstention."""
     return (
+        str(relation.get("scope_status", "IN_SCOPE")).upper() != "OUT_OF_SCOPE"
+        and "article_out_of_scope" not in set(relation.get("quality_flags", []) or [])
+        and
         str(relation.get("factual_status", "VALID")).upper() != "REJECTED"
-        and str(relation.get("semantic_status", "ACCEPTED")).upper() != "REJECTED"
+        and str(relation.get("semantic_status", "ACCEPTED")).upper() == "ACCEPTED"
     )
 
 
-def predicted_for_view(relations: list[dict[str, Any]], view: str) -> list[dict[str, Any]]:
-    kept = [relation for relation in relations if semantic_kept(relation)]
+def semantic_candidate_kept(relation: dict[str, Any]) -> bool:
+    """Candidate coverage view: ACCEPTED plus HUMAN_REVIEW, never REJECTED."""
+    return (
+        str(relation.get("scope_status", "IN_SCOPE")).upper() != "OUT_OF_SCOPE"
+        and "article_out_of_scope" not in set(relation.get("quality_flags", []) or [])
+        and
+        str(relation.get("factual_status", "VALID")).upper() != "REJECTED"
+        and str(relation.get("semantic_status", "ACCEPTED")).upper() in {"ACCEPTED", "REVIEW"}
+    )
+
+
+def predicted_for_view(
+    relations: list[dict[str, Any]], view: str, *, include_review: bool = False,
+) -> list[dict[str, Any]]:
+    keep = semantic_candidate_kept if include_review else semantic_kept
+    kept = [relation for relation in relations if keep(relation)]
     if view == "candidate_semantic":
         return kept
     if view == "main_kg_write_contract":
@@ -125,7 +186,7 @@ def prf(counts: Counter) -> dict[str, float | int]:
 
 def score_view(
     records: list[dict[str, Any]], gold_by_pmid: dict[str, dict[str, Any]],
-    source_by_pmid: dict[str, dict[str, Any]], view: str,
+    source_by_pmid: dict[str, dict[str, Any]], view: str, *, include_review: bool = False,
 ) -> dict[str, Any]:
     counts: Counter = Counter()
     by_predicate: dict[str, Counter] = defaultdict(Counter)
@@ -148,7 +209,7 @@ def score_view(
         gold_by_key = {relation_key(item, alias_map): item for item in gold_relations}
         pred_by_key = {
             relation_key(item, alias_map): item
-            for item in predicted_for_view(relations, view)
+            for item in predicted_for_view(relations, view, include_review=include_review)
         }
         gold_keys, pred_keys = set(gold_by_key), set(pred_by_key)
         counts.update({
@@ -215,10 +276,14 @@ def main() -> int:
             "gold_relations": sum(len(row.get("relations", []) or []) for row in rows),
             "metrics": score_view(records, gold_by_pmid, source_by_pmid, view),
         }
+        if view == "candidate_semantic":
+            report["views"][view]["review_inclusive_coverage_metrics"] = score_view(
+                records, gold_by_pmid, source_by_pmid, view, include_review=True,
+            )
 
     args.output_json.parent.mkdir(parents=True, exist_ok=True)
     args.output_json.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    lines = ["# Gold-200 unified evaluation", "", "- Relation metric: typed, directed positive triples; `INTERACTS_WITH` is symmetric only for same-type endpoints.", "- Relation-level TN is undefined for this relation-centric gold. TN below is document-level relation-presence TN.", "", "| View | Gold relations | Micro P/R/F1 (TP/FP/FN) | Positive macro F1 | Document TP/FP/TN/FN | Direction agreement |", "|---|---:|---:|---:|---:|---:|"]
+    lines = ["# Gold-200 unified evaluation", "", "- Relation metric: typed, directed positive triples; same-type `ASSOCIATED_WITH` and `INTERACTS_WITH` are symmetric.", "- Primary metrics count `ACCEPTED` only. Candidate coverage including `REVIEW` is reported separately in JSON and is not precision.", "- Relation-level TN is undefined for this relation-centric gold. TN below is document-level relation-presence TN.", "", "| View | Gold relations | Micro P/R/F1 (TP/FP/FN) | Positive macro F1 | Document TP/FP/TN/FN | Direction agreement |", "|---|---:|---:|---:|---:|---:|"]
     for name, item in report["views"].items():
         metric = item["metrics"]
         micro = metric["typed_directed_triple_micro"]

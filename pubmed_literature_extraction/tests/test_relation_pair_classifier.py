@@ -136,6 +136,21 @@ class RelationPairClassifierTests(unittest.TestCase):
         self.assertEqual(result.predictions[0].label, NO_RELATION)
         self.assertEqual(result.accepted_relations, [])
 
+    def test_endpoint_only_evidence_does_not_claim_an_explicit_trigger(self):
+        text = "TITLE: Liver study\nABSTRACT: RESULTS: TP53 and HCC samples were measured."
+        result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
+            self.entities, [], self.reader.read(text), source_text=text,
+        )
+        self.assertEqual(result.candidates[0].evidence_trigger_predicate, "")
+
+    def test_overlapping_surface_inside_named_pathway_is_not_a_two_endpoint_pair(self):
+        text = "TITLE: Liver study\nABSTRACT: RESULTS: The Nrf2 pathway was activated."
+        result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
+            [entity("Nrf2", "Protein"), entity("Nrf2 pathway", "Pathway")],
+            [], self.reader.read(text), source_text=text,
+        )
+        self.assertEqual(result.candidates, [])
+
     def test_langextract_is_a_hint_not_a_forced_label(self):
         text = "TITLE: Study\nABSTRACT: RESULTS: TP53 and HCC samples were measured."
         hint = [{
@@ -146,6 +161,22 @@ class RelationPairClassifierTests(unittest.TestCase):
         prediction = result.predictions[0]
         self.assertLess(prediction.relation_probability, 0.5)
         self.assertNotIn("explicit_predicate_trigger", prediction.reason_codes)
+
+    def test_complete_grounded_extractor_evidence_is_preserved_over_shorter_window(self):
+        evidence = "TP53 was associated with HCC after adjustment for age."
+        text = f"TITLE: Liver study\nABSTRACT: RESULTS: {evidence} EGFR was also measured."
+        hint = [{
+            "subject": "TP53", "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH", "object": "HCC",
+            "object_type": "Disease", "evidence": evidence,
+            "direction": "positive",
+        }]
+        result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
+            self.entities, hint, self.reader.read(text), source_text=text,
+        )
+        candidate = result.candidates[0]
+        self.assertEqual(candidate.evidence, evidence)
+        self.assertEqual(candidate.source_directions, ["positive"])
 
     def test_only_uncertainty_band_candidate_routes_to_deepseek(self):
         text = "TITLE: Study\nABSTRACT: RESULTS: TP53 was associated with HCC."
@@ -229,7 +260,7 @@ class RelationPairClassifierTests(unittest.TestCase):
         self.assertIn("pair_low_confidence", flags)
         self.assertIn("pair_no_relation_abstention", flags)
 
-    def test_supported_high_confidence_no_relation_routes_to_judge(self):
+    def test_result_section_bare_cooccurrence_does_not_route_to_judge(self):
         class OverconfidentBackend:
             name = "overconfident-test"
 
@@ -247,9 +278,23 @@ class RelationPairClassifierTests(unittest.TestCase):
         text = "TITLE: Study\nABSTRACT: RESULTS: TP53 and HCC were jointly evaluated."
         result = classifier.classify(self.entities, [], self.reader.read(text))
         self.assertEqual(result.predictions[0].label, NO_RELATION)
-        self.assertTrue(result.predictions[0].routed_to_llm)
-        self.assertIn("supported_no_relation_routed", result.predictions[0].reason_codes)
-        self.assertEqual(len(result.low_confidence_relations), 1)
+        self.assertFalse(result.predictions[0].routed_to_llm)
+        self.assertNotIn("supported_no_relation_routed", result.predictions[0].reason_codes)
+        self.assertEqual(result.low_confidence_relations, [])
+
+    def test_explicit_non_liver_article_uses_separate_scope_bucket(self):
+        text = (
+            "TITLE: Biomarkers in pulmonary fibrosis\nABSTRACT: RESULTS: "
+            "TP53 was associated with HCC."
+        )
+        result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
+            self.entities, [], self.reader.read(text), source_text=text,
+        )
+        self.assertIn("article_out_of_scope", result.candidates[0].quality_flags)
+        self.assertEqual(result.accepted_relations, [])
+        self.assertEqual(result.low_confidence_relations, [])
+        self.assertEqual(len(result.out_of_scope_relations), 1)
+        self.assertEqual(result.out_of_scope_relations[0]["scope_status"], "OUT_OF_SCOPE")
 
     def test_active_rule_prior_is_bounded_and_audited(self):
         rule_payload = {

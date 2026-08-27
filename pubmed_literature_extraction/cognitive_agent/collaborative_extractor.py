@@ -56,10 +56,10 @@ POST_ACTION_BLOCKERS = frozenset({
     "trigger_direction_mismatch", "weak_evidence", "uncertain",
 })
 
-# Only predicates whose inverse has exactly the same meaning are consolidated
-# as an unordered pair.  ASSOCIATED_WITH is intentionally excluded because the
-# project evaluates and imports its argument roles directionally.
-UNDIRECTED_PREDICATES = frozenset({"INTERACTS_WITH"})
+# Same-type associations and interactions are semantic unordered pairs.  This
+# affects candidate consolidation only; it does not alter the frozen main-KG
+# write contract or directional predicates such as PROGRESSES_TO.
+UNDIRECTED_PREDICATES = frozenset({"ASSOCIATED_WITH", "INTERACTS_WITH"})
 
 # Recovery has only one-model support (the first extractor omitted the edge),
 # so its action space is narrower than ordinary adjudication.  Broad
@@ -82,6 +82,17 @@ RELATION_DESCRIPTIONS = {
     "PROGRESSES_TO": "One disease or stage explicitly progresses to another.",
     "ASSOCIATED_WITH_METABOLITE": "The text explicitly associates an entity with a metabolite.",
 }
+
+
+def relation_description(predicate: str, subject_type: str = "", object_type: str = "") -> str:
+    """Return a type-aware semantic description for bounded model prompts."""
+    predicate = str(predicate or "").upper()
+    if predicate == "INTERACTS_WITH" and subject_type == object_type == "CellType":
+        return (
+            "The text explicitly reports cell-cell crosstalk, communication, or a "
+            "functionally supported spatial interaction; mere co-occurrence is insufficient."
+        )
+    return RELATION_DESCRIPTIONS.get(predicate, predicate)
 
 
 COLLABORATION_JSON_SCHEMA = {
@@ -311,7 +322,14 @@ class CollaborativeExtractor:
                 "classifier_source": relation.get("classifier_source", ""),
                 "evidence_unit_id": relation.get("evidence_unit_id", ""),
                 "allowed_predicates": [
-                    {"predicate": pred, "meaning": RELATION_DESCRIPTIONS.get(pred, pred)}
+                    {
+                        "predicate": pred,
+                        "meaning": relation_description(
+                            pred,
+                            str(relation.get("subject_type", "")),
+                            str(relation.get("object_type", "")),
+                        ),
+                    }
                     for pred in allowed
                 ],
             })
@@ -374,9 +392,10 @@ class CollaborativeExtractor:
             candidate["allowed_predicates"] = [
                 {
                     "predicate": str(value.get("predicate", "") if isinstance(value, dict) else value).upper(),
-                    "meaning": RELATION_DESCRIPTIONS.get(
+                    "meaning": relation_description(
                         str(value.get("predicate", "") if isinstance(value, dict) else value).upper(),
-                        str(value),
+                        str(candidate.get("subject_type", "")),
+                        str(candidate.get("object_type", "")),
                     ),
                 }
                 for value in candidate.get("allowed_predicates", [])
@@ -906,7 +925,16 @@ class CollaborativeExtractor:
             predicate = str(checked.get("predicate", "") or relation.get("predicate", "")).upper()
             subject = normalize_surface(canonical_endpoint(checked, relation, "subject"))
             object_name = normalize_surface(canonical_endpoint(checked, relation, "object"))
-            endpoints = tuple(sorted((subject, object_name))) if predicate in UNDIRECTED_PREDICATES else (
+            same_type = str(checked.get("subject_type", relation.get("subject_type", ""))) == str(
+                checked.get("object_type", relation.get("object_type", ""))
+            )
+            semantic_undirected = bool(
+                predicate == "INTERACTS_WITH"
+                or (predicate == "ASSOCIATED_WITH" and same_type)
+            )
+            endpoints = tuple(sorted((subject, object_name))) if (
+                semantic_undirected
+            ) else (
                 subject, object_name
             )
             # Endpoint types are deliberately absent: identical canonical
@@ -933,7 +961,14 @@ class CollaborativeExtractor:
             relation = copy.deepcopy(selected[1])
             checked = selected[2]
             predicate = str(checked.get("predicate", "") or relation.get("predicate", "")).upper()
-            if predicate in UNDIRECTED_PREDICATES:
+            same_type = str(checked.get("subject_type", relation.get("subject_type", ""))) == str(
+                checked.get("object_type", relation.get("object_type", ""))
+            )
+            semantic_undirected = bool(
+                predicate == "INTERACTS_WITH"
+                or (predicate == "ASSOCIATED_WITH" and same_type)
+            )
+            if semantic_undirected:
                 evidence = str(relation.get("evidence", "") or "")
                 subject_position = first_alias_position(
                     evidence,

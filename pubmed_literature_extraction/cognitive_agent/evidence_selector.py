@@ -37,7 +37,12 @@ TRIGGER_PATTERNS: dict[str, tuple[str, ...]] = {
         r"\bjuxtapos\w*\b",
     ),
     "PARTICIPATES_IN": (r"\bparticipat\w*\s+in\b", r"\b(?:regulat|mediat|activat|inhibit)\w*\b"),
-    "EXPRESSED_IN": (r"\bexpress\w*\s+(?:in|by|within)\b", r"\blocali[sz]\w*\s+(?:in|to)\b"),
+    "EXPRESSED_IN": (
+        r"\bexpress\w*\s+(?:in|by|within)\b",
+        r"\b(?:high|low)?\s*expression\s+of\b.{0,100}\b(?:in|within)\b",
+        r"\bsource\s+of\b",
+        r"\blocali[sz]\w*\s+(?:in|to)\b",
+    ),
     "ASSOCIATED_WITH_METABOLITE": (r"\bmetabol\w*\b", r"\b(?:associat|correlat)\w*\b"),
     "ASSOCIATED_WITH": (r"\bassociat\w*\b", r"\bcorrelat\w*\b", r"\blinked\s+to\b", r"\brelated\s+to\b"),
 }
@@ -99,22 +104,75 @@ class EvidenceSelector:
     def _minimal_window(
         subject_spans: list[tuple[int, int]], object_spans: list[tuple[int, int]],
         trigger_spans: list[tuple[int, int]],
-    ) -> tuple[int, int, tuple[int, int], tuple[int, int], tuple[int, int] | None]:
-        triggers: list[tuple[int, int] | None] = list(trigger_spans) or [None]
+        *, text: str = "", other_spans: list[tuple[int, int]] | None = None,
+    ) -> tuple[int, int, tuple[int, int], tuple[int, int], tuple[int, int] | None, bool]:
+        """Return the smallest pair-local span without borrowing a third endpoint's cue.
+
+        Association wording is often present in a sentence for a *different*
+        entity pair.  A trigger is therefore usable only when no other known
+        entity mention in the same clause is closer to it than either proposed
+        endpoint.  Ambiguous triggers are removed, but the endpoint pair is
+        retained as NEI for bounded review.
+        """
+        other_spans = list(other_spans or [])
+
+        def distance(left: tuple[int, int], right: tuple[int, int]) -> int:
+            if left[1] < right[0]:
+                return right[0] - left[1]
+            if right[1] < left[0]:
+                return left[0] - right[1]
+            return 0
+
+        def clause_bounds(trigger: tuple[int, int]) -> tuple[int, int]:
+            if not text:
+                return 0, 0
+            starts = [text.rfind(mark, 0, trigger[0]) for mark in (".", ";", "\n")]
+            start = max(starts) + 1
+            ends = [
+                index for index in (text.find(mark, trigger[1]) for mark in (".", ";", "\n"))
+                if index >= 0
+            ]
+            return start, min(ends) if ends else len(text)
+
+        def attached(
+            subject: tuple[int, int], obj: tuple[int, int], trigger: tuple[int, int],
+        ) -> bool:
+            if not other_spans:
+                return True
+            clause_start, clause_end = clause_bounds(trigger)
+            endpoint_distance = max(distance(trigger, subject), distance(trigger, obj))
+            for other in other_spans:
+                if other in {subject, obj} or not (clause_start <= other[0] < clause_end):
+                    continue
+                if distance(trigger, other) < endpoint_distance:
+                    return False
+            return True
+
+        usable: list[tuple[int, int]] = []
+        ambiguous_trigger = False
+        for trigger in trigger_spans:
+            if any(attached(subject, obj, trigger) for subject in subject_spans for obj in object_spans):
+                usable.append(trigger)
+            else:
+                ambiguous_trigger = True
+        triggers: list[tuple[int, int] | None] = usable or [None]
         candidates = []
         for subject in subject_spans:
             for obj in object_spans:
                 for trigger in triggers:
+                    if trigger is not None and not attached(subject, obj, trigger):
+                        continue
                     spans = [subject, obj, *([trigger] if trigger else [])]
                     start = min(span[0] for span in spans)
                     end = max(span[1] for span in spans)
                     candidates.append((end - start, start, end, subject, obj, trigger))
         _, start, end, subject, obj, trigger = min(candidates)
-        return start, end, subject, obj, trigger
+        return start, end, subject, obj, trigger, ambiguous_trigger and trigger is None
 
     def select(
         self, *, candidate_id: str, subject_mentions: list[str], object_mentions: list[str],
         predicate: str, units: list[EvidenceUnit], source_text: str,
+        other_mentions: list[str] | None = None,
     ) -> SelectedEvidence | None:
         selections: list[tuple[tuple[Any, ...], SelectedEvidence]] = []
         for unit in units:
@@ -123,7 +181,10 @@ class EvidenceSelector:
             if not subjects or not objects:
                 continue
             triggers = self._trigger_spans(unit.text, predicate)
-            start, end, subject, obj, trigger = self._minimal_window(subjects, objects, triggers)
+            others = self._mention_spans(unit.text, list(other_mentions or []))
+            start, end, subject, obj, trigger, ambiguous_trigger = self._minimal_window(
+                subjects, objects, triggers, text=unit.text, other_spans=others,
+            )
             prefix_start = max(0, start - 32)
             prefix_negations = list(NEGATION_RE.finditer(unit.text[prefix_start:start]))
             if prefix_negations:
@@ -135,6 +196,8 @@ class EvidenceSelector:
             reasons = ["both_endpoints", "continuous_source_span", "minimal_sufficient_span"]
             if trigger:
                 reasons.append("explicit_predicate_trigger")
+            elif ambiguous_trigger:
+                reasons.append("trigger_attachment_ambiguous")
             if unit.section in ASSERTIVE_SECTIONS:
                 reasons.append("assertive_section")
             if NEGATION_RE.search(span):

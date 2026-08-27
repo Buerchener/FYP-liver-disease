@@ -193,6 +193,19 @@ class ExtractionKernelCacheTests(unittest.TestCase):
             ExtractionKernel(config, inner_max_workers=2)._cache_key(**args),
         )
 
+    def test_extract_accepts_raw_or_single_fenced_json(self):
+        kernel = self.make_kernel()
+        annotated = SimpleNamespace(extractions=[])
+        with patch(
+            "cognitive_agent.extraction_kernel.lx.extract",
+            return_value=[annotated],
+        ) as remote:
+            kernel._extract_uncached(
+                text="text", document_id="fenced", examples=[],
+                prompt="prompt", retry_on_empty=False,
+            )
+        self.assertIs(remote.call_args.kwargs["fence_output"], True)
+
     def test_timeout_has_a_separate_small_retry_budget(self):
         kernel = self.make_kernel()
         with (

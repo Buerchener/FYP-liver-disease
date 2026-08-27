@@ -35,9 +35,11 @@ from cognitive_agent.relation_pair_classifier import (
 )
 
 try:
-    from cognitive_agent.collaborative_extractor import RELATION_DESCRIPTIONS
+    from cognitive_agent.collaborative_extractor import RELATION_DESCRIPTIONS, relation_description
 except Exception:  # pragma: no cover - registry decoupling fallback
     RELATION_DESCRIPTIONS: dict[str, str] = {}
+    def relation_description(predicate: str, subject_type: str = "", object_type: str = "") -> str:
+        return RELATION_DESCRIPTIONS.get(predicate, predicate)
 
 
 JUDGE_BACKEND = "pairwise_judge_v1"
@@ -83,6 +85,9 @@ NON_CURRENT_FINDING_ROLES = frozenset({
     CLAIM_ROLE_PRIOR_WORK, CLAIM_ROLE_BACKGROUND, CLAIM_ROLE_METHOD,
     CLAIM_ROLE_PREDICTION, CLAIM_ROLE_SPECULATIVE, CLAIM_ROLE_OTHER,
 })
+DETERMINISTIC_ASSERTION_PREDICATES = frozenset({
+    "ENCODES", "EXPRESSED_IN", "INTERACTS_WITH", "PROGRESSES_TO",
+})
 # Backwards-compat: the old DIRECT_FINDING status set is retained as an alias
 # so existing consumers (gate_table, audits) keep working.
 CLAIM_STATUS_DIRECT_FINDING = "DIRECT_FINDING"
@@ -94,6 +99,7 @@ CLAIM_GATE_STATUSES = frozenset({
     "METHOD",              # methods/materials mention (reagents, cell lines, assays)
     "PREDICTION_ONLY",     # computational prediction / docking / enrichment
     "SPECULATIVE",         # hedged wording (may/could/potential/hypothesized)
+    "ASSERTED_OTHER",      # asserted relation with an OTHER discourse role
     "NO_EXPLICIT_RELATION",  # bare co-occurrence, no relational statement
 })
 GATE_TERMINAL_STATUSES = CLAIM_GATE_STATUSES - {CLAIM_STATUS_DIRECT_FINDING}
@@ -132,7 +138,9 @@ JUDGE_ENTAILMENT_TRIGGERS: dict[str, tuple[str, ...]] = {
         r"\bparticipat\w* in\b", r"\bmediat\w+", r"\bplays? a role in\b",
     ),
     "EXPRESSED_IN": (
-        r"\bexpress\w+ (?:in|by|within)\b", r"\bpresent in\b",
+        r"\bexpress\w+ (?:in|by|within)\b",
+        r"\b(?:high|low)?\s*expression\s+of\b.{0,100}\b(?:in|within)\b",
+        r"\bsource\s+of\b", r"\bpresent in\b",
         r"\blocali[sz]\w+ (?:in|to)\b",
     ),
 }
@@ -326,7 +334,9 @@ class PairwiseJudge:
         allowed = [
             {
                 "predicate": predicate,
-                "meaning": RELATION_DESCRIPTIONS.get(predicate, predicate),
+                "meaning": relation_description(
+                    predicate, candidate.subject_type, candidate.object_type,
+                ),
             }
             for predicate in candidate.allowed_predicates
         ]
@@ -605,8 +615,10 @@ PMID: {pmid}
         decisions: dict[str, JudgePairDecision] = {}
         if not candidates or self.registry is None or not self.registry.configured("judge"):
             audit = JudgeBatchAudit(
-                model_id=self.config.model_id, status="UNCONFIGURED", stage="gate",
-                pairs_requested=len(candidates), error="judge model unavailable",
+                model_id=self.config.model_id,
+                status="EMPTY" if not candidates else "UNCONFIGURED",
+                stage="gate", pairs_requested=len(candidates),
+                error="" if not candidates else "judge model unavailable",
             )
             audits.append(audit)
             self.audits.append(audit)
@@ -718,11 +730,62 @@ PMID: {pmid}
                 relation_asserted = CLAIM_NOT_ASSERTED
                 claim_role = claim_role or CLAIM_ROLE_OTHER
                 legacy_status = "NO_EXPLICIT_RELATION"
-        # Normalize claim_status to a clean label.
-        if legacy_status not in CLAIM_GATE_STATUSES:
-            legacy_status = "NO_EXPLICIT_RELATION"
         if claim_role not in CLAIM_ROLE_LABELS:
             claim_role = CLAIM_ROLE_OTHER
+        deterministic_assertion_preserved = bool(
+            relation_asserted != CLAIM_ASSERTED
+            and candidate.claim_role == CLAIM_ROLE_CURRENT_FINDING
+            and candidate.evidence_entailment == ENTAILED
+            and candidate.evidence_trigger_predicate in DETERMINISTIC_ASSERTION_PREDICATES
+            and not ({
+                "incomplete_evidence_boundary", "endpoint_not_in_evidence",
+                "trigger_attachment_ambiguous",
+            } & set(candidate.quality_flags))
+        )
+        if deterministic_assertion_preserved:
+            # The model may abstain, but it cannot erase an exact assertive
+            # span with both endpoints and a high-specificity predicate cue.
+            # The downstream verifier still owns schema, endpoints, source,
+            # negation and every write decision.
+            relation_asserted = CLAIM_ASSERTED
+            claim_role = CLAIM_ROLE_CURRENT_FINDING
+            legacy_status = CLAIM_STATUS_DIRECT_FINDING
+        deterministic_role_preserved = bool(
+            relation_asserted == CLAIM_ASSERTED
+            and candidate.claim_role == CLAIM_ROLE_CURRENT_FINDING
+            and claim_role in {CLAIM_ROLE_METHOD, CLAIM_ROLE_OTHER}
+            and candidate.evidence_section in RESULT_SECTIONS
+            and candidate.evidence_entailment == ENTAILED
+            and candidate.evidence_trigger_predicate in DETERMINISTIC_ASSERTION_PREDICATES
+            and not ({
+                "incomplete_evidence_boundary", "endpoint_not_in_evidence",
+                "trigger_attachment_ambiguous",
+            } & set(candidate.quality_flags))
+        )
+        if deterministic_role_preserved:
+            # An exact high-specificity assertion in RESULTS/CONCLUSION is not
+            # a METHOD merely because the wording says "this study focused".
+            # Background/prior-work candidates are protected in the opposite
+            # direction below and can never be promoted by this rule.
+            claim_role = CLAIM_ROLE_CURRENT_FINDING
+            legacy_status = CLAIM_STATUS_DIRECT_FINDING
+        # v2 responses intentionally return relation_asserted + claim_role and
+        # omit the legacy claim_status field.  Derive the legacy audit label so
+        # an ASSERTED/CURRENT_FINDING decision is never recorded as
+        # NO_EXPLICIT_RELATION.
+        if legacy_status not in CLAIM_GATE_STATUSES:
+            if relation_asserted == CLAIM_ASSERTED:
+                legacy_status = {
+                    CLAIM_ROLE_CURRENT_FINDING: CLAIM_STATUS_DIRECT_FINDING,
+                    CLAIM_ROLE_PRIOR_WORK: "PRIOR_WORK",
+                    CLAIM_ROLE_BACKGROUND: "BACKGROUND",
+                    CLAIM_ROLE_METHOD: "METHOD",
+                    CLAIM_ROLE_PREDICTION: "PREDICTION_ONLY",
+                    CLAIM_ROLE_SPECULATIVE: "SPECULATIVE",
+                    CLAIM_ROLE_OTHER: "ASSERTED_OTHER",
+                }[claim_role]
+            else:
+                legacy_status = "NO_EXPLICIT_RELATION"
         non_current = claim_role in NON_CURRENT_FINDING_ROLES
         if relation_asserted == CLAIM_ASSERTED:
             # Placeholder decision; Stage B fills the predicate.
@@ -735,7 +798,14 @@ PMID: {pmid}
                 evidence_quote="",
                 rationale=rationale,
                 valid=True,
-                reason_codes=[] if not non_current else ["non_current_finding_role"],
+                reason_codes=(
+                    (["deterministic_explicit_assertion_preserved"]
+                     if deterministic_assertion_preserved else [])
+                    + (["deterministic_current_role_preserved"]
+                       if deterministic_role_preserved else [])
+                    if deterministic_assertion_preserved or deterministic_role_preserved
+                    else ([] if not non_current else ["non_current_finding_role"])
+                ),
                 claim_status=legacy_status or CLAIM_STATUS_DIRECT_FINDING,
                 claim_stage="gate",
                 relation_asserted=relation_asserted,
@@ -852,7 +922,33 @@ PMID: {pmid}
                     label = NO_RELATION
                 else:
                     decision = NOT_ENOUGH_INFORMATION
-            elif not any(
+            else:
+                subject_present = any(
+                    locate_contiguous(alias, quote)[0]
+                    for alias in self._mentions_for(candidate.subject, alias_index)
+                )
+                object_present = any(
+                    locate_contiguous(alias, quote)[0]
+                    for alias in self._mentions_for(candidate.object, alias_index)
+                )
+                if not subject_present or not object_present:
+                    # A model-selected quote may not silently narrow away an
+                    # endpoint.  Keep the grounded candidate quote and route
+                    # the positive proposal to review instead of deleting it.
+                    if not subject_present:
+                        reason_codes.append("judge_quote_missing_subject")
+                    if not object_present:
+                        reason_codes.append("judge_quote_missing_object")
+                    reason_codes.append("judge_quote_missing_endpoint")
+                    fallback_grounded, _, _ = locate_contiguous(candidate.evidence, text)
+                    if fallback_grounded:
+                        quote = candidate.evidence
+                        decision = NOT_ENOUGH_INFORMATION
+                    else:
+                        valid = False
+                        label = NO_RELATION
+                        decision = NOT_ENOUGH_INFORMATION
+            if decision == ENTAILED and not any(
                 re.search(pattern, quote, re.IGNORECASE)
                 for pattern in JUDGE_ENTAILMENT_TRIGGERS.get(label, ())
             ):
@@ -892,14 +988,34 @@ PMID: {pmid}
     ) -> dict[str, Any]:
         subject = candidate.subject
         object_ = candidate.object
-        direction = "unknown"
+        direction = next((
+            str(value or "").lower()
+            for value in candidate.source_directions
+            if str(value or "").lower() in {
+                "increase", "decrease", "positive", "negative", "none"
+            }
+        ), "unknown")
+        if direction == "unknown":
+            evidence_lower = str(decision.evidence_quote or candidate.evidence).casefold()
+            if re.search(r"\b(?:decreas|reduc|downregulat|suppress|inhibit|attenuat|negative|inverse)\w*\b", evidence_lower):
+                direction = "decrease"
+            elif re.search(r"\b(?:increas|elevat|upregulat|enhanc|activat|positive)\w*\b", evidence_lower):
+                direction = "increase"
         if decision.direction == "B_TO_A" and decision.label not in SYMMETRIC_PREDICATES:
             subject, object_ = object_, subject
-        claim_role = decision.claim_role or candidate.claim_role or CLAIM_ROLE_CURRENT_FINDING
+        candidate_role = candidate.claim_role or CLAIM_ROLE_CURRENT_FINDING
+        decision_role = decision.claim_role or candidate_role
+        role_promotion_blocked = bool(
+            candidate_role in NON_CURRENT_FINDING_ROLES
+            and decision_role == CLAIM_ROLE_CURRENT_FINDING
+        )
+        claim_role = candidate_role if role_promotion_blocked else decision_role
         non_current_finding = bool(
             decision.non_current_finding or claim_role in NON_CURRENT_FINDING_ROLES
         )
         flags = ["pair_classifier_candidate", "pairwise_judge"]
+        if role_promotion_blocked:
+            flags.append("claim_role_promotion_blocked")
         if uncertain:
             flags.extend(["pair_low_confidence", "judge_uncertain"])
         else:
@@ -914,9 +1030,9 @@ PMID: {pmid}
             # (PRIOR_WORK / BACKGROUND / METHOD / PREDICTION / SPECULATIVE /
             # OTHER) means it is not THIS article's new writeable evidence.
             # It may still form a valid semantic relation, but is not
-            # import-ready unless a second model independently upgrades it.
+            # import-ready.  Do not conflate this orthogonal provenance/write
+            # restriction with semantic uncertainty.
             flags.append("non_current_finding_role")
-            flags.append("manual_review")
         flags.extend(decision.reason_codes)
         return {
             "subject": subject,
@@ -947,6 +1063,49 @@ PMID: {pmid}
             "quality_flags": sorted(set(flags)),
         }
 
+    @staticmethod
+    def _deduplicate_selected_relations(
+        accepted: list[dict[str, Any]], review: list[dict[str, Any]],
+    ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+        """Collapse duplicate final predicates after the judge has selected labels."""
+        groups: dict[tuple[str, str, str, str, str], tuple[str, int, dict[str, Any]]] = {}
+        ordered = [("accepted", item) for item in accepted] + [("review", item) for item in review]
+        for index, (status, relation) in enumerate(ordered):
+            subject = normalize_surface(relation.get("subject", ""))
+            obj = normalize_surface(relation.get("object", ""))
+            subject_type = str(relation.get("subject_type", ""))
+            object_type = str(relation.get("object_type", ""))
+            predicate = str(relation.get("predicate", "")).upper()
+            if predicate in SYMMETRIC_PREDICATES and subject_type == object_type:
+                endpoints = sorted(((subject, subject_type), (obj, object_type)))
+                key = (endpoints[0][0], endpoints[0][1], predicate, endpoints[1][0], endpoints[1][1])
+            else:
+                key = (subject, subject_type, predicate, obj, object_type)
+            existing = groups.get(key)
+            candidate_rank = (
+                status == "accepted",
+                float(relation.get("relation_probability", 0.0) or 0.0),
+                float(relation.get("evidence_confidence", 0.0) or 0.0),
+                -index,
+            )
+            if existing is None:
+                groups[key] = (status, index, relation)
+                continue
+            old_status, old_index, old_relation = existing
+            old_rank = (
+                old_status == "accepted",
+                float(old_relation.get("relation_probability", 0.0) or 0.0),
+                float(old_relation.get("evidence_confidence", 0.0) or 0.0),
+                -old_index,
+            )
+            if candidate_rank > old_rank:
+                groups[key] = (status, index, relation)
+        survivors = sorted(groups.values(), key=lambda item: item[1])
+        return (
+            [item[2] for item in survivors if item[0] == "accepted"],
+            [item[2] for item in survivors if item[0] == "review"],
+        )
+
     def refine_pair_result(
         self,
         pair_result: PairClassificationResult,
@@ -971,9 +1130,12 @@ PMID: {pmid}
         total_call_budget = max(0, int(self.config.max_calls_per_article))
         eligible = [
             candidate for candidate in pair_result.candidates
-            if not self.config.judge_only_hinted
-            or candidate.source_predicates
-            or candidate.evidence_trigger_predicate
+            if "article_out_of_scope" not in set(candidate.quality_flags)
+            and (
+                not self.config.judge_only_hinted
+                or candidate.source_predicates
+                or candidate.evidence_trigger_predicate
+            )
         ]
         if self.config.claim_gate_enabled:
             gate_call_budget = min(total_call_budget, 1 if total_call_budget > 1 else total_call_budget)
@@ -1072,12 +1234,14 @@ PMID: {pmid}
             backend=JUDGE_BACKEND,
             candidates=list(pair_result.candidates),
             truncated_candidates=pair_result.truncated_candidates,
+            out_of_scope_relations=list(pair_result.out_of_scope_relations),
         )
         if not decision_by_id:
             refined.fallback_reason = "judge_unavailable_kept_local_predictions"
             refined.predictions = list(pair_result.predictions)
             refined.accepted_relations = list(pair_result.accepted_relations)
             refined.low_confidence_relations = list(pair_result.low_confidence_relations)
+            refined.out_of_scope_relations = list(pair_result.out_of_scope_relations)
             refined.judge_audits = batch_audits
             refined.judge_decisions = dict(decision_by_id)
             return refined
@@ -1181,6 +1345,11 @@ PMID: {pmid}
                 refined.low_confidence_relations.append(relation)
             else:
                 refined.accepted_relations.append(relation)
+        refined.accepted_relations, refined.low_confidence_relations = (
+            self._deduplicate_selected_relations(
+                refined.accepted_relations, refined.low_confidence_relations,
+            )
+        )
         refined.low_confidence_relations = refined.low_confidence_relations[:24]
         refined.judge_audits = batch_audits
         refined.judge_decisions = dict(decision_by_id)
@@ -1212,6 +1381,7 @@ PMID: {pmid}
             ),
             "accepted_relation_count": len(refined.accepted_relations),
             "low_confidence_count": len(refined.low_confidence_relations),
+            "out_of_scope_count": len(refined.out_of_scope_relations),
             "fallback_reason": refined.fallback_reason,
         }
         if gate_counts or gate_pass:

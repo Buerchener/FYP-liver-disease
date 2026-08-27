@@ -23,8 +23,10 @@ from cognitive_agent.abbreviation_detector import AbbreviationDetector
 from cognitive_agent.evidence_units import ArticleEvidenceReader, EvidenceUnit
 from cognitive_agent.evidence_selector import EvidenceSelector
 from cognitive_agent.extraction_quality import (
+    article_quality_flags,
     locate_contiguous,
     normalize_surface,
+    predicate_trigger_links_endpoints,
 )
 from cognitive_agent.rule_memory import RuleMatch, RuleMemory
 from cognitive_agent.schema.relation_signatures import RELATION_SIGNATURES
@@ -47,7 +49,7 @@ REVIEW_ARTICLE_RE = re.compile(
 )
 PREDICTION_ONLY_RE = re.compile(
     r"\b(?:in silico|bioinformatics|computational|molecular docking|"
-    r"predicted?|prediction|screened?)\b",
+    r"predicted?|prediction)\b",
     re.IGNORECASE,
 )
 DISTINCTIVE_DESCRIPTOR_RE = re.compile(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z][A-Za-z0-9-]{2,}$")
@@ -77,7 +79,10 @@ PREDICATE_PATTERNS: dict[str, tuple[str, ...]] = {
         r"\b(?:component|member)\s+of\b",
     ),
     "EXPRESSED_IN": (
-        r"\bexpress(?:ed|ion|es|ing)?\s+(?:in|by|within)\b", r"\blocali[sz](?:e|ed|ation)\s+(?:in|to)\b",
+        r"\bexpress(?:ed|ion|es|ing)?\s+(?:in|by|within)\b",
+        r"\b(?:high|low)?\s*expression\s+of\b.{0,100}\b(?:in|within)\b",
+        r"\bsource\s+of\b",
+        r"\blocali[sz](?:e|ed|ation)\s+(?:in|to)\b",
     ),
     "ASSOCIATED_WITH_METABOLITE": (
         r"\b(?:metabolic|metabolite)\s+association\b", r"\bassociated\s+with\b",
@@ -172,6 +177,7 @@ class PairClassificationResult:
     predictions: list[PairPrediction] = field(default_factory=list)
     accepted_relations: list[dict] = field(default_factory=list)
     low_confidence_relations: list[dict] = field(default_factory=list)
+    out_of_scope_relations: list[dict] = field(default_factory=list)
     truncated_candidates: int = 0
     fallback_reason: str = ""
 
@@ -184,6 +190,7 @@ class PairClassificationResult:
             "positive_prediction_count": len(relation_predictions),
             "accepted_relation_count": len(self.accepted_relations),
             "low_confidence_count": len(self.low_confidence_relations),
+            "out_of_scope_count": len(self.out_of_scope_relations),
             "no_relation_count": sum(p.label == NO_RELATION for p in self.predictions),
             "deepseek_routing_rate": round(
                 len(self.low_confidence_relations) / max(len(self.candidates), 1), 4
@@ -192,6 +199,7 @@ class PairClassificationResult:
             "fallback_reason": self.fallback_reason,
             "candidates": [item.to_dict() for item in self.candidates],
             "predictions": [item.to_dict() for item in self.predictions],
+            "out_of_scope_relations": list(self.out_of_scope_relations),
         }
 
 
@@ -598,6 +606,7 @@ class BioREDPairClassifier:
             hints.setdefault(key, []).append(relation)
 
         windows = self._pairing_windows(source_text, units, self.config)
+        article_flags = article_quality_flags(source_text)
 
         # Pass 1: enumerate schema-compatible pairs per window.  The type
         # signature mask stays a hard constraint; co-occurrence alone is
@@ -621,6 +630,14 @@ class BioREDPairClassifier:
             for subject, subject_span in local:
                 for obj, object_span in local:
                     if subject is obj:
+                        continue
+                    if max(subject_span[0], object_span[0]) < min(
+                        subject_span[1], object_span[1]
+                    ):
+                        # One textual mention cannot supply both endpoints
+                        # (for example Nrf2 inside "Nrf2 pathway").  Treating
+                        # the overlap as a pair creates tautological pseudo-
+                        # relations and inflates the lattice.
                         continue
                     subject_type = str(subject.get("type", subject.get("entity_type", "")) or "")
                     object_type = str(obj.get("type", obj.get("entity_type", "")) or "")
@@ -676,17 +693,26 @@ class BioREDPairClassifier:
             window, subject_span, object_span = pair_windows[0]
             subject, obj = row["subject"], row["object"]
             evidence_text = window.text
+            evidence_unit_id = window.unit_id
+            evidence_section = window.section
             evidence_start = window.char_start
             evidence_end = window.char_end
             evidence_confidence = 0.0
             evidence_entailment = "NOT_ENOUGH_INFORMATION"
             evidence_trigger_predicate = ""
+            evidence_reason_codes: list[str] = []
             selectable = [
                 item[0] for item in pair_windows
                 if BioREDPairClassifier._mention_span(item[0], subject)
                 and BioREDPairClassifier._mention_span(item[0], obj)
             ]
             if source_text and self.evidence_selector_enabled:
+                other_mentions = [
+                    mention
+                    for entity in pairing_entities
+                    if entity is not subject and entity is not obj
+                    for mention in self._mentions(entity)
+                ]
                 selections = []
                 for predicate in row["allowed"]:
                     selected = self.evidence_selector.select(
@@ -695,6 +721,7 @@ class BioREDPairClassifier:
                         object_mentions=self._mentions(obj),
                         predicate=predicate, units=selectable or [window],
                         source_text=source_text,
+                        other_mentions=other_mentions,
                     )
                     if selected:
                         selections.append((
@@ -703,14 +730,59 @@ class BioREDPairClassifier:
                             len(selected.text), predicate, selected,
                         ))
                 if selections:
-                    _, _, _, evidence_trigger_predicate, selected = min(selections)
+                    _, _, _, selected_predicate, selected = min(selections)
+                    evidence_trigger_predicate = (
+                        selected_predicate if selected.trigger_span is not None else ""
+                    )
                     evidence_text = selected.text
                     evidence_start = selected.char_start
                     evidence_end = selected.char_end
                     evidence_confidence = selected.evidence_confidence
                     evidence_entailment = selected.local_label
+                    evidence_reason_codes = list(selected.reason_codes)
+                    if "trigger_attachment_ambiguous" in selected.reason_codes:
+                        evidence_trigger_predicate = ""
+            # A grounded extractor hint that already contains both endpoints
+            # and a pair-linking trigger is stronger than a shorter generic
+            # window.  Preserve it instead of letting minimal-span selection
+            # accidentally borrow a nearby third entity's relation wording.
+            exact_hints: list[tuple[bool, int, int, dict, EvidenceUnit | None]] = []
+            for hint in row["pair_hints"]:
+                predicate = str(hint.get("predicate", "") or "").upper()
+                evidence = str(hint.get("evidence", "") or "").strip()
+                grounded, start, end = locate_contiguous(evidence, source_text)
+                if not grounded or predicate not in row["allowed"]:
+                    continue
+                if not predicate_trigger_links_endpoints(
+                    predicate, evidence, self._mentions(subject), self._mentions(obj),
+                ):
+                    continue
+                container = ArticleEvidenceReader.containing_unit(evidence, windows)
+                section = container.section if container else window.section
+                exact_hints.append((
+                    section not in RESULT_SECTIONS, len(evidence), start, hint, container,
+                ))
+            if exact_hints:
+                _, _, hint_start, hint, container = min(exact_hints)
+                evidence_text = str(hint.get("evidence", "") or "").strip()
+                evidence_start = hint_start
+                evidence_end = hint_start + len(evidence_text)
+                evidence_unit_id = container.unit_id if container else window.unit_id
+                evidence_section = container.section if container else window.section
+                evidence_confidence = max(evidence_confidence, 0.94)
+                evidence_entailment = (
+                    "ENTAILED" if evidence_section in RESULT_SECTIONS
+                    else "NOT_ENOUGH_INFORMATION"
+                )
+                evidence_trigger_predicate = str(hint.get("predicate", "") or "").upper()
+                evidence_reason_codes = [
+                    *evidence_reason_codes, "grounded_complete_extractor_evidence_preserved",
+                ]
             cross_sentence = window.unit_id.startswith("w")
             quality_flags = ["cross_sentence"] if cross_sentence else []
+            quality_flags.extend(sorted(article_flags))
+            if "trigger_attachment_ambiguous" in evidence_reason_codes:
+                quality_flags.extend(["trigger_attachment_ambiguous", "manual_review"])
             if cross_sentence and LIGHT_COREFERENCE_RE.search(window.text):
                 quality_flags.append("light_coreference_window")
             candidates.append(RelationPairCandidate(
@@ -719,8 +791,8 @@ class BioREDPairClassifier:
                 object=str(obj.get("mention", "")), object_type=row["object_type"],
                 allowed_predicates=row["allowed"],
                 evidence=evidence_text,
-                evidence_unit_id=window.unit_id,
-                evidence_section=window.section,
+                evidence_unit_id=evidence_unit_id,
+                evidence_section=evidence_section,
                 evidence_char_start=evidence_start,
                 evidence_char_end=evidence_end,
                 source_predicates=list(dict.fromkeys(
@@ -738,7 +810,7 @@ class BioREDPairClassifier:
                 evidence_entailment=evidence_entailment,
                 evidence_trigger_predicate=evidence_trigger_predicate,
                 claim_role=self._infer_claim_role(
-                    evidence_text, window.section, source_text,
+                    evidence_text, evidence_section, source_text,
                 ),
                 quality_flags=quality_flags,
             ))
@@ -821,6 +893,7 @@ class BioREDPairClassifier:
                     quality_flags=[
                         "incomplete_evidence_boundary", "endpoint_not_in_evidence",
                         f"{missing_side}_not_grounded", "manual_review",
+                        *sorted(article_flags),
                     ],
                 ))
                 existing_pair_keys.add(pair_key)
@@ -956,16 +1029,16 @@ class BioREDPairClassifier:
                 prediction.routed_to_llm = True
                 prediction.reason_codes.append("incomplete_evidence_routed")
             plausible_relation = prediction.relation_probability >= self.config.uncertainty_floor
-            # A deterministic NO_RELATION score is only terminal for bare
-            # co-occurrence.  Candidate extraction, result-bearing evidence,
-            # or an evidence-derived predicate cue is enough to justify a
-            # bounded independent review of the strongest allowed predicate.
+            # A deterministic NO_RELATION score is terminal for bare
+            # co-occurrence even in a RESULTS section.  Only extractor support
+            # or an explicit evidence trigger justifies a bounded model call;
+            # otherwise broad entity pools create quadratic review traffic.
             supported_negative_abstention = (
                 prediction.label == NO_RELATION
                 and bool(
                     candidate.source_predicates
                     or candidate.evidence_trigger_predicate
-                    or candidate.evidence_section in RESULT_SECTIONS
+                    or "incomplete_evidence_boundary" in candidate.quality_flags
                 )
             )
             prediction.routed_to_llm = prediction.routed_to_llm or bool(
@@ -1002,9 +1075,23 @@ class BioREDPairClassifier:
                         "pair_no_relation_abstention"
                     )
                     relation["quality_flags"] = sorted(set(relation["quality_flags"]))
-                    result.low_confidence_relations.append(relation)
+                    if "article_out_of_scope" in candidate.quality_flags:
+                        relation["scope_status"] = "OUT_OF_SCOPE"
+                        relation["quality_flags"] = sorted(set([
+                            *relation["quality_flags"], "scope_bucket",
+                        ]))
+                        result.out_of_scope_relations.append(relation)
+                    else:
+                        result.low_confidence_relations.append(relation)
                 continue
             relation = self._as_relation(candidate, prediction)
+            if "article_out_of_scope" in candidate.quality_flags:
+                relation["scope_status"] = "OUT_OF_SCOPE"
+                relation["quality_flags"] = sorted(set([
+                    *relation.get("quality_flags", []), "scope_bucket",
+                ]))
+                result.out_of_scope_relations.append(relation)
+                continue
             if prediction.relation_probability >= self.config.relation_threshold:
                 result.accepted_relations.append(relation)
             if prediction.routed_to_llm:

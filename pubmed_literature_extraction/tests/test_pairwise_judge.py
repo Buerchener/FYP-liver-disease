@@ -133,6 +133,28 @@ class PairwiseJudgeTests(unittest.TestCase):
         self.assertIn("judge_uncertain", flags)
         self.assertIn("pair_low_confidence", flags)
 
+    def test_source_direction_survives_judge_when_endpoints_and_predicate_stay_same(self):
+        hint = [{
+            "subject": "TP53", "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH", "object": "HCC",
+            "object_type": "Disease",
+            "evidence": "TP53 expression was associated with HCC progression.",
+            "direction": "decrease",
+        }]
+        pair_result = self.pair_result(hint)
+        candidate = pair_result.candidates[0]
+        payload = {"decisions": [{
+            "candidate_id": candidate.candidate_id,
+            "predicate": "ASSOCIATED_WITH",
+            "evidence_quote": "TP53 expression was associated with HCC progression.",
+            "direction": "A_TO_B", "decision": ENTAILED, "confidence": 0.9,
+        }]}
+        refined = self.judge_with(payload).refine_pair_result(
+            pair_result, text=self.TEXT,
+            entities=[entity("TP53", "Gene"), entity("HCC", "Disease")], pmid="1",
+        )
+        self.assertEqual(refined.accepted_relations[0]["direction"], "decrease")
+
     def test_judge_failure_keeps_local_predictions(self):
         judge = PairwiseJudge(
             PairwiseJudgeConfig(mode="active"),
@@ -144,7 +166,7 @@ class PairwiseJudgeTests(unittest.TestCase):
         )
         self.assertTrue(refined.fallback_reason)
 
-    def test_judge_entailed_overrides_heuristic_semantic_review_but_not_write(self):
+    def test_judge_entailed_still_requires_deterministic_reverification(self):
         candidates = self.pair_result().candidates
         payload = {"decisions": [{
             "candidate_id": candidates[0].candidate_id,
@@ -165,8 +187,9 @@ class PairwiseJudgeTests(unittest.TestCase):
         # This text has a trigger linking both endpoints, so there is nothing
         # to override: the judge proposal is accepted on the merits.
         self.assertEqual(relation.semantic_status, "ACCEPTED")
-        # ...but the write gate still requires deterministic strong evidence.
-        self.assertFalse(relation.import_ready)
+        # The quote then independently satisfies every deterministic write
+        # requirement.  IMPORT_READY is only a status; Neo4j remains disabled.
+        self.assertTrue(relation.import_ready)
 
     def test_judge_entailed_is_a_proposal_not_an_override(self):
         # The deterministic trigger check fails to link the endpoints (the
@@ -479,7 +502,36 @@ class ClaimGateTests(unittest.TestCase):
         )
         self.assertEqual(relation["claim_role"], "PRIOR_WORK")
         self.assertIn("non_current_finding_role", relation["quality_flags"])
-        self.assertIn("manual_review", relation["quality_flags"])
+        self.assertNotIn("manual_review", relation["quality_flags"])
+
+    def test_model_cannot_promote_deterministic_background_role_to_current(self):
+        text = (
+            "TITLE: A narrative review\nABSTRACT: BACKGROUND: "
+            "TP53 expression was associated with HCC progression."
+        )
+        entities = [entity("TP53", "Gene"), entity("HCC", "Disease")]
+        pair_result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
+            entities, [], ArticleEvidenceReader().read(text), source_text=text,
+        )
+        candidate = pair_result.candidates[0]
+        self.assertEqual(candidate.claim_role, "BACKGROUND")
+        gate_payload = {"decisions": [{
+            "candidate_id": candidate.candidate_id,
+            "relation_asserted": "ASSERTED", "claim_role": "CURRENT_FINDING",
+        }]}
+        predicate_payload = {"decisions": [{
+            "candidate_id": candidate.candidate_id,
+            "subject": "TP53", "object": "HCC", "predicate": "ASSOCIATED_WITH",
+            "evidence_quote": "TP53 expression was associated with HCC progression.",
+            "direction": "A_TO_B", "decision": ENTAILED, "confidence": 0.9,
+        }]}
+        refined = self.two_stage_judge(gate_payload, predicate_payload).refine_pair_result(
+            pair_result, text=text, entities=entities, pmid="1",
+        )
+        relation = refined.accepted_relations[0]
+        self.assertEqual(relation["claim_role"], "BACKGROUND")
+        self.assertIn("claim_role_promotion_blocked", relation["quality_flags"])
+        self.assertNotIn("manual_review", relation["quality_flags"])
 
     def test_gate_only_direct_finding_reaches_predicate_stage(self):
         pair_result = self.pair_result()
@@ -570,6 +622,78 @@ class ClaimGateTests(unittest.TestCase):
         self.assertEqual(decision.claim_status, "NO_EXPLICIT_RELATION")
         self.assertEqual(decision.label, NO_RELATION)
         self.assertIn("claim_gate_not_asserted", decision.reason_codes)
+
+    def test_v2_gate_fields_derive_consistent_legacy_audit_status(self):
+        candidate = self.pair_result().candidates[0]
+        judge = self.two_stage_judge({}, {})
+        current = judge._validate_gate({
+            "candidate_id": candidate.candidate_id,
+            "relation_asserted": "ASSERTED", "claim_role": "CURRENT_FINDING",
+        }, candidate)
+        prior = judge._validate_gate({
+            "candidate_id": candidate.candidate_id,
+            "relation_asserted": "ASSERTED", "claim_role": "PRIOR_WORK",
+        }, candidate)
+        self.assertEqual(current.claim_status, "DIRECT_FINDING")
+        self.assertEqual(prior.claim_status, "PRIOR_WORK")
+
+    def test_gate_abstention_cannot_erase_specific_grounded_interaction(self):
+        text = "TITLE: Liver study\nABSTRACT: RESULTS: TP53 interacted with EGFR."
+        entities = [entity("TP53", "Protein"), entity("EGFR", "Protein")]
+        pair_result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
+            entities, [], ArticleEvidenceReader().read(text), source_text=text,
+        )
+        candidate = pair_result.candidates[0]
+        self.assertEqual(candidate.evidence_entailment, ENTAILED)
+        decision = self.two_stage_judge({}, {})._validate_gate({
+            "candidate_id": candidate.candidate_id,
+            "relation_asserted": "UNCERTAIN", "claim_role": "OTHER",
+        }, candidate)
+        self.assertEqual(decision.relation_asserted, "ASSERTED")
+        self.assertIn("deterministic_explicit_assertion_preserved", decision.reason_codes)
+
+    def test_gate_cannot_demote_explicit_result_interaction_to_method(self):
+        text = "TITLE: Liver study\nABSTRACT: CONCLUSION: TP53 interacted with EGFR."
+        entities = [entity("TP53", "Protein"), entity("EGFR", "Protein")]
+        pair_result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
+            entities, [], ArticleEvidenceReader().read(text), source_text=text,
+        )
+        candidate = pair_result.candidates[0]
+        self.assertEqual(candidate.claim_role, "CURRENT_FINDING")
+        decision = self.two_stage_judge({}, {})._validate_gate({
+            "candidate_id": candidate.candidate_id,
+            "relation_asserted": "ASSERTED", "claim_role": "METHOD",
+        }, candidate)
+        self.assertEqual(decision.claim_role, "CURRENT_FINDING")
+        self.assertIn("deterministic_current_role_preserved", decision.reason_codes)
+
+    def test_judge_quote_missing_endpoint_falls_back_and_routes_to_review(self):
+        candidate = self.pair_result().candidates[0]
+        judge = self.two_stage_judge({}, {})
+        decision = judge._validate({
+            "candidate_id": candidate.candidate_id,
+            "predicate": "ASSOCIATED_WITH",
+            "evidence_quote": "associated with HCC progression",
+            "direction": "A_TO_B", "decision": ENTAILED, "confidence": 0.9,
+        }, candidate, text=self.TEXT, alias_index={})
+        self.assertEqual(decision.decision, NOT_ENOUGH_INFORMATION)
+        self.assertEqual(decision.evidence_quote, candidate.evidence)
+        self.assertIn("judge_quote_missing_endpoint", decision.reason_codes)
+
+    def test_final_same_type_association_dedup_prefers_accepted(self):
+        accepted = [{
+            "subject": "Disease A", "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH", "object": "Disease B",
+            "object_type": "Disease", "relation_probability": 0.8,
+        }]
+        review = [{
+            "subject": "Disease B", "subject_type": "Disease",
+            "predicate": "ASSOCIATED_WITH", "object": "Disease A",
+            "object_type": "Disease", "relation_probability": 0.9,
+        }]
+        kept, abstained = PairwiseJudge._deduplicate_selected_relations(accepted, review)
+        self.assertEqual(kept, accepted)
+        self.assertEqual(abstained, [])
 
     def test_gate_failure_degrades_to_single_stage(self):
         pair_result = self.pair_result()

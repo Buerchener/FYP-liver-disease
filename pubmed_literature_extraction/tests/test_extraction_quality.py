@@ -251,6 +251,76 @@ class ExtractionQualityTests(unittest.TestCase):
             for item in prepared.merged_entities
         ))
 
+    def test_source_defined_cell_subtype_is_recovered_when_extractor_omits_label(self):
+        text = (
+            'A subset of liver endothelial cells termed "Endo7" was detected. '
+            "Endo7 communicated with hepatic stellate cells."
+        )
+        prepared = prepare_extraction([
+            entity("liver endothelial cells", "CellType"),
+            entity("hepatic stellate cells", "CellType"),
+        ], [], text=text)
+        endothelial = next(
+            item for item in prepared.entities
+            if item["mention"] == "liver endothelial cells"
+        )
+        self.assertIn("Endo7", endothelial["canonical_mentions"])
+        self.assertEqual(prepared.mention_to_canonical["Endo7"], "liver endothelial cells")
+
+    def test_numbered_cell_subset_and_exact_activation_process_are_recovered(self):
+        text = (
+            "Subpopulation 11 mononuclear macrophages were profiled. "
+            "NK cell activation was associated with fibrosis."
+        )
+        prepared = prepare_extraction([
+            entity("mononuclear macrophages", "CellType"),
+            entity("NK cell", "CellType"),
+        ], [], text=text)
+        mentions = {item["mention"] for item in prepared.entities}
+        self.assertIn("Subpopulation 11 mononuclear macrophages", mentions)
+        self.assertIn("NK cell activation", mentions)
+
+    def test_parenthetical_protein_abbreviation_blocks_gene_duplicate(self):
+        text = "Mitochondrial antiviral signalling protein (MAVS) was quantified."
+        prepared = prepare_extraction([
+            entity("MAVS", "Gene"), entity("MAVS", "Protein"),
+        ], [], text=text)
+        self.assertEqual(len(prepared.entities), 1)
+        self.assertEqual(prepared.entities[0]["type"], "Protein")
+        self.assertIn("MAVS", prepared.entities[0]["canonical_mentions"])
+        self.assertEqual(
+            prepared.filtered_entities[0]["filter_reason"],
+            "parenthetical_protein_as_gene",
+        )
+
+    def test_liver_used_only_as_disease_modifier_is_not_tissue(self):
+        prepared = prepare_extraction(
+            [entity("liver", "Tissue")], [],
+            text="Several chronic liver diseases were reviewed.",
+        )
+        self.assertFalse(prepared.entities)
+        self.assertEqual(
+            prepared.filtered_entities[0]["filter_reason"],
+            "organ_name_used_only_as_disease_modifier",
+        )
+
+    def test_gut_liver_axis_and_liver_inflammation_do_not_make_liver_a_tissue(self):
+        text = (
+            "The gut-liver axis was reviewed in chronic liver conditions. "
+            "Dysbiosis contributes to liver inflammation."
+        )
+        prepared = prepare_extraction([entity("liver", "Tissue")], [], text=text)
+        self.assertFalse(prepared.entities)
+
+    def test_subset_of_cell_surface_merges_into_specific_cell_type(self):
+        text = "A subset of liver endothelial cells was identified."
+        prepared = prepare_extraction([
+            entity("subset of liver endothelial cells", "CellType"),
+            entity("liver endothelial cells", "CellType"),
+        ], [], text=text)
+        self.assertEqual(len(prepared.entities), 1)
+        self.assertEqual(prepared.entities[0]["mention"], "liver endothelial cells")
+
     def test_undefined_abbreviation_is_not_automatically_merged(self):
         text = "Alpha beta complex and ABC were independently measured."
         prepared = prepare_extraction(
@@ -349,6 +419,21 @@ class ExtractionQualityTests(unittest.TestCase):
         )
         self.assertFalse(result.relations[0].import_ready)
         self.assertIn("trigger_direction_mismatch", result.relations[0].quality_flags)
+
+    def test_high_expression_supports_increase_direction(self):
+        text = "High expression of OTUD5 in macrophage subset 11 was observed."
+        result = self.verifier.verify(
+            [entity("OTUD5", "Gene"), entity("macrophage subset 11", "CellType")],
+            [relation(
+                "OTUD5", "Gene", "EXPRESSED_IN",
+                "macrophage subset 11", "CellType", text, "increase",
+            )],
+            text=text,
+        )
+        verified = result.relations[0]
+        self.assertTrue(verified.direction_trigger_consistent)
+        self.assertNotIn("trigger_direction_mismatch", verified.quality_flags)
+        self.assertEqual(verified.evidence_level, 1)
 
     def test_trigger_must_link_the_proposed_endpoints(self):
         text = (

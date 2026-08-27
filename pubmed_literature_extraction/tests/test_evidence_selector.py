@@ -54,6 +54,22 @@ class EvidenceSelectorTests(unittest.TestCase):
         )
         self.assertIsNone(missing)
 
+    def test_trigger_attached_to_third_entity_is_routed_to_nei(self):
+        text = (
+            "RESULTS: Acromegaly was less frequent in steatosis, and GH was "
+            "inversely associated with steatosis."
+        )
+        unit = EvidenceUnit("u1", "RESULTS", text, 0, len(text), "s1")
+        selected = self.selector.select(
+            candidate_id="p1", subject_mentions=["Acromegaly"],
+            object_mentions=["steatosis"], predicate="ASSOCIATED_WITH",
+            units=[unit], source_text=text, other_mentions=["GH"],
+        )
+        self.assertIsNotNone(selected)
+        self.assertEqual(selected.local_label, NOT_ENOUGH_INFORMATION)
+        self.assertIsNone(selected.trigger_span)
+        self.assertIn("trigger_attachment_ambiguous", selected.reason_codes)
+
     def test_remote_quote_must_realign_and_qwen_only_reviews_conflict(self):
         text = "TP53 and cirrhosis were measured in this cohort."
         unit = EvidenceUnit("u1", "RESULTS", text, 0, len(text), "s1")

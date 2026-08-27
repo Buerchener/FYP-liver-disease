@@ -73,13 +73,15 @@ ANATOMICAL_RE = re.compile(
 SPECIFIC_CELL_RE = re.compile(
     r"(?:hepatocytes?|kupffer cells?|macrophages?|neutrophils?|"
     r"(?:regulatory )?t cells?|b cells?|stellate cells?|endothelial cells?|"
-    r"cholangiocytes?|fibroblasts?|monocytes?|natural killer cells?)$",
+    r"cholangiocytes?|fibroblasts?|monocytes?|natural killer cells?|nk cells?)$",
     re.IGNORECASE,
 )
 
 SPECIFIC_CELL_SUBSET_RE = re.compile(
-    r"(?:macrophage|monocyte|neutrophil|hepatocyte|t cell|b cell|"
-    r"stellate cell|endothelial cell)\s+(?:subsets?|clusters?)\s*[a-z0-9-]+$",
+    r"(?:(?:subpopulations?|subsets?|clusters?)\s*[a-z0-9-]+\s+)?"
+    r"(?:[a-z0-9+-]+\s+){0,3}(?:macrophages?|monocytes?|neutrophils?|hepatocytes?|"
+    r"t cells?|b cells?|stellate cells?|endothelial cells?)"
+    r"(?:\s+(?:subsets?|clusters?)\s*[a-z0-9-]+)?$",
     re.IGNORECASE,
 )
 
@@ -129,7 +131,7 @@ PREDICATE_TRIGGERS: dict[str, tuple[str, ...]] = {
     "EXPRESSED_IN": (
         r"express(?:ed|ion|ion level|ion levels|ion of).{0,100}\b(?:in|within)\b",
         r"overexpress(?:ed|ion).{0,100}\b(?:in|within)\b",
-        r"localized in", r"present in",
+        r"\bsource of\b", r"localized in", r"present in",
     ),
     "ASSOCIATED_WITH_METABOLITE": (
         r"associated with", r"correlat(?:ed|ion)", r"interact(?:s|ed|ion) with",
@@ -142,12 +144,14 @@ INCREASE_TRIGGERS = (
     r"\baccelerat(?:e|es|ed)\b", r"\benhanc(?:e|es|ed)\b",
     r"\bactivat(?:e|es|ed|ion)\b", r"\boverexpress(?:ed|ion)\b",
     r"\binduc(?:e|es|ed|tion)\b", r"\bpositive(?:ly)?\b",
+    r"\bhigh(?:er)?\s+expression\b",
 )
 DECREASE_TRIGGERS = (
     r"\bdecreas(?:e|es|ed|ing)\b", r"\breduc(?:e|es|ed)\b",
     r"\bdownregulat(?:e|es|ed)\b", r"\bsuppress(?:es|ed)\b",
     r"\binhibit(?:s|ed|ion)\b", r"\battenuat(?:e|es|ed|ion)\b",
     r"\bameliorat(?:e|es|ed|ion)\b", r"\bnegative(?:ly)?\b",
+    r"\binverse(?:ly)?\b",
 )
 
 SUBJECT_BLOCKING_RE = re.compile(
@@ -159,6 +163,11 @@ SUBJECT_BLOCKING_RE = re.compile(
 LIVER_SCOPE_RE = re.compile(
     r"\b(liver|hepatic|hepatitis|hepatocellular|cirrhosis|cirrhotic|"
     r"cholestasis|cholangitis|biliary|nafld|nash|masld|mash|hbv|hcv)\b",
+    re.IGNORECASE,
+)
+EXPLICIT_NON_LIVER_SCOPE_RE = re.compile(
+    r"\b(?:cardiac|cardiovascular|heart|pulmonary|lung|renal|kidney|cerebral|brain|"
+    r"pancreatic|pancreas|colorectal|colon|prostate|ovarian|breast)\b",
     re.IGNORECASE,
 )
 NON_HUMAN_TITLE_RE = re.compile(
@@ -268,7 +277,7 @@ def _cell_type_definition_long_form(mention: str, text: str) -> str:
     cell_head = (
         r"(?:hepatocytes?|kupffer cells?|macrophages?|neutrophils?|"
         r"(?:regulatory )?t cells?|b cells?|stellate cells?|endothelial cells?|"
-        r"cholangiocytes?|fibroblasts?|monocytes?|natural killer cells?)"
+        r"cholangiocytes?|fibroblasts?|monocytes?|natural killer cells?|nk cells?)"
     )
     pattern = re.compile(
         rf"(?P<long>(?:[A-Za-z0-9+/-]+\s+){{0,3}}{cell_head})\s+"
@@ -288,6 +297,114 @@ def _cell_type_definition_long_form(mention: str, text: str) -> str:
             break
         long_form = cleaned
     return long_form if SPECIFIC_CELL_RE.search(long_form) else ""
+
+
+def _defined_cell_subtypes(text: str) -> list[tuple[str, str]]:
+    """Return exact source-defined ``(label, cell long form)`` pairs."""
+    cell_head = (
+        r"(?:hepatocytes?|kupffer cells?|macrophages?|neutrophils?|"
+        r"(?:regulatory )?t cells?|b cells?|stellate cells?|endothelial cells?|"
+        r"cholangiocytes?|fibroblasts?|monocytes?|natural killer cells?)"
+    )
+    pattern = re.compile(
+        rf"(?P<long>(?:[A-Za-z0-9+/-]+\s+){{0,4}}{cell_head})\s+"
+        rf"(?:termed|called|named)\s+[\"']?(?P<label>[A-Za-z][A-Za-z0-9-]{{2,}})[\"']?",
+        re.IGNORECASE,
+    )
+    output: list[tuple[str, str]] = []
+    for match in pattern.finditer(text or ""):
+        long_form = match.group("long").strip()
+        while True:
+            cleaned = re.sub(
+                r"^(?:a|an|the|of|subset of)\s+", "", long_form, flags=re.I,
+            ).strip()
+            if cleaned == long_form:
+                break
+            long_form = cleaned
+        if SPECIFIC_CELL_RE.search(long_form):
+            output.append((match.group("label"), long_form))
+    return list(dict.fromkeys(output))
+
+
+def _specific_cell_context_surface(mention: str, text: str) -> str:
+    """Prefer an exact numbered subset phrase over its generic cell head."""
+    mention = str(mention or "").strip()
+    if not mention:
+        return ""
+    pattern = re.compile(
+        rf"(?<!\w)(?P<surface>(?:subpopulations?|subsets?|clusters?)\s+"
+        rf"(?:\d+[A-Za-z0-9-]*|[A-Za-z]+\d[A-Za-z0-9-]*)\s+"
+        rf"{re.escape(mention)})(?!\w)",
+        re.IGNORECASE,
+    )
+    match = pattern.search(text or "")
+    return match.group("surface") if match else ""
+
+
+def _parenthetical_explicit_type(mention: str, text: str) -> str:
+    """Resolve a source-defined abbreviation ending in ``gene``/``protein``."""
+    mention = str(mention or "").strip()
+    if not mention or len(mention.split()) != 1:
+        return ""
+    pattern = re.compile(
+        rf"\b(?:[A-Za-z0-9-]+\s+){{1,10}}(?P<kind>gene|protein)\s*"
+        rf"\(\s*{re.escape(mention)}\s*\)",
+        re.IGNORECASE,
+    )
+    match = pattern.search(text or "")
+    return match.group("kind").casefold() if match else ""
+
+
+def _recover_exact_source_entities(raw_entities: list[dict], text: str) -> list[dict]:
+    """Add only narrow entities whose full surface is explicitly defined in source."""
+    output = [copy.deepcopy(item) for item in raw_entities]
+    existing = {
+        (normalize_surface(item.get("mention", "")), str(item.get("type", item.get("entity_type", ""))))
+        for item in output
+    }
+    cell_entities = [
+        item for item in output
+        if str(item.get("type", item.get("entity_type", ""))) == "CellType"
+    ]
+    for label, long_form in _defined_cell_subtypes(text):
+        if not any(
+            normalize_surface(item.get("mention", "")) == normalize_surface(long_form)
+            for item in cell_entities
+        ):
+            continue
+        key = (normalize_surface(label), "CellType")
+        if key not in existing:
+            output.append({
+                "mention": label,
+                "type": "CellType",
+                "entity_type": "CellType",
+                "attributes": {"deterministic_recovery": "source_defined_cell_subtype"},
+            })
+            existing.add(key)
+    for item in cell_entities:
+        mention = str(item.get("mention", "") or "").strip()
+        variants = [mention]
+        if mention.casefold().endswith(" cells"):
+            variants.append(mention[:-1])
+        for variant in variants:
+            match = re.search(
+                rf"(?<!\w)(?P<surface>{re.escape(variant)}\s+activation)(?!\w)",
+                text or "", re.IGNORECASE,
+            )
+            if not match:
+                continue
+            surface = match.group("surface")
+            key = (normalize_surface(surface), "Pathway")
+            if key not in existing:
+                output.append({
+                    "mention": surface,
+                    "type": "Pathway",
+                    "entity_type": "Pathway",
+                    "attributes": {"deterministic_recovery": "cell_activation_process"},
+                })
+                existing.add(key)
+            break
+    return output
 
 
 def _conditional_process_supported(mention: str, relations: list[dict], text: str) -> bool:
@@ -329,6 +446,11 @@ def entity_filter_reason(entity: dict, relations: list[dict], text: str) -> tupl
             return "rejected", "explicit_protein_as_gene"
         if entity_type == "Protein" and explicit_gene and not explicit_protein:
             return "rejected", "explicit_gene_as_protein"
+        parenthetical_type = _parenthetical_explicit_type(mention, text)
+        if entity_type == "Gene" and parenthetical_type == "protein" and not explicit_gene:
+            return "rejected", "parenthetical_protein_as_gene"
+        if entity_type == "Protein" and parenthetical_type == "gene" and not explicit_protein:
+            return "rejected", "parenthetical_gene_as_protein"
     if normalized in HARD_REJECT_TERMS:
         return "rejected", "generic_or_context_term"
     if normalized in METHOD_TERMS or any(
@@ -347,6 +469,18 @@ def entity_filter_reason(entity: dict, relations: list[dict], text: str) -> tupl
             return "rejected", "tissue_context_not_anatomy"
         if normalized in {"tissue", "organ", "site"}:
             return "rejected", "generic_tissue_term"
+        if normalized == "liver":
+            anatomical_use = re.search(
+                r"\b(?:in|within|from)\s+(?:the\s+)?liver\b|"
+                r"\bliver\s+(?:tissue|samples?|biops(?:y|ies)|parenchyma|lobes?)\b",
+                text, re.IGNORECASE,
+            )
+            contextual_only = re.search(
+                r"\bliver\s+(?:conditions?|diseases?|cancers?|disorders?)\b",
+                text, re.IGNORECASE,
+            )
+            if contextual_only and not anatomical_use:
+                return "rejected", "organ_name_used_only_as_disease_modifier"
         if normalized in ANATOMICAL_TERMS or ANATOMICAL_RE.search(normalized):
             return "retained", "anatomical_tissue"
         return "rejected", "tissue_not_anatomical"
@@ -410,9 +544,12 @@ def prepare_extraction(
         if rel.get(side)
     }
 
+    working_entities = _recover_exact_source_entities(raw_entities, text) if text else [
+        copy.deepcopy(item) for item in raw_entities
+    ]
     retained: list[dict] = []
     filtered_lookup: set[tuple[str, str]] = set()
-    for raw in raw_entities:
+    for raw in working_entities:
         entity = copy.deepcopy(raw)
         mention = str(entity.get("mention", "") or "").strip()
         entity_type = str(entity.get("type", entity.get("entity_type", "")) or "")
@@ -449,6 +586,19 @@ def prepare_extraction(
         long_form = _cell_type_definition_long_form(entity.get("mention", ""), text)
         if long_form:
             explicit_abbr[str(entity.get("mention", ""))] = long_form
+        specific_surface = _specific_cell_context_surface(entity.get("mention", ""), text)
+        if specific_surface:
+            explicit_abbr[str(entity.get("mention", ""))] = specific_surface
+        subset_match = re.fullmatch(
+            r"(?:a\s+)?subset\s+of\s+(.+)",
+            str(entity.get("mention", "") or "").strip(), re.IGNORECASE,
+        )
+        if subset_match and SPECIFIC_CELL_RE.search(subset_match.group(1)):
+            specific_cell = subset_match.group(1)
+            explicit_abbr[str(entity.get("mention", ""))] = specific_cell
+            # Never keep a reverse detector mapping that would create two
+            # cyclic canonical groups for the same exact phrase.
+            explicit_abbr.pop(specific_cell, None)
     groups: dict[int, list[dict]] = {}
     group_order: list[int] = []
     key_to_group: dict[tuple[str, str], int] = {}
@@ -601,7 +751,10 @@ def article_quality_flags(text: str) -> set[str]:
         return set()
     title = title_match.group(1).strip()
     flags: set[str] = set()
-    if not LIVER_SCOPE_RE.search(title):
+    # Missing a liver keyword is not enough to declare scope: generic or
+    # abbreviated titles remain UNKNOWN/in-scope for recall.  Only an explicit
+    # competing organ/disease scope is isolated from the liver review queue.
+    if not LIVER_SCOPE_RE.search(title) and EXPLICIT_NON_LIVER_SCOPE_RE.search(title):
         flags.add("article_out_of_scope")
     if NON_HUMAN_TITLE_RE.search(title):
         flags.add("non_human_article")

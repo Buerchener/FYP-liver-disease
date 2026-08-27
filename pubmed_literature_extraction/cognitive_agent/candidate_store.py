@@ -55,6 +55,7 @@ class CandidateStoreWriteSummary:
     candidate_schema_valid_count: int = 0
     write_contract_valid_count: int = 0
     candidate_only_count: int = 0
+    out_of_scope_count: int = 0
     written: bool = False
 
     def to_dict(self) -> dict[str, Any]:
@@ -97,6 +98,7 @@ class CandidateRelationStore:
                 factual_status TEXT NOT NULL,
                 semantic_status TEXT NOT NULL,
                 write_status TEXT NOT NULL,
+                scope_status TEXT NOT NULL DEFAULT 'IN_SCOPE',
                 claim_role TEXT NOT NULL,
                 import_ready INTEGER NOT NULL,
                 schema_valid INTEGER NOT NULL,
@@ -127,6 +129,9 @@ class CandidateRelationStore:
         )
         self._ensure_column(
             "write_contract_version", "TEXT NOT NULL DEFAULT ''"
+        )
+        self._ensure_column(
+            "scope_status", "TEXT NOT NULL DEFAULT 'IN_SCOPE'"
         )
         self._db.execute(
             "CREATE INDEX IF NOT EXISTS idx_candidate_relations_pmid "
@@ -161,13 +166,23 @@ class CandidateRelationStore:
             item.to_dict() if hasattr(item, "to_dict") else dict(item)
             for item in getattr(verified, "relations", []) or []
         ]
+        for relation in relations:
+            flags = set(relation.get("quality_flags", []) or [])
+            relation["scope_status"] = str(
+                relation.get("scope_status")
+                or ("OUT_OF_SCOPE" if "article_out_of_scope" in flags else "IN_SCOPE")
+            ).upper()
         summary = CandidateStoreWriteSummary(
             mode=self.mode,
             path=str(self.path or ""),
             pmid=str(pmid or ""),
             relation_count=len(relations),
             import_ready_count=sum(r.get("write_status") == "IMPORT_READY" for r in relations),
-            human_review_count=sum(r.get("write_status") == "HUMAN_REVIEW" for r in relations),
+            human_review_count=sum(
+                r.get("write_status") == "HUMAN_REVIEW"
+                and r.get("scope_status") != "OUT_OF_SCOPE"
+                for r in relations
+            ),
             semantic_only_count=sum(r.get("write_status") == "SEMANTIC_ONLY" for r in relations),
             blocked_count=sum(r.get("write_status") == "BLOCKED" for r in relations),
             candidate_schema_valid_count=sum(
@@ -182,6 +197,9 @@ class CandidateRelationStore:
                 and str(r.get("factual_status", "")).upper() != "REJECTED"
                 and str(r.get("semantic_status", "")).upper() != "REJECTED"
                 for r in relations
+            ),
+            out_of_scope_count=sum(
+                r.get("scope_status") == "OUT_OF_SCOPE" for r in relations
             ),
             written=self.mode == "sqlite",
         )
@@ -203,6 +221,7 @@ class CandidateRelationStore:
                 str(relation.get("factual_status", "") or ""),
                 str(relation.get("semantic_status", "") or ""),
                 str(relation.get("write_status", "") or ""),
+                str(relation.get("scope_status", "IN_SCOPE") or "IN_SCOPE"),
                 str(relation.get("claim_role", "") or ""),
                 int(bool(relation.get("import_ready", False))),
                 int(bool(relation.get("schema_valid", False))),
@@ -226,13 +245,13 @@ class CandidateRelationStore:
                 INSERT OR REPLACE INTO candidate_relations (
                     candidate_key, pmid, candidate_id, subject, subject_type,
                     predicate, object, object_type, factual_status,
-                    semantic_status, write_status, claim_role, import_ready,
+                    semantic_status, write_status, scope_status, claim_role, import_ready,
                     schema_valid, candidate_schema_valid, write_contract_valid,
                     evidence, evidence_spans_json,
                     quality_flags_json, semantic_reasons_json, write_reasons_json,
                     schema_gap_reasons_json, write_contract_version, relation_json,
                     run_id, title, updated_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 rows,
             )
@@ -248,6 +267,12 @@ class CandidateRelationStore:
                 row[0]: row[1]
                 for row in self._db.execute(
                     "SELECT write_status, count(*) FROM candidate_relations GROUP BY write_status"
+                ).fetchall()
+            }
+            by_scope = {
+                row[0]: row[1]
+                for row in self._db.execute(
+                    "SELECT scope_status, count(*) FROM candidate_relations GROUP BY scope_status"
                 ).fetchall()
             }
             gap_rows = self._db.execute(
@@ -267,6 +292,7 @@ class CandidateRelationStore:
             "path": str(self.path or ""),
             "entries": int(entries),
             "by_write_status": by_status,
+            "by_scope_status": by_scope,
             "by_schema_gap_reason": dict(sorted(gap_counts.items())),
         }
 

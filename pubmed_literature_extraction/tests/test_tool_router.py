@@ -49,6 +49,23 @@ class ArticleToolRouterTests(unittest.TestCase):
         self.assertFalse(post.should_call("neo4j_rag"))
         self.assertFalse(post.should_call("second_llm_refiner"))
 
+    def test_narrative_review_cue_in_abstract_is_not_misclassified_as_mechanistic(self):
+        profile = self.router.profile(
+            "Gut-liver cellular crosstalk",
+            "This narrative review summarizes studies in patients and cultured cells.",
+        )
+        self.assertEqual(profile.study_type, "review")
+        self.assertGreater(profile.profile_confidence, 0)
+        self.assertEqual(profile.evidence_design, "evidence_synthesis")
+
+    def test_computational_discovery_with_human_validation_is_mixed_human_omics(self):
+        profile = self.router.profile(
+            "Transcriptomic discovery in liver disease",
+            "Bioinformatics predictions in patients were experimentally validated by qPCR in human tissue.",
+        )
+        self.assertEqual(profile.study_type, "human_omics")
+        self.assertEqual(profile.validation_level, "human_wet_lab_validated")
+
     def test_complex_mechanistic_article_preloads_memory(self):
         abstract = (
             "RESULTS: TP53 activates AKT and regulates MTOR, whereas NFE2L2 inhibits "

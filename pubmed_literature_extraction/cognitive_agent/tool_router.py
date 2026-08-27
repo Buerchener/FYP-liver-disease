@@ -193,7 +193,8 @@ class ArticleToolRouter:
     )
 
     _REVIEW = re.compile(
-        r"\b(systematic review|scoping review|meta[- ]analysis|review article)\b", re.I
+        r"\b(systematic review|scoping review|narrative review|meta[- ]analysis|"
+        r"review article|this review|we review|we summarize)\b", re.I
     )
     _COMPUTATIONAL = re.compile(
         r"\b(network pharmacology|molecular docking|in silico|bioinformatics|"
@@ -629,6 +630,7 @@ class ArticleToolRouter:
 
     def profile(self, title: str, abstract: str) -> ArticleProfile:
         text = f"{title}\n{abstract}"
+        hybrid = rule_profile(title, abstract)
         sentences = [item.strip() for item in re.split(r"(?<=[.!?])\s+", text) if item.strip()]
         word_counts = [len(re.findall(r"\b\w+[\w-]*\b", item)) for item in sentences]
         max_words = max(word_counts, default=0)
@@ -637,25 +639,17 @@ class ArticleToolRouter:
         evidence = len(self._EVIDENCE.findall(text))
         structured_results = bool(re.search(r"(?:^|\n)\s*(RESULTS?|CONCLUSIONS?)\s*[:.]", abstract, re.I))
 
-        if self._REVIEW.search(title):
-            study_type = "review"
-        elif self._COMPUTATIONAL.search(title) or self._COMPUTATIONAL.search(abstract):
-            study_type = "computational"
-        elif self._OMICS.search(text) and self._CLINICAL.search(text):
-            study_type = "human_omics"
-        elif self._CLINICAL.search(text):
-            study_type = "clinical"
-        elif self._ANIMAL.search(text):
-            study_type = "animal"
-        elif self._IN_VITRO.search(text):
-            study_type = "in_vitro"
-        elif mechanisms:
-            study_type = "mechanistic"
-        else:
-            study_type = "other"
+        # Use the same multi-label deterministic profiler as preprocessing.
+        # This prevents a single computational keyword from masking later
+        # human/wet-lab validation and recognizes explicit review prose in the
+        # abstract as article design rather than experimental evidence.
+        study_type = hybrid.primary_study_type
 
         conjunction_load = len(re.findall(r"\b(?:and|whereas|while|but|however)\b", text, re.I))
-        high_complexity = bool(max_words >= 55 or mechanisms >= 4 or conjunction_load >= 12)
+        high_complexity = bool(
+            hybrid.high_extraction_complexity
+            or max_words >= 55 or mechanisms >= 4 or conjunction_load >= 12
+        )
         reasons = [f"study_type_{study_type}"]
         if structured_results:
             reasons.append("structured_results_present")
@@ -675,6 +669,13 @@ class ArticleToolRouter:
             has_structured_results=structured_results,
             high_complexity=high_complexity,
             reason_codes=tuple(reasons),
+            secondary_modalities=tuple(hybrid.secondary_modalities),
+            species_scope=hybrid.species_scope,
+            evidence_design=hybrid.evidence_design,
+            causal_strength=hybrid.causal_strength,
+            validation_level=hybrid.validation_level,
+            profile_confidence=hybrid.confidence,
+            profile_source=hybrid.source,
         )
 
     def plan_before_extraction(
