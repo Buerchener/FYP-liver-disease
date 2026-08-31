@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 
 from cognitive_agent.candidate_store import CandidateRelationStore
+from cognitive_agent.evidence_pack import EvidencePackBuilder
 from cognitive_agent.verifier import KGVerifier
 
 
@@ -110,6 +111,23 @@ class CandidateStoreTests(unittest.TestCase):
 
         self.assertEqual(stats["entries"], 1)
 
+    def test_candidate_versions_are_retained_as_separate_audit_rows(self):
+        verified = KGVerifier(OfflineKG(), verification_policy="tiered-v2").verify(
+            [entity("TP53", "Gene"), entity("HCC", "Disease")],
+            [relation("TP53 was associated with HCC.", candidate_id="lineage-1")],
+            pmid="123", text="TP53 was associated with HCC.",
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            db_path = Path(tmp) / "candidates.sqlite3"
+            store = CandidateRelationStore(mode="sqlite", path=db_path)
+            store.record_verified(pmid="123", verified=verified)
+            verified.relations[0].parent_version = 1
+            verified.relations[0].candidate_version = 2
+            store.record_verified(pmid="123", verified=verified)
+            stats = store.stats()
+            store.close()
+        self.assertEqual(stats["entries"], 2)
+
     def test_out_of_scope_relations_are_counted_outside_review_queue(self):
         text = (
             "TITLE: TP53 in pulmonary fibrosis\nABSTRACT: RESULTS: "
@@ -135,6 +153,40 @@ class CandidateStoreTests(unittest.TestCase):
         self.assertEqual(summary.human_review_count, 0)
         self.assertEqual(scope_status, "OUT_OF_SCOPE")
         self.assertEqual(stats["by_scope_status"]["OUT_OF_SCOPE"], 1)
+
+    def test_adjudication_lineage_survives_sqlite_relation_json(self):
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 expression increased in HCC."
+        base = relation("TP53 expression increased in HCC.")
+        span_id = EvidencePackBuilder().build(base, text=text).spans[0].span_id
+        verified = KGVerifier(OfflineKG(), verification_policy="tiered-v2").verify(
+            [entity("TP53", "Gene"), entity("HCC", "Disease")],
+            [relation(
+                "TP53 expression increased in HCC.", candidate_id="audit-1",
+                adjudication_verdict="SUPPORTED",
+                adjudication_reason_code="EXPLICIT_DIRECT_RELATION",
+                adjudication_confidence=0.95,
+                supporting_span_ids=[span_id],
+                adjudication={
+                    "verdict": "SUPPORTED", "reason_code": "EXPLICIT_DIRECT_RELATION",
+                    "confidence": 0.95, "supporting_span_ids": [span_id],
+                    "model_id": "deepseek-test",
+                },
+            )],
+            pmid="audit", text=text,
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            db_path = Path(tmp) / "candidates.sqlite3"
+            store = CandidateRelationStore(mode="sqlite", path=db_path)
+            store.record_verified(pmid="audit", verified=verified)
+            store.close()
+            con = sqlite3.connect(db_path)
+            payload = json.loads(con.execute(
+                "SELECT relation_json FROM candidate_relations"
+            ).fetchone()[0])
+            con.close()
+        self.assertEqual(payload["adjudication_verdict"], "SUPPORTED")
+        self.assertEqual(payload["supporting_span_ids"], [span_id])
+        self.assertEqual(payload["adjudication"]["model_id"], "deepseek-test")
 
 
 if __name__ == "__main__":

@@ -37,6 +37,7 @@ from cognitive_agent.memory.episodic_memory import Episode, EpisodicMemory
 from cognitive_agent.context_activator import ContextActivator, ContextCard
 from cognitive_agent.extraction_kernel import ExtractionKernel, RawExtraction
 from cognitive_agent.verifier import KGVerifier, VerifiedExtraction
+from cognitive_agent.schema.predicate_cards import load_predicate_thresholds
 from cognitive_agent.reviewer import ExtractionReviewer, ReviewerConfig, ReviewResult
 from cognitive_agent.collaborative_extractor import (
     CollaborationResult,
@@ -59,6 +60,7 @@ from cognitive_agent.agentic_controller import (
     partition_recovery_relations,
 )
 from cognitive_agent.article_chunker import ArticleChunker
+from cognitive_agent.semantic_chunker import chunks_from_manifest
 from cognitive_agent.golden_examples import GoldenExampleSelector
 from cognitive_agent.article_preprocessing import ParallelArticlePreprocessor
 from cognitive_agent.extraction_cache import LightweightExtractionCache
@@ -70,6 +72,8 @@ from cognitive_agent.relation_pair_classifier import (
 from cognitive_agent.relation_contract import (
     JUDGE_BACKEND_NAMES,
     RelationCandidateProjector,
+    normalize_surface,
+    stable_candidate_id,
 )
 from cognitive_agent.extraction_quality import prepare_extraction
 from cognitive_agent.few_shot_retriever import FewShotRetriever
@@ -89,6 +93,325 @@ from cognitive_agent.conformal_router import (
     ConformalRiskRouter,
     RiskFeatures,
 )
+from cognitive_agent.candidate_lineage import lineage_key, normalize_lineage
+from cognitive_agent.remote_execution import stable_request_id
+
+
+def resolve_feature_toggle(*, cli_enable: bool, cli_disable: bool, env_value: str) -> bool:
+    """Resolve an opt-in feature while allowing experiments to override the environment."""
+    if cli_disable:
+        return False
+    return cli_enable or env_value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def bind_pairwise_gate_to_hints(
+    projected_relations: list[dict],
+    *,
+    pair_candidates: list[dict],
+    pair_predictions: list[dict],
+    gate_table: list[dict],
+) -> list[dict]:
+    """Attach classifier/gate dissent to hints strictly by stable lineage ID."""
+    candidate_by_id = {
+        lineage_key(item): item
+        for item in pair_candidates if lineage_key(item)
+    }
+    prediction_by_id = {
+        lineage_key(item): item
+        for item in pair_predictions if lineage_key(item)
+    }
+    gate_rows_by_source: dict[tuple[str, int], list[dict]] = {}
+    for gate_row in gate_table:
+        version = max(1, int(gate_row.get("candidate_version", 1) or 1))
+        lineage_ids = {
+            str(gate_row.get("candidate_id", "") or ""),
+            *(str(item) for item in gate_row.get("source_candidate_ids", []) or []),
+        } - {""}
+        for lineage_id in lineage_ids:
+            gate_rows_by_source.setdefault((lineage_id, version), []).append(gate_row)
+
+    output: list[dict] = []
+    non_current_roles = {
+        "BACKGROUND", "PRIOR_WORK", "METHOD", "PREDICTION", "OTHER",
+    }
+    for raw_hint in projected_relations:
+        relation = copy.deepcopy(raw_hint)
+        relation = normalize_lineage(relation, lane="extracted_hint")
+        relation["candidate_version"] = max(
+            1, int(relation.get("candidate_version", 1) or 1)
+        )
+        relation["parent_version"] = max(
+            0, int(relation.get("parent_version", 0) or 0)
+        )
+        relation["candidate_id"] = str(
+            relation.get("candidate_id", "")
+            or stable_candidate_id(relation, lane="extracted_hint")
+        )
+        candidate_id = relation["candidate_id"]
+        key = lineage_key(relation)
+        prediction = prediction_by_id.get(key, {})
+        if str(prediction.get("label", "") or "").upper() == "NO_RELATION":
+            relation.setdefault("quality_flags", []).extend([
+                "pair_no_relation_dissent", "manual_review",
+            ])
+        pair_candidate = candidate_by_id.get(key, {})
+        if pair_candidate:
+            relation["pair_candidate_id"] = str(
+                pair_candidate.get("pair_candidate_id", "") or ""
+            )
+            relation["source_candidate_ids"] = list(
+                pair_candidate.get("source_candidate_ids", []) or [candidate_id]
+            )
+            inferred_role = str(
+                pair_candidate.get("claim_role", "CURRENT_FINDING")
+                or "CURRENT_FINDING"
+            ).upper()
+            if (
+                inferred_role != "CURRENT_FINDING"
+                and str(
+                    relation.get("claim_role", "CURRENT_FINDING")
+                    or "CURRENT_FINDING"
+                ).upper() == "CURRENT_FINDING"
+            ):
+                relation["claim_role"] = inferred_role
+        gate_rows = gate_rows_by_source.get(key, [])
+        gate_roles = {
+            str(item.get("claim_role", "") or "").upper()
+            for item in gate_rows if str(item.get("claim_role", "") or "")
+        }
+        current_role = str(
+            relation.get("claim_role", "CURRENT_FINDING") or "CURRENT_FINDING"
+        ).upper()
+        gated_non_current = sorted(gate_roles & non_current_roles)
+        if gated_non_current:
+            if current_role in non_current_roles and current_role not in gate_roles:
+                relation.setdefault("quality_flags", []).append("claim_role_conflict")
+            if current_role == "CURRENT_FINDING":
+                relation["claim_role"] = gated_non_current[0]
+        elif "CURRENT_FINDING" in gate_roles and current_role in non_current_roles:
+            relation.setdefault("quality_flags", []).append(
+                "claim_role_promotion_blocked"
+            )
+        if len(gate_roles) > 1:
+            relation.setdefault("quality_flags", []).append("claim_role_conflict")
+        if any(
+            str(item.get("relation_asserted", "") or "").upper() != "ASSERTED"
+            for item in gate_rows
+        ):
+            relation.setdefault("quality_flags", []).extend([
+                "pair_no_relation_dissent", "manual_review",
+            ])
+        relation["pairwise_gate"] = copy.deepcopy(gate_rows)
+        relation["quality_flags"] = sorted(set(
+            relation.get("quality_flags", []) or []
+        ))
+        output.append(relation)
+    return output
+
+
+def build_candidate_audit_ledger(
+    *,
+    projected_relations: list[dict],
+    core_relations: list[dict],
+    final_relations: list[dict],
+    finalization_audit: dict,
+    verified_candidates: list[dict] | None = None,
+    pair_candidates: list[dict] | None = None,
+    pair_predictions: list[dict] | None = None,
+    gate_table: list[dict] | None = None,
+) -> dict:
+    """Account for every candidate *version* across the live pipeline."""
+    representative_by_key: dict[tuple[str, int], dict] = {}
+    for relation in final_relations:
+        relation_key = lineage_key(relation)
+        if relation_key:
+            representative_by_key[relation_key] = relation
+        for instance in relation.get("claim_instances", []) or []:
+            if isinstance(instance, dict) and lineage_key(instance):
+                representative_by_key[lineage_key(instance)] = relation
+        version = max(1, int(relation.get("candidate_version", 1) or 1))
+        for source_id in [
+            *(relation.get("source_candidate_ids", []) or []),
+            *(relation.get("merged_candidate_ids", []) or []),
+        ]:
+            if str(source_id):
+                representative_by_key.setdefault((str(source_id), version), relation)
+
+    discard_by_key: dict[tuple[str, int], dict] = {}
+    superseded_by_key: dict[tuple[str, int], dict] = {}
+    for pass_audit in finalization_audit.get("passes", []) or []:
+        for item in pass_audit.get("factual_discards", []) or []:
+            if lineage_key(item):
+                discard_by_key[lineage_key(item)] = item
+        for item in pass_audit.get("superseded_versions", []) or []:
+            if lineage_key(item):
+                superseded_by_key[lineage_key(item)] = item
+    for item in verified_candidates or []:
+        if str(item.get("factual_status", "VALID") or "VALID").upper() != "REJECTED":
+            continue
+        key = lineage_key(item)
+        if key:
+            discard_by_key.setdefault(key, {
+                "candidate_id": key[0],
+                "candidate_version": int(item.get("candidate_version", 1) or 1),
+                "reason_codes": list(
+                    item.get("semantic_reasons", [])
+                    or item.get("quality_flags", []) or []
+                ),
+                "source": "initial_factual_verification",
+            })
+
+    projected_keys = {lineage_key(item) for item in projected_relations if lineage_key(item)}
+    candidates: dict[tuple[str, int], dict] = {}
+    sources = (
+        ("projected_hint", projected_relations), ("pair_candidate", pair_candidates or []),
+        ("core", core_relations), ("initial_verification", verified_candidates or []),
+    )
+    for scope, relations in sources:
+        for relation in relations:
+            key = lineage_key(relation)
+            if not key:
+                continue
+            normalized = normalize_lineage(
+                relation, allow_legacy_lane_inference=True,
+            )
+            candidates.setdefault(key, {
+                "lineage_contract_version": "lineage-v2",
+                "candidate_id": key[0], "candidate_version": key[1],
+                "parent_candidate_id": normalized["parent_candidate_id"],
+                "parent_version": normalized["parent_version"],
+                "candidate_lane": str(
+                    normalized.get("candidate_lane", "") or ""
+                ),
+                "scope": scope,
+                "source_candidate_ids": list(normalized.get("source_candidate_ids", []) or []),
+                "source_lanes": list(normalized.get("source_lanes", []) or []),
+                "pair_candidate_id": normalized.get("pair_candidate_id", ""),
+                "subject": relation.get("subject", ""),
+                "subject_type": relation.get("subject_type", ""),
+                "predicate": relation.get("predicate", ""),
+                "object": relation.get("object", ""),
+                "object_type": relation.get("object_type", ""),
+            })
+
+    rows: list[dict] = []
+    prediction_keys = {lineage_key(item): item for item in pair_predictions or [] if lineage_key(item)}
+    gate_keys = {lineage_key(item): item for item in gate_table or [] if lineage_key(item)}
+    for key in sorted(candidates):
+        candidate_id, candidate_version = key
+        row = copy.deepcopy(candidates[key])
+        representative = representative_by_key.get(key)
+        discard = discard_by_key.get(key)
+        superseded = superseded_by_key.get(key)
+        if representative is not None:
+            representative_id = str(representative.get("candidate_id", "") or "")
+            semantic_status = str(representative.get("semantic_status", "") or "")
+            row.update({
+                "disposition": (
+                    "SEMANTIC_AUDIT_ONLY" if semantic_status == "REJECTED"
+                    else "KEPT" if representative_id == candidate_id else "MERGED"
+                ),
+                "representative_candidate_id": representative_id,
+                "representative_candidate_version": max(
+                    1, int(representative.get("candidate_version", 1) or 1)
+                ),
+                "factual_status": representative.get("factual_status", ""),
+                "semantic_status": semantic_status,
+                "write_status": representative.get("write_status", ""),
+                "reason_codes": list(representative.get("semantic_reasons", []) or []),
+            })
+        elif discard is not None:
+            row.update({
+                "disposition": "FACTUAL_DISCARD",
+                "representative_candidate_id": "",
+                "reason_codes": list(discard.get("reason_codes", []) or []),
+                "factual_status": "REJECTED",
+                "semantic_status": "REJECTED",
+                "write_status": "BLOCKED",
+            })
+        elif superseded is not None:
+            row.update({
+                "disposition": "SUPERSEDED",
+                "representative_candidate_id": str(
+                    superseded.get("representative_candidate_id", "") or ""
+                ),
+                "reason_codes": ["superseded_version"],
+            })
+        else:
+            prediction = prediction_keys.get(key, {})
+            gate = gate_keys.get(key, {})
+            if str(prediction.get("label", "")).upper() == "NO_RELATION":
+                disposition = "CLASSIFIER_NO_RELATION"
+            elif gate and str(gate.get("relation_asserted", "")).upper() != "ASSERTED":
+                disposition = "GATE_NOT_ASSERTED"
+            elif row.get("scope") == "pair_candidate":
+                disposition = "ROUTING_ABSTAINED"
+            else:
+                disposition = "UNACCOUNTED"
+            row.update({
+                "disposition": disposition,
+                "representative_candidate_id": "",
+                "reason_codes": ["candidate_missing_after_reconciliation"],
+            })
+        rows.append(row)
+
+    projected_rows = [
+        item for item in rows
+        if (item["candidate_id"], item["candidate_version"]) in projected_keys
+    ]
+    recovery_rows = [item for item in rows if item.get("candidate_lane") == "recovery"]
+    accounted = [item for item in projected_rows if item["disposition"] != "UNACCOUNTED"]
+    eligible = [
+        item for item in projected_rows
+        if item["disposition"] not in {"FACTUAL_DISCARD", "SUPERSEDED"}
+    ]
+    eligible_survived = [
+        item for item in eligible
+        if item["disposition"] in {"KEPT", "MERGED", "SEMANTIC_AUDIT_ONLY"}
+    ]
+    semantic_accepted = [
+        item for item in eligible_survived if item.get("semantic_status") == "ACCEPTED"
+    ]
+    return {
+        "contract_version": "candidate-audit-ledger-v2",
+        "rows": rows,
+        "summary": {
+            "projected_hint_count": len(projected_rows),
+            "accounted_projected_hint_count": len(accounted),
+            "eligible_projected_hint_count": len(eligible),
+            "eligible_survived_count": len(eligible_survived),
+            "semantic_accepted_lineage_count": len(semantic_accepted),
+            "audit_lineage_accounting": (
+                len(accounted) / len(projected_rows) if projected_rows else None
+            ),
+            "eligible_lineage_survival": (
+                len(eligible_survived) / len(eligible) if eligible else None
+            ),
+            "semantic_acceptance_survival": (
+                len(semantic_accepted) / len(eligible) if eligible else None
+            ),
+            "version_accounting": (
+                sum(item["disposition"] != "UNACCOUNTED" for item in rows) / len(rows)
+                if rows else None
+            ),
+            "recovery_lineage_accounting": (
+                sum(item["disposition"] != "UNACCOUNTED" for item in recovery_rows)
+                / len(recovery_rows) if recovery_rows else 1.0
+            ),
+            "r_prefix_lane_mismatch": sum(
+                str(item.get("candidate_id", "")).startswith("r-")
+                and item.get("candidate_lane") != "recovery" for item in rows
+            ),
+            "lineage_binding_missing": sum(
+                "lineage_binding_missing" in set(item.get("quality_flags", []) or [])
+                for item in rows
+            ),
+            "unaccounted_candidate_ids": [
+                item["candidate_id"] for item in projected_rows
+                if item["disposition"] == "UNACCOUNTED"
+            ],
+        },
+    }
 
 import langextract as lx
 from langextract.factory import ModelConfig
@@ -127,6 +450,7 @@ class AgentConfig:
     agent_budget_profile: str = "quality"
     agent_max_actions: int = 0
     agent_max_aux_remote_calls: int = 0
+    agent_max_physical_remote_attempts: int = 0
     agent_max_neo4j_calls: int = 0
     agent_soft_timeout: float = 0.0
     agent_hard_timeout: float = 180.0
@@ -143,6 +467,10 @@ class AgentConfig:
     evidence_entailment_mode: str = "off"  # off | shadow | active
     risk_router_mode: str = "off"  # off | shadow | active
     conformal_calibration: str = ""
+    predicate_thresholds: str = ""
+    # Optional declarative dataset schema. Empty keeps the built-in LiverKG
+    # candidate profile; this never changes the independent Neo4j write contract.
+    schema_profile: str = ""
     conformal_alpha_import_ready: float = 0.05
     conformal_alpha_semantic: float = 0.10
     conformal_min_group_size: int = 20
@@ -182,7 +510,7 @@ class AgentConfig:
     rag_max_neighbors_per_candidate: int = 4
     rag_max_evidence_chars: int = 500
     rag_max_total_chars: int = 6000
-    agent_max_recovery_candidates: int = 12
+    agent_max_recovery_candidates: int = 24
     agent_max_evidence_repairs: int = 16
     agent_min_recovery_score: float = 0.55
     # precision: review/delete only; shadow-agent: evaluate recovery but never
@@ -191,9 +519,10 @@ class AgentConfig:
     golden_shot_enabled: bool = True
     golden_shot_max_examples: int = 4
     chunked_extraction_enabled: bool = True
+    semantic_chunk_manifest_path: str = ""
     extraction_chunk_max_chars: int = 1800
     extraction_chunk_complexity_min_chars: int = 1400
-    extraction_chunk_max_chunks: int = 3
+    extraction_chunk_max_chunks: int = 6
     # Lightweight cache: memory is bounded and creates no files. Persistent
     # SQLite is opt-in for repeatable experiments only.
     extraction_cache_mode: str = "memory"
@@ -541,6 +870,18 @@ class CognitiveAgent:
         ), evidence_selector=self.evidence_selector, rule_memory=self.rule_memory,
             evidence_selector_enabled=config.evidence_selector_enabled)
         self.relation_projector = RelationCandidateProjector()
+        self.semantic_chunk_plans: dict[str, dict] = {}
+        if config.semantic_chunk_manifest_path:
+            if not config.chunked_extraction_enabled:
+                raise ValueError("semantic chunk manifest requires chunked extraction")
+            chunk_path = Path(config.semantic_chunk_manifest_path)
+            chunk_payload = json.loads(chunk_path.read_text(encoding="utf-8"))
+            articles = chunk_payload.get("articles", {}) if isinstance(chunk_payload, dict) else {}
+            if not isinstance(articles, dict) or not articles:
+                raise ValueError("semantic chunk manifest contains no article plans")
+            self.semantic_chunk_plans = {
+                str(key): dict(value) for key, value in articles.items()
+            }
         self.frozen_candidates: dict[str, dict] = {}
         if config.frozen_candidates_path:
             frozen_path = Path(config.frozen_candidates_path)
@@ -562,6 +903,8 @@ class CognitiveAgent:
         self.verifier = KGVerifier(
             self.kg_memory,
             verification_policy=config.verification_policy,
+            predicate_thresholds=load_predicate_thresholds(config.predicate_thresholds),
+            schema_profile=config.schema_profile or None,
         )
         self.reviewer = ExtractionReviewer(
             ReviewerConfig(
@@ -582,6 +925,7 @@ class CognitiveAgent:
                 timeout=config.second_llm_timeout,
                 max_output_tokens=config.second_llm_max_output_tokens,
                 thinking_enabled=config.second_llm_thinking_enabled,
+                verification_policy=config.verification_policy,
             )
         )
         self.rag_context_builder = ControlledNeo4jRAG(
@@ -612,7 +956,10 @@ class CognitiveAgent:
             enable_recovery=config.agent_mode != "precision",
             min_recovery_score=config.agent_min_recovery_score,
         )
-        self.tool_router = ArticleToolRouter(enabled=config.tool_router_enabled)
+        self.tool_router = ArticleToolRouter(
+            enabled=config.tool_router_enabled,
+            verification_policy=config.verification_policy,
+        )
         self.golden_example_selector = GoldenExampleSelector()
         self.article_chunker = ArticleChunker(
             max_chars=config.extraction_chunk_max_chars,
@@ -629,8 +976,10 @@ class CognitiveAgent:
         self.central_agent_v2 = CentralAgentV2(
             execution_mode=config.execution_mode,
             budget_profile=config.agent_budget_profile,
+            verification_policy=config.verification_policy,
             max_actions=config.agent_max_actions,
             max_aux_remote_calls=config.agent_max_aux_remote_calls,
+            max_physical_remote_attempts=config.agent_max_physical_remote_attempts,
             max_neo4j_calls=config.agent_max_neo4j_calls,
             soft_timeout_s=config.agent_soft_timeout,
             hard_timeout_s=config.agent_hard_timeout,
@@ -652,10 +1001,10 @@ class CognitiveAgent:
         if not getattr(collaboration, "triggered", False):
             return 0
         keep_decisions = {
-            str(item.get("pair_candidate_id") or item.get("candidate_id", "") or ""): item
+            str(item.get("candidate_id", "") or ""): item
             for item in (getattr(collaboration, "review_decisions", []) or [])
             if str(item.get("action", "") or "").upper() in {"KEEP", "CHANGE_EVIDENCE"}
-            and str(item.get("pair_candidate_id", "") or "")
+            and str(item.get("candidate_id", "") or "")
         }
         keep_ids = set(keep_decisions)
         if not keep_ids:
@@ -680,7 +1029,11 @@ class CognitiveAgent:
             upgrades += 1
         return upgrades
 
-    def _collaborate_cache_first(self, *, enabled: bool, max_retries: int = 0, **kwargs):
+    def _collaborate_cache_first(
+        self, *, enabled: bool, max_retries: int = 0,
+        remote_broker: ArticleRemoteCallBroker | None = None,
+        round_index: int = 1, **kwargs,
+    ):
         """Run the auxiliary adjudicator through the shared bounded cache.
 
         Legacy execution intentionally bypasses this wrapper. Agent v2 keys
@@ -704,7 +1057,16 @@ class CognitiveAgent:
             "pair_review_candidates": kwargs.get("pair_review_candidates", []),
             "rag_context": kwargs.get("rag_context", {}),
         }
-        key = self.central_agent_v2.tool_cache_key("second_llm_refiner", cache_payload)
+        input_hash = self.central_agent_v2.tool_cache_key(
+            "second_llm_refiner", cache_payload
+        ).split(":", 1)[-1]
+        request_id = stable_request_id(
+            tool="second_llm_refiner", stage="semantic_adjudication",
+            round_index=round_index, batch=0,
+            model=self.config.second_llm_model_id,
+            schema_version="collaboration-v5", input_hash=input_hash,
+        )
+        key = "remote-execution-v2:" + request_id
 
         def factory():
             started = time.perf_counter()
@@ -733,11 +1095,31 @@ class CognitiveAgent:
             return payload, time.perf_counter() - started
 
         started = time.perf_counter()
-        payload, cache_status = self.extraction_cache.get_or_compute(
-            key,
-            factory,
-            cacheable=lambda value: value.get("status") == "OK",
-        )
+        gateway = remote_broker.gateway if remote_broker is not None else None
+        if gateway is not None:
+            def cache_lookup(guarded_factory):
+                return self.extraction_cache.get_or_compute(
+                    key, lambda: (guarded_factory(), 0.0),
+                    cacheable=lambda value: value.get("status") == "OK",
+                )
+
+            payload, cache_status, execution_record = gateway.execute(
+                request_id=request_id, tool="second_llm_refiner",
+                stage="semantic_adjudication", round_index=round_index, batch=0,
+                cache_lookup=cache_lookup, invoke=lambda: factory()[0],
+                attempts_of=lambda value: 1 + int(value.get("_agent_v2_retry_count", 0) or 0),
+                status_of=lambda value: str(value.get("status", "") or ""),
+            )
+            if payload is None:
+                return CollaborationResult(
+                    status=execution_record.result_status, triggered=False,
+                    review_reason=execution_record.blocked_kind,
+                    model_id=self.config.second_llm_model_id,
+                ), "blocked", time.perf_counter() - started, 0
+        else:
+            payload, cache_status = self.extraction_cache.get_or_compute(
+                key, factory, cacheable=lambda value: value.get("status") == "OK",
+            )
         fields = CollaborationResult.__dataclass_fields__
         result = CollaborationResult(**{
             key: value for key, value in payload.items() if key in fields
@@ -780,7 +1162,7 @@ class CognitiveAgent:
 
     def _criticize_collaboration_cache_first(
         self, collaboration: CollaborationResult, *, article_title: str = "",
-        study_type: str = "",
+        study_type: str = "", remote_broker: ArticleRemoteCallBroker | None = None,
     ):
         """Let Qwen independently approve high-value DeepSeek edits.
 
@@ -807,7 +1189,23 @@ class CognitiveAgent:
             upgrades_uncertain_pair = action == "KEEP" and bool(
                 flags & {"pair_low_confidence", "manual_review", "pair_ambiguous_predicate"}
             )
-            if action in high_value or upgrades_uncertain_pair:
+            rejects_existing_hint = bool(
+                action == "REJECT"
+                and str(candidate.get("candidate_kind", "review")) != "recovery"
+            )
+            potential_high_risk_write = bool(
+                action == "KEEP"
+                and (
+                    candidate.get("import_ready")
+                    or str(candidate.get("predicate", "")).upper() in {
+                        "PROGNOSTIC_IN", "PROGRESSES_TO", "ENCODES",
+                    }
+                )
+            )
+            if (
+                action in high_value or upgrades_uncertain_pair
+                or rejects_existing_hint or potential_high_risk_write
+            ):
                 proposals.append(item)
         if not proposals or not self.config.qwen_critic_enabled:
             return collaboration, {"status": "NOT_TRIGGERED", "proposal_count": len(proposals)}, "not_applicable", 0.0
@@ -839,7 +1237,15 @@ class CognitiveAgent:
             "study_type": study_type,
             "proposals": compact,
         }
-        key = self.central_agent_v2.tool_cache_key("qwen_edit_critic", cache_payload)
+        input_hash = self.central_agent_v2.tool_cache_key(
+            "qwen_edit_critic", cache_payload
+        ).split(":", 1)[-1]
+        request_id = stable_request_id(
+            tool="qwen_edit_critic", stage="edit_critic", round_index=1,
+            batch=0, model=self.config.aux_critic_model,
+            schema_version="qwen-critic-v5", input_hash=input_hash,
+        )
+        key = "remote-execution-v2:" + request_id
 
         def factory():
             started = time.perf_counter()
@@ -880,9 +1286,30 @@ class CognitiveAgent:
             return result.to_dict(), time.perf_counter() - started
 
         started = time.perf_counter()
-        payload, cache_status = self.auxiliary_cache.get_or_compute(
-            key, factory, cacheable=lambda value: value.get("status") == "OK",
-        )
+        gateway = remote_broker.gateway if remote_broker is not None else None
+        if gateway is not None:
+            def cache_lookup(guarded_factory):
+                return self.auxiliary_cache.get_or_compute(
+                    key, lambda: (guarded_factory(), 0.0),
+                    cacheable=lambda value: value.get("status") == "OK",
+                )
+            payload, cache_status, execution_record = gateway.execute(
+                request_id=request_id, tool="qwen_edit_critic", stage="edit_critic",
+                round_index=1, batch=0, cache_lookup=cache_lookup,
+                invoke=lambda: factory()[0],
+                attempts_of=lambda value: int(value.get("attempts", 1) or 1),
+                status_of=lambda value: str(value.get("status", "") or ""),
+            )
+            if payload is None:
+                return collaboration, {
+                    "status": execution_record.result_status,
+                    "proposal_count": len(proposals),
+                    "blocked_kind": execution_record.blocked_kind,
+                }, "blocked", time.perf_counter() - started
+        else:
+            payload, cache_status = self.auxiliary_cache.get_or_compute(
+                key, factory, cacheable=lambda value: value.get("status") == "OK",
+            )
         reviews = payload.get("payload", {}).get("reviews", []) if payload.get("status") == "OK" else []
         approvals = {
             str(item.get("candidate_id", "")): bool(item.get("approved", False))
@@ -1071,15 +1498,33 @@ class CognitiveAgent:
                 if self.config.golden_shot_enabled
                 else self._select_examples(strategy)
             )
-            extraction_chunks = (
-                self.article_chunker.build(
+            semantic_chunk_record = self.semantic_chunk_plans.get(str(pmid))
+            llm_planner_eligible = self.article_chunker.should_use_llm_planner(
+                text, evidence_units,
+            )
+            if (
+                self.config.semantic_chunk_manifest_path
+                and llm_planner_eligible
+                and semantic_chunk_record is None
+            ):
+                raise ValueError(f"semantic chunk manifest missing eligible PMID {pmid}")
+            if semantic_chunk_record is not None and llm_planner_eligible:
+                extraction_chunks = chunks_from_manifest(
+                    text, evidence_units, semantic_chunk_record,
+                )
+                chunking_strategy = "llm_sentence_boundary_plan"
+            elif (
+                self.config.chunked_extraction_enabled
+                and execution_pre_plan.should_call("article_chunker")
+            ):
+                extraction_chunks = self.article_chunker.build(
                     text, evidence_units,
                     high_complexity=execution_pre_plan.profile.high_complexity,
                 )
-                if (self.config.chunked_extraction_enabled
-                    and execution_pre_plan.should_call("article_chunker"))
-                else []
-            )
+                chunking_strategy = extraction_chunks[0].strategy
+            else:
+                extraction_chunks = []
+                chunking_strategy = "one_shot"
             section_counts: dict[str, int] = {}
             for unit in evidence_units:
                 section_counts[unit.section] = section_counts.get(unit.section, 0) + 1
@@ -1094,9 +1539,12 @@ class CognitiveAgent:
                 "units": [unit.to_dict() for unit in evidence_units],
                 "chunking": {
                     "enabled": self.config.chunked_extraction_enabled,
+                    "strategy": chunking_strategy,
                     "used": len(extraction_chunks) > 1,
                     "chunk_count": len(extraction_chunks) or 1,
                     "chunks": [chunk.to_dict() for chunk in extraction_chunks],
+                    "llm_planner_eligible": llm_planner_eligible,
+                    "manifest_available": semantic_chunk_record is not None,
                 },
             }
             extraction_prompt = self._build_strategy_prompt(
@@ -1227,7 +1675,11 @@ class CognitiveAgent:
             # BioRED-style relation core: classify grounded, schema-compatible
             # entity pairs.  LangExtract relations are hints, never labels.
             pairing_prepared = prepare_extraction(
-                raw_extraction.entities, projected_relations, text=text,
+                raw_extraction.entities,
+                projected_relations,
+                text=text,
+                allowed_entity_types=self.verifier.schema_profile.entity_types or None,
+                entity_validation=self.verifier.schema_profile.entity_validation,
             )
             pair_result = self.pair_classifier.classify(
                 entities=pairing_prepared.entities,
@@ -1406,9 +1858,17 @@ class CognitiveAgent:
             unified_active = self.config.relation_authority == "unified-active"
             if unified_active:
                 entailment_by_id = {item.candidate_id: item for item in entailment_decisions}
-                # Lattice / judge relations are the sole producers of
-                # production relations; LangExtract hints were already
-                # consumed by build_candidates via _hint_index.
+                # Extractor hints are a protected lane. A pair classifier may
+                # dissent, but NO_RELATION cannot delete an aligned source hint.
+                relation_core_relations.extend(bind_pairwise_gate_to_hints(
+                    projected_relations,
+                    pair_candidates=[item.to_dict() for item in pair_result.candidates],
+                    pair_predictions=[item.to_dict() for item in pair_result.predictions],
+                    gate_table=(
+                        record.get("phases", {}).get("pairwise_judge", {})
+                        .get("gate_table", []) or []
+                    ),
+                ))
                 include_judge_uncertain = bool(
                     self.config.pairwise_judge_mode == "active"
                     and self.config.second_llm_enabled
@@ -1421,6 +1881,8 @@ class CognitiveAgent:
                         else []
                     ),
                 ]:
+                    if str(relation.get("candidate_lane", "recovery")) != "recovery":
+                        continue
                     # Pairwise-judge relations carry their own entailment
                     # decision and grounded quote; the entailment engine must
                     # not downgrade them with its local trigger heuristics.
@@ -1460,13 +1922,14 @@ class CognitiveAgent:
                 "mode": self.config.pair_classifier_mode,
                 "relation_authority": self.config.relation_authority,
                 "production_source": (
-                    "unified_pair_candidates_only"
+                    "protected_hints_plus_bounded_recovery"
                     if unified_active else "legacy_raw_relations"
                 ),
                 "langextract_relation_count": len(raw_extraction.relations),
                 "projected_relation_count": len(projected_relations),
                 "pair_relation_count": len(pair_result.accepted_relations),
                 "production_relation_count": len(relation_core_relations),
+                "relations": copy.deepcopy(relation_core_relations),
                 "judge_no_relation_decisions": sum(
                     1 for item in pair_result.predictions
                     if str(item.backend) in JUDGE_BACKEND_NAMES
@@ -1774,6 +2237,8 @@ class CognitiveAgent:
                 collaboration, collaboration_cache_status, collaboration_actual_latency, collaboration_retry_count = (
                     self._collaborate_cache_first(
                         enabled=v2_state is not None,
+                        remote_broker=remote_broker,
+                        round_index=1,
                         max_retries=(
                             min(4, max(0, v2_state.budget.max_aux_remote_calls - v2_state.aux_remote_calls - 1))
                             if v2_state is not None else 0
@@ -1821,6 +2286,7 @@ class CognitiveAgent:
                         study_type=str(
                             getattr(prepared.profile, "primary_study_type", "") or ""
                         ),
+                        remote_broker=remote_broker,
                     )
                 )
             merged = self.collaborative_extractor.merge(
@@ -1960,7 +2426,10 @@ class CognitiveAgent:
                         },
                     )
 
-            if self.central_agent_v2.active and v2_state is not None:
+            if (
+                self.central_agent_v2.active and v2_state is not None
+                and self.config.verification_policy == "legacy"
+            ):
                 for round_index in range(2, 5):
                     allowed, next_reason = self.central_agent_v2.should_adjudicate(
                         v2_state, enabled=self.config.second_llm_enabled,
@@ -1996,6 +2465,8 @@ class CognitiveAgent:
                     next_collaboration, next_cache_status, next_actual_latency, next_retry_count = (
                         self._collaborate_cache_first(
                             enabled=True,
+                            remote_broker=remote_broker,
+                            round_index=round_index,
                             max_retries=min(4, max(
                                 0,
                                 v2_state.budget.max_aux_remote_calls
@@ -2109,46 +2580,36 @@ class CognitiveAgent:
                 ),
             })
 
-            # Canonicalization itself can reveal a new duplicate (for example
-            # PBC and its long form).  Run at most two local finalize/verify
-            # passes: this is an agent loop, but it has a hard latency bound.
-            finalization_passes: list[dict] = []
-            finalization_changed = False
-            for pass_index in range(2):
-                finalized_relations, pass_audit = (
-                    self.collaborative_extractor.finalize_after_reverification(
-                        merged.relations, verified.to_dict(), source_text=text
-                    )
+            # Reconciliation/finalization is a single pure normalization pass.
+            # It cannot roll back semantic decisions.  The verifier then runs
+            # once as the final factual/write gate over the normalized ledger.
+            finalized_relations, pass_audit = (
+                self.collaborative_extractor.finalize_after_reverification(
+                    merged.relations, verified.to_dict(), source_text=text
                 )
-                pass_audit["pass"] = pass_index + 1
-                pass_changed = bool(
-                    pass_audit["rolled_back_count"]
-                    or pass_audit["duplicate_relations_removed"]
-                    or pass_audit["symmetric_orientation_changes"]
-                )
-                pass_audit["changed"] = pass_changed
-                finalization_passes.append(pass_audit)
-                if not pass_changed:
-                    break
-                finalization_changed = True
-                merged.relations = finalized_relations
-                verified = self.verifier.verify(
-                    raw_entities=merged.entities,
-                    raw_relations=merged.relations,
-                    pmid=pmid,
-                    text=text,
-                )
+            )
+            pass_audit["pass"] = 1
+            finalization_changed = bool(
+                pass_audit["factual_discard_count"]
+                or pass_audit["duplicate_relations_removed"]
+                or pass_audit["symmetric_orientation_changes"]
+            )
+            pass_audit["changed"] = finalization_changed
+            merged.relations = finalized_relations
+            verified = self.verifier.verify(
+                raw_entities=merged.entities,
+                raw_relations=merged.relations,
+                pmid=pmid,
+                text=text,
+            )
             finalization_audit = {
-                "passes": finalization_passes,
-                "rolled_back_count": sum(
-                    item["rolled_back_count"] for item in finalization_passes
-                ),
-                "duplicate_relations_removed": sum(
-                    item["duplicate_relations_removed"] for item in finalization_passes
-                ),
-                "symmetric_orientation_changes": sum(
-                    item["symmetric_orientation_changes"] for item in finalization_passes
-                ),
+                "passes": [pass_audit],
+                "rolled_back_count": 0,
+                "soft_flag_hard_reject_count": 0,
+                "factual_discard_count": pass_audit["factual_discard_count"],
+                "duplicate_relations_removed": pass_audit["duplicate_relations_removed"],
+                "symmetric_orientation_changes": pass_audit["symmetric_orientation_changes"],
+                "status_mutations": 0,
             }
             collaboration_payload["post_action_finalization"] = finalization_audit
             shadow_payload = {
@@ -2184,6 +2645,20 @@ class CognitiveAgent:
                 ]
             collaboration_payload["recovery_partition"] = shadow_payload
             record["phases"]["verification"] = verified.to_dict()
+            record["phases"]["candidate_audit_ledger"] = build_candidate_audit_ledger(
+                projected_relations=projected_relations,
+                core_relations=relation_core_relations,
+                final_relations=[item.to_dict() for item in verified.relations],
+                finalization_audit=finalization_audit,
+                verified_candidates=[
+                    item.to_dict() for item in initial_verified.relations
+                ],
+                pair_candidates=[item.to_dict() for item in pair_result.candidates],
+                pair_predictions=[item.to_dict() for item in pair_result.predictions],
+                gate_table=(record.get("phases", {}).get("pair_classifier", {}) or {}).get(
+                    "gate_table", []
+                ),
+            )
             record["phases"]["candidate_store"] = self.candidate_store.record_verified(
                 pmid=pmid,
                 title=title,
@@ -2194,15 +2669,15 @@ class CognitiveAgent:
                 "phase_a_reverification_required"
             ] or finalization_changed else 1
             agent_plan.actions.append(AgentAction(
-                tool="post_action_rollback_and_dedup",
+                tool="relation_reconciliation_and_dedup",
                 decision="CALL" if finalization_changed else "SKIP",
                 reason=(
-                    "rollback verifier-failed actions and consolidate duplicate triples"
-                    if finalization_changed else "all actions survived and no duplicate triple remained"
+                    "normalize canonical edges and aggregate duplicate provenance"
+                    if finalization_changed else "no duplicate or normalization change required"
                 ),
                 input_count=(
                     len(verified.relations)
-                    + finalization_audit["rolled_back_count"]
+                    + finalization_audit["factual_discard_count"]
                     + finalization_audit["duplicate_relations_removed"]
                 ),
                 output_count=len(verified.relations),
@@ -2770,6 +3245,7 @@ class CognitiveAgent:
                     "golden_shot_enabled": self.config.golden_shot_enabled,
                     "golden_shot_max_examples": self.config.golden_shot_max_examples,
                     "chunked_extraction_enabled": self.config.chunked_extraction_enabled,
+                    "semantic_chunk_manifest_path": self.config.semantic_chunk_manifest_path,
                     "extraction_chunk_max_chars": self.config.extraction_chunk_max_chars,
                     "extraction_chunk_complexity_min_chars": (
                         self.config.extraction_chunk_complexity_min_chars
@@ -3268,6 +3744,23 @@ class CognitiveAgent:
             "low_confidence_count": sum(
                 int(item.get("low_confidence_count", 0) or 0) for item in pair_phases
             ),
+            "hint_candidates": sum(
+                int(item.get("hint_candidate_count", 0) or 0) for item in pair_phases
+            ),
+            "explicit_recovery_candidates": sum(
+                int(item.get("explicit_recovery_candidate_count", 0) or 0)
+                for item in pair_phases
+            ),
+            "non_explicit_filtered_pairs": sum(
+                int(item.get("non_explicit_filtered_pair_count", 0) or 0)
+                for item in pair_phases
+            ),
+            "budget_truncated_pairs": sum(
+                int(item.get("budget_truncated_pair_count", 0) or 0)
+                for item in pair_phases
+            ),
+            # Deprecated alias retained for old report consumers.  Unlike the
+            # legacy value this now means actual budget truncation only.
             "truncated_candidates": sum(
                 int(item.get("truncated_candidates", 0) or 0) for item in pair_phases
             ),
@@ -3749,6 +4242,10 @@ def main():
         help="关闭长摘要的章节/证据单元分块抽取",
     )
     parser.add_argument(
+        "--semantic-chunk-manifest", default="",
+        help="实验专用的 PMID→语义分块 manifest；不改变默认生产分块策略",
+    )
+    parser.add_argument(
         "--extraction-chunk-max-chars", type=int,
         default=int(os.environ.get("EXTRACTION_CHUNK_MAX_CHARS", "1800")),
     )
@@ -3758,7 +4255,7 @@ def main():
     )
     parser.add_argument(
         "--extraction-chunk-max-chunks", type=int,
-        default=int(os.environ.get("EXTRACTION_CHUNK_MAX_CHUNKS", "3")),
+        default=int(os.environ.get("EXTRACTION_CHUNK_MAX_CHUNKS", "6")),
     )
     parser.add_argument(
         "--extraction-cache-mode", choices=("off", "memory", "persistent"),
@@ -3830,6 +4327,11 @@ def main():
         "--agent-max-aux-remote-calls", type=int,
         default=int(os.environ.get("AGENT_MAX_AUX_REMOTE_CALLS", "0")),
         help="辅助 LLM 请求覆盖值；0 使用路由预算",
+    )
+    parser.add_argument(
+        "--agent-max-physical-remote-attempts", type=int,
+        default=int(os.environ.get("AGENT_MAX_PHYSICAL_REMOTE_ATTEMPTS", "0")),
+        help="真实 provider 请求/重试上限；0 默认为逻辑辅助步骤上限的两倍",
     )
     parser.add_argument(
         "--agent-max-neo4j-calls", type=int,
@@ -3909,6 +4411,17 @@ def main():
     )
     parser.add_argument(
         "--conformal-calibration", default=os.environ.get("CONFORMAL_CALIBRATION", ""),
+    )
+    parser.add_argument(
+        "--predicate-thresholds", default=os.environ.get("PREDICATE_THRESHOLDS", ""),
+        help="Read-only predicate adjudication threshold artifact",
+    )
+    parser.add_argument(
+        "--schema-profile", default=os.environ.get("SCHEMA_PROFILE", ""),
+        help=(
+            "Read-only dataset candidate-schema JSON. Empty uses LiverKG; "
+            "this option never expands the Neo4j write contract"
+        ),
     )
     parser.add_argument(
         "--conformal-alpha-import-ready", type=float,
@@ -4081,9 +4594,14 @@ def main():
         "--reviewer-api-base", default="",
         help="审稿模型 API Base；为空时复用抽取模型 API Base",
     )
-    parser.add_argument(
+    second_llm_group = parser.add_mutually_exclusive_group()
+    second_llm_group.add_argument(
         "--second-llm-enabled", action="store_true",
         help="开启 Phase-B 条件式第二模型；默认关闭",
+    )
+    second_llm_group.add_argument(
+        "--disable-second-llm", action="store_true",
+        help="显式关闭 Phase-B 第二模型，并覆盖 SECOND_LLM_ENABLED 环境变量",
     )
     parser.add_argument(
         "--second-llm-provider", choices=("openai", "gemini"), default="openai",
@@ -4132,9 +4650,11 @@ def main():
     neo4j_uri = args.neo4j_uri or os.environ.get("NEO4J_URI", "bolt://localhost:7687")
     neo4j_user = args.neo4j_user or os.environ.get("NEO4J_USER", "neo4j")
     neo4j_database = args.neo4j_database or os.environ.get("NEO4J_DATABASE", "neo4j")
-    second_llm_enabled = args.second_llm_enabled or os.environ.get(
-        "SECOND_LLM_ENABLED", ""
-    ).strip().lower() in {"1", "true", "yes", "on"}
+    second_llm_enabled = resolve_feature_toggle(
+        cli_enable=args.second_llm_enabled,
+        cli_disable=args.disable_second_llm,
+        env_value=os.environ.get("SECOND_LLM_ENABLED", ""),
+    )
     second_llm_provider = os.environ.get(
         "SECOND_LLM_PROVIDER", args.second_llm_provider
     ).strip().lower()
@@ -4239,8 +4759,8 @@ def main():
     if args.extraction_chunk_max_chars < 800:
         print("[ERROR] --extraction-chunk-max-chars must be >= 800")
         sys.exit(1)
-    if not 2 <= args.extraction_chunk_max_chunks <= 4:
-        print("[ERROR] --extraction-chunk-max-chunks must be between 2 and 4")
+    if not 2 <= args.extraction_chunk_max_chunks <= 8:
+        print("[ERROR] --extraction-chunk-max-chunks must be between 2 and 8")
         sys.exit(1)
     if min(
         args.extraction_cache_memory_entries, args.extraction_cache_max_entries,
@@ -4304,6 +4824,7 @@ def main():
         golden_shot_enabled=not args.disable_golden_shot,
         golden_shot_max_examples=args.golden_shot_max_examples,
         chunked_extraction_enabled=not args.disable_chunked_extraction,
+        semantic_chunk_manifest_path=args.semantic_chunk_manifest,
         extraction_chunk_max_chars=args.extraction_chunk_max_chars,
         extraction_chunk_complexity_min_chars=args.extraction_chunk_complexity_min_chars,
         extraction_chunk_max_chunks=args.extraction_chunk_max_chunks,
@@ -4323,6 +4844,7 @@ def main():
         agent_budget_profile=args.agent_budget_profile,
         agent_max_actions=args.agent_max_actions,
         agent_max_aux_remote_calls=args.agent_max_aux_remote_calls,
+        agent_max_physical_remote_attempts=args.agent_max_physical_remote_attempts,
         agent_max_neo4j_calls=args.agent_max_neo4j_calls,
         agent_soft_timeout=args.agent_soft_timeout,
         agent_hard_timeout=args.agent_hard_timeout,
@@ -4342,6 +4864,8 @@ def main():
         evidence_entailment_mode=args.evidence_entailment_mode,
         risk_router_mode=args.risk_router_mode,
         conformal_calibration=args.conformal_calibration,
+        predicate_thresholds=args.predicate_thresholds,
+        schema_profile=args.schema_profile,
         conformal_alpha_import_ready=args.conformal_alpha_import_ready,
         conformal_alpha_semantic=args.conformal_alpha_semantic,
         conformal_min_group_size=args.conformal_min_group_size,

@@ -311,7 +311,35 @@ class AuxModelRegistry:
         return any(token in text for token in (
             "timeout", "timed out", "connection", "temporar", "rate limit",
             "too many requests", "bad gateway", "service unavailable",
+            "expecting value", "json decode", "empty structured response",
         ))
+
+    @staticmethod
+    def _decode_json_object(content: str) -> dict[str, Any]:
+        """Decode common OpenAI-compatible JSON wrappers without guessing fields."""
+        text = str(content or "").strip()
+        if not text:
+            raise ValueError("empty structured response")
+        if text.startswith("```"):
+            lines = text.splitlines()
+            if lines and lines[0].strip().casefold() in {"```", "```json"}:
+                lines = lines[1:]
+            if lines and lines[-1].strip() == "```":
+                lines = lines[:-1]
+            text = "\n".join(lines).strip()
+        try:
+            payload = json.loads(text)
+        except json.JSONDecodeError as exc:
+            start, end = text.find("{"), text.rfind("}")
+            if start < 0 or end <= start:
+                raise ValueError(f"json decode error: {exc}") from exc
+            try:
+                payload = json.loads(text[start:end + 1])
+            except json.JSONDecodeError as nested:
+                raise ValueError(f"json decode error: {nested}") from nested
+        if not isinstance(payload, dict):
+            raise ValueError("structured response must be a JSON object")
+        return payload
 
     @classmethod
     def _retry_delay_s(cls, spec: AuxModelSpec, attempt: int, exc: Exception) -> float:
@@ -364,7 +392,7 @@ class AuxModelRegistry:
             request["messages"][0]["content"] += "\nRequired JSON shape: " + json.dumps(schema_hint, ensure_ascii=False)
         response = client.chat.completions.create(**request)
         content = str(response.choices[0].message.content or "")
-        payload = json.loads(content)
+        payload = AuxModelRegistry._decode_json_object(content)
         api_usage = getattr(response, "usage", None)
         return payload, AuxModelRegistry._parse_usage(api_usage)
 

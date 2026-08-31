@@ -202,8 +202,15 @@ class PairwiseJudgeTests(unittest.TestCase):
             "HCC was associated with progression."
         )
         entities = [entity("TP53", "Gene"), entity("HCC", "Disease")]
+        hints = [{
+            "candidate_id": "c-conflict",
+            "subject": "TP53", "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH", "object": "HCC",
+            "object_type": "Disease",
+            "evidence": "TP53 was studied. HCC was associated with progression.",
+        }]
         pair_result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
-            entities, [], ArticleEvidenceReader().read(conflict_text),
+            entities, hints, ArticleEvidenceReader().read(conflict_text),
             source_text=conflict_text,
         )
         candidates = pair_result.candidates
@@ -234,8 +241,15 @@ class PairwiseJudgeTests(unittest.TestCase):
             "HCC was associated with progression."
         )
         entities = [entity("TP53", "Gene"), entity("HCC", "Disease")]
+        hints = [{
+            "candidate_id": "c-conflict",
+            "subject": "TP53", "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH", "object": "HCC",
+            "object_type": "Disease",
+            "evidence": "TP53 was studied. HCC was associated with progression.",
+        }]
         pair_result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
-            entities, [], ArticleEvidenceReader().read(conflict_text),
+            entities, hints, ArticleEvidenceReader().read(conflict_text),
             source_text=conflict_text,
         )
         payload = {"decisions": [{
@@ -278,8 +292,15 @@ class PairwiseJudgeTests(unittest.TestCase):
     def test_directional_verb_alone_does_not_entail_association(self):
         text = "TITLE: Study\nABSTRACT: RESULTS: TP53 expression increased in HCC patients."
         entities = [entity("TP53", "Gene"), entity("HCC", "Disease")]
+        hints = [{
+            "candidate_id": "c-directional-only",
+            "subject": "TP53", "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH", "object": "HCC",
+            "object_type": "Disease",
+            "evidence": "TP53 expression increased in HCC patients.",
+        }]
         result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
-            entities, [], ArticleEvidenceReader().read(text), source_text=text,
+            entities, hints, ArticleEvidenceReader().read(text), source_text=text,
         )
         candidate = result.candidates[0]
         judge = self.judge_with({})
@@ -321,7 +342,7 @@ class AdjudicatorEntailmentUpgradeTests(unittest.TestCase):
     def test_keep_upgrades_judge_uncertain_relation(self):
         from cognitive_agent.agent import CognitiveAgent
         relations = [{
-            "candidate_id": "p-abc",
+            "candidate_id": "r000", "pair_candidate_id": "p-abc",
             "quality_flags": ["judge_uncertain", "pair_low_confidence", "weak_evidence"],
             "uncertain": True,
             "evidence_entailment": "NOT_ENOUGH_INFORMATION",
@@ -371,7 +392,7 @@ class JudgeLatticeIntegrationTests(unittest.TestCase):
             entities, [], ArticleEvidenceReader().read(text), source_text=text,
         )
         pairs = {(item.subject, item.object) for item in result.candidates}
-        self.assertIn(("PTX2", "fibrotic liver tissue"), pairs)
+        self.assertNotIn(("PTX2", "fibrotic liver tissue"), pairs)
 
 
 class ScriptedTwoStageRegistry(AuxModelRegistry):
@@ -416,8 +437,24 @@ class ClaimGateTests(unittest.TestCase):
         classifier = BioREDPairClassifier(PairClassifierConfig(
             mode="active", include_parent_sentences=True,
         ))
+        hints = [
+            {
+                "candidate_id": "c-alt-nafld",
+                "subject": "ALT", "subject_type": "Metabolite",
+                "predicate": "ASSOCIATED_WITH", "object": "NAFLD",
+                "object_type": "Disease",
+                "evidence": "Serum ALT was measured in patients with NAFLD.",
+            },
+            {
+                "candidate_id": "c-tp53-hcc",
+                "subject": "TP53", "subject_type": "Gene",
+                "predicate": "ASSOCIATED_WITH", "object": "HCC",
+                "object_type": "Disease",
+                "evidence": "TP53 expression was associated with HCC progression.",
+            },
+        ]
         return classifier.classify(
-            entities, [], ArticleEvidenceReader().read(self.TEXT),
+            entities, hints, ArticleEvidenceReader().read(self.TEXT),
             source_text=self.TEXT,
         )
 

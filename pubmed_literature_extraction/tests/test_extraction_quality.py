@@ -349,10 +349,11 @@ class ExtractionQualityTests(unittest.TestCase):
         self.assertEqual(result.entities[0].mention, "CCND1")
         self.assertEqual(len(result.merged_entities), 1)
 
-    def test_empty_evidence_is_blocked(self):
+    def test_empty_evidence_is_repaired_into_an_exact_evidence_pack(self):
         result = self.verify("TP53 is associated with HCC.", relations=[relation(evidence="")])
-        self.assertFalse(result.relations[0].import_ready)
-        self.assertIn("empty_evidence", result.relations[0].quality_flags)
+        self.assertTrue(result.relations[0].evidence_pack["source_traceable"])
+        self.assertEqual(result.relations[0].evidence, "TP53 is associated with HCC.")
+        self.assertNotIn("evidence_untraceable", result.relations[0].quality_flags)
 
     def test_non_contiguous_paraphrase_is_blocked(self):
         text = "TP53 is strongly associated with HCC."
@@ -361,12 +362,14 @@ class ExtractionQualityTests(unittest.TestCase):
         self.assertFalse(result.relations[0].import_ready)
         self.assertIn("evidence_not_contiguous", result.relations[0].quality_flags)
 
-    def test_evidence_without_both_endpoints_is_blocked(self):
+    def test_multi_span_pack_closes_endpoints_but_stays_reviewable(self):
         text = "TP53 expression increased. HCC samples were collected."
         rel = relation(evidence="TP53 expression increased.", direction="increase")
         result = self.verify(text, relations=[rel])
         self.assertFalse(result.relations[0].import_ready)
-        self.assertIn("object_not_grounded", result.relations[0].quality_flags)
+        self.assertTrue(result.relations[0].evidence_pack["object_covered"])
+        self.assertIn("cross_sentence", result.relations[0].quality_flags)
+        self.assertFalse(result.relations[0].import_ready)
 
     def test_endpoint_absent_from_article_is_blocked(self):
         text = "TP53 expression increased in liver tissue."
@@ -570,8 +573,9 @@ class ExtractionQualityTests(unittest.TestCase):
         text = "TP53 was measured in HCC patients. TP53 is associated with HCC."
         result = self.verify(text, relations=[relation(evidence=text)])
         self.assertTrue(result.relations[0].import_ready)
-        self.assertEqual(result.relations[0].evidence_level, 2)
-        self.assertIn("cross_sentence", result.relations[0].quality_flags)
+        self.assertEqual(result.relations[0].evidence_level, 1)
+        self.assertEqual(result.relations[0].support_mode, "SELF_CONTAINED")
+        self.assertNotIn("cross_sentence", result.relations[0].quality_flags)
 
     def test_filtered_entity_cannot_be_relation_endpoint(self):
         text = "TP53 is associated with cancer."

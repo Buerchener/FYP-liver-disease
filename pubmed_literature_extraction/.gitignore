@@ -26,6 +26,7 @@ heartbeat*
 # Add a compact report explicitly when it has been reviewed; never bulk-add
 # benchmark output directories.
 benchmark_output/
+*.egg-info/
 
 # Keep small source samples and selected benchmark artifacts.
 !extraction_output/pubmed_converted_500.jsonl

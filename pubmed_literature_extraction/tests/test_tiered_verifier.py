@@ -1,6 +1,7 @@
 import unittest
 
 from cognitive_agent.decision_engine import DecisionEngine
+from cognitive_agent.evidence_pack import EvidencePackBuilder
 from cognitive_agent.verifier import KGVerifier
 
 
@@ -78,7 +79,7 @@ class TieredVerifierTests(unittest.TestCase):
         self.assertEqual(rel.write_status, "BLOCKED")
         self.assertFalse(rel.import_ready)
 
-    def test_dual_model_endorsement_can_unlock_non_current_write(self):
+    def test_dual_model_endorsement_cannot_unlock_non_current_write(self):
         text = "TITLE: Study\nABSTRACT: BACKGROUND: TP53 is associated with HCC."
         verified = self.verifier().verify(
             [entity("TP53", "Gene"), entity("HCC", "Disease")],
@@ -95,8 +96,9 @@ class TieredVerifierTests(unittest.TestCase):
             text=text,
         )
         rel = verified.relations[0]
-        self.assertEqual(rel.write_status, "IMPORT_READY")
-        self.assertTrue(rel.import_ready)
+        self.assertEqual(rel.semantic_status, "REVIEW")
+        self.assertEqual(rel.write_status, "HUMAN_REVIEW")
+        self.assertFalse(rel.import_ready)
         self.assertEqual(rel.claim_role, "BACKGROUND")
 
     def test_judge_source_and_trigger_risk_block_write(self):
@@ -149,6 +151,131 @@ class TieredVerifierTests(unittest.TestCase):
         self.assertEqual(rel.semantic_status, "REVIEW")
         self.assertEqual(rel.write_status, "HUMAN_REVIEW")
         self.assertFalse(rel.import_ready)
+
+    def test_cross_sentence_closed_pack_is_semantically_accepted_but_not_written(self):
+        text = (
+            "TITLE: Study\nABSTRACT: RESULTS: TP53 was measured in the cohort. "
+            "It was associated with HCC."
+        )
+        rel = self.verifier().verify(
+            [entity("TP53", "Gene"), entity("HCC", "Disease")],
+            [relation(
+                "TP53 was measured in the cohort. It was associated with HCC.",
+                quality_flags=["coreference_only_support"],
+            )],
+            text=text,
+        ).relations[0]
+        self.assertNotEqual(rel.factual_status, "REJECTED")
+        # v4 requires SELF_CONTAINED + EXPLICIT for deterministic promotion;
+        # a resolved pronoun remains reviewable until structured adjudication.
+        self.assertEqual(rel.semantic_status, "REVIEW")
+        self.assertNotIn("cross_sentence", rel.semantic_reasons)
+        self.assertEqual(rel.write_status, "HUMAN_REVIEW")
+
+    def test_grounded_structured_adjudication_promotes_pair_dissent(self):
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 expression increased in HCC."
+        base = relation("TP53 expression increased in HCC.")
+        span_id = EvidencePackBuilder().build(base, text=text).spans[0].span_id
+        checked = self.verifier().verify(
+            [entity("TP53", "Gene"), entity("HCC", "Disease")],
+            [relation(
+                "TP53 expression increased in HCC.",
+                quality_flags=["pair_no_relation_dissent", "manual_review"],
+                adjudication_verdict="SUPPORTED",
+                adjudication_reason_code="EXPLICIT_DIRECT_RELATION",
+                adjudication_confidence=0.95,
+                supporting_span_ids=[span_id],
+                adjudication={
+                    "verdict": "SUPPORTED",
+                    "reason_code": "EXPLICIT_DIRECT_RELATION",
+                    "confidence": 0.95,
+                    "supporting_span_ids": [span_id],
+                    "model_id": "deepseek-test",
+                },
+            )],
+            text=text,
+        ).relations[0]
+        self.assertEqual(checked.semantic_status, "ACCEPTED")
+        self.assertEqual(checked.promotion_path, "ADJUDICATED")
+        self.assertEqual(checked.adjudication_model_id, "deepseek-test")
+
+    def test_supported_adjudication_without_valid_span_stays_review(self):
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 expression increased in HCC."
+        checked = self.verifier().verify(
+            [entity("TP53", "Gene"), entity("HCC", "Disease")],
+            [relation(
+                "TP53 expression increased in HCC.",
+                quality_flags=["pair_no_relation_dissent", "manual_review"],
+                adjudication_verdict="SUPPORTED",
+                adjudication_reason_code="EXPLICIT_DIRECT_RELATION",
+                adjudication_confidence=0.95,
+                supporting_span_ids=["missing-span"],
+            )],
+            text=text,
+        ).relations[0]
+        self.assertEqual(checked.semantic_status, "REVIEW")
+        self.assertIn("adjudication_span_mismatch", checked.semantic_reasons)
+
+    def test_qwen_agreement_can_clear_legacy_trigger_direction_mismatch(self):
+        text = "TITLE: Study\nABSTRACT: RESULTS: Obesity is strongly associated with HCC."
+        base = relation(
+            "Obesity is strongly associated with HCC.",
+            subject="Obesity", subject_type="Disease",
+        )
+        span_id = EvidencePackBuilder().build(base, text=text).spans[0].span_id
+        checked = self.verifier().verify(
+            [entity("Obesity", "Disease"), entity("HCC", "Disease")],
+            [{
+                **base,
+                "quality_flags": [
+                    "trigger_direction_mismatch", "adjudicator_entailed",
+                    "qwen_critic_approved", "dual_model_entailed",
+                ],
+                "adjudication_verdict": "SUPPORTED",
+                "adjudication_reason_code": "EXPLICIT_DIRECT_RELATION",
+                "adjudication_confidence": 0.95,
+                "supporting_span_ids": [span_id],
+            }],
+            text=text,
+        ).relations[0]
+        self.assertEqual(checked.semantic_status, "ACCEPTED")
+        self.assertEqual(checked.promotion_path, "ADJUDICATED")
+
+    def test_trigger_direction_mismatch_without_qwen_stays_review(self):
+        text = "TITLE: Study\nABSTRACT: RESULTS: Obesity is strongly associated with HCC."
+        base = relation(
+            "Obesity is strongly associated with HCC.",
+            subject="Obesity", subject_type="Disease",
+        )
+        span_id = EvidencePackBuilder().build(base, text=text).spans[0].span_id
+        checked = self.verifier().verify(
+            [entity("Obesity", "Disease"), entity("HCC", "Disease")],
+            [{
+                **base,
+                "quality_flags": ["trigger_direction_mismatch", "adjudicator_entailed"],
+                "adjudication_verdict": "SUPPORTED",
+                "adjudication_reason_code": "EXPLICIT_DIRECT_RELATION",
+                "adjudication_confidence": 0.95,
+                "supporting_span_ids": [span_id],
+            }],
+            text=text,
+        ).relations[0]
+        self.assertEqual(checked.semantic_status, "REVIEW")
+        self.assertIn("trigger_direction_mismatch", checked.semantic_reasons)
+
+    def test_legacy_direction_diagnostics_do_not_block_semantic_acceptance(self):
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 encodes p53."
+        checked = self.verifier().verify(
+            [entity("TP53", "Gene"), entity("p53", "Protein")],
+            [relation(
+                "TP53 encodes p53.", predicate="ENCODES", object="p53",
+                object_type="Protein", direction="positive",
+            )],
+            text=text,
+        ).relations[0]
+        self.assertEqual(checked.association_sign, "UNKNOWN")
+        self.assertEqual(checked.semantic_status, "ACCEPTED")
+        self.assertNotIn("association_sign_not_applicable", checked.semantic_reasons)
 
 
 if __name__ == "__main__":

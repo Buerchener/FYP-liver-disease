@@ -4,6 +4,15 @@ The current strict 200-document gold set is documented in
 `README_pubmed_200_gold_v2_strict.md` and stored in
 `pubmed_200_gold_v2_strict.jsonl`.
 
+Gold200 is now explicitly a development/error-analysis set because it has been
+used during repeated system diagnosis. The frozen v2 file remains immutable.
+`pubmed_200_gold_v3_audit_draft.jsonl` and
+`pubmed_200_gold_v3_audit_ledger.jsonl` add versioned audit fields without
+silently changing v2 labels. They are not an adjudicated replacement while any
+row remains `PENDING_REVIEW` or `EXPERT_REVIEW_REQUIRED`. See
+`docs/gold200_quality_audit_v3.md` for the staged audit and BioRED final-test
+policy.
+
 The v2 gold set now has explicit evaluation views for the separated candidate
 and write layers:
 

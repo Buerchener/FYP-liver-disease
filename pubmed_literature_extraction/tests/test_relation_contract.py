@@ -1,6 +1,10 @@
 import unittest
 
-from cognitive_agent.relation_contract import RelationCandidateProjector
+from cognitive_agent.relation_contract import (
+    RelationCandidateProjector,
+    normalize_relation_semantics,
+    stable_candidate_id,
+)
 from cognitive_agent.verifier import KGVerifier
 
 
@@ -9,6 +13,41 @@ class OfflineKG:
 
 
 class RelationContractTests(unittest.TestCase):
+    def test_predicate_specific_direction_contract_and_stable_lineage(self):
+        associated = normalize_relation_semantics({
+            "subject": "TP53", "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH", "object": "HCC",
+            "object_type": "Disease", "direction": "negative",
+            "evidence": "TP53 was negatively associated with HCC.",
+        })
+        encoded = normalize_relation_semantics({
+            "subject": "TP53", "subject_type": "Gene", "predicate": "ENCODES",
+            "object": "p53", "object_type": "Protein", "direction": "unknown",
+            "evidence": "TP53 encodes p53.",
+        })
+        self.assertEqual(associated["relation_direction"], "NON_DIRECTIONAL")
+        self.assertEqual(associated["association_sign"], "NEGATIVE")
+        self.assertEqual(encoded["relation_direction"], "SUBJECT_TO_OBJECT")
+        self.assertEqual(encoded["association_sign"], "UNKNOWN")
+        changed_evidence = {**associated, "evidence": "A second exact source quote."}
+        self.assertEqual(
+            stable_candidate_id(associated), stable_candidate_id(changed_evidence)
+        )
+
+    def test_expression_and_activity_changes_do_not_reverse_relation(self):
+        expression = normalize_relation_semantics({
+            "predicate": "EXPRESSED_IN", "direction": "decrease",
+            "evidence": "Protein expression decreased in liver tissue.",
+        })
+        activity = normalize_relation_semantics({
+            "predicate": "PARTICIPATES_IN", "direction": "increase",
+            "evidence": "The pathway activity was activated.",
+        })
+        self.assertEqual(expression["relation_direction"], "SUBJECT_TO_OBJECT")
+        self.assertEqual(expression["expression_change"], "DOWN")
+        self.assertEqual(activity["relation_direction"], "SUBJECT_TO_OBJECT")
+        self.assertEqual(activity["activity_change"], "ACTIVATED")
+
     def test_article_abbreviation_family_deduplicates_relation_core(self):
         text = (
             "Metabolic dysfunction-associated fatty liver disease (MAFLD) was studied. "

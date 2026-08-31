@@ -33,13 +33,11 @@ from cognitive_agent.relation_pair_classifier import (
     PairPrediction,
     RelationPairCandidate,
 )
-
-try:
-    from cognitive_agent.collaborative_extractor import RELATION_DESCRIPTIONS, relation_description
-except Exception:  # pragma: no cover - registry decoupling fallback
-    RELATION_DESCRIPTIONS: dict[str, str] = {}
-    def relation_description(predicate: str, subject_type: str = "", object_type: str = "") -> str:
-        return RELATION_DESCRIPTIONS.get(predicate, predicate)
+from cognitive_agent.candidate_lineage import normalize_lineage
+from cognitive_agent.schema.predicate_cards import (
+    HIGH_PRECISION_PREDICATE_TRIGGERS,
+    relation_description,
+)
 
 
 JUDGE_BACKEND = "pairwise_judge_v1"
@@ -110,40 +108,7 @@ GATE_TERMINAL_STATUSES = CLAIM_GATE_STATUSES - {CLAIM_STATUS_DIRECT_FINDING}
 # PARTICIPATES_IN from "involved in": an ENTAILED decision therefore requires
 # an explicit association-class / predicate-specific wording inside the quote.
 # Everything else stays positive but is routed to the bounded adjudicator.
-JUDGE_ENTAILMENT_TRIGGERS: dict[str, tuple[str, ...]] = {
-    "ASSOCIATED_WITH": (
-        r"\bassociat\w+ (?:with|between)\b", r"\bcorrelat\w+ (?:with|between)\b",
-        r"\blinked to\b", r"\brelated to\b", r"\brisk factor (?:for|of)\b",
-        r"\bindependent(?:ly)? associated\b",
-    ),
-    "ASSOCIATED_WITH_METABOLITE": (
-        r"\b(?:metabolic|metabolite) association\b", r"\bassociat\w+ with\b",
-        r"\bcorrelat\w+ with\b",
-    ),
-    "PROGNOSTIC_IN": (
-        r"\bprognos\w+",
-        r"\bpredict\w* (?:of|for)? (?:survival|outcome|mortality|recurrence)\b",
-        r"\bassociated with (?:overall )?(?:survival|outcome)\b",
-    ),
-    "PROGRESSES_TO": (
-        r"\bprogress\w* (?:in)?to\b", r"\bdevelop\w* into\b", r"\bevolv\w* into\b",
-    ),
-    "ENCODES": (r"\bencod\w+",),
-    "INTERACTS_WITH": (
-        r"\binteract\w* with\b", r"\bbind\w* (?:to|with)\b",
-        r"\bcross[- ]?talk\b", r"\bcell(?:ular)?[- ]cell communication\b",
-        r"\bjuxtapos\w*\b",
-    ),
-    "PARTICIPATES_IN": (
-        r"\bparticipat\w* in\b", r"\bmediat\w+", r"\bplays? a role in\b",
-    ),
-    "EXPRESSED_IN": (
-        r"\bexpress\w+ (?:in|by|within)\b",
-        r"\b(?:high|low)?\s*expression\s+of\b.{0,100}\b(?:in|within)\b",
-        r"\bsource\s+of\b", r"\bpresent in\b",
-        r"\blocali[sz]\w+ (?:in|to)\b",
-    ),
-}
+JUDGE_ENTAILMENT_TRIGGERS = HIGH_PRECISION_PREDICATE_TRIGGERS
 
 
 @dataclass(frozen=True)
@@ -340,8 +305,19 @@ class PairwiseJudge:
             }
             for predicate in candidate.allowed_predicates
         ]
-        return {
+        relation = {
             "candidate_id": candidate.candidate_id,
+            "candidate_version": candidate.candidate_version,
+            "parent_candidate_id": candidate.parent_candidate_id,
+            "parent_version": candidate.parent_version,
+            "candidate_lane": candidate.candidate_lane,
+            "pair_candidate_id": candidate.pair_candidate_id,
+            "source_candidate_ids": list(candidate.source_candidate_ids),
+            "source_lanes": list(candidate.source_lanes),
+            "merged_candidate_ids": list(candidate.merged_candidate_ids),
+            "owner_sentence_ids": list(candidate.owner_sentence_ids),
+            "context_sentence_ids": list(candidate.context_sentence_ids),
+            "edit_reason_code": candidate.edit_reason_code,
             "claim_status": claim_status,
             "claim_role": claim_status.split("|", 1)[1] if "|" in claim_status else "",
             "section": candidate.evidence_section,
@@ -1062,6 +1038,7 @@ PMID: {pmid}
             "claim_role": claim_role,
             "quality_flags": sorted(set(flags)),
         }
+        return normalize_lineage(relation, lane=candidate.candidate_lane)
 
     @staticmethod
     def _deduplicate_selected_relations(
@@ -1234,6 +1211,10 @@ PMID: {pmid}
             backend=JUDGE_BACKEND,
             candidates=list(pair_result.candidates),
             truncated_candidates=pair_result.truncated_candidates,
+            hint_candidate_count=pair_result.hint_candidate_count,
+            explicit_recovery_candidate_count=pair_result.explicit_recovery_candidate_count,
+            non_explicit_filtered_pair_count=pair_result.non_explicit_filtered_pair_count,
+            budget_truncated_pair_count=pair_result.budget_truncated_pair_count,
             out_of_scope_relations=list(pair_result.out_of_scope_relations),
         )
         if not decision_by_id:
@@ -1382,6 +1363,10 @@ PMID: {pmid}
             "accepted_relation_count": len(refined.accepted_relations),
             "low_confidence_count": len(refined.low_confidence_relations),
             "out_of_scope_count": len(refined.out_of_scope_relations),
+            "hint_candidate_count": refined.hint_candidate_count,
+            "explicit_recovery_candidate_count": refined.explicit_recovery_candidate_count,
+            "non_explicit_filtered_pair_count": refined.non_explicit_filtered_pair_count,
+            "budget_truncated_pair_count": refined.budget_truncated_pair_count,
             "fallback_reason": refined.fallback_reason,
         }
         if gate_counts or gate_pass:
@@ -1398,6 +1383,10 @@ PMID: {pmid}
             predictions = {item.candidate_id: item for item in refined.predictions}
             payload["gate_table"] = [
                 {
+                    "candidate_id": candidate.candidate_id,
+                    "candidate_version": candidate.candidate_version,
+                    "pair_candidate_id": candidate.pair_candidate_id,
+                    "source_candidate_ids": list(candidate.source_candidate_ids),
                     "subject": candidate.subject,
                     "subject_type": candidate.subject_type,
                     "object": candidate.object,

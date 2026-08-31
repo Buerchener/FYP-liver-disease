@@ -28,7 +28,8 @@ def _stable_json(value: Any) -> str:
 def _candidate_key(pmid: str, relation: dict[str, Any]) -> str:
     candidate_id = str(relation.get("candidate_id", "") or "").strip()
     if candidate_id:
-        return f"{pmid}:{candidate_id}"
+        version = max(1, int(relation.get("candidate_version", 1) or 1))
+        return f"{pmid}:{candidate_id}:v{version}"
     fields = (
         pmid,
         str(relation.get("subject", "") or "").casefold(),
@@ -90,11 +91,18 @@ class CandidateRelationStore:
                 candidate_key TEXT PRIMARY KEY,
                 pmid TEXT NOT NULL,
                 candidate_id TEXT NOT NULL,
+                candidate_version INTEGER NOT NULL DEFAULT 1,
+                parent_version INTEGER NOT NULL DEFAULT 0,
+                candidate_lane TEXT NOT NULL DEFAULT 'extracted_hint',
                 subject TEXT NOT NULL,
                 subject_type TEXT NOT NULL,
                 predicate TEXT NOT NULL,
                 object TEXT NOT NULL,
                 object_type TEXT NOT NULL,
+                relation_direction TEXT NOT NULL DEFAULT 'UNKNOWN',
+                association_sign TEXT NOT NULL DEFAULT 'UNKNOWN',
+                expression_change TEXT NOT NULL DEFAULT 'UNKNOWN',
+                activity_change TEXT NOT NULL DEFAULT 'UNKNOWN',
                 factual_status TEXT NOT NULL,
                 semantic_status TEXT NOT NULL,
                 write_status TEXT NOT NULL,
@@ -106,11 +114,13 @@ class CandidateRelationStore:
                 write_contract_valid INTEGER NOT NULL DEFAULT 0,
                 evidence TEXT NOT NULL,
                 evidence_spans_json TEXT NOT NULL,
+                evidence_pack_json TEXT NOT NULL DEFAULT '{}',
                 quality_flags_json TEXT NOT NULL,
                 semantic_reasons_json TEXT NOT NULL,
                 write_reasons_json TEXT NOT NULL,
                 schema_gap_reasons_json TEXT NOT NULL DEFAULT '[]',
                 write_contract_version TEXT NOT NULL DEFAULT '',
+                verification_policy_version TEXT NOT NULL DEFAULT '',
                 relation_json TEXT NOT NULL,
                 run_id TEXT NOT NULL,
                 title TEXT NOT NULL,
@@ -133,6 +143,18 @@ class CandidateRelationStore:
         self._ensure_column(
             "scope_status", "TEXT NOT NULL DEFAULT 'IN_SCOPE'"
         )
+        for name, definition in (
+            ("candidate_version", "INTEGER NOT NULL DEFAULT 1"),
+            ("parent_version", "INTEGER NOT NULL DEFAULT 0"),
+            ("candidate_lane", "TEXT NOT NULL DEFAULT 'extracted_hint'"),
+            ("relation_direction", "TEXT NOT NULL DEFAULT 'UNKNOWN'"),
+            ("association_sign", "TEXT NOT NULL DEFAULT 'UNKNOWN'"),
+            ("expression_change", "TEXT NOT NULL DEFAULT 'UNKNOWN'"),
+            ("activity_change", "TEXT NOT NULL DEFAULT 'UNKNOWN'"),
+            ("evidence_pack_json", "TEXT NOT NULL DEFAULT '{}'"),
+            ("verification_policy_version", "TEXT NOT NULL DEFAULT ''"),
+        ):
+            self._ensure_column(name, definition)
         self._db.execute(
             "CREATE INDEX IF NOT EXISTS idx_candidate_relations_pmid "
             "ON candidate_relations(pmid)"
@@ -144,6 +166,23 @@ class CandidateRelationStore:
         self._db.execute(
             "CREATE INDEX IF NOT EXISTS idx_candidate_relations_predicate "
             "ON candidate_relations(predicate, subject_type, object_type)"
+        )
+        self._db.execute(
+            """
+            CREATE TABLE IF NOT EXISTS candidate_lineage_audit (
+                audit_key TEXT PRIMARY KEY,
+                pmid TEXT NOT NULL,
+                candidate_id TEXT NOT NULL,
+                candidate_version INTEGER NOT NULL,
+                parent_candidate_id TEXT NOT NULL DEFAULT '',
+                parent_version INTEGER NOT NULL DEFAULT 0,
+                candidate_lane TEXT NOT NULL DEFAULT '',
+                disposition TEXT NOT NULL DEFAULT 'KEPT',
+                provenance_json TEXT NOT NULL DEFAULT '{}',
+                run_id TEXT NOT NULL DEFAULT '',
+                updated_at REAL NOT NULL
+            )
+            """
         )
         self._db.commit()
 
@@ -213,11 +252,18 @@ class CandidateRelationStore:
                 _candidate_key(summary.pmid, relation),
                 summary.pmid,
                 str(relation.get("candidate_id", "") or ""),
+                max(1, int(relation.get("candidate_version", 1) or 1)),
+                max(0, int(relation.get("parent_version", 0) or 0)),
+                str(relation.get("candidate_lane", "extracted_hint") or "extracted_hint"),
                 str(relation.get("subject", "") or ""),
                 str(relation.get("subject_type", "") or ""),
                 str(relation.get("predicate", "") or "").upper(),
                 str(relation.get("object", "") or ""),
                 str(relation.get("object_type", "") or ""),
+                str(relation.get("relation_direction", "UNKNOWN") or "UNKNOWN"),
+                str(relation.get("association_sign", "UNKNOWN") or "UNKNOWN"),
+                str(relation.get("expression_change", "UNKNOWN") or "UNKNOWN"),
+                str(relation.get("activity_change", "UNKNOWN") or "UNKNOWN"),
                 str(relation.get("factual_status", "") or ""),
                 str(relation.get("semantic_status", "") or ""),
                 str(relation.get("write_status", "") or ""),
@@ -229,11 +275,13 @@ class CandidateRelationStore:
                 int(bool(relation.get("write_contract_valid", False))),
                 str(relation.get("evidence", "") or ""),
                 _stable_json(relation.get("evidence_spans", []) or []),
+                _stable_json(relation.get("evidence_pack", {}) or {}),
                 _stable_json(relation.get("quality_flags", []) or []),
                 _stable_json(relation.get("semantic_reasons", []) or []),
                 _stable_json(relation.get("write_reasons", []) or []),
                 _stable_json(relation.get("schema_gap_reasons", []) or []),
                 str(relation.get("write_contract_version", "") or ""),
+                str(relation.get("verification_policy_version", "") or ""),
                 _stable_json(relation),
                 str(run_id or ""),
                 str(title or ""),
@@ -243,17 +291,47 @@ class CandidateRelationStore:
             self._db.executemany(
                 """
                 INSERT OR REPLACE INTO candidate_relations (
-                    candidate_key, pmid, candidate_id, subject, subject_type,
-                    predicate, object, object_type, factual_status,
+                    candidate_key, pmid, candidate_id, candidate_version,
+                    parent_version, candidate_lane, subject, subject_type,
+                    predicate, object, object_type, relation_direction,
+                    association_sign, expression_change, activity_change, factual_status,
                     semantic_status, write_status, scope_status, claim_role, import_ready,
                     schema_valid, candidate_schema_valid, write_contract_valid,
-                    evidence, evidence_spans_json,
+                    evidence, evidence_spans_json, evidence_pack_json,
                     quality_flags_json, semantic_reasons_json, write_reasons_json,
-                    schema_gap_reasons_json, write_contract_version, relation_json,
+                    schema_gap_reasons_json, write_contract_version,
+                    verification_policy_version, relation_json,
                     run_id, title, updated_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 rows,
+            )
+            lineage_rows = []
+            for relation in relations:
+                instances = relation.get("claim_instances", []) or [relation]
+                for instance in instances:
+                    candidate_id = str(instance.get("candidate_id", "") or "")
+                    if not candidate_id:
+                        continue
+                    version = max(1, int(instance.get("candidate_version", 1) or 1))
+                    audit_key = f"{summary.pmid}|{candidate_id}|v{version}"
+                    lineage_rows.append((
+                        audit_key, summary.pmid, candidate_id, version,
+                        str(instance.get("parent_candidate_id", "") or ""),
+                        max(0, int(instance.get("parent_version", 0) or 0)),
+                        str(instance.get("candidate_lane", "") or ""),
+                        str(instance.get("candidate_disposition", "KEPT") or "KEPT"),
+                        _stable_json(instance), str(run_id or ""), now,
+                    ))
+            self._db.executemany(
+                """
+                INSERT OR REPLACE INTO candidate_lineage_audit (
+                    audit_key, pmid, candidate_id, candidate_version,
+                    parent_candidate_id, parent_version, candidate_lane,
+                    disposition, provenance_json, run_id, updated_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                lineage_rows,
             )
             self._db.commit()
         return summary

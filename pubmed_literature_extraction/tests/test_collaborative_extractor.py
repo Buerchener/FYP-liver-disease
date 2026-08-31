@@ -139,7 +139,7 @@ class CollaborativeExtractorTests(unittest.TestCase):
         self.assertEqual(result.status, "FALLBACK")
         self.assertEqual(merged.relation_additions, 0)
 
-    def test_reject_decision_removes_relation_but_keeps_audit(self):
+    def test_semantic_reject_is_retained_in_audit_ledger(self):
         text = self.explicit_prognostic_text()
         rel = relation("PROGNOSTIC_IN", text)
         verified = self.verified(text, rel)
@@ -150,7 +150,9 @@ class CollaborativeExtractorTests(unittest.TestCase):
             }],
         )
         merged = CollaborativeExtractor().merge(self.entities, [rel], verified, collaboration)
-        self.assertEqual(merged.relations, [])
+        self.assertEqual(len(merged.relations), 1)
+        self.assertIn("second_llm_rejected", merged.relations[0]["quality_flags"])
+        self.assertEqual(merged.relations[0]["adjudication_verdict"], "UNSUPPORTED")
         self.assertEqual(merged.relation_rejections, 1)
         self.assertEqual(len(merged.second_model_rejections), 1)
 
@@ -188,6 +190,30 @@ class CollaborativeExtractorTests(unittest.TestCase):
         self.assertEqual(merged.relation_edits, 1)
         self.assertEqual(merged.relation_additions, 0)
         self.assertEqual(final.relations[0].predicate, "ASSOCIATED_WITH")
+
+    def test_candidate_id_version_alignment_survives_relation_reordering(self):
+        text = "TP53 was associated with HCC and was prognostic in HCC."
+        first = relation("PROGNOSTIC_IN", text)
+        second = relation("ASSOCIATED_WITH", text)
+        verified = self.verifier.verify(
+            self.entities, [first, second], text=text
+        ).to_dict()
+        target = verified["relations"][0]
+        collaboration = CollaborationResult(status="OK", review_decisions=[{
+            **decision(
+                candidate_id=target["candidate_id"], action="CHANGE_PREDICATE",
+                new_predicate="ASSOCIATED_WITH",
+            ),
+            "candidate_version": target["candidate_version"],
+            "raw_index": 0,
+        }])
+        merged = CollaborativeExtractor().merge(
+            self.entities, [second, first], verified, collaboration,
+        )
+        edited = [item for item in merged.relations if item.get("candidate_version") == 2]
+        self.assertEqual(len(edited), 1)
+        self.assertEqual(edited[0]["parent_version"], 1)
+        self.assertEqual(edited[0]["predicate"], "ASSOCIATED_WITH")
 
     def test_hard_invalid_relation_is_deterministically_pruned(self):
         text = "TP53 was measured in HCC samples."
@@ -257,7 +283,7 @@ class CollaborativeExtractorTests(unittest.TestCase):
             self.assertEqual(text[unit.char_start:unit.char_end], unit.text)
         self.assertTrue(all(unit.section == "RESULTS" for unit in units))
 
-    def test_finalizer_consolidates_alias_and_gene_protein_views(self):
+    def test_finalizer_keeps_alias_aligned_gene_protein_views_typed(self):
         extractor = CollaborativeExtractor()
         raw = [
             {
@@ -301,9 +327,11 @@ class CollaborativeExtractorTests(unittest.TestCase):
             },
         }
         final, audit = extractor.finalize_after_reverification(raw, checked)
-        self.assertEqual(len(final), 1)
-        self.assertEqual(final[0]["subject_type"], "Gene")
-        self.assertEqual(audit["duplicate_relations_removed"], 1)
+        self.assertEqual(len(final), 2)
+        self.assertEqual({item["subject_type"] for item in final}, {"Gene", "Protein"})
+        self.assertEqual(len({item["type_conflict_group_id"] for item in final}), 1)
+        self.assertTrue(all("endpoint_type_conflict" in item["quality_flags"] for item in final))
+        self.assertEqual(audit["duplicate_relations_removed"], 0)
 
     def test_finalizer_orients_undirected_edge_by_first_evidence_mention(self):
         extractor = CollaborativeExtractor()
@@ -329,11 +357,29 @@ class CollaborativeExtractorTests(unittest.TestCase):
             },
         }
         final, audit = extractor.finalize_after_reverification(raw, checked)
-        self.assertEqual(final[0]["subject"], "OTUD5")
-        self.assertEqual(final[0]["object"], "MAVS")
+        self.assertEqual(final[0]["subject"], "OTU deubiquitinase 5")
+        self.assertEqual(final[0]["object"], "mitochondrial antiviral signalling")
         self.assertEqual(audit["symmetric_orientation_changes"], 1)
 
-    def test_finalizer_prefers_explicit_protein_definition_over_ambiguous_gene_view(self):
+    def test_non_directional_relation_preserves_schema_endpoint_order(self):
+        extractor = CollaborativeExtractor()
+        evidence = "HCC was associated with TP53 expression."
+        raw = [{
+            "subject": "TP53", "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH", "object": "HCC",
+            "object_type": "Disease", "evidence": evidence,
+        }]
+        checked = {"relations": [{
+            **raw[0], "relation_direction": "NON_DIRECTIONAL",
+            "factual_status": "VALID", "semantic_status": "REVIEW",
+        }], "entities": [], "review": {"mention_to_canonical": {}}}
+        final, audit = extractor.finalize_after_reverification(raw, checked)
+        self.assertEqual(final[0]["subject"], "TP53")
+        self.assertEqual(final[0]["subject_type"], "Gene")
+        self.assertEqual(final[0]["object"], "HCC")
+        self.assertEqual(audit["symmetric_orientation_changes"], 0)
+
+    def test_finalizer_does_not_use_definition_to_erase_typed_gene_view(self):
         extractor = CollaborativeExtractor()
         evidence = "OTUD5 interacted with MAVS."
         raw = [
@@ -361,8 +407,9 @@ class CollaborativeExtractorTests(unittest.TestCase):
         }
         source = "Mitochondrial antiviral signalling protein (MAVS) was studied. " + evidence
         final, _ = extractor.finalize_after_reverification(raw, checked, source_text=source)
-        self.assertEqual(len(final), 1)
-        self.assertEqual(final[0]["object_type"], "Protein")
+        self.assertEqual(len(final), 2)
+        self.assertEqual({item["object_type"] for item in final}, {"Gene", "Protein"})
+        self.assertEqual(len({item["type_conflict_group_id"] for item in final}), 1)
 
     def test_broad_association_is_not_offered_as_one_model_recovery(self):
         text = "TP53 was higher in HCC."

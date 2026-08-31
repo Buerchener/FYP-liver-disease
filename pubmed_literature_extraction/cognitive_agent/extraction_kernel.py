@@ -24,6 +24,7 @@ from langextract.factory import ModelConfig
 from cognitive_agent.schema.examples import KG_EXTRACTION_PROMPT, DEFAULT_EXAMPLES
 from cognitive_agent.schema.entity_classes import EXTRACTION_CLASS_TO_LABEL
 from cognitive_agent.article_chunker import ArticleChunk
+from cognitive_agent.evidence_units import ArticleEvidenceReader
 from cognitive_agent.extraction_cache import LightweightExtractionCache
 from cognitive_agent.golden_examples import GOLDEN_EXAMPLE_VERSION
 from cognitive_agent.schema.ontology import ONTOLOGY_VERSION
@@ -384,6 +385,9 @@ class ExtractionKernel:
             chunk_count=len(chunks),
             chunks=[chunk.to_dict() for chunk in chunks],
         )
+        parent_units = ArticleEvidenceReader.parent_units(
+            full_text, ArticleEvidenceReader().read(full_text),
+        )
         raw_results = []
         for chunk in chunks:
             partial = self.extract(
@@ -392,8 +396,12 @@ class ExtractionKernel:
                 examples=examples,
                 prompt=(
                     f"{prompt}\n\nCurrent extraction window: {chunk.chunk_id}; "
-                    f"sections: {', '.join(chunk.sections)}. Extract only claims "
-                    "whose evidence is fully contained in this window."
+                    f"sections: {', '.join(chunk.sections)}; "
+                    f"owner_sentence_ids: {', '.join(chunk.owner_sentence_ids)}; "
+                    f"context_only_sentence_ids: {', '.join(chunk.context_sentence_ids)}. "
+                    "Extract a relation only when its main assertion or resolving "
+                    "reference occurs in an owner sentence. Context-only sentences "
+                    "may resolve aliases/coreference but must not emit relations."
                 ),
                 retry_on_empty=False,
             )
@@ -405,7 +413,35 @@ class ExtractionKernel:
                 if isinstance(rebased.get("char_end"), int):
                     rebased["char_end"] += chunk.char_start
                 combined.entities.append(rebased)
-            combined.relations.extend(copy.deepcopy(partial.relations))
+            for raw_relation in partial.relations:
+                relation = copy.deepcopy(raw_relation)
+                evidence = str(relation.get("evidence", "") or "").strip()
+                local_start = chunk.text.find(evidence) if evidence else -1
+                evidence_parent_ids: list[str] = []
+                if local_start >= 0:
+                    absolute_start = chunk.char_start + local_start
+                    absolute_end = absolute_start + len(evidence)
+                    evidence_parent_ids = [
+                        item.parent_sentence_id for item in parent_units
+                        if item.char_start < absolute_end and item.char_end > absolute_start
+                    ]
+                if (
+                    evidence_parent_ids
+                    and chunk.owner_sentence_ids
+                    and not set(evidence_parent_ids) & set(chunk.owner_sentence_ids)
+                ):
+                    combined.warnings.append(
+                        f"{chunk.chunk_id}: context_only_relation_suppressed"
+                    )
+                    continue
+                relation.update({
+                    "candidate_lane": "extracted_hint",
+                    "owner_sentence_ids": list(chunk.owner_sentence_ids),
+                    "context_sentence_ids": list(chunk.context_sentence_ids),
+                    "evidence_parent_sentence_ids": evidence_parent_ids,
+                    "source_chunk_id": chunk.chunk_id,
+                })
+                combined.relations.append(relation)
             combined.warnings.extend(
                 f"{chunk.chunk_id}: {warning}" for warning in partial.warnings
             )
@@ -452,15 +488,34 @@ class ExtractionKernel:
     @staticmethod
     def _dedupe_relations(relations: list[dict]) -> list[dict]:
         output: list[dict] = []
-        seen: set[tuple] = set()
+        seen: dict[tuple, dict] = {}
         for relation in relations:
             key = tuple(str(relation.get(name, "") or "").casefold() for name in (
                 "subject", "subject_type", "predicate", "object", "object_type",
-                "direction", "evidence",
+                "direction",
             ))
             if key not in seen:
-                seen.add(key)
-                output.append(relation)
+                value = copy.deepcopy(relation)
+                evidence = str(value.get("evidence", "") or "").strip()
+                value["evidence_candidates"] = [evidence] if evidence else []
+                value["source_chunk_ids"] = [
+                    value.get("source_chunk_id")
+                ] if value.get("source_chunk_id") else []
+                seen[key] = value
+                output.append(value)
+                continue
+            target = seen[key]
+            evidence_values = [
+                *target.get("evidence_candidates", []),
+                str(relation.get("evidence", "") or "").strip(),
+            ]
+            target["evidence_candidates"] = list(dict.fromkeys(
+                item for item in evidence_values if item
+            ))[:3]
+            target["source_chunk_ids"] = list(dict.fromkeys([
+                *target.get("source_chunk_ids", []),
+                str(relation.get("source_chunk_id", "") or ""),
+            ]))
         return output
 
     def _parse(self, annotated, result: RawExtraction, source_text: str = ""):

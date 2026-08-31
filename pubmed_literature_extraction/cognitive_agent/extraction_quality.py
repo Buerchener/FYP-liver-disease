@@ -15,6 +15,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from cognitive_agent.abbreviation_detector import AbbreviationDetector
+from cognitive_agent.schema.predicate_cards import PREDICATE_TRIGGERS
 
 
 HARD_REJECT_TERMS = frozenset({
@@ -52,6 +53,10 @@ CONDITIONAL_PROCESS_TERMS = frozenset({
     "inflammation", "oxidative stress", "immune response", "angiogenesis",
     "metastasis", "injury", "fibrosis", "apoptosis", "proliferation",
     "replication", "immune activation",
+})
+
+LIVERKG_ENTITY_TYPES = frozenset({
+    "Gene", "Protein", "Disease", "Pathway", "Metabolite", "Tissue", "CellType",
 })
 
 ANATOMICAL_TERMS = frozenset({
@@ -111,32 +116,6 @@ NEGATION_RE = re.compile(
     r"\b(no|not|neither|without|failed to|lack of|absence of)\b",
     re.IGNORECASE,
 )
-
-PREDICATE_TRIGGERS: dict[str, tuple[str, ...]] = {
-    "ASSOCIATED_WITH": (
-        r"associated with", r"association (?:between|with)", r"correlat(?:ed|ion)",
-        r"(?:^|[\s-])associated(?:\s|$)", r"characteri[sz]ed by", r"caused by",
-        r"linked to", r"related to", r"contribut(?:es?|ed) to", r"promot(?:es?|ed)",
-        r"suppress(?:es|ed)", r"reduc(?:es|ed)", r"increas(?:es|ed)",
-        r"attenuat(?:es|ed)", r"ameliorat(?:es|ed)", r"protect(?:s|ed) against",
-    ),
-    "PROGNOSTIC_IN": (r"prognostic", r"predict(?:s|ed) survival", r"associated with survival"),
-    "PROGRESSES_TO": (r"progress(?:es|ed|ion) to", r"develop(?:s|ed) into", r"evolv(?:es|ed) into"),
-    "ENCODES": (r"encod(?:es|ed)",),
-    "INTERACTS_WITH": (
-        r"interact(?:s|ed|ion) with", r"bind(?:s|ing|bound) to",
-        r"cross[- ]?talk", r"cell(?:ular)?[- ]cell communication", r"juxtapos\w*",
-    ),
-    "PARTICIPATES_IN": (r"participat(?:es|ed) in", r"involved in", r"mediates?", r"\bvia\b"),
-    "EXPRESSED_IN": (
-        r"express(?:ed|ion|ion level|ion levels|ion of).{0,100}\b(?:in|within)\b",
-        r"overexpress(?:ed|ion).{0,100}\b(?:in|within)\b",
-        r"\bsource of\b", r"localized in", r"present in",
-    ),
-    "ASSOCIATED_WITH_METABOLITE": (
-        r"associated with", r"correlat(?:ed|ion)", r"interact(?:s|ed|ion) with",
-    ),
-}
 
 INCREASE_TRIGGERS = (
     r"\bincreas(?:e|es|ed|ing)\b", r"\belevat(?:e|es|ed)\b",
@@ -424,15 +403,30 @@ def _conditional_process_supported(mention: str, relations: list[dict], text: st
     return False
 
 
-def entity_filter_reason(entity: dict, relations: list[dict], text: str) -> tuple[str, str]:
+def entity_filter_reason(
+    entity: dict,
+    relations: list[dict],
+    text: str,
+    *,
+    allowed_entity_types: set[str] | frozenset[str] | None = None,
+    entity_validation: str = "liverkg_quality",
+) -> tuple[str, str]:
     """Return (status, reason) for a raw entity candidate."""
     mention = str(entity.get("mention", "") or "").strip()
     entity_type = str(entity.get("type", entity.get("entity_type", "")) or "")
     normalized = normalize_surface(mention)
     if not mention:
         return "rejected", "empty_mention"
-    if entity_type not in {"Gene", "Protein", "Disease", "Pathway", "Metabolite", "Tissue", "CellType"}:
+    valid_types = allowed_entity_types or LIVERKG_ENTITY_TYPES
+    if entity_type not in valid_types:
         return "rejected", "invalid_entity_type"
+    # Dataset-native/given-entity benchmarks own their entity ontology.  They
+    # still require a non-empty, declared, source-grounded mention, but must
+    # not inherit LiverKG-specific generic-term or Gene/Protein heuristics.
+    # Source grounding is checked by ``prepare_extraction`` immediately after
+    # this function returns.
+    if entity_validation in {"source_grounded", "given_entity"}:
+        return "retained", f"{entity_validation}_type_constraints_passed"
     mention_tokens = re.findall(r"\w+", mention, flags=re.UNICODE)
     if mention_tokens:
         mention_pattern = r"[\W_]+".join(re.escape(token) for token in mention_tokens)
@@ -531,6 +525,9 @@ def prepare_extraction(
     raw_entities: list[dict],
     raw_relations: list[dict],
     text: str = "",
+    *,
+    allowed_entity_types: set[str] | frozenset[str] | None = None,
+    entity_validation: str = "liverkg_quality",
 ) -> PreparedExtraction:
     """Filter, canonicalize, and remap an article extraction before verification."""
     prepared = PreparedExtraction(
@@ -554,7 +551,13 @@ def prepare_extraction(
         mention = str(entity.get("mention", "") or "").strip()
         entity_type = str(entity.get("type", entity.get("entity_type", "")) or "")
         grounded, start, end, source_span = _entity_span(entity, text)
-        status, reason = entity_filter_reason(entity, raw_relations, text)
+        status, reason = entity_filter_reason(
+            entity,
+            raw_relations,
+            text,
+            allowed_entity_types=allowed_entity_types,
+            entity_validation=entity_validation,
+        )
         if text and not grounded:
             status, reason = "rejected", "mention_not_in_source"
         entity.update({
@@ -817,10 +820,23 @@ def _predicate_trigger_links_endpoints(
     ]
     for subject_span in subject_spans:
         for object_span in object_spans:
-            low = min(sum(subject_span) / 2, sum(object_span) / 2)
-            high = max(sum(subject_span) / 2, sum(object_span) / 2)
+            subject_center = sum(subject_span) / 2
+            object_center = sum(object_span) / 2
+            low = min(subject_center, object_center)
+            high = max(subject_center, object_center)
             if any(trigger_end >= low and trigger_start <= high for trigger_start, trigger_end in trigger_spans):
                 return True
+            # Nominalized expression assertions normally place the trigger
+            # immediately before the gene and its parenthesized/listed cell
+            # locations: ``expression patterns of CCND1 (hepatocytes, ...)``.
+            # This is endpoint-attached even though the trigger's character
+            # span ends just before both endpoint mentions.
+            if predicate == "EXPRESSED_IN" and object_center > subject_center:
+                if any(
+                    0 <= subject_span[0] - trigger_end <= 40
+                    for _, trigger_end in trigger_spans
+                ):
+                    return True
     return False
 
 
@@ -966,7 +982,13 @@ def evaluate_relation_evidence(
         and not VALIDATION_RE.search(support_scope)
     )
     negation_text = re.sub(r"\bnot\s+only\b", "notonly", support_scope, flags=re.IGNORECASE)
-    negated = bool(relation.get("negated")) or bool(NEGATION_RE.search(negation_text))
+    explicit_negation = bool(NEGATION_RE.search(negation_text))
+    negated = bool(relation.get("negated")) or explicit_negation
+    scoped_negated = bool(
+        explicit_negation
+        and all(endpoint_grounded.values())
+        and raw_trigger_present
+    )
     uncertain = bool(relation.get("uncertain")) or prediction_only
     if method_only:
         flags.add("method_only")
@@ -974,7 +996,10 @@ def evaluate_relation_evidence(
         flags.add("prediction_only")
     if negated:
         flags.add("negated")
+    if scoped_negated:
         flags.add("scoped_negation")
+    else:
+        flags.discard("scoped_negation")
     if uncertain:
         flags.add("uncertain")
     if grounded:

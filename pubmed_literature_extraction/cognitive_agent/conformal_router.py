@@ -13,6 +13,8 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
 
+from cognitive_agent.relation_contract import TIERED_V2_VERIFICATION_POLICY
+
 
 ACCEPT_LOCAL = "ACCEPT_LOCAL"
 CALL_DEEPSEEK = "CALL_DEEPSEEK"
@@ -21,9 +23,9 @@ ABSTAIN = "ABSTAIN"
 HUMAN_REVIEW = "HUMAN_REVIEW"
 ROUTE_DECISIONS = frozenset({ACCEPT_LOCAL, CALL_DEEPSEEK, CALL_QWEN_CRITIC, ABSTAIN, HUMAN_REVIEW})
 HARD_VERIFIER_FLAGS = frozenset({
-    "schema_mismatch", "invalid_schema", "missing_endpoint", "endpoint_not_grounded",
-    "evidence_not_contiguous", "evidence_not_in_source", "hard_negation",
-    "background_only", "method_only", "safe_write_blocked",
+    *TIERED_V2_VERIFICATION_POLICY.factual_reject_flags,
+    # Historical feature aliases, mapped only to the same four factual gates.
+    "invalid_schema", "missing_endpoint", "evidence_not_in_source", "hard_negation",
 })
 
 

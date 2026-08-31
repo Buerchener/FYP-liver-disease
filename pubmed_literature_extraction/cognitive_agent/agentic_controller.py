@@ -106,7 +106,7 @@ class AgenticArticleController:
 
     def __init__(
         self,
-        max_recovery_candidates: int = 12,
+        max_recovery_candidates: int = 24,
         max_repairs: int = 16,
         enable_evidence_repair: bool = True,
         enable_recovery: bool = True,
@@ -291,8 +291,6 @@ class AgenticArticleController:
         abbr_map: AbbreviationMap,
         units: list[EvidenceUnit],
     ) -> list[dict]:
-        from cognitive_agent.collaborative_extractor import HARD_RELATION_BLOCKERS
-
         entities: list[dict[str, Any]] = []
         for index, entity in enumerate(verified_entities):
             mention = str(entity.get("mention", "") or "").strip()
@@ -385,7 +383,7 @@ class AgenticArticleController:
                     # adjudication.  Recovery is reserved for genuinely absent
                     # or deterministically blocked pair claims.
                     if any(
-                        not (set(item.get("quality_flags", []) or []) & HARD_RELATION_BLOCKERS)
+                        str(item.get("factual_status", "VALID")).upper() != "REJECTED"
                         for item in pair_relations
                     ):
                         continue
@@ -467,7 +465,17 @@ class AgenticArticleController:
                     })
 
         proposals.sort(key=lambda item: item.pop("rank"))
-        proposals = proposals[: self.max_recovery_candidates]
+        per_sentence: dict[str, int] = {}
+        bounded: list[dict] = []
+        for proposal in proposals:
+            sentence_id = str(proposal.get("evidence_unit_id", "") or "")
+            if per_sentence.get(sentence_id, 0) >= 6:
+                continue
+            per_sentence[sentence_id] = per_sentence.get(sentence_id, 0) + 1
+            bounded.append(proposal)
+            if len(bounded) >= self.max_recovery_candidates:
+                break
+        proposals = bounded
         for index, proposal in enumerate(proposals):
             proposal["candidate_id"] = f"p{index:03d}"
         return proposals

@@ -26,7 +26,7 @@ class CentralAgentV2Tests(unittest.TestCase):
         self.assertEqual(state.route, "STANDARD")
         self.assertEqual(len(state.budget_escalations), 1)
 
-    def test_two_unchanged_remote_calls_stop_further_calls(self):
+    def test_no_change_outcomes_do_not_change_logical_route(self):
         controller = CentralAgentV2(execution_mode="agent-v2")
         state = controller.start("1", "DEEP")
         state.review_relations = [{"subject": "TP53"}]
@@ -37,8 +37,8 @@ class CentralAgentV2Tests(unittest.TestCase):
                 result_status="OK",
             )
         allowed, reason = controller.can_call_remote(state, "second_llm_refiner")
-        self.assertFalse(allowed)
-        self.assertEqual(reason, "two_remote_calls_without_state_change")
+        self.assertTrue(allowed)
+        self.assertIn("within_remote_budget", reason)
 
     def test_cache_hit_does_not_consume_remote_budget(self):
         controller = CentralAgentV2(execution_mode="agent-v2")

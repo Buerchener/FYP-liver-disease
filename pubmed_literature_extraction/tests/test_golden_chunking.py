@@ -75,6 +75,13 @@ class ArticleChunkerTests(unittest.TestCase):
             self.assertEqual(text[chunk.char_start:chunk.char_end], chunk.text)
         self.assertGreaterEqual(chunks[1].overlapped_parent_sentences, 1)
         self.assertEqual(chunks[-1].char_end, len(text))
+        owners = [sentence for chunk in chunks for sentence in chunk.owner_sentence_ids]
+        self.assertEqual(len(owners), len(set(owners)))
+        self.assertTrue(chunks[1].context_sentence_ids)
+        for chunk in chunks:
+            self.assertFalse(
+                set(chunk.owner_sentence_ids) & set(chunk.context_sentence_ids)
+            )
 
 
 if __name__ == "__main__":

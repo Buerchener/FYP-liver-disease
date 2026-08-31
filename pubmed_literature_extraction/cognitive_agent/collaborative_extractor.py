@@ -10,6 +10,7 @@ is re-verified by the deterministic Phase-A verifier.
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 import re
 import time
@@ -18,8 +19,17 @@ from typing import Any, Callable, Optional
 
 from cognitive_agent.evidence_units import ArticleEvidenceReader, EvidenceUnit
 from cognitive_agent.extraction_quality import normalize_surface
-from cognitive_agent.relation_contract import SEMANTIC_REJECT_FLAGS
+from cognitive_agent.relation_contract import (
+    ACTIVITY_CHANGES,
+    ASSOCIATION_SIGNS,
+    EXPRESSION_CHANGES,
+    RELATION_DIRECTIONS,
+    normalize_relation_semantics,
+    stable_candidate_id,
+    verification_policy as get_verification_policy,
+)
 from cognitive_agent.schema.entity_classes import ENTITY_CLASSES
+from cognitive_agent.schema.predicate_cards import relation_description
 from cognitive_agent.schema.relation_signatures import RELATION_SIGNATURES
 
 
@@ -45,15 +55,8 @@ REASON_CODES = frozenset({
 # Only claims that are not valid current-article semantics are pruned.  Study
 # scope, species and linking ambiguity are Safe Write concerns and must remain
 # available as semantic-only/review relations.
-HARD_RELATION_BLOCKERS = SEMANTIC_REJECT_FLAGS
-
-# A relation changed by an agent action has a higher burden than an untouched
-# first-pass candidate.  It must survive the verifier with direct endpoint-
-# linking evidence; otherwise the controller rolls the action back.
-POST_ACTION_BLOCKERS = frozenset({
-    *HARD_RELATION_BLOCKERS,
-    "trigger_missing", "trigger_not_linking_endpoints",
-    "trigger_direction_mismatch", "weak_evidence", "uncertain",
+ADJUDICATION_VERDICTS = frozenset({
+    "SUPPORTED", "AMBIGUOUS", "UNSUPPORTED", "CONTRADICTED",
 })
 
 # Same-type associations and interactions are semantic unordered pairs.  This
@@ -72,29 +75,6 @@ RECOVERABLE_PREDICATES = frozenset({
     "PROGNOSTIC_IN", "PROGRESSES_TO",
 })
 
-RELATION_DESCRIPTIONS = {
-    "ASSOCIATED_WITH": "The text explicitly states an association, correlation, or linked change.",
-    "ENCODES": "A gene explicitly encodes a protein product.",
-    "PARTICIPATES_IN": "A gene or protein explicitly participates in or regulates a named pathway.",
-    "INTERACTS_WITH": "The text explicitly reports molecular binding or interaction.",
-    "EXPRESSED_IN": "The text explicitly locates gene/protein expression in a tissue or cell type.",
-    "PROGNOSTIC_IN": "A marker explicitly predicts prognosis, survival, recurrence, or clinical outcome.",
-    "PROGRESSES_TO": "One disease or stage explicitly progresses to another.",
-    "ASSOCIATED_WITH_METABOLITE": "The text explicitly associates an entity with a metabolite.",
-}
-
-
-def relation_description(predicate: str, subject_type: str = "", object_type: str = "") -> str:
-    """Return a type-aware semantic description for bounded model prompts."""
-    predicate = str(predicate or "").upper()
-    if predicate == "INTERACTS_WITH" and subject_type == object_type == "CellType":
-        return (
-            "The text explicitly reports cell-cell crosstalk, communication, or a "
-            "functionally supported spatial interaction; mere co-occurrence is insufficient."
-        )
-    return RELATION_DESCRIPTIONS.get(predicate, predicate)
-
-
 COLLABORATION_JSON_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
@@ -112,9 +92,17 @@ COLLABORATION_JSON_SCHEMA = {
                 ],
                 "properties": {
                     "candidate_id": {"type": "string"},
+                    "candidate_version": {"type": "integer", "minimum": 1},
+                    "verdict": {"type": "string", "enum": sorted(ADJUDICATION_VERDICTS)},
                     "action": {"type": "string", "enum": sorted(DECISION_ACTIONS)},
                     "new_predicate": {"type": "string"},
                     "new_direction": {"type": "string"},
+                    "relation_direction": {"type": "string", "enum": sorted(RELATION_DIRECTIONS)},
+                    "association_sign": {"type": "string", "enum": sorted(ASSOCIATION_SIGNS)},
+                    "expression_change": {"type": "string", "enum": sorted(EXPRESSION_CHANGES)},
+                    "activity_change": {"type": "string", "enum": sorted(ACTIVITY_CHANGES)},
+                    "claim_role": {"type": "string"},
+                    "supporting_span_ids": {"type": "array", "items": {"type": "string"}},
                     "evidence_unit_id": {"type": "string"},
                     "swap_endpoints": {"type": "boolean"},
                     "reason_code": {"type": "string", "enum": sorted(REASON_CODES)},
@@ -148,6 +136,7 @@ class CollaborativeConfig:
     # NOT add new relations on its own; recovery-candidate ADD_RELATION is
     # disabled unless explicitly re-enabled.
     add_relations: bool = False
+    verification_policy: str = "legacy"
 
 
 @dataclass
@@ -227,6 +216,7 @@ class CollaborativeExtractor:
         generate: Optional[Callable[[str], Any]] = None,
     ):
         self.config = config or CollaborativeConfig()
+        self.policy = get_verification_policy(self.config.verification_policy)
         self._generate = generate
         self.reader = ArticleEvidenceReader()
 
@@ -268,7 +258,7 @@ class CollaborativeExtractor:
         candidates: list[dict] = []
         for raw_index, relation in enumerate(verification.get("relations", []) or []):
             flags = set(relation.get("quality_flags", []) or [])
-            if flags & HARD_RELATION_BLOCKERS:
+            if str(relation.get("factual_status", "VALID")).upper() == "REJECTED":
                 continue
             if not relation.get("schema_valid", True):
                 continue
@@ -286,6 +276,7 @@ class CollaborativeExtractor:
                 "trigger_direction_mismatch", "weak_evidence", "uncertain",
                 "agent_evidence_repaired", "pair_low_confidence",
                 "pair_ambiguous_predicate", "judge_uncertain",
+                "predicate_card_type_only",
             }
             high_risk_predicate = predicate in {
                 "PROGNOSTIC_IN", "INTERACTS_WITH", "EXPRESSED_IN", "PROGRESSES_TO",
@@ -300,11 +291,19 @@ class CollaborativeExtractor:
             # exists for: hard blockers stay local, everything uncertain may
             # be adjudicated.  The old pair-core gate starved the adjudicator
             # and cost more precision than the calls it saved.
-            if not (flags & fixable_flags or high_risk_predicate or hedged_or_proxy):
+            non_current = str(
+                relation.get("claim_role", "CURRENT_FINDING") or "CURRENT_FINDING"
+            ).upper() != "CURRENT_FINDING"
+            non_role_fixable = flags & fixable_flags
+            if non_current and not non_role_fixable:
                 continue
+            if not (non_role_fixable or high_risk_predicate or hedged_or_proxy):
+                continue
+            candidate_id = str(relation.get("candidate_id", "") or stable_candidate_id(relation))
             candidates.append({
-                "candidate_id": f"r{raw_index:03d}",
-                "pair_candidate_id": relation.get("candidate_id", ""),
+                "candidate_id": candidate_id,
+                "candidate_version": max(1, int(relation.get("candidate_version", 1) or 1)),
+                "pair_candidate_id": relation.get("pair_candidate_id", ""),
                 "raw_index": raw_index,
                 "subject": relation.get("subject", ""),
                 "subject_type": relation.get("subject_type", ""),
@@ -312,7 +311,13 @@ class CollaborativeExtractor:
                 "object": relation.get("object", ""),
                 "object_type": relation.get("object_type", ""),
                 "direction": relation.get("direction", "unknown"),
+                "relation_direction": relation.get("relation_direction", "UNKNOWN"),
+                "association_sign": relation.get("association_sign", "UNKNOWN"),
+                "expression_change": relation.get("expression_change", "UNKNOWN"),
+                "activity_change": relation.get("activity_change", "UNKNOWN"),
+                "claim_role": relation.get("claim_role", "CURRENT_FINDING"),
                 "evidence": relation.get("evidence", ""),
+                "evidence_pack": relation.get("evidence_pack", {}),
                 "import_ready": bool(relation.get("import_ready")),
                 "quality_flags": sorted(flags),
                 "classifier_confidence": relation.get("classifier_confidence"),
@@ -583,6 +588,13 @@ class CollaborativeExtractor:
             candidate_id = str(item.get("candidate_id", "") or "")
             action = str(item.get("action", "") or "").upper()
             candidate = candidate_map.get(candidate_id)
+            verdict = str(item.get("verdict", "") or "").upper()
+            if verdict not in ADJUDICATION_VERDICTS:
+                verdict = (
+                    "UNSUPPORTED" if action == "REJECT"
+                    else "SUPPORTED" if action in {"KEEP", "CHANGE_PREDICATE", "CHANGE_DIRECTION", "CHANGE_EVIDENCE"}
+                    else "AMBIGUOUS"
+                )
             if not candidate or candidate_id in seen or action not in DECISION_ACTIONS:
                 warnings.append("invalid_review_decision_ignored")
                 continue
@@ -632,12 +644,20 @@ class CollaborativeExtractor:
                 reason_code = "INSUFFICIENT_SUPPORT"
             decisions.append({
                 "candidate_id": candidate_id,
+                "candidate_version": max(1, int(candidate.get("candidate_version", 1) or 1)),
                 "raw_index": candidate["raw_index"],
                 "pair_candidate_id": candidate.get("pair_candidate_id", ""),
                 "candidate_kind": candidate_kind,
                 "action": action,
+                "verdict": verdict,
                 "new_predicate": new_predicate,
                 "new_direction": new_direction,
+                "relation_direction": str(item.get("relation_direction", "") or candidate.get("relation_direction", "UNKNOWN")).upper(),
+                "association_sign": str(item.get("association_sign", "") or candidate.get("association_sign", "UNKNOWN")).upper(),
+                "expression_change": str(item.get("expression_change", "") or candidate.get("expression_change", "UNKNOWN")).upper(),
+                "activity_change": str(item.get("activity_change", "") or candidate.get("activity_change", "UNKNOWN")).upper(),
+                "claim_role": str(item.get("claim_role", "") or candidate.get("claim_role", "CURRENT_FINDING")).upper(),
+                "supporting_span_ids": list(item.get("supporting_span_ids", []) or []),
                 "evidence_unit_id": evidence_unit_id,
                 "evidence_text": (
                     unit_map[evidence_unit_id].text
@@ -663,34 +683,66 @@ class CollaborativeExtractor:
     ) -> CollaborationMerge:
         merged = CollaborationMerge(entities=copy.deepcopy(raw_entities))
         verified_relations = initial_verification.get("relations", []) or []
+        verified_by_lineage = {
+            (
+                str(item.get("candidate_id", "") or ""),
+                max(1, int(item.get("candidate_version", 1) or 1)),
+            ): item
+            for item in verified_relations
+            if str(item.get("candidate_id", "") or "")
+        }
         decision_map = {
-            int(item.get("raw_index", -1)): item for item in collaboration.review_decisions
+            (
+                str(item.get("candidate_id", "") or ""),
+                max(1, int(item.get("candidate_version", 1) or 1)),
+            ): item
+            for item in collaboration.review_decisions
+            if str(item.get("candidate_id", "") or "")
+        }
+        legacy_decision_by_index = {
+            int(item.get("raw_index", -1)): item
+            for item in collaboration.review_decisions
             if int(item.get("raw_index", -1)) >= 0
+            and not any(
+                key[0] == str(item.get("candidate_id", "") or "")
+                for key in verified_by_lineage
+            )
         }
         for index, raw_relation in enumerate(raw_relations):
-            verified = verified_relations[index] if index < len(verified_relations) else {}
+            relation = normalize_relation_semantics(copy.deepcopy(raw_relation))
+            candidate_id = str(relation.get("candidate_id", "") or stable_candidate_id(
+                relation, lane=str(relation.get("candidate_lane", "extracted_hint") or "extracted_hint"),
+            ))
+            candidate_version = max(1, int(relation.get("candidate_version", 1) or 1))
+            relation.update({
+                "candidate_id": candidate_id,
+                "candidate_version": candidate_version,
+                "parent_version": max(0, int(relation.get("parent_version", 0) or 0)),
+            })
+            verified = verified_by_lineage.get(
+                (candidate_id, candidate_version),
+                verified_relations[index] if index < len(verified_relations) else {},
+            )
             flags = set(verified.get("quality_flags", []) or [])
-            if flags & HARD_RELATION_BLOCKERS:
+            if str(verified.get("factual_status", "VALID")).upper() == "REJECTED":
                 merged.deterministic_rejections.append({
                     "raw_index": index,
+                    "candidate_id": candidate_id,
+                    "candidate_version": candidate_version,
                     "subject": raw_relation.get("subject", ""),
                     "predicate": raw_relation.get("predicate", ""),
                     "object": raw_relation.get("object", ""),
-                    "reason_codes": sorted(flags & HARD_RELATION_BLOCKERS),
+                    "reason_codes": list(verified.get("semantic_reasons", []) or sorted(
+                        self.policy.hard_reject_reasons(flags)
+                    )),
                 })
                 continue
 
-            relation = copy.deepcopy(raw_relation)
-            decision = decision_map.get(index)
-            if "agent_evidence_repaired" in flags and not decision:
-                merged.deterministic_rejections.append({
-                    "raw_index": index,
-                    "subject": raw_relation.get("subject", ""),
-                    "predicate": raw_relation.get("predicate", ""),
-                    "object": raw_relation.get("object", ""),
-                    "reason_codes": ["unreviewed_agent_evidence_repair"],
-                })
-                continue
+            decision = decision_map.get((candidate_id, candidate_version))
+            if decision is None:
+                # Read-only compatibility for historical cached adjudications.
+                # New outputs always use stable candidate_id/version lineage.
+                decision = legacy_decision_by_index.get(index)
             if not decision:
                 merged.relations.append(relation)
                 continue
@@ -705,7 +757,24 @@ class CollaborativeExtractor:
                 merged.relation_rejections += 1
                 merged.second_model_rejections.append(rejection)
                 merged.manual_review.append(rejection)
+                relation.setdefault("quality_flags", []).append("second_llm_rejected")
+                audit_decision = copy.deepcopy(decision)
+                audit_decision["model_id"] = collaboration.model_id
+                relation["adjudication"] = audit_decision
+                relation["adjudication_model_id"] = collaboration.model_id
+                relation["adjudication_verdict"] = decision.get("verdict", "UNSUPPORTED")
+                merged.relations.append(relation)
                 continue
+            changed = action in {
+                "CHANGE_PREDICATE", "CHANGE_DIRECTION", "CHANGE_EVIDENCE",
+            }
+            if changed:
+                relation["parent_candidate_id"] = candidate_id
+                relation["parent_version"] = candidate_version
+                relation["candidate_version"] = candidate_version + 1
+                relation["edit_reason_code"] = str(
+                    decision.get("reason_code", "") or action
+                )
             if action == "CHANGE_PREDICATE":
                 relation["predicate"] = decision["new_predicate"]
                 relation.setdefault("quality_flags", []).append("second_llm_edited")
@@ -744,6 +813,26 @@ class CollaborativeExtractor:
                     "predicate": relation.get("predicate", ""),
                     "object": relation.get("object", ""),
                 })
+            audit_decision = copy.deepcopy(decision)
+            audit_decision["model_id"] = collaboration.model_id
+            relation.update({
+                "relation_direction": decision.get("relation_direction", relation.get("relation_direction", "UNKNOWN")),
+                "association_sign": decision.get("association_sign", relation.get("association_sign", "UNKNOWN")),
+                "expression_change": decision.get("expression_change", relation.get("expression_change", "UNKNOWN")),
+                "activity_change": decision.get("activity_change", relation.get("activity_change", "UNKNOWN")),
+                "claim_role": decision.get("claim_role", relation.get("claim_role", "CURRENT_FINDING")),
+                "adjudication_verdict": decision.get("verdict", "SUPPORTED"),
+                "supporting_span_ids": list(decision.get("supporting_span_ids", []) or []),
+                "adjudication": audit_decision,
+                "adjudication_reason_code": decision.get("reason_code", ""),
+                "adjudication_confidence": float(decision.get("confidence", 0.0) or 0.0),
+                "adjudication_model_id": collaboration.model_id,
+            })
+            if decision.get("verdict") == "AMBIGUOUS":
+                relation.setdefault("quality_flags", []).extend(["manual_review", "adjudicator_ambiguous"])
+            elif decision.get("verdict") == "SUPPORTED":
+                relation.setdefault("quality_flags", []).append("adjudicator_entailed")
+            relation = normalize_relation_semantics(relation)
             merged.relations.append(relation)
 
         existing_keys = {self._relation_key(item) for item in merged.relations}
@@ -791,8 +880,31 @@ class CollaborativeExtractor:
                 "confidence": decision.get("confidence", 0.7),
                 "grounded": True,
                 "quality_flags": ["agent_recovered_relation"],
+                "candidate_lane": "recovery",
+                "candidate_version": 1,
+                "parent_version": 0,
                 "collaboration_reason": decision.get("reason", ""),
             }
+            relation["candidate_id"] = str(
+                candidate.get("candidate_id", "") or stable_candidate_id(relation, lane="recovery")
+            )
+            relation.update({
+                "relation_direction": decision.get("relation_direction", "UNKNOWN"),
+                "association_sign": decision.get("association_sign", "UNKNOWN"),
+                "expression_change": decision.get("expression_change", "UNKNOWN"),
+                "activity_change": decision.get("activity_change", "UNKNOWN"),
+                "claim_role": decision.get("claim_role", candidate.get("claim_role", "CURRENT_FINDING")),
+                "adjudication_verdict": decision.get("verdict", "SUPPORTED"),
+                "supporting_span_ids": list(decision.get("supporting_span_ids", []) or []),
+                "adjudication_reason_code": decision.get("reason_code", ""),
+                "adjudication_confidence": float(decision.get("confidence", 0.0) or 0.0),
+                "adjudication_model_id": collaboration.model_id,
+                "adjudication": {
+                    **copy.deepcopy(decision),
+                    "model_id": collaboration.model_id,
+                },
+            })
+            relation = normalize_relation_semantics(relation)
             key = self._relation_key(relation)
             if key in existing_keys:
                 continue
@@ -812,190 +924,360 @@ class CollaborativeExtractor:
         verification: dict,
         source_text: str = "",
     ) -> tuple[list[dict], dict]:
-        """Rollback failed actions and keep one strongest canonical edge.
-
-        Re-verification may normalize an abbreviation after the first merge
-        (for example PBC -> Primary Biliary Cholangitis) or expose the same
-        molecular mention as both Gene and Protein.  Consolidation therefore
-        uses the verifier's canonical endpoints, not the pre-verification raw
-        strings.  Truly undirected predicates also share one unordered key.
-        """
+        """Pure normalization/provenance aggregation; never re-judge a claim."""
         verified = verification.get("relations", []) or []
+        checked_by_lineage = {
+            (
+                str(item.get("candidate_id", "") or ""),
+                max(1, int(item.get("candidate_version", 1) or 1)),
+            ): item
+            for item in verified
+            if str(item.get("candidate_id", "") or "")
+        }
+        mention_to_canonical = (
+            verification.get("review", {}).get("mention_to_canonical", {}) or {}
+        )
         verified_entities = verification.get("entities", []) or []
-        review = verification.get("review", {}) or {}
-        mention_to_canonical = review.get("mention_to_canonical", {}) or {}
-
         canonical_aliases: dict[str, list[str]] = {}
-        for mention, canonical in mention_to_canonical.items():
-            canonical_aliases.setdefault(normalize_surface(canonical), []).append(str(mention))
-        for canonical in mention_to_canonical.values():
-            canonical_aliases.setdefault(normalize_surface(canonical), []).append(str(canonical))
-
-        # Prefer a type backed by an exact graph/identifier match, then by the
-        # extractor confidence.  This resolves duplicate Gene/Protein views of
-        # one article-local molecular mention without inventing a new type.
+        for mention, canonical_name in mention_to_canonical.items():
+            canonical_aliases.setdefault(normalize_surface(canonical_name), []).append(str(mention))
         entity_type_rank: dict[tuple[str, str], tuple[int, float]] = {}
         for entity in verified_entities:
-            key = (
-                normalize_surface(entity.get("mention", "")),
-                str(entity.get("type", "")),
-            )
+            key = (normalize_surface(entity.get("mention", "")), str(entity.get("type", "")))
             status = str(entity.get("neo4j_status", "") or "").upper()
-            identifier = str(
-                entity.get("neo4j_node_id", "") or entity.get("normalized_id", "") or ""
-            )
-            support_rank = 0 if status == "EXACT_MATCH" else (1 if identifier else 2)
-            try:
-                confidence = float(entity.get("confidence", 0.0) or 0.0)
-            except (TypeError, ValueError):
-                confidence = 0.0
-            value = (support_rank, -confidence)
+            identifier = str(entity.get("neo4j_node_id", "") or entity.get("normalized_id", "") or "")
+            rank = 0 if status == "EXACT_MATCH" else (1 if identifier else 2)
+            value = (rank, -float(entity.get("confidence", 0.0) or 0.0))
             if key not in entity_type_rank or value < entity_type_rank[key]:
                 entity_type_rank[key] = value
 
-        def canonical_endpoint(checked: dict, relation: dict, role: str) -> str:
-            return str(checked.get(role, "") or relation.get(role, "") or "")
+        def checked_for(index: int, relation: dict) -> dict:
+            key = (
+                str(relation.get("candidate_id", "") or ""),
+                max(1, int(relation.get("candidate_version", 1) or 1)),
+            )
+            if key[0]:
+                checked = checked_by_lineage.get(key)
+                if checked is not None:
+                    return checked
+                return {
+                    **relation,
+                    "factual_status": "REVIEW",
+                    "semantic_status": "REVIEW",
+                    "write_status": "HUMAN_REVIEW",
+                    "quality_flags": sorted(set([
+                        *(relation.get("quality_flags", []) or []),
+                        "lineage_binding_missing",
+                    ])),
+                    "semantic_reasons": ["lineage_binding_missing"],
+                }
+            # Historical rows in which neither side has an ID retain read-only
+            # positional compatibility.  A partially identified live row does not.
+            if index < len(verified) and not str(verified[index].get("candidate_id", "") or ""):
+                return verified[index]
+            return {}
+
+        def canonical(value: str) -> str:
+            return str(mention_to_canonical.get(value, value) or value)
 
         def explicit_type_rank(mention: str, entity_type: str) -> int:
             if not source_text or entity_type not in {"Gene", "Protein"}:
                 return 1
-            aliases = [
-                mention,
-                *canonical_aliases.get(normalize_surface(mention), []),
-            ]
+            aliases = [mention, *canonical_aliases.get(normalize_surface(mention), [])]
             type_word = "protein" if entity_type == "Protein" else "gene"
             for alias in dict.fromkeys(str(item).strip() for item in aliases if str(item).strip()):
                 escaped = re.escape(alias)
-                patterns = (
+                if any(re.search(pattern, source_text) for pattern in (
                     rf"(?i)(?:{escaped})\s+{type_word}\b",
                     rf"(?i)\b{type_word}\s+(?:named\s+|called\s+)?(?:{escaped})\b",
                     rf"(?i)\b{type_word}\b[^.\n]{{0,60}}\(\s*{escaped}\s*\)",
-                )
-                if any(re.search(pattern, source_text) for pattern in patterns):
+                )):
                     return 0
             return 1
 
-        def endpoint_type_rank(
-            checked: dict, relation: dict, role: str
-        ) -> tuple[int, int, float]:
-            mention = canonical_endpoint(checked, relation, role)
-            entity_type = str(
-                checked.get(f"{role}_type", "") or relation.get(f"{role}_type", "") or ""
+        def variant_rank(item: tuple[int, dict, dict]) -> tuple:
+            index, relation, checked = item
+            subject = canonical(str(checked.get("subject", relation.get("subject", "")) or ""))
+            obj = canonical(str(checked.get("object", relation.get("object", "")) or ""))
+            subject_type = str(checked.get("subject_type", relation.get("subject_type", "")) or "")
+            object_type = str(checked.get("object_type", relation.get("object_type", "")) or "")
+            return (
+                0 if str(relation.get("candidate_lane", "")) == "extracted_hint" else 1,
+                explicit_type_rank(subject, subject_type),
+                entity_type_rank.get((normalize_surface(subject), subject_type), (3, 0.0)),
+                explicit_type_rank(obj, object_type),
+                entity_type_rank.get((normalize_surface(obj), object_type), (3, 0.0)),
+                -int(relation.get("candidate_version", 1) or 1),
+                str(relation.get("candidate_id", "") or ""),
+                index,
             )
-            support = entity_type_rank.get((normalize_surface(mention), entity_type), (3, 0.0))
-            return (explicit_type_rank(mention, entity_type), *support)
 
-        def first_alias_position(evidence: str, canonical: str, raw: str) -> int:
-            aliases = [
-                raw,
-                canonical,
-                *canonical_aliases.get(normalize_surface(canonical), []),
-            ]
-            positions: list[int] = []
+        def first_mention_position(evidence: str, canonical_name: str, raw_name: str) -> int:
+            aliases = [raw_name, canonical_name, *canonical_aliases.get(normalize_surface(canonical_name), [])]
+            positions = []
             for alias in dict.fromkeys(str(item).strip() for item in aliases if str(item).strip()):
-                pattern = re.compile(r"(?<!\w)" + re.escape(alias) + r"(?!\w)", re.IGNORECASE)
-                match = pattern.search(evidence)
+                match = re.search(r"(?<!\w)" + re.escape(alias) + r"(?!\w)", evidence, re.IGNORECASE)
                 if match:
                     positions.append(match.start())
             return min(positions, default=10**9)
-        survivors: list[tuple[int, dict, dict]] = []
-        rolled_back: list[dict] = []
-        for index, relation in enumerate(raw_relations):
-            checked = verified[index] if index < len(verified) else {}
-            flags = set(checked.get("quality_flags", []) or [])
-            action_changed = bool(flags & {
-                "agent_evidence_repaired", "agent_recovered_relation",
-                "second_llm_edited", "second_llm_evidence_review",
-                "second_llm_confirmed",
-            })
-            if action_changed and flags & POST_ACTION_BLOCKERS:
-                rolled_back.append({
-                    "raw_index": index,
-                    "subject": relation.get("subject", ""),
-                    "predicate": relation.get("predicate", ""),
-                    "object": relation.get("object", ""),
-                    "reason_codes": sorted(flags & POST_ACTION_BLOCKERS),
-                })
-                continue
-            survivors.append((index, relation, checked))
+
+        def schema_symmetric(predicate: str, subject_type: str, object_type: str) -> bool:
+            signatures = RELATION_SIGNATURES.get(predicate, set())
+            return (
+                (subject_type, object_type) in signatures
+                and (object_type, subject_type) in signatures
+            )
 
         groups: dict[tuple, list[tuple[int, dict, dict]]] = {}
-        for item in survivors:
-            relation, checked = item[1], item[2]
-            predicate = str(checked.get("predicate", "") or relation.get("predicate", "")).upper()
-            subject = normalize_surface(canonical_endpoint(checked, relation, "subject"))
-            object_name = normalize_surface(canonical_endpoint(checked, relation, "object"))
-            same_type = str(checked.get("subject_type", relation.get("subject_type", ""))) == str(
-                checked.get("object_type", relation.get("object_type", ""))
+        factual_discards: list[dict] = []
+        superseded_version_rows: list[dict] = []
+        latest_version_by_lineage: dict[str, int] = {}
+        for index, raw in enumerate(raw_relations):
+            relation = normalize_relation_semantics(raw)
+            checked = checked_for(index, relation)
+            if str(checked.get("factual_status", "VALID")).upper() == "REJECTED":
+                continue
+            candidate_id = str(relation.get("candidate_id", "") or "")
+            if candidate_id:
+                latest_version_by_lineage[candidate_id] = max(
+                    latest_version_by_lineage.get(candidate_id, 0),
+                    int(relation.get("candidate_version", 1) or 1),
+                )
+        type_variants_by_untyped_edge: dict[tuple, set[tuple[str, str]]] = {}
+        for index, raw in enumerate(raw_relations):
+            relation = normalize_relation_semantics(raw)
+            checked = checked_for(index, relation)
+            if str(checked.get("factual_status", "VALID")).upper() == "REJECTED":
+                continue
+            subject = canonical(str(checked.get("subject", relation.get("subject", "")) or ""))
+            obj = canonical(str(checked.get("object", relation.get("object", "")) or ""))
+            predicate = str(checked.get("predicate", relation.get("predicate", "")) or "").upper()
+            relation_direction = str(
+                checked.get("relation_direction", relation.get("relation_direction", "UNKNOWN"))
+                or "UNKNOWN"
+            ).upper()
+            subject_type = str(checked.get("subject_type", relation.get("subject_type", "")) or "")
+            object_type = str(checked.get("object_type", relation.get("object_type", "")) or "")
+            surfaces = (
+                tuple(sorted((normalize_surface(subject), normalize_surface(obj))))
+                if relation_direction in {"NON_DIRECTIONAL", "BIDIRECTIONAL"}
+                else (normalize_surface(subject), normalize_surface(obj))
             )
-            semantic_undirected = bool(
-                predicate == "INTERACTS_WITH"
-                or (predicate == "ASSOCIATED_WITH" and same_type)
-            )
-            endpoints = tuple(sorted((subject, object_name))) if (
-                semantic_undirected
-            ) else (
-                subject, object_name
-            )
-            # Endpoint types are deliberately absent: identical canonical
-            # mentions with competing Gene/Protein labels are one edge and the
-            # best-supported typed view is selected below.
-            key = (predicate, *endpoints)
-            groups.setdefault(key, []).append(item)
+            type_variants_by_untyped_edge.setdefault(
+                (predicate, relation_direction, *surfaces), set()
+            ).add((subject_type, object_type))
 
-        kept: list[tuple[int, dict, dict]] = []
+        superseded_versions = 0
+        for index, raw in enumerate(raw_relations):
+            relation = normalize_relation_semantics(raw)
+            checked = checked_for(index, relation)
+            if str(checked.get("factual_status", "VALID")).upper() == "REJECTED":
+                factual_discards.append({
+                    "candidate_id": relation.get("candidate_id", ""),
+                    "candidate_version": relation.get("candidate_version", 1),
+                    "reason_codes": list(checked.get("semantic_reasons", []) or []),
+                })
+                continue
+            candidate_id = str(relation.get("candidate_id", "") or "")
+            if (
+                candidate_id
+                and int(relation.get("candidate_version", 1) or 1)
+                < latest_version_by_lineage.get(candidate_id, 1)
+            ):
+                superseded_versions += 1
+                superseded_version_rows.append({
+                    "candidate_id": candidate_id,
+                    "candidate_version": int(relation.get("candidate_version", 1) or 1),
+                    "representative_candidate_id": candidate_id,
+                    "representative_candidate_version": latest_version_by_lineage[candidate_id],
+                })
+                continue
+            subject = canonical(str(checked.get("subject", relation.get("subject", "")) or ""))
+            obj = canonical(str(checked.get("object", relation.get("object", "")) or ""))
+            predicate = str(checked.get("predicate", relation.get("predicate", "")) or "").upper()
+            relation_direction = str(
+                checked.get("relation_direction", relation.get("relation_direction", "UNKNOWN"))
+                or "UNKNOWN"
+            ).upper()
+            subject_type = str(checked.get("subject_type", relation.get("subject_type", "")) or "")
+            object_type = str(checked.get("object_type", relation.get("object_type", "")) or "")
+            undirected = (
+                relation_direction in {"NON_DIRECTIONAL", "BIDIRECTIONAL"}
+                and schema_symmetric(predicate, subject_type, object_type)
+            )
+            untyped_surfaces = (
+                tuple(sorted((normalize_surface(subject), normalize_surface(obj))))
+                if relation_direction in {"NON_DIRECTIONAL", "BIDIRECTIONAL"}
+                else (normalize_surface(subject), normalize_surface(obj))
+            )
+            untyped_key = (predicate, relation_direction, *untyped_surfaces)
+            if len(type_variants_by_untyped_edge.get(untyped_key, set())) > 1:
+                digest = hashlib.sha1("|".join(map(str, untyped_key)).encode("utf-8")).hexdigest()[:12]
+                relation["type_conflict_group_id"] = f"tc-{digest}"
+                relation.setdefault("quality_flags", []).extend([
+                    "endpoint_type_conflict", "manual_review",
+                ])
+            endpoint_key = (
+                tuple(sorted((
+                    (normalize_surface(subject), subject_type),
+                    (normalize_surface(obj), object_type),
+                )))
+                if undirected else (
+                    (normalize_surface(subject), subject_type),
+                    (normalize_surface(obj), object_type),
+                )
+            )
+            groups.setdefault((predicate, relation_direction, *endpoint_key), []).append(
+                (index, relation, checked)
+            )
+
+        finalized: list[tuple[int, dict]] = []
         duplicate_count = 0
         orientation_changes = 0
         for items in groups.values():
-            items.sort(key=lambda item: (
-                not bool(item[2].get("import_ready")),
-                int(item[2].get("evidence_level", 3) or 3),
-                endpoint_type_rank(item[2], item[1], "subject"),
-                endpoint_type_rank(item[2], item[1], "object"),
-                "agent_recovered_relation" in set(item[2].get("quality_flags", []) or []),
-                len(item[2].get("quality_flags", []) or []),
-                len(str(item[1].get("evidence", "") or "")),
-                item[0],
-            ))
-            selected = items[0]
-            relation = copy.deepcopy(selected[1])
-            checked = selected[2]
-            predicate = str(checked.get("predicate", "") or relation.get("predicate", "")).upper()
-            same_type = str(checked.get("subject_type", relation.get("subject_type", ""))) == str(
-                checked.get("object_type", relation.get("object_type", ""))
-            )
-            semantic_undirected = bool(
-                predicate == "INTERACTS_WITH"
-                or (predicate == "ASSOCIATED_WITH" and same_type)
-            )
-            if semantic_undirected:
-                evidence = str(relation.get("evidence", "") or "")
-                subject_position = first_alias_position(
-                    evidence,
-                    canonical_endpoint(checked, relation, "subject"),
-                    str(relation.get("subject", "") or ""),
+            items.sort(key=variant_rank)
+            index, selected, checked = items[0]
+            relation = copy.deepcopy(selected)
+            relation["subject"] = canonical(str(checked.get("subject", relation.get("subject", "")) or ""))
+            relation["object"] = canonical(str(checked.get("object", relation.get("object", "")) or ""))
+            relation["subject_type"] = str(checked.get("subject_type", relation.get("subject_type", "")) or "")
+            relation["object_type"] = str(checked.get("object_type", relation.get("object_type", "")) or "")
+            relation["predicate"] = str(checked.get("predicate", relation.get("predicate", "")) or "").upper()
+
+            if (
+                str(relation.get("relation_direction", "UNKNOWN")).upper()
+                in {"NON_DIRECTIONAL", "BIDIRECTIONAL"}
+                and schema_symmetric(
+                    relation["predicate"], relation["subject_type"], relation["object_type"]
                 )
-                object_position = first_alias_position(
-                    evidence,
-                    canonical_endpoint(checked, relation, "object"),
-                    str(relation.get("object", "") or ""),
+            ):
+                evidence = str(relation.get("evidence", "") or "")
+                subject_position = first_mention_position(
+                    evidence, relation["subject"], str(selected.get("subject", "") or "")
+                )
+                object_position = first_mention_position(
+                    evidence, relation["object"], str(selected.get("object", "") or "")
                 )
                 if object_position < subject_position:
-                    relation["subject"], relation["object"] = (
-                        relation.get("object", ""), relation.get("subject", "")
-                    )
+                    relation["subject"], relation["object"] = relation["object"], relation["subject"]
                     relation["subject_type"], relation["object_type"] = (
-                        relation.get("object_type", ""), relation.get("subject_type", "")
+                        relation["object_type"], relation["subject_type"]
                     )
                     orientation_changes += 1
-            kept.append((selected[0], relation, checked))
+
+            evidence_candidates = []
+            evidence_spans = []
+            claim_instances = []
+            provenance = []
+            merged_ids = []
+            source_lanes = []
+            for _, variant, variant_checked in items:
+                merged_ids.extend([
+                    str(variant.get("candidate_id", "") or ""),
+                    *(str(item) for item in (variant.get("merged_candidate_ids", []) or [])),
+                    *(str(item) for item in (variant.get("source_candidate_ids", []) or [])),
+                ])
+                evidence_candidates.extend([
+                    str(variant.get("evidence", "") or ""),
+                    *(variant.get("evidence_candidates", []) or []),
+                ])
+                pack = variant_checked.get("evidence_pack", variant.get("evidence_pack", {})) or {}
+                evidence_spans.extend(pack.get("spans", []) or variant_checked.get("evidence_spans", []) or [])
+                variant_instances = variant.get("claim_instances", []) or [{
+                        "candidate_id": variant.get("candidate_id", ""),
+                        "candidate_version": variant.get("candidate_version", 1),
+                        "parent_candidate_id": variant.get("parent_candidate_id", ""),
+                        "parent_version": variant.get("parent_version", 0),
+                        "candidate_lane": variant.get("candidate_lane", "extracted_hint"),
+                        "subject": variant_checked.get("subject", variant.get("subject", "")),
+                        "subject_type": variant_checked.get("subject_type", variant.get("subject_type", "")),
+                        "predicate": variant_checked.get("predicate", variant.get("predicate", "")),
+                        "object": variant_checked.get("object", variant.get("object", "")),
+                        "object_type": variant_checked.get("object_type", variant.get("object_type", "")),
+                        "pair_candidate_id": variant.get("pair_candidate_id", ""),
+                        "source_candidate_ids": list(
+                            variant.get("source_candidate_ids", []) or []
+                        ),
+                        "claim_role": variant_checked.get("claim_role", variant.get("claim_role", "CURRENT_FINDING")),
+                        "semantic_status": variant_checked.get("semantic_status", "UNVERIFIED"),
+                        "factual_status": variant_checked.get("factual_status", "UNVERIFIED"),
+                        "write_status": variant_checked.get("write_status", "UNASSESSED"),
+                        "evidence": variant.get("evidence", ""),
+                        "evidence_pack": copy.deepcopy(pack),
+                        "support_mode": pack.get("support_mode", "UNRESOLVED"),
+                        "minimal_support_span_ids": list(
+                            pack.get("minimal_support_span_ids", []) or []
+                        ),
+                    }]
+                for raw_instance in variant_instances:
+                    instance = copy.deepcopy(raw_instance)
+                    instance.setdefault(
+                        "candidate_lane",
+                        variant.get("candidate_lane", "extracted_hint"),
+                    )
+                    instance.setdefault("subject", variant_checked.get(
+                        "subject", variant.get("subject", "")
+                    ))
+                    instance.setdefault("subject_type", variant_checked.get(
+                        "subject_type", variant.get("subject_type", "")
+                    ))
+                    instance.setdefault("predicate", variant_checked.get(
+                        "predicate", variant.get("predicate", "")
+                    ))
+                    instance.setdefault("object", variant_checked.get(
+                        "object", variant.get("object", "")
+                    ))
+                    instance.setdefault("object_type", variant_checked.get(
+                        "object_type", variant.get("object_type", "")
+                    ))
+                    instance.setdefault("claim_role", variant_checked.get(
+                        "claim_role", variant.get("claim_role", "CURRENT_FINDING")
+                    ))
+                    instance.setdefault("factual_status", variant_checked.get(
+                        "factual_status", "UNVERIFIED"
+                    ))
+                    instance.setdefault("semantic_status", variant_checked.get(
+                        "semantic_status", "UNVERIFIED"
+                    ))
+                    instance.setdefault("write_status", variant_checked.get(
+                        "write_status", "UNASSESSED"
+                    ))
+                    instance.setdefault("evidence_pack", copy.deepcopy(pack))
+                    claim_instances.append(instance)
+                source_lanes.extend([
+                    str(variant.get("candidate_lane", "extracted_hint") or "extracted_hint"),
+                    *(str(item) for item in variant.get("source_lanes", []) or []),
+                ])
+                provenance.extend(variant.get("provenance", []) or [])
+            relation["evidence_candidates"] = list(dict.fromkeys(
+                item.strip() for item in evidence_candidates if str(item).strip()
+            ))[:3]
+            if relation["evidence_candidates"]:
+                relation["evidence"] = relation["evidence_candidates"][0]
+            span_by_id = {
+                str(item.get("span_id", "") or f"{item.get('char_start', item.get('start', -1))}:{item.get('char_end', item.get('end', -1))}"): item
+                for item in evidence_spans if isinstance(item, dict)
+            }
+            relation["evidence_spans"] = list(span_by_id.values())[:3]
+            relation["claim_instances"] = claim_instances
+            relation["source_lanes"] = sorted(set(item for item in source_lanes if item))
+            relation["provenance"] = sorted(set(item for item in provenance if item))
+            relation["merged_candidate_ids"] = sorted(set(item for item in merged_ids if item))
+            finalized.append((index, relation))
             duplicate_count += max(0, len(items) - 1)
-        kept.sort(key=lambda item: item[0])
-        return [copy.deepcopy(item[1]) for item in kept], {
-            "rolled_back_count": len(rolled_back),
-            "rolled_back": rolled_back,
+
+        finalized.sort(key=lambda item: item[0])
+        return [item[1] for item in finalized], {
+            "rolled_back_count": 0,
+            "rolled_back": [],
+            "soft_flag_hard_reject_count": 0,
+            "factual_discard_count": len(factual_discards),
+            "factual_discards": factual_discards,
             "duplicate_relations_removed": duplicate_count,
             "symmetric_orientation_changes": orientation_changes,
+            "status_mutations": 0,
+            "superseded_versions_removed": superseded_versions,
+            "superseded_versions": superseded_version_rows,
         }
 
     @staticmethod
@@ -1021,26 +1303,28 @@ class CollaborativeExtractor:
             "usage_policy": rag_context.get("usage_policy", {}),
             "entity_contexts": (rag_context.get("entity_contexts", []) or [])[:6],
         }
-        return f"""你是医学知识图谱的精确优先关系裁判，不是抽取器。
+        return f"""你是医学关系候选的结构化语义裁判，不是自由抽取器。
 
 你只能审核下面已有的 candidate_id。禁止自由生成实体、端点、证据或谓词。必须为每个候选返回一个决定：
-- KEEP：原文直接支持当前谓词；
-- REJECT：只是共同出现、背景陈述、方法/预测、目标陈述、过度推断或证据不足；
+- KEEP：原文支持当前关系；背景、方法或预测仍可 KEEP，但必须用 claim_role 标明，后续写入门会独立阻断；
+- REJECT：端点间没有该关系，或原文在目标谓词作用域内明确反驳该关系；
 - CHANGE_PREDICATE：只能从该候选 allowed_predicates 中选择；
 - CHANGE_DIRECTION：只修正明确的方向；
 - CHANGE_EVIDENCE：只能选择给定 evidence_unit_id。
 - ADD_RELATION：仅限 candidate_kind=recovery；实体对和 evidence 已固定，new_predicate 必须从 allowed_predicates 选择；仅当原文方向相反时设置 swap_endpoints=true。
 
-关键硬负例：
+verdict 必须为 SUPPORTED、AMBIGUOUS、UNSUPPORTED 或 CONTRADICTED。关系真假、语义把握和主库写入资格彼此独立；你无权决定写入。
+
+关键语义边界：
 1. "potential target for diagnosis/treatment" 不等于 PROGNOSTIC_IN；
 2. 两个分子在同一句中表达改变，不等于 INTERACTS_WITH；
 3. 共同出现、同一列表或同一研究背景，不等于 ASSOCIATED_WITH；
-4. 数据库筛选、富集、docking、预测关系不是当前文章实验事实；
-5. 综述中的背景知识不能冒充本文新发现。
+4. 数据库筛选、富集、docking、预测关系应标为 PREDICTION/METHOD，不得冒充本文实验发现，但若文本确实陈述该关系可判 SUPPORTED；
+5. 综述背景知识应标为 BACKGROUND，不得冒充本文新发现，但 claim_role 不决定关系真假。
 
 recovery 候选只是“同一证据单元内的类型合法实体对”，共同出现本身不构成关系；
 只有原文明确触发 allowed_predicates 中某个关系时才 ADD_RELATION，否则 REJECT。
-如果不确定，REJECT。不要补充候选。输出严格 JSON。
+如果文本存在支持但谓词或指代仍有歧义，返回 AMBIGUOUS，而不是删除候选。每个决定同时返回 candidate_id、candidate_version、四类方向字段、claim_role 和 supporting_span_ids。不要补充候选。输出严格 JSON。
 
 PMID: {pmid}
 触发原因: {json.dumps(reasons, ensure_ascii=False)}

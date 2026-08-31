@@ -102,6 +102,71 @@ class MainKGWriteContractTests(unittest.TestCase):
         )
         self.assertEqual(action.type, "CREATE_RELATION")
 
+    def test_unresolved_gene_protein_endpoint_ambiguity_requires_review(self):
+        text = (
+            "TITLE: OTUD5 and MAVS\n"
+            "ABSTRACT: RESULTS: OTUD5 interacted with MAVS in patient macrophages."
+        )
+        verified = self.verifier().verify(
+            [
+                entity("OTUD5", "Gene"),
+                entity("OTUD5", "Protein"),
+                entity("MAVS", "Protein"),
+            ],
+            [relation(
+                subject="OTUD5",
+                subject_type="Protein",
+                predicate="INTERACTS_WITH",
+                object="MAVS",
+                object_type="Protein",
+                evidence="OTUD5 interacted with MAVS in patient macrophages.",
+                direction="none",
+            )],
+            pmid="type-ambiguity",
+            text=text,
+        )
+        checked = verified.relations[0]
+
+        self.assertTrue(checked.candidate_schema_valid)
+        self.assertTrue(checked.write_contract_valid)
+        self.assertEqual(checked.factual_status, "REVIEW")
+        self.assertEqual(checked.semantic_status, "REVIEW")
+        self.assertEqual(checked.write_status, "HUMAN_REVIEW")
+        self.assertFalse(checked.import_ready)
+        self.assertIn("endpoint_type_ambiguous", checked.quality_flags)
+
+    def test_normalized_protein_endpoint_resolves_gene_protein_surface_overlap(self):
+        text = (
+            "TITLE: OTUD5 and MAVS\n"
+            "ABSTRACT: RESULTS: OTUD5 interacted with MAVS in patient macrophages."
+        )
+        gene = entity("OTUD5", "Gene")
+        gene["attributes"]["normalized_id"] = "NCBIGene:29952"
+        protein = entity("OTUD5", "Protein")
+        protein["attributes"]["normalized_id"] = "UniProt:Q8N6M9"
+        mavs = entity("MAVS", "Protein")
+        mavs["attributes"]["normalized_id"] = "UniProt:Q7Z434"
+        verified = self.verifier().verify(
+            [gene, protein, mavs],
+            [relation(
+                subject="OTUD5",
+                subject_type="Protein",
+                predicate="INTERACTS_WITH",
+                object="MAVS",
+                object_type="Protein",
+                evidence="OTUD5 interacted with MAVS in patient macrophages.",
+                direction="none",
+            )],
+            pmid="type-resolved",
+            text=text,
+        )
+        checked = verified.relations[0]
+
+        self.assertEqual(checked.factual_status, "VALID")
+        self.assertEqual(checked.write_status, "IMPORT_READY")
+        self.assertTrue(checked.import_ready)
+        self.assertNotIn("endpoint_type_ambiguous", checked.quality_flags)
+
     def test_low_level_writer_rejects_candidate_only_typed_edge(self):
         memory = object.__new__(KGMemory)
         memory._driver = object()

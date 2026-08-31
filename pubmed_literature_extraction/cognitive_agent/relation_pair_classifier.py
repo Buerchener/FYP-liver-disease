@@ -29,6 +29,9 @@ from cognitive_agent.extraction_quality import (
     predicate_trigger_links_endpoints,
 )
 from cognitive_agent.rule_memory import RuleMatch, RuleMemory
+from cognitive_agent.relation_contract import stable_candidate_id
+from cognitive_agent.candidate_lineage import LINEAGE_CONTRACT_VERSION, normalize_lineage
+from cognitive_agent.schema.predicate_cards import PREDICATE_TRIGGERS, predicate_support_match
 from cognitive_agent.schema.relation_signatures import RELATION_SIGNATURES
 
 
@@ -59,42 +62,10 @@ LIGHT_COREFERENCE_RE = re.compile(
     re.IGNORECASE,
 )
 
-# Predicate definitions serve two purposes: local fallback classification and
-# ontology-constrained predicate retrieval.  The latter avoids asking a model
-# to score every relation label for every entity pair.
-PREDICATE_PATTERNS: dict[str, tuple[str, ...]] = {
-    "ENCODES": (r"\bencod(?:e|es|ed|ing)\b", r"\bprotein product\b"),
-    "PROGNOSTIC_IN": (
-        r"\bprognos(?:is|tic)\b", r"\bsurvival\b", r"\brecurren(?:ce|t)\b",
-        r"\bpredict(?:s|ed|ive|or)?\b.{0,45}\b(?:outcome|mortality|survival)\b",
-    ),
-    "PROGRESSES_TO": (r"\bprogress(?:es|ed|ion)?\s+(?:in)?to\b", r"\bevolv(?:e|es|ed)\s+into\b"),
-    "INTERACTS_WITH": (
-        r"\binteract(?:s|ed|ion)?\s+with\b", r"\bbind(?:s|ing|bound)?\s+(?:to|with)\b",
-        r"\bcomplex(?:es)?\s+with\b", r"\bcross[- ]?talk\b",
-        r"\bcell(?:ular)?[- ]cell communication\b", r"\bjuxtapos\w*\b",
-    ),
-    "PARTICIPATES_IN": (
-        r"\bparticipat(?:e|es|ed|ing)\s+in\b", r"\b(?:regulat|mediat|activat|inhibit)(?:e|es|ed|ing|ion)?\b",
-        r"\b(?:component|member)\s+of\b",
-    ),
-    "EXPRESSED_IN": (
-        r"\bexpress(?:ed|ion|es|ing)?\s+(?:in|by|within)\b",
-        r"\b(?:high|low)?\s*expression\s+of\b.{0,100}\b(?:in|within)\b",
-        r"\bsource\s+of\b",
-        r"\blocali[sz](?:e|ed|ation)\s+(?:in|to)\b",
-    ),
-    "ASSOCIATED_WITH_METABOLITE": (
-        r"\b(?:metabolic|metabolite)\s+association\b", r"\bassociated\s+with\b",
-        r"\bcorrelat(?:e|es|ed|ion)\s+with\b",
-    ),
-    "ASSOCIATED_WITH": (
-        r"\bassociated\s+with\b", r"\bassociation\s+(?:between|with)\b",
-        r"\bcorrelat(?:e|es|ed|ion)\s+with\b", r"\blinked\s+to\b",
-        r"\bclosely\s+linked\s+to\b", r"\brelated\s+to\b",
-        r"\b(?:increase|decrease)d?\b.{0,35}\bin\b",
-    ),
-}
+# The pair classifier consumes the same canonical trigger inventory as the
+# verifier and adjudicators.  Predicate-specific boundary notes live in the
+# relation-card registry rather than in this module.
+PREDICATE_PATTERNS = PREDICATE_TRIGGERS
 
 NEGATION_RE = re.compile(r"\b(?:no|not|neither|without|failed to|did not)\b", re.IGNORECASE)
 HEDGE_RE = re.compile(r"\b(?:may|might|could|possibly|potential|suggests?|predicted|putative)\b", re.IGNORECASE)
@@ -119,11 +90,14 @@ class PairClassifierConfig:
     include_adjacent_windows: bool = True
     adjacent_windows_require_trigger: bool = True
     max_incomplete_evidence_candidates: int = 12
+    max_recovery_candidates: int = 24
+    max_recovery_per_owner_sentence: int = 6
 
 
 @dataclass
 class RelationPairCandidate:
     candidate_id: str
+    pair_candidate_id: str
     subject: str
     subject_type: str
     object: str
@@ -136,6 +110,9 @@ class RelationPairCandidate:
     evidence_char_end: int
     source_predicates: list[str] = field(default_factory=list)
     source_directions: list[str] = field(default_factory=list)
+    source_candidate_ids: list[str] = field(default_factory=list)
+    owner_sentence_ids: list[str] = field(default_factory=list)
+    context_sentence_ids: list[str] = field(default_factory=list)
     same_sentence: bool = True
     endpoint_distance: int = -1
     evidence_confidence: float = 0.0
@@ -143,6 +120,14 @@ class RelationPairCandidate:
     evidence_trigger_predicate: str = ""
     claim_role: str = "CURRENT_FINDING"
     quality_flags: list[str] = field(default_factory=list)
+    lineage_contract_version: str = LINEAGE_CONTRACT_VERSION
+    candidate_version: int = 1
+    parent_candidate_id: str = ""
+    parent_version: int = 0
+    candidate_lane: str = ""
+    source_lanes: list[str] = field(default_factory=list)
+    merged_candidate_ids: list[str] = field(default_factory=list)
+    edit_reason_code: str = ""
 
     def to_dict(self) -> dict:
         return {key: value for key, value in self.__dict__.items()}
@@ -164,6 +149,7 @@ class PairPrediction:
     evidence_confidence: float = 0.0
     rule_score_delta: float = 0.0
     rule_matches: list[dict] = field(default_factory=list)
+    candidate_version: int = 1
 
     def to_dict(self) -> dict:
         return {key: value for key, value in self.__dict__.items()}
@@ -179,11 +165,15 @@ class PairClassificationResult:
     low_confidence_relations: list[dict] = field(default_factory=list)
     out_of_scope_relations: list[dict] = field(default_factory=list)
     truncated_candidates: int = 0
+    hint_candidate_count: int = 0
+    explicit_recovery_candidate_count: int = 0
+    non_explicit_filtered_pair_count: int = 0
+    budget_truncated_pair_count: int = 0
     fallback_reason: str = ""
 
     def to_dict(self) -> dict:
         relation_predictions = [p for p in self.predictions if p.label != NO_RELATION]
-        return {
+        relation = {
             "mode": self.mode,
             "backend": self.backend,
             "candidate_count": len(self.candidates),
@@ -196,11 +186,16 @@ class PairClassificationResult:
                 len(self.low_confidence_relations) / max(len(self.candidates), 1), 4
             ),
             "truncated_candidates": self.truncated_candidates,
+            "hint_candidate_count": self.hint_candidate_count,
+            "explicit_recovery_candidate_count": self.explicit_recovery_candidate_count,
+            "non_explicit_filtered_pair_count": self.non_explicit_filtered_pair_count,
+            "budget_truncated_pair_count": self.budget_truncated_pair_count,
             "fallback_reason": self.fallback_reason,
             "candidates": [item.to_dict() for item in self.candidates],
             "predictions": [item.to_dict() for item in self.predictions],
             "out_of_scope_relations": list(self.out_of_scope_relations),
         }
+        return relation
 
 
 class PairPredictionBackend(Protocol):
@@ -384,6 +379,7 @@ class BioREDPairClassifier:
         self.evidence_selector = evidence_selector or EvidenceSelector()
         self.evidence_selector_enabled = bool(evidence_selector_enabled)
         self.rule_memory = rule_memory
+        self._last_candidate_stats: dict[str, int] = {}
         if self.config.mode not in {"off", "shadow", "active"}:
             raise ValueError("pair classifier mode must be off, shadow, or active")
 
@@ -785,35 +781,76 @@ class BioREDPairClassifier:
                 quality_flags.extend(["trigger_attachment_ambiguous", "manual_review"])
             if cross_sentence and LIGHT_COREFERENCE_RE.search(window.text):
                 quality_flags.append("light_coreference_window")
-            candidates.append(RelationPairCandidate(
-                candidate_id=row["candidate_id"],
-                subject=str(subject.get("mention", "")), subject_type=row["subject_type"],
-                object=str(obj.get("mention", "")), object_type=row["object_type"],
-                allowed_predicates=row["allowed"],
-                evidence=evidence_text,
-                evidence_unit_id=evidence_unit_id,
-                evidence_section=evidence_section,
-                evidence_char_start=evidence_start,
-                evidence_char_end=evidence_end,
-                source_predicates=list(dict.fromkeys(
-                    str(item.get("predicate", "")).upper() for item in row["pair_hints"]
-                    if str(item.get("predicate", "")).upper() in row["allowed"]
-                )),
-                source_directions=list(dict.fromkeys(
-                    str(item.get("direction", "unknown")) for item in row["pair_hints"]
-                )),
-                same_sentence=not cross_sentence,
-                endpoint_distance=max(
-                    0, max(subject_span[0], object_span[0]) - min(subject_span[1], object_span[1])
-                ),
-                evidence_confidence=evidence_confidence,
-                evidence_entailment=evidence_entailment,
-                evidence_trigger_predicate=evidence_trigger_predicate,
-                claim_role=self._infer_claim_role(
-                    evidence_text, evidence_section, source_text,
-                ),
-                quality_flags=quality_flags,
-            ))
+            # A pair-classifier row is shared provenance, not a replacement
+            # identity.  Emit one candidate per extracted hint lineage; only
+            # the recovery lane owns the pair hash as its candidate ID.
+            candidate_hints: list[dict | None] = list(row["pair_hints"]) or [None]
+            for source_hint in candidate_hints:
+                source_id = ""
+                source_predicates: list[str] = []
+                source_directions: list[str] = []
+                owner_sentence_ids: list[str] = []
+                context_sentence_ids: list[str] = []
+                if source_hint is not None:
+                    source_id = str(source_hint.get("candidate_id", "") or stable_candidate_id(
+                        source_hint, lane="extracted_hint",
+                    ))
+                    source_predicate = str(source_hint.get("predicate", "") or "").upper()
+                    if source_predicate in row["allowed"]:
+                        source_predicates = [source_predicate]
+                    source_directions = [
+                        str(source_hint.get("direction", "unknown") or "unknown")
+                    ]
+                    owner_sentence_ids = list(
+                        source_hint.get("owner_sentence_ids", []) or []
+                    )
+                    context_sentence_ids = list(
+                        source_hint.get("context_sentence_ids", []) or []
+                    )
+                recovery_id = "r-" + hashlib.sha1("|".join((
+                    normalize_surface(subject.get("mention", "")), row["subject_type"],
+                    normalize_surface(obj.get("mention", "")), row["object_type"],
+                    str(evidence_unit_id or ""),
+                )).encode("utf-8")).hexdigest()[:16]
+                candidates.append(RelationPairCandidate(
+                    candidate_id=source_id or recovery_id,
+                    pair_candidate_id=row["candidate_id"],
+                    subject=str(subject.get("mention", "")), subject_type=row["subject_type"],
+                    object=str(obj.get("mention", "")), object_type=row["object_type"],
+                    allowed_predicates=row["allowed"],
+                    evidence=evidence_text,
+                    evidence_unit_id=evidence_unit_id,
+                    evidence_section=evidence_section,
+                    evidence_char_start=evidence_start,
+                    evidence_char_end=evidence_end,
+                    source_predicates=source_predicates,
+                    source_directions=source_directions,
+                    source_candidate_ids=[source_id] if source_id else [],
+                    candidate_version=max(1, int(
+                        (source_hint or {}).get("candidate_version", 1) or 1
+                    )),
+                    parent_candidate_id=str(
+                        (source_hint or {}).get("parent_candidate_id", "") or ""
+                    ),
+                    parent_version=max(0, int(
+                        (source_hint or {}).get("parent_version", 0) or 0
+                    )),
+                    candidate_lane=("extracted_hint" if source_id else "recovery"),
+                    source_lanes=["extracted_hint" if source_id else "recovery"],
+                    owner_sentence_ids=owner_sentence_ids,
+                    context_sentence_ids=context_sentence_ids,
+                    same_sentence=not cross_sentence,
+                    endpoint_distance=max(
+                        0, max(subject_span[0], object_span[0]) - min(subject_span[1], object_span[1])
+                    ),
+                    evidence_confidence=evidence_confidence,
+                    evidence_entailment=evidence_entailment,
+                    evidence_trigger_predicate=evidence_trigger_predicate,
+                    claim_role=self._infer_claim_role(
+                        evidence_text, evidence_section, source_text,
+                    ),
+                    quality_flags=quality_flags,
+                ))
 
         # Review fallback for extractor-proposed relations whose quote is an
         # exact source span but covers only one local endpoint.  Both typed
@@ -866,7 +903,10 @@ class BioREDPairClassifier:
                 digest = hashlib.sha1("|".join(pair_key).encode("utf-8")).hexdigest()[:10]
                 missing_side = "object" if subject_present else "subject"
                 fallback_candidates.append(RelationPairCandidate(
-                    candidate_id=f"p-{digest}",
+                    candidate_id=str(hint.get("candidate_id", "") or stable_candidate_id(
+                        hint, lane="extracted_hint",
+                    )),
+                    pair_candidate_id=f"p-{digest}",
                     subject=str(subject.get("mention", "")),
                     subject_type=pair_key[1],
                     object=str(obj.get("mention", "")),
@@ -879,6 +919,16 @@ class BioREDPairClassifier:
                     evidence_char_end=end,
                     source_predicates=[predicate],
                     source_directions=[str(hint.get("direction", "unknown") or "unknown")],
+                    source_candidate_ids=[str(hint.get("candidate_id", "") or stable_candidate_id(
+                        hint, lane="extracted_hint",
+                    ))],
+                    candidate_version=max(1, int(hint.get("candidate_version", 1) or 1)),
+                    parent_candidate_id=str(hint.get("parent_candidate_id", "") or ""),
+                    parent_version=max(0, int(hint.get("parent_version", 0) or 0)),
+                    candidate_lane="extracted_hint",
+                    source_lanes=["extracted_hint"],
+                    owner_sentence_ids=list(hint.get("owner_sentence_ids", []) or []),
+                    context_sentence_ids=list(hint.get("context_sentence_ids", []) or []),
                     same_sentence=True,
                     endpoint_distance=-1,
                     evidence_confidence=0.2,
@@ -913,8 +963,52 @@ class BioREDPairClassifier:
             item.endpoint_distance if item.endpoint_distance >= 0 else 10_000,
             item.candidate_id,
         ))
-        truncated = max(0, len(candidates) - self.config.max_candidates)
-        return candidates[: self.config.max_candidates], truncated
+        hinted = [item for item in candidates if item.source_predicates]
+        recovery: list[RelationPairCandidate] = []
+        recovery_by_owner: dict[str, int] = {}
+        unhinted_count = sum(not item.source_predicates for item in candidates)
+        explicit_recovery_count = 0
+        for item in candidates:
+            if item.source_predicates:
+                continue
+            explicit_predicates = [
+                predicate for predicate in item.allowed_predicates
+                if (
+                    item.evidence_trigger_predicate == predicate
+                    or predicate_support_match(
+                        predicate,
+                        item.subject_type,
+                        item.object_type,
+                        item.evidence,
+                        subject_aliases=[item.subject],
+                        object_aliases=[item.object],
+                    ).get("match") == "EXPLICIT"
+                )
+            ]
+            # Recovery is not a generic co-occurrence lane.  It starts only
+            # from an owner-local, predicate-specific explicit assertion.
+            if not explicit_predicates:
+                continue
+            explicit_recovery_count += 1
+            item.allowed_predicates = explicit_predicates
+            if not item.evidence_trigger_predicate:
+                item.evidence_trigger_predicate = explicit_predicates[0]
+            owner = str(item.evidence_unit_id or "unknown")
+            if recovery_by_owner.get(owner, 0) >= self.config.max_recovery_per_owner_sentence:
+                continue
+            recovery.append(item)
+            recovery_by_owner[owner] = recovery_by_owner.get(owner, 0) + 1
+            if len(recovery) >= self.config.max_recovery_candidates:
+                break
+        selected = hinted + recovery
+        budget_truncated = max(0, explicit_recovery_count - len(recovery))
+        self._last_candidate_stats = {
+            "hint_candidate_count": len(hinted),
+            "explicit_recovery_candidate_count": explicit_recovery_count,
+            "non_explicit_filtered_pair_count": max(0, unhinted_count - explicit_recovery_count),
+            "budget_truncated_pair_count": budget_truncated,
+        }
+        return selected, budget_truncated
 
     @staticmethod
     def _as_relation(candidate: RelationPairCandidate, prediction: PairPrediction) -> dict:
@@ -925,7 +1019,7 @@ class BioREDPairClassifier:
             flags.extend(["pair_low_confidence", "manual_review"])
         if len([value for value in prediction.predicate_scores.values() if value >= 0.45]) > 1:
             flags.append("pair_ambiguous_predicate")
-        return {
+        relation = {
             "subject": candidate.subject,
             "subject_type": candidate.subject_type,
             "predicate": prediction.label,
@@ -938,6 +1032,18 @@ class BioREDPairClassifier:
             "evidence_unit_id": candidate.evidence_unit_id,
             "evidence_role": candidate.evidence_section,
             "candidate_id": candidate.candidate_id,
+            "pair_candidate_id": candidate.pair_candidate_id,
+            "source_candidate_ids": list(candidate.source_candidate_ids),
+            "owner_sentence_ids": list(candidate.owner_sentence_ids),
+            "context_sentence_ids": list(candidate.context_sentence_ids),
+            "lineage_contract_version": candidate.lineage_contract_version,
+            "candidate_version": candidate.candidate_version,
+            "parent_candidate_id": candidate.parent_candidate_id,
+            "parent_version": candidate.parent_version,
+            "candidate_lane": candidate.candidate_lane,
+            "source_lanes": list(candidate.source_lanes),
+            "merged_candidate_ids": list(candidate.merged_candidate_ids),
+            "edit_reason_code": candidate.edit_reason_code,
             "classifier_source": prediction.backend,
             "classifier_confidence": prediction.confidence,
             "relation_probability": prediction.relation_probability,
@@ -953,6 +1059,7 @@ class BioREDPairClassifier:
             "claim_role": candidate.claim_role,
             "quality_flags": sorted(set(flags)),
         }
+        return normalize_lineage(relation, lane=candidate.candidate_lane)
 
     def _apply_rule_priors(
         self, candidate: RelationPairCandidate, prediction: PairPrediction,
@@ -1018,6 +1125,8 @@ class BioREDPairClassifier:
         candidates, truncated = self.build_candidates(entities, relations, units, source_text)
         result.candidates = candidates
         result.truncated_candidates = truncated
+        for key, value in self._last_candidate_stats.items():
+            setattr(result, key, int(value or 0))
         predictions = (
             self.backend.predict_many(candidates)
             if hasattr(self.backend, "predict_many")
@@ -1092,7 +1201,10 @@ class BioREDPairClassifier:
                 ]))
                 result.out_of_scope_relations.append(relation)
                 continue
-            if prediction.relation_probability >= self.config.relation_threshold:
+            if (
+                prediction.relation_probability >= self.config.relation_threshold
+                and not prediction.routed_to_llm
+            ):
                 result.accepted_relations.append(relation)
             if prediction.routed_to_llm:
                 result.low_confidence_relations.append(relation)

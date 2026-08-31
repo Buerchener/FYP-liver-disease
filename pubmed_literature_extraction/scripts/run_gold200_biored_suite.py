@@ -150,6 +150,10 @@ def preflight(cfg) -> dict[str, Any]:
             temperature=0,
             max_workers=1,
             use_schema_constraints=False,
+            # Compatible Gemini proxies may wrap otherwise valid JSON in a
+            # single markdown fence.  Production ExtractionKernel accepts both
+            # fenced and raw objects, so the canary must exercise the same path.
+            fence_output=True,
             show_progress=False,
             extraction_passes=1,
             max_char_buffer=4000,

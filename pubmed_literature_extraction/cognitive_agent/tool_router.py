@@ -12,6 +12,7 @@ import re
 from dataclasses import dataclass, field
 
 from cognitive_agent.hybrid_article_profiler import HybridProfile, rule_profile
+from cognitive_agent.relation_contract import verification_policy as get_verification_policy
 
 
 CALL = "CALL"
@@ -230,8 +231,17 @@ class ArticleToolRouter:
         r"fibrosis|hepatitis|hepatocellular carcinoma|liver cancer)\b"
     )
 
-    def __init__(self, enabled: bool = True):
+    def __init__(self, enabled: bool = True, verification_policy: str = "legacy"):
         self.enabled = enabled
+        self.verification_policy = get_verification_policy(verification_policy)
+
+    def _factual_rejected(self, relation: dict) -> bool:
+        status = str(relation.get("factual_status", "") or "").upper()
+        if status:
+            return status == "REJECTED"
+        return bool(self.verification_policy.hard_reject_reasons(
+            set(relation.get("quality_flags", []) or [])
+        ))
 
     @staticmethod
     def _evidence_fields(posture: str) -> tuple[str, str, str]:
@@ -828,18 +838,13 @@ class ArticleToolRouter:
         has_endpoint_issue = any(endpoint_flags & set(item.get("quality_flags", [])) for item in relations)
         has_schema_issue = any("schema_mismatch" in item.get("quality_flags", []) for item in relations)
         has_evidence_issue = any(evidence_flags & set(item.get("quality_flags", [])) for item in relations)
-        semantic_hard_blockers = {
-            "schema_mismatch", "negated", "scoped_negation", "evidence_contradicted",
-            "subject_endpoint_missing", "object_endpoint_missing", "empty_evidence",
-            "filtered_endpoint", "unresolved_endpoint",
-        }
         # Semantic uncertainty (weak trigger heuristics, hedging, judge
         # uncertainty, high-risk predicates) is exactly what the bounded
         # second model is for.  Deterministic hard blockers stay local.
         reviewable_relations = [
             item for item in relations
             if item.get("schema_valid", True)
-            and not (set(item.get("quality_flags", [])) & semantic_hard_blockers)
+            and not self._factual_rejected(item)
             and (
                 bool(set(item.get("quality_flags", [])) & {
                     "trigger_missing", "trigger_not_linking_endpoints",
@@ -958,11 +963,6 @@ class ArticleToolRouter:
         parse_failed = any("parse" in str(item).casefold() for item in warnings)
         extraction_failed = bool(extraction.get("error"))
         all_flags = [set(item.get("quality_flags", []) or []) for item in relations]
-        hard_flags = {
-            "schema_mismatch", "negated", "scoped_negation", "evidence_contradicted",
-            "empty_evidence", "subject_endpoint_missing", "object_endpoint_missing",
-            "filtered_endpoint", "unresolved_endpoint",
-        }
         semantic_flags = {
             "trigger_missing", "trigger_not_linking_endpoints", "trigger_direction_mismatch",
             "weak_evidence", "uncertain", "pair_low_confidence",
@@ -972,7 +972,10 @@ class ArticleToolRouter:
             "subject_endpoint_missing", "object_endpoint_missing", "unresolved_endpoint",
             "ambiguous_endpoint", "subject_ambiguous", "object_ambiguous",
         }
-        hard_count = sum(bool(flags & hard_flags) for flags in all_flags)
+        hard_count = sum(
+            self._factual_rejected(item)
+            for item in relations
+        )
         semantic_count = sum(bool(flags & semantic_flags) for flags in all_flags)
         linking_count = sum(bool(flags & linking_flags) for flags in all_flags)
         invalid_count = sum(not bool(item.get("schema_valid", True)) for item in relations)
@@ -1065,18 +1068,14 @@ class ArticleToolRouter:
             "weak_evidence", "uncertain", "pair_low_confidence",
             "pair_ambiguous_predicate", "judge_uncertain", "judge_verifier_conflict",
         }
-        hard_flags = {
-            "schema_mismatch", "negated", "scoped_negation", "evidence_contradicted",
-            "subject_endpoint_missing", "object_endpoint_missing", "empty_evidence",
-            "filtered_endpoint", "unresolved_endpoint",
-        }
         # Deterministic hard blockers never reach the second model.  Semantic
         # uncertainty (weak trigger heuristics, hedging, judge uncertainty,
         # high-risk predicates) always may: starving the adjudicator turned
         # out to cost far more precision than the calls it saved.
         reviewable = [
             item for item, flags in zip(relations, relation_flags)
-            if item.get("schema_valid", True) and not (flags & hard_flags)
+            if item.get("schema_valid", True)
+            and not self._factual_rejected(item)
             and (
                 flags & semantic_flags
                 or item.get("predicate") in {
@@ -1110,14 +1109,11 @@ class ArticleToolRouter:
             "ambiguous_endpoint", "subject_ambiguous", "object_ambiguous", "type_ambiguous",
         }) for flags in relation_flags)
         import_ready = [item for item in relations if item.get("import_ready")]
-        all_hard_blocked = bool(relations) and all(bool(flags & hard_flags) for flags in relation_flags)
-        repairable_linking_flags = {
-            "ambiguous_endpoint", "subject_ambiguous", "object_ambiguous", "type_ambiguous",
-        }
-        non_linking_hard_flags = hard_flags - repairable_linking_flags
-        all_non_linking_hard_blocked = bool(relations) and all(
-            bool(flags & non_linking_hard_flags) for flags in relation_flags
+        all_hard_blocked = bool(relations) and all(
+            self._factual_rejected(item)
+            for item in relations
         )
+        all_non_linking_hard_blocked = all_hard_blocked
         extraction_failed = bool(extraction.get("error"))
         parse_failed = any(
             "parse" in str(item).casefold()
@@ -1195,7 +1191,10 @@ class ArticleToolRouter:
             "entity_count": len(entities),
             "relation_count": len(relations),
             "import_ready_count": len(import_ready),
-            "hard_blocked_count": sum(bool(flags & hard_flags) for flags in relation_flags),
+            "hard_blocked_count": sum(
+                self._factual_rejected(item)
+                for item in relations
+            ),
             "all_hard_blocked": all_hard_blocked,
             "semantic_reviewable_count": len(reviewable),
             "recovery_candidate_count": recovery_candidate_count,

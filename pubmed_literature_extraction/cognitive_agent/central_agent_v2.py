@@ -15,7 +15,8 @@ import time
 from dataclasses import dataclass, field
 from typing import Any
 
-from cognitive_agent.relation_contract import SEMANTIC_REJECT_FLAGS
+from cognitive_agent.relation_contract import verification_policy as get_verification_policy
+from cognitive_agent.remote_execution import RemoteExecutionLedger
 
 
 ROUTE_ORDER = {"FAST": 0, "STANDARD": 1, "DEEP": 2}
@@ -25,7 +26,6 @@ ROUTE_BUDGETS = {
     "DEEP": {"max_actions": 28, "max_aux_remote_calls": 6, "max_neo4j_calls": 6, "soft_timeout_s": 120.0},
 }
 
-HARD_RELATION_FLAGS = SEMANTIC_REJECT_FLAGS
 REVIEWABLE_FLAGS = frozenset({
     "trigger_missing", "trigger_not_linking_endpoints", "trigger_direction_mismatch",
     "weak_evidence", "uncertain", "pair_low_confidence", "pair_ambiguous_predicate",
@@ -39,11 +39,13 @@ class AgentBudget:
     profile: str = "quality"
     max_actions: int = 12
     max_aux_remote_calls: int = 2
+    max_physical_remote_attempts: int = 4
     max_neo4j_calls: int = 2
     soft_timeout_s: float = 30.0
     hard_timeout_s: float = 180.0
     hard_max_actions: int = 40
     hard_max_aux_remote_calls: int = 8
+    hard_max_physical_remote_attempts: int = 16
     hard_max_neo4j_calls: int = 8
 
     def to_dict(self) -> dict:
@@ -67,6 +69,16 @@ class AgentActionTrace:
     prompt_tokens: int = 0
     output_tokens: int = 0
     result_status: str = ""
+    request_id: str = ""
+    stage: str = ""
+    round: int = 0
+    batch: str = ""
+    logical_step: int = 0
+    physical_attempts: int = 0
+    cache_replayed: bool = False
+    blocked_kind: str = ""
+    decision_at: float = 0.0
+    completed_at: float = 0.0
     details: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
@@ -124,6 +136,7 @@ class ArticleAgentState:
     termination_reason: str = ""
     terminal_status: str = "running"
     fingerprints_seen: set[str] = field(default_factory=set, repr=False)
+    remote_execution: RemoteExecutionLedger | None = field(default=None, repr=False)
 
     @property
     def elapsed_s(self) -> float:
@@ -131,6 +144,14 @@ class ArticleAgentState:
 
     @property
     def aux_remote_calls(self) -> int:
+        if self.remote_execution is not None:
+            return self.remote_execution.logical_aux_steps
+        return sum(item.attempted for item in self.remote_usage.values())
+
+    @property
+    def physical_remote_attempts(self) -> int:
+        if self.remote_execution is not None:
+            return self.remote_execution.physical_remote_attempts
         return sum(item.attempted for item in self.remote_usage.values())
 
     @property
@@ -157,6 +178,9 @@ class ArticleAgentState:
             "budget_escalations": self.budget_escalations,
             "action_trace": [item.to_dict() for item in self.action_trace],
             "remote_usage": {key: value.to_dict() for key, value in self.remote_usage.items()},
+            "remote_execution": (
+                self.remote_execution.to_dict() if self.remote_execution is not None else {}
+            ),
             "cache": self.cache,
             "state_summary": {
                 "entity_count": len(self.entities),
@@ -178,6 +202,8 @@ class ArticleAgentState:
                 "elapsed_s": round(self.elapsed_s, 4),
                 "action_count": len(self.action_trace),
                 "aux_remote_calls": self.aux_remote_calls,
+                "logical_aux_steps": self.aux_remote_calls,
+                "physical_remote_attempts": self.physical_remote_attempts,
                 "neo4j_calls": self.neo4j_calls,
             },
         }
@@ -191,7 +217,9 @@ class CentralAgentV2:
 
     def __init__(
         self, *, execution_mode: str = "legacy", budget_profile: str = "quality",
+        verification_policy: str = "legacy",
         max_actions: int = 0, max_aux_remote_calls: int = 0,
+        max_physical_remote_attempts: int = 0,
         max_neo4j_calls: int = 0, soft_timeout_s: float = 0.0,
         hard_timeout_s: float = 180.0,
     ):
@@ -201,9 +229,11 @@ class CentralAgentV2:
             raise ValueError(f"agent budget profile must be one of {sorted(self.VALID_PROFILES)}")
         self.execution_mode = execution_mode
         self.budget_profile = budget_profile
+        self.verification_policy = get_verification_policy(verification_policy)
         self.overrides = {
             "max_actions": max(0, int(max_actions)),
             "max_aux_remote_calls": max(0, int(max_aux_remote_calls)),
+            "max_physical_remote_attempts": max(0, int(max_physical_remote_attempts)),
             "max_neo4j_calls": max(0, int(max_neo4j_calls)),
             "soft_timeout_s": max(0.0, float(soft_timeout_s)),
             "hard_timeout_s": max(1.0, float(hard_timeout_s)),
@@ -230,6 +260,10 @@ class CentralAgentV2:
         for key in ("max_actions", "max_aux_remote_calls", "max_neo4j_calls", "soft_timeout_s"):
             if self.overrides[key] > 0:
                 values[key] = self.overrides[key]
+        logical_limit = int(values["max_aux_remote_calls"])
+        values["max_physical_remote_attempts"] = (
+            self.overrides["max_physical_remote_attempts"] or logical_limit * 2
+        )
         return AgentBudget(
             route=route,
             profile=self.budget_profile,
@@ -245,18 +279,29 @@ class CentralAgentV2:
             pmid=str(pmid), execution_mode=self.execution_mode,
             route=budget.route, budget=budget,
         )
+        state.remote_execution = RemoteExecutionLedger(
+            max_logical_steps=min(budget.max_aux_remote_calls, budget.hard_max_aux_remote_calls),
+            max_physical_attempts=min(
+                budget.max_physical_remote_attempts,
+                budget.hard_max_physical_remote_attempts,
+            ),
+        )
         state.initial_budget = budget.to_dict()
         return state
 
-    @staticmethod
     def _relation_partition(
-        relations: list[dict],
+        self, relations: list[dict],
     ) -> tuple[list[dict], list[dict], list[dict], list[dict]]:
         accepted, rejected, review, semantic = [], [], [], []
         for relation in relations:
             flags = set(relation.get("quality_flags", []) or [])
             semantic_status = str(relation.get("semantic_status", "") or "")
-            if semantic_status == "REJECTED" or flags & HARD_RELATION_FLAGS:
+            factual_status = str(relation.get("factual_status", "") or "")
+            if not factual_status and self.verification_policy.hard_reject_reasons(flags):
+                factual_status = "REJECTED"
+            if not semantic_status and flags & self.verification_policy.semantic_reject_flags:
+                semantic_status = "REJECTED"
+            if factual_status == "REJECTED" or semantic_status == "REJECTED":
                 rejected.append(relation)
             elif relation.get("import_ready"):
                 accepted.append(relation)
@@ -306,16 +351,14 @@ class CentralAgentV2:
     def can_call_remote(self, state: ArticleAgentState, tool: str) -> tuple[bool, str]:
         if state.elapsed_s >= state.budget.hard_timeout_s:
             return False, "hard_timeout_reached"
-        if state.elapsed_s >= state.budget.soft_timeout_s:
-            return False, "soft_timeout_remote_gate"
         if len(state.action_trace) >= min(state.budget.max_actions, state.budget.hard_max_actions):
             return False, "action_budget_exhausted"
         if state.aux_remote_calls >= min(
             state.budget.max_aux_remote_calls, state.budget.hard_max_aux_remote_calls
         ):
             return False, "aux_remote_budget_exhausted"
-        if state.consecutive_remote_no_change >= 2:
-            return False, "two_remote_calls_without_state_change"
+        # Soft SLO and prior no-change outcomes are observations, never route
+        # decisions.  The logical workflow must be identical for cold/warm.
         usage = state.remote_usage.get(tool, RemoteToolUsage())
         per_tool_limit = {
             "article_profiler": 1,
@@ -326,8 +369,14 @@ class CentralAgentV2:
             "debug_reviewer": 1,
             "qwen_edit_critic": 1,
         }.get(tool, 4)
-        if usage.attempted >= per_tool_limit:
+        logical_for_tool = sum(
+            1 for item in (state.remote_execution.records if state.remote_execution else [])
+            if item.tool == tool and not item.duplicate_of
+        )
+        if logical_for_tool >= per_tool_limit:
             return False, "per_tool_remote_budget_exhausted"
+        if state.elapsed_s >= state.budget.soft_timeout_s:
+            return True, "within_remote_budget_soft_slo_exceeded"
         return True, "within_remote_budget"
 
     def can_call_neo4j(self, state: ArticleAgentState) -> tuple[bool, str]:
@@ -384,6 +433,10 @@ class CentralAgentV2:
         cache_status: str = "not_applicable", remote: bool = False,
         neo4j: bool = False, result_status: str = "", prompt_tokens: int = 0,
         output_tokens: int = 0, attempt_count: int = 1, retry_count: int = 0,
+        request_id: str = "", stage: str = "", round_index: int = 0,
+        batch: str = "", logical_step: int = 0, physical_attempts: int = 0,
+        cache_replayed: bool = False, blocked_kind: str = "",
+        decision_at: float = 0.0, completed_at: float = 0.0,
         details: dict | None = None,
     ) -> AgentActionTrace:
         changed = bool(before and after and before != after)
@@ -395,6 +448,10 @@ class CentralAgentV2:
             state_changed=changed, remote=remote, neo4j=neo4j,
             prompt_tokens=int(prompt_tokens or 0), output_tokens=int(output_tokens or 0),
             result_status=result_status, details=details or {},
+            request_id=request_id, stage=stage, round=round_index, batch=batch,
+            logical_step=logical_step, physical_attempts=physical_attempts,
+            cache_replayed=cache_replayed, blocked_kind=blocked_kind,
+            decision_at=decision_at, completed_at=completed_at,
         )
         state.action_trace.append(trace)
         cache_counter = {

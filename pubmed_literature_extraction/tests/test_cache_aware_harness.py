@@ -71,6 +71,25 @@ class CacheAwareHarnessTests(unittest.TestCase):
         self.assertEqual(usage["provider_cache_write_tokens"], 60)
         self.assertEqual(usage["uncached_input_tokens"], 60)
 
+    def test_structured_decoder_accepts_fenced_json_and_rejects_empty_content(self):
+        self.assertEqual(
+            AuxModelRegistry._decode_json_object("```json\n{\"ok\": true}\n```"),
+            {"ok": True},
+        )
+        self.assertEqual(
+            AuxModelRegistry._decode_json_object("Result:\n{\"ok\": true}\nDone"),
+            {"ok": True},
+        )
+        with self.assertRaisesRegex(ValueError, "empty structured response"):
+            AuxModelRegistry._decode_json_object("")
+
+    def test_empty_structured_response_is_retryable(self):
+        self.assertTrue(
+            AuxModelRegistry._is_retryable_error(
+                ValueError("empty structured response"), "empty structured response",
+            )
+        )
+
     def test_local_warm_replay_marks_local_result_hit_and_skips_invoke(self):
         cache = LightweightExtractionCache(mode="memory")
         broker = ArticleRemoteCallBroker(cache=cache)

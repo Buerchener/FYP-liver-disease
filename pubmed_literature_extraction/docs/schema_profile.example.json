@@ -1,0 +1,32 @@
+{
+  "artifact_type": "dataset_schema_profile",
+  "name": "ExampleDrugDataset",
+  "contract_version": "example-drug-v1",
+  "semantic_target": "RELATION_TRUTH",
+  "entity_validation": "source_grounded",
+  "article_quality_mode": "none",
+  "entity_types": [
+    "ChemicalEntity",
+    "DiseaseOrPhenotypicFeature"
+  ],
+  "predicates": {
+    "CAUSES": {
+      "description": "The chemical explicitly causes the disease or phenotype.",
+      "allowed_signatures": [
+        ["ChemicalEntity", "DiseaseOrPhenotypicFeature"]
+      ],
+      "symmetric": false,
+      "relation_direction": "SUBJECT_TO_OBJECT",
+      "association_sign": "UNKNOWN",
+      "explicit_patterns": [
+        "\\bcaus(?:e|es|ed|ing)\\b"
+      ],
+      "weak_patterns": [
+        "\\binduc(?:e|es|ed|ing)\\b"
+      ],
+      "exclusion_patterns": [
+        "\\bdid not cause\\b"
+      ]
+    }
+  }
+}

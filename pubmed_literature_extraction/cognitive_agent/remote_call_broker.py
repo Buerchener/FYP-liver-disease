@@ -16,6 +16,7 @@ from typing import Any, Callable
 from cognitive_agent.aux_model_registry import StructuredModelResult
 from cognitive_agent.central_agent_v2 import ArticleAgentState, CentralAgentV2
 from cognitive_agent.extraction_cache import LightweightExtractionCache
+from cognitive_agent.remote_execution import RemoteExecutionGateway, stable_request_id
 
 
 class ArticleRemoteCallBroker:
@@ -41,6 +42,14 @@ class ArticleRemoteCallBroker:
         self.state = state
         self._scope = ""
         self._pending: dict[str, list[tuple[Any, bool]]] = defaultdict(list)
+        self.gateway = (
+            RemoteExecutionGateway(
+                state.remote_execution,
+                soft_timeout_s=state.budget.soft_timeout_s,
+                hard_timeout_s=state.budget.hard_timeout_s,
+            )
+            if state is not None and state.remote_execution is not None else None
+        )
 
     @contextmanager
     def scope(self, tool: str):
@@ -66,23 +75,21 @@ class ArticleRemoteCallBroker:
                 schema_hint=schema_hint,
             )
         tool = self._scope or self.ROLE_TO_TOOL[role]
-        if self.controller is not None and self.state is not None:
-            allowed, reason = self.controller.can_call_remote(self.state, tool)
-            if not allowed:
-                model_id = ""
-                return StructuredModelResult(
-                    role=role, model_id=model_id, status="BUDGET_BLOCKED", error=reason,
-                )
-        else:
-            reason = "legacy_cache_first"
+        reason = "deterministic_remote_execution_v2" if self.gateway else "legacy_cache_first"
 
-        key = CentralAgentV2.tool_cache_key(tool, {
-            "tool_version": "article-remote-broker-v1",
+        request_payload = {
+            "tool_version": "article-remote-broker-v2",
             "role": role,
             "system_prompt": system_prompt,
             "user_prompt": user_prompt,
             "schema_hint": schema_hint or {},
-        })
+        }
+        input_hash = CentralAgentV2.tool_cache_key(tool, request_payload).split(":", 1)[-1]
+        request_id = stable_request_id(
+            tool=tool, stage=tool, round_index=1, batch=0, model=role,
+            schema_version="structured-model-v2", input_hash=input_hash,
+        )
+        key = "remote-execution-v2:" + request_id
 
         def factory() -> tuple[dict[str, Any], float]:
             result = invoke(
@@ -91,11 +98,31 @@ class ArticleRemoteCallBroker:
             )
             return result.to_dict(), float(result.latency_s or 0.0)
 
-        payload, cache_status = self.cache.get_or_compute(
-            key,
-            factory,
-            cacheable=lambda value: value.get("status") == "OK",
-        )
+        execution_record = None
+        if self.gateway is not None:
+            def cache_lookup(guarded_factory):
+                return self.cache.get_or_compute(
+                    key,
+                    lambda: (guarded_factory(), 0.0),
+                    cacheable=lambda value: value.get("status") == "OK",
+                )
+
+            payload, cache_status, execution_record = self.gateway.execute(
+                request_id=request_id, tool=tool, stage=tool, round_index=1, batch=0,
+                cache_lookup=cache_lookup,
+                invoke=lambda: factory()[0],
+                attempts_of=lambda value: int(value.get("attempts", 1) or 1),
+                status_of=lambda value: str(value.get("status", "") or ""),
+            )
+            if payload is None:
+                return StructuredModelResult(
+                    role=role, model_id="", status=execution_record.result_status,
+                    error=execution_record.blocked_kind,
+                )
+        else:
+            payload, cache_status = self.cache.get_or_compute(
+                key, factory, cacheable=lambda value: value.get("status") == "OK",
+            )
         fields = StructuredModelResult.__dataclass_fields__
         result = StructuredModelResult(**{
             key: value for key, value in payload.items() if key in fields
@@ -132,6 +159,16 @@ class ArticleRemoteCallBroker:
                     "provider_cache_miss_tokens": result.provider_cache_miss_tokens,
                     "provider_cache_hit_rate": result.provider_cache_hit_rate,
                 },
+                request_id=request_id,
+                stage=tool,
+                round_index=1,
+                batch="0",
+                logical_step=execution_record.logical_step if execution_record else 0,
+                physical_attempts=execution_record.physical_attempts if execution_record else 0,
+                cache_replayed=execution_record.cache_replayed if execution_record else cache_hit,
+                blocked_kind=execution_record.blocked_kind if execution_record else "",
+                decision_at=execution_record.decision_at if execution_record else 0.0,
+                completed_at=execution_record.completed_at if execution_record else 0.0,
             )
             self._pending[tool].append((trace, not cache_hit))
         return result

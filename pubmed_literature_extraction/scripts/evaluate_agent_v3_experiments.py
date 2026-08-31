@@ -109,9 +109,6 @@ def metrics(rows: list[dict]) -> dict[str, Any]:
         totals["evidence_iou_tp"], totals["evidence_pred"] - totals["evidence_iou_tp"],
         totals["evidence_gold"] - totals["evidence_iou_tp"],
     )
-    macro_f1 = safe_div(sum(
-        prf(row.get("tp", 0), row.get("fp", 0), row.get("fn", 0))[2] for row in rows
-    ), len(rows))
     predicate_totals: defaultdict[str, Counter] = defaultdict(Counter)
     route_counts: Counter[str] = Counter()
     termination_counts: Counter[str] = Counter()
@@ -131,6 +128,14 @@ def metrics(rows: list[dict]) -> dict[str, Any]:
     for predicate, counts in sorted(predicate_totals.items()):
         p, r, f1 = prf(counts["tp"], counts["fp"], counts["fn"])
         predicate_metrics[predicate] = {**dict(counts), "precision": p, "recall": r, "f1": f1}
+    active_predicates = [
+        item for item in predicate_metrics.values()
+        if int(item.get("tp", 0)) + int(item.get("fp", 0)) + int(item.get("fn", 0)) > 0
+    ]
+    macro_f1 = safe_div(
+        sum(float(item["f1"]) for item in active_predicates),
+        len(active_predicates),
+    )
     latencies = [float(row.get("latency_s", 0.0) or 0.0) for row in rows]
     route_total = sum(route_counts.values())
     result = {
@@ -160,6 +165,10 @@ def metrics(rows: list[dict]) -> dict[str, Any]:
         "hard_negative_false_positives": int(totals["hard_negative_fp"]),
         "direction_confusions": int(totals["direction_confusion"]),
         "dangerous_writes": int(totals["dangerous_writes"]),
+        "dangerous_write_precision": (
+            safe_div(totals["dangerous_writes"], totals["strict_tp"] + totals["strict_fp"])
+            if totals["strict_tp"] + totals["strict_fp"] else None
+        ),
         "schema_violations": int(totals["schema_violations"]),
         "negation_background_method_false_positives": int(totals["negation_background_method_fp"]),
         "linking_ambiguity_rate": safe_div(totals["linking_ambiguous"], totals["linking_total"]),

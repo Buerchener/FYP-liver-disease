@@ -132,7 +132,13 @@ class RelationPairClassifierTests(unittest.TestCase):
 
     def test_no_relation_is_an_explicit_class(self):
         text = "TITLE: Study\nABSTRACT: RESULTS: TP53 and HCC samples were measured."
-        result = self.classify(text)
+        result = self.classify(text, [{
+            "candidate_id": "hint-1",
+            "subject": "TP53", "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HCC", "object_type": "Disease",
+            "evidence": "TP53 and HCC samples were measured.",
+        }])
         self.assertEqual(result.predictions[0].label, NO_RELATION)
         self.assertEqual(result.accepted_relations, [])
 
@@ -141,7 +147,7 @@ class RelationPairClassifierTests(unittest.TestCase):
         result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
             self.entities, [], self.reader.read(text), source_text=text,
         )
-        self.assertEqual(result.candidates[0].evidence_trigger_predicate, "")
+        self.assertEqual(result.candidates, [])
 
     def test_overlapping_surface_inside_named_pathway_is_not_a_two_endpoint_pair(self):
         text = "TITLE: Liver study\nABSTRACT: RESULTS: The Nrf2 pathway was activated."
@@ -190,10 +196,11 @@ class RelationPairClassifierTests(unittest.TestCase):
         text = "TITLE: Study\nABSTRACT: RESULTS: TP53 was associated with HCC."
         result = self.classify(text, high_confidence_threshold=0.9)
         verified = KGVerifier(OfflineKG()).verify(
-            self.entities, result.accepted_relations, text=text
+            self.entities, result.low_confidence_relations, text=text
         )
         relation = verified.relations[0]
-        self.assertTrue(relation.candidate_id.startswith("p-"))
+        self.assertTrue(relation.candidate_id.startswith("r-"))
+        self.assertTrue(relation.pair_candidate_id.startswith("p-"))
         self.assertGreater(relation.classifier_confidence, 0)
         self.assertFalse(relation.import_ready)
 
@@ -231,7 +238,7 @@ class RelationPairClassifierTests(unittest.TestCase):
         classifier = BioREDPairClassifier(
             PairClassifierConfig(mode="shadow"), backend=backend
         )
-        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 and HCC were measured."
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 was associated with HCC."
         result = classifier.classify(self.entities, [], self.reader.read(text))
         self.assertGreater(len(result.candidates), 0)
         self.assertEqual(backend.calls, 1)
@@ -252,7 +259,7 @@ class RelationPairClassifierTests(unittest.TestCase):
         classifier = BioREDPairClassifier(
             PairClassifierConfig(mode="active"), backend=AbstainingBackend()
         )
-        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 and HCC were jointly evaluated."
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 was associated with HCC."
         result = classifier.classify(self.entities, [], self.reader.read(text))
         self.assertEqual(result.accepted_relations, [])
         self.assertEqual(len(result.low_confidence_relations), 1)
@@ -277,10 +284,28 @@ class RelationPairClassifierTests(unittest.TestCase):
         )
         text = "TITLE: Study\nABSTRACT: RESULTS: TP53 and HCC were jointly evaluated."
         result = classifier.classify(self.entities, [], self.reader.read(text))
-        self.assertEqual(result.predictions[0].label, NO_RELATION)
-        self.assertFalse(result.predictions[0].routed_to_llm)
-        self.assertNotIn("supported_no_relation_routed", result.predictions[0].reason_codes)
+        self.assertEqual(result.candidates, [])
+        self.assertEqual(result.predictions, [])
         self.assertEqual(result.low_confidence_relations, [])
+
+    def test_hint_candidate_id_survives_pair_classification(self):
+        text = "TITLE: Study\nABSTRACT: RESULTS: TP53 was associated with HCC."
+        hint = [{
+            "candidate_id": "c-source-hint",
+            "subject": "TP53", "subject_type": "Gene",
+            "predicate": "ASSOCIATED_WITH",
+            "object": "HCC", "object_type": "Disease",
+            "evidence": "TP53 was associated with HCC.",
+        }]
+        result = BioREDPairClassifier(PairClassifierConfig(mode="active")).classify(
+            self.entities, hint, self.reader.read(text), source_text=text,
+        )
+        candidate = result.candidates[0]
+        self.assertEqual(candidate.candidate_id, "c-source-hint")
+        self.assertTrue(candidate.pair_candidate_id.startswith("p-"))
+        relation = (result.accepted_relations or result.low_confidence_relations)[0]
+        self.assertEqual(relation["candidate_id"], "c-source-hint")
+        self.assertEqual(relation["pair_candidate_id"], candidate.pair_candidate_id)
 
     def test_explicit_non_liver_article_uses_separate_scope_bucket(self):
         text = (

@@ -13,11 +13,9 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 from cognitive_agent.memory.kg_memory import KGMemory
-from cognitive_agent.schema.relation_signatures import (
-    LITERATURE_CANDIDATE_SIGNATURES,
-    ALLOWED_DIRECTIONS,
-)
 from cognitive_agent.schema.write_contract import SchemaAdapter
+from cognitive_agent.schema.schema_profile import SchemaProfile, resolve_schema_profile
+from cognitive_agent.evidence_pack import EvidencePackBuilder
 from cognitive_agent.extraction_quality import (
     article_quality_flags,
     evaluate_relation_evidence,
@@ -26,17 +24,14 @@ from cognitive_agent.extraction_quality import (
     ratio_metric,
 )
 from cognitive_agent.relation_contract import (
-    FACTUAL_REJECT_FLAGS,
-    FACTUAL_REVIEW_FLAGS,
     JUDGE_BACKEND_NAMES,
     JUDGE_SEMANTIC_OVERRIDABLE_FLAGS,
-    MODEL_OVERRIDABLE_WRITE_FLAGS,
     SEMANTIC_REJECT_FLAGS,
     SEMANTIC_REVIEW_FLAGS,
-    TIERED_SEMANTIC_REJECT_FLAGS,
-    TIERED_SEMANTIC_REVIEW_FLAGS,
-    WRITE_REVIEW_FLAGS,
     WRITE_BLOCK_FLAGS,
+    normalize_relation_semantics,
+    stable_candidate_id,
+    verification_policy as get_verification_policy,
 )
 
 
@@ -104,6 +99,11 @@ class VerifiedRelation:
     import_ready: bool = False
     evidence: str = ""
     direction: str = ""
+    legacy_direction: str = "unknown"
+    relation_direction: str = "UNKNOWN"
+    association_sign: str = "UNKNOWN"
+    expression_change: str = "UNKNOWN"
+    activity_change: str = "UNKNOWN"
     negated: bool = False
     uncertain: bool = False
     quality_flags: list[str] = field(default_factory=list)
@@ -119,6 +119,18 @@ class VerifiedRelation:
     original_object: str = ""
     endpoint_remapped: bool = False
     candidate_id: str = ""
+    lineage_contract_version: str = "lineage-v2"
+    candidate_version: int = 1
+    parent_version: int = 0
+    parent_candidate_id: str = ""
+    candidate_lane: str = "extracted_hint"
+    source_candidate_ids: list[str] = field(default_factory=list)
+    merged_candidate_ids: list[str] = field(default_factory=list)
+    source_lanes: list[str] = field(default_factory=list)
+    pair_candidate_id: str = ""
+    type_conflict_group_id: str = ""
+    edit_reason_code: str = ""
+    candidate_disposition: str = "KEEP"
     classifier_source: str = ""
     classifier_confidence: float = 0.0
     relation_probability: float = 0.0
@@ -140,8 +152,36 @@ class VerifiedRelation:
     scope_status: str = "IN_SCOPE"
     claim_role: str = "CURRENT_FINDING"
     evidence_spans: list[dict] = field(default_factory=list)
+    evidence_pack: dict = field(default_factory=dict)
+    support_mode: str = "UNRESOLVED"
+    minimal_support_span_ids: list[str] = field(default_factory=list)
+    context_span_ids: list[str] = field(default_factory=list)
+    support_sentence_ids: list[str] = field(default_factory=list)
+    support_subject_covered: bool = False
+    support_object_covered: bool = False
+    support_trigger_covered: bool = False
+    support_trigger_match: str = "NONE"
+    support_trigger_reason_codes: list[str] = field(default_factory=list)
+    resolution_steps: list[str] = field(default_factory=list)
+    support_closure_reason_codes: list[str] = field(default_factory=list)
+    adjudication_verdict: str = ""
+    adjudication_reason_code: str = ""
+    adjudication_confidence: float = 0.0
+    supporting_span_ids: list[str] = field(default_factory=list)
+    adjudication: dict = field(default_factory=dict)
+    adjudication_model_id: str = ""
+    adjudication_support_match: str = "NONE"
+    relation_card_match: str = "TYPE_ONLY"
+    relation_card_reason_codes: list[str] = field(default_factory=list)
+    semantic_confidence: float = 0.0
+    promotion_path: str = "UNASSESSED"
+    claim_instances: list[dict] = field(default_factory=list)
     semantic_reasons: list[str] = field(default_factory=list)
     write_reasons: list[str] = field(default_factory=list)
+    verification_policy_version: str = ""
+    schema_profile_name: str = ""
+    schema_profile_version: str = ""
+    schema_profile_sha256: str = ""
 
     def to_dict(self) -> dict:
         return {k: v for k, v in self.__dict__.items()}
@@ -190,12 +230,30 @@ class VerifiedExtraction:
 class KGVerifier:
     """Phase 3: 图谱溯源验证器"""
 
-    def __init__(self, kg_memory: KGMemory, verification_policy: str = "legacy"):
-        if verification_policy not in {"legacy", "tiered-v2"}:
-            raise ValueError("verification_policy must be legacy or tiered-v2")
+    def __init__(
+        self,
+        kg_memory: KGMemory,
+        verification_policy: str = "legacy",
+        predicate_thresholds: dict[str, float] | None = None,
+        schema_profile: SchemaProfile | str | None = None,
+    ):
         self.kg_memory = kg_memory
         self.verification_policy = verification_policy
+        self.policy = get_verification_policy(verification_policy)
+        self.schema_profile = resolve_schema_profile(schema_profile)
+        self.schema_profile_manifest = self.schema_profile.manifest()
         self.schema_adapter = SchemaAdapter()
+        self.evidence_pack_builder = EvidencePackBuilder(
+            support_matcher=self.schema_profile.support_match,
+        )
+        self.predicate_thresholds = {
+            str(predicate).upper(): max(0.0, min(1.0, float(value)))
+            for predicate, value in (predicate_thresholds or {}).items()
+        }
+
+    def _predicate_threshold(self, predicate: str) -> float:
+        """Return a conservative calibrated threshold for semantic promotion."""
+        return self.predicate_thresholds.get(str(predicate or "").upper(), 0.90)
 
     def verify(
         self,
@@ -216,7 +274,13 @@ class KGVerifier:
         Returns:
             VerifiedExtraction: 带 Neo4j 验证状态的提取结果
         """
-        prepared = prepare_extraction(raw_entities, raw_relations, text=text)
+        prepared = prepare_extraction(
+            raw_entities,
+            raw_relations,
+            text=text,
+            allowed_entity_types=self.schema_profile.entity_types or None,
+            entity_validation=self.schema_profile.entity_validation,
+        )
         result = VerifiedExtraction(
             pmid=pmid,
             raw_entities=prepared.raw_entities,
@@ -242,7 +306,11 @@ class KGVerifier:
             (entity.mention, entity.entity_type): entity
             for entity in result.entities
         }
-        article_flags = article_quality_flags(text)
+        article_flags = (
+            article_quality_flags(text)
+            if self.schema_profile.article_quality_mode == "liverkg"
+            else set()
+        )
         for rel in prepared.relations:
             rel.setdefault("quality_flags", [])
             rel["quality_flags"] = sorted(set(rel["quality_flags"]) | article_flags)
@@ -384,6 +452,7 @@ class KGVerifier:
             "novel": sum(1 for e in result.entities if e.neo4j_status == "NOVEL"),
         }
         return {
+            "schema_profile": dict(self.schema_profile_manifest),
             "total_entities": len(result.entities),
             "raw_entity_count": total_entities,
             "filtered_entity_count": len(result.filtered_entities),
@@ -436,6 +505,8 @@ class KGVerifier:
             "METHOD_ONLY": "METHOD",
             "PREDICTION": "PREDICTION",
             "PREDICTION_ONLY": "PREDICTION",
+            "SPECULATIVE": "SPECULATIVE",
+            "OTHER": "OTHER",
             "OBJECTIVE": "BACKGROUND",
             "OBJECTIVE_ONLY": "BACKGROUND",
         }
@@ -448,8 +519,8 @@ class KGVerifier:
         if "prediction_only" in flags:
             return "PREDICTION"
         if "non_current_finding_role" in flags:
-            return "BACKGROUND"
-        return "CURRENT_FINDING"
+            return "OTHER"
+        return "OTHER"
 
     @staticmethod
     def _model_dual_endorsed(flags: set[str]) -> bool:
@@ -578,6 +649,40 @@ class KGVerifier:
         except Exception:
             return False
 
+    @staticmethod
+    def _unresolved_gene_protein_ambiguity(
+        endpoint: VerifiedEntity | None,
+        verified_entities: dict[str, VerifiedEntity],
+    ) -> bool:
+        """Detect an unresolved Gene/Protein reading of the same article mention."""
+        if endpoint is None or endpoint.entity_type not in {"Gene", "Protein"}:
+            return False
+        if endpoint.normalized_id or endpoint.neo4j_status in {"EXACT_MATCH", "FUZZY_MATCH"}:
+            return False
+
+        def aliases(entity: VerifiedEntity) -> set[str]:
+            values = {
+                entity.mention,
+                entity.source_span,
+                *entity.canonical_mentions,
+            }
+            return {
+                re.sub(r"[^a-z0-9]+", "", str(value).lower())
+                for value in values
+                if value
+            } - {""}
+
+        endpoint_aliases = aliases(endpoint)
+        opposite_type = "Protein" if endpoint.entity_type == "Gene" else "Gene"
+        for other in verified_entities.values():
+            if other.entity_type != opposite_type:
+                continue
+            if other.normalized_id or other.neo4j_status in {"EXACT_MATCH", "FUZZY_MATCH"}:
+                continue
+            if endpoint_aliases & aliases(other):
+                return True
+        return False
+
     def _verify_relation(
         self,
         relation: dict,
@@ -586,6 +691,8 @@ class KGVerifier:
         aliases_by_canonical: dict[str, list[str]] | None = None,
     ) -> VerifiedRelation:
         """验证单条关系"""
+        relation = normalize_relation_semantics(relation)
+        candidate_lane = str(relation.get("candidate_lane", "extracted_hint") or "extracted_hint")
         vr = VerifiedRelation(
             subject=relation.get("subject", ""),
             predicate=relation.get("predicate", ""),
@@ -595,13 +702,30 @@ class KGVerifier:
             neo4j_status="NOVEL",
             evidence=relation.get("evidence", ""),
             direction=relation.get("direction", "unknown"),
+            legacy_direction=relation.get("legacy_direction", "unknown"),
+            relation_direction=relation.get("relation_direction", "UNKNOWN"),
+            association_sign=relation.get("association_sign", "UNKNOWN"),
+            expression_change=relation.get("expression_change", "UNKNOWN"),
+            activity_change=relation.get("activity_change", "UNKNOWN"),
             negated=relation.get("negated", False),
             uncertain=relation.get("uncertain", False),
             quality_flags=list(relation.get("quality_flags", [])),
             original_subject=relation.get("original_subject", relation.get("subject", "")),
             original_object=relation.get("original_object", relation.get("object", "")),
             endpoint_remapped=bool(relation.get("endpoint_remapped", False)),
-            candidate_id=str(relation.get("candidate_id", "") or ""),
+            candidate_id=str(relation.get("candidate_id", "") or stable_candidate_id(
+                relation, lane=candidate_lane,
+            )),
+            candidate_version=max(1, int(relation.get("candidate_version", 1) or 1)),
+            parent_version=max(0, int(relation.get("parent_version", 0) or 0)),
+            parent_candidate_id=str(relation.get("parent_candidate_id", "") or ""),
+            candidate_lane=candidate_lane,
+            source_candidate_ids=list(relation.get("source_candidate_ids", []) or []),
+            merged_candidate_ids=list(relation.get("merged_candidate_ids", []) or []),
+            source_lanes=list(relation.get("source_lanes", []) or []),
+            pair_candidate_id=str(relation.get("pair_candidate_id", "") or ""),
+            type_conflict_group_id=str(relation.get("type_conflict_group_id", "") or ""),
+            edit_reason_code=str(relation.get("edit_reason_code", "") or ""),
             classifier_source=str(relation.get("classifier_source", "") or ""),
             classifier_confidence=self._normalize_confidence(
                 relation.get("classifier_confidence", 0.0)
@@ -627,34 +751,61 @@ class KGVerifier:
             provenance=list(relation.get("provenance", []) or []),
             subject_family=str(relation.get("subject_family", "") or ""),
             object_family=str(relation.get("object_family", "") or ""),
+            # Missing legacy role remains compatible; an explicitly unknown
+            # or malformed role is normalized to OTHER by the v5 contract.
             claim_role=str(relation.get("claim_role", "") or "CURRENT_FINDING"),
+            adjudication_verdict=str(
+                relation.get("adjudication_verdict", "")
+                or (relation.get("adjudication", {}) or {}).get("verdict", "")
+            ).upper(),
+            adjudication_reason_code=str(
+                relation.get("adjudication_reason_code", "")
+                or (relation.get("adjudication", {}) or {}).get("reason_code", "")
+            ).upper(),
+            adjudication_confidence=self._normalize_confidence(
+                relation.get(
+                    "adjudication_confidence",
+                    (relation.get("adjudication", {}) or {}).get("confidence", 0.0),
+                )
+            ),
+            supporting_span_ids=list(
+                relation.get("supporting_span_ids", [])
+                or (relation.get("adjudication", {}) or {}).get("supporting_span_ids", [])
+                or []
+            ),
+            adjudication=dict(relation.get("adjudication", {}) or {}),
+            adjudication_model_id=str(
+                relation.get("adjudication_model_id", "")
+                or (relation.get("adjudication", {}) or {}).get("model_id", "")
+            ),
+            claim_instances=list(relation.get("claim_instances", []) or []),
+            verification_policy_version=self.policy.contract_version,
+            schema_profile_name=self.schema_profile.name,
+            schema_profile_version=self.schema_profile.contract_version,
+            schema_profile_sha256=self.schema_profile.manifest_sha256,
         )
 
         # ── 1. Schema 合规检查 ──
-        allowed_pairs = LITERATURE_CANDIDATE_SIGNATURES.get(vr.predicate, set())
-        pair = (vr.subject_type, vr.object_type)
-        vr.candidate_schema_valid = pair in allowed_pairs
+        vr.candidate_schema_valid = self.schema_profile.valid(
+            vr.predicate, vr.subject_type, vr.object_type,
+        )
         vr.schema_valid = vr.candidate_schema_valid
 
         if not vr.candidate_schema_valid:
             vr.quality_flags.append("schema_mismatch")
 
-        # ── 2. 方向检查 ──
-        if vr.direction not in ALLOWED_DIRECTIONS:
-            vr.quality_flags.append("invalid_direction")
-
-        # ── 3. 否定/不确定标记 ──
+        # ── 2. 否定/不确定标记 ──
         if vr.negated:
             vr.quality_flags.append("negated")
         if vr.uncertain:
             vr.quality_flags.append("uncertain")
 
-        # ── 4. 物种检查 ──
+        # ── 3. 物种检查 ──
         species = relation.get("species", "")
         if species and species.lower() in {"mus musculus", "mouse", "mice", "rat", "rattus norvegicus"}:
             vr.quality_flags.append("non_human")
 
-        # ── 5. Neo4j 关系验证 ──
+        # ── 4. Neo4j 关系验证 ──
         if self.kg_memory.is_connected and vr.candidate_schema_valid:
             existing = self._check_relation(
                 vr.subject, vr.predicate, vr.object,
@@ -666,7 +817,12 @@ class KGVerifier:
                     existing.get("confidence", 0.7)
                 )
                 vr.existing_direction = existing.get("direction", "")
-                if self._directions_conflict(vr.direction, vr.existing_direction):
+                comparable_direction = (
+                    vr.direction if vr.direction in {
+                        "positive", "negative", "increase", "decrease",
+                    } else vr.legacy_direction
+                )
+                if self._directions_conflict(comparable_direction, vr.existing_direction):
                     vr.neo4j_status = "CONTRADICTING"
                     vr.quality_flags.extend(["contradiction", "opposite_direction"])
                 else:
@@ -686,7 +842,7 @@ class KGVerifier:
                     vr.existing_direction = inverse.get("direction", "")
                     vr.quality_flags.append("inverted_existing_relation")
 
-        # ── 6. 实体链接状态 ──
+        # ── 5. 实体链接状态 ──
         subj_key = f"{vr.subject}|{vr.subject_type}"
         obj_key = f"{vr.object}|{vr.object_type}"
         subj_entity = verified_entities.get(subj_key)
@@ -694,9 +850,10 @@ class KGVerifier:
 
         # Current-article endpoints are mandatory.  Existing KG nodes are linking
         # context only and cannot replace an entity grounded in this article.
-        if not subj_entity:
+        incoming_flags = set(vr.quality_flags)
+        if not subj_entity and "subject_filtered" not in incoming_flags:
             vr.quality_flags.extend(["subject_endpoint_missing", "unresolved_endpoint"])
-        if not obj_entity:
+        if not obj_entity and "object_filtered" not in incoming_flags:
             vr.quality_flags.extend(["object_endpoint_missing", "unresolved_endpoint"])
 
         if subj_entity and subj_entity.neo4j_status == "NOVEL":
@@ -707,8 +864,18 @@ class KGVerifier:
             vr.quality_flags.extend(["subject_ambiguous", "ambiguous_endpoint"])
         if obj_entity and obj_entity.neo4j_status == "AMBIGUOUS":
             vr.quality_flags.extend(["object_ambiguous", "ambiguous_endpoint"])
+        if self._unresolved_gene_protein_ambiguity(subj_entity, verified_entities):
+            vr.quality_flags.extend([
+                "subject_type_ambiguous",
+                "endpoint_type_ambiguous",
+            ])
+        if self._unresolved_gene_protein_ambiguity(obj_entity, verified_entities):
+            vr.quality_flags.extend([
+                "object_type_ambiguous",
+                "endpoint_type_ambiguous",
+            ])
 
-        # ── 7. Current-article evidence verification ──
+        # ── 6. Current-article evidence verification ──
         evidence_result = evaluate_relation_evidence(
             {**relation, **vr.to_dict(), "quality_flags": vr.quality_flags},
             text=text,
@@ -719,15 +886,185 @@ class KGVerifier:
                 setattr(vr, key, value)
         vr.quality_flags = sorted(set(evidence_result["quality_flags"]))
 
-        vr.evidence_spans = self._evidence_spans(vr.evidence, text)
+        pack = self.evidence_pack_builder.build(
+            relation, text=text, aliases_by_canonical=aliases_by_canonical or {},
+        )
+        vr.evidence_pack = pack.to_dict()
+        vr.evidence_spans = [item.to_dict() for item in pack.spans]
+        vr.support_mode = pack.support_mode
+        vr.minimal_support_span_ids = list(pack.minimal_support_span_ids)
+        vr.context_span_ids = list(pack.context_span_ids)
+        vr.support_sentence_ids = list(pack.support_sentence_ids)
+        vr.support_subject_covered = pack.support_subject_covered
+        vr.support_object_covered = pack.support_object_covered
+        vr.support_trigger_covered = pack.support_trigger_covered
+        vr.support_trigger_match = pack.support_trigger_match
+        vr.support_trigger_reason_codes = list(pack.support_trigger_reason_codes)
+        vr.resolution_steps = list(pack.resolution_steps)
+        vr.support_closure_reason_codes = list(pack.support_closure_reason_codes)
+        evidence_flags = set(vr.quality_flags)
+        # Derived support/card flags belong to the current candidate version.
+        # Never let a previous verification pass leak them into a re-check.
+        evidence_flags.difference_update({
+            "predicate_card_conflict", "predicate_card_type_only",
+            "adjudication_span_mismatch", "adjudication_span_support_insufficient",
+            "cross_sentence", "multi_span_support", "coreference_only_support",
+        })
+        if pack.source_traceable:
+            evidence_flags.discard("evidence_untraceable")
+            if pack.support_subject_covered:
+                vr.subject_grounded_in_evidence = True
+                evidence_flags.discard("subject_not_grounded")
+            if pack.support_object_covered:
+                vr.object_grounded_in_evidence = True
+                evidence_flags.discard("object_not_grounded")
+            if pack.support_subject_covered and pack.support_object_covered:
+                evidence_flags.discard("endpoint_not_in_evidence")
+                evidence_flags.discard("empty_evidence")
+            if pack.support_trigger_covered:
+                vr.trigger_present = True
+                evidence_flags.discard("trigger_missing")
+            support_ids = set(pack.minimal_support_span_ids)
+            support_spans = [item for item in pack.spans if item.span_id in support_ids]
+            statuses = {item.alignment_status for item in support_spans}
+            if "MATCH_FUZZY" in statuses:
+                evidence_flags.add("evidence_fuzzy_aligned")
+            else:
+                evidence_flags.discard("evidence_fuzzy_aligned")
+            if pack.support_mode == "SELF_CONTAINED":
+                evidence_flags.difference_update({
+                    "cross_sentence", "coreference_only_support",
+                    "multi_span_support", "trigger_not_linking_endpoints",
+                })
+            elif pack.support_mode == "MULTI_SPAN":
+                evidence_flags.add("cross_sentence")
+                evidence_flags.add("multi_span_support")
+                evidence_flags.discard("coreference_only_support")
+            elif pack.support_mode == "COREFERENCE":
+                evidence_flags.add("cross_sentence")
+                evidence_flags.add("coreference_only_support")
+                evidence_flags.discard("multi_span_support")
+            if not vr.evidence and pack.spans:
+                vr.evidence = " ".join(item.text for item in support_spans or pack.spans)
+            vr.evidence_contiguous = bool(
+                pack.support_mode == "SELF_CONTAINED"
+                and len(support_spans) == 1
+                and support_spans[0].alignment_status == "MATCH_EXACT"
+            )
+            if (
+                pack.support_subject_covered
+                and pack.support_object_covered
+                and pack.support_trigger_covered
+            ):
+                vr.evidence_level = min(
+                    vr.evidence_level,
+                    1 if pack.support_mode == "SELF_CONTAINED" else 2,
+                )
+                evidence_flags.discard("weak_evidence")
+                if pack.support_mode == "SELF_CONTAINED" and not evidence_flags & {
+                    "subject_endpoint_missing", "object_endpoint_missing",
+                    "filtered_endpoint", "unresolved_endpoint",
+                }:
+                    evidence_flags.discard("trigger_not_linking_endpoints")
+        elif text:
+            evidence_flags.add("evidence_untraceable")
 
-        # ── 8. Separate semantic validity from Safe Write eligibility ──
+        pack_span_ids = {item.span_id for item in pack.spans}
+        supporting_ids = {str(item) for item in vr.supporting_span_ids if str(item)}
+        if vr.adjudication_verdict == "SUPPORTED":
+            if not supporting_ids or not supporting_ids.issubset(pack_span_ids):
+                evidence_flags.add("adjudication_span_mismatch")
+                vr.adjudication_support_match = "NONE"
+            else:
+                declared_spans = [
+                    item for item in pack.spans if item.span_id in supporting_ids
+                ]
+                declared_text = " ".join(item.text for item in declared_spans)
+                declared_support = self.schema_profile.support_match(
+                    vr.predicate,
+                    vr.subject_type,
+                    vr.object_type,
+                    declared_text,
+                    subject_aliases=list(pack.alias_resolution.get("subject", []) or []),
+                    object_aliases=list(pack.alias_resolution.get("object", []) or []),
+                )
+                vr.adjudication_support_match = str(
+                    declared_support.get("match", "NONE")
+                )
+                if not (
+                    all(item.role == "OWNER" for item in declared_spans)
+                    and any(item.subject_covered for item in declared_spans)
+                    and any(item.object_covered for item in declared_spans)
+                    and declared_support.get("match") in {"EXPLICIT", "WEAK"}
+                ):
+                    evidence_flags.add("adjudication_span_support_insufficient")
+                else:
+                    evidence_flags.discard("adjudication_span_mismatch")
+                    evidence_flags.discard("adjudication_span_support_insufficient")
+
+        support_ids = set(pack.minimal_support_span_ids)
+        relation_card_text = " ".join(
+            item.text for item in pack.spans if item.span_id in support_ids
+        ) or vr.evidence
+
+        card_match = self.schema_profile.support_match(
+            vr.predicate,
+            vr.subject_type,
+            vr.object_type,
+            relation_card_text,
+            subject_aliases=list(pack.alias_resolution.get("subject", []) or []),
+            object_aliases=list(pack.alias_resolution.get("object", []) or []),
+        )
+        support_match = str(card_match.get("match", "NONE"))
+        vr.relation_card_match = {
+            "EXPLICIT": "EXPLICIT",
+            "WEAK": "WEAK",
+            "CONFLICT": "CONFLICT",
+        }.get(support_match, "TYPE_ONLY")
+        vr.relation_card_reason_codes = list(card_match.get("reason_codes", []) or [])
+        if vr.relation_card_match == "CONFLICT":
+            evidence_flags.add("predicate_card_conflict")
+        elif vr.relation_card_match == "NOT_APPLICABLE":
+            evidence_flags.add("schema_mismatch")
+        elif vr.relation_card_match == "TYPE_ONLY":
+            evidence_flags.add("predicate_card_type_only")
+
+        # ``manual_review`` is an audit marker, not a semantic reason.  Require
+        # a concrete reason code so cached legacy rows cannot be silently
+        # promoted merely because their original producer omitted detail.
+        if "manual_review" in evidence_flags:
+            classified_manual_reasons = (
+                self.policy.factual_reject_flags
+                | self.policy.factual_review_flags
+                | self.policy.semantic_reject_flags
+                | self.policy.semantic_review_flags
+                | {
+                    "pair_no_relation_dissent", "adjudicator_ambiguous",
+                    "evidence_not_entailed", "trigger_attachment_ambiguous",
+                    "relation_direction_mismatch",
+                }
+            ) - {"manual_review_unclassified"}
+            if not (evidence_flags & classified_manual_reasons):
+                evidence_flags.add("manual_review_unclassified")
+        vr.quality_flags = sorted(evidence_flags)
+
+        # ── 7. Separate semantic validity from Safe Write eligibility ──
         # Animal/cell/case-report evidence can be a correct semantic relation
         # while remaining ineligible for automatic graph import.
         flags = set(vr.quality_flags)
         vr.claim_role = self._normalize_claim_role(vr.claim_role, flags)
         if vr.claim_role != "CURRENT_FINDING":
             flags.add("non_current_finding_role")
+            role_flag = {
+                "BACKGROUND": "background_only",
+                "PRIOR_WORK": "background_only",
+                "METHOD": "method_only",
+                "PREDICTION": "prediction_only",
+                "SPECULATIVE": "non_current_finding_role",
+                "OTHER": "non_current_finding_role",
+            }.get(vr.claim_role)
+            if role_flag:
+                flags.add(role_flag)
             vr.quality_flags = sorted(flags)
         if self.verification_policy == "tiered-v2":
             self._apply_tiered_v2_status(vr, flags)
@@ -793,24 +1130,67 @@ class KGVerifier:
             vr.write_status = "BLOCKED"
         else:
             vr.write_status = "SEMANTIC_ONLY"
+        vr.candidate_disposition = (
+            "DISCARD" if vr.factual_status == "REJECTED"
+            else "AUDIT_ONLY" if vr.semantic_status == "REJECTED"
+            else "KEEP"
+        )
 
     def _apply_tiered_v2_status(self, vr: VerifiedRelation, flags: set[str]) -> None:
-        hard_reject = set(flags & FACTUAL_REJECT_FLAGS)
-        factual_review = set(flags & FACTUAL_REVIEW_FLAGS)
-        semantic_reject = set(flags & TIERED_SEMANTIC_REJECT_FLAGS)
-        semantic_review = set(flags & TIERED_SEMANTIC_REVIEW_FLAGS)
+        hard_reject = self.policy.hard_reject_reasons(flags)
+        factual_review = self.policy.factual_review_reasons(flags)
+        semantic_reject = set(flags & self.policy.semantic_reject_flags)
+        semantic_review = self.policy.semantic_review_reasons(flags)
         dual_endorsed = self._model_dual_endorsed(flags)
 
-        # Independent model endorsement may clear semantic uncertainty and
-        # write-scope flags, but never the four non-overridable factual gates.
-        if dual_endorsed or (
-            vr.classifier_source in JUDGE_BACKEND_NAMES
-            and vr.evidence_entailment == "ENTAILED"
-            and "adjudicator_entailed" in flags
-        ):
-            semantic_review -= JUDGE_SEMANTIC_OVERRIDABLE_FLAGS
-            if dual_endorsed:
-                semantic_review -= MODEL_OVERRIDABLE_WRITE_FLAGS
+        pack = vr.evidence_pack or {}
+        span_ids = {
+            str(item.get("span_id", ""))
+            for item in pack.get("spans", [])
+            if item.get("span_id")
+        }
+        supporting_ids = {str(item) for item in vr.supporting_span_ids if str(item)}
+        support_match = str(
+            vr.adjudication_support_match
+            or pack.get("support_trigger_match", "NONE")
+        )
+        adjudication_threshold = self._predicate_threshold(vr.predicate)
+        if support_match == "WEAK":
+            adjudication_threshold = max(adjudication_threshold, 0.92)
+        immutable_risks = {
+            "filtered_endpoint", "subject_filtered", "object_filtered",
+            "endpoint_type_ambiguous", "subject_type_ambiguous",
+            "object_type_ambiguous", "endpoint_type_conflict",
+            "composite_endpoint", "schema_gap", "scoped_negation",
+            "claim_role_conflict", "lineage_binding_missing",
+        }
+        adjudication_grounded = bool(
+            vr.adjudication_verdict == "SUPPORTED"
+            and vr.adjudication_reason_code == "EXPLICIT_DIRECT_RELATION"
+            and vr.adjudication_confidence >= adjudication_threshold
+            and supporting_ids
+            and supporting_ids.issubset(span_ids)
+            and pack.get("source_traceable")
+            and pack.get("support_subject_covered")
+            and pack.get("support_object_covered")
+            and pack.get("support_mode") in {"SELF_CONTAINED", "MULTI_SPAN", "COREFERENCE"}
+            and support_match in {"EXPLICIT", "WEAK"}
+            and vr.claim_role == "CURRENT_FINDING"
+            and not flags & immutable_risks
+        )
+
+        # Independent model endorsement may clear only semantic uncertainty.
+        # Claim role, scope/species and write-contract policy are immutable.
+        if adjudication_grounded:
+            semantic_review -= self.policy.adjudication_overridable_flags
+        if adjudication_grounded and dual_endorsed:
+            # Direction/predicate ambiguity needs independent concurrence.  A
+            # changed value is still represented as a new candidate version and
+            # re-enters this verifier before the flag can disappear.
+            semantic_review -= {
+                "pair_ambiguous_predicate",
+                "trigger_direction_mismatch",
+            }
 
         if hard_reject:
             vr.factual_status = "REJECTED"
@@ -819,45 +1199,76 @@ class KGVerifier:
         else:
             vr.factual_status = "VALID"
 
+        deterministic_grounded = bool(
+            vr.claim_role == "CURRENT_FINDING"
+            and pack.get("source_traceable")
+            and pack.get("support_mode") == "SELF_CONTAINED"
+            and pack.get("support_trigger_match") == "EXPLICIT"
+            and pack.get("support_subject_covered")
+            and pack.get("support_object_covered")
+            and not hard_reject
+            and not flags & immutable_risks
+        )
+        if not deterministic_grounded and not adjudication_grounded:
+            semantic_review.add("no_valid_promotion_path")
+
         if vr.factual_status == "REJECTED" or semantic_reject:
             vr.semantic_status = "REJECTED"
             vr.semantic_reasons = sorted(hard_reject | semantic_reject)
+            vr.promotion_path = "REJECTED"
         elif semantic_review:
             vr.semantic_status = "REVIEW"
             vr.semantic_reasons = sorted(semantic_review)
+            vr.promotion_path = "REVIEW"
         else:
             vr.semantic_status = "ACCEPTED"
             vr.semantic_reasons = []
+            vr.promotion_path = "ADJUDICATED" if adjudication_grounded else "DETERMINISTIC"
+        if vr.promotion_path == "ADJUDICATED":
+            vr.semantic_confidence = vr.adjudication_confidence
+        elif vr.promotion_path == "DETERMINISTIC":
+            vr.semantic_confidence = max(
+                1.0 if vr.relation_card_match == "EXPLICIT" else 0.0,
+                vr.evidence_confidence,
+                vr.classifier_confidence,
+            )
+        else:
+            vr.semantic_confidence = max(
+                vr.adjudication_confidence,
+                vr.evidence_confidence,
+                vr.classifier_confidence,
+            )
 
-        write_reasons = set(flags & WRITE_REVIEW_FLAGS)
-        if dual_endorsed:
-            write_reasons -= MODEL_OVERRIDABLE_WRITE_FLAGS
+        write_reasons = self.policy.write_reasons(flags)
         if vr.factual_status == "REJECTED":
             write_reasons |= hard_reject
         vr.write_reasons = sorted(write_reasons)
 
+        exact_source_pack = bool(
+            pack.get("source_traceable")
+            and pack.get("support_mode") == "SELF_CONTAINED"
+            and pack.get("support_subject_covered")
+            and pack.get("support_object_covered")
+            and pack.get("support_trigger_match") == "EXPLICIT"
+            and pack.get("minimal_support_span_ids")
+            and all(
+                item.get("alignment_status") == "MATCH_EXACT"
+                and item.get("role") == "OWNER"
+                for item in pack.get("spans", [])
+                if item.get("span_id") in set(pack.get("minimal_support_span_ids", []))
+            )
+        )
         fast_path = (
             vr.factual_status == "VALID"
             and vr.semantic_status == "ACCEPTED"
             and vr.candidate_schema_valid
             and bool(vr.subject and vr.object)
             and not vr.negated
-            and vr.evidence_contiguous
-            and vr.subject_grounded_in_evidence
-            and vr.object_grounded_in_evidence
+            and exact_source_pack
             and vr.evidence_level in {1, 2}
             and not vr.write_reasons
         )
-        scoped_import = (
-            dual_endorsed
-            and vr.factual_status == "VALID"
-            and vr.semantic_status == "ACCEPTED"
-            and vr.candidate_schema_valid
-            and bool(vr.subject and vr.object)
-            and vr.evidence_contiguous
-            and not (FACTUAL_REJECT_FLAGS & flags)
-        )
-        vr.import_ready = bool(fast_path or scoped_import)
+        vr.import_ready = bool(fast_path)
         if vr.import_ready:
             vr.write_status = "IMPORT_READY"
         elif vr.factual_status == "REJECTED" or vr.semantic_status == "REJECTED":
@@ -866,3 +1277,8 @@ class KGVerifier:
             vr.write_status = "HUMAN_REVIEW"
         else:
             vr.write_status = "SEMANTIC_ONLY"
+        vr.candidate_disposition = (
+            "DISCARD" if vr.factual_status == "REJECTED"
+            else "AUDIT_ONLY" if vr.semantic_status == "REJECTED"
+            else "KEEP"
+        )

@@ -169,7 +169,7 @@ class AgenticControllerTests(unittest.TestCase):
         self.assertEqual(merged.relations[0]["object"], "hepatic fibrosis")
         self.assertEqual(merged.relations[0]["evidence"], candidate["evidence"])
 
-    def test_post_action_feedback_rolls_back_unsupported_recovery(self):
+    def test_finalizer_keeps_reviewable_recovery_without_rollback(self):
         text = "TP53 and HCC were included in the same analysis."
         relations = [{
             "subject": "TP53", "subject_type": "Gene",
@@ -183,8 +183,9 @@ class AgenticControllerTests(unittest.TestCase):
         final, audit = CollaborativeExtractor().finalize_after_reverification(
             relations, verified.to_dict()
         )
-        self.assertEqual(final, [])
-        self.assertEqual(audit["rolled_back_count"], 1)
+        self.assertEqual(len(final), 1)
+        self.assertEqual(audit["rolled_back_count"], 0)
+        self.assertEqual(audit["status_mutations"], 0)
 
     def test_post_action_feedback_deduplicates_by_typed_triple(self):
         text = "TP53 was associated with HCC."
