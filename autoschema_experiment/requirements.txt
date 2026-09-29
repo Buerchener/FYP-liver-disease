@@ -1,0 +1,3 @@
+openai>=1.0
+platformdirs>=4
+tomli-w>=1

@@ -1,0 +1,10 @@
+{
+  "source": "existing pubmed_literature_extraction/extraction_output/pubmed_converted_500.jsonl",
+  "source_sha256": "b4f17b3e8e473db1c4348b4ac985787f28181aacca6f087446ab42a2dbd32b21",
+  "selection": "Purposive development sample: MASH/NASH fibrosis, stellate cells, interventions. Not a held-out benchmark.",
+  "pmids": [
+    "41873055",
+    "41546802",
+    "41641927"
+  ]
+}
