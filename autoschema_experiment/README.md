@@ -43,7 +43,7 @@ autoschema_experiment/
   evaluation/RESULTS.md           实测结果与限制
   data/abstracts.jsonl            3 篇现有摘要，原文保持不变
   data/provenance.json            来源文件哈希与样本选择说明
-  outputs/                      每次运行的本地结果；运行目录默认不提交
+  outputs/                      每次运行的结果；经检查的 pilot_ludies_configured_v01 四份目标文件、manifest 和原始响应已提交
   tests/test_contracts.py         无网络契约测试
 ```
 
@@ -60,7 +60,7 @@ autoschema_experiment/.venv/bin/python -m autoschema_experiment.run \
   --output autoschema_experiment/outputs/my_run
 ```
 
-默认沿用 `load_config()` 的 second_llm_model_id / second_llm_api_base（可设 `SECOND_LLM_MODEL_ID` / `SECOND_LLM_API_BASE`）与 `DEEPSEEK_API_KEY` / `SECOND_LLM_API_KEY`。如该接口不可用，可显式添加 `--model-role extraction`，改用现有 `GEMINI_MODEL`、`GEMINI_API_BASE`、`GEMINI_API_KEY`（配置读取与 API 协议仍走同一个 structured registry）。进程已设环境变量优先于 env 文件；`--model` 仅覆盖模型名，不自动切换服务商。所复用客户端以 OpenAI-compatible JSON API 工作。逻辑调用数为每篇 1 次事件 + 1 次概念；registry 最多 1 次额外重试，SDK 本身可能重试，manifest 的 attempts 不代表精确 HTTP 请求数。无固定货币预算估算。
+默认沿用 `load_config()` 的 second_llm_model_id / second_llm_api_base（可设 `SECOND_LLM_MODEL_ID` / `SECOND_LLM_API_BASE`）与 `DEEPSEEK_API_KEY` / `SECOND_LLM_API_KEY`。如该接口不可用，可显式添加 `--model-role extraction`，改用现有 `GEMINI_MODEL`、`GEMINI_API_BASE`、`GEMINI_API_KEY`（配置读取与 API 协议仍走同一个 structured registry）。显式 `--env-file` 优先于进程继承的同名环境变量；未指定时使用现有项目环境与配置；`--model` 仅覆盖模型名，不自动切换服务商。所复用客户端以 OpenAI-compatible JSON API 工作。逻辑调用数为每篇 1 次事件 + 1 次概念；registry 最多 1 次额外重试，SDK 本身可能重试，manifest 的 attempts 不代表精确 HTTP 请求数。无固定货币预算估算。
 
 ```bash
 # 仅抽事件
@@ -115,5 +115,5 @@ python -m unittest discover -s autoschema_experiment/tests -v
 ## 评估边界
 
 人工检查完整事件句、否定/不确定性、物种/模型、参与实体，关系因果强度与方向，以及概念是否有意义且确属更高抽象层级。结构/原文校验不能证明语义蕴含。`source_grounded_pending_review` 明确不是 `verified` 或 `import_ready`。
-当前已配置的辅助与主抽取模型端点均曾返回 HTTP 401，尚无成功的在线实验输出；详见 `evaluation/RESULTS.md`。
+此前接口曾返回 HTTP 401；更新本机密钥并修复显式 env 文件优先级后，3 篇在线小实验成功生成候选。详见 `evaluation/RESULTS.md`。
 3 篇是目的性选择的开发样本，没有冻结 gold、没有精确率/召回率或医学效能结论。初始 CSV 不预填人工审核结果；raw 和 rejected 保留失败，不能只报告漂亮例子。

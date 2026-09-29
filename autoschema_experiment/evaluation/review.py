@@ -23,6 +23,6 @@ def export_review(path, events, relations, concepts):
                 "char_end": evidence.get("char_end", ""), "review_status": "pending",
                 "notes": json.dumps(r.get("participants", []), ensure_ascii=False) if kind == "event" else ""})
     with path.open("w", newline="", encoding="utf-8-sig") as f:
-        writer = csv.DictWriter(f, fieldnames=FIELDS)
+        writer = csv.DictWriter(f, fieldnames=FIELDS, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)

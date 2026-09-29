@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "started_at": "2026-09-29T14:23:17.319679+00:00",
+  "git_base": "4122db06f728d22615febec52c3970739371ae94",
+  "stage": "all",
+  "mode": "live",
+  "input_hash": "b15e0bb476b2c177eb7e4d3a907289dc6d0e45cf22b72cc53a240463add0066b",
+  "pmids": [
+    "41873055",
+    "41546802",
+    "41641927"
+  ],
+  "counts": {
+    "events": 18,
+    "event_relations": 2,
+    "concepts": 193,
+    "rejected": 0,
+    "failures": 0
+  },
+  "concept_types": {
+    "Event": 61,
+    "Entity": 126,
+    "Relation": 6
+  },
+  "calls": [
+    {
+      "stage": "events",
+      "key": "41873055",
+      "model": "gemini-3.7-flash-high",
+      "status": "OK",
+      "prompt_tokens": 1744,
+      "output_tokens": 797,
+      "latency_s": 16.1187,
+      "attempts": 1,
+      "execution_mode": "live"
+    },
+    {
+      "stage": "concepts",
+      "key": "41873055",
+      "model": "gemini-3.7-flash-high",
+      "status": "OK",
+      "prompt_tokens": 1875,
+      "output_tokens": 1293,
+      "latency_s": 10.374,
+      "attempts": 1,
+      "execution_mode": "live"
+    },
+    {
+      "stage": "events",
+      "key": "41546802",
+      "model": "gemini-3.7-flash-high",
+      "status": "OK",
+      "prompt_tokens": 1991,
+      "output_tokens": 3326,
+      "latency_s": 19.2856,
+      "attempts": 1,
+      "execution_mode": "live"
+    },
+    {
+      "stage": "concepts",
+      "key": "41546802",
+      "model": "gemini-3.7-flash-high",
+      "status": "OK",
+      "prompt_tokens": 3495,
+      "output_tokens": 2051,
+      "latency_s": 18.0614,
+      "attempts": 1,
+      "execution_mode": "live"
+    },
+    {
+      "stage": "events",
+      "key": "41641927",
+      "model": "gemini-3.7-flash-high",
+      "status": "OK",
+      "prompt_tokens": 1961,
+      "output_tokens": 1808,
+      "latency_s": 17.0827,
+      "attempts": 1,
+      "execution_mode": "live"
+    },
+    {
+      "stage": "concepts",
+      "key": "41641927",
+      "model": "gemini-3.7-flash-high",
+      "status": "OK",
+      "prompt_tokens": 1744,
+      "output_tokens": 1120,
+      "latency_s": 31.3705,
+      "attempts": 1,
+      "execution_mode": "live"
+    }
+  ],
+  "status": "needs_review",
+  "manual_review_completed": false,
+  "neo4j_access": false
+}

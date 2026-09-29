@@ -102,6 +102,18 @@ class Contracts(unittest.TestCase):
             with self.assertRaises(ValueError):
                 load_articles(p)
 
+    def test_explicit_env_file_overrides_stale_inherited_key(self):
+        import os
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d)/'selected.env'
+            path.write_text('GEMINI_API_KEY=' + 'new-key-' + 'x'*24 + '\n'
+                'GEMINI_API_BASE=https://example.test/v1\nGEMINI_MODEL=test-model\n')
+            with patch.dict(os.environ, {'GEMINI_API_KEY': 'stale-key'}, clear=False):
+                model = Model(Path(d)/'out', env_file=path, model_role='extraction')
+                self.assertEqual(model.registry.specs['primary'].api_key, 'new-key-' + 'x'*24)
+                self.assertEqual(model.registry.specs['primary'].api_base, 'https://example.test/v1')
+                self.assertEqual(model.model, 'test-model')
+
     def test_replay_no_network_and_hash_binding(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d); raw=root/'raw'; raw.mkdir(); output=root/'out'; output.mkdir()

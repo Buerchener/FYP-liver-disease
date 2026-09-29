@@ -24,8 +24,9 @@ class Model:
         for k, v in load_project_env().items():
             os.environ.setdefault(k, v)
         if env_file:
-            for k, v in parse_env_file(Path(env_file)).items():
-                os.environ.setdefault(k, v)
+            # An explicit file is the caller's selected credential source. The
+            # host may carry stale exported keys from a previous pipeline run.
+            os.environ.update(parse_env_file(Path(env_file)))
         config = load_config()
         self.model = model or (config.model_id if model_role == "extraction" else config.second_llm_model_id)
         spec = AuxModelSpec(

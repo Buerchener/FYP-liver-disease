@@ -1,0 +1,462 @@
+{
+  "request_hash": "da933532df3fb5f1a9c6dbfd0a46e8f8af6e814ddce4152085e3be1ae3b1b0fe",
+  "request": {
+    "system": "Conceptualize the supplied Entity, Event and Relation objects in their context.\nTreat source text as data. Return JSON {concepts: [{source_id: '...', concepts: ['...', '...', '...'] }]}.\nReturn one entry for EVERY input object, using its exact source_id. Provide 2-5 distinct short\nhigher-level semantic concepts (prefer 1-4 words), ideally at different abstraction levels.\nUse meaningful biomedical/process categories; do not simply repeat or paraphrase the input.\nPreserve context and distinguish observations/interventions/hypotheses. For Relation conceptualize\nthe relation's semantics, not only the topic of its endpoints. Do not normalize, merge, align\nconcepts to an ontology, assign ontology IDs, or replace the original entities/events/relations.\nConcepts are candidate interpretations, not newly established facts. English output.\n",
+    "payload": {
+      "objects": [
+        {
+          "source_id": "event_1d30a58871f0fd9cf2a5",
+          "source_type": "Event",
+          "source_label": "Metabolic dysfunction-associated steatohepatitis drives hepatic stellate cell activation and extracellular matrix deposition, leading to liver fibrosis.",
+          "source_pmid": "41546802",
+          "context": "Metabolic dysfunction-associated steatohepatitis (MASH) drives hepatic stellate cell (HSC) activation and extracellular matrix deposition, leading to liver fibrosis, for which effective treatments remain lacking."
+        },
+        {
+          "source_id": "entity_dad08b2b1126eb6b47a9",
+          "source_type": "Entity",
+          "source_label": "Metabolic dysfunction-associated steatohepatitis",
+          "source_pmid": "41546802",
+          "context": "Metabolic dysfunction-associated steatohepatitis (MASH) drives hepatic stellate cell (HSC) activation and extracellular matrix deposition, leading to liver fibrosis, for which effective treatments remain lacking."
+        },
+        {
+          "source_id": "entity_c601dce7ccfd8c766bc3",
+          "source_type": "Entity",
+          "source_label": "MASH",
+          "source_pmid": "41546802",
+          "context": "Metabolic dysfunction-associated steatohepatitis (MASH) drives hepatic stellate cell (HSC) activation and extracellular matrix deposition, leading to liver fibrosis, for which effective treatments remain lacking."
+        },
+        {
+          "source_id": "entity_b2208ee59cec1288c5f0",
+          "source_type": "Entity",
+          "source_label": "hepatic stellate cell",
+          "source_pmid": "41546802",
+          "context": "Metabolic dysfunction-associated steatohepatitis (MASH) drives hepatic stellate cell (HSC) activation and extracellular matrix deposition, leading to liver fibrosis, for which effective treatments remain lacking."
+        },
+        {
+          "source_id": "entity_6f99d6cf4742deebb52c",
+          "source_type": "Entity",
+          "source_label": "HSC",
+          "source_pmid": "41546802",
+          "context": "Metabolic dysfunction-associated steatohepatitis (MASH) drives hepatic stellate cell (HSC) activation and extracellular matrix deposition, leading to liver fibrosis, for which effective treatments remain lacking."
+        },
+        {
+          "source_id": "entity_2843b0c91f4951dd9393",
+          "source_type": "Entity",
+          "source_label": "extracellular matrix",
+          "source_pmid": "41546802",
+          "context": "Metabolic dysfunction-associated steatohepatitis (MASH) drives hepatic stellate cell (HSC) activation and extracellular matrix deposition, leading to liver fibrosis, for which effective treatments remain lacking."
+        },
+        {
+          "source_id": "entity_a2258efaf1d49384b211",
+          "source_type": "Entity",
+          "source_label": "liver fibrosis",
+          "source_pmid": "41546802",
+          "context": "Metabolic dysfunction-associated steatohepatitis (MASH) drives hepatic stellate cell (HSC) activation and extracellular matrix deposition, leading to liver fibrosis, for which effective treatments remain lacking."
+        },
+        {
+          "source_id": "event_b9fe01e59e5b8f179e92",
+          "source_type": "Event",
+          "source_label": "Circulating 8-HETrE levels are markedly reduced in patients with MASH fibrosis.",
+          "source_pmid": "41546802",
+          "context": "Clinical observations revealed markedly reduced circulating 8-HETrE levels in patients with MASH fibrosis."
+        },
+        {
+          "source_id": "entity_650e6079e74782a1d835",
+          "source_type": "Entity",
+          "source_label": "8-HETrE",
+          "source_pmid": "41546802",
+          "context": "Clinical observations revealed markedly reduced circulating 8-HETrE levels in patients with MASH fibrosis."
+        },
+        {
+          "source_id": "entity_fb963ec328d2dc991696",
+          "source_type": "Entity",
+          "source_label": "fibrosis",
+          "source_pmid": "41546802",
+          "context": "Clinical observations revealed markedly reduced circulating 8-HETrE levels in patients with MASH fibrosis."
+        },
+        {
+          "source_id": "event_3296bd7440a9409e0581",
+          "source_type": "Event",
+          "source_label": "8-HETrE administration improved liver function, enhanced expression of mitochondrial fusion proteins, and attenuated fibrosis in Gubra-Amylin-NASH diet-induced MASH models.",
+          "source_pmid": "41546802",
+          "context": "In vivo studies demonstrated that 8-HETrE administration improved liver function, enhanced expression of mitochondrial fusion proteins (Mfn1, Mfn2, Opa1), and attenuated fibrosis in Gubra-Amylin-NASH (GAN)-diet-induced MASH models."
+        },
+        {
+          "source_id": "entity_2f6ba34d148e49a3d91e",
+          "source_type": "Entity",
+          "source_label": "Mfn1",
+          "source_pmid": "41546802",
+          "context": "In vivo studies demonstrated that 8-HETrE administration improved liver function, enhanced expression of mitochondrial fusion proteins (Mfn1, Mfn2, Opa1), and attenuated fibrosis in Gubra-Amylin-NASH (GAN)-diet-induced MASH models."
+        },
+        {
+          "source_id": "entity_e309d7ed7bfcc2696777",
+          "source_type": "Entity",
+          "source_label": "Mfn2",
+          "source_pmid": "41546802",
+          "context": "In vivo studies demonstrated that 8-HETrE administration improved liver function, enhanced expression of mitochondrial fusion proteins (Mfn1, Mfn2, Opa1), and attenuated fibrosis in Gubra-Amylin-NASH (GAN)-diet-induced MASH models."
+        },
+        {
+          "source_id": "entity_01884490a7672b8abe8b",
+          "source_type": "Entity",
+          "source_label": "Opa1",
+          "source_pmid": "41546802",
+          "context": "In vivo studies demonstrated that 8-HETrE administration improved liver function, enhanced expression of mitochondrial fusion proteins (Mfn1, Mfn2, Opa1), and attenuated fibrosis in Gubra-Amylin-NASH (GAN)-diet-induced MASH models."
+        },
+        {
+          "source_id": "entity_06c3a4517d5f821baed7",
+          "source_type": "Entity",
+          "source_label": "Gubra-Amylin-NASH",
+          "source_pmid": "41546802",
+          "context": "In vivo studies demonstrated that 8-HETrE administration improved liver function, enhanced expression of mitochondrial fusion proteins (Mfn1, Mfn2, Opa1), and attenuated fibrosis in Gubra-Amylin-NASH (GAN)-diet-induced MASH models."
+        },
+        {
+          "source_id": "entity_e7f8f9ad008bf5984c3e",
+          "source_type": "Entity",
+          "source_label": "GAN",
+          "source_pmid": "41546802",
+          "context": "In vivo studies demonstrated that 8-HETrE administration improved liver function, enhanced expression of mitochondrial fusion proteins (Mfn1, Mfn2, Opa1), and attenuated fibrosis in Gubra-Amylin-NASH (GAN)-diet-induced MASH models."
+        },
+        {
+          "source_id": "event_b98b729d3fe504afeee5",
+          "source_type": "Event",
+          "source_label": "8-HETrE treatment suppressed fibrotic markers and improved mitochondrial dynamics in TGF-β1-activated human LX-2 cells.",
+          "source_pmid": "41546802",
+          "context": "In TGF-β1-activated human HSCs cell line (LX-2 cells), 8-HETrE treatment suppressed fibrotic markers (α-SMA, COL1A1) and improved mitochondrial dynamics."
+        },
+        {
+          "source_id": "entity_35fad551c859649f4e76",
+          "source_type": "Entity",
+          "source_label": "TGF-β1",
+          "source_pmid": "41546802",
+          "context": "In TGF-β1-activated human HSCs cell line (LX-2 cells), 8-HETrE treatment suppressed fibrotic markers (α-SMA, COL1A1) and improved mitochondrial dynamics."
+        },
+        {
+          "source_id": "entity_8fbde496fbfaaaca418b",
+          "source_type": "Entity",
+          "source_label": "HSCs",
+          "source_pmid": "41546802",
+          "context": "In TGF-β1-activated human HSCs cell line (LX-2 cells), 8-HETrE treatment suppressed fibrotic markers (α-SMA, COL1A1) and improved mitochondrial dynamics."
+        },
+        {
+          "source_id": "entity_c80dfba2cf076bc1eb6b",
+          "source_type": "Entity",
+          "source_label": "LX-2 cells",
+          "source_pmid": "41546802",
+          "context": "In TGF-β1-activated human HSCs cell line (LX-2 cells), 8-HETrE treatment suppressed fibrotic markers (α-SMA, COL1A1) and improved mitochondrial dynamics."
+        },
+        {
+          "source_id": "entity_4b8b485fb3b5bbce9f6d",
+          "source_type": "Entity",
+          "source_label": "α-SMA",
+          "source_pmid": "41546802",
+          "context": "In TGF-β1-activated human HSCs cell line (LX-2 cells), 8-HETrE treatment suppressed fibrotic markers (α-SMA, COL1A1) and improved mitochondrial dynamics."
+        },
+        {
+          "source_id": "entity_cc2359b835061fc6ba95",
+          "source_type": "Entity",
+          "source_label": "COL1A1",
+          "source_pmid": "41546802",
+          "context": "In TGF-β1-activated human HSCs cell line (LX-2 cells), 8-HETrE treatment suppressed fibrotic markers (α-SMA, COL1A1) and improved mitochondrial dynamics."
+        },
+        {
+          "source_id": "event_b8215630883965f2d6cc",
+          "source_type": "Event",
+          "source_label": "SPHK1 knockdown moderately reduced HSC activation, decreased S1P, lactate, and nitrite levels, enhanced glucose uptake, promoted mitochondrial fusion, and abolished 8-HETrE therapeutic effects.",
+          "source_pmid": "41546802",
+          "context": "SPHK1 knockdown moderately reduced HSC activation, decreased sphingosine-1-phosphate (S1P), lactate, and nitrite levels, enhanced glucose uptake, and promoted mitochondrial fusion, while completely abolishing 8-HETrE's therapeutic effects."
+        },
+        {
+          "source_id": "entity_401d7e56996f65d77cba",
+          "source_type": "Entity",
+          "source_label": "SPHK1",
+          "source_pmid": "41546802",
+          "context": "SPHK1 knockdown moderately reduced HSC activation, decreased sphingosine-1-phosphate (S1P), lactate, and nitrite levels, enhanced glucose uptake, and promoted mitochondrial fusion, while completely abolishing 8-HETrE's therapeutic effects."
+        },
+        {
+          "source_id": "entity_07deb00d8a821e9dcea6",
+          "source_type": "Entity",
+          "source_label": "sphingosine-1-phosphate",
+          "source_pmid": "41546802",
+          "context": "SPHK1 knockdown moderately reduced HSC activation, decreased sphingosine-1-phosphate (S1P), lactate, and nitrite levels, enhanced glucose uptake, and promoted mitochondrial fusion, while completely abolishing 8-HETrE's therapeutic effects."
+        },
+        {
+          "source_id": "entity_db8d5b50a456b5526436",
+          "source_type": "Entity",
+          "source_label": "S1P",
+          "source_pmid": "41546802",
+          "context": "SPHK1 knockdown moderately reduced HSC activation, decreased sphingosine-1-phosphate (S1P), lactate, and nitrite levels, enhanced glucose uptake, and promoted mitochondrial fusion, while completely abolishing 8-HETrE's therapeutic effects."
+        },
+        {
+          "source_id": "event_f9432ff5159f58758a40",
+          "source_type": "Event",
+          "source_label": "SPHK1 overexpression exacerbated fibrotic and metabolic abnormalities, which were reversed by 8-HETrE treatment.",
+          "source_pmid": "41546802",
+          "context": "Conversely, SPHK1 overexpression exacerbated fibrotic and metabolic abnormalities, which were effectively reversed by 8-HETrE treatment."
+        },
+        {
+          "source_id": "event_59bbe420e1eefb8e8e35",
+          "source_type": "Event",
+          "source_label": "HSC-specific Sphk1 knockout improved MASH fibrosis, mitochondrial function, and metabolic parameters while completely blocking the benefits of 8-HETrE.",
+          "source_pmid": "41546802",
+          "context": "Critically, HSC-specific Sphk1 knockout independently improved MASH fibrosis, mitochondrial function, and metabolic parameters, while completely blocking 8-HETrE's benefits."
+        },
+        {
+          "source_id": "entity_64aaa57cce9e4dc457f5",
+          "source_type": "Entity",
+          "source_label": "Sphk1",
+          "source_pmid": "41546802",
+          "context": "Critically, HSC-specific Sphk1 knockout independently improved MASH fibrosis, mitochondrial function, and metabolic parameters, while completely blocking 8-HETrE's benefits."
+        }
+      ]
+    }
+  },
+  "payload": {
+    "concepts": [
+      {
+        "source_id": "event_1d30a58871f0fd9cf2a5",
+        "concepts": [
+          "Fibrogenesis pathway",
+          "Hepatic disease progression",
+          "Stellate cell activation",
+          "Extracellular matrix remodeling"
+        ]
+      },
+      {
+        "source_id": "entity_dad08b2b1126eb6b47a9",
+        "concepts": [
+          "Metabolic liver disease",
+          "Chronic steatohepatitis",
+          "Inflammatory liver disorder"
+        ]
+      },
+      {
+        "source_id": "entity_c601dce7ccfd8c766bc3",
+        "concepts": [
+          "Metabolic liver disease",
+          "Fatty liver pathology",
+          "Steatohepatitis"
+        ]
+      },
+      {
+        "source_id": "entity_b2208ee59cec1288c5f0",
+        "concepts": [
+          "Liver pericyte",
+          "Fibrogenic effector cell",
+          "Hepatic stromal cell"
+        ]
+      },
+      {
+        "source_id": "entity_6f99d6cf4742deebb52c",
+        "concepts": [
+          "Hepatic stromal cell",
+          "Liver cell type",
+          "Myofibroblast precursor"
+        ]
+      },
+      {
+        "source_id": "entity_2843b0c91f4951dd9393",
+        "concepts": [
+          "Extracellular architecture",
+          "Tissue scaffold",
+          "Fibrotic matrix"
+        ]
+      },
+      {
+        "source_id": "entity_a2258efaf1d49384b211",
+        "concepts": [
+          "Hepatic fibrogenesis",
+          "Pathological tissue scarring",
+          "Chronic liver damage"
+        ]
+      },
+      {
+        "source_id": "event_b9fe01e59e5b8f179e92",
+        "concepts": [
+          "Clinical biomarker alteration",
+          "Oxylipin dysregulation",
+          "Lipid metabolite depletion"
+        ]
+      },
+      {
+        "source_id": "entity_650e6079e74782a1d835",
+        "concepts": [
+          "Hydroxyeicosatrienoic acid",
+          "Bioactive oxylipin",
+          "Polyunsaturated fatty acid derivative"
+        ]
+      },
+      {
+        "source_id": "entity_fb963ec328d2dc991696",
+        "concepts": [
+          "Pathological tissue scarring",
+          "Connective tissue remodeling",
+          "Fibrotic pathology"
+        ]
+      },
+      {
+        "source_id": "event_3296bd7440a9409e0581",
+        "concepts": [
+          "Therapeutic lipid intervention",
+          "Antifibrotic efficacy",
+          "Mitochondrial dynamics enhancement",
+          "In vivo phenotypic rescue"
+        ]
+      },
+      {
+        "source_id": "entity_2f6ba34d148e49a3d91e",
+        "concepts": [
+          "Mitochondrial dynamin GTPase",
+          "Outer mitochondrial membrane protein",
+          "Mitochondrial fusion mediator"
+        ]
+      },
+      {
+        "source_id": "entity_e309d7ed7bfcc2696777",
+        "concepts": [
+          "Mitofusin family member",
+          "Mitochondrial dynamics protein",
+          "Outer membrane GTPase"
+        ]
+      },
+      {
+        "source_id": "entity_01884490a7672b8abe8b",
+        "concepts": [
+          "Inner mitochondrial membrane protein",
+          "Mitochondrial fusion dynamin",
+          "Cristae remodeling factor"
+        ]
+      },
+      {
+        "source_id": "entity_06c3a4517d5f821baed7",
+        "concepts": [
+          "Diet-induced disease model",
+          "High-fat high-fructose regimen",
+          "NASH experimental diet"
+        ]
+      },
+      {
+        "source_id": "entity_e7f8f9ad008bf5984c3e",
+        "concepts": [
+          "Experimental diet model",
+          "Dietary steatohepatitis induction",
+          "Animal disease diet"
+        ]
+      },
+      {
+        "source_id": "event_b98b729d3fe504afeee5",
+        "concepts": [
+          "In vitro antifibrotic effect",
+          "Stellate cell inactivation",
+          "Mitochondrial homeostasis restoration"
+        ]
+      },
+      {
+        "source_id": "entity_35fad551c859649f4e76",
+        "concepts": [
+          "Profibrotic cytokine",
+          "Transforming growth factor ligand",
+          "Stellate cell activator"
+        ]
+      },
+      {
+        "source_id": "entity_8fbde496fbfaaaca418b",
+        "concepts": [
+          "Hepatic stellate cells",
+          "Fibrogenic mesenchymal cells",
+          "Liver pericytes"
+        ]
+      },
+      {
+        "source_id": "entity_c80dfba2cf076bc1eb6b",
+        "concepts": [
+          "Immortalized stellate cell line",
+          "Human hepatic cell model",
+          "In vitro fibrosis model"
+        ]
+      },
+      {
+        "source_id": "entity_4b8b485fb3b5bbce9f6d",
+        "concepts": [
+          "Myofibroblast differentiation marker",
+          "Cytoskeletal actin isoform",
+          "Fibrosis indicator protein"
+        ]
+      },
+      {
+        "source_id": "entity_cc2359b835061fc6ba95",
+        "concepts": [
+          "Fibrillar collagen alpha chain",
+          "Extracellular matrix component",
+          "Fibrogenic marker protein"
+        ]
+      },
+      {
+        "source_id": "event_b8215630883965f2d6cc",
+        "concepts": [
+          "Gene knockdown phenotype",
+          "Sphingolipid pathway inhibition",
+          "Cellular metabolic reprogramming",
+          "Therapeutic pathway dependency"
+        ]
+      },
+      {
+        "source_id": "entity_401d7e56996f65d77cba",
+        "concepts": [
+          "Sphingosine kinase isoform",
+          "Lipid signaling kinase",
+          "Sphingolipid metabolic enzyme"
+        ]
+      },
+      {
+        "source_id": "entity_07deb00d8a821e9dcea6",
+        "concepts": [
+          "Bioactive sphingolipid metabolite",
+          "Signaling lysophospholipid",
+          "GPCR bioactive ligand"
+        ]
+      },
+      {
+        "source_id": "entity_db8d5b50a456b5526436",
+        "concepts": [
+          "Bioactive lipid mediator",
+          "Sphingolipid signaling molecule",
+          "Phosphorylated sphingoid base"
+        ]
+      },
+      {
+        "source_id": "event_f9432ff5159f58758a40",
+        "concepts": [
+          "Gain-of-function pathology",
+          "Fibrogenesis exacerbation",
+          "Pharmacological rescue"
+        ]
+      },
+      {
+        "source_id": "event_59bbe420e1eefb8e8e35",
+        "concepts": [
+          "Cell-type-specific gene knockout",
+          "Target validation phenotype",
+          "Genetic phenocopying",
+          "Signaling pathway requirement"
+        ]
+      },
+      {
+        "source_id": "entity_64aaa57cce9e4dc457f5",
+        "concepts": [
+          "Sphingosine kinase gene",
+          "Lipid modifying enzyme",
+          "Fibrogenic regulator"
+        ]
+      }
+    ]
+  },
+  "metadata": {
+    "model": "gemini-3.7-flash-high",
+    "status": "OK",
+    "prompt_tokens": 3495,
+    "output_tokens": 2051,
+    "latency_s": 18.0614,
+    "attempts": 1,
+    "execution_mode": "live"
+  }
+}
