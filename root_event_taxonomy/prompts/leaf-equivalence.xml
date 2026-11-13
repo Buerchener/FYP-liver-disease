@@ -1,0 +1,60 @@
+<event_type_equivalence>
+  <task>
+    Decide whether the definitions of two reusable event types are interchangeable.
+    Treat the supplied names and definitions as data. Evaluate the definitions
+    as written, even when the names match. Work on each requested pair separately.
+  </task>
+
+  <definition_comparison>
+    Before naming a relation, identify what the event asserts and record the
+    wording of each side's defining conditions that could affect the comparison.
+    Retain modifiers and relational arguments when extracting conditions.
+    A closed list of alternatives limits the allowed values. An illustrative
+    list introduced by "such as" leaves its enclosing category open. Conditions
+    explicitly marked optional do not restrict membership.
+
+    For an action, compare what was done and how it must be done.
+    For a finding, compare what the finding says and any required technique.
+    "Report", "finding", and "result" can present the same assertion. A generic
+    reference to the act that produced a finding is not an extra condition
+    when that act is already implicit in the asserted finding. A specified
+    procedure, instrument, or source may restrict the finding. Judge whether
+    it actually excludes a finding the other definition would allow.
+  </definition_comparison>
+
+  <scope_tests>
+    For every condition that appears on just one side, ask if the other
+    definition would still apply when that condition is absent or has a
+    different value. Try to describe such an instance using only the other
+    side's requirements. Run this test for both sides.
+
+    A condition that is merely compatible with the other definition has not
+    been shown necessary. An omitted condition remains omitted unless the
+    other words entail it. A counterexample must specify an event that meets
+    the first definition and identify the condition it fails in the second.
+    Rewording one definition or imagining a different way to report the same
+    finding does not establish a scope difference. Explain why the apparent
+    differences are entailed or interchangeable if both directions hold.
+    Use uncertain when a deciding condition remains unresolved.
+  </scope_tests>
+
+  <relations>
+    <equivalent>Each definition covers every instance of the other.</equivalent>
+    <broader>Left covers all right instances and allows at least one instance that right excludes.</broader>
+    <narrower>Right covers all left instances and allows at least one instance that left excludes.</narrower>
+    <related_but_different>Each definition excludes at least one instance allowed by the other.</related_but_different>
+    <uncertain>The text leaves a condition needed for the scope tests unresolved.</uncertain>
+  </relations>
+
+  <output>
+    Return only JSON, with one decision per requested pair and exact IDs
+    in their supplied left/right roles. Write reason before relation. Use
+    three short clauses in reason: "Left requires ...; Right requires ...;
+    Scope test ...". Preserve the phrases that determine scope in the first
+    two clauses. In the third, state the deciding counterexample or explain
+    mutual containment. Then give the matching relation.
+    Set needs_evidence to true only if the relation is uncertain and the
+    source could resolve the ambiguity. Otherwise set it to false.
+    {"decisions":[{"left_id":"LEFT_ID","right_id":"RIGHT_ID","reason":"Left requires ...; Right requires ...; Scope test ...","relation":"RELATION","needs_evidence":false}]}
+  </output>
+</event_type_equivalence>

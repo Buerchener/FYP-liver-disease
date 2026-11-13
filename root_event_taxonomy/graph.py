@@ -73,7 +73,7 @@ def update_graph(before, node=None, edges=()):
     return updated
 
 
-def intermediate(taxonomy, data, proposal, child_nodes, decision):
+def intermediate(taxonomy, data, proposal, child_nodes, decision, *, normalization_version="root-induction/1"):
     name, definition = proposal["name"].strip(), proposal["definition"].strip()
     for existing in taxonomy.nodes:
         if norm(name) in {norm(s) for s in [existing.concept_label, *existing.aliases]}:
@@ -87,7 +87,7 @@ def intermediate(taxonomy, data, proposal, child_nodes, decision):
         candidate_ids=[],
         aliases=[],
         normalization_key=norm(name),
-        normalization_version="root-induction/1",
+        normalization_version=normalization_version,
         supporting_event_ids=sorted({e for n in child_nodes for e in n.supporting_event_ids}),
         evidence=sorted({e for n in child_nodes for e in n.evidence}),
         concept_role="event_type",

@@ -1,6 +1,8 @@
-# Taxonomy Studio：中文实验工作台
+# LiverKG：事件分类工作台
 
-这是 Task 2 归纳算法的前端和本地运行服务。它调用现有 Python 算法，页面按钮会启动实际实验进程；并非仅播放预先写好的动画。默认实验使用 **Synthetic Data + Mock LLM**，不调用真实模型。
+首页按「事件抽取 → 概念化 → Leaf 归一化 → 层级归纳」查看已保存的真实结果。默认打开分类图，点击概念逐层查看父类、子类、定义与原文证据；三个预定义顶层和未连顶层的概念分开浏览，多父关系完整保留。连线颜色来自已保存的 Codex 定义复查，仍需人工审定。
+
+首页只读取结果，不会启动模型调用。原有 Task 2 模拟运行、模型连接、参数和历史回放保留在顶栏的「实验记录」中，默认实验使用 **Synthetic Data + Mock LLM**。
 
 自底向上归纳使用独立的 [Root-Constrained CLI](../root_event_taxonomy/README.md)。
 
@@ -14,9 +16,9 @@
 python3 -m taxonomy_workbench --open
 ```
 
-顶栏的「事件抽取」链接指向原工作台 <http://127.0.0.1:4317>。分类体系工作台使用独立的 4318 端口。
+工作台使用独立的 4318 端口。首页读取 `event_taxonomy/runs/xml-event-only/` 下最新的完整归纳结果，通过保存的 manifest 追溯对应的概念化和 Leaf 归一化记录；不会修改结果、第一轮 XML 提示词或原文证据。没有可用结果时显示空状态，不自动替换为模拟数据。
 
-页面操作顺序：
+「实验记录」（`/experiments`）操作顺序：
 
 1. 选择「合成示例」和「模拟模型」。
 2. 点击「开始演示」，每次运行会创建独立的实验目录。
@@ -48,7 +50,9 @@ python3 -m taxonomy_workbench --open
 
 | 文件 | 用途 |
 |---|---|
-| `static/index.html`、`style.css`、`app.js` | 中文界面、图形比较、逐轮回放、证据与模型记录查看 |
+| `static/index.html`、`pipeline.css`、`pipeline.js`、`taxonomy-graph.js` | 当前流程、交互分类图、概念定义及原文证据 |
+| `pipeline.py` | 读取真实结果、追溯上游数据、核对图结构及复查记录 |
+| `static/experiments.html`、`style.css`、`app.js` | 原有实验控制、图形比较、逐轮回放及模型记录 |
 | `service.py` | 数据导入、运行管理、Python 子进程、暂停恢复、实验读取 |
 | `server.py` | 仅监听 loopback 的 HTTP 接口与静态文件服务 |
 | `viewmodel.py` | 将结构化决策转换为中文流程解释，不编造模型判断依据 |
@@ -65,7 +69,7 @@ python3 -m taxonomy_workbench --open
 
 ```bash
 python3 -m unittest discover -s event_taxonomy/tests -v
-python3 -m unittest taxonomy_workbench.tests.test_workbench -v
+python3 -m unittest taxonomy_workbench.tests.test_workbench taxonomy_workbench.tests.test_pipeline -v
 node --test taxonomy_workbench/tests/frontend.test.mjs
 ```
 

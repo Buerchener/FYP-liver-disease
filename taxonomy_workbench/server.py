@@ -5,6 +5,7 @@ from pathlib import Path
 import re
 import urllib.parse
 from .service import APIError,Workbench
+from .pipeline import current_run,pipeline_view
 from event_taxonomy.induction.visualize import svg
 
 STATIC=Path(__file__).parent/'static'
@@ -38,10 +39,19 @@ class Router:
                 try:data=json.loads(body)
                 except (ValueError,UnicodeError):raise APIError('请求内容不是有效 JSON。') from None
                 if not isinstance(data,dict):raise APIError('请求内容应为 JSON 对象。')
-            if method=='GET' and path in ('/','/index.html','/style.css','/app.js'):
-                name='index.html' if path=='/' else path[1:]
+            if method=='GET' and path in ('/','/index.html','/experiments','/experiments.html',
+                                         '/style.css','/app.js','/pipeline.css','/pipeline.js','/taxonomy-graph.js'):
+                name={'/':'index.html','/experiments':'experiments.html'}.get(path,path[1:])
                 mime={'html':'text/html','css':'text/css','js':'text/javascript'}[name.rsplit('.',1)[-1]]
                 return self.response(200,(STATIC/name).read_bytes(),mime+'; charset=utf-8')
+            if path=='/api/pipeline' and method=='GET':
+                return self.response(200,pipeline_view(self.service.runs))
+            if path=='/api/pipeline/export' and method=='GET':
+                run=current_run(self.service.runs)
+                if run is None:raise APIError('尚无已保存的层级归纳结果。',404)
+                result=self.response(200,(run/'final_taxonomy.json').read_bytes())
+                result[1]['Content-Disposition']='attachment; filename="event-taxonomy.json"'
+                return result
             if path=='/api/overview' and method=='GET':return self.response(200,self.service.overview())
             if path=='/api/model' and method=='POST':return self.response(200,self.service.configure_model(data))
             if path=='/api/datasets' and method=='POST':return self.response(201,self.service.import_dataset(data))

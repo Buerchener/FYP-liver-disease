@@ -23,7 +23,8 @@ class OpenAICompatibleProvider:
             'max_tokens': parameters['max_tokens'], 'response_format': {'type': 'json_object'},
             'messages': [{'role': 'system', 'content': prompt},
                          {'role': 'user', 'content': json.dumps(payload, ensure_ascii=False, allow_nan=False)}]}
-        for name, value in self.config.get('extra_body', {}).items():
+        extra_body = {**self.config.get('extra_body', {}), **parameters.get('extra_body', {})}
+        for name, value in extra_body.items():
             if name in body or name in {'api_key', 'authorization', 'headers', 'stream'}:
                 raise ProviderError('extra_body cannot override required request fields')
             body[name] = value

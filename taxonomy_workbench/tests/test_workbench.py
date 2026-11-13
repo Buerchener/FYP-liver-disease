@@ -45,7 +45,8 @@ class WorkbenchTests(unittest.TestCase):
         self.assertIsNone(self.service.active_id,'Worker did not finish')
 
     def test_static_and_overview_use_actual_dataset_counts(self):
-        code,html=self.request('/');self.assertEqual(code,200);self.assertIn('概念层级归纳'.encode(),html)
+        code,html=self.request('/');self.assertEqual(code,200);self.assertIn('层级归纳'.encode(),html)
+        code,html=self.request('/experiments');self.assertEqual(code,200);self.assertIn('开始演示'.encode(),html)
         code,overview=self.request('/api/overview');self.assertEqual(code,200)
         self.assertEqual(overview['datasets'][0]['concept_count'],8)
         self.assertTrue(overview['datasets'][0]['ready'])

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f7">
+  <title>分类体系 · LiverKG</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d1d1f'/%3E%3Cpath d='M9 8l14 7-12 9z' fill='none' stroke='%23ffffff' stroke-width='1.7'/%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='9' cy='8' r='2.6'/%3E%3Ccircle cx='23' cy='15' r='2.6'/%3E%3Ccircle cx='11' cy='24' r='2.6'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="global-header">
+    <a class="brand" href="/" aria-label="LiverKG 分类体系工作台">
+      <span class="brandmark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M7 6 17 11 8 18M7 6l1 12"/>
+          <g fill="currentColor" stroke="none"><circle cx="7" cy="6" r="2.4"/><circle cx="17" cy="11" r="2.4"/><circle cx="8" cy="18" r="2.4"/></g>
+        </svg>
+      </span>
+      <span>LiverKG</span>
+    </a>
+    <nav class="breadcrumb" aria-label="工作台">
+      <strong>AutoSchemaKG</strong><span class="breadcrumb-divider" aria-hidden="true">/</span>
+      <a href="/">返回当前流程</a>
+    </nav>
+    <div class="global-actions">
+      <span class="save-indicator"><span id="server-dot" class="dot"></span><span id="server-label">连接中…</span></span>
+      <button id="guide-open" class="icon-button" type="button" aria-label="使用说明" title="使用说明">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="shell">
+    <aside class="sidebar" aria-label="实验设置与记录">
+      <section class="experiment-controls" aria-label="新实验">
+        <div class="source-field">
+          <div class="library-heading">
+            <h2><label for="dataset">实验数据</label></h2>
+            <button id="import-button" class="icon-button" type="button" aria-label="导入数据" title="导入数据">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+          <select id="dataset"><option>加载中…</option></select>
+          <input type="file" id="import-file" accept=".json,application/json" hidden>
+        </div>
+        <label class="field mode-field" for="mode">运行方式
+          <select id="mode"><option value="mock">模拟模型</option><option value="live">真实模型</option></select>
+        </label>
+        <p id="readiness" class="notice" role="status" hidden></p>
+        <p id="mode-help" class="notice" role="status" hidden></p>
+        <div class="run-controls">
+          <button id="start" class="button primary" aria-describedby="readiness mode-help" disabled>开始演示</button>
+          <button id="pause" class="button" hidden>暂停实验</button>
+          <button id="resume" class="button" hidden>继续运行</button>
+        </div>
+        <details class="settings">
+          <summary>实验参数</summary>
+          <div class="parameter-fields">
+            <label class="field">每个父节点最多迭代<input id="iterations" type="number" value="6" min="1" max="20"></label>
+            <label class="field">每轮最多尝试候选<input id="attempts" type="number" value="3" min="1" max="10"></label>
+            <label class="field">最大递归深度<input id="depth" type="number" value="12" min="0" max="30"></label>
+            <label class="field">最多模型调用次数<input id="calls" type="number" value="300" min="1" max="1000"></label>
+          </div>
+        </details>
+      </section>
+      <section class="run-library" aria-labelledby="history-heading">
+        <div class="library-heading">
+          <h2 id="history-heading">实验记录</h2>
+          <button id="refresh" class="icon-button" aria-label="刷新记录" title="刷新记录">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11a9 9 0 1 1 3 8M3 4v7h7"/></svg>
+          </button>
+        </div>
+        <div id="history" class="history"><p class="empty-inline">暂无记录</p></div>
+      </section>
+      <div class="library-bottom">
+        <button id="model-open" class="nav-item" title="模型连接">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h2m6 0h8M4 17h9m6 0h1"/><circle cx="9" cy="7" r="3"/><circle cx="16" cy="17" r="3"/></svg>
+          <span id="model-label">模型连接</span><span id="model-dot" class="dot"></span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="page-heading">
+        <div class="heading-title">
+          <h1>概念层级归纳</h1>
+          <div class="run-status" aria-live="polite"><span id="data-badge" hidden></span><span id="status">待开始</span></div>
+        </div>
+        <div class="page-actions">
+          <a id="export-graph" class="button" hidden>导出分类</a>
+          <a id="export-log" class="button" hidden>导出变更记录</a>
+        </div>
+      </header>
+      <p id="error" class="error-banner" role="alert" hidden></p>
+      <section class="metrics-strip" aria-label="分类与证据统计">
+        <div><span>原始概念保留</span><strong id="metric-retained">—</strong></div>
+        <div><span>新增中间概念</span><strong id="metric-added">—</strong></div>
+        <div><span>关联事件</span><strong id="metric-events">—</strong></div>
+        <div><span>证据</span><strong id="metric-evidence">—</strong></div>
+      </section>
+      <div class="work-grid">
+        <section class="graph-column" aria-labelledby="graph-heading">
+          <div class="column-toolbar">
+            <h2 id="graph-heading">分类图</h2>
+            <div id="view-tabs" class="segmented" role="group" aria-label="分类图视图">
+              <button data-view="current" class="selected" aria-pressed="true">当前</button>
+              <button data-view="initial" aria-pressed="false" disabled>初始</button>
+              <button data-view="compare" aria-pressed="false" disabled>对比</button>
+              <button data-view="candidate" aria-pressed="false" disabled>候选</button>
+            </div>
+          </div>
+          <div class="graph-card">
+            <p id="candidate-notice" class="candidate-notice" role="status" hidden>候选结构尚未提交</p>
+            <div id="graphs" class="graphs">
+              <div class="graph-pane">
+                <div id="graph-title" class="graph-title" hidden>修改前</div>
+                <div id="graph" class="graph-scroll"><p class="graph-empty">正在读取分类图…</p></div>
+              </div>
+              <div id="compare-pane" class="graph-pane" hidden>
+                <div id="compare-title" class="graph-title">修改后</div>
+                <div id="graph-compare" class="graph-scroll"></div>
+              </div>
+            </div>
+            <div class="graph-toolbar">
+              <div class="legend" aria-label="图例">
+                <span><i class="root-color"></i>根类别</span><span><i class="input-color"></i>原始概念</span><span><i class="middle-color"></i>中间概念</span>
+              </div>
+              <div id="zoom" class="zoom" role="group" aria-label="分类图缩放">
+                <button id="zoom-out" class="icon-button" aria-label="缩小" title="缩小">−</button>
+                <button id="zoom-reset" class="text-button">适应</button>
+                <button id="zoom-in" class="icon-button" aria-label="放大" title="放大">+</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="detail-column" aria-labelledby="detail-heading">
+          <div class="column-toolbar">
+            <h2 id="detail-heading" tabindex="-1">步骤详情</h2>
+            <button id="back-decision" class="text-button" hidden>返回步骤</button>
+          </div>
+          <div id="explanation" class="detail-card"><p class="empty-inline">选择概念或归纳步骤。</p></div>
+        </aside>
+      </div>
+
+      <section class="timeline-section" aria-labelledby="timeline-heading">
+        <div class="column-toolbar">
+          <div class="timeline-heading">
+            <h2 id="timeline-heading">归纳过程</h2>
+            <ol class="stages" aria-label="归纳阶段">
+              <li id="stage-A">诊断</li><li id="stage-B">归纳</li><li id="stage-C">验证</li>
+            </ol>
+          </div>
+          <div class="timeline-controls">
+            <button id="previous" class="icon-button" aria-label="上一步" title="上一步" disabled>‹</button>
+            <button id="play" class="button compact" disabled>回放</button>
+            <button id="next" class="icon-button" aria-label="下一步" title="下一步" disabled>›</button>
+            <button id="latest" class="text-button" disabled>回到最新</button>
+          </div>
+        </div>
+        <p id="progress" class="progress-line" aria-live="polite" hidden></p>
+        <div id="timeline" class="timeline"><p class="empty-inline">暂无归纳步骤</p></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="model-dialog" aria-labelledby="model-heading">
+    <form id="model-form">
+      <div class="dialog-heading">
+        <h2 id="model-heading">模型连接</h2>
+        <button type="button" class="icon-button" data-close="model-dialog" aria-label="关闭">×</button>
+      </div>
+      <div class="dialog-content">
+        <label class="field">Base URL<input id="base-url" type="url" placeholder="https://provider.example/v1" required></label>
+        <label class="field">模型 ID<input id="model-name" maxlength="150" required></label>
+        <label class="field">API Key<input id="api-key" type="password" autocomplete="off" aria-describedby="key-help" placeholder="保留已配置的密钥可留空"></label>
+        <p id="key-help" class="muted small">密钥仅在本次服务运行期间保留。</p>
+        <p id="model-error" class="error-banner" role="alert" hidden></p>
+      </div>
+      <div class="dialog-footer"><button class="button primary" type="submit">保存连接</button></div>
+    </form>
+  </dialog>
+  <dialog id="guide-dialog" aria-labelledby="guide-heading">
+    <div class="dialog-heading">
+      <h2 id="guide-heading">使用说明</h2>
+      <button class="icon-button" data-close="guide-dialog" aria-label="关闭">×</button>
+    </div>
+    <div class="dialog-content guide-content">
+      <p>图中的箭头从父概念指向子概念。虚线表示暂定关系。一个概念可以有多个父类。</p>
+      <p>算法在当前父类下诊断、归纳和验证，确认结构稳定后再检查子节点。被拒绝的候选可以在对应步骤中回看。</p>
+      <p>合成演示使用模拟模型。真实数据需先审定概念定义与初始归属。</p>
+    </div>
+  </dialog>
+  <dialog id="raw-dialog" class="wide" aria-labelledby="raw-heading">
+    <div class="dialog-heading">
+      <h2 id="raw-heading">模型输入与输出</h2>
+      <button class="icon-button" data-close="raw-dialog" aria-label="关闭">×</button>
+    </div>
+    <pre id="raw-json"></pre>
+  </dialog>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

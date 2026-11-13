@@ -38,6 +38,7 @@ def integer(value, minimum, name):
 
 def read_inputs(path):
     config = read_json(path)
+    prompts, _ = implementation(config)
     for name, minimum in {
         "max_rounds": 1, "max_group_size": 2, "max_new_nodes": 0, "maximum_llm_calls": 1,
         "parent_candidates": 0, "reuse_candidates": 1, "max_ancestor_paths": 1, "audit_batch_size": 1,
@@ -51,8 +52,14 @@ def read_inputs(path):
     if config["embedding"].get("dimensions") is not None:
         integer(config["embedding"]["dimensions"], 1, "embedding.dimensions")
     integer(config["llm"]["provider"]["timeout_seconds"], 1, "llm.provider.timeout_seconds")
-    if set(config["llm"]["stages"]) != set(PROMPTS):
-        raise ValueError("Provide LLM settings for each of the four stages.")
+    if set(config["llm"]["stages"]) != set(prompts):
+        raise ValueError("Provide LLM settings for each configured algorithm stage.")
+    if config.get("algorithm") == "five_step":
+        for name, minimum in {"k": 1, "block_size": 1, "max_candidates_per_round": 1}.items():
+            integer(config["discovery"][name], minimum, "discovery." + name)
+        integer(config.get("placement_reserved_calls", 0), 0, "placement_reserved_calls")
+        if config.get("placement_reserved_calls", 0) >= config["maximum_llm_calls"]:
+            raise ValueError("Placement reserve must be smaller than the total call budget")
     for stage, settings in config["llm"]["stages"].items():
         integer(settings["max_tokens"], 1, stage + ".max_tokens")
         number(settings["temperature"], 0, 2, stage + ".temperature")
@@ -102,7 +109,17 @@ def connection(settings):
     return resolved
 
 
+def implementation(config):
+    if config.get("algorithm", "legacy") == "legacy":
+        return PROMPTS, Inducer
+    if config["algorithm"] == "five_step":
+        from .refinement import FiveStepInducer, REFINEMENT_PROMPTS
+        return REFINEMENT_PROMPTS, FiveStepInducer
+    raise ValueError("Unknown induction algorithm")
+
+
 def run_live(directory, config, data):
+    prompts, inducer = implementation(config)
     embedding_config = config["embedding"]
     llm_config = config["llm"]["provider"]
     if embedding_config.get("kind") == "local_sentence_transformer":
@@ -124,21 +141,22 @@ def run_live(directory, config, data):
         atomic_json(directory / "input_dataset.json", data.dataset)
         atomic_json(directory / "definitions_overlay.json", data.overlay)
         atomic_json(directory / "manifest.json", {
-            "algorithm": "root-constrained-event-taxonomy/1",
+            "algorithm": "root-constrained-event-taxonomy/" + ("2-five-step" if inducer is not Inducer else "1"),
             "config": config,
             "scope": data.scope(),
             "input_sha256": digest(data.dataset),
             "definition_overlay_sha256": digest(data.overlay),
-            "prompt_sha256": {stage: digest(prompt) for stage, prompt in PROMPTS.items()},
+            "prompt_sha256": {stage: digest(prompt) for stage, prompt in prompts.items()},
             "code_sha256": {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                             for p in sorted(PACKAGE.glob("*.py"))},
             "numpy_version": numpy.__version__,
             "scipy_version": scipy.__version__,
         })
         embeddings = Embeddings(embedding_provider, embedding_config, data, directory / "embeddings")
-        journal = LLMJournal(directory / "llm", provider, PROMPTS,
+        atomic_json(directory / "prompts.json", prompts)
+        journal = LLMJournal(directory / "llm", provider, prompts,
                              config["llm"]["stages"], config["maximum_llm_calls"])
-        return Inducer(directory, config, data, embeddings, journal).run()
+        return inducer(directory, config, data, embeddings, journal).run()
 
 
 def main():

@@ -1,0 +1,33 @@
+<upward_taxonomy>
+  <proposal>
+    <role>Propose useful broader event types for the supplied candidate groups.</role>
+    <rules>
+      <rule>Judge the fixed definitions. Use direct children and descendant leaf definitions to test scope.</rule>
+      <rule>Propose an English name and one-sentence definition for a meaningful type with at least two strict subtypes. You may split a group, leave nodes unassigned, or abstain.</rule>
+      <rule>To reuse a current member as parent, copy its ID in reuse_id, set name and definition to null, and propose at least one other member as its strict child.</rule>
+      <rule>Do not group only by shared topic, evidence, causation, method and result, procedure and step, or action and report. Do not use an uninformative catch-all or change a child definition.</rule>
+      <rule>Use only the supplied IDs. A member can occur only once within one group's proposals, including as a reused parent.</rule>
+    </rules>
+    <output>Return only JSON. {"groups":[{"group_id":"supplied ID","reason":"brief reason","proposals":[{"name":"English name or null","definition":"one sentence or null","reuse_id":null,"child_ids":["member ID"]}]}]}. Return one entry per group. Use an empty proposals array to abstain.</output>
+  </proposal>
+  <review>
+    <role>Independently review proposed parent definitions and all proposed links. Use the supplied definitions as fixed input.</role>
+    <rules>
+      <rule>For each child ask whether every event fitting the child fits the parent. First check each required condition in the parent, such as scope, participants, context, method, or what the event actually asserts. When the child does not require a condition, look for a case outside that condition. Use the definitions as written: titles, other group members and common examples cannot add restrictions. In counterexample give a CHILD event outside the PARENT if coverage fails; leave it null when coverage passes. Use uncertain when the definitions do not settle this.</rule>
+      <rule>For that individual child, look for one event that fits the parent but does not fit the child, even if it fits another sibling. Use has_extra_cases and give this PARENT event outside the CHILD only in parent_only_example, explaining which requirement of this child it lacks. Otherwise use no_extra_cases only if every parent event also fits this child, and use uncertain if you cannot decide. In those two cases leave parent_only_example null and explain the judgment in scope_reason. Keep scope_reason null when you give a parent-only example.</rule>
+      <rule>Apply the same forward coverage check to every listed descendant leaf. Give a counterexample if coverage fails. An intervening node cannot repair a failure at the leaf.</rule>
+      <rule>Check whether the parent is precise, usable, and meaningfully more general. Distinguish observations, observed events, procedures, findings, and reports. Do not narrow a definition using one example.</rule>
+      <rule>Decide the overall verdict after checking every link. Accept requires a suitable definition, child_entails_parent=true and broader_scope=has_extra_cases on every direct child, and entails_parent=true on every descendant leaf. Any suggested revision requires new review. Keep reasons short.</rule>
+    </rules>
+    <output>Return only JSON. {"parent_reviews":[{"proposal_id":"supplied ID","edge_reviews":[{"child_id":"supplied ID","reason":"brief reason","counterexample":null,"child_entails_parent":"true|false|uncertain","parent_only_example":null,"scope_reason":null,"broader_scope":"has_extra_cases|no_extra_cases|uncertain"}],"leaf_reviews":[{"leaf_id":"supplied ID","entails_parent":"true|false|uncertain","reason":"brief reason","counterexample":null}],"verdict":"accept|revise|reject|uncertain","definition_review":"brief reason","suggested_action":"brief action","suggested_definition":null}]}. Include every supplied parent, direct child and separately listed leaf exactly once.</output>
+  </review>
+  <cross_review>
+    <role>Compare independently reviewed candidate parents across groups and against the supplied catalogue of existing types.</role>
+    <rules>
+      <rule>Check every proposal in target_ids for duplicate meaning, misleading overlap, inconsistent scope, or a genuine narrower/broader relation to any supplied type or proposal. A reused parent is intentionally the same as the existing concept named by its reuse_id.</rule>
+      <rule>Use fail for a definite duplicate or incoherent scope. Use uncertain for a material ambiguity and state what distinction the definitions leave unresolved. A useful broader or narrower type can pass, including the expected overlap with its listed child_ids.</rule>
+      <rule>Allow meaningful overlaps. Do not modify definitions, propose edges, or infer that the full taxonomy is valid. Give concrete reasons and copy the relevant ID if there is one.</rule>
+    </rules>
+    <output>Return only JSON. {"checks":[{"proposal_id":"target ID","verdict":"pass|fail|uncertain","related_id":null,"reason":"brief reason"}]}. Give exactly one check per target. When relevant, related_id must identify another proposal or a supplied existing concept.</output>
+  </cross_review>
+</upward_taxonomy>

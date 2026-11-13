@@ -28,10 +28,31 @@ class LLMJournal:
         self.prompts, self.settings, self.maximum_calls = prompts, stage_settings, maximum_calls
         self.last_ref = None
 
+    def request_record(self, stage, payload):
+        return {'stage': stage, 'prompt': self.prompts[stage],
+                'prompt_sha256': digest(self.prompts[stage]),
+                'parameters': self.settings[stage], 'input': payload}
+
+    def has_usable_response(self, stage, payload):
+        key = digest(self.request_record(stage, payload))
+        return any(row.get('request_sha256') == key and row.get('status') == 'response_received'
+                   for row in (read_json(path) for path in self.directory.glob('*.json')))
+
+    def was_truncated(self, stage, payload):
+        key = digest(self.request_record(stage, payload))
+        return any(row.get('request_sha256') == key and row.get('status') == 'response_invalid'
+                   and row.get('response', {}).get('finish_reason') == 'length'
+                   for row in (read_json(path) for path in self.directory.glob('*.json')))
+
+    def mark_invalid(self, reason):
+        """Keep a failed response for review, but allow a fresh request on resume."""
+        path = self.directory / self.last_ref.removeprefix("llm/")
+        record = read_json(path)
+        record.update(status="response_invalid", validation_error=reason)
+        atomic_json(path, record)
+
     def call(self, stage, payload):
-        request = {'stage': stage, 'prompt': self.prompts[stage],
-                   'prompt_sha256': digest(self.prompts[stage]),
-                   'parameters': self.settings[stage], 'input': payload}
+        request = self.request_record(stage, payload)
         key = digest(request)
         records = sorted(self.directory.glob('*.json'))
         cached = None

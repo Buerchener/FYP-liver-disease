@@ -9,7 +9,7 @@ import numpy as np
 
 from event_taxonomy.induction.contracts import ProviderError
 from event_taxonomy.induction.graph import digest
-from event_taxonomy.induction.storage import atomic_json
+from event_taxonomy.induction.storage import atomic_json, read_json
 
 
 class EmbeddingAPI:
@@ -71,8 +71,14 @@ class Embeddings:
             lines = [described["name"], described["definition"]]
             lines.extend(ev["excerpt"] for ev in described["evidence"])
             texts[node_id] = "\n".join(lines)
+        return self.for_texts(texts)
+
+    def for_texts(self, texts):
+        """Embed an ordered mapping of IDs to the exact strings to send."""
+        if not texts:
+            raise ValueError("At least one embedding input is required.")
         keys = {node_id: digest([node_id, value]) for node_id, value in texts.items()}
-        missing = [node_id for node_id in by_id if keys[node_id] not in self.vectors]
+        missing = [node_id for node_id in texts if keys[node_id] not in self.vectors]
         batch_size = self.config["batch_size"]
         for start in range(0, len(missing), batch_size):
             batch = missing[start:start + batch_size]
@@ -90,7 +96,20 @@ class Embeddings:
             atomic_json(path, {**record, "status": "response_received", **response})
             for node_id, vector in zip(batch, vectors):
                 self.vectors[keys[node_id]] = vector
-        return np.vstack([self.vectors[keys[n]] for n in by_id])
+        return np.vstack([self.vectors[keys[n]] for n in texts])
+
+    def restore(self):
+        """Restore completed embedding requests from this run's directory."""
+        for path in sorted(self.directory.glob("*.json")):
+            self.batches = max(self.batches, int(path.stem))
+            record = read_json(path)
+            if record["status"] != "response_received":
+                continue
+            inputs = record["input"]
+            vectors = self._check(record, len(inputs))
+            for item, vector in zip(inputs, vectors):
+                key = digest([item["concept_id"], item["text"]])
+                self.vectors[key] = vector
 
     def _check(self, response, count):
         try:

@@ -12,6 +12,8 @@ env/
 *.log
 *.tmp
 *.bak
+.playwright-cli/
+output/playwright/
 credentials*
 secrets*
 *token*

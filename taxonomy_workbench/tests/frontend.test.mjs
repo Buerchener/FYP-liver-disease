@@ -29,7 +29,7 @@ test('unplaced concepts remain explicitly unassigned and readable',()=>{
  assert.equal([...html.matchAll(/data-concept=/g)].length,2);assert.ok(!html.includes('<svg'));
 });
 test('all application DOM IDs exist in the page',()=>{
- const html=fs.readFileSync(new URL('../static/index.html',import.meta.url),'utf8');
+ const html=fs.readFileSync(new URL('../static/experiments.html',import.meta.url),'utf8');
  const ids=new Set([...html.matchAll(/id="([^"]+)"/g)].map(x=>x[1]));
  for(const [,id] of source.matchAll(/\$\('([^']+)'\)/g)){if(id==='raw-open')continue;assert.ok(ids.has(id),'Missing ID: '+id);}
  assert.equal(ids.size,[...html.matchAll(/id="([^"]+)"/g)].length,'Duplicate DOM IDs');
