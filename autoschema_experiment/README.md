@@ -3,6 +3,10 @@
 独立、仅文件输出的研究实验。基于 `origin/pubmed-literature-extraction` 的 `5c1e812`，新分支 `codex/autoschema-v01`。
 不替换 entity/triple extraction，不导入数据库客户端，不读取或写入 Neo4j，不变更已有 schema。
 
+## Event Taxonomy
+
+[数据准备](../event_taxonomy/README.md)从工作台导出中整理概念、实例和证据。[合成演示工作台](../taxonomy_workbench/README.md)可回放自顶向下的 A/B/C 流程。[自底向上归纳](../root_event_taxonomy/README.md)按三个 Root 的语义约束生成中间概念，附有 14 个真实概念的[试跑摘要](../root_event_taxonomy/PILOT_RESULTS.md)。
+
 ## 先行审计与复用边界
 
 | 现有组件 | 用途与本实验处理 |

@@ -1,0 +1,58 @@
+{
+  "dataset": "../../event_taxonomy/examples/synthetic/dataset.json",
+  "embedding": {
+    "kind": "local_sentence_transformer",
+    "model": "Qwen3-Embedding-4B",
+    "dimensions": 256,
+    "batch_size": 4,
+    "device": "cpu",
+    "torch_threads": 4,
+    "evidence_char_limit": 130,
+    "model_path_env": "EVENT_TAXONOMY_EMBEDDING_MODEL_PATH"
+  },
+  "llm": {
+    "provider": {
+      "kind": "local_mlx",
+      "python_env": "EVENT_TAXONOMY_MLX_PYTHON",
+      "timeout_seconds": 95,
+      "model_path_env": "EVENT_TAXONOMY_LLM_MODEL_PATH"
+    },
+    "stages": {
+      "group": {
+        "model": "Qwen3-4B-Instruct-2507-MLX-4bit",
+        "temperature": 0,
+        "max_tokens": 1600
+      },
+      "placement": {
+        "model": "Qwen3-4B-Instruct-2507-MLX-4bit",
+        "temperature": 0,
+        "max_tokens": 1000
+      },
+      "audit_edges": {
+        "model": "Qwen3-4B-Instruct-2507-MLX-4bit",
+        "temperature": 0,
+        "max_tokens": 2600
+      },
+      "audit_duplicates": {
+        "model": "Qwen3-4B-Instruct-2507-MLX-4bit",
+        "temperature": 0,
+        "max_tokens": 1700
+      }
+    }
+  },
+  "clustering": {
+    "distance_cutoff": 0.43,
+    "root_weight": 0.15
+  },
+  "max_rounds": 4,
+  "max_group_size": 4,
+  "max_new_nodes": 12,
+  "maximum_llm_calls": 36,
+  "parent_candidates": 5,
+  "reuse_candidates": 6,
+  "max_ancestor_paths": 4,
+  "audit_batch_size": 6,
+  "rejected_group_split_depth": 1,
+  "response_retries": 1,
+  "evidence_per_concept": 1
+}

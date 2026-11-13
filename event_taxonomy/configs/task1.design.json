@@ -1,0 +1,143 @@
+{
+  "schema_version": "event-taxonomy-experiment/0.1",
+  "status": "design_only",
+  "execution": {
+    "mode": "offline_plan",
+    "allow_model_calls": false,
+    "run_induction": false,
+    "write_back_to_sources": false,
+    "expected_new_api_calls": 0
+  },
+  "source_roots": {
+    "autoschema_repo": "../../",
+    "workbench_project": null
+  },
+  "primary_source": {
+    "profile": "workbench_candidate_graph_v1",
+    "root_key": "workbench_project",
+    "graph": "outputs/biomedical-workbench/public/pipeline-results/graph.json",
+    "workspace": "outputs/biomedical-workbench/public/pipeline-results/workspace-runs.json",
+    "concept_records_glob": "outputs/AutoSchema_10篇全流程/concepts/*-concept-event-*.json",
+    "event_domain": "Event",
+    "concept_role": "types",
+    "keep_topics_in_candidate_archive": true,
+    "exclude_entity_relation_concepts_from_event_taxonomy": true
+  },
+  "alternative_profiles": [
+    "workbench_annotation_export_v1",
+    "workbench_workspace_event_concepts",
+    "official_extraction_jsonl",
+    "official_stage2_documents",
+    "role_nested_documents",
+    "upstream_concept_csv"
+  ],
+  "identity": {
+    "event_scope": [
+      "source_profile",
+      "source_run_id",
+      "document_id",
+      "stage",
+      "record_locator",
+      "local_event_id",
+      "prediction_index"
+    ],
+    "retain_upstream_ids": true,
+    "merge_event_text_across_runs": false,
+    "offset_unit": "unicode_code_point",
+    "offset_interval": "half_open"
+  },
+  "evidence": {
+    "missing_sentence_policy": "null_with_passage_provenance",
+    "ambiguous_match_policy": "retain_all_matches_and_review",
+    "inherit_source_validation_status": true,
+    "string_match_is_semantic_validation": false
+  },
+  "concepts": {
+    "provider": "saved_results",
+    "granularity_policy": "audit_before_freezing_U0",
+    "missing_description_policy": "null_and_queue_for_definition",
+    "stale_label_policy": "retain_raw_and_block_active_mapping",
+    "legacy_untyped_label_role": "unknown",
+    "normalization": {
+      "preserve_imported_policy_and_original_labels": true,
+      "new_candidates_policy": "conservative_versioned_representation_only",
+      "auto_semantic_synonym_merge": false,
+      "auto_merge_ambiguous_labels": false
+    },
+    "freeze_input_ids_and_meanings_before_induction": true
+  },
+  "initial_taxonomy": {
+    "roots_file": "roots.v0_1.json",
+    "predefined_roots": [
+      "BIO",
+      "CARE",
+      "RESEARCH"
+    ],
+    "seed_intermediate_nodes": [],
+    "allow_multiple_parents": true,
+    "assignments_start_as": "provisional",
+    "unmatched_policy": "unplaced_without_forced_root"
+  },
+  "induction": {
+    "enabled": false,
+    "method": "recursive_intermediate_proposals_pending_implementation",
+    "edge_direction": "parent_to_child",
+    "relation": "SUBSUMES",
+    "preserve_input_nodes": true,
+    "preserve_input_evidence_mappings": true,
+    "freeze_root_definitions": true,
+    "allow_input_concept_deletion": false,
+    "allow_input_concept_merging": false,
+    "check_cycle_per_transaction": true,
+    "preserve_accepted_ancestor_paths": true,
+    "semantic_validation_required_per_parent_child_edge": true,
+    "stop_without_valid_proposal": true,
+    "budgets": {
+      "max_rounds": null,
+      "max_new_nodes": null,
+      "max_model_calls": null,
+      "must_be_finite_before_execution": true
+    }
+  },
+  "evaluation": {
+    "current_data_split": "development_previously_exposed",
+    "test_manifest": null,
+    "arms": [
+      "flat",
+      "one_pass",
+      "recursive"
+    ],
+    "same_frozen_input_across_arms": true,
+    "node_retention_required": 1.0,
+    "source_mapping_retention_required": 1.0,
+    "synthetic_in_effectiveness_results": false,
+    "reference_is_independent_human_gold": false,
+    "report_unplaced_and_rejected_denominators": true,
+    "quality_metrics": [
+      "edge_subsumption_review",
+      "intermediate_definition_quality",
+      "sibling_coherence_review",
+      "aligned_reference_edges_and_ancestors_if_available"
+    ],
+    "diagnostics": [
+      "cycles",
+      "dangling_references",
+      "root_reachability",
+      "depth",
+      "branching",
+      "model_cost",
+      "stability"
+    ]
+  },
+  "output": {
+    "root": "../runs",
+    "run_directory_policy": "new_unique_directory_never_overwrite",
+    "input_snapshot_policy": "copy_and_hash_before_execution"
+  },
+  "unresolved_before_real_induction": [
+    "Resolve and verify source paths and hashes.",
+    "Audit candidate event-type validity, definitions and granularity; freeze U0.",
+    "Freeze root assignments, validation policy, models, prompts and finite budgets.",
+    "Prepare an independent evaluation set for claims beyond development feasibility."
+  ]
+}

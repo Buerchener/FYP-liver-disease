@@ -1,0 +1,18 @@
+{
+  "schema_version": "event-taxonomy-preparation-config/1",
+  "profile": "workbench_graph",
+  "namespace": "workbench-full-pipeline-20261111",
+  "source_root": null,
+  "input_files": [
+    "outputs/biomedical-workbench/public/pipeline-results/graph.json"
+  ],
+  "source_run_id": null,
+  "data_origin": "real_literature",
+  "roots_file": "roots.v0_1.json",
+  "assignments_file": null,
+  "output_root": "../runs",
+  "allow_model_calls": false,
+  "run_induction": false,
+  "semantic_synonym_merging": false,
+  "split": "development_previously_exposed"
+}

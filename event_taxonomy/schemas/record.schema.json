@@ -1,0 +1,739 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Event Taxonomy Records",
+  "$defs": {
+    "SourceRef": {
+      "type": "object",
+      "properties": {
+        "source_profile": {
+          "type": "string"
+        },
+        "source_run_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "file_sha256": {
+          "type": "string"
+        },
+        "record_locator": {
+          "type": "string"
+        },
+        "original_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "schema_version": {
+          "const": "event-taxonomy/1"
+        }
+      },
+      "required": [
+        "source_profile",
+        "source_run_id",
+        "file_sha256",
+        "record_locator",
+        "original_id",
+        "schema_version"
+      ],
+      "additionalProperties": false
+    },
+    "Document": {
+      "type": "object",
+      "properties": {
+        "document_id": {
+          "type": "string"
+        },
+        "source_pmid": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "text_sha256": {
+          "type": "string"
+        },
+        "data_origin": {
+          "type": "string"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SourceRef"
+          }
+        },
+        "text_scope": {
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "event-taxonomy/1"
+        }
+      },
+      "required": [
+        "document_id",
+        "source_pmid",
+        "title",
+        "text",
+        "text_sha256",
+        "data_origin",
+        "source_refs",
+        "text_scope",
+        "schema_version"
+      ],
+      "additionalProperties": false
+    },
+    "Evidence": {
+      "type": "object",
+      "properties": {
+        "evidence_id": {
+          "type": "string"
+        },
+        "document_id": {
+          "type": "string"
+        },
+        "text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "spans": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer"
+            }
+          }
+        },
+        "granularity": {
+          "type": "string"
+        },
+        "alignment_status": {
+          "enum": [
+            "verified_exact",
+            "verified_whitespace",
+            "ambiguous",
+            "unverified",
+            "passage_only",
+            "missing"
+          ]
+        },
+        "source_ref": {
+          "$ref": "#/$defs/SourceRef"
+        },
+        "upstream_alignment_status": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "offset_unit": {
+          "type": "string"
+        },
+        "locator_version": {
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "event-taxonomy/1"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "document_id",
+        "text",
+        "spans",
+        "granularity",
+        "alignment_status",
+        "source_ref",
+        "upstream_alignment_status",
+        "offset_unit",
+        "locator_version",
+        "schema_version"
+      ],
+      "additionalProperties": false
+    },
+    "EventInstance": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string"
+        },
+        "event_text": {
+          "type": "string"
+        },
+        "source_pmid": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "document_id": {
+          "type": "string"
+        },
+        "evidence_sentence": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "local_event_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_run_id": {
+          "type": "string"
+        },
+        "source_profile": {
+          "type": "string"
+        },
+        "source_ref": {
+          "$ref": "#/$defs/SourceRef"
+        },
+        "prediction_index": {
+          "type": "integer"
+        },
+        "trigger": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "arguments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {}
+          }
+        },
+        "assertion": {
+          "type": "string"
+        },
+        "context": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "review_status": {
+          "type": "string"
+        },
+        "validation_issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {}
+          }
+        },
+        "data_origin": {
+          "type": "string"
+        },
+        "upstream_event_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "schema_version": {
+          "const": "event-taxonomy/1"
+        }
+      },
+      "required": [
+        "event_id",
+        "event_text",
+        "source_pmid",
+        "document_id",
+        "evidence_sentence",
+        "evidence_ids",
+        "local_event_id",
+        "source_run_id",
+        "source_profile",
+        "source_ref",
+        "prediction_index",
+        "trigger",
+        "arguments",
+        "assertion",
+        "context",
+        "review_status",
+        "validation_issues",
+        "data_origin",
+        "upstream_event_id",
+        "schema_version"
+      ],
+      "additionalProperties": false
+    },
+    "ConceptCandidate": {
+      "type": "object",
+      "properties": {
+        "candidate_id": {
+          "type": "string"
+        },
+        "candidate_label": {
+          "type": "string"
+        },
+        "candidate_description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "supporting_event_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "candidate_role": {
+          "enum": [
+            "event_type",
+            "topic",
+            "unknown"
+          ]
+        },
+        "source_ref": {
+          "$ref": "#/$defs/SourceRef"
+        },
+        "source_namespace": {
+          "type": "string"
+        },
+        "data_origin": {
+          "type": "string"
+        },
+        "candidate_origin": {
+          "type": "string"
+        },
+        "description_status": {
+          "type": "string"
+        },
+        "granularity_status": {
+          "type": "string"
+        },
+        "validation_status": {
+          "type": "string"
+        },
+        "validation_reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "provisional_parent_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "generation": {
+          "type": "object",
+          "additionalProperties": {}
+        },
+        "upstream_concept_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "upstream_normalized_label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "disambiguation_key": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "stale": {
+          "type": "boolean"
+        },
+        "schema_version": {
+          "const": "event-taxonomy/1"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "candidate_label",
+        "candidate_description",
+        "supporting_event_ids",
+        "evidence_ids",
+        "candidate_role",
+        "source_ref",
+        "source_namespace",
+        "data_origin",
+        "candidate_origin",
+        "description_status",
+        "granularity_status",
+        "validation_status",
+        "validation_reasons",
+        "provisional_parent_ids",
+        "generation",
+        "upstream_concept_id",
+        "upstream_normalized_label",
+        "disambiguation_key",
+        "stale",
+        "schema_version"
+      ],
+      "additionalProperties": false
+    },
+    "UniqueConcept": {
+      "type": "object",
+      "properties": {
+        "concept_id": {
+          "type": "string"
+        },
+        "concept_label": {
+          "type": "string"
+        },
+        "concept_description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "candidate_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "normalization_key": {
+          "type": "string"
+        },
+        "normalization_version": {
+          "type": "string"
+        },
+        "supporting_event_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "concept_role": {
+          "enum": [
+            "event_type",
+            "topic",
+            "unknown"
+          ]
+        },
+        "upstream_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "provisional_parent_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "origin_kind": {
+          "type": "string"
+        },
+        "validation_status": {
+          "type": "string"
+        },
+        "granularity_status": {
+          "type": "string"
+        },
+        "description_provenance": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "review_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {}
+          }
+        },
+        "schema_version": {
+          "const": "event-taxonomy/1"
+        }
+      },
+      "required": [
+        "concept_id",
+        "concept_label",
+        "concept_description",
+        "candidate_ids",
+        "aliases",
+        "normalization_key",
+        "normalization_version",
+        "supporting_event_ids",
+        "evidence",
+        "concept_role",
+        "upstream_concept_ids",
+        "provisional_parent_ids",
+        "origin_kind",
+        "validation_status",
+        "granularity_status",
+        "description_provenance",
+        "review_history",
+        "schema_version"
+      ],
+      "additionalProperties": false
+    },
+    "ParentChildEdge": {
+      "type": "object",
+      "properties": {
+        "edge_id": {
+          "type": "string"
+        },
+        "parent_id": {
+          "type": "string"
+        },
+        "child_id": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "provisional",
+            "accepted"
+          ]
+        },
+        "decision_ref": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "validator": {
+          "type": "string"
+        },
+        "relation": {
+          "const": "SUBSUMES"
+        },
+        "schema_version": {
+          "const": "event-taxonomy/1"
+        }
+      },
+      "required": [
+        "edge_id",
+        "parent_id",
+        "child_id",
+        "status",
+        "decision_ref",
+        "reason",
+        "validator",
+        "relation",
+        "schema_version"
+      ],
+      "additionalProperties": false
+    },
+    "Taxonomy": {
+      "type": "object",
+      "properties": {
+        "taxonomy_id": {
+          "type": "string"
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/UniqueConcept"
+          }
+        },
+        "parent_child_edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ParentChildEdge"
+          }
+        },
+        "predefined_roots": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "concept_evidence_mapping": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {}
+          }
+        },
+        "instance_concept_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": {}
+          }
+        },
+        "unplaced_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "frozen_input_concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "input_freeze_status": {
+          "type": "string"
+        },
+        "manifest_ref": {
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "event-taxonomy/1"
+        }
+      },
+      "required": [
+        "taxonomy_id",
+        "nodes",
+        "parent_child_edges",
+        "predefined_roots",
+        "concept_evidence_mapping",
+        "instance_concept_links",
+        "unplaced_concept_ids",
+        "frozen_input_concept_ids",
+        "status",
+        "version",
+        "input_freeze_status",
+        "manifest_ref",
+        "schema_version"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/SourceRef"
+    },
+    {
+      "$ref": "#/$defs/Document"
+    },
+    {
+      "$ref": "#/$defs/Evidence"
+    },
+    {
+      "$ref": "#/$defs/EventInstance"
+    },
+    {
+      "$ref": "#/$defs/ConceptCandidate"
+    },
+    {
+      "$ref": "#/$defs/UniqueConcept"
+    },
+    {
+      "$ref": "#/$defs/ParentChildEdge"
+    },
+    {
+      "$ref": "#/$defs/Taxonomy"
+    }
+  ]
+}

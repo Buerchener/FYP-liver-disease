@@ -1,0 +1,28 @@
+{
+  "schema_version": "event-taxonomy-induction/1",
+  "dataset": "../data/reviewed_initial_dataset",
+  "output_root": "../runs",
+  "require_semantic_input_frozen": true,
+  "provider": {
+    "kind": "openai_compatible",
+    "base_url": "https://YOUR_PROVIDER_HOST/v1",
+    "api_key_env": "EVENT_TAXONOMY_API_KEY",
+    "timeout_seconds": 120,
+    "extra_body": {}
+  },
+  "prompts": {
+    "diagnosis": "../prompts/diagnosis.v1.txt",
+    "induction": "../prompts/induction.v1.txt",
+    "validation": "../prompts/validation.v1.txt"
+  },
+  "stages": {
+    "diagnosis": {"model": "YOUR_MODEL_ID", "temperature": 0, "max_tokens": 3000},
+    "induction": {"model": "YOUR_MODEL_ID", "temperature": 0.2, "max_tokens": 4000},
+    "validation": {"model": "YOUR_VALIDATOR_MODEL_ID", "temperature": 0, "max_tokens": 5000}
+  },
+  "clustering": {"method": "llm_guided", "vectors_file": null, "cosine_threshold": 0.82, "max_cluster_size": 20},
+  "thresholds": {"diagnosis_confidence": 0.65, "induction_confidence": 0.65, "validation_confidence": 0.75},
+  "context": {"evidence_per_concept": 3, "max_ancestor_paths": 32, "max_characters": 200000},
+  "limits": {"iterations_per_parent": 6, "candidate_attempts": 3, "max_depth": 12,
+             "context_visits_per_node": 4, "new_nodes": 100, "llm_calls": 300}
+}

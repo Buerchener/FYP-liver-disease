@@ -1,0 +1,1188 @@
+{
+  "data_origin": "synthetic",
+  "notice": "SYNTHETIC DATA. No real PMID, literature claim or experimental result.",
+  "taxonomy": {
+    "taxonomy_id": "SYN-TAXONOMY",
+    "nodes": [
+      {
+        "concept_id": "SYN-BIO",
+        "concept_label": "Biological Event",
+        "concept_description": "A biological process in a living system.",
+        "candidate_ids": [],
+        "aliases": [],
+        "normalization_key": "SYN-BIO",
+        "normalization_version": "synthetic/1",
+        "supporting_event_ids": [],
+        "evidence": [],
+        "concept_role": "event_type",
+        "upstream_concept_ids": [],
+        "provisional_parent_ids": [],
+        "origin_kind": "predefined_root",
+        "validation_status": "synthetic_fixture",
+        "granularity_status": "unresolved",
+        "description_provenance": "synthetic_fixture",
+        "review_history": [],
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "concept_id": "SYN-CARE",
+        "concept_label": "Clinical Care Event",
+        "concept_description": "An action undertaken to diagnose or treat an individual.",
+        "candidate_ids": [],
+        "aliases": [],
+        "normalization_key": "SYN-CARE",
+        "normalization_version": "synthetic/1",
+        "supporting_event_ids": [],
+        "evidence": [],
+        "concept_role": "event_type",
+        "upstream_concept_ids": [],
+        "provisional_parent_ids": [],
+        "origin_kind": "predefined_root",
+        "validation_status": "synthetic_fixture",
+        "granularity_status": "unresolved",
+        "description_provenance": "synthetic_fixture",
+        "review_history": [],
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "concept_id": "SYN-RESEARCH",
+        "concept_label": "Biomedical Research Event",
+        "concept_description": "An action explicitly undertaken to produce biomedical knowledge.",
+        "candidate_ids": [],
+        "aliases": [],
+        "normalization_key": "SYN-RESEARCH",
+        "normalization_version": "synthetic/1",
+        "supporting_event_ids": [],
+        "evidence": [],
+        "concept_role": "event_type",
+        "upstream_concept_ids": [],
+        "provisional_parent_ids": [],
+        "origin_kind": "predefined_root",
+        "validation_status": "synthetic_fixture",
+        "granularity_status": "unresolved",
+        "description_provenance": "synthetic_fixture",
+        "review_history": [],
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "concept_id": "SYN-ACT-A",
+        "concept_label": "Activation of gene A",
+        "concept_description": "Increased activity of gene A in a cell.",
+        "candidate_ids": [],
+        "aliases": [],
+        "normalization_key": "SYN-ACT-A",
+        "normalization_version": "synthetic/1",
+        "supporting_event_ids": [
+          "SYN-EVENT-ACT-A"
+        ],
+        "evidence": [
+          "SYN-EVIDENCE-ACT-A"
+        ],
+        "concept_role": "event_type",
+        "upstream_concept_ids": [],
+        "provisional_parent_ids": [],
+        "origin_kind": "input_concept",
+        "validation_status": "synthetic_fixture",
+        "granularity_status": "unresolved",
+        "description_provenance": "synthetic_fixture",
+        "review_history": [],
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "concept_id": "SYN-ACT-B",
+        "concept_label": "Activation of gene B",
+        "concept_description": "Increased activity of gene B in a cell.",
+        "candidate_ids": [],
+        "aliases": [],
+        "normalization_key": "SYN-ACT-B",
+        "normalization_version": "synthetic/1",
+        "supporting_event_ids": [
+          "SYN-EVENT-ACT-B"
+        ],
+        "evidence": [
+          "SYN-EVIDENCE-ACT-B"
+        ],
+        "concept_role": "event_type",
+        "upstream_concept_ids": [],
+        "provisional_parent_ids": [],
+        "origin_kind": "input_concept",
+        "validation_status": "synthetic_fixture",
+        "granularity_status": "unresolved",
+        "description_provenance": "synthetic_fixture",
+        "review_history": [],
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "concept_id": "SYN-INH-A",
+        "concept_label": "Inhibition of gene A",
+        "concept_description": "Decreased activity of gene A in a cell.",
+        "candidate_ids": [],
+        "aliases": [],
+        "normalization_key": "SYN-INH-A",
+        "normalization_version": "synthetic/1",
+        "supporting_event_ids": [
+          "SYN-EVENT-INH-A"
+        ],
+        "evidence": [
+          "SYN-EVIDENCE-INH-A"
+        ],
+        "concept_role": "event_type",
+        "upstream_concept_ids": [],
+        "provisional_parent_ids": [],
+        "origin_kind": "input_concept",
+        "validation_status": "synthetic_fixture",
+        "granularity_status": "unresolved",
+        "description_provenance": "synthetic_fixture",
+        "review_history": [],
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "concept_id": "SYN-INH-B",
+        "concept_label": "Inhibition of gene B",
+        "concept_description": "Decreased activity of gene B in a cell.",
+        "candidate_ids": [],
+        "aliases": [],
+        "normalization_key": "SYN-INH-B",
+        "normalization_version": "synthetic/1",
+        "supporting_event_ids": [
+          "SYN-EVENT-INH-B"
+        ],
+        "evidence": [
+          "SYN-EVIDENCE-INH-B"
+        ],
+        "concept_role": "event_type",
+        "upstream_concept_ids": [],
+        "provisional_parent_ids": [],
+        "origin_kind": "input_concept",
+        "validation_status": "synthetic_fixture",
+        "granularity_status": "unresolved",
+        "description_provenance": "synthetic_fixture",
+        "review_history": [],
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "concept_id": "SYN-PRO-A",
+        "concept_label": "Proliferation of cell population A",
+        "concept_description": "An increase in the number of cells in population A.",
+        "candidate_ids": [],
+        "aliases": [],
+        "normalization_key": "SYN-PRO-A",
+        "normalization_version": "synthetic/1",
+        "supporting_event_ids": [
+          "SYN-EVENT-PRO-A"
+        ],
+        "evidence": [
+          "SYN-EVIDENCE-PRO-A"
+        ],
+        "concept_role": "event_type",
+        "upstream_concept_ids": [],
+        "provisional_parent_ids": [],
+        "origin_kind": "input_concept",
+        "validation_status": "synthetic_fixture",
+        "granularity_status": "unresolved",
+        "description_provenance": "synthetic_fixture",
+        "review_history": [],
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "concept_id": "SYN-PRO-B",
+        "concept_label": "Proliferation of cell population B",
+        "concept_description": "An increase in the number of cells in population B.",
+        "candidate_ids": [],
+        "aliases": [],
+        "normalization_key": "SYN-PRO-B",
+        "normalization_version": "synthetic/1",
+        "supporting_event_ids": [
+          "SYN-EVENT-PRO-B"
+        ],
+        "evidence": [
+          "SYN-EVIDENCE-PRO-B"
+        ],
+        "concept_role": "event_type",
+        "upstream_concept_ids": [],
+        "provisional_parent_ids": [],
+        "origin_kind": "input_concept",
+        "validation_status": "synthetic_fixture",
+        "granularity_status": "unresolved",
+        "description_provenance": "synthetic_fixture",
+        "review_history": [],
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "concept_id": "SYN-IMG-A",
+        "concept_label": "Trial diagnostic imaging A",
+        "concept_description": "Diagnostic imaging of an individual using fictional protocol A as part of a research trial.",
+        "candidate_ids": [],
+        "aliases": [],
+        "normalization_key": "SYN-IMG-A",
+        "normalization_version": "synthetic/1",
+        "supporting_event_ids": [
+          "SYN-EVENT-IMG-A"
+        ],
+        "evidence": [
+          "SYN-EVIDENCE-IMG-A"
+        ],
+        "concept_role": "event_type",
+        "upstream_concept_ids": [],
+        "provisional_parent_ids": [],
+        "origin_kind": "input_concept",
+        "validation_status": "synthetic_fixture",
+        "granularity_status": "unresolved",
+        "description_provenance": "synthetic_fixture",
+        "review_history": [],
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "concept_id": "SYN-IMG-B",
+        "concept_label": "Trial diagnostic imaging B",
+        "concept_description": "Diagnostic imaging of an individual using fictional protocol B as part of a research trial.",
+        "candidate_ids": [],
+        "aliases": [],
+        "normalization_key": "SYN-IMG-B",
+        "normalization_version": "synthetic/1",
+        "supporting_event_ids": [
+          "SYN-EVENT-IMG-B"
+        ],
+        "evidence": [
+          "SYN-EVIDENCE-IMG-B"
+        ],
+        "concept_role": "event_type",
+        "upstream_concept_ids": [],
+        "provisional_parent_ids": [],
+        "origin_kind": "input_concept",
+        "validation_status": "synthetic_fixture",
+        "granularity_status": "unresolved",
+        "description_provenance": "synthetic_fixture",
+        "review_history": [],
+        "schema_version": "event-taxonomy/1"
+      }
+    ],
+    "parent_child_edges": [
+      {
+        "edge_id": "edge:78110905623af1d2ee4ca4e53fbf03db",
+        "parent_id": "SYN-BIO",
+        "child_id": "SYN-ACT-A",
+        "status": "accepted",
+        "decision_ref": "synthetic-fixture",
+        "reason": "Synthetic fixture relationship, not a real result.",
+        "validator": "synthetic_fixture",
+        "relation": "SUBSUMES",
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "edge_id": "edge:f2b0274af04f07691d610fdbef145d85",
+        "parent_id": "SYN-BIO",
+        "child_id": "SYN-ACT-B",
+        "status": "accepted",
+        "decision_ref": "synthetic-fixture",
+        "reason": "Synthetic fixture relationship, not a real result.",
+        "validator": "synthetic_fixture",
+        "relation": "SUBSUMES",
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "edge_id": "edge:d9a3799fd86e933cbba7a36cf3a662ab",
+        "parent_id": "SYN-BIO",
+        "child_id": "SYN-INH-A",
+        "status": "accepted",
+        "decision_ref": "synthetic-fixture",
+        "reason": "Synthetic fixture relationship, not a real result.",
+        "validator": "synthetic_fixture",
+        "relation": "SUBSUMES",
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "edge_id": "edge:66bf9fa4a02b447ce9947db7e6e1aaad",
+        "parent_id": "SYN-BIO",
+        "child_id": "SYN-INH-B",
+        "status": "accepted",
+        "decision_ref": "synthetic-fixture",
+        "reason": "Synthetic fixture relationship, not a real result.",
+        "validator": "synthetic_fixture",
+        "relation": "SUBSUMES",
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "edge_id": "edge:c0ef4319af70b36196687d98cdf7cf7b",
+        "parent_id": "SYN-BIO",
+        "child_id": "SYN-PRO-A",
+        "status": "accepted",
+        "decision_ref": "synthetic-fixture",
+        "reason": "Synthetic fixture relationship, not a real result.",
+        "validator": "synthetic_fixture",
+        "relation": "SUBSUMES",
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "edge_id": "edge:1531ccaa757ab89f8ce581f7a5b259f0",
+        "parent_id": "SYN-BIO",
+        "child_id": "SYN-PRO-B",
+        "status": "accepted",
+        "decision_ref": "synthetic-fixture",
+        "reason": "Synthetic fixture relationship, not a real result.",
+        "validator": "synthetic_fixture",
+        "relation": "SUBSUMES",
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "edge_id": "edge:71cc87b51cdf6582b423dff29b4a95f1",
+        "parent_id": "SYN-CARE",
+        "child_id": "SYN-IMG-A",
+        "status": "accepted",
+        "decision_ref": "synthetic-fixture",
+        "reason": "Synthetic fixture relationship, not a real result.",
+        "validator": "synthetic_fixture",
+        "relation": "SUBSUMES",
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "edge_id": "edge:98de20402779afec69d82b9e4c8f057d",
+        "parent_id": "SYN-RESEARCH",
+        "child_id": "SYN-IMG-A",
+        "status": "accepted",
+        "decision_ref": "synthetic-fixture",
+        "reason": "Synthetic fixture relationship, not a real result.",
+        "validator": "synthetic_fixture",
+        "relation": "SUBSUMES",
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "edge_id": "edge:b67eb0bd32d8302097a2e00677f0c7b1",
+        "parent_id": "SYN-CARE",
+        "child_id": "SYN-IMG-B",
+        "status": "accepted",
+        "decision_ref": "synthetic-fixture",
+        "reason": "Synthetic fixture relationship, not a real result.",
+        "validator": "synthetic_fixture",
+        "relation": "SUBSUMES",
+        "schema_version": "event-taxonomy/1"
+      },
+      {
+        "edge_id": "edge:10a05c338feea69e08895e7d3a72c52c",
+        "parent_id": "SYN-RESEARCH",
+        "child_id": "SYN-IMG-B",
+        "status": "accepted",
+        "decision_ref": "synthetic-fixture",
+        "reason": "Synthetic fixture relationship, not a real result.",
+        "validator": "synthetic_fixture",
+        "relation": "SUBSUMES",
+        "schema_version": "event-taxonomy/1"
+      }
+    ],
+    "predefined_roots": [
+      "SYN-BIO",
+      "SYN-CARE",
+      "SYN-RESEARCH"
+    ],
+    "concept_evidence_mapping": [
+      {
+        "concept_id": "SYN-ACT-A",
+        "event_ids": [
+          "SYN-EVENT-ACT-A"
+        ],
+        "evidence_ids": [
+          "SYN-EVIDENCE-ACT-A"
+        ],
+        "mapping_kind": "direct",
+        "via_child_ids": []
+      },
+      {
+        "concept_id": "SYN-ACT-B",
+        "event_ids": [
+          "SYN-EVENT-ACT-B"
+        ],
+        "evidence_ids": [
+          "SYN-EVIDENCE-ACT-B"
+        ],
+        "mapping_kind": "direct",
+        "via_child_ids": []
+      },
+      {
+        "concept_id": "SYN-INH-A",
+        "event_ids": [
+          "SYN-EVENT-INH-A"
+        ],
+        "evidence_ids": [
+          "SYN-EVIDENCE-INH-A"
+        ],
+        "mapping_kind": "direct",
+        "via_child_ids": []
+      },
+      {
+        "concept_id": "SYN-INH-B",
+        "event_ids": [
+          "SYN-EVENT-INH-B"
+        ],
+        "evidence_ids": [
+          "SYN-EVIDENCE-INH-B"
+        ],
+        "mapping_kind": "direct",
+        "via_child_ids": []
+      },
+      {
+        "concept_id": "SYN-PRO-A",
+        "event_ids": [
+          "SYN-EVENT-PRO-A"
+        ],
+        "evidence_ids": [
+          "SYN-EVIDENCE-PRO-A"
+        ],
+        "mapping_kind": "direct",
+        "via_child_ids": []
+      },
+      {
+        "concept_id": "SYN-PRO-B",
+        "event_ids": [
+          "SYN-EVENT-PRO-B"
+        ],
+        "evidence_ids": [
+          "SYN-EVIDENCE-PRO-B"
+        ],
+        "mapping_kind": "direct",
+        "via_child_ids": []
+      },
+      {
+        "concept_id": "SYN-IMG-A",
+        "event_ids": [
+          "SYN-EVENT-IMG-A"
+        ],
+        "evidence_ids": [
+          "SYN-EVIDENCE-IMG-A"
+        ],
+        "mapping_kind": "direct",
+        "via_child_ids": []
+      },
+      {
+        "concept_id": "SYN-IMG-B",
+        "event_ids": [
+          "SYN-EVENT-IMG-B"
+        ],
+        "evidence_ids": [
+          "SYN-EVIDENCE-IMG-B"
+        ],
+        "mapping_kind": "direct",
+        "via_child_ids": []
+      }
+    ],
+    "instance_concept_links": [
+      {
+        "event_id": "SYN-EVENT-ACT-A",
+        "concept_id": "SYN-ACT-A",
+        "relation": "IS_INSTANCE_OF",
+        "status": "synthetic_fixture",
+        "evidence_ids": [
+          "SYN-EVIDENCE-ACT-A"
+        ],
+        "candidate_ids": [],
+        "decision_ref": "synthetic-fixture"
+      },
+      {
+        "event_id": "SYN-EVENT-ACT-B",
+        "concept_id": "SYN-ACT-B",
+        "relation": "IS_INSTANCE_OF",
+        "status": "synthetic_fixture",
+        "evidence_ids": [
+          "SYN-EVIDENCE-ACT-B"
+        ],
+        "candidate_ids": [],
+        "decision_ref": "synthetic-fixture"
+      },
+      {
+        "event_id": "SYN-EVENT-INH-A",
+        "concept_id": "SYN-INH-A",
+        "relation": "IS_INSTANCE_OF",
+        "status": "synthetic_fixture",
+        "evidence_ids": [
+          "SYN-EVIDENCE-INH-A"
+        ],
+        "candidate_ids": [],
+        "decision_ref": "synthetic-fixture"
+      },
+      {
+        "event_id": "SYN-EVENT-INH-B",
+        "concept_id": "SYN-INH-B",
+        "relation": "IS_INSTANCE_OF",
+        "status": "synthetic_fixture",
+        "evidence_ids": [
+          "SYN-EVIDENCE-INH-B"
+        ],
+        "candidate_ids": [],
+        "decision_ref": "synthetic-fixture"
+      },
+      {
+        "event_id": "SYN-EVENT-PRO-A",
+        "concept_id": "SYN-PRO-A",
+        "relation": "IS_INSTANCE_OF",
+        "status": "synthetic_fixture",
+        "evidence_ids": [
+          "SYN-EVIDENCE-PRO-A"
+        ],
+        "candidate_ids": [],
+        "decision_ref": "synthetic-fixture"
+      },
+      {
+        "event_id": "SYN-EVENT-PRO-B",
+        "concept_id": "SYN-PRO-B",
+        "relation": "IS_INSTANCE_OF",
+        "status": "synthetic_fixture",
+        "evidence_ids": [
+          "SYN-EVIDENCE-PRO-B"
+        ],
+        "candidate_ids": [],
+        "decision_ref": "synthetic-fixture"
+      },
+      {
+        "event_id": "SYN-EVENT-IMG-A",
+        "concept_id": "SYN-IMG-A",
+        "relation": "IS_INSTANCE_OF",
+        "status": "synthetic_fixture",
+        "evidence_ids": [
+          "SYN-EVIDENCE-IMG-A"
+        ],
+        "candidate_ids": [],
+        "decision_ref": "synthetic-fixture"
+      },
+      {
+        "event_id": "SYN-EVENT-IMG-B",
+        "concept_id": "SYN-IMG-B",
+        "relation": "IS_INSTANCE_OF",
+        "status": "synthetic_fixture",
+        "evidence_ids": [
+          "SYN-EVIDENCE-IMG-B"
+        ],
+        "candidate_ids": [],
+        "decision_ref": "synthetic-fixture"
+      }
+    ],
+    "unplaced_concept_ids": [],
+    "frozen_input_concept_ids": [
+      "SYN-ACT-A",
+      "SYN-ACT-B",
+      "SYN-IMG-A",
+      "SYN-IMG-B",
+      "SYN-INH-A",
+      "SYN-INH-B",
+      "SYN-PRO-A",
+      "SYN-PRO-B"
+    ],
+    "status": "partial",
+    "version": 0,
+    "input_freeze_status": "semantic_input_frozen",
+    "manifest_ref": "manifest.json",
+    "schema_version": "event-taxonomy/1"
+  },
+  "documents": [
+    {
+      "document_id": "SYN-DOC-ACT-A",
+      "source_pmid": null,
+      "title": "Synthetic Data — Activation of gene A",
+      "text": "Synthetic example only: Increased activity of gene A in a cell.",
+      "text_sha256": "3270733de667be98deee902592f8ad543b656fe752105b2cc862481eed0fee54",
+      "data_origin": "synthetic",
+      "source_refs": [
+        {
+          "source_profile": "synthetic_fixture",
+          "source_run_id": "synthetic-v1",
+          "file_sha256": "3270733de667be98deee902592f8ad543b656fe752105b2cc862481eed0fee54",
+          "record_locator": "/documents/0",
+          "original_id": null,
+          "schema_version": "event-taxonomy/1"
+        }
+      ],
+      "text_scope": "source_passage",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "document_id": "SYN-DOC-ACT-B",
+      "source_pmid": null,
+      "title": "Synthetic Data — Activation of gene B",
+      "text": "Synthetic example only: Increased activity of gene B in a cell.",
+      "text_sha256": "41c69e0b3c4cf208c3a5c8f475e153ef495e1681a54c2b5794978e62a1a06470",
+      "data_origin": "synthetic",
+      "source_refs": [
+        {
+          "source_profile": "synthetic_fixture",
+          "source_run_id": "synthetic-v1",
+          "file_sha256": "41c69e0b3c4cf208c3a5c8f475e153ef495e1681a54c2b5794978e62a1a06470",
+          "record_locator": "/documents/1",
+          "original_id": null,
+          "schema_version": "event-taxonomy/1"
+        }
+      ],
+      "text_scope": "source_passage",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "document_id": "SYN-DOC-INH-A",
+      "source_pmid": null,
+      "title": "Synthetic Data — Inhibition of gene A",
+      "text": "Synthetic example only: Decreased activity of gene A in a cell.",
+      "text_sha256": "a61e5eb3ba9654582b8a8d34dc4426d490c06c93c9464927392adb845e95c93f",
+      "data_origin": "synthetic",
+      "source_refs": [
+        {
+          "source_profile": "synthetic_fixture",
+          "source_run_id": "synthetic-v1",
+          "file_sha256": "a61e5eb3ba9654582b8a8d34dc4426d490c06c93c9464927392adb845e95c93f",
+          "record_locator": "/documents/2",
+          "original_id": null,
+          "schema_version": "event-taxonomy/1"
+        }
+      ],
+      "text_scope": "source_passage",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "document_id": "SYN-DOC-INH-B",
+      "source_pmid": null,
+      "title": "Synthetic Data — Inhibition of gene B",
+      "text": "Synthetic example only: Decreased activity of gene B in a cell.",
+      "text_sha256": "2a026741c1a2b5baebb87ac081adb9220f031a2be00e992831e60f39479899bc",
+      "data_origin": "synthetic",
+      "source_refs": [
+        {
+          "source_profile": "synthetic_fixture",
+          "source_run_id": "synthetic-v1",
+          "file_sha256": "2a026741c1a2b5baebb87ac081adb9220f031a2be00e992831e60f39479899bc",
+          "record_locator": "/documents/3",
+          "original_id": null,
+          "schema_version": "event-taxonomy/1"
+        }
+      ],
+      "text_scope": "source_passage",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "document_id": "SYN-DOC-PRO-A",
+      "source_pmid": null,
+      "title": "Synthetic Data — Proliferation of cell population A",
+      "text": "Synthetic example only: An increase in the number of cells in population A.",
+      "text_sha256": "9f1f6eba5296b373574c8e71dc7f52d3dd3c8012fc53db86b40bdf4459556185",
+      "data_origin": "synthetic",
+      "source_refs": [
+        {
+          "source_profile": "synthetic_fixture",
+          "source_run_id": "synthetic-v1",
+          "file_sha256": "9f1f6eba5296b373574c8e71dc7f52d3dd3c8012fc53db86b40bdf4459556185",
+          "record_locator": "/documents/4",
+          "original_id": null,
+          "schema_version": "event-taxonomy/1"
+        }
+      ],
+      "text_scope": "source_passage",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "document_id": "SYN-DOC-PRO-B",
+      "source_pmid": null,
+      "title": "Synthetic Data — Proliferation of cell population B",
+      "text": "Synthetic example only: An increase in the number of cells in population B.",
+      "text_sha256": "15719ba5fec922ebe136d2d17435d6a4088a4dd5e9b5f6390d2f1cf84baf6578",
+      "data_origin": "synthetic",
+      "source_refs": [
+        {
+          "source_profile": "synthetic_fixture",
+          "source_run_id": "synthetic-v1",
+          "file_sha256": "15719ba5fec922ebe136d2d17435d6a4088a4dd5e9b5f6390d2f1cf84baf6578",
+          "record_locator": "/documents/5",
+          "original_id": null,
+          "schema_version": "event-taxonomy/1"
+        }
+      ],
+      "text_scope": "source_passage",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "document_id": "SYN-DOC-IMG-A",
+      "source_pmid": null,
+      "title": "Synthetic Data — Trial diagnostic imaging A",
+      "text": "Synthetic example only: Diagnostic imaging of an individual using fictional protocol A as part of a research trial.",
+      "text_sha256": "1538ff0b08b70dbf93688b098a336f67d72a9ef53ec301c4f767e124ef3fb648",
+      "data_origin": "synthetic",
+      "source_refs": [
+        {
+          "source_profile": "synthetic_fixture",
+          "source_run_id": "synthetic-v1",
+          "file_sha256": "1538ff0b08b70dbf93688b098a336f67d72a9ef53ec301c4f767e124ef3fb648",
+          "record_locator": "/documents/6",
+          "original_id": null,
+          "schema_version": "event-taxonomy/1"
+        }
+      ],
+      "text_scope": "source_passage",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "document_id": "SYN-DOC-IMG-B",
+      "source_pmid": null,
+      "title": "Synthetic Data — Trial diagnostic imaging B",
+      "text": "Synthetic example only: Diagnostic imaging of an individual using fictional protocol B as part of a research trial.",
+      "text_sha256": "a5cdb2424c9b0b3eddd8b1f1b5efc8877c90f5e76126202d4359f152657464f3",
+      "data_origin": "synthetic",
+      "source_refs": [
+        {
+          "source_profile": "synthetic_fixture",
+          "source_run_id": "synthetic-v1",
+          "file_sha256": "a5cdb2424c9b0b3eddd8b1f1b5efc8877c90f5e76126202d4359f152657464f3",
+          "record_locator": "/documents/7",
+          "original_id": null,
+          "schema_version": "event-taxonomy/1"
+        }
+      ],
+      "text_scope": "source_passage",
+      "schema_version": "event-taxonomy/1"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "SYN-EVENT-ACT-A",
+      "event_text": "Increased activity of gene A in a cell.",
+      "source_pmid": null,
+      "document_id": "SYN-DOC-ACT-A",
+      "evidence_sentence": "Synthetic example only: Increased activity of gene A in a cell.",
+      "evidence_ids": [
+        "SYN-EVIDENCE-ACT-A"
+      ],
+      "local_event_id": "SYN-EVENT-ACT-A",
+      "source_run_id": "synthetic-v1",
+      "source_profile": "synthetic_fixture",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "3270733de667be98deee902592f8ad543b656fe752105b2cc862481eed0fee54",
+        "record_locator": "/documents/0",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "prediction_index": 0,
+      "trigger": null,
+      "arguments": [],
+      "assertion": "unknown",
+      "context": null,
+      "review_status": "synthetic_fixture",
+      "validation_issues": [],
+      "data_origin": "synthetic",
+      "upstream_event_id": null,
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "event_id": "SYN-EVENT-ACT-B",
+      "event_text": "Increased activity of gene B in a cell.",
+      "source_pmid": null,
+      "document_id": "SYN-DOC-ACT-B",
+      "evidence_sentence": "Synthetic example only: Increased activity of gene B in a cell.",
+      "evidence_ids": [
+        "SYN-EVIDENCE-ACT-B"
+      ],
+      "local_event_id": "SYN-EVENT-ACT-B",
+      "source_run_id": "synthetic-v1",
+      "source_profile": "synthetic_fixture",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "41c69e0b3c4cf208c3a5c8f475e153ef495e1681a54c2b5794978e62a1a06470",
+        "record_locator": "/documents/1",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "prediction_index": 1,
+      "trigger": null,
+      "arguments": [],
+      "assertion": "unknown",
+      "context": null,
+      "review_status": "synthetic_fixture",
+      "validation_issues": [],
+      "data_origin": "synthetic",
+      "upstream_event_id": null,
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "event_id": "SYN-EVENT-INH-A",
+      "event_text": "Decreased activity of gene A in a cell.",
+      "source_pmid": null,
+      "document_id": "SYN-DOC-INH-A",
+      "evidence_sentence": "Synthetic example only: Decreased activity of gene A in a cell.",
+      "evidence_ids": [
+        "SYN-EVIDENCE-INH-A"
+      ],
+      "local_event_id": "SYN-EVENT-INH-A",
+      "source_run_id": "synthetic-v1",
+      "source_profile": "synthetic_fixture",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "a61e5eb3ba9654582b8a8d34dc4426d490c06c93c9464927392adb845e95c93f",
+        "record_locator": "/documents/2",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "prediction_index": 2,
+      "trigger": null,
+      "arguments": [],
+      "assertion": "unknown",
+      "context": null,
+      "review_status": "synthetic_fixture",
+      "validation_issues": [],
+      "data_origin": "synthetic",
+      "upstream_event_id": null,
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "event_id": "SYN-EVENT-INH-B",
+      "event_text": "Decreased activity of gene B in a cell.",
+      "source_pmid": null,
+      "document_id": "SYN-DOC-INH-B",
+      "evidence_sentence": "Synthetic example only: Decreased activity of gene B in a cell.",
+      "evidence_ids": [
+        "SYN-EVIDENCE-INH-B"
+      ],
+      "local_event_id": "SYN-EVENT-INH-B",
+      "source_run_id": "synthetic-v1",
+      "source_profile": "synthetic_fixture",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "2a026741c1a2b5baebb87ac081adb9220f031a2be00e992831e60f39479899bc",
+        "record_locator": "/documents/3",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "prediction_index": 3,
+      "trigger": null,
+      "arguments": [],
+      "assertion": "unknown",
+      "context": null,
+      "review_status": "synthetic_fixture",
+      "validation_issues": [],
+      "data_origin": "synthetic",
+      "upstream_event_id": null,
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "event_id": "SYN-EVENT-PRO-A",
+      "event_text": "An increase in the number of cells in population A.",
+      "source_pmid": null,
+      "document_id": "SYN-DOC-PRO-A",
+      "evidence_sentence": "Synthetic example only: An increase in the number of cells in population A.",
+      "evidence_ids": [
+        "SYN-EVIDENCE-PRO-A"
+      ],
+      "local_event_id": "SYN-EVENT-PRO-A",
+      "source_run_id": "synthetic-v1",
+      "source_profile": "synthetic_fixture",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "9f1f6eba5296b373574c8e71dc7f52d3dd3c8012fc53db86b40bdf4459556185",
+        "record_locator": "/documents/4",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "prediction_index": 4,
+      "trigger": null,
+      "arguments": [],
+      "assertion": "unknown",
+      "context": null,
+      "review_status": "synthetic_fixture",
+      "validation_issues": [],
+      "data_origin": "synthetic",
+      "upstream_event_id": null,
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "event_id": "SYN-EVENT-PRO-B",
+      "event_text": "An increase in the number of cells in population B.",
+      "source_pmid": null,
+      "document_id": "SYN-DOC-PRO-B",
+      "evidence_sentence": "Synthetic example only: An increase in the number of cells in population B.",
+      "evidence_ids": [
+        "SYN-EVIDENCE-PRO-B"
+      ],
+      "local_event_id": "SYN-EVENT-PRO-B",
+      "source_run_id": "synthetic-v1",
+      "source_profile": "synthetic_fixture",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "15719ba5fec922ebe136d2d17435d6a4088a4dd5e9b5f6390d2f1cf84baf6578",
+        "record_locator": "/documents/5",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "prediction_index": 5,
+      "trigger": null,
+      "arguments": [],
+      "assertion": "unknown",
+      "context": null,
+      "review_status": "synthetic_fixture",
+      "validation_issues": [],
+      "data_origin": "synthetic",
+      "upstream_event_id": null,
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "event_id": "SYN-EVENT-IMG-A",
+      "event_text": "Diagnostic imaging of an individual using fictional protocol A as part of a research trial.",
+      "source_pmid": null,
+      "document_id": "SYN-DOC-IMG-A",
+      "evidence_sentence": "Synthetic example only: Diagnostic imaging of an individual using fictional protocol A as part of a research trial.",
+      "evidence_ids": [
+        "SYN-EVIDENCE-IMG-A"
+      ],
+      "local_event_id": "SYN-EVENT-IMG-A",
+      "source_run_id": "synthetic-v1",
+      "source_profile": "synthetic_fixture",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "1538ff0b08b70dbf93688b098a336f67d72a9ef53ec301c4f767e124ef3fb648",
+        "record_locator": "/documents/6",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "prediction_index": 6,
+      "trigger": null,
+      "arguments": [],
+      "assertion": "unknown",
+      "context": null,
+      "review_status": "synthetic_fixture",
+      "validation_issues": [],
+      "data_origin": "synthetic",
+      "upstream_event_id": null,
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "event_id": "SYN-EVENT-IMG-B",
+      "event_text": "Diagnostic imaging of an individual using fictional protocol B as part of a research trial.",
+      "source_pmid": null,
+      "document_id": "SYN-DOC-IMG-B",
+      "evidence_sentence": "Synthetic example only: Diagnostic imaging of an individual using fictional protocol B as part of a research trial.",
+      "evidence_ids": [
+        "SYN-EVIDENCE-IMG-B"
+      ],
+      "local_event_id": "SYN-EVENT-IMG-B",
+      "source_run_id": "synthetic-v1",
+      "source_profile": "synthetic_fixture",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "a5cdb2424c9b0b3eddd8b1f1b5efc8877c90f5e76126202d4359f152657464f3",
+        "record_locator": "/documents/7",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "prediction_index": 7,
+      "trigger": null,
+      "arguments": [],
+      "assertion": "unknown",
+      "context": null,
+      "review_status": "synthetic_fixture",
+      "validation_issues": [],
+      "data_origin": "synthetic",
+      "upstream_event_id": null,
+      "schema_version": "event-taxonomy/1"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "SYN-EVIDENCE-ACT-A",
+      "document_id": "SYN-DOC-ACT-A",
+      "text": "Synthetic example only: Increased activity of gene A in a cell.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 63
+        }
+      ],
+      "granularity": "sentence",
+      "alignment_status": "verified_exact",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "3270733de667be98deee902592f8ad543b656fe752105b2cc862481eed0fee54",
+        "record_locator": "/documents/0",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "upstream_alignment_status": null,
+      "offset_unit": "unicode_code_point",
+      "locator_version": "literal_then_whitespace/1",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "evidence_id": "SYN-EVIDENCE-ACT-B",
+      "document_id": "SYN-DOC-ACT-B",
+      "text": "Synthetic example only: Increased activity of gene B in a cell.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 63
+        }
+      ],
+      "granularity": "sentence",
+      "alignment_status": "verified_exact",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "41c69e0b3c4cf208c3a5c8f475e153ef495e1681a54c2b5794978e62a1a06470",
+        "record_locator": "/documents/1",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "upstream_alignment_status": null,
+      "offset_unit": "unicode_code_point",
+      "locator_version": "literal_then_whitespace/1",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "evidence_id": "SYN-EVIDENCE-INH-A",
+      "document_id": "SYN-DOC-INH-A",
+      "text": "Synthetic example only: Decreased activity of gene A in a cell.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 63
+        }
+      ],
+      "granularity": "sentence",
+      "alignment_status": "verified_exact",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "a61e5eb3ba9654582b8a8d34dc4426d490c06c93c9464927392adb845e95c93f",
+        "record_locator": "/documents/2",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "upstream_alignment_status": null,
+      "offset_unit": "unicode_code_point",
+      "locator_version": "literal_then_whitespace/1",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "evidence_id": "SYN-EVIDENCE-INH-B",
+      "document_id": "SYN-DOC-INH-B",
+      "text": "Synthetic example only: Decreased activity of gene B in a cell.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 63
+        }
+      ],
+      "granularity": "sentence",
+      "alignment_status": "verified_exact",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "2a026741c1a2b5baebb87ac081adb9220f031a2be00e992831e60f39479899bc",
+        "record_locator": "/documents/3",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "upstream_alignment_status": null,
+      "offset_unit": "unicode_code_point",
+      "locator_version": "literal_then_whitespace/1",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "evidence_id": "SYN-EVIDENCE-PRO-A",
+      "document_id": "SYN-DOC-PRO-A",
+      "text": "Synthetic example only: An increase in the number of cells in population A.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 75
+        }
+      ],
+      "granularity": "sentence",
+      "alignment_status": "verified_exact",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "9f1f6eba5296b373574c8e71dc7f52d3dd3c8012fc53db86b40bdf4459556185",
+        "record_locator": "/documents/4",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "upstream_alignment_status": null,
+      "offset_unit": "unicode_code_point",
+      "locator_version": "literal_then_whitespace/1",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "evidence_id": "SYN-EVIDENCE-PRO-B",
+      "document_id": "SYN-DOC-PRO-B",
+      "text": "Synthetic example only: An increase in the number of cells in population B.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 75
+        }
+      ],
+      "granularity": "sentence",
+      "alignment_status": "verified_exact",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "15719ba5fec922ebe136d2d17435d6a4088a4dd5e9b5f6390d2f1cf84baf6578",
+        "record_locator": "/documents/5",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "upstream_alignment_status": null,
+      "offset_unit": "unicode_code_point",
+      "locator_version": "literal_then_whitespace/1",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "evidence_id": "SYN-EVIDENCE-IMG-A",
+      "document_id": "SYN-DOC-IMG-A",
+      "text": "Synthetic example only: Diagnostic imaging of an individual using fictional protocol A as part of a research trial.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 115
+        }
+      ],
+      "granularity": "sentence",
+      "alignment_status": "verified_exact",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "1538ff0b08b70dbf93688b098a336f67d72a9ef53ec301c4f767e124ef3fb648",
+        "record_locator": "/documents/6",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "upstream_alignment_status": null,
+      "offset_unit": "unicode_code_point",
+      "locator_version": "literal_then_whitespace/1",
+      "schema_version": "event-taxonomy/1"
+    },
+    {
+      "evidence_id": "SYN-EVIDENCE-IMG-B",
+      "document_id": "SYN-DOC-IMG-B",
+      "text": "Synthetic example only: Diagnostic imaging of an individual using fictional protocol B as part of a research trial.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 115
+        }
+      ],
+      "granularity": "sentence",
+      "alignment_status": "verified_exact",
+      "source_ref": {
+        "source_profile": "synthetic_fixture",
+        "source_run_id": "synthetic-v1",
+        "file_sha256": "a5cdb2424c9b0b3eddd8b1f1b5efc8877c90f5e76126202d4359f152657464f3",
+        "record_locator": "/documents/7",
+        "original_id": null,
+        "schema_version": "event-taxonomy/1"
+      },
+      "upstream_alignment_status": null,
+      "offset_unit": "unicode_code_point",
+      "locator_version": "literal_then_whitespace/1",
+      "schema_version": "event-taxonomy/1"
+    }
+  ]
+}

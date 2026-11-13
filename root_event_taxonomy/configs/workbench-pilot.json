@@ -1,0 +1,75 @@
+{
+  "dataset": "../../event_taxonomy/runs/task1-workbench-final-20261112",
+  "definitions_file": "../../event_taxonomy/runs/task1-workbench-final-20261112/definitions.local.json",
+  "input_concept_ids": [
+    "concept:39aafb3c14c039feced6f3c25a7c39bc",
+    "concept:1eee8383516d2a4fee429252c05e8fe5",
+    "concept:d49c540c1ca9aebd61ca4f86c2ff9f27",
+    "concept:a543550fd3beb7b34a82e70fe899087d",
+    "concept:3495b37f71eebbac275044392bcf4ab2",
+    "concept:4b562d86bb784651a11a161a68976e3a",
+    "concept:5f7bd6fa9d485d7133e8b9bea889f630",
+    "concept:d2f054e2321438336db32386fc400181",
+    "concept:ca81f2c832d2b70f10c67d7175c17c2a",
+    "concept:c1c428c8554239ee4a7bb50f0421c522",
+    "concept:dbb757059a4dca5bd26b45e84d009be2",
+    "concept:e4772277a23970f1f353953e45acb19d",
+    "concept:ef191975cb286f4dd09fbb0b0460c6bd",
+    "concept:45d54fe0b101d875f3910850f11bf85c"
+  ],
+  "embedding": {
+    "kind": "local_sentence_transformer",
+    "model": "Qwen3-Embedding-4B",
+    "dimensions": 256,
+    "batch_size": 4,
+    "device": "cpu",
+    "torch_threads": 4,
+    "evidence_char_limit": 130,
+    "model_path_env": "EVENT_TAXONOMY_EMBEDDING_MODEL_PATH"
+  },
+  "llm": {
+    "provider": {
+      "kind": "local_mlx",
+      "python_env": "EVENT_TAXONOMY_MLX_PYTHON",
+      "timeout_seconds": 95,
+      "model_path_env": "EVENT_TAXONOMY_LLM_MODEL_PATH"
+    },
+    "stages": {
+      "group": {
+        "model": "Qwen3-4B-Instruct-2507-MLX-4bit",
+        "temperature": 0,
+        "max_tokens": 1600
+      },
+      "placement": {
+        "model": "Qwen3-4B-Instruct-2507-MLX-4bit",
+        "temperature": 0,
+        "max_tokens": 1000
+      },
+      "audit_edges": {
+        "model": "Qwen3-4B-Instruct-2507-MLX-4bit",
+        "temperature": 0,
+        "max_tokens": 2600
+      },
+      "audit_duplicates": {
+        "model": "Qwen3-4B-Instruct-2507-MLX-4bit",
+        "temperature": 0,
+        "max_tokens": 1700
+      }
+    }
+  },
+  "clustering": {
+    "distance_cutoff": 0.43,
+    "root_weight": 0.15
+  },
+  "max_rounds": 4,
+  "max_group_size": 4,
+  "max_new_nodes": 12,
+  "maximum_llm_calls": 36,
+  "parent_candidates": 5,
+  "reuse_candidates": 6,
+  "max_ancestor_paths": 4,
+  "audit_batch_size": 6,
+  "rejected_group_split_depth": 1,
+  "response_retries": 1,
+  "evidence_per_concept": 1
+}

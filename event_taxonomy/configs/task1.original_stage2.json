@@ -1,0 +1,18 @@
+{
+  "schema_version": "event-taxonomy-preparation-config/1",
+  "profile": "original_stage2",
+  "namespace": "original-stage2-dev10",
+  "source_root": "../../",
+  "input_files": [
+    "liver_baseline/outputs/20261109T151732.781701Z-heldout-stage2-suite-live/*.original.json"
+  ],
+  "source_run_id": "20261109T151732.781701Z-heldout-stage2-suite-live",
+  "data_origin": "real_literature",
+  "roots_file": "roots.v0_1.json",
+  "assignments_file": null,
+  "output_root": "../runs",
+  "allow_model_calls": false,
+  "run_induction": false,
+  "semantic_synonym_merging": false,
+  "split": "development_previously_exposed"
+}

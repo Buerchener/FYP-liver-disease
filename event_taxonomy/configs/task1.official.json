@@ -1,0 +1,18 @@
+{
+  "schema_version": "event-taxonomy-preparation-config/1",
+  "profile": "official_jsonl",
+  "namespace": "official-batch5",
+  "source_root": "../../",
+  "input_files": [
+    "liver_baseline/outputs/20261109T142922.491307Z-official-batch5-live/kg_extraction/*.json"
+  ],
+  "source_run_id": "20261109T142922.491307Z-official-batch5-live",
+  "data_origin": "real_literature",
+  "roots_file": "roots.v0_1.json",
+  "assignments_file": null,
+  "output_root": "../runs",
+  "allow_model_calls": false,
+  "run_induction": false,
+  "semantic_synonym_merging": false,
+  "split": "development_previously_exposed"
+}

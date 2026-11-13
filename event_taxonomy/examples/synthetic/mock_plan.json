@@ -1,0 +1,297 @@
+{
+  "data_origin": "synthetic",
+  "rules": [
+    {
+      "stage": "diagnosis",
+      "when": {
+        "parent_id": "SYN-BIO",
+        "round": 1
+      },
+      "response": {
+        "need_induction": true,
+        "candidate_subgroups": [
+          {
+            "group_id": "activation",
+            "child_ids": {
+              "$children": [
+                "Activation of gene A",
+                "Activation of gene B"
+              ]
+            },
+            "reasoning": "Synthetic concepts share the stated process subtype."
+          },
+          {
+            "group_id": "inhibition",
+            "child_ids": {
+              "$children": [
+                "Inhibition of gene A",
+                "Inhibition of gene B"
+              ]
+            },
+            "reasoning": "Synthetic concepts share the stated process subtype."
+          }
+        ],
+        "structural_issues": [
+          "Missing scoped process abstractions."
+        ],
+        "reasoning": "Synthetic fixture decision based on the supplied definitions.",
+        "confidence": 0.95
+      }
+    },
+    {
+      "stage": "induction",
+      "when": {
+        "parent_id": "SYN-BIO",
+        "round": 1,
+        "attempt": 1
+      },
+      "response": {
+        "intermediates": [
+          {
+            "proposal_id": "activation",
+            "label": "Molecular process",
+            "description": "A process involving a biological molecule.",
+            "child_ids": {
+              "$group": "activation"
+            }
+          },
+          {
+            "proposal_id": "inhibition",
+            "label": "Gene inhibition",
+            "description": "A process that decreases gene activity.",
+            "child_ids": {
+              "$group": "inhibition"
+            }
+          }
+        ],
+        "reasoning": "Synthetic intermediate definitions summarize only the listed children.",
+        "confidence": 0.95
+      }
+    },
+    {
+      "stage": "validation",
+      "when": {
+        "parent_id": "SYN-BIO",
+        "round": 1,
+        "attempt": 1
+      },
+      "response": {
+        "decision": "REJECT",
+        "edge_checks": {
+          "$all_edge_checks": false
+        },
+        "improves_structure": false,
+        "duplicates_existing_concepts": false,
+        "remaining_subgroups": [],
+        "reasoning": "Synthetic rejection: first label is too broad.",
+        "confidence": 0.95
+      }
+    },
+    {
+      "stage": "induction",
+      "when": {
+        "parent_id": "SYN-BIO",
+        "round": 1,
+        "attempt": 2
+      },
+      "response": {
+        "intermediates": [
+          {
+            "proposal_id": "activation",
+            "label": "Gene activation",
+            "description": "A process that increases gene activity.",
+            "child_ids": {
+              "$group": "activation"
+            }
+          },
+          {
+            "proposal_id": "inhibition",
+            "label": "Gene inhibition",
+            "description": "A process that decreases gene activity.",
+            "child_ids": {
+              "$group": "inhibition"
+            }
+          }
+        ],
+        "reasoning": "Synthetic intermediate definitions summarize only the listed children.",
+        "confidence": 0.95
+      }
+    },
+    {
+      "stage": "validation",
+      "when": {
+        "parent_id": "SYN-BIO",
+        "round": 1,
+        "attempt": 2
+      },
+      "response": {
+        "decision": "ACCEPT_AND_CONTINUE",
+        "edge_checks": {
+          "$all_edge_checks": true
+        },
+        "improves_structure": true,
+        "duplicates_existing_concepts": false,
+        "remaining_subgroups": [],
+        "reasoning": "Synthetic fixture accepts the scoped hierarchy; not independent biomedical validation.",
+        "confidence": 0.95
+      }
+    },
+    {
+      "stage": "diagnosis",
+      "when": {
+        "parent_id": "SYN-BIO",
+        "round": 2
+      },
+      "response": {
+        "need_induction": true,
+        "candidate_subgroups": [
+          {
+            "group_id": "regulation",
+            "child_ids": {
+              "$children": [
+                "Gene activation",
+                "Gene inhibition"
+              ]
+            },
+            "reasoning": "Synthetic concepts share the stated process subtype."
+          },
+          {
+            "group_id": "proliferation",
+            "child_ids": {
+              "$children": [
+                "Proliferation of cell population A",
+                "Proliferation of cell population B"
+              ]
+            },
+            "reasoning": "Synthetic concepts share the stated process subtype."
+          }
+        ],
+        "structural_issues": [
+          "Missing scoped process abstractions."
+        ],
+        "reasoning": "Synthetic fixture decision based on the supplied definitions.",
+        "confidence": 0.95
+      }
+    },
+    {
+      "stage": "induction",
+      "when": {
+        "parent_id": "SYN-BIO",
+        "round": 2
+      },
+      "response": {
+        "intermediates": [
+          {
+            "proposal_id": "regulation",
+            "label": "Gene regulation",
+            "description": "A biological process that increases or decreases gene activity.",
+            "child_ids": {
+              "$group": "regulation"
+            }
+          },
+          {
+            "proposal_id": "proliferation",
+            "label": "Cell proliferation",
+            "description": "A biological process that increases the number of cells in a population.",
+            "child_ids": {
+              "$group": "proliferation"
+            }
+          }
+        ],
+        "reasoning": "Synthetic intermediate definitions summarize only the listed children.",
+        "confidence": 0.95
+      }
+    },
+    {
+      "stage": "validation",
+      "when": {
+        "parent_id": "SYN-BIO",
+        "round": 2
+      },
+      "response": {
+        "decision": "ACCEPT_AND_STOP",
+        "edge_checks": {
+          "$all_edge_checks": true
+        },
+        "improves_structure": true,
+        "duplicates_existing_concepts": false,
+        "remaining_subgroups": [],
+        "reasoning": "Synthetic fixture accepts the scoped hierarchy; not independent biomedical validation.",
+        "confidence": 0.95
+      }
+    },
+    {
+      "stage": "diagnosis",
+      "when": {
+        "parent_id": "SYN-CARE",
+        "round": 1
+      },
+      "response": {
+        "need_induction": true,
+        "candidate_subgroups": [
+          {
+            "group_id": "imaging",
+            "child_ids": {
+              "$children": [
+                "Trial diagnostic imaging A",
+                "Trial diagnostic imaging B"
+              ]
+            },
+            "reasoning": "Synthetic concepts share the stated process subtype."
+          }
+        ],
+        "structural_issues": [
+          "Missing scoped process abstractions."
+        ],
+        "reasoning": "Synthetic fixture decision based on the supplied definitions.",
+        "confidence": 0.95
+      }
+    },
+    {
+      "stage": "induction",
+      "when": {
+        "parent_id": "SYN-CARE",
+        "round": 1
+      },
+      "response": {
+        "intermediates": [
+          {
+            "proposal_id": "imaging",
+            "label": "Trial diagnostic imaging",
+            "description": "Diagnostic imaging of an individual as a prescribed component of a research trial.",
+            "child_ids": {
+              "$group": "imaging"
+            }
+          }
+        ],
+        "reasoning": "Synthetic intermediate definitions summarize only the listed children.",
+        "confidence": 0.95
+      }
+    },
+    {
+      "stage": "validation",
+      "when": {
+        "parent_id": "SYN-CARE",
+        "round": 1
+      },
+      "response": {
+        "decision": "ACCEPT_AND_STOP",
+        "edge_checks": {
+          "$all_edge_checks": true
+        },
+        "improves_structure": true,
+        "duplicates_existing_concepts": false,
+        "remaining_subgroups": [],
+        "reasoning": "Synthetic fixture accepts the scoped hierarchy; not independent biomedical validation.",
+        "confidence": 0.95
+      }
+    }
+  ],
+  "default_diagnosis": {
+    "need_induction": false,
+    "candidate_subgroups": [],
+    "structural_issues": [],
+    "reasoning": "Synthetic fixture decision based on the supplied definitions.",
+    "confidence": 0.95
+  }
+}

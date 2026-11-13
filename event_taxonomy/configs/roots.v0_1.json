@@ -1,0 +1,53 @@
+{
+  "schema_version": "event-taxonomy-roots/0.1",
+  "status": "snapshot_of_existing_definitions_not_newly_validated",
+  "source": {
+    "path": "outputs/Event_Ontology_V0.1_入位小试_20261112/protocol.json",
+    "sha256": "fabf225acc75fd11beeb15d0a1b5b7e282a735c52249da727c4bc87385141080",
+    "locator": "/seed/classes"
+  },
+  "predefined_roots": [
+    "BIO",
+    "CARE",
+    "RESEARCH"
+  ],
+  "nodes": [
+    {
+      "concept_id": "BIO",
+      "concept_label": "Biological Event",
+      "concept_description": "Biological Event：活体系统内或由活体组成部分实现的分子、细胞、生理、病理过程。被研究或人工诱导的生物过程仍可属于 B；论文写到了它本身不使它成为科研行动。本次窄口径暂不将外源暴露接触或自主健康行为自动纳入 B。",
+      "origin_kind": "predefined_root",
+      "provisional_parent_ids": [],
+      "supporting_event_ids": [],
+      "evidence": []
+    },
+    {
+      "concept_id": "CARE",
+      "concept_label": "Clinical Care Event",
+      "concept_description": "Clinical Care Event：针对个体的诊断、治疗、康复或预防行动。常规临床行动与试验中的治疗在行动性质上相同。窄口径不预先包括群体物资发放和健康宣传。",
+      "origin_kind": "predefined_root",
+      "provisional_parent_ids": [],
+      "supporting_event_ids": [],
+      "evidence": []
+    },
+    {
+      "concept_id": "RESEARCH",
+      "concept_label": "Biomedical Research Event",
+      "concept_description": "Biomedical Research Event：明确以产生、检验或分析生物医学知识为目的的行动，如随机分配、实验操控、采样、测量、数据分析；按此目的型定义，试验规定的医疗干预可同时满足 C 与 R。仅被观察的疾病、死亡、细胞过程和日常行为不因位于论文中自动成为 R。",
+      "origin_kind": "predefined_root",
+      "provisional_parent_ids": [],
+      "supporting_event_ids": [],
+      "evidence": []
+    }
+  ],
+  "parent_child_edges": [],
+  "root_overlap_allowed": true,
+  "excluded_pilot_seed_nodes": [
+    "DRUG_RESPONSE",
+    "SENS_UP"
+  ],
+  "notes": [
+    "Definitions copied verbatim from the saved pilot seed; root order is stable.",
+    "No new root assignment or semantic validation performed in Task 1."
+  ]
+}
