@@ -5,7 +5,7 @@ import unittest
 
 from event_taxonomy.induction.storage import atomic_json
 from event_taxonomy.tests.synthetic import dataset
-from taxonomy_workbench.pipeline import pipeline_view, safe_file
+from taxonomy_workbench.pipeline import pipeline_view, safe_file, upward_view
 from taxonomy_workbench.server import Router
 from taxonomy_workbench.service import Workbench
 
@@ -72,3 +72,33 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertEqual(body, (self.run / "final_taxonomy.json").read_bytes())
         self.assertIn("attachment", headers["Content-Disposition"])
+
+
+class UpwardViewTests(unittest.TestCase):
+    def test_held_inputs_and_retired_parents_do_not_enter_effective_graph(self):
+        def node(id, status="original"):
+            return {"concept_id": id, "concept_label": id, "concept_description": id,
+                    "supporting_event_ids": [], "validation_status": status}
+        result = {"taxonomy": {
+            "nodes": [node("a"), node("b"), node("held"), node("solo"),
+                      node("parent"), node("retired", "maintenance_held")],
+            "parent_child_edges": [
+                {"edge_id": "e" + child, "parent_id": parent, "child_id": child,
+                 "status": "provisional", "reason": "saved review"}
+                for parent, child in [("parent", "a"), ("parent", "b"),
+                                      ("parent", "held"), ("retired", "solo")]],
+            "frozen_input_concept_ids": ["a", "b", "held", "solo"], "predefined_roots": []},
+            "admission": {"held_leaf_ids": ["held"], "reviews": [
+                {"leaf_id": "held", "reason": "Needs review"}]},
+            "source_events": [], "source_concepts": [], "leaf_concepts": [],
+            "rounds": [], "unassigned_events": [], "status": "finished",
+            "stop_reason": "maximum_rounds"}
+        before = json.dumps(result)
+        view = upward_view(result, "fixture")
+        self.assertEqual({n["id"] for n in view["nodes"]}, {"a", "b", "solo", "parent"})
+        self.assertEqual(view["unplaced_ids"], ["solo"])
+        self.assertEqual(view["stats"]["intermediates"], 1)
+        self.assertEqual(view["stats"]["branches"], 1)
+        self.assertEqual(len(view["edges"]), 2)
+        self.assertEqual({n["id"] for n in view["excluded_nodes"]}, {"held", "retired"})
+        self.assertEqual(json.dumps(result), before)

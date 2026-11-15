@@ -51,6 +51,42 @@ class LLMJournal:
         record.update(status="response_invalid", validation_error=reason)
         atomic_json(path, record)
 
+    def revalidate_invalid(self, stage, payload, validate):
+        """Try the current contract on complete saved output; never change its content."""
+        if self.has_usable_response(stage, payload):
+            return None
+        key = digest(self.request_record(stage, payload))
+        request = self.request_record(stage, payload)
+        for path in sorted(self.directory.glob('*.json')):
+            record = read_json(path)
+            saved = record.get('request', {})
+            saved_input = dict(saved['input']) if isinstance(saved.get('input'), dict) else {}
+            correction = saved_input.pop('output_format_correction', None)
+            same_correction_context = (correction is not None and 'output_format_correction' not in payload
+                and saved_input == payload and saved.get('stage') == stage
+                and saved.get('prompt_sha256') == request['prompt_sha256']
+                and saved.get('parameters') == request['parameters'])
+            if ((record.get('request_sha256') != key and not same_correction_context)
+                    or record.get('status') not in ('response_invalid', 'response_received')
+                    or record.get('response', {}).get('finish_reason') != 'stop'):
+                continue
+            try:
+                result = validate(strict_json(record['response']['content']))
+            except ContractError:
+                continue
+            if record['status'] == 'response_invalid':
+                record.setdefault('validation_history', []).append({
+                    'previous_status': 'response_invalid',
+                    'previous_error': record.pop('validation_error', None),
+                    'action': 'revalidated_saved_output_with_current_contract',
+                    'raw_response_changed': False,
+                })
+                record['status'] = 'response_received'
+                atomic_json(path, record)
+            self.last_ref = 'llm/' + path.name
+            return result, self.last_ref
+        return None
+
     def call(self, stage, payload):
         request = self.request_record(stage, payload)
         key = digest(request)

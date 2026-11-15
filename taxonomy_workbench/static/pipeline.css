@@ -86,6 +86,24 @@ button.concept-node:hover { border-color: #9fbedc; background: #f6faff; }
 .graph-legend { display: flex; justify-content: center; flex-wrap: wrap; column-gap: 16px; row-gap: 5px; margin-top: 28px; font-size: 11px; color: var(--muted); }
 .graph-legend > span { display: flex; align-items: center; gap: 6px; }
 .node-key { width: 6px; height: 6px; background: var(--middle); transform: rotate(45deg); }
+.branch-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; margin-bottom: 15px; }
+.branch-picker label { color: var(--muted); font-size: 12px; }
+.branch-picker select { max-width: min(100%, 400px); }
+.branch-picker .graph-legend { margin: 0 0 0 auto; justify-content: flex-start; }
+.taxonomy-layout[data-overview] { grid-template-columns: minmax(0, 1fr); }
+.taxonomy-overview { display: grid; gap: 28px; }
+.taxonomy-overview h2 { margin-bottom: 12px; }
+.forest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px; }
+.taxonomy-overview .concept-node {
+  width: fit-content; max-width: 100%; min-height: 34px; justify-content: flex-start;
+  padding: 5px 7px; gap: 6px; text-align: left; font-size: 13px;
+}
+.taxonomy-overview .concept-node > span:last-child { min-width: 0; }
+.forest-branch .concept-node { border-color: transparent; background: transparent; }
+.taxonomy-overview .concept-node[data-kind="intermediate"] > .node-shape {
+  background: var(--accent); transform: none; border-radius: 50%;
+}
+.isolated-grid .concept-node { width: 100%; }
 .line-key { width: 16px; border-top: 2px solid currentColor; }
 .line-key.uncertain { border-top-style: dashed; }
 .line-key.issue { border-top-style: dotted; }
@@ -161,7 +179,37 @@ select, input { border: 1px solid #d2d2d7; background: var(--paper); border-radi
   .graph-surface { padding: 20px 12px 14px; }
   .concept-node { font-size: 13px; padding: 10px; min-height: 44px; }
   .unrooted-picker select { width: 100%; max-width: 100%; }
+  .branch-picker select { width: 100%; }
+  .branch-picker .graph-legend { margin-left: 0; }
   .records-controls > label { width: 100%; }
   .records-controls select { max-width: none; width: 100%; }
 }
+@media (pointer: coarse) { .taxonomy-overview .concept-node { min-height: 44px; } }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+
+.run-note { color: var(--muted); font-size: 12px; margin-bottom: 18px; }
+.excluded-card { align-self: start; min-width: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 18px; overflow-wrap: anywhere; }
+.excluded-card > summary { cursor: pointer; font-size: 14px; font-weight: 500; }
+#excluded-overview > p { margin-bottom: 20px; }
+
+/* One continuous drawing surface, with parent nodes above their children. */
+.graph-surface:has(.tree-canvas) { padding: 0; overflow: hidden; }
+.tree-canvas, .graph.tree-canvas { display: block; min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.graph-surface .tree-canvas { border: 0; }
+.tree-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.tree-percent { width: 42px; text-align: center; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.tree-help { font-size: 12px; color: var(--muted); margin-left: auto; }
+.tree-viewport { position: relative; width: 100%; overflow: hidden; min-height: 400px; cursor: grab; background: radial-gradient(#dce2ea .7px, transparent .7px) 0 0 / 20px 20px; touch-action: pan-y; }
+.tree-viewport.dragging { cursor: grabbing; user-select: none; }
+.tree-world { position: absolute; top: 0; left: 0; transform-origin: 0 0; }
+.tree-links { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.tree-links path { fill: none; stroke: #8eabc7; stroke-width: 1.8; stroke-linejoin: round; }
+.tree-world .tree-node { position: absolute; display: flex; width: 180px; height: 78px; max-width: none; padding: 10px 12px; justify-content: center; text-align: center; font-size: 15px; line-height: 1.3; border: 1px solid #cbd7e3; border-radius: 10px; background: #fff; box-shadow: 0 3px 7px #1b35570a; }
+.tree-world .tree-node[data-kind="intermediate"] { background: #edf4ff; color: #174776; border-color: #a8c4e2; }
+.tree-world .tree-node[data-tree-root="true"] { background: #1f5f9d; color: #fff; border-color: #1f5f9d; font-weight: 550; }
+.tree-world .tree-node .node-shape { display: none; }
+.tree-world .tree-node[aria-pressed="true"] { outline: 3px solid #68a2dc; outline-offset: 3px; }
+.tree-world .tree-node:hover { box-shadow: 0 4px 14px #1f5f9d26; }
+@media (max-width: 600px) { .tree-help { width: 100%; margin-left: 0; } .tree-toolbar { padding: 10px; gap: 6px; } }
+
+.added-node-key { background: var(--accent); }

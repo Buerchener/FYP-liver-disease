@@ -39,6 +39,183 @@ export function indexGraph(data) {
   return {nodes, scopes};
 }
 
+export function conceptButton(concept, onSelect) {
+  const button = element('button', 'concept-node');
+  const shape = element('span', 'node-shape');
+  shape.setAttribute('aria-hidden', 'true');
+  button.type = 'button';
+  button.lang = 'en';
+  button.dataset.id = concept.id;
+  button.dataset.kind = concept.kind;
+  button.append(shape, element('span', '', concept.label));
+  button.addEventListener('click', () => onSelect(concept.id));
+  return button;
+}
+
+// Top-down forest: independent roots remain independent, without an invented parent.
+export class BranchGraph {
+  constructor(container, nodes, onSelect, {overview = false} = {}) {
+    this.container = container;
+    this.nodes = nodes;
+    this.onSelect = onSelect;
+    this.overview = overview;
+    this.marks = new Map();
+    this.scale = 1;
+    this.x = this.y = 0;
+    container.classList.add('tree-canvas');
+    const toolbar = element('div', 'tree-toolbar');
+    const button = (label, action, title = label) => {
+      const b = element('button', 'button', label);
+      b.type = 'button'; b.title = title; b.setAttribute('aria-label', title);
+      b.addEventListener('click', action); toolbar.append(b); return b;
+    };
+    button('−', () => this.zoom(1 / 1.2), '缩小');
+    this.percent = element('span', 'tree-percent');
+    toolbar.append(this.percent);
+    button('+', () => this.zoom(1.2), '放大');
+    button('适合宽度', () => this.fit(false));
+    button('查看全图', () => this.fit(true));
+    toolbar.append(element('span', 'tree-help', '拖动空白处移动 · 点击节点查看定义'));
+    this.viewport = element('div', 'tree-viewport');
+    this.viewport.tabIndex = 0;
+    this.viewport.setAttribute('aria-label', '树状关系画布，可用方向键移动');
+    this.world = element('div', 'tree-world');
+    this.viewport.append(this.world);
+    container.replaceChildren(toolbar, this.viewport);
+    this.viewport.addEventListener('wheel', event => {
+      if (!event.ctrlKey && !event.metaKey) return;
+      event.preventDefault();
+      const rect = this.viewport.getBoundingClientRect();
+      this.zoom(Math.exp(-event.deltaY * .008), event.clientX - rect.left, event.clientY - rect.top);
+    }, {passive: false});
+    this.viewport.addEventListener('pointerdown', event => {
+      if (event.target.closest('button') || event.button !== 0) return;
+      this.drag = {x: event.clientX, y: event.clientY, ox: this.x, oy: this.y};
+      this.viewport.setPointerCapture(event.pointerId);
+      this.viewport.classList.add('dragging');
+    });
+    this.viewport.addEventListener('pointermove', event => {
+      if (!this.drag) return;
+      this.x = this.drag.ox + event.clientX - this.drag.x;
+      this.y = this.drag.oy + event.clientY - this.drag.y;
+      this.transform();
+    });
+    const end = () => { this.drag = null; this.viewport.classList.remove('dragging'); };
+    this.viewport.addEventListener('pointerup', end);
+    this.viewport.addEventListener('pointercancel', end);
+    this.viewport.addEventListener('keydown', event => {
+      if (event.target !== this.viewport) return;
+      const delta = {ArrowLeft: [60, 0], ArrowRight: [-60, 0], ArrowUp: [0, 60], ArrowDown: [0, -60]}[event.key];
+      if (delta) { event.preventDefault(); this.x += delta[0]; this.y += delta[1]; this.transform(); }
+    });
+    new ResizeObserver(() => {
+      if (this.viewport.clientWidth && this.viewport.clientWidth !== this.lastWidth) {
+        this.lastWidth = this.viewport.clientWidth; this.fit(false);
+      }
+    }).observe(this.viewport);
+  }
+
+  children(id) {
+    return this.nodes.get(id).children.map(edge => edge.child).sort(
+      (a, b) => this.nodes.get(a).label.localeCompare(this.nodes.get(b).label));
+  }
+
+  branchDepth(id) { return 1 + Math.max(0, ...this.children(id).map(child => this.branchDepth(child))); }
+
+  show(root, selected) {
+    const roots = Array.isArray(root) ? root : [root];
+    const key = roots.join('|');
+    if (key !== this.key) {
+      this.key = key; this.marks.clear(); this.world.replaceChildren();
+      const width = 180, height = 78, gap = 14, step = 118;
+      const makeTree = (id, depth = 0) => {
+        const kids = this.children(id).map(child => makeTree(child, depth + 1));
+        return {id, depth, kids, width: Math.max(width, kids.reduce((sum, child) => sum + child.width, 0) + Math.max(0, kids.length - 1) * gap)};
+      };
+      const trees = roots.map(id => makeTree(id));
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.classList.add('tree-links'); svg.setAttribute('aria-hidden', 'true'); this.world.append(svg);
+      const place = (tree, left, top) => {
+        const x = left + tree.width / 2, y = top + tree.depth * step;
+        const node = this.nodes.get(tree.id);
+        const mark = conceptButton(node, this.onSelect);
+        mark.title = node.label;
+        mark.style.left = (x - width / 2) + 'px'; mark.style.top = y + 'px';
+        mark.classList.add('tree-node');
+        if (!node.children.length) mark.dataset.terminal = 'true';
+        if (!node.parents.length) mark.dataset.treeRoot = 'true';
+        this.world.append(mark);
+        if (!this.marks.has(tree.id)) this.marks.set(tree.id, []);
+        this.marks.get(tree.id).push(mark);
+        let childLeft = left;
+        for (const child of tree.kids) {
+          const endX = childLeft + child.width / 2, endY = top + child.depth * step;
+          const middleY = y + height + (step - height) / 2;
+          const path = document.createElementNS(svg.namespaceURI, 'path');
+          path.setAttribute('d', `M ${x} ${y + height} V ${middleY} H ${endX} V ${endY}`);
+          path.dataset.parent = tree.id; path.dataset.child = child.id;
+          svg.append(path); place(child, childLeft, top); childLeft += child.width + gap;
+        }
+      };
+      const padding = 24, treeGap = 36;
+      const rowWidth = row => row.reduce((sum, tree) => sum + tree.width, 0) + Math.max(0, row.length - 1) * treeGap;
+      // Pack smaller trees into the same row instead of reserving two equal slots.
+      const budget = this.overview ? Math.max(180, rowWidth(trees.slice(0, 2))) : (trees[0]?.width || 180);
+      const rows = [];
+      for (const tree of trees) {
+        let row = rows[rows.length - 1];
+        if (!row || rowWidth([...row, tree]) > budget) { row = []; rows.push(row); }
+        row.push(tree);
+      }
+      this.width = Math.max(228, ...rows.map(row => rowWidth(row) + padding * 2));
+      let y = padding;
+      for (const row of rows) {
+        let x = (this.width - rowWidth(row)) / 2;
+        for (const tree of row) { place(tree, x, y); x += tree.width + treeGap; }
+        y += (Math.max(...row.map(tree => this.branchDepth(tree.id))) - 1) * step + height + treeGap;
+      }
+      this.height = Math.max(126, y - treeGap + padding);
+      this.world.style.width = this.width + 'px'; this.world.style.height = this.height + 'px';
+      svg.setAttribute('width', this.width); svg.setAttribute('height', this.height);
+      this.fit(false);
+    }
+    for (const [id, marks] of this.marks) for (const mark of marks) mark.setAttribute('aria-pressed', String(id === selected));
+  }
+
+  fit(all) {
+    if (!this.width || !this.viewport.clientWidth) return;
+    const available = this.viewport.clientWidth;
+    const widthScale = Math.min(1, (available - 24) / this.width);
+    const narrow = available < 600;
+    // The overview grows vertically so labels remain legible rather than shrinking the entire forest.
+    this.viewport.style.height = (this.overview ? Math.max(480, this.height * widthScale + 24) : 570) + 'px';
+    this.scale = all ? Math.min(widthScale, (Math.min(680, window.innerHeight - 180) - 32) / this.height) : Math.max(narrow ? .8 : 0, widthScale);
+    if (all) this.viewport.style.height = Math.max(400, Math.min(680, window.innerHeight - 180)) + 'px';
+    this.x = (available - this.width * this.scale) / 2; this.y = 12;
+    if (narrow && !all) {
+      this.viewport.style.height = '570px';
+      const first = this.world.querySelector('[data-tree-root]');
+      if (first) this.x = available / 2 - (parseFloat(first.style.left) + 90) * this.scale;
+    }
+    this.transform();
+  }
+
+  zoom(factor, cx = this.viewport.clientWidth / 2, cy = Math.min(280, this.viewport.clientHeight / 2)) {
+    const next = Math.max(.12, Math.min(2.5, this.scale * factor));
+    this.x = cx - (cx - this.x) * next / this.scale;
+    this.y = cy - (cy - this.y) * next / this.scale;
+    this.scale = next; this.transform();
+  }
+
+  transform() {
+    this.world.style.transform = `translate(${this.x}px, ${this.y}px) scale(${this.scale})`;
+    this.percent.textContent = Math.round(this.scale * 100) + '%';
+  }
+
+  focus(id) { this.marks.get(id)?.[0]?.focus({preventScroll: true}); }
+  schedule() { requestAnimationFrame(() => { if (!this.lastWidth) this.fit(false); }); }
+}
+
 export class TaxonomyGraph {
   constructor(container, nodes, onSelect, onEdge) {
     this.container = container;

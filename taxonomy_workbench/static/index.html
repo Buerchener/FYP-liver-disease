@@ -35,9 +35,20 @@
     </section>
     <section id="taxonomy-view" class="taxonomy-layout" hidden aria-label="层级归纳结果">
       <div class="graph-workspace">
-        <div class="graph-topline">
+        <div class="graph-topline" id="legacy-graph-controls">
           <nav id="branches" class="branch-tabs" aria-label="分类分支"></nav>
           <button class="button quiet" type="button" id="show-intermediates" aria-pressed="false">中间概念 <span id="middle-count"></span></button>
+        </div>
+        <p id="run-note" class="run-note" hidden></p>
+        <div class="branch-picker" id="branch-picker" hidden>
+          <label for="branch-select">查看范围</label>
+          <select id="branch-select"></select>
+          <button class="button" type="button" id="back-to-overview" hidden>返回总览</button>
+          <div class="graph-legend" id="branch-legend" aria-label="分类图图例">
+            <span><i class="node-shape added-node-key" aria-hidden="true"></i>新增父类</span>
+            <span>父类 → 子类</span>
+            <span>关系待人工复核</span>
+          </div>
         </div>
         <div class="unrooted-picker" id="unrooted-picker" hidden>
           <label for="unrooted-select">未连接的分支与概念</label>
@@ -45,9 +56,12 @@
           <span class="subtle" id="unrooted-count"></span>
         </div>
         <div id="middle-list" class="middle-list" hidden aria-label="生成的中间概念"></div>
-        <div class="graph-surface">
+        <section id="branch-overview" class="taxonomy-overview" aria-label="全部分支" hidden></section>
+        <section id="isolated-overview" class="taxonomy-overview" aria-label="独立概念" hidden></section>
+        <section id="excluded-overview" class="taxonomy-overview" aria-label="暂缓与撤下的概念" hidden></section>
+        <div class="graph-surface" id="graph-surface">
           <div id="graph" class="graph" aria-label="父类到子类的分类关系"></div>
-          <div class="graph-legend" aria-label="分类图图例">
+          <div class="graph-legend" id="legacy-graph-legend" aria-label="分类图图例">
             <span>父类 → 子类</span>
             <span><i class="node-key intermediate"></i>中间概念</span>
             <span><i class="line-key supported"></i>定义支持</span>
@@ -56,7 +70,7 @@
           </div>
         </div>
       </div>
-      <aside class="inspector" aria-label="概念定义、关系与证据"><div id="inspector-content"></div></aside>
+      <aside class="inspector" id="graph-inspector" aria-label="概念定义、关系与证据"><div id="inspector-content" aria-live="polite"></div></aside>
     </section>
     <section id="records-view" class="records-layout" hidden aria-label="阶段数据">
       <div class="records-workspace">

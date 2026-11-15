@@ -60,7 +60,7 @@ class Workbench:
     def sources(self):
         result={'synthetic':{'id':'synthetic','label':'合成演示 · 8 个细粒度概念',
                              'path':PACKAGE/'examples/synthetic/dataset.json'}}
-        candidates=sorted((PACKAGE/'runs').glob('task1-*-final-*'))
+        candidates=sorted(self.runs.glob('task1-*-final-*'))
         labels={'workbench':'网页已生成的概念','official':'原始 AutoSchemaKG','original_stage2':'原始 Stage 2','role_nested':'角色与嵌套事件'}
         for folder in candidates:
             if not (folder/'events.jsonl').exists():continue

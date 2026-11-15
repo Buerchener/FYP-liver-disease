@@ -9,12 +9,33 @@ from event_taxonomy.models import stable_id
 PROMPT_PATH = Path(__file__).with_name("prompts") / "upward.xml"
 PROMPTS = {element.tag: ElementTree.tostring(element, encoding="unicode").strip()
            for element in ElementTree.parse(PROMPT_PATH).getroot()}
+for stage, filename in (("admission", "concept-admission.xml"),
+                        ("parent_equivalence", "parent-equivalence.xml"), ("repair", "parent-repair.xml")):
+    path = PROMPT_PATH.with_name(filename)
+    ElementTree.parse(path)
+    PROMPTS[stage] = path.read_text(encoding="utf-8")
 TRUTH_VALUES = ("true", "false", "uncertain")
 VERDICTS = ("pass", "fail", "uncertain")
 SCOPE_VALUES = ("has_extra_cases", "no_extra_cases", "uncertain")
+PARENT_CHECKS = ("name_definition_alignment", "common_event_property", "decidable_boundary",
+                 "useful_abstraction", "group_coherence")
+
+
+def truth_value(value):
+    """Normalize JSON booleans without interpreting numbers or changing a verdict."""
+    if type(value) is bool:
+        return "true" if value else "false"
+    require(isinstance(value, str) and value in TRUTH_VALUES,
+            "Containment must be true, false, or uncertain; numbers are not verdicts")
+    return value
 
 
 def checked_call(journal, stage, payload, validate):
+    recover = getattr(journal, "revalidate_invalid", None)
+    if recover is not None:
+        recovered = recover(stage, payload, validate)
+        if recovered is not None:
+            return recovered
     try:
         return validate(journal.call(stage, payload)), journal.last_ref
     except ContractError as error:
@@ -109,25 +130,33 @@ def check_parent_reviews(response, proposals):
     obj(response, ("parent_reviews",))
     reviews = by_review_id(response["parent_reviews"], "proposal_id", proposals.keys())
     for proposal_id, review in reviews.items():
-        obj(review, ("proposal_id", "verdict", "definition_review", "edge_reviews", "leaf_reviews",
+        obj(review, ("proposal_id", "verdict", "parent_checks", "definition_review", "edge_reviews", "leaf_reviews",
                      "suggested_action", "suggested_definition"))
         require(review["verdict"] in ("accept", "revise", "reject", "uncertain"), "Unknown parent verdict")
         text(review["definition_review"])
         text(review["suggested_action"])
         if review["suggested_definition"] is not None:
             text(review["suggested_definition"])
+        obj(review["parent_checks"], PARENT_CHECKS)
+        for check in review["parent_checks"].values():
+            obj(check, ("verdict", "reason"))
+            require(check["verdict"] in VERDICTS, "Unknown parent-quality verdict")
+            text(check["reason"])
         proposal = proposals[proposal_id]
         edges = by_review_id(review["edge_reviews"], "child_id", {n["id"] for n in proposal["children"]})
         leaves = by_review_id(review["leaf_reviews"], "leaf_id", {n["id"] for n in proposal["descendant_leaves"]})
         for edge in edges.values():
             obj(edge, ("child_id", "child_entails_parent", "broader_scope", "parent_only_example",
                        "scope_reason", "reason", "counterexample"))
-            forward, scope = edge["child_entails_parent"], edge["broader_scope"]
-            require(forward in TRUTH_VALUES and scope in SCOPE_VALUES, "Invalid direct containment verdict")
+            forward, scope = truth_value(edge["child_entails_parent"]), edge["broader_scope"]
+            edge["child_entails_parent"] = forward
+            require(scope in SCOPE_VALUES, "Invalid direct containment scope")
             if scope == "has_extra_cases":
                 require(isinstance(edge["parent_only_example"], str) and edge["parent_only_example"].strip(),
                         "Give a parent-only example when broader_scope is has_extra_cases")
-                require(edge["scope_reason"] is None, "Use null for scope_reason when giving a parent-only example")
+                # A supplementary explanation does not replace the required witness.
+                if edge["scope_reason"] is not None:
+                    text(edge["scope_reason"])
             else:
                 require(edge["parent_only_example"] is None, "Leave parent_only_example null without extra cases")
                 require(isinstance(edge["scope_reason"], str) and edge["scope_reason"].strip(),
@@ -137,14 +166,22 @@ def check_parent_reviews(response, proposals):
                                "pass" if (forward, scope) == ("true", "has_extra_cases") else "uncertain")
         for leaf in leaves.values():
             obj(leaf, ("leaf_id", "entails_parent", "reason", "counterexample"))
-            require(leaf["entails_parent"] in TRUTH_VALUES, "Invalid descendant containment verdict")
+            leaf["entails_parent"] = truth_value(leaf["entails_parent"])
             check_counterexample(leaf, leaf["entails_parent"])
             leaf["verdict"] = dict(zip(TRUTH_VALUES, VERDICTS))[leaf["entails_parent"]]
+        # A contradictory overall label must not trigger semantic resampling.
+        # Preserve the model's label and checks, but hold the proposal conservatively.
+        gate_issues = []
         if review["verdict"] == "accept":
-            require(review["suggested_definition"] is None and
-                    all(check["verdict"] == "pass" for check in [*edges.values(), *leaves.values()]),
-                    "An accepted parent must pass every child and descendant check without a definition revision")
-        review["passes"] = review["verdict"] == "accept"
+            if not all(check["verdict"] == "pass" for check in review["parent_checks"].values()):
+                gate_issues.append("Overall accept conflicts with one or more parent-quality checks")
+            if review["suggested_definition"] is not None:
+                gate_issues.append("A suggested definition revision has not been independently reviewed")
+            if not all(check["verdict"] == "pass" for check in [*edges.values(), *leaves.values()]):
+                gate_issues.append("Overall accept conflicts with one or more child or descendant checks")
+        if gate_issues:
+            review["gate_issues"] = gate_issues
+        review["passes"] = review["verdict"] == "accept" and not gate_issues
     return reviews
 
 

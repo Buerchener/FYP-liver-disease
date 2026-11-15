@@ -1,6 +1,7 @@
 """Run bottom-up event taxonomy induction without predefined roots."""
 
 import argparse
+from copy import deepcopy
 from dataclasses import replace
 from hashlib import sha256
 from itertools import islice
@@ -93,6 +94,11 @@ def cut_quality(partition, positions, distances):
 
 
 def choose_cut(node_ids, vectors, cutoffs, max_group_size, fixed=None):
+    if not node_ids:
+        choices = sorted(set(cutoffs) | ({fixed} if fixed is not None else set()))
+        stats = [{"cutoff": cutoff, "groups": 0, "grouped_nodes": 0, "singletons": 0,
+                  "largest_group": 0, "mean_silhouette": 0.0} for cutoff in choices]
+        return fixed if fixed is not None else choices[0], stats, {}, []
     condensed = np.clip(pdist(vectors, metric="cosine"), 0, 2)
     if not np.isfinite(condensed).all():
         raise ValueError("Invalid cosine distances for the current nodes.")
@@ -143,12 +149,28 @@ def seed_groups(document, groups):
 
 
 class UpwardInducer:
-    def __init__(self, journal, vectors, cutoffs, max_group_size, max_rounds):
+    def __init__(self, journal, vectors, cutoffs, max_group_size, max_rounds, *,
+                 maintenance_enabled=False, excluded_ids=(), dedup_neighbors=5, max_repairs=1):
         self.journal = journal
         self.vectors = vectors
         self.cutoffs = cutoffs
         self.max_group_size = max_group_size
         self.max_rounds = max_rounds
+        self.maintenance_enabled = maintenance_enabled
+        self.excluded_ids = set(excluded_ids)
+        self.dedup_neighbors = dedup_neighbors
+        self.max_repairs = max_repairs
+
+    def active_ids(self, view):
+        return {key for key, node in view.nodes.items() if key not in self.excluded_ids
+                and node.validation_status not in {"maintenance_held", "admission_held", "merged"}}
+
+    def active_signature(self, state):
+        view = GraphView(state)
+        active = self.active_ids(view)
+        return digest({"nodes": sorted((key, view.nodes[key].concept_label,
+                                        view.nodes[key].concept_description) for key in active),
+                       "edges": sorted((edge.parent_id, edge.child_id) for edge in state.parent_child_edges)})
 
     @staticmethod
     def definition(node):
@@ -234,7 +256,7 @@ class UpwardInducer:
             leaves = item["descendant_leaves"]
             for start in range(0, max(1, len(leaves)), 10):
                 pieces.append({
-                    key: item[key] for key in ("proposal_id", "name", "definition", "children")
+                    key: item[key] for key in ("proposal_id", "name", "definition", "reuse_id", "children")
                 } | {"descendant_leaves": leaves[start:start + 10]})
 
         def review_batch(batch):
@@ -273,7 +295,8 @@ class UpwardInducer:
         target_ids = [row["proposal_id"] for row in candidates]
         known = set(target_ids) | view.nodes.keys()
         payload = {"proposed_parents": candidates,
-                   "existing_concepts": [describe(node) for node in view.nodes.values()]}
+                   "existing_concepts": [describe(node) for key, node in view.nodes.items()
+                                         if key in self.active_ids(view)]}
         cross = {}
         for start in range(0, len(target_ids), 20):
             batch = target_ids[start:start + 20]
@@ -289,6 +312,9 @@ class UpwardInducer:
         accepted, held = [], []
         for item in proposals:
             proposal_id = item["proposal_id"]
+            if not reviews.get(proposal_id) or not all(row["passes"] for row in reviews[proposal_id]):
+                held.append({"proposal_id": proposal_id, "reason": "Independent review did not pass"})
+                continue
             check = cross.get(proposal_id)
             if check is None or check["verdict"] != "pass":
                 continue
@@ -323,21 +349,44 @@ class UpwardInducer:
         return state, accepted, held
 
     def round(self, state, number, first_cutoff=None, first_layer=None):
+        before_signature = self.active_signature(state)
+        original_view = GraphView(state)
+        previous_generated = {node_id for node_id in self.active_ids(original_view)
+                              if original_view.nodes[node_id].origin_kind == "induced_intermediate"}
+        dedup_report = None
+        if self.maintenance_enabled:
+            from .parent_deduplication import deduplicate_parents
+            state, dedup_report = deduplicate_parents(state, self, neighbors=self.dedup_neighbors)
         view = GraphView(state)
-        frontier = [node_id for node_id in view.nodes if not view.parents[node_id]]
+        active = self.active_ids(view)
+        frontier = [node_id for node_id in view.nodes if node_id in active and not view.parents[node_id]]
         leaves = set(state.frozen_input_concept_ids)
         descendants = {node_id: (reachable(view.children, node_id) | {node_id}) & leaves for node_id in frontier}
-        vectors = self.vectors({node_id: view.nodes[node_id] for node_id in frontier})
+        vectors = self.vectors({node_id: view.nodes[node_id] for node_id in frontier}) if frontier else np.empty((0, 0))
         cutoff, comparison, groups, singletons = choose_cut(
             frontier, vectors, self.cutoffs, self.max_group_size, first_cutoff,
         )
         proposals, decisions = self.propose(groups, view, descendants, seed_groups(first_layer, groups))
         reviews = self.review(proposals)
-        eligible = [item for item in proposals if all(row["passes"] for row in reviews[item["proposal_id"]])]
+        eligible = [item for item in proposals if reviews.get(item["proposal_id"]) and
+                    all(row["passes"] for row in reviews[item["proposal_id"]])]
         cross = self.cross_review(eligible, view)
         state, accepted, held = self.commit(state, eligible, reviews, cross)
+        inserted = deepcopy(accepted)
+        maintenance_report = None
+        if self.maintenance_enabled:
+            from .maintenance import maintain_graph
+            state, maintenance_report = maintain_graph(state, self, max_repairs=self.max_repairs)
+            state, final_dedup = deduplicate_parents(state, self, neighbors=self.dedup_neighbors)
+            dedup_report = {"before_proposal": dedup_report, "after_maintenance": final_dedup}
         after = GraphView(state)
-        next_input = [node_id for node_id in after.nodes if not after.parents[node_id]]
+        active = self.active_ids(after)
+        next_input = [node_id for node_id in after.nodes if node_id in active and not after.parents[node_id]]
+        accepted = [{**row, "edge_ids": [link.edge_id for link in state.parent_child_edges
+                                         if link.parent_id == row["parent_id"]]}
+                    for row in accepted if row["parent_id"] in active and after.children[row["parent_id"]]]
+        current_generated = {node_id for node_id in active
+                             if after.nodes[node_id].origin_kind == "induced_intermediate"}
         report = {
             "round": number, "input_ids": frontier, "cutoff": cutoff, "cut_comparison": comparison,
             "groups": [{"group_id": group, "member_ids": list(members), "reason": decisions[group]["reason"]}
@@ -345,8 +394,12 @@ class UpwardInducer:
             "singleton_ids": singletons, "proposals": proposals, "reviews": reviews,
             "cross_review": cross,
             "accepted": accepted, "structural_holds": held,
-            "unassigned_input_ids": [node_id for node_id in frontier if not after.parents[node_id]],
+            "unassigned_input_ids": [node_id for node_id in frontier if node_id in active and not after.parents[node_id]],
             "next_input_ids": next_input,
+            "parent_deduplication": dedup_report, "maintenance": maintenance_report,
+            "inserted_before_maintenance": inserted,
+            "active_structure_changed": before_signature != self.active_signature(state),
+            "new_active_parent_count": len(current_generated - previous_generated),
         }
         return state, report
 
@@ -365,10 +418,11 @@ class UpwardInducer:
             result["taxonomy"] = to_dict(state)
             result["rounds"].append(report)
             result.pop("issue", None)
-            new_count = sum(row["new"] for row in report["accepted"])
+            new_count = report["new_active_parent_count"]
             print(f'Round {number}: cutoff {report["cutoff"]}, {len(report["groups"])} groups, '
                   f'{new_count} new parents, {len(report["next_input_ids"])} nodes at the top.', flush=True)
-            reason = ("no_approved_new_parent" if not new_count else
+            unchanged = not report["active_structure_changed"] if self.maintenance_enabled else not new_count
+            reason = (("no_approved_changes" if self.maintenance_enabled else "no_approved_new_parent") if unchanged else
                       "maximum_rounds" if number == self.max_rounds else None)
             result.update(status="finished" if reason else "running", stop_reason=reason)
             atomic_json(output, result)
@@ -431,7 +485,32 @@ def run_directory(args, dataset, taxonomy, config, api, embedding, stages, cache
                                          for node_id, node in nodes.items()})
 
         journal = LLMJournal(directory / "llm", OpenAICompatibleProvider(api), PROMPTS, stages, args.max_llm_calls)
-        inducer = UpwardInducer(journal, vectorize, args.cutoffs, args.max_group_size, args.max_rounds)
+        from .admission import review_admission
+        if "admission" not in result:
+            try:
+                result["admission"] = review_admission(dataset, journal,
+                    batch_size=args.admission_batch_size, scope_policy=args.scope_policy)
+                result.pop("issue", None)
+                result.update(status="running", stop_reason=None)
+                atomic_json(output, result)
+            except (ProviderError, ContractError, BudgetExceeded) as error:
+                reason = ("maximum_llm_calls" if isinstance(error, BudgetExceeded) else
+                          "provider_error" if isinstance(error, ProviderError) else "invalid_model_output")
+                result.update(status="paused", stop_reason=reason, issue=str(error))
+                atomic_json(output, result)
+                return result
+        print(f'Admission: {len(result["admission"]["accepted_leaf_ids"])} admitted, '
+              f'{len(result["admission"]["held_leaf_ids"])} held.', flush=True)
+        if args.admission_only:
+            result.update(status="paused", stop_reason="admission_completed")
+            atomic_json(output, result)
+            return result
+        inducer = UpwardInducer(journal, vectorize, args.cutoffs, args.max_group_size, args.max_rounds,
+                               maintenance_enabled=True, excluded_ids=result["admission"]["held_leaf_ids"],
+                               dedup_neighbors=args.dedup_neighbors, max_repairs=args.max_repairs)
+        result.update(status="running", stop_reason=None)
+        result.pop("issue", None)
+        atomic_json(output, result)
         return inducer.run(output, result, args.first_cutoff, first_layer)
 
 
@@ -445,6 +524,12 @@ def main(argv=None):
     parser.add_argument("--max-group-size", type=int, default=8)
     parser.add_argument("--max-rounds", type=int, default=4)
     parser.add_argument("--max-llm-calls", type=int, default=150)
+    parser.add_argument("--max-output-tokens", type=int, default=8000)
+    parser.add_argument("--scope-policy", choices=("reported_events", "research_statements"), default="reported_events")
+    parser.add_argument("--admission-batch-size", type=int, default=4)
+    parser.add_argument("--admission-only", action="store_true", help="Save admission decisions before continuing with --resume")
+    parser.add_argument("--dedup-neighbors", type=int, default=5)
+    parser.add_argument("--max-repairs", type=int, default=1, help="Maximum repair proposals per reviewed parent")
     parser.add_argument("--model-config", type=Path, required=True)
     parser.add_argument("--output", type=Path)
     mode = parser.add_mutually_exclusive_group()
@@ -454,7 +539,8 @@ def main(argv=None):
     try:
         cutoffs = [*args.cutoffs, *([] if args.first_cutoff is None else [args.first_cutoff])]
         if (not all(math.isfinite(value) and 0 <= value <= 2 for value in cutoffs)
-                or args.max_group_size < 2 or min(args.max_rounds, args.max_llm_calls) < 1):
+                or args.max_group_size < 2 or min(args.max_rounds, args.max_llm_calls, args.max_output_tokens, args.admission_batch_size,
+                                                args.dedup_neighbors) < 1 or args.max_repairs not in (0, 1)):
             raise ValueError("Use cosine distance cutoffs in [0, 2], group size ≥ 2, and positive run limits.")
         if args.first_layer_proposals and (args.first_cutoff is None or args.leaf_embeddings is None):
             raise ValueError("Replay first-layer proposals with their fixed cutoff and saved leaf embeddings.")
@@ -462,6 +548,7 @@ def main(argv=None):
         dataset = source.json()
         taxonomy, evidence = initial_taxonomy(dataset)
         api, embedding, stages = api_settings(args.model_config)
+        stages = {stage: {**settings, "max_tokens": args.max_output_tokens} for stage, settings in stages.items()}
         cached = load_leaf_vectors(args.leaf_embeddings, source, embedding["model"], embedding["dimensions"])
         seed = SourceFile.read(args.first_layer_proposals) if args.first_layer_proposals else None
         first_layer = seed.json() if seed else None
@@ -488,6 +575,9 @@ def main(argv=None):
             "cutoffs": list(args.cutoffs), "first_cutoff": args.first_cutoff, "max_group_size": args.max_group_size,
             "max_rounds": args.max_rounds, "max_llm_calls": args.max_llm_calls,
             "embedding": embedding, "api": api, "stages": stages, "prompts_sha256": digest(PROMPTS),
+            "pipeline_version": 2, "scope_policy": args.scope_policy,
+            "admission_batch_size": args.admission_batch_size, "dedup_neighbors": args.dedup_neighbors,
+            "max_repairs": args.max_repairs,
         }
         result = run_directory(args, {**dataset, "source_evidence": evidence}, taxonomy,
                                config, api, embedding, stages, cached, first_layer)

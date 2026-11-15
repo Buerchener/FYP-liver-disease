@@ -5,7 +5,7 @@ from pathlib import Path
 import re
 import urllib.parse
 from .service import APIError,Workbench
-from .pipeline import current_run,pipeline_view
+from .pipeline import current_run,load_upward_result,pipeline_view
 from event_taxonomy.induction.visualize import svg
 
 STATIC=Path(__file__).parent/'static'
@@ -13,8 +13,9 @@ MAX_BODY=20*1024*1024
 
 
 class Router:
-    def __init__(self,service,port=4318):
+    def __init__(self,service,port=4318,hierarchy_path=None):
         self.service=service
+        self.hierarchy_path=hierarchy_path
         self.hosts={'127.0.0.1:'+str(port),'localhost:'+str(port)}
 
     def response(self,status,value,content_type='application/json; charset=utf-8'):
@@ -45,11 +46,15 @@ class Router:
                 mime={'html':'text/html','css':'text/css','js':'text/javascript'}[name.rsplit('.',1)[-1]]
                 return self.response(200,(STATIC/name).read_bytes(),mime+'; charset=utf-8')
             if path=='/api/pipeline' and method=='GET':
-                return self.response(200,pipeline_view(self.service.runs))
+                return self.response(200,pipeline_view(self.service.runs,self.hierarchy_path))
             if path=='/api/pipeline/export' and method=='GET':
-                run=current_run(self.service.runs)
-                if run is None:raise APIError('尚无已保存的层级归纳结果。',404)
-                result=self.response(200,(run/'final_taxonomy.json').read_bytes())
+                if self.hierarchy_path is not None:
+                    view=pipeline_view(self.service.runs,self.hierarchy_path)
+                    result=self.response(200,{'schema':'effective-taxonomy-view/1', **view})
+                else:
+                    run=current_run(self.service.runs)
+                    if run is None:raise APIError('尚无已保存的层级归纳结果。',404)
+                    result=self.response(200,(run/'final_taxonomy.json').read_bytes())
                 result[1]['Content-Disposition']='attachment; filename="event-taxonomy.json"'
                 return result
             if path=='/api/overview' and method=='GET':return self.response(200,self.service.overview())
@@ -83,8 +88,8 @@ class Router:
         except Exception:return self.response(500,{'error':'服务暂时无法完成请求，请查看本地运行状态后重试。'})
 
 
-def make_server(service,port=4318):
-    router=Router(service,port)
+def make_server(service,port=4318,hierarchy_path=None):
+    router=Router(service,port,hierarchy_path)
     class Handler(BaseHTTPRequestHandler):
         def handle_request(self):
             try:size=int(self.headers.get('Content-Length','0'))
