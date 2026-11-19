@@ -8,6 +8,18 @@
 
 </div>
 
+## 离线答辩演示
+
+安装 CLI 后生成审查页，再用浏览器打开。
+
+```bash
+liverkg --lang zh review -o defense-review.html
+```
+
+依次点击 LiverKG 关系和自定义 schema 关系，比较同样通过语义校验的两条候选为何有不同的图谱写入资格。再切到待复核和拒绝样例，对照原文中缺少关系触发证据与命中排除规则的区别。四条记录均为虚构样例，由项目的验证器现场计算判定，无需模型密钥或 Neo4j。
+
+给命令传入真实的 `agent_results_*.json` 可审查一批已保存的抽取结果。页面提供中英文切换。[CLI 使用说明](LIVERKG_CLI.md#evidence-review)
+
 ## 项目目标
 
 本模块从 PubMed 摘要中抽取肝病相关知识，并生成可审计的 Neo4j 候选实体和关系。

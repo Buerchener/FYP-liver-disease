@@ -356,6 +356,41 @@ def report(run_id: str) -> None:
 
 
 @app.command()
+def review(
+    results: Optional[Path] = typer.Argument(None, help="Agent results JSON. Omit for the offline demo."),
+    run_id: Optional[str] = typer.Option(None, "--run-id", help="Use the saved results of a CLI run."),
+    output: Path = typer.Option(Path("liverkg-evidence-review.html"), "--output", "-o", help="Standalone HTML output."),
+) -> None:
+    """Export an interactive evidence review that opens offline."""
+    from .review_data import build_review_data
+    from .review_page import render_review_page
+
+    if results is not None and run_id is not None:
+        raise typer.BadParameter("provide a results file or --run-id")
+    try:
+        if run_id is not None:
+            path = read_status(run_id).get("result_path")
+            if not path:
+                raise ValueError(f"run {run_id!r} has no saved results")
+            results = project_root() / path
+        if results is not None:
+            if results.resolve() == output.resolve():
+                raise ValueError("the HTML output must differ from the results JSON")
+            payload = json.loads(results.read_text(encoding="utf-8"))
+        else:
+            from .review_demo import demo_results
+
+            payload = demo_results()
+
+        page = render_review_page(build_review_data(payload, demo=results is None), language=LANG)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(page, encoding="utf-8")
+    except (OSError, ValueError) as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    console.print(f"Evidence review saved to {output.resolve()}", markup=False)
+
+
+@app.command()
 def resume(run_id: str) -> None:
     """Resume a stopped or failed run from article checkpoints."""
     spec = load_run_spec(run_id)

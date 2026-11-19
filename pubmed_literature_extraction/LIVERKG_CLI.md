@@ -49,6 +49,18 @@ liverkg extract articles.jsonl --schema-profile docs/schema_profile.example.json
 
 The run saves a schema snapshot for background execution and resume. Custom schema runs export JSON candidates and require dry-run mode. See [Schema profile configuration](docs/schema_profiles.zh-CN.md).
 
+## Evidence Review
+
+```bash
+liverkg review -o defense-review.html
+liverkg review extraction_output/agent_results_RUN_ID.json -o audit.html
+liverkg --lang zh review --run-id RUN_ID -o audit-zh.html
+```
+
+Open the generated HTML file in a browser. Search by endpoint, predicate or PMID and filter by semantic status. Each candidate shows its recorded evidence, schema checks, semantic decision and graph eligibility. Missing fields in older runs display as unrecorded. Import eligibility reflects a verifier decision about a candidate.
+
+With no input, the command runs a fictional demonstration through the verifier. The HTML embeds the selected article and candidate data and works offline.
+
 ## Configuration
 
 Non-sensitive configuration is stored in the platform user config directory and can be overridden by a project `.liverkg.toml`.

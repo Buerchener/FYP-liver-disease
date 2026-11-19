@@ -8,6 +8,18 @@
 
 </div>
 
+## Offline evidence review
+
+After installation, generate a review page and open it in a browser.
+
+```bash
+liverkg review -o defense-review.html
+```
+
+The demo runs LiverKG’s verifier on four fictional cases. Select each relation to inspect its evidence, semantic decision, and graph eligibility. Compare the LiverKG edge with an accepted custom-schema candidate, then inspect the two cases that need review or are rejected. The demo uses no model API or Neo4j connection.
+
+Pass an `agent_results_*.json` file to review a saved extraction run. The page supports English and Chinese. [CLI guide](LIVERKG_CLI.md#evidence-review)
+
 ## What this project does
 
 This workstream extracts liver-disease knowledge from PubMed abstracts and
