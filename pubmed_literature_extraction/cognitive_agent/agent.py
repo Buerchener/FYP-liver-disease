@@ -24,7 +24,7 @@ import threading
 import copy
 from urllib.parse import urlparse
 from pathlib import Path
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # 添加项目根目录
@@ -38,6 +38,7 @@ from cognitive_agent.context_activator import ContextActivator, ContextCard
 from cognitive_agent.extraction_kernel import ExtractionKernel, RawExtraction
 from cognitive_agent.verifier import KGVerifier, VerifiedExtraction
 from cognitive_agent.schema.predicate_cards import load_predicate_thresholds
+from cognitive_agent.schema.schema_profile import SchemaProfile, resolve_schema_profile
 from cognitive_agent.reviewer import ExtractionReviewer, ReviewerConfig, ReviewResult
 from cognitive_agent.collaborative_extractor import (
     CollaborationResult,
@@ -468,9 +469,8 @@ class AgentConfig:
     risk_router_mode: str = "off"  # off | shadow | active
     conformal_calibration: str = ""
     predicate_thresholds: str = ""
-    # Optional declarative dataset schema. Empty keeps the built-in LiverKG
-    # candidate profile; this never changes the independent Neo4j write contract.
-    schema_profile: str = ""
+    # A dataset profile selects source-grounded extraction and JSON output.
+    schema_profile: SchemaProfile | str | Path | None = None
     conformal_alpha_import_ready: float = 0.05
     conformal_alpha_semantic: float = 0.10
     conformal_min_group_size: int = 20
@@ -654,6 +654,21 @@ class CognitiveAgent:
     """
 
     def __init__(self, config: AgentConfig):
+        self.dataset_profile = None
+        if config.schema_profile:
+            if not config.skip_neo4j_write:
+                raise ValueError("custom schema profiles support candidate export only")
+            self.dataset_profile = resolve_schema_profile(config.schema_profile)
+            config = replace(
+                config, neo4j_password="", neo4j_rag_enabled=False,
+                second_llm_enabled=False, reviewer_enabled=False, reflection_interval=0,
+                rule_memory_mode="off", rule_bundle="", rule_learning_mode="off",
+                conformal_calibration="", predicate_thresholds="", risk_router_mode="off",
+                pair_classifier_enabled=False, pair_classifier_mode="off",
+                pair_classifier_backend="deterministic",
+                pairwise_judge_mode="off", entity_recovery_mode="off",
+                evidence_entailment_mode="off", causal_conflict_enabled=False,
+            )
         if config.agent_mode not in {"precision", "shadow-agent", "recall"}:
             raise ValueError("agent_mode must be precision, shadow-agent, or recall")
         if config.router_execution_mode not in {"legacy", "active_shadow"}:
@@ -798,6 +813,7 @@ class CognitiveAgent:
             lx_config,
             cache=self.extraction_cache,
             inner_max_workers=config.extraction_inner_max_workers,
+            schema_profile=self.dataset_profile,
         )
         self.rule_memory = RuleMemory(
             mode=config.rule_memory_mode,
@@ -904,7 +920,8 @@ class CognitiveAgent:
             self.kg_memory,
             verification_policy=config.verification_policy,
             predicate_thresholds=load_predicate_thresholds(config.predicate_thresholds),
-            schema_profile=config.schema_profile or None,
+            schema_profile=self.dataset_profile,
+            dataset_only=self.dataset_profile is not None,
         )
         self.reviewer = ExtractionReviewer(
             ReviewerConfig(
@@ -1350,6 +1367,47 @@ class CognitiveAgent:
         }
         return collaboration, collaboration.critic_audit, cache_status, time.perf_counter() - started
 
+    def _extract_from_snapshot(self, pmid: str) -> RawExtraction | None:
+        snapshot = self.frozen_candidates.get(str(pmid))
+        if snapshot is None:
+            if self.config.frozen_candidates_path:
+                raise ValueError(f"frozen candidate snapshot missing PMID {pmid}")
+            return None
+        return RawExtraction(
+            pmid=str(pmid),
+            entities=copy.deepcopy(snapshot.get("entities", []) or []),
+            relations=copy.deepcopy(snapshot.get("relations", []) or []),
+            error=str(snapshot.get("error", "") or ""),
+            retry_count=int(snapshot.get("retry_count", 0) or 0),
+            warnings=[*list(snapshot.get("warnings", []) or []), "extraction_cache:frozen_snapshot"],
+            chunk_count=int(snapshot.get("chunk_count", 1) or 1),
+            chunks=copy.deepcopy(snapshot.get("chunks", []) or []),
+        )
+
+    def _process_dataset_article(self, record: dict, text: str) -> None:
+        pmid = str(record["pmid"])
+        start = time.time()
+        raw = self._extract_from_snapshot(pmid)
+        candidate_source = "frozen_snapshot" if raw is not None else "live_or_cache"
+        if raw is None:
+            raw = self.extraction_kernel.extract(text, document_id=pmid)
+        record["phases"]["extraction"] = {**raw.to_dict(), "candidate_source": candidate_source}
+        extracted = time.time()
+        verified = self.verifier.verify(raw.entities, raw.relations, pmid=pmid, text=text)
+        record["phases"]["verification"] = verified.to_dict()
+        execution = ExecutionLog(pmid=pmid)
+        record["phases"]["execution"] = {**execution.to_dict(), "dry_run": True}
+        self._update_state(raw, verified, execution, pmid=pmid, title=record["title"])
+        if raw.error:
+            record["error"] = raw.error
+            self.state.safe_append("errors", {"pmid": pmid, "phase": "extraction", "error": raw.error})
+        end = time.time()
+        record["timing"] = {
+            "phase2_extract_s": round(extracted - start, 2),
+            "phase3_verify_s": round(end - extracted, 2),
+            "total_s": round(end - start, 2),
+        }
+
     def process_article(self, article: dict) -> dict:
         """
         处理单篇 PubMed 文章 — 完整的认知推理循环
@@ -1374,6 +1432,14 @@ class CognitiveAgent:
         }
 
         t_start = time.time()
+
+        if getattr(self, "dataset_profile", None) is not None:
+            try:
+                self._process_dataset_article(record, text)
+            except Exception as exc:
+                record["error"] = str(exc)
+                self.state.safe_append("errors", {"pmid": pmid, "phase": "dataset", "error": str(exc)})
+            return self._record_article(record)
 
         try:
             # Per-article working memory: never share this scratchpad between workers.
@@ -1579,23 +1645,9 @@ class CognitiveAgent:
             # Phase 2: Extract + Ground — LangExtract 提取
             # ═══════════════════════════════════════════════════
             t2 = time.time()
-            frozen_extraction = self.frozen_candidates.get(str(pmid))
-            if self.config.frozen_candidates_path and frozen_extraction is None:
-                raise ValueError(f"frozen candidate snapshot missing PMID {pmid}")
+            frozen_extraction = self._extract_from_snapshot(pmid)
             if frozen_extraction is not None:
-                raw_extraction = RawExtraction(
-                    pmid=str(pmid),
-                    entities=copy.deepcopy(frozen_extraction.get("entities", []) or []),
-                    relations=copy.deepcopy(frozen_extraction.get("relations", []) or []),
-                    error=str(frozen_extraction.get("error", "") or ""),
-                    retry_count=int(frozen_extraction.get("retry_count", 0) or 0),
-                    warnings=[
-                        *list(frozen_extraction.get("warnings", []) or []),
-                        "extraction_cache:frozen_snapshot",
-                    ],
-                    chunk_count=int(frozen_extraction.get("chunk_count", 1) or 1),
-                    chunks=copy.deepcopy(frozen_extraction.get("chunks", []) or []),
-                )
+                raw_extraction = frozen_extraction
             elif len(extraction_chunks) > 1:
                 raw_extraction = self.extraction_kernel.extract_chunked(
                     chunks=extraction_chunks,
@@ -2986,6 +3038,9 @@ class CognitiveAgent:
             record["error"] = str(e)
             self.state.safe_append("errors", {"pmid": pmid, "phase": "unknown", "error": str(e)})
 
+        return self._record_article(record)
+
+    def _record_article(self, record: dict) -> dict:
         with self._history_lock:
             self.history.append(record)
         self.state.safe_add(total_articles=1)
@@ -3219,6 +3274,8 @@ class CognitiveAgent:
 
         # 生成报告
         report = self._generate_report(run_id, articles, t_batch_end - t_batch_start)
+        if self.dataset_profile is not None:
+            report["schema_profile"] = self.dataset_profile.manifest()
         if reflection is not None:
             reflection_cards = error_cards_from_records(self.history)
             report["reflection"] = {
@@ -4418,10 +4475,7 @@ def main():
     )
     parser.add_argument(
         "--schema-profile", default=os.environ.get("SCHEMA_PROFILE", ""),
-        help=(
-            "Read-only dataset candidate-schema JSON. Empty uses LiverKG; "
-            "this option never expands the Neo4j write contract"
-        ),
+        help="Dataset schema JSON for source-grounded extraction and candidate export",
     )
     parser.add_argument(
         "--conformal-alpha-import-ready", type=float,
@@ -4643,6 +4697,14 @@ def main():
         help="LangExtract 内层并发数（稳定性矩阵应设为 1）",
     )
     args = parser.parse_args()
+    dataset_profile = None
+    if args.schema_profile:
+        if args.write_neo4j:
+            parser.error("--schema-profile cannot be combined with --write-neo4j")
+        try:
+            dataset_profile = resolve_schema_profile(args.schema_profile)
+        except (OSError, ValueError) as exc:
+            parser.error(f"invalid --schema-profile: {exc}")
 
     # ── 环境变量检查（GEMINI_API_KEY → DEEPSEEK_API_KEY 级联回退） ──
     api_key = args.api_key or os.environ.get("GEMINI_API_KEY", "") or os.environ.get("DEEPSEEK_API_KEY", "")
@@ -4652,7 +4714,7 @@ def main():
     neo4j_database = args.neo4j_database or os.environ.get("NEO4J_DATABASE", "neo4j")
     second_llm_enabled = resolve_feature_toggle(
         cli_enable=args.second_llm_enabled,
-        cli_disable=args.disable_second_llm,
+        cli_disable=args.disable_second_llm or dataset_profile is not None,
         env_value=os.environ.get("SECOND_LLM_ENABLED", ""),
     )
     second_llm_provider = os.environ.get(
@@ -4772,7 +4834,7 @@ def main():
         print("[ERROR] --extraction-inner-max-workers must be positive")
         sys.exit(1)
 
-    if not neo4j_password:
+    if not neo4j_password and dataset_profile is None:
         print("[WARN]  NEO4J_PASSWORD not set — Neo4j will be DISABLED (offline verification mode)")
         print("  Set via: export NEO4J_PASSWORD='...'")
         print("  Or pass: --neo4j-password '...'")
@@ -4865,7 +4927,7 @@ def main():
         risk_router_mode=args.risk_router_mode,
         conformal_calibration=args.conformal_calibration,
         predicate_thresholds=args.predicate_thresholds,
-        schema_profile=args.schema_profile,
+        schema_profile=dataset_profile,
         conformal_alpha_import_ready=args.conformal_alpha_import_ready,
         conformal_alpha_semantic=args.conformal_alpha_semantic,
         conformal_min_group_size=args.conformal_min_group_size,

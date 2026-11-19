@@ -41,6 +41,47 @@ def custom_payload():
 
 
 class SchemaProfileTests(unittest.TestCase):
+    def test_dataset_only_verifies_source_candidates_without_liverkg_gates(self):
+        payload = custom_payload()
+        payload.pop("entity_types")
+        profile = schema_profile_from_dict(payload)
+        self.assertEqual(profile.configured_entity_types, frozenset({
+            "ChemicalEntity", "DiseaseOrPhenotypicFeature",
+        }))
+        verifier = KGVerifier(OfflineKG(), schema_profile=profile, dataset_only=True)
+        text = "Background: Aspirin causes gastritis."
+        entities = [
+            {"mention": "Aspirin", "type": "ChemicalEntity"},
+            {"mention": "gastritis", "type": "DiseaseOrPhenotypicFeature"},
+        ]
+        rel = {"subject": "Aspirin", "subject_type": "ChemicalEntity",
+               "predicate": "CAUSES", "object": "gastritis",
+               "object_type": "DiseaseOrPhenotypicFeature", "evidence": text,
+               "claim_role": "BACKGROUND"}
+        result = verifier.verify(entities, [rel], text=text)
+        self.assertEqual(result.relations[0].semantic_status, "ACCEPTED")
+        self.assertFalse(result.relations[0].import_ready)
+        self.assertFalse(result.relations[0].write_contract_valid)
+
+    def test_dataset_only_without_lexical_rules_keeps_candidate_for_review(self):
+        payload = custom_payload()
+        payload["predicates"]["CAUSES"].update(
+            explicit_patterns=[], weak_patterns=[], exclusion_patterns=[],
+        )
+        verifier = KGVerifier(
+            OfflineKG(), schema_profile=schema_profile_from_dict(payload), dataset_only=True,
+        )
+        text = "Aspirin and gastritis were discussed."
+        result = verifier.verify(
+            [{"mention": "Aspirin", "type": "ChemicalEntity"},
+             {"mention": "gastritis", "type": "DiseaseOrPhenotypicFeature"}],
+            [{"subject": "Aspirin", "subject_type": "ChemicalEntity",
+              "predicate": "CAUSES", "object": "gastritis",
+              "object_type": "DiseaseOrPhenotypicFeature", "evidence": text}],
+            text=text,
+        )
+        self.assertEqual(result.relations[0].semantic_status, "REVIEW")
+
     def test_default_profile_preserves_liverkg_contract(self):
         profile = liverkg_schema_profile()
         self.assertTrue(profile.valid("ASSOCIATED_WITH", "Gene", "Disease"))

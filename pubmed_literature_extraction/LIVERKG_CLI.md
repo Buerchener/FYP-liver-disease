@@ -41,6 +41,14 @@ liverkg report RUN_ID
 
 Local input and `--pmid` are mutually exclusive.
 
+Pass a dataset schema JSON to use its entity types, predicates, endpoint signatures, and evidence rules throughout extraction and validation.
+
+```bash
+liverkg extract articles.jsonl --schema-profile docs/schema_profile.example.json
+```
+
+The run saves a schema snapshot for background execution and resume. Custom schema runs export JSON candidates and require dry-run mode. See [Schema profile configuration](docs/schema_profiles.zh-CN.md).
+
 ## Configuration
 
 Non-sensitive configuration is stored in the platform user config directory and can be overridden by a project `.liverkg.toml`.

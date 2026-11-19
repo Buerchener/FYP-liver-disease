@@ -28,6 +28,7 @@ from cognitive_agent.evidence_units import ArticleEvidenceReader
 from cognitive_agent.extraction_cache import LightweightExtractionCache
 from cognitive_agent.golden_examples import GOLDEN_EXAMPLE_VERSION
 from cognitive_agent.schema.ontology import ONTOLOGY_VERSION
+from cognitive_agent.schema.schema_profile import SchemaProfile
 from cognitive_agent.provider_errors import is_retryable_provider_error
 
 # These phrases describe broad context or intervention classes, not KG entities.
@@ -92,10 +93,64 @@ class ExtractionKernel:
 
     def __init__(self, model_config: ModelConfig,
                  cache: LightweightExtractionCache | None = None,
-                 inner_max_workers: int = 2):
+                 inner_max_workers: int = 2,
+                 schema_profile: SchemaProfile | None = None):
         self.model_config = model_config
         self.cache = cache or LightweightExtractionCache(mode="off")
         self.inner_max_workers = max(1, int(inner_max_workers))
+        self.schema_profile = schema_profile
+        self.dataset_prompt = ""
+        self.dataset_examples = []
+        if schema_profile is not None:
+            self.dataset_prompt, self.dataset_examples = self._dataset_instructions(schema_profile)
+
+    @staticmethod
+    def _dataset_instructions(profile: SchemaProfile) -> tuple[str, list]:
+        manifest = profile.manifest()
+        scope = (
+            "Extract only findings reported by the current article."
+            if profile.semantic_target == "CURRENT_FINDING"
+            else "Extract asserted relations, including established findings cited as background."
+        )
+        schema = json.dumps({
+            "entity_types": sorted(profile.configured_entity_types),
+            "predicates": manifest["predicates"],
+        }, ensure_ascii=False)
+        prompt = (
+            "Extract entities and relations using the dataset schema below. "
+            "Use the extraction class `entity`, copy the entity mention from the source, and "
+            "put its exact schema type in the `entity_type` attribute. Extract both endpoints "
+            "as entities. Attach outgoing relations "
+            "to the subject's attributes under `relations` as a list of objects with `predicate`, "
+            "`target_entity`, `target_type`, `evidence`, and `claim_role`. Use the exact predicate "
+            "and target type from the schema. Copy one contiguous evidence quote containing both "
+            "mentions and the assertion. Use CURRENT_FINDING for the article's findings or "
+            "BACKGROUND for an established assertion attributed to prior work. "
+            "Omit speculative, negated, or merely co-occurring relations. "
+            f"{scope}\nDataset schema:\n{schema}\n"
+            "The synthetic example illustrates the output format only."
+        )
+        predicate, rule = min(profile.predicates.items())
+        subject_type, object_type = min(rule.allowed_signatures)
+        example_text = f"Example A [{predicate}] Example B."
+        example = lx.data.ExampleData(text=example_text, extractions=[
+            lx.data.Extraction(
+                extraction_class="entity",
+                extraction_text="Example A",
+                attributes={"entity_type": subject_type, "relations": [{
+                    "predicate": predicate,
+                    "target_entity": "Example B",
+                    "target_type": object_type,
+                    "evidence": example_text,
+                    "claim_role": "CURRENT_FINDING",
+                }]},
+            ),
+            lx.data.Extraction(
+                extraction_class="entity", extraction_text="Example B",
+                attributes={"entity_type": object_type},
+            ),
+        ])
+        return prompt, [example]
 
     @staticmethod
     def _stable_value(value):
@@ -144,6 +199,8 @@ class ExtractionKernel:
             "inner_max_workers": self.inner_max_workers,
             "retry_on_empty": bool(retry_on_empty),
         }
+        if self.schema_profile is not None:
+            payload["schema_profile_sha256"] = self.schema_profile.manifest_sha256
         raw = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
@@ -208,7 +265,7 @@ class ExtractionKernel:
         text: str,
         document_id: str = "",
         examples: list | None = None,
-        prompt: str = KG_EXTRACTION_PROMPT,
+        prompt: str | None = None,
         retry_on_empty: bool = True,
     ) -> RawExtraction:
         """提取实体和关系，0 实体时自动重试。
@@ -223,7 +280,9 @@ class ExtractionKernel:
             RawExtraction 结果
         """
         if examples is None:
-            examples = DEFAULT_EXAMPLES
+            examples = self.dataset_examples if self.schema_profile is not None else DEFAULT_EXAMPLES
+        if prompt is None:
+            prompt = self.dataset_prompt if self.schema_profile is not None else KG_EXTRACTION_PROMPT
 
         cache_key = self._cache_key(
             text=text, examples=examples, prompt=prompt, retry_on_empty=retry_on_empty,
@@ -369,7 +428,7 @@ class ExtractionKernel:
         full_text: str,
         document_id: str = "",
         examples: list | None = None,
-        prompt: str = KG_EXTRACTION_PROMPT,
+        prompt: str | None = None,
     ) -> RawExtraction:
         """Extract exact source chunks, rebase spans, then deduplicate overlap."""
         if len(chunks) <= 1:
@@ -380,6 +439,8 @@ class ExtractionKernel:
             result.chunks = [chunks[0].to_dict()] if chunks else []
             return result
 
+        if prompt is None:
+            prompt = self.dataset_prompt if self.schema_profile is not None else KG_EXTRACTION_PROMPT
         combined = RawExtraction(
             pmid=document_id,
             chunk_count=len(chunks),
@@ -551,15 +612,18 @@ class ExtractionKernel:
                     and " ".join(mention.casefold().split())
                     == " ".join(aligned_source.casefold().split())
                 )
-                if mention.casefold() in GENERIC_ENTITY_TERMS:
-                    result.warnings.append(f"Generic entity candidate retained for review: {mention}")
-                if entity_type == "Tissue" and mention.casefold() in TISSUE_CONTEXT_TERMS:
-                    result.warnings.append(f"Contextual tissue candidate retained for review: {mention}")
+                if self.schema_profile is None:
+                    if mention.casefold() in GENERIC_ENTITY_TERMS:
+                        result.warnings.append(f"Generic entity candidate retained for review: {mention}")
+                    if entity_type == "Tissue" and mention.casefold() in TISSUE_CONTEXT_TERMS:
+                        result.warnings.append(f"Contextual tissue candidate retained for review: {mention}")
 
                 try:
                     attrs = dict(ext.attributes) if ext.attributes else {}
                 except Exception:
                     attrs = {}
+                if self.schema_profile is not None:
+                    entity_type = str(attrs.pop("entity_type", "") or "").strip()
 
                 # 过滤掉值为 "null" 字符串的属性 (常见于模型输出错误)
                 clean_attrs = {}
@@ -617,6 +681,27 @@ class ExtractionKernel:
         容错: 跳过非 dict 的关系条目，不中断整体解析。
         """
         attrs = entity.get("attributes", {})
+        if self.schema_profile is not None:
+            relations = attrs.get("relations", [])
+            if not isinstance(relations, list):
+                relations = [relations]
+            for relation in relations:
+                if not isinstance(relation, dict):
+                    continue
+                predicate = str(relation.get("predicate") or "").strip()
+                rule = self.schema_profile.rule(predicate)
+                result.relations.append({
+                    "subject": entity["mention"],
+                    "subject_type": entity["type"],
+                    "predicate": rule.name if rule else predicate,
+                    "object": str(relation.get("target_entity") or "").strip(),
+                    "object_type": str(relation.get("target_type") or "").strip(),
+                    "evidence": str(relation.get("evidence") or "").strip(),
+                    "claim_role": str(relation.get("claim_role") or "CURRENT_FINDING"),
+                    "negated": relation.get("negated") is True,
+                    "uncertain": relation.get("uncertain") is True,
+                })
+            return
         rel_map = {
             "associated_with": "ASSOCIATED_WITH",
             "encodes": "ENCODES",

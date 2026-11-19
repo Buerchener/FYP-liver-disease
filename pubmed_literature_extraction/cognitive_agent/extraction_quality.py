@@ -528,6 +528,7 @@ def prepare_extraction(
     *,
     allowed_entity_types: set[str] | frozenset[str] | None = None,
     entity_validation: str = "liverkg_quality",
+    liverkg_entity_recovery: bool = True,
 ) -> PreparedExtraction:
     """Filter, canonicalize, and remap an article extraction before verification."""
     prepared = PreparedExtraction(
@@ -541,9 +542,10 @@ def prepare_extraction(
         if rel.get(side)
     }
 
-    working_entities = _recover_exact_source_entities(raw_entities, text) if text else [
-        copy.deepcopy(item) for item in raw_entities
-    ]
+    working_entities = (
+        _recover_exact_source_entities(raw_entities, text)
+        if text and liverkg_entity_recovery else raw_entities
+    )
     retained: list[dict] = []
     filtered_lookup: set[tuple[str, str]] = set()
     for raw in working_entities:
@@ -584,7 +586,7 @@ def prepare_extraction(
     abbr_map = AbbreviationDetector().detect(text) if text else None
     explicit_abbr = dict(abbr_map.abbr_to_long) if abbr_map else {}
     for entity in retained:
-        if entity.get("type") != "CellType":
+        if not liverkg_entity_recovery or entity.get("type") != "CellType":
             continue
         long_form = _cell_type_definition_long_form(entity.get("mention", ""), text)
         if long_form:

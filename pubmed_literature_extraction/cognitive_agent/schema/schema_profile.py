@@ -145,6 +145,15 @@ class SchemaProfile:
         rule = self.rule(predicate)
         return bool(rule and rule.valid(left_type, right_type))
 
+    @property
+    def configured_entity_types(self) -> frozenset[str]:
+        return self.entity_types or frozenset(
+            entity_type
+            for rule in self.predicates.values()
+            for signature in rule.allowed_signatures
+            for entity_type in signature
+        )
+
     def support_match(
         self,
         predicate: str,
@@ -243,7 +252,14 @@ def schema_profile_from_dict(payload: Mapping[str, Any], *, source: str = "memor
     raw_predicates = payload.get("predicates")
     if not isinstance(raw_predicates, Mapping) or not raw_predicates:
         raise ValueError("schema profile predicates must be a non-empty object")
-    declared_types = frozenset(str(item) for item in (payload.get("entity_types") or []) if str(item))
+    raw_types = payload.get("entity_types", [])
+    if raw_types is None:
+        raw_types = []
+    if not isinstance(raw_types, list) or not all(
+        isinstance(item, str) and item.strip() for item in raw_types
+    ):
+        raise ValueError("schema profile entity_types must be a list of non-empty strings")
+    declared_types = frozenset(raw_types)
     rules: dict[str, PredicateRule] = {}
     for raw_name, raw_rule in raw_predicates.items():
         name = str(raw_name or "").strip()

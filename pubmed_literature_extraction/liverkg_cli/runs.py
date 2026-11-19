@@ -30,6 +30,8 @@ class RunSpec:
     neo4j_database: str = ""
     ncbi_email: str = ""
     ncbi_tool: str = "liverkg"
+    # Run-local immutable copy of a user supplied dataset schema profile.
+    schema_profile_path: str = ""
     second_llm_enabled: bool = False
     second_llm_model_id: str = ""
     second_llm_api_base: str = ""

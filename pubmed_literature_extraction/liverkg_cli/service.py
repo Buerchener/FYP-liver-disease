@@ -45,6 +45,9 @@ def _runtime_env(spec: RunSpec) -> dict[str, str]:
     env["NEO4J_URI"] = spec.neo4j_uri
     env["NEO4J_USER"] = spec.neo4j_user
     env["NEO4J_DATABASE"] = spec.neo4j_database
+    # Explicitly override inherited SCHEMA_PROFILE so detached workers are
+    # reproducible even when their parent environment changes.
+    env["SCHEMA_PROFILE"] = spec.schema_profile_path or ""
     if spec.second_llm_enabled:
         env["SECOND_LLM_ENABLED"] = "true"
     return env
@@ -156,6 +159,8 @@ def agent_command(spec: RunSpec, *, resume: bool = False) -> list[str]:
         cmd += ["--rule-bundle", spec.rule_bundle]
     if spec.conformal_calibration:
         cmd += ["--conformal-calibration", spec.conformal_calibration]
+    if spec.schema_profile_path:
+        cmd += ["--schema-profile", spec.schema_profile_path]
     if spec.write_neo4j:
         cmd.append("--write-neo4j")
     else:

@@ -236,11 +236,13 @@ class KGVerifier:
         verification_policy: str = "legacy",
         predicate_thresholds: dict[str, float] | None = None,
         schema_profile: SchemaProfile | str | None = None,
+        dataset_only: bool = False,
     ):
         self.kg_memory = kg_memory
         self.verification_policy = verification_policy
         self.policy = get_verification_policy(verification_policy)
         self.schema_profile = resolve_schema_profile(schema_profile)
+        self.dataset_only = bool(dataset_only)
         self.schema_profile_manifest = self.schema_profile.manifest()
         self.schema_adapter = SchemaAdapter()
         self.evidence_pack_builder = EvidencePackBuilder(
@@ -274,6 +276,8 @@ class KGVerifier:
         Returns:
             VerifiedExtraction: 带 Neo4j 验证状态的提取结果
         """
+        if self.dataset_only:
+            return self._verify_dataset_only(raw_entities, raw_relations, pmid, text)
         prepared = prepare_extraction(
             raw_entities,
             raw_relations,
@@ -331,6 +335,133 @@ class KGVerifier:
 
         result.summary = self._build_summary(result)
 
+        return result
+
+    def _verify_dataset_only(
+        self, raw_entities: list[dict], raw_relations: list[dict], pmid: str, text: str,
+    ) -> VerifiedExtraction:
+        """Validate source-backed dataset candidates without LiverKG/write gates."""
+        prepared = prepare_extraction(
+            raw_entities, raw_relations, text=text,
+            allowed_entity_types=self.schema_profile.configured_entity_types,
+            entity_validation=self.schema_profile.entity_validation,
+            liverkg_entity_recovery=self.schema_profile.entity_validation == "liverkg_quality",
+        )
+        result = VerifiedExtraction(
+            pmid=pmid, raw_entities=prepared.raw_entities,
+            raw_relations=prepared.raw_relations,
+            filtered_entities=prepared.filtered_entities,
+            merged_entities=prepared.merged_entities,
+            mention_to_canonical=prepared.mention_to_canonical,
+            canonical_key_to_entity=prepared.canonical_key_to_entity,
+            remapped_relations=prepared.remapped_relations,
+            unresolved_relations=prepared.unresolved_relations,
+        )
+        entity_lookup = {}
+        for entity in prepared.entities:
+            verified = VerifiedEntity(
+                mention=entity["mention"], entity_type=entity["type"],
+                neo4j_status="", attributes=entity.get("attributes", {}) or {},
+                source_span=entity["source_span"], char_start=entity["char_start"],
+                char_end=entity["char_end"], grounded=entity["grounded"],
+                canonical_key=entity["canonical_key"],
+                canonical_mentions=entity["canonical_mentions"],
+                filter_status=entity["filter_status"], filter_reason=entity["filter_reason"],
+            )
+            result.entities.append(verified)
+            entity_lookup[(verified.mention, verified.entity_type)] = verified
+
+        profile = self.schema_profile
+        article_flags = article_quality_flags(text) if profile.article_quality_mode == "liverkg" else set()
+        allowed_roles = {"CURRENT_FINDING"}
+        if profile.semantic_target == "RELATION_TRUTH":
+            allowed_roles.update({"BACKGROUND", "PRIOR_WORK"})
+        for raw in prepared.relations:
+            subject = str(raw.get("subject", "") or "")
+            object_ = str(raw.get("object", "") or "")
+            subject_type = str(raw.get("subject_type", "") or "")
+            object_type = str(raw.get("object_type", "") or "")
+            evidence = str(raw.get("evidence", "") or "")
+            start = text.find(evidence) if evidence else -1
+            contiguous = start >= 0
+            end = start + len(evidence) if contiguous else -1
+            subject_entity = entity_lookup.get((subject, subject_type))
+            object_entity = entity_lookup.get((object_, object_type))
+            subject_aliases = subject_entity.canonical_mentions if subject_entity and subject_entity.grounded else []
+            object_aliases = object_entity.canonical_mentions if object_entity and object_entity.grounded else []
+            subject_grounded = bool(
+                contiguous and any(locate_contiguous(alias, evidence)[0] for alias in subject_aliases)
+            )
+            object_grounded = bool(
+                contiguous and any(locate_contiguous(alias, evidence)[0] for alias in object_aliases)
+            )
+            predicate = str(raw.get("predicate", "") or "")
+            rule = profile.rule(predicate)
+            schema_valid = bool(rule and rule.valid(subject_type, object_type))
+            vr = VerifiedRelation(
+                subject=subject, predicate=rule.name if rule else predicate, object=object_,
+                subject_type=subject_type, object_type=object_type, evidence=evidence,
+                relation_direction=rule.relation_direction if rule else "UNKNOWN",
+                association_sign=rule.association_sign if rule else "UNKNOWN",
+                evidence_char_start=start, evidence_char_end=end,
+                evidence_contiguous=contiguous,
+                evidence_level=1 if subject_grounded and object_grounded else 3,
+                subject_grounded_in_evidence=subject_grounded,
+                object_grounded_in_evidence=object_grounded,
+                schema_valid=schema_valid, candidate_schema_valid=schema_valid,
+                schema_profile_name=profile.name, schema_profile_version=profile.contract_version,
+                schema_profile_sha256=self.schema_profile_manifest["manifest_sha256"],
+                claim_role=str(raw.get("claim_role") or "CURRENT_FINDING").strip().upper(),
+                negated=raw.get("negated") is True, uncertain=raw.get("uncertain") is True,
+                scope_status="OUT_OF_SCOPE" if "article_out_of_scope" in article_flags else "IN_SCOPE",
+            )
+            flags = set(raw["quality_flags"]) | article_flags
+            grounds = {
+                "schema_mismatch": not schema_valid,
+                "evidence_untraceable": not contiguous,
+                "subject_not_grounded": not subject_grounded,
+                "object_not_grounded": not object_grounded,
+            }
+            rejected = {reason for reason, failed in grounds.items() if failed}
+            if not rejected:
+                support = profile.support_match(
+                    vr.predicate, subject_type, object_type, evidence,
+                    subject_aliases=subject_aliases, object_aliases=object_aliases,
+                )
+                vr.relation_card_match = support["match"]
+                vr.relation_card_reason_codes = support["reason_codes"]
+                vr.trigger_present = support["match"] in {"EXPLICIT", "WEAK"}
+                vr.support_mode = "SELF_CONTAINED"
+                if support["match"] == "CONFLICT":
+                    rejected.update(vr.relation_card_reason_codes)
+            if vr.negated:
+                rejected.add("negated")
+            review = (
+                set(vr.relation_card_reason_codes) if vr.relation_card_match != "EXPLICIT" else set()
+            )
+            if vr.uncertain:
+                review.add("uncertain")
+            if vr.claim_role not in allowed_roles:
+                review.add("claim_role_outside_dataset_target")
+            if vr.scope_status == "OUT_OF_SCOPE":
+                review.add("article_out_of_scope")
+            if rejected:
+                vr.factual_status = "REJECTED"
+                vr.semantic_status = "REJECTED"
+                vr.write_status = "BLOCKED"
+                vr.candidate_disposition = "DISCARD"
+                vr.semantic_reasons = sorted(rejected)
+            elif review:
+                vr.semantic_status = "REVIEW"
+                vr.write_status = "HUMAN_REVIEW"
+                vr.semantic_reasons = sorted(review)
+            else:
+                vr.semantic_status = "ACCEPTED"
+                vr.write_status = "SEMANTIC_ONLY"
+            vr.quality_flags = sorted(flags | rejected | review)
+            vr.write_reasons = ["dataset_candidate_only"]
+            result.relations.append(vr)
+        result.summary = self._build_summary(result)
         return result
 
     @staticmethod

@@ -14,11 +14,14 @@ import requests
 from rich.console import Console
 from rich.table import Table
 
+from cognitive_agent.schema.schema_profile import load_schema_profile
+
 from .config import PROFILES, LiverKGConfig, load_config, set_config_value, write_user_config
+from .env import merged_runtime_env
 from .i18n import detect_language, tr
 from .normalizer import normalize_input
 from .paths import cache_dir, project_root, user_config_path
-from .runs import RunSpec, latest_run_id, list_runs, load_run_spec, read_status, save_run_spec, stop_run, update_status
+from .runs import RunSpec, atomic_write_json, latest_run_id, list_runs, load_run_spec, read_status, save_run_spec, stop_run, update_status
 from .runs import run_dir
 from .security import get_secret, mask_secret, redact_mapping, set_secret
 from .service import validate_write_safety
@@ -172,6 +175,7 @@ def extract(
     input: Optional[Path] = typer.Argument(None, help="Input JSONL or PubMed XML."),
     pmid: list[str] = typer.Option([], "--pmid", help="Fetch one PMID. Can be repeated."),
     profile: str = typer.Option(None, "--profile", help="quality, balanced, speed or legacy."),
+    schema_profile: Optional[Path] = typer.Option(None, "--schema-profile", help="Dataset schema profile JSON."),
     limit: int = typer.Option(50, "--limit", "-n"),
     run_id: Optional[str] = typer.Option(None, "--run-id"),
     detach: bool = typer.Option(False, "--detach", help="Run in the background."),
@@ -188,6 +192,31 @@ def extract(
     current_run_dir = run_dir(run_id)
     if current_run_dir.exists() and not resume:
         raise typer.BadParameter(f"run id already exists: {run_id}")
+
+    prior_spec = load_run_spec(run_id) if resume else None
+    if not resume and schema_profile is None:
+        env_profile = merged_runtime_env().get("SCHEMA_PROFILE")
+        if env_profile:
+            schema_profile = project_root() / Path(env_profile).expanduser()
+    custom_schema = schema_profile is not None or bool(prior_spec and prior_spec.schema_profile_path)
+    if custom_schema and write_neo4j:
+        raise typer.BadParameter("--schema-profile cannot be combined with --write-neo4j")
+    schema_snapshot = prior_spec.schema_profile_path if prior_spec else ""
+    profile_manifest = None
+    if schema_profile is not None:
+        try:
+            supplied = load_schema_profile(schema_profile)
+            profile_manifest = supplied.manifest()
+        except (OSError, ValueError) as exc:
+            raise typer.BadParameter(f"invalid schema profile: {exc}") from exc
+    if prior_spec:
+        if profile_manifest is not None:
+            try:
+                previous = load_schema_profile(schema_snapshot) if schema_snapshot else None
+            except (OSError, ValueError) as exc:
+                raise typer.BadParameter(f"invalid schema profile: {exc}") from exc
+            if previous is None or profile_manifest["manifest_sha256"] != previous.manifest_sha256:
+                raise typer.BadParameter("schema profile cannot be changed when resuming a run")
 
     confirmed = False
     if write_neo4j:
@@ -213,8 +242,12 @@ def extract(
             ncbi_tool=cfg.ncbi_tool,
             snapshot_dir=snapshot_dir,
         )
+        if profile_manifest is not None:
+            snapshot = snapshot_dir / "schema_profile.json"
+            atomic_write_json(snapshot, profile_manifest)
+            schema_snapshot = str(snapshot.resolve())
     else:
-        spec = load_run_spec(run_id)
+        spec = prior_spec
         manifest = spec.input_manifest
         normalized_path = Path(spec.normalized_input_path)
 
@@ -237,7 +270,8 @@ def extract(
         neo4j_database=cfg.neo4j_database,
         ncbi_email=cfg.ncbi_email,
         ncbi_tool=cfg.ncbi_tool,
-        second_llm_enabled=True,
+        schema_profile_path=schema_snapshot,
+        second_llm_enabled=not custom_schema,
         second_llm_model_id=cfg.second_llm_model_id,
         second_llm_api_base=cfg.second_llm_api_base,
         aux_primary_model=cfg.second_llm_model_id,
