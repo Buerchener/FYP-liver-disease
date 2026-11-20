@@ -14,3 +14,8 @@ credentials*
 secrets*
 *token*
 *password*
+
+# Entity ontology runtime
+/.cache/
+/runs/
+/entity-ontology.local.json
