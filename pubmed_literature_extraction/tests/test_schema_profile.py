@@ -170,6 +170,21 @@ class SchemaProfileTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             schema_profile_from_dict(payload)
 
+    def test_group_binding_is_an_optional_versioned_predicate_setting(self):
+        payload = custom_payload()
+        previous = schema_profile_from_dict(payload)
+        rule_settings = payload["predicates"]["CAUSES"]
+        self.assertFalse(previous.rule("CAUSES").parenthetical_group_binding)
+        rule_settings["parenthetical_group_binding"] = True
+        configured = schema_profile_from_dict(payload)
+        self.assertTrue(configured.rule("CAUSES").parenthetical_group_binding)
+        self.assertNotEqual(configured.manifest_sha256, previous.manifest_sha256)
+        restored = schema_profile_from_dict(configured.manifest())
+        self.assertEqual(restored.manifest_sha256, configured.manifest_sha256)
+        rule_settings["parenthetical_group_binding"] = "true"
+        with self.assertRaisesRegex(ValueError, "parenthetical_group_binding"):
+            schema_profile_from_dict(payload)
+
     def test_biored_registry_exposes_same_profile_interface(self):
         registry = BioREDPredicateRegistry({
             "Bind": {("GeneOrGeneProduct", "ChemicalEntity")},

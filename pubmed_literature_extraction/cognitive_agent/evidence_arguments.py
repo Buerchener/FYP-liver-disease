@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from typing import Any
 
 from cognitive_agent.evidence_contrast import (
@@ -13,8 +14,13 @@ from cognitive_agent.evidence_contrast import (
     _trigger_spans,
 )
 from cognitive_agent.evidence_pack import ArticleEvidenceIndex
+from cognitive_agent.evidence_units import EvidenceUnit
 from cognitive_agent.extraction_quality import locate_mention, normalize_surface
-from cognitive_agent.schema.schema_profile import PredicateRule, SchemaProfile
+from cognitive_agent.schema.schema_profile import PredicateRule, SchemaProfile, _alias_spans
+
+_PAREN_GROUP = re.compile(r"(?P<owner>[^(),;]+?)\s*\((?P<body>[^();]*)\)")
+_GROUP_CONNECTOR = re.compile(r"\s*(?:,\s*(?:and\s+)?|and\s+|&\s*)", re.I)
+_GROUP_TRAILING = re.compile(r"\s*[.!?]?\s*$")
 
 
 def _has_mention(text: str, aliases: list[str]) -> bool:
@@ -39,6 +45,96 @@ def _bound_arguments(
     return None
 
 
+def _parenthetical_group_competitor(
+    subject: tuple[str, str], object_: tuple[str, str], *,
+    quote: str, quote_start: int, parent: EvidenceUnit, source_index: ArticleEvidenceIndex,
+    entity_aliases: dict[tuple[str, str], list[str]], trigger: tuple[int, int],
+) -> dict[str, Any]:
+    """Resolve a shared trigger followed by contiguous typed owner–list groups."""
+    if _POSSIBLY_NEGATED.search(quote[:trigger[0]]):
+        return {}
+    owners = {
+        name: [name, *aliases] for (name, kind), aliases in entity_aliases.items()
+        if kind == subject[1]
+    }
+    object_aliases = [object_[0], *entity_aliases[object_]]
+    other_objects = [
+        [name, *aliases] for (name, kind), aliases in entity_aliases.items()
+        if kind == object_[1] and name != object_[0]
+    ]
+    seen_owners: set[str] = set()
+    witnesses: list[tuple[str, tuple[int, int], tuple[int, int], tuple[int, int]]] = []
+    cursor = trigger[1]
+    while True:
+        group = _PAREN_GROUP.match(quote, cursor)
+        if group is None:
+            return {}
+        raw_owner = group.group("owner")
+        owner = raw_owner.strip()
+        matching_owners = [
+            name for name, aliases in owners.items() if (0, len(owner)) in _alias_spans(owner, aliases)
+        ]
+        if len(matching_owners) != 1 or matching_owners[0] in seen_owners:
+            return {}
+        name = matching_owners[0]
+        seen_owners.add(name)
+        owner_start = group.start("owner") + len(raw_owner) - len(raw_owner.lstrip())
+
+        # Resolve only the queried object. Other list members can be unlabelled.
+        # A partial mention could be a nested list or a qualified assertion.
+        item_start = group.start("body")
+        for raw_item in group.group("body").split(","):
+            item = raw_item.strip()
+            if not item:
+                return {}
+            matches = _alias_spans(item, object_aliases)
+            if matches:
+                if matches != [(0, len(item))] or any(
+                    (0, len(item)) in _alias_spans(item, aliases) for aliases in other_objects
+                ):
+                    return {}
+                start = item_start + len(raw_item) - len(raw_item.lstrip())
+                witnesses.append((
+                    name, (owner_start, owner_start + len(owner)),
+                    (start, start + len(item)), group.span("body"),
+                ))
+            item_start += len(raw_item) + 1
+
+        cursor = group.end()
+        if _GROUP_TRAILING.fullmatch(quote[cursor:]):
+            break
+        connector = _GROUP_CONNECTOR.match(quote, cursor)
+        if connector is None:
+            return {}
+        cursor = connector.end()
+
+    if subject[0] not in seen_owners or len(witnesses) != 1:
+        return {}
+    rival, owner_span, object_span, group_span = witnesses[0]
+    if rival == subject[0]:
+        return {}
+
+    def trace(span: tuple[int, int]) -> dict[str, Any]:
+        start, end = span
+        return {"text": quote[start:end], "char_start": quote_start + start, "char_end": quote_start + end}
+
+    return {
+        "status": "COMPETING_ARGUMENT",
+        "binding_mode": "PARENTHETICAL_GROUP",
+        "source_sha256": source_index.source_sha256,
+        "role": "subject",
+        "replacement": {"mention": rival, "type": subject[1]},
+        "target": {"mention": subject[0], "type": subject[1]},
+        "evidence": _trace(
+            source_index.text, quote_start, quote_start + len(quote),
+            parent.parent_sentence_id, parent.section,
+        ),
+        "trigger": trace(trigger),
+        "arguments": {"subject": trace(owner_span), "object": trace(object_span)},
+        "group": trace(group_span),
+    }
+
+
 def find_argument_competitor(
     relation: dict,
     *,
@@ -46,6 +142,7 @@ def find_argument_competitor(
     profile: SchemaProfile,
     entity_aliases: dict[tuple[str, str], list[str]],
     quote: str,
+    compare_groups: bool = True,
 ) -> dict[str, Any]:
     """Return an explicit rival when a broad quote only supports another pair locally.
 
@@ -75,6 +172,16 @@ def find_argument_competitor(
         return {}
     subject_aliases = [subject[0], *entity_aliases[subject]]
     object_aliases = [object_[0], *entity_aliases[object_]]
+
+    if compare_groups and rule.parenthetical_group_binding:
+        group_triggers = _trigger_spans(rule.explicit_patterns, quote)
+        if len(group_triggers) == 1:
+            grouped = _parenthetical_group_competitor(
+                subject, object_, quote=quote, quote_start=start, parent=parent,
+                source_index=source_index, entity_aliases=entity_aliases, trigger=group_triggers[0],
+            )
+            if grouped:
+                return grouped
 
     def explicit(fragment: str, left: list[str], right: list[str]) -> bool:
         return profile.support_match(

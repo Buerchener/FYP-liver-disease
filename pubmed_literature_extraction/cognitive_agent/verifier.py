@@ -38,6 +38,12 @@ from cognitive_agent.relation_contract import (
 )
 
 
+_CONTRAST_REVIEW_FLAGS = {
+    "CONTESTED": "relation_counterevidence",
+    "INCONCLUSIVE": "relation_statistical_uncertainty",
+}
+
+
 @dataclass
 class VerifiedEntity:
     mention: str
@@ -245,6 +251,8 @@ class KGVerifier:
         evidence_contrast: bool = True,
         evidence_scope: bool = True,
         evidence_arguments: bool = True,
+        evidence_statistics: bool = True,
+        evidence_group_binding: bool = True,
     ):
         self.kg_memory = kg_memory
         self.verification_policy = verification_policy
@@ -254,6 +262,8 @@ class KGVerifier:
         self.evidence_contrast = evidence_contrast
         self.evidence_scope = evidence_scope
         self.evidence_arguments = evidence_arguments
+        self.evidence_statistics = evidence_statistics
+        self.evidence_group_binding = evidence_group_binding
         self.schema_profile_manifest = self.schema_profile.manifest()
         self.schema_adapter = SchemaAdapter()
         self.evidence_pack_builder = EvidencePackBuilder(
@@ -441,7 +451,7 @@ class KGVerifier:
                 scope_status="OUT_OF_SCOPE" if "article_out_of_scope" in article_flags else "IN_SCOPE",
             )
             flags = set(raw["quality_flags"]) | article_flags
-            flags.difference_update({"relation_counterevidence", "evidence_argument_competitor"})
+            flags.difference_update(_CONTRAST_REVIEW_FLAGS.values(), {"evidence_argument_competitor"})
             grounds = {
                 "schema_mismatch": not schema_valid,
                 "evidence_untraceable": not contiguous,
@@ -469,8 +479,8 @@ class KGVerifier:
                 vr.contrastive_evidence = self._find_evidence_conflict(
                     raw, source_index, subject_aliases, object_aliases,
                 )
-                if vr.contrastive_evidence:
-                    review.add("relation_counterevidence")
+                if contrast_flag := _CONTRAST_REVIEW_FLAGS.get(vr.contrastive_evidence.get("status")):
+                    review.add(contrast_flag)
                 vr.argument_competition = self._find_argument_competitor(
                     raw, source_index, entity_aliases, evidence,
                 )
@@ -497,8 +507,8 @@ class KGVerifier:
                 vr.write_status = "SEMANTIC_ONLY"
             vr.quality_flags = sorted(flags | rejected | review)
             vr.write_reasons = ["dataset_candidate_only"]
-            if vr.contrastive_evidence:
-                vr.write_reasons.append("relation_counterevidence")
+            if contrast_flag := _CONTRAST_REVIEW_FLAGS.get(vr.contrastive_evidence.get("status")):
+                vr.write_reasons.append(contrast_flag)
             if vr.argument_competition:
                 vr.write_reasons.append("evidence_argument_competitor")
             result.relations.append(vr)
@@ -517,7 +527,7 @@ class KGVerifier:
         return find_evidence_conflict(
             relation, source_index=source_index, profile=self.schema_profile,
             subject_aliases=subject_aliases, object_aliases=object_aliases,
-            compare_scope=self.evidence_scope,
+            compare_scope=self.evidence_scope, interpret_statistics=self.evidence_statistics,
         )
 
     def _grounded_aliases(self, entities: list[VerifiedEntity]) -> dict[tuple[str, str], list[str]]:
@@ -539,7 +549,7 @@ class KGVerifier:
             return {}
         return find_argument_competitor(
             relation, source_index=source_index, profile=self.schema_profile,
-            entity_aliases=entity_aliases, quote=quote,
+            entity_aliases=entity_aliases, quote=quote, compare_groups=self.evidence_group_binding,
         )
 
     @staticmethod
@@ -681,7 +691,12 @@ class KGVerifier:
             "semantic_accepted": semantic_accepted,
             "semantic_review": semantic_review,
             "semantic_rejected": semantic_rejected,
-            "contested_relations": sum(bool(rel.contrastive_evidence) for rel in result.relations),
+            "contested_relations": sum(
+                rel.contrastive_evidence.get("status") == "CONTESTED" for rel in result.relations
+            ),
+            "inconclusive_relations": sum(
+                rel.contrastive_evidence.get("status") == "INCONCLUSIVE" for rel in result.relations
+            ),
             "argument_competitions": sum(bool(rel.argument_competition) for rel in result.relations),
             "evidence_scope_counts": {
                 status: sum(rel.contrastive_evidence.get("scope_status") == status for rel in result.relations)
@@ -1127,7 +1142,7 @@ class KGVerifier:
             "predicate_card_conflict", "predicate_card_type_only",
             "adjudication_span_mismatch", "adjudication_span_support_insufficient",
             "cross_sentence", "multi_span_support", "coreference_only_support",
-            "relation_counterevidence",
+            *_CONTRAST_REVIEW_FLAGS.values(),
             "evidence_argument_competitor",
         })
         if pack.source_traceable:
@@ -1254,8 +1269,8 @@ class KGVerifier:
                 list(pack.alias_resolution.get("subject", []) or []),
                 list(pack.alias_resolution.get("object", []) or []),
             )
-            if vr.contrastive_evidence:
-                evidence_flags.add("relation_counterevidence")
+            if contrast_flag := _CONTRAST_REVIEW_FLAGS.get(vr.contrastive_evidence.get("status")):
+                evidence_flags.add(contrast_flag)
             vr.argument_competition = self._find_argument_competitor(
                 relation, source_index, entity_aliases or {}, vr.evidence,
             )

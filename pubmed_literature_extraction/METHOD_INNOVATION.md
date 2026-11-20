@@ -95,7 +95,7 @@ The graph candidate represents an unqualified typed triple. A finding in one coh
 
 For a candidate triple \(t\), the verifier collects explicit supporting clauses using the active schema. It searches results, conclusions and unstructured abstract text for opposing clauses. A counterevidence clause must attach an explicit negation cue to the candidate predicate and match both typed arguments around the trigger. The verifier masks that cue and reevaluates the same clause with the same predicate and endpoints. A clause qualifies when the masked text explicitly supports \(t\) under the same schema. The output preserves the two original excerpts, sentence IDs, character ranges, and counterevidence cue and trigger ranges.
 
-When both sides exist, the verifier flags the candidate as contested and sends an otherwise accepted relation to review. The graph import gate also checks the flag. The check uses the same schema interface for LiverKG and dataset-specific extraction. The comparison below refines which pair is shown first and how each reported finding is preserved.
+When support coexists with clear opposition or statistical non-confirmation, the verifier sends an otherwise accepted relation to review. The graph import gate checks both review reasons. The check uses the same schema interface for LiverKG and dataset-specific extraction. The comparison below refines which pair is shown first and how each reported finding is preserved.
 
 Evidence packing models each owner span as covering a subset of the subject, object and predicate trigger. A bounded dynamic program finds a minimum cover before the display budget is filled with other spans. The article index stores original sentence boundaries and normalized token coverage once for all candidates and re-verification passes. Unicode-normalized lookups map back to original character coordinates.
 
@@ -148,6 +148,10 @@ Scope cases vary the conditions around the same positive quote. Argument cases t
 | Explicit condition comparisons | 9 of 9 expected outcomes, including a farther same-condition witness that outranked a nearer different-condition witness |
 | Argument competition | 3 misleading citations moved from import-ready to review and all 5 controls retained their import decisions |
 | Historical regression replay | 494 frozen candidates from 30 articles, with zero semantic decision changes or write promotions |
+
+## 7. Comparison with work published in the last year
+
+The [2025–2026 comparison and paired PubMed regressions](docs/recent_method_comparison.zh-CN.md) locate two additional failure modes at the verification boundary. Parenthetical coordination can attribute an object to the wrong typed subject under a shared trigger. A negated description of an estimate can leave the result statistically inconclusive. Both checks preserve the source coordinates and expose a specific review reason.
 
 ## Intended contribution and limits
 

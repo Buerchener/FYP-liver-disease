@@ -74,6 +74,7 @@ class PredicateRule:
     exclusion_patterns: tuple[str, ...] = ()
     relation_direction: str = "UNKNOWN"
     association_sign: str = "UNKNOWN"
+    parenthetical_group_binding: bool = False
 
     def normalized_signature(self, left_type: str, right_type: str) -> tuple[str, str]:
         pair = (str(left_type or ""), str(right_type or ""))
@@ -83,7 +84,7 @@ class PredicateRule:
         return self.normalized_signature(left_type, right_type) in self.allowed_signatures
 
     def to_dict(self) -> dict[str, Any]:
-        return {
+        payload = {
             "allowed_signatures": [list(item) for item in sorted(self.allowed_signatures)],
             "symmetric": self.symmetric,
             "description": self.description,
@@ -93,6 +94,9 @@ class PredicateRule:
             "relation_direction": self.relation_direction,
             "association_sign": self.association_sign,
         }
+        if self.parenthetical_group_binding:
+            payload["parenthetical_group_binding"] = True
+        return payload
 
 
 @dataclass(frozen=True)
@@ -266,6 +270,9 @@ def schema_profile_from_dict(payload: Mapping[str, Any], *, source: str = "memor
         if not name or not isinstance(raw_rule, Mapping):
             raise ValueError("each schema predicate must have a name and object definition")
         symmetric = bool(raw_rule.get("symmetric", False))
+        group_binding = raw_rule.get("parenthetical_group_binding", False)
+        if not isinstance(group_binding, bool):
+            raise ValueError(f"{name}.parenthetical_group_binding must be a boolean")
         raw_signatures = raw_rule.get("allowed_signatures")
         if not isinstance(raw_signatures, list) or not raw_signatures:
             raise ValueError(f"{name}.allowed_signatures must be a non-empty list")
@@ -296,6 +303,7 @@ def schema_profile_from_dict(payload: Mapping[str, Any], *, source: str = "memor
             ),
             relation_direction=str(raw_rule.get("relation_direction", "UNKNOWN") or "UNKNOWN"),
             association_sign=str(raw_rule.get("association_sign", "UNKNOWN") or "UNKNOWN"),
+            parenthetical_group_binding=group_binding,
         )
     return SchemaProfile(
         name=str(payload.get("name", "") or "").strip(),
@@ -346,12 +354,13 @@ def liverkg_schema_profile() -> SchemaProfile:
                 RELATION_CARDS[predicate].relation_direction
                 if predicate in RELATION_CARDS else "UNKNOWN"
             ),
+            parenthetical_group_binding=predicate == "EXPRESSED_IN",
         )
         for predicate, signatures in LITERATURE_CANDIDATE_SIGNATURES.items()
     }
     return SchemaProfile(
         name="LiverKG",
-        contract_version="liverkg-candidate-v1",
+        contract_version="liverkg-candidate-v2",
         semantic_target="CURRENT_FINDING",
         predicates=rules,
         entity_types=frozenset(

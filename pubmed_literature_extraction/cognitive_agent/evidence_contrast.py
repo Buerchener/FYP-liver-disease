@@ -1,9 +1,4 @@
-"""Conservative intra-article support versus scoped-refutation detection.
-
-Only explicit predicate rules can establish either side.  Background, method,
-objective, and discussion sections are excluded.  Candidate pairs are ranked
-first by shared sentence, then by source distance, then by source order.
-"""
+"""Compare source-aligned support, explicit opposition, and inconclusive findings."""
 
 from __future__ import annotations
 
@@ -17,6 +12,7 @@ from cognitive_agent.evidence_scope import (
     extract_scope_witnesses,
     normalize_scope,
 )
+from cognitive_agent.evidence_statistics import classify_opposition
 
 
 _CLAUSE_BREAK = re.compile(
@@ -24,6 +20,7 @@ _CLAUSE_BREAK = re.compile(
     r"\b(?:but|however|whereas|while)\b[\s,]*)",
     re.IGNORECASE,
 )
+_PARENTHETICAL = re.compile(r"\([^()]*\)")
 _NEGATION = re.compile(r"\b(?:not|never|no\s+longer|failed\s+to|fails\s+to)\b", re.I)
 _POSSIBLY_NEGATED = re.compile(r"\b(?:not(?!\s+only\b)|never|no|failed\s+to|fails\s+to)\b", re.I)
 _NEGATION_GAP = re.compile(
@@ -38,7 +35,11 @@ _WORD = re.compile(r"\w+", re.UNICODE)
 
 def _clauses(parent_text: str, start: int):
     cursor = 0
-    breaks = [match.span() for match in _CLAUSE_BREAK.finditer(parent_text)]
+    parentheticals = [match.span() for match in _PARENTHETICAL.finditer(parent_text)]
+    breaks = [
+        match.span() for match in _CLAUSE_BREAK.finditer(parent_text)
+        if not any(left < match.start() < right for left, right in parentheticals)
+    ]
     breaks.append((len(parent_text), len(parent_text)))
     for end, next_start in breaks:
         fragment = parent_text[cursor:end]
@@ -96,12 +97,6 @@ def _direct_argument_spans(
     return (subject, object_) if subject is not None and object_ is not None else None
 
 
-def _direct_arguments(
-    left: str, right: str, subject_aliases: list[str], object_aliases: list[str],
-) -> bool:
-    return _direct_argument_spans(left, right, subject_aliases, object_aliases) is not None
-
-
 def _trace(text: str, start: int, end: int, sentence_id: str, section: str) -> dict[str, Any]:
     return {
         "text": text[start:end],
@@ -120,13 +115,13 @@ def find_evidence_conflict(
     subject_aliases: list[str],
     object_aliases: list[str],
     compare_scope: bool = True,
+    interpret_statistics: bool = True,
 ) -> dict[str, Any]:
-    """Return paired explicit support and scoped negation for the same typed edge.
+    """Pair explicit support with a denial or non-confirmation of the same typed edge.
 
-    Generic exclusion cues are deliberately ignored as negation evidence.  A
-    cue counts only when it immediately modifies one of the predicate's
-    configured explicit trigger patterns and removing that cue leaves explicit
-    support for both supplied endpoints in the same clause.
+    The opposing witness must use a scoped negator with a configured trigger
+    and close both typed arguments after masking the negator. A confidence
+    interval is interpreted only when attached to the bound right argument.
     """
     predicate = str(relation.get("predicate", "") or "")
     subject_type = str(relation.get("subject_type", "") or "")
@@ -141,7 +136,7 @@ def find_evidence_conflict(
         return {}
 
     supports: list[dict[str, Any]] = []
-    counters: list[dict[str, Any]] = []
+    opposing: dict[str, list[dict[str, Any]]] = {"COUNTEREVIDENCE": [], "INCONCLUSIVE": []}
     for parent in source_index.parents:
         if not _eligible_section(parent.section):
             continue
@@ -169,10 +164,10 @@ def find_evidence_conflict(
 
             for trigger_start, trigger_end, (mask_start, mask_end) in scoped:
                 left, right = clause[:mask_start], clause[trigger_end:]
-                attaches = _direct_arguments(left, right, subject_aliases, object_aliases)
-                if not attaches and (rule.symmetric or rule.relation_direction == "NON_DIRECTIONAL"):
-                    attaches = _direct_arguments(left, right, object_aliases, subject_aliases)
-                if not attaches:
+                arguments = _direct_argument_spans(left, right, subject_aliases, object_aliases)
+                if arguments is None and (rule.symmetric or rule.relation_direction == "NON_DIRECTIONAL"):
+                    arguments = _direct_argument_spans(left, right, object_aliases, subject_aliases)
+                if arguments is None:
                     continue
                 # The profile must confirm the same typed relation after
                 # masking precisely the source-aligned negation cue.
@@ -183,19 +178,34 @@ def find_evidence_conflict(
                     object_aliases=object_aliases,
                 )
                 if unnegated_match.get("match") == "EXPLICIT":
-                    counters.append({
+                    opposition = {
                         **trace,
                         "negation_start": start + mask_start,
                         "negation_end": start + mask_end,
                         "trigger_start": start + trigger_start,
                         "trigger_end": start + trigger_end,
-                    })
+                    }
+                    polarity = "COUNTEREVIDENCE"
+                    if interpret_statistics:
+                        assessment = classify_opposition(
+                            clause, char_offset=start,
+                            negation=(mask_start, mask_end),
+                            trigger=(trigger_start, trigger_end),
+                            right_argument_end=trigger_end + arguments[1][1],
+                        )
+                        polarity = assessment["polarity"]
+                        opposition["statistical_evidence"] = assessment
+                    opposing[polarity].append(opposition)
                     break
 
-    if not supports or not counters:
+    if not supports or not any(opposing.values()):
         return {}
+    # Keep a direct denial as the primary witness when both kinds occur.
+    # Within its class, prefer scope agreement and proximity as before.
+    polarity = next(kind for kind, witnesses in opposing.items() if witnesses)
+    counters = opposing[polarity]
     if compare_scope:
-        for trace in (*supports, *counters):
+        for trace in (*supports, *opposing["COUNTEREVIDENCE"], *opposing["INCONCLUSIVE"]):
             trace["scope_witnesses"] = extract_scope_witnesses(
                 trace["text"], char_offset=trace["char_start"],
             )
@@ -225,16 +235,21 @@ def find_evidence_conflict(
     if best_pair is None:
         return {}
     support, counter, status = best_pair
-    result = {"status": "CONTESTED", "support": support, "counterevidence": counter}
+    status_key, witness_key = {
+        "COUNTEREVIDENCE": ("CONTESTED", "counterevidence"),
+        "INCONCLUSIVE": ("INCONCLUSIVE", "inconclusive"),
+    }[polarity]
+    result = {"status": status_key, "support": support, witness_key: counter}
     if not compare_scope:
         return result
 
     result["source_sha256"] = source_index.source_sha256
     result["scope_status"] = status
+    # Pair counts describe the displayed polarity. All witnesses remain below.
     result["scope_pair_counts"] = counts
 
     groups: dict[tuple, dict[str, Any]] = {}
-    for polarity, assertions in (("SUPPORT", supports), ("COUNTEREVIDENCE", counters)):
+    for polarity, assertions in (("SUPPORT", supports), *opposing.items()):
         for assertion in assertions:
             scope = normalize_scope(assertion.get("scope_witnesses", []))
             signature = tuple((dimension, tuple(values)) for dimension, values in scope.items())

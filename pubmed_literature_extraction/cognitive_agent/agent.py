@@ -4026,6 +4026,12 @@ class CognitiveAgent:
                     ).get("contested_relations", 0)
                     for record in self.history
                 ),
+                "inconclusive_relations": sum(
+                    record.get("phases", {}).get("verification", {}).get(
+                        "summary", {},
+                    ).get("inconclusive_relations", 0)
+                    for record in self.history
+                ),
                 "entities_proposed": proposed_entities,
                 "relations_proposed": proposed_relations,
                 "relation_updates_proposed": proposed_updates,

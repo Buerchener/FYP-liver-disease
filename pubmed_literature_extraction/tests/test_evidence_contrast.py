@@ -64,12 +64,56 @@ class EvidenceContrastTests(unittest.TestCase):
             result["counterevidence"]["text"],
         )
 
-    def test_negation_may_have_bounded_adverb_between_it_and_trigger(self):
+    def test_nonsignificance_adverb_is_inconclusive(self):
         result = self.detect(
             "ABSTRACT: CONCLUSIONS: TP53 is associated with HCC. "
             "TP53 was not statistically significantly associated with HCC."
         )
+        self.assertEqual(result["status"], "INCONCLUSIVE")
+        self.assertEqual(
+            result["inconclusive"]["statistical_evidence"]["reasons"],
+            ["explicit_nonsignificance_language"],
+        )
+
+    def test_parenthetical_statistical_punctuation_preserves_the_bound_estimate(self):
+        result = self.detect(
+            "ABSTRACT: RESULTS: TP53 was associated with HCC. "
+            "TP53 was not associated with HCC (OR 1.2; 95% CI 0.9–1.6)."
+        )
+        self.assertEqual(result["status"], "INCONCLUSIVE")
+        self.assertEqual(result["inconclusive"]["statistical_evidence"]["estimate"]["upper"], 1.6)
+
+    def test_retains_inconclusive_witness_alongside_explicit_denial(self):
+        result = self.detect(
+            "ABSTRACT: RESULTS: TP53 was associated with HCC. "
+            "TP53 was not significantly associated with HCC. "
+            "TP53 was never associated with HCC."
+        )
         self.assertEqual(result["status"], "CONTESTED")
+        self.assertIn("never associated", result["counterevidence"]["text"])
+        self.assertEqual(
+            {group["polarity"] for group in result["scoped_assertions"]},
+            {"SUPPORT", "COUNTEREVIDENCE", "INCONCLUSIVE"},
+        )
+
+    def test_inconclusive_is_counted_separately_and_kept_for_review(self):
+        supporting_quote = "TP53 was associated with HCC."
+        text = "ABSTRACT: RESULTS: " + supporting_quote + " TP53 was not significantly associated with HCC."
+        candidate = relation(evidence=supporting_quote, claim_role="CURRENT_FINDING")
+        entities = [{"mention": "TP53", "type": "Gene"}, {"mention": "HCC", "type": "Disease"}]
+        for dataset_only in (True, False):
+            with self.subTest(dataset_only=dataset_only):
+                verifier = KGVerifier(
+                    OfflineGraph(), schema_profile=profile(), dataset_only=dataset_only,
+                    verification_policy="tiered-v2",
+                )
+                checked = verifier.verify(entities, [candidate], text=text)
+                result = checked.relations[0]
+                self.assertEqual(result.semantic_status, "REVIEW")
+                self.assertFalse(result.import_ready)
+                self.assertIn("relation_statistical_uncertainty", result.semantic_reasons)
+                self.assertEqual(checked.summary["contested_relations"], 0)
+                self.assertEqual(checked.summary["inconclusive_relations"], 1)
 
     def test_other_pair_and_unrelated_measured_endpoint_do_not_conflict(self):
         self.assertEqual(self.detect(
@@ -178,8 +222,15 @@ class EvidenceContrastTests(unittest.TestCase):
         self.assertEqual(checked.semantic_status, "REVIEW")
         self.assertFalse(checked.import_ready)
         comparison = checked.contrastive_evidence
+        self.assertEqual(comparison["status"], "INCONCLUSIVE")
         self.assertEqual(comparison["scope_status"], "DIFFERENT_SCOPE")
-        support, opposition = comparison["support"], comparison["counterevidence"]
+        support, opposition = comparison["support"], comparison["inconclusive"]
+        estimate = opposition["statistical_evidence"]["estimate"]
+        self.assertEqual(
+            (estimate["measure"], estimate["point"], estimate["lower"], estimate["upper"], estimate["null"]),
+            ("RR", 1.21, 0.94, 1.56, 1.0),
+        )
+        self.assertEqual(text[estimate["char_start"]:estimate["char_end"]], estimate["text"])
         self.assertEqual(support["section"], "FINDINGS")
         self.assertIn("without T2DM", support["text"])
         self.assertIn("with T2DM", opposition["text"])

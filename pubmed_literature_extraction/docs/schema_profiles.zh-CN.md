@@ -29,6 +29,7 @@ python -m cognitive_agent.agent \
   - `given_entity` 用于 BioRED 这类官方实体已给定的数据集。
 - `article_quality_mode`：`liverkg` 或 `none`，避免其他数据集误用肝病范围规则。
 - `explicit_patterns`、`weak_patterns`、`exclusion_patterns` 接受正则字符串。明确触发词可为候选提供支持，弱匹配或缺少触发规则的候选进入 `REVIEW`，命中排除规则的候选标记为 `REJECTED`。
+- `parenthetical_group_binding` 可在谓词上设置为 `true`，用于显式触发词后出现的「主体（对象列表）和主体（对象列表）」并列结构。内置 LiverKG 在 `EXPRESSED_IN` 启用，其他 schema 默认关闭。
 
 验证仍要求两个端点和证据可回溯到原文。自定义运行使用主抽取模型和配置内的证据规则，输出到 `agent_results_*.json` 和 `agent_report_*.json`。结果文件的 `records[].phases.verification` 含验证后的实体和关系。
 
