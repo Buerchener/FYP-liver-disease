@@ -161,6 +161,60 @@ python multi_stage_extraction_pipeline.py \
   --skip-neo4j
 ```
 
+## 实体本体与图谱构建
+
+`entity_ontology/` 来自 [liverkg-entity-ontology](https://github.com/Buerchener/liverkg-entity-ontology)（`main@adef5bd`，导入时保留了提交历史）。它把抽取器找到的实体整理成去重后的概念和多父类 `is_a` 层级，现在也接上了抽取器验证过的关系：
+
+```text
+PubMed JSONL
+ → 抽取（Cognitive Agent，强制 dry-run）            agent_results.json
+ → 查漏 → 提及 → 概念化 → 去重 → 排序 → 建树          概念与 is_a 层级
+ → 概念对齐（离线读取仓库根目录 data/ 的 v2 数据包）   concept_links.json
+ → 关系投影（关系挂到概念上，跨文献合并，统一门禁）    concept_relations.json
+ → 图谱导出                                          graph/*.jsonl
+ → 加载到本机隔离 Neo4j（单独命令，需要确认）
+```
+
+在本目录安装并运行：
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e '.[ontology]'
+cp entity_ontology/config.example.json entity-ontology.local.json
+
+export LIVERKG_API_BASE="OpenAI 兼容服务地址，以 /v1 结尾"
+read -rs LIVERKG_API_KEY && export LIVERKG_API_KEY
+
+liverkg ontology run --articles inputs/articles.jsonl --run-id first-batch
+liverkg ontology serve --open
+liverkg ontology load --run-id first-batch --database liverkg-integrated --dry-run
+```
+
+`python -m entity_ontology …` 与 `liverkg ontology …` 等价。结果保存在 `runs/entity_ontology/<run-id>/`；同一输入、配置和批次名可以续跑。抽取器代码的哈希是批次身份的一部分，抽取器代码改动后需要换一个批次名。
+
+概念级关系的门禁只降级、不升级：
+
+| 状态 | 条件 |
+| --- | --- |
+| `AUTO` | 至少一条证据为 `IMPORT_READY`；没有否定、反证或统计未证实；两端概念都已放入层级；端点类型与概念类型一致。 |
+| `REVIEW` | 有可用证据，但上面某一条不满足。原因写在 `gate_reasons`。 |
+| `BLOCKED` | 证据全部被抽取器拦截，或谓词不在 LiverKG 范围内。 |
+
+`novelty` 把概念级关系和 v2 数据包对照：`KNOWN_IN_V2` 表示 v2 两端之间已有同类关系，`NEW` 表示两端都在 v2 中但没有这条关系，`UNLINKED` 表示有端点没对齐到 v2。
+
+加载到 Neo4j 的规则：只允许 localhost；库名必须显式给出，拒绝 `liver-kg-core-v02`；只用 MERGE，不删除任何数据；默认只加载 `AUTO` 关系。对齐到 v2 的概念通过 `SAME_AS` 连到 v2 节点：库里已有该节点就直接连上，没有就新建带 `:V2Anchor` 标签的锚点。社区版 Neo4j 不能建多个库，可以单独起一个本机实例，例如用 Docker 跑在 7688 端口。
+
+示例查询：与肝纤维化相关的文献关系、v2 对照结果和证据原句。
+
+```cypher
+MATCH (x:Concept)-[r]->(d:Concept)-[:SAME_AS]->(:Disease {disease_id: 'UMLS:C0239946'})
+WHERE r.source = 'literature'
+MATCH (e:Evidence) WHERE e.uid IN r.evidence_uids
+RETURN x.name AS concept, type(r) AS relation, r.novelty AS novelty,
+       r.pmids AS pmids, collect(e.text) AS evidence
+```
+
 ## 缓存与审计
 
 抽取层提供：
@@ -190,6 +244,7 @@ tests/             # 确定性测试与集成测试
 
 ```bash
 python -m unittest discover -s tests -v
+python -m unittest discover -s entity_ontology/tests -v
 ```
 
 真实 Neo4j 集成测试必须显式配置隔离数据库；没有这些配置时测试会安全跳过，
@@ -211,6 +266,10 @@ python -m unittest discover -s tests -v
 | `entity_linking_preflight.py` | 只读实体链接预检查。 |
 | `experiment_metrics.py` | 实验指标与比较。 |
 | `run_cognitive_agent.sh` | 安全启动器，默认 dry-run。 |
+| `entity_ontology/pipeline.py` | 从抽取到图谱导出的整批流程与断点续跑。 |
+| `entity_ontology/linking/kg_links.py` | 概念与 v2 图谱节点的离线对齐。 |
+| `entity_ontology/relations/project.py` | 关系投影、跨文献合并与概念级门禁。 |
+| `entity_ontology/export/neo4j_load.py` | 只写本机隔离库的 Neo4j 加载。 |
 
 ## 研究状态
 

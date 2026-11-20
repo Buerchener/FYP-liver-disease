@@ -20,7 +20,7 @@ STATIC = {
     for name in (
         "index.html", "app.js", "ui.js", "app.css", "overview.js", "workbench-shell.css",
         "evidence.js", "evidence.css", "incremental.js", "incremental.css",
-        "preparation.js", "preparation.css",
+        "preparation.js", "preparation.css", "relations.js", "relations.css",
     )
 }
 STATIC["/"] = STATIC["/index.html"]
@@ -72,6 +72,22 @@ def read_articles(folder, manifest, inventory):
             for pmid, row in zip(pmids, rows)]
 
 
+def relation_outputs(folder, manifest, placement_raw):
+    """Return (concept_links, concept_relations); runs made before the merge have neither."""
+    relations_path = folder / "concept_relations.json"
+    if "relations_sha256" not in manifest:
+        return None, None
+    relations_raw = relations_path.read_bytes()
+    links_raw = (folder / "concept_links.json").read_bytes()
+    relations = json.loads(relations_raw)
+    provenance = relations["input_sha256"]
+    if (hashlib.sha256(relations_raw).hexdigest() != manifest["relations_sha256"]
+            or hashlib.sha256(links_raw).hexdigest() != provenance["concept_links.json"]
+            or hashlib.sha256(placement_raw).hexdigest() != provenance["placement.json"]):
+        raise ValueError("Concept relations and their inputs do not match the batch manifest.")
+    return json.loads(links_raw), relations
+
+
 def batch_dataset(runs_dir, run_id):
     folder, manifest = batch_manifest(runs_dir, run_id)
     if manifest["status"] != "complete":
@@ -93,9 +109,13 @@ def batch_dataset(runs_dir, run_id):
         raise ValueError("Unsupported concept ordering method.")
     apply_entity_order(equivalence["concepts"], order)
     run = {key: manifest.get(key) for key in (
-        "run_id", "title", "created_at", "extraction_commit", "extraction_model",
+        "run_id", "title", "created_at", "extraction_commit", "extractor_fingerprint",
+        "extractor_git", "extraction_model",
     )}
+    concept_links, concept_relations = relation_outputs(folder, manifest, placement_raw)
     return {
+        "conceptLinks": concept_links,
+        "conceptRelations": concept_relations,
         "run": run,
         "articles": read_articles(folder, manifest, inventory),
         "mentions": inventory["mentions"],

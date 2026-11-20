@@ -15,6 +15,10 @@ const groups = [
     { id: "ordering", label: "排序", detail: "查看各实体类型组内从宽到窄的概念清单。", module: "preparation", method: "renderPreparation" },
     { id: "tree", label: "构树", detail: "查看逐个放置的结果，回查候选父类和每次判断。", module: "incremental", method: "renderIncremental" },
   ]],
+  ["关系与图谱", [
+    { id: "links", label: "图谱对齐", detail: "查看每个概念对应到 v2 图谱的哪个节点，以及对齐依据。", module: "relations", method: "renderRelations" },
+    { id: "relations", label: "概念关系", detail: "查看抽取器验证过的关系合并到概念之后的结果、门禁状态和每条证据原句。", module: "relations", method: "renderRelations" },
+  ]],
 ];
 const stages = groups.flatMap(([, children]) => children);
 const title = document.querySelector("#heading");

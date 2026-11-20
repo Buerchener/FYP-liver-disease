@@ -171,6 +171,51 @@ python multi_stage_extraction_pipeline.py \
   --skip-neo4j
 ```
 
+## Entity ontology and graph build
+
+`entity_ontology/` comes from [liverkg-entity-ontology](https://github.com/Buerchener/liverkg-entity-ontology)
+(`main@adef5bd`, imported with its history). It turns extracted entities into
+deduplicated concepts and a multi-parent `is_a` hierarchy, and now also carries
+the extractor's verified relations:
+
+```text
+PubMed JSONL
+ → extraction (Cognitive Agent, forced dry-run)          agent_results.json
+ → coverage → mentions → concepts → dedup → order → tree  concepts and is_a hierarchy
+ → concept linking (offline, repository data/ v2 package) concept_links.json
+ → relation projection (concepts, cross-article, gate)    concept_relations.json
+ → graph export                                           graph/*.jsonl
+ → load into a local, isolated Neo4j (separate, confirmed command)
+```
+
+Install and run from this directory:
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e '.[ontology]'
+cp entity_ontology/config.example.json entity-ontology.local.json
+
+export LIVERKG_API_BASE="https://your-openai-compatible-endpoint/v1"
+read -rs LIVERKG_API_KEY && export LIVERKG_API_KEY
+
+liverkg ontology run --articles inputs/articles.jsonl --run-id first-batch
+liverkg ontology serve --open
+liverkg ontology load --run-id first-batch --database liverkg-integrated --dry-run
+```
+
+The concept-level gate can only keep or lower the extractor's decision.
+`AUTO` needs at least one `IMPORT_READY` evidence item, no negation,
+counter-evidence or statistical non-confirmation, placed concepts on both ends
+and endpoint types that match the concept types; otherwise a relation is
+`REVIEW` (reasons in `gate_reasons`) or `BLOCKED`. `novelty` compares each
+relation with the v2 package: `KNOWN_IN_V2`, `NEW` or `UNLINKED`.
+
+`load` accepts only localhost URIs and an explicitly named database other than
+`liver-kg-core-v02`, uses MERGE only and loads `AUTO` relations by default.
+Linked concepts get `SAME_AS` edges to existing v2 nodes, or to `:V2Anchor`
+nodes carrying the v2 key when the database holds no v2 copy.
+
 ## Cache and auditability
 
 The extraction layer provides:
@@ -203,6 +248,7 @@ Run the local suite:
 
 ```bash
 python -m unittest discover -s tests -v
+python -m unittest discover -s entity_ontology/tests -v
 ```
 
 Neo4j integration tests require an explicitly isolated database:
@@ -237,6 +283,10 @@ fall back to a production database.
 | `entity_linking_preflight.py` | Read-only endpoint-linking preflight. |
 | `experiment_metrics.py` | Experiment metrics and comparisons. |
 | `run_cognitive_agent.sh` | Safe launcher; dry-run by default. |
+| `entity_ontology/pipeline.py` | Batch flow from extraction to graph export, with resume. |
+| `entity_ontology/linking/kg_links.py` | Offline linking of concepts to v2 graph nodes. |
+| `entity_ontology/relations/project.py` | Relation projection, cross-article merging and the concept gate. |
+| `entity_ontology/export/neo4j_load.py` | Guarded loading into a local, isolated Neo4j database. |
 
 ## Research status
 

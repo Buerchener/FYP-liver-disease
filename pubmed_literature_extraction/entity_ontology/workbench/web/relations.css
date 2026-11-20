@@ -1,0 +1,20 @@
+.rel-summary { max-width: 760px; margin: 0 0 12px; }
+.rel-focus { margin: 0 0 12px; font-weight: 600; }
+.rel-controls { margin-bottom: 16px; }
+.rel-field { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); }
+.rel-field select, .rel-field input { font: inherit; color: var(--ink); min-height: 30px; }
+.rel-list { display: grid; gap: 14px; }
+.rel-card { padding: 12px 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; min-width: 0; }
+.rel-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 8px; margin: 0 0 8px; }
+.rel-predicate { font-family: var(--research-mono); font-size: .8rem; padding: 1px 6px; border-radius: 4px; background: var(--surface); }
+.rel-pills { display: inline-flex; flex-wrap: wrap; gap: 6px; margin-left: auto; }
+.rel-reasons { margin: 0 0 8px; }
+.rel-caption { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.rel-unresolved { margin-top: 20px; }
+.rel-unresolved summary { cursor: pointer; font-weight: 600; margin-bottom: 10px; }
+.rel-unresolved .rel-card { margin-bottom: 10px; }
+.rel-selected td { background: var(--accent-soft); }
+
+@media (max-width: 840px) {
+  .rel-pills { margin-left: 0; }
+}

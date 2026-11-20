@@ -101,12 +101,15 @@ export function renderOverview({ mount, data, stages }) {
   const created = new Date(run.created_at || "");
   const date = Number.isNaN(created.valueOf()) ? null :
     el("time", { datetime: run.created_at }, new Intl.DateTimeFormat("zh-CN", { dateStyle: "long" }).format(created));
+  const extractorCommit = run.extractor_git?.commit || run.extraction_commit;
+  const relationCounts = data.conceptRelations?.counts;
   const metadata = [
     ["批次", el("code", {}, run.run_id)],
-    run.extraction_commit && ["抽取器", el("code", {}, run.extraction_commit.slice(0, 12))],
+    extractorCommit && ["抽取器", el("code", {}, extractorCommit.slice(0, 12) + (run.extractor_git?.dirty ? " · 含未提交改动" : ""))],
     run.extraction_model && ["抽取模型", el("code", {}, run.extraction_model)],
     placement.model && ["构树模型", el("code", {}, placement.model)],
     ["GO 查询", (placement.go_reference_count ?? 0) + " 次"],
+    relationCounts && ["概念级关系", `${relationCounts.concept_relations} 条（可自动写入 ${relationCounts.gate.AUTO}，待复核 ${relationCounts.gate.REVIEW}）`],
   ].filter(Boolean);
 
   mount.append(
