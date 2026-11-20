@@ -11,8 +11,15 @@ export function el(tag, attrs = {}, ...children) {
     else node.setAttribute(key, val === true ? "" : String(val));
   }
   for (const child of children.flat(Infinity))
-    if (child !== null && child !== undefined && child !== false) node.append(child);
+    if (child != null && typeof child !== "boolean") node.append(child);
   return node;
 }
 export const status = (label, tone = "neutral") => el("span", {class: "pill tone-" + tone},label);
 export const articleLink = (pmid) => el("a", {class: "article-link",href:"https://pubmed.ncbi.nlm.nih.gov/"+encodeURIComponent(pmid)+"/",target:"_blank",rel:"noreferrer"},"PMID "+pmid);
+
+const entityTypes = {
+  Disease: "疾病", CellType: "细胞类型", Tissue: "组织", Metabolite: "代谢物",
+  Protein: "蛋白质", Pathway: "通路", Gene: "基因", MicrobialCommunity: "菌群",
+  Measurement: "测量项", Phenotype: "表型", NonEntity: "非实体", Unclear: "类型不明",
+};
+export const typeLabel = kind => entityTypes[kind] || kind;

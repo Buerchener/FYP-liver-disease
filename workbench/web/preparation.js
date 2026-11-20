@@ -1,11 +1,12 @@
-import { el, status } from './ui.js';
+import { el, status, typeLabel } from './ui.js';
 
-const CLUSTER_COLORS = ['#166b70', '#7962a4', '#ab6325', '#467f4a', '#b74d6e', '#3275aa', '#8b7540', '#785b63'];
+const CLUSTER_COLORS = ['#315b8c', '#55687b', '#716576', '#4a6873', '#767066', '#586fa0', '#775e68', '#5b625a'];
 const VERDICTS = {
   equivalent: '同义',
   distinct: '不同',
   uncertain: '待定',
 };
+const PAIR_REASONS = { shared_name_or_alias:'名称或别名重合', global_knn:'向量近邻', global_top_two:'向量近邻', within_cluster:'同簇近邻' };
 
 function indexBy(rows, key) {
   return new Map(rows.map(row => [row[key], row]));
@@ -17,6 +18,12 @@ function button(label, onClick, className = 'btn') {
 
 function sectionTitle(text) {
   return el('h2', {class: 'prep-section-title'}, text);
+}
+
+function focusInspector(inspector) {
+  if (!window.matchMedia('(max-width: 900px)').matches) return;
+  inspector.focus({preventScroll:true});
+  inspector.scrollIntoView({block:'start'});
 }
 
 function labelledSelect(label, onChange) {
@@ -119,41 +126,61 @@ function renderMap({stage, mount, data, go, selected}) {
   let current = pointById.has(selected) ? selected : concept?.source_mentions[0];
   if (!pointById.has(current)) current = retrieval.pairs[0]?.left || points[0].source_id;
   let activeCluster = 'all';
-  let clusterButtons = [];
-  const memberSelect = labelledSelect('选择提及', id => select(id));
-  const visible = () => points.filter(p => activeCluster === 'all' || String(p.cluster_id) === activeCluster);
-  const inspector = el('aside', {class: 'panel prep-inspector', 'aria-label':'投影点详情'});
-  const chart = plot(points, retrieval.projection.explained_variance_ratio, clusterMode, id => select(id));
+  let query = '';
+  let shown = new Set();
+  const clusterButtons = [];
+  const memberSelect = labelledSelect('选择提及', id => inspect(id));
+  const search = el('input',{type:'search',placeholder:'名称、别名或 PMID','aria-label':'搜索投影点'});
+  const matches = point => {
+    if (activeCluster !== 'all' && String(point.cluster_id) !== activeCluster) return false;
+    const normalized = normal.get(point.source_id);
+    return [point.concept_name,point.source_id,mentions.get(point.source_id)?.mention,
+      ...(normalized?.aliases || [])].join(' ').toLowerCase().includes(query);
+  };
+  const inspector = el('aside', {class: 'panel prep-inspector', 'aria-label':'投影点详情', tabindex:-1});
+  const chart = plot(points, retrieval.projection.explained_variance_ratio, clusterMode, inspect);
+
+  function inspect(id) {
+    select(id);
+    focusInspector(inspector);
+  }
 
   function refreshMembers() {
-    const options = visible();
+    const options = points.filter(matches);
+    shown = new Set(options.map(p => p.source_id));
     memberSelect.select.replaceChildren(...options.map(p => option(p.source_id, p.concept_name + ' · ' + p.source_id)));
-    if (!options.some(p => p.source_id === current)) current = options[0].source_id;
-    memberSelect.select.value = current;
+    if (!shown.has(current)) current = options[0]?.source_id;
+    memberSelect.select.disabled = !options.length;
+    if (!options.length) memberSelect.select.append(option('', '没有符合条件的提及'));
+    select(current);
   }
 
   function select(id) {
-    if (!pointById.has(id)) return;
     current = id;
-    memberSelect.select.value = id;
+    memberSelect.select.value = id ?? '';
     for (const [pointId, dot] of chart.dotIndex) {
-      const inactive = activeCluster !== 'all' && String(pointById.get(pointId).cluster_id) !== activeCluster;
+      const inactive = !shown.has(pointId);
       dot.classList.toggle('is-muted', inactive);
       dot.disabled = inactive;
       dot.setAttribute('aria-pressed', String(pointId === id));
     }
     for (const b of clusterButtons) b.setAttribute('aria-pressed', String(b.dataset.cluster === activeCluster));
     const p = pointById.get(id);
+    if (!p) {
+      inspector.replaceChildren(el('p',{class:'prep-inspector-empty'},'调整搜索或聚类筛选，查看对应的提及。'));
+      return;
+    }
     const normalized = normal.get(id);
     const mention = mentions.get(id);
-    const pairs = retrieval.pairs.filter(pair => pair.left === id || pair.right === id);
+    const pairs = retrieval.pairs.filter(pair => pair.left === id || pair.right === id)
+      .sort((a,b) => b.cosine_similarity - a.cosine_similarity);
     const related = data.equivalence.concepts.find(c => c.source_mentions.includes(id));
     inspector.replaceChildren(
       el('div', {class:'prep-detail-key'}, (mention?.context_id === 'title' ? '标题' : '摘要') + ' · PMID ' + id.split(':')[0]),
       el('h3', {}, p.concept_name),
       el('p', {class:'prep-definition'}, p.description),
       keyValue([
-        ['归一化类型', normalized.kind],
+        ['归一化类型', typeLabel(normalized.kind)],
         ['文中写法', mention.mention],
         ...(clusterMode ? [['簇分配', clusterText(p.cluster_id)],
           ['成员概率', p.cluster_id < 0 ? '未分配到簇' : (p.probability * 100).toFixed(1) + '%']] :
@@ -172,8 +199,10 @@ function renderMap({stage, mount, data, go, selected}) {
       const pairId = pair.left + '|' + pair.right;
       const verdict = pairReview.get(pairId)?.applied_verdict;
       list.append(el('li', {}, button(other.concept_name, () => go('deduplication', pairId), 'prep-link'),
-        el('span', {class:'prep-sim'}, '余弦 ' + pair.cosine_similarity.toFixed(3)),
+        el('span', {class:'prep-sim'}, pair.cosine_similarity.toFixed(3)),
         ...(verdict ? [status(VERDICTS[verdict] ?? verdict, verdict === 'equivalent' ? 'good' : verdict === 'uncertain' ? 'warn' : 'neutral')] : [])));
+      const reasons = [...new Set(pair.reasons.map(reason => PAIR_REASONS[reason] || reason))];
+      if (reasons.length) list.lastElementChild.append(el('small',{class:'prep-pair-sources'},reasons.join('、')));
     }
     inspector.append(list);
   }
@@ -187,7 +216,6 @@ function renderMap({stage, mount, data, go, selected}) {
       const b = button(label + ' (' + count + ')', () => {
         activeCluster = id;
         refreshMembers();
-        select(current);
       }, 'prep-cluster-btn');
       b.dataset.cluster = id;
       if (id !== 'all') {
@@ -200,15 +228,19 @@ function renderMap({stage, mount, data, go, selected}) {
       clusterButtons.push(b);
     }
   }
+  search.addEventListener('input',() => {
+    query = search.value.trim().toLowerCase();
+    refreshMembers();
+  });
   refreshMembers();
-  select(current);
   const panel = el('section', {class:'panel prep-map-panel'},
-    sectionTitle(clusterMode ? '簇分布' : '实体向量投影'),
+    sectionTitle(clusterMode ? '聚类分布' : '二维向量投影'),
     el('p', {class:'muted prep-description'}, clusterMode
       ? 'HDBSCAN 用于浏览分组。右侧的同义候选来自全局近邻或共享名称和别名。'
       : '名称、类型、定义和别名共同编码为向量。图中显示前两个主成分。'),
     ...(clusterMode ? [tool] : []),
-    chart.wrap, memberSelect.wrapper);
+    chart.wrap,el('div',{class:'prep-point-controls'},
+      el('label',{class:'prep-field'},el('span',{},'搜索提及'),search),memberSelect.wrapper));
   mount.replaceChildren(el('div', {class: 'entity-prep'},
     clusterMode ?
       statsLine([['聚类方法', retrieval.clustering.method], ['簇数', retrieval.clustering.clusters.length],
@@ -243,12 +275,12 @@ function renderOrder({mount, data, go, selected}) {
   let query = '';
   const body = el('tbody');
   const results = el('span', {class:'prep-counter', 'aria-live':'polite'});
-  const inspector = el('aside', {class:'panel prep-inspector', 'aria-label':'排序概念详情'});
+  const inspector = el('aside', {class:'panel prep-inspector', 'aria-label':'排序概念详情', tabindex:-1});
   const controls = labelledSelect('实体类型', value => {
     kind = value;
     update();
   });
-  controls.select.append(option('all','全部类型'), ...order.groups.map(group => option(group.kind, group.kind)));
+  controls.select.append(option('all','全部类型'), ...order.groups.map(group => option(group.kind, typeLabel(group.kind))));
   const search = el('input', {type:'search', placeholder:'搜索名称、别名或 ID', 'aria-label':'搜索排序概念'});
   search.addEventListener('input', () => {
     query = search.value.trim().toLowerCase();
@@ -260,11 +292,12 @@ function renderOrder({mount, data, go, selected}) {
     current = id;
     body.querySelectorAll('[data-node]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.node === id)));
     inspector.replaceChildren(
-      el('div', {class:'prep-detail-key'}, kind + ' · 组内序位 ' + rank),
+      el('div', {class:'prep-detail-key'}, typeLabel(kind) + ' · 组内序位 ' + rank),
       el('h3', {}, name),
       el('p', {class:'prep-definition'}, definition),
       keyValue([['概念标识', id], ['别名', aliases.join('、') || '无']]),
-      el('div', {class:'prep-actions'}, button('查看去重后的概念', () => go('deduplication', id))),
+      el('div', {class:'prep-actions'}, button('查看归并概念', () => go('deduplication', id)),
+        button('查看构树位置', () => go('tree', id))),
     );
     if (sources.length) {
       const links = sources.map(sourceId => {
@@ -277,19 +310,22 @@ function renderOrder({mount, data, go, selected}) {
   }
   function update() {
     const filtered = rows.filter(({concept}) => (kind === 'all' || concept.kind === kind) &&
-      [concept.name, concept.kind, concept.id, ...concept.aliases].some(s => s.toLowerCase().includes(query)));
+      [concept.name, concept.kind, typeLabel(concept.kind), concept.id, ...concept.aliases].some(s => s.toLowerCase().includes(query)));
     results.textContent = filtered.length + ' / ' + rows.length + ' 个概念';
     body.replaceChildren();
     for (const row of filtered) {
-      const b = button(row.concept.name, () => show(row), 'prep-node-button');
+      const b = button(row.concept.name, () => {
+        show(row);
+        focusInspector(inspector);
+      }, 'prep-node-button');
       b.dataset.node = row.concept.id;
       body.append(el('tr', {}, el('td', {class:'prep-rank'}, String(row.rank)),
-        el('td', {}, b), el('td', {}, row.concept.kind)));
+        el('td', {}, b), el('td', {}, typeLabel(row.concept.kind))));
     }
     if (!filtered.length) {
       const cell = el('td', {colspan:'3', class:'empty'}, '没有符合条件的概念。');
       body.append(el('tr', {}, cell));
-      inspector.replaceChildren(el('p', {class:'muted'}, '调整筛选后可查看概念详情。'));
+      inspector.replaceChildren(el('p', {class:'prep-inspector-empty'}, '调整筛选后可查看概念详情。'));
       return;
     }
     show(filtered.find(row => row.concept.id === current) || filtered[0]);

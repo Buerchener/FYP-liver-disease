@@ -1,4 +1,4 @@
-import { el, status, articleLink } from './ui.js';
+import { el, status, articleLink, typeLabel } from './ui.js';
 
 const decisions = {
   keep: ['保留', 'good'], review: ['待复核', 'warn'], outside_scope: ['超出范围', 'neutral'],
@@ -12,6 +12,7 @@ const upstream = {
 const retrievalReasons = {
   shared_name_or_alias: '名称或别名重合', global_knn: '全局 KNN', global_top_two: '全局近邻', within_cluster: '同簇近邻'
 };
+const locations = {exact:'已定位', missing:'缺少坐标', mismatch:'坐标不一致'};
 const co = (tag, cls, ...children) => el(tag, {class: cls}, ...children);
 const small = text => co('span', 'ev-small', text);
 const copy = text => co('p', 'ev-copy', text);
@@ -41,6 +42,11 @@ function searchControl(placeholder) {
   return field;
 }
 
+function field(control) {
+  const label = control.type === 'search' ? '搜索记录' : control.getAttribute('aria-label');
+  return co('label','ev-field',el('span',{},label),control);
+}
+
 function card(top, bottom, trailing) {
   const headline = co('span', 'ev-card-top', co('strong', '', top));
   if (trailing) headline.append(trailing);
@@ -50,6 +56,28 @@ function card(top, bottom, trailing) {
 function articleInfo(index, pmid) {
   const article = index.articles.get(pmid);
   return co('div', 'ev-paper', articleLink(pmid), co('span', 'ev-paper-title', article?.title || ''));
+}
+
+function markedQuote(text, from, to, span, className = 'ev-quote') {
+  const points = Array.from(text);
+  const quote = co('blockquote',className);
+  if (from >= 0 && to > from && points.slice(from,to).join('') === span) {
+    quote.append(points.slice(0,from).join(''),el('mark',{},span),points.slice(to).join(''));
+  } else {
+    quote.textContent = text;
+  }
+  return quote;
+}
+
+function fullAbstract(mention, index) {
+  const article = index.articles.get(mention.pmid);
+  if (!article?.abstract) return null;
+  const start = Array.from('TITLE: ' + article.title + '\nABSTRACT: ').length;
+  return el('details',{class:'ev-extra ev-abstract'},
+    el('summary',{},'查看完整摘要'),
+    markedQuote(article.abstract,
+      mention.offset_status === 'exact' ? mention.char_start - start : -1,
+      mention.char_end - start,mention.source_span,'ev-quote ev-abstract-text'));
 }
 
 function articleContext(mention, index) {
@@ -82,20 +110,14 @@ function quoteBlock(mention, index) {
   const area = co('div', 'ev-evidence');
   if (mention.offset_status === 'exact') {
     const context = articleContext(mention, index);
-    const points = Array.from(context.text);
     const from = mention.char_start - context.start;
     const to = mention.char_end - context.start;
-    const span = points.slice(from, to).join('');
-    const quote = co('blockquote', 'ev-quote');
-    if (from >= 0 && to > from && span === mention.source_span) {
-      quote.append(points.slice(0, from).join(''), el('mark', {}, span), points.slice(to).join(''));
-    } else {
-      quote.textContent = context.text;
-    }
+    const quote = markedQuote(context.text,from,to,mention.source_span);
     area.append(small((context.where === 'title' ? '标题' : '摘要 ' + context.where) +
       ' · 原文坐标 [' + mention.char_start + ', ' + mention.char_end + ')'), quote);
   } else {
-    area.append(status('缺少原始坐标', 'warn'), copy('该条抽取记录没有可核对的位置。下方列出同篇文献中找到的其他出现。'));
+    area.append(status(locations[mention.offset_status] || '位置未确认', 'warn'),
+      copy(mention.evidence_contexts.length ? '可以查看同一篇论文中的其他出现。' : '当前记录缺少可核对的原文位置。'));
   }
   if (mention.evidence_contexts.length) {
     const secondary = el('details', {class: 'ev-extra'});
@@ -131,14 +153,14 @@ function mentionInspector(m, index, stage, go) {
   const concept = index.conceptByMention.get(m.id);
   const view = co('article','ev-record', small(m.id),
     el('h2', {class:'ev-title'}, m.mention), articleInfo(index, m.pmid));
-  const evidence = group('原文定位', quoteBlock(m,index));
-  const assigned = co('div', 'ev-labeled-value', status(m.raw_type, 'neutral'));
-  if (norm?.kind) assigned.append(co('span','ev-arrow','→'), status(norm.kind, 'neutral'));
+  const evidence = group('原文证据', quoteBlock(m,index), fullAbstract(m,index));
+  const assigned = co('div', 'ev-labeled-value', status(typeLabel(m.raw_type), 'neutral'));
+  if (norm?.kind) assigned.append(co('span','ev-arrow','→'), status(typeLabel(norm.kind), 'neutral'));
   if (norm) assigned.append(badge(norm.status));
   if (stage === 'extraction') {
-    view.append(evidence,group('抽取器输出', co('div','ev-labeled-value',status(m.raw_type, 'neutral')),vDetails(m,index)));
-    if (norm) view.append(group('归一化结果', assigned, copy(norm.reason),
-      action('查看归一化判断', () => go('normalization',m.id))));
+    view.append(evidence,group('抽取记录', co('div','ev-labeled-value',status(typeLabel(m.raw_type), 'neutral')),vDetails(m,index)));
+    if (norm) view.append(group('概念化结果', assigned, copy(norm.reason),
+      action('查看概念化判断', () => go('normalization',m.id))));
   } else {
     if (norm) {
       const decision = group('类型与处置', assigned, copy(norm.reason));
@@ -166,12 +188,17 @@ function mentionInspector(m, index, stage, go) {
 // The toolbar lives outside the changing list so typing and keyboard focus are preserved.
 function renderList({root, rows, initial, controls, match, label, title, details}) {
   const list = co('ul','ev-list');
-  const count = co('span','ev-count');
-  const detail = co('div','ev-detail');
-  const empty = co('p','ev-empty','没有符合条件的记录。');
+  const count = el('span',{class:'ev-count','aria-live':'polite'});
+  const detail = el('div',{class:'ev-detail',tabindex:-1});
+  const reset = action('清除筛选',() => {
+    controls.forEach(control => control.value = '');
+    draw();
+    controls[0]?.focus();
+  },'ev-reset');
+  const empty = co('p','ev-empty',rows.length ? '没有符合条件的记录。' : '本阶段没有记录。');
   const left = co('section','ev-browser',
-    co('div','ev-controls',...controls),
-    co('div','ev-list-heading',el('h2',{},title),count),list);
+    co('div','ev-list-heading',el('h2',{},title),count),
+    co('div','ev-controls',...controls.map(field),reset),list);
   root.append(co('div','ev-layout',left, detail));
   let selected = initial;
   function choose(row, jump) {
@@ -180,17 +207,19 @@ function renderList({root, rows, initial, controls, match, label, title, details
       b.setAttribute('aria-pressed',String(b.dataset.id === row.id));
     }
     detail.replaceChildren(details(row));
-    if (jump && window.matchMedia('(max-width: 800px)').matches) {
+    if (jump && window.matchMedia('(max-width: 900px)').matches) {
+      detail.focus({preventScroll:true});
       detail.scrollIntoView({block:'start'});
     }
   }
   function draw() {
     const visible = rows.filter(match);
     count.textContent = String(visible.length) + ' / ' + rows.length;
+    reset.hidden = controls.every(control => !control.value);
     list.replaceChildren();
     if (!visible.length) {
       list.append(el('li',{},empty));
-      detail.replaceChildren();
+      detail.replaceChildren(co('p','ev-detail-empty',rows.length ? '调整筛选后可查看记录。' : '本批次没有可显示的详情。'));
       return;
     }
     for (const row of visible) {
@@ -215,24 +244,31 @@ function mentionView(root, stage, selected, index, data, go) {
   const rows = data.mentions;
   const isNorm = stage === 'normalization';
   const search = searchControl('搜索名称、缩写或 PMID');
-  const papers = selectControl('筛选文献', [['','全部文献'],...data.articles.map(p => [p.pmid,'PMID '+p.pmid])]);
+  const papers = selectControl('文献', [['','全部文献'],...data.articles.map(p => [p.pmid,'PMID '+p.pmid])]);
   const counts = new Map();
   const stateFor = m => isNorm ? index.norm.get(m.id)?.status : m.offset_status;
   for (const m of rows) counts.set(stateFor(m),(counts.get(stateFor(m)) || 0)+1);
-  const choices = isNorm ? ['keep','review','outside_scope'] : ['exact','missing'];
-  const textFor = v => isNorm ? decisions[v][0] : (v==='exact'?'已定位':'缺少坐标');
-  const filter = selectControl(isNorm?'筛选归一化处置':'筛选定位状态', [['','全部状态'],
+  const choices = isNorm ? ['keep','review','outside_scope'] : ['exact','missing','mismatch'];
+  const textFor = v => isNorm ? decisions[v][0] : locations[v];
+  const filter = selectControl(isNorm?'概念化去向':'原文定位', [['','全部状态'],
     ...choices.map(v=>[v,textFor(v)+' · '+(counts.get(v) || 0)])]);
+  const recovered = rows.filter(m=>m.upstream_status==='ontology_coverage').length;
+  const origin = !isNorm && recovered ? selectControl('提及来源', [['','全部来源'],
+    ['native','原始抽取 · '+(rows.length-recovered)],['coverage','补漏 · '+recovered]]) : null;
   const concept = index.concepts.get(selected);
   const initial = concept?.source_mentions[0] || selected;
   const searchMatches = m => {
     const norm = index.norm.get(m.id);
     const c = index.conceptByMention.get(m.id);
-    return fold([m.mention,m.raw_type,m.id,norm?.name,norm?.kind,...(norm?.aliases || []),c?.name,...(c?.aliases || [])].join(' ')).includes(fold(search.value));
+    return fold([m.mention,m.raw_type,typeLabel(m.raw_type),m.id,
+      norm?.name,norm?.kind,typeLabel(norm?.kind),...(norm?.aliases || []),c?.name,...(c?.aliases || [])].join(' ')).includes(fold(search.value));
   };
-  renderList({root,rows,initial,controls:[search,papers,filter],title:isNorm?'提及判断':'实体提及',
-    match:m=>(!papers.value || m.pmid===papers.value) && (!filter.value || stateFor(m)===filter.value) && searchMatches(m),
-    label:m=>card(m.mention,m.id + ' · ' + m.raw_type,isNorm ? badge(stateFor(m)) : (m.offset_status==='missing'?status('缺少坐标','warn'):null)),
+  renderList({root,rows,initial,controls:[search,papers,filter,...(origin?[origin]:[])],title:isNorm?'提及判断':'实体提及',
+    match:m=>(!papers.value || m.pmid===papers.value) && (!filter.value || stateFor(m)===filter.value) &&
+      (!origin?.value || (origin.value==='coverage') === (m.upstream_status==='ontology_coverage')) && searchMatches(m),
+    label:m=>card(m.mention,m.id + ' · ' + typeLabel(m.raw_type),isNorm ? badge(stateFor(m)) :
+      m.upstream_status==='ontology_coverage' ? status('补漏','good') :
+        m.offset_status!=='exact' ? status(locations[m.offset_status] || '位置未确认','warn') : null),
     details:m=>mentionInspector(m,index,stage,go)});
 }
 
@@ -241,12 +277,13 @@ function pairNames(pair, index) {
 }
 
 function conceptInspector(c, index, go, openPair) {
-  const section = co('article','ev-record',small(c.id),co('h2','ev-title',c.name),status(c.kind,'neutral'),copy(c.definition));
+  const section = co('article','ev-record',small(c.id),co('h2','ev-title',c.name),status(typeLabel(c.kind),'neutral'),copy(c.definition));
   if (c.aliases.length) section.append(small('别名 · '+c.aliases.join('、')));
   const sources=group('来源提及（'+c.source_mentions.length+'）');
   for (const id of c.source_mentions) {
     const m=index.mentions.get(id);
-    sources.append(termButton(m, id=>go('extraction',id)),quoteBlock(m,index));
+    if (m) sources.append(co('div','ev-source-item',articleInfo(index,m.pmid),
+      termButton(m, sourceId=>go('extraction',sourceId)),quoteBlock(m,index)));
   }
   section.append(sources);
   const related=index.pairs.filter(p=>p.id.split('|').some(id=>c.source_mentions.includes(id)));
@@ -273,7 +310,8 @@ function pairInspector(pair, index, go) {
   for (const id of pair.id.split('|')) {
     const m = index.mentions.get(id);
     const norm = index.norm.get(id);
-    box.append(group(m.mention,articleInfo(index,m.pmid),status(norm?.kind || m.raw_type,'neutral'),
+    if (!m) continue;
+    box.append(group(m.mention,articleInfo(index,m.pmid),status(typeLabel(norm?.kind || m.raw_type),'neutral'),
       quoteBlock(m,index),action('查看提及 '+id,()=>go('extraction',id))));
   }
   return box;
@@ -296,14 +334,14 @@ function dedupView(root, selected, index, data, go) {
     const search=searchControl(mode==='concepts'?'搜索概念或别名':'搜索配对名称或 PMID');
     if (mode==='concepts') {
       const kinds=[...new Set(concepts.map(c=>c.kind))].sort();
-      const type=selectControl('筛选概念类型',[['','全部类型'],...kinds.map(k=>[k,k])]);
+      const type=selectControl('概念类型',[['','全部类型'],...kinds.map(k=>[k,typeLabel(k)])]);
       renderList({root:content, rows:concepts,initial:focused,controls:[search,type],title:'规范概念',
-        match:c=>(!type.value || c.kind===type.value)&&fold([c.name,c.kind,...c.aliases,...c.source_mentions].join(' ')).includes(fold(search.value)),
-        label:c=>card(c.name,c.kind+' · '+c.source_mentions.length+' 条提及'),
+        match:c=>(!type.value || c.kind===type.value)&&fold([c.name,c.kind,typeLabel(c.kind),...c.aliases,...c.source_mentions].join(' ')).includes(fold(search.value)),
+        label:c=>card(c.name,typeLabel(c.kind)+' · '+c.source_mentions.length+' 条提及'),
         details:c=>conceptInspector(c,index,go,id=>show('pairs',id))});
     } else {
       const verdicts=['equivalent','distinct','uncertain'];
-      const filter=selectControl('筛选配对判断',[['','全部判断'],...verdicts.map(v=>[v,decisions[v][0]+' · '+judgments.filter(p=>p.applied_verdict===v).length])]);
+      const filter=selectControl('同义判断',[['','全部判断'],...verdicts.map(v=>[v,decisions[v][0]+' · '+judgments.filter(p=>p.applied_verdict===v).length])]);
       renderList({root:content,rows:judgments,initial:focused,controls:[search,filter],title:'候选配对',
         match:p=>(!filter.value || p.applied_verdict===filter.value) && fold([p.id,...pairNames(p,index)].join(' ')).includes(fold(search.value)),
         label:p=>card(pairNames(p,index).join(' / '),p.id.split('|').join(' · '),badge(p.applied_verdict)),

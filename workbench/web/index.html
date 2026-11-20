@@ -1,19 +1,46 @@
 <!doctype html>
-<html lang="zh-CN"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f4f7f9"><title>实体本体工作台 · LiverKG</title>
-<link rel="icon" href="data:,"><link rel="stylesheet" href="/workbench-shell.css"><link rel="stylesheet" href="/app.css">
-</head><body class="workbench-page">
-<a class="workbench-skip" href="#main">跳到内容</a>
-<header class="workbench-header"><div class="workbench-header-inner">
-<a class="workbench-brand" href="#overview" aria-label="LiverKG 实体工作台总览">LiverKG</a>
-<nav class="workbench-navigation" aria-label="实体流程"><ol id="stages" class="workbench-stage-list"></ol></nav>
-</div></header>
-<main id="main" tabindex="-1">
-<div class="heading-band"><div class="frame heading-inner">
-<div><div id="crumb" class="crumb"></div><h1 id="heading">实体本体构建工作台</h1><p id="subtitle" class="subtitle"></p></div>
-<div class="heading-actions"><label id="batch-switcher" hidden>数据批次 <select id="batch-choice"></select></label></div>
-</div></div>
-<div id="content" class="frame"><p role="status">正在读取文献批次结果…</p></div>
-</main>
-<script type="module" src="/app.js"></script></body></html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#22262a">
+  <title>实体本体工作台 · LiverKG</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/workbench-shell.css">
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body class="workbench-page">
+  <a class="workbench-skip" href="#main">跳到内容</a>
+  <header class="workbench-masthead">
+    <div class="masthead-inner">
+      <a class="workbench-brand" href="#overview" aria-label="LiverKG 批次总览">LiverKG</a>
+      <span class="masthead-title">实体本体工作台</span>
+    </div>
+  </header>
+  <div class="workbench-layout">
+    <aside class="workbench-sidebar">
+      <nav id="stages" class="workbench-navigation" aria-label="实体流程"></nav>
+    </aside>
+    <main id="main" tabindex="-1">
+      <div class="frame workbench-bar">
+        <nav id="crumb" class="crumb" aria-label="当前位置"></nav>
+        <label id="batch-switcher" hidden><span>批次</span><select id="batch-choice"></select></label>
+      </div>
+      <div class="frame heading-band">
+        <h1 id="heading">实体本体工作台</h1>
+        <p id="subtitle" class="subtitle"></p>
+      </div>
+      <div id="content" class="frame">
+        <p class="loading-note" role="status">正在读取文献批次结果…</p>
+      </div>
+    </main>
+    <aside id="page-toc" class="workbench-toc" hidden>
+      <nav aria-label="本页目录">
+        <p>本页目录</p>
+        <ul id="toc-links"></ul>
+      </nav>
+    </aside>
+  </div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
