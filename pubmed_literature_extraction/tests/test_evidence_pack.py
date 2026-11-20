@@ -70,9 +70,44 @@ class EvidencePackSupportTests(unittest.TestCase):
         self.assertEqual(pack.support_mode, "UNRESOLVED")
         self.assertEqual(pack.minimal_support_span_ids, [])
 
+    def test_article_index_reuse_matches_fallback_and_checks_source(self):
+        text = "TP53 was measured. TP53 was associated with HCC."
+        relation_value = relation("TP53 was associated with HCC.")
+        expected = self.builder.build(relation_value, text=text).to_dict()
+        index = self.builder.index(text)
+        actual = self.builder.build(relation_value, text=text, source_index=index).to_dict()
+        self.assertEqual(actual, expected)
+        self.assertEqual(index.source_sha256, expected["source_sha256"])
+        self.assertIsNotNone(index.containing_parent(0, len("TP53 was measured.")))
+        with self.assertRaises(ValueError):
+            self.builder.build(relation_value, text=text + " Changed.", source_index=index)
+
+    def test_context_rank_cannot_displace_required_owner_closure(self):
+        text = (
+            "TP53 strongly associated with HCC. "
+            "TP53 expression was measured. "
+            "The gene was associated with HCC."
+        )
+        parents = self.reader.parent_units(text, self.reader.read(text))
+        context, owner_subject, owner_relation = parents
+        item = relation(
+            context.text,
+            context_sentence_ids=[context.parent_sentence_id],
+            owner_sentence_ids=[owner_subject.parent_sentence_id, owner_relation.parent_sentence_id],
+        )
+        pack = EvidencePackBuilder(max_spans=2).build(item, text=text)
+        self.assertEqual(pack.support_mode, "MULTI_SPAN")
+        support = [span for span in pack.spans if span.span_id in pack.minimal_support_span_ids]
+        self.assertEqual(len(support), 2)
+        self.assertTrue(all(span.role == "OWNER" for span in support))
+        self.assertNotIn(
+            f"ep-{context.parent_sentence_id}-{context.char_start}-{context.char_end}",
+            pack.minimal_support_span_ids,
+        )
+
     def test_pmid_41948344_ccnd1_relations_close_on_s018(self):
         root = Path(__file__).resolve().parents[1]
-        source_path = root / "benchmark_output/gold20_strict_monotonic_v2_20260830_100322/input_gold20.jsonl"
+        source_path = root / "extraction_output/pubmed_backup_liver_strict_50.jsonl"
         source = next(
             json.loads(line) for line in source_path.read_text(encoding="utf-8").splitlines()
             if json.loads(line).get("pmid") == "41948344"

@@ -4,8 +4,8 @@
 from __future__ import annotations
 
 import hashlib
-import itertools
 import re
+from bisect import bisect_left, bisect_right
 from dataclasses import dataclass, field
 from difflib import SequenceMatcher
 from typing import Any, Callable
@@ -13,6 +13,53 @@ from typing import Any, Callable
 from cognitive_agent.evidence_units import ArticleEvidenceReader, EvidenceUnit
 from cognitive_agent.extraction_quality import locate_contiguous, normalize_surface
 from cognitive_agent.schema.predicate_cards import predicate_support_match
+
+
+def _normalized_tokens(value: str) -> tuple[str, ...]:
+    return tuple(normalize_surface(value).split())
+
+
+def _tokens_contain(tokens: tuple[str, ...], aliases: list[str]) -> bool:
+    for alias in aliases:
+        needle = _normalized_tokens(alias)
+        if needle and any(
+            tokens[index:index + len(needle)] == needle
+            for index in range(len(tokens) - len(needle) + 1)
+        ):
+            return True
+    return False
+
+
+@dataclass(frozen=True)
+class ArticleEvidenceIndex:
+    """Immutable article-scoped sentence index reusable across candidate checks."""
+
+    text: str
+    source_sha256: str
+    units: tuple[EvidenceUnit, ...]
+    parents: tuple[EvidenceUnit, ...]
+    parent_starts: tuple[int, ...]
+    parent_ends: tuple[int, ...]
+    parent_tokens: tuple[tuple[str, ...], ...]
+    adjacent_windows: tuple[
+        tuple[EvidenceUnit, EvidenceUnit, EvidenceUnit, tuple[str, ...]], ...
+    ]
+
+    def containing_parent(self, start: int, end: int) -> EvidenceUnit | None:
+        index = bisect_right(self.parent_starts, start) - 1
+        if index >= 0:
+            parent = self.parents[index]
+            if parent.char_start <= start and end <= parent.char_end:
+                return parent
+        return None
+
+    def overlapping_parents(self, start: int, end: int) -> tuple[EvidenceUnit, ...]:
+        low = bisect_right(self.parent_ends, start)
+        high = bisect_left(self.parent_starts, end)
+        return self.parents[low:high]
+
+    def covers(self, parent_index: int, aliases: list[str]) -> bool:
+        return _tokens_contain(self.parent_tokens[parent_index], aliases)
 
 
 @dataclass(frozen=True)
@@ -97,8 +144,7 @@ def _aliases(relation: dict, role: str, aliases_by_canonical: dict[str, list[str
 
 
 def _contains_alias(text: str, aliases: list[str]) -> bool:
-    normalized = normalize_surface(text)
-    return any(normalize_surface(alias) in normalized for alias in aliases if alias)
+    return _tokens_contain(_normalized_tokens(text), aliases)
 
 
 COREFERENCE_RE = re.compile(
@@ -159,6 +205,37 @@ class EvidencePackBuilder:
             object_aliases=object_aliases,
         )
 
+    def index(
+        self, text: str, *, units: list[EvidenceUnit] | None = None,
+    ) -> ArticleEvidenceIndex:
+        """Index article text once for reuse by a batch of relation candidates."""
+        source_units = list(units) if units is not None else self.reader.read(text)
+        if units is not None and any(
+            not (0 <= item.char_start < item.char_end <= len(text))
+            or text[item.char_start:item.char_end] != item.text
+            for item in source_units
+        ):
+            raise ValueError("evidence units do not match the article text")
+        parents = self.reader.parent_units(text, source_units)
+        windows = self.reader.adjacent_sentence_windows(text, parents)
+        parents_by_start = {parent.char_start: parent for parent in parents}
+        parents_by_end = {parent.char_end: parent for parent in parents}
+        adjacent = []
+        for window in windows:
+            first = parents_by_start[window.char_start]
+            second = parents_by_end[window.char_end]
+            adjacent.append((window, first, second, _normalized_tokens(window.text)))
+        return ArticleEvidenceIndex(
+            text=text,
+            source_sha256=hashlib.sha256(text.encode("utf-8")).hexdigest() if text else "",
+            units=tuple(source_units),
+            parents=tuple(parents),
+            parent_starts=tuple(item.char_start for item in parents),
+            parent_ends=tuple(item.char_end for item in parents),
+            parent_tokens=tuple(_normalized_tokens(item.text) for item in parents),
+            adjacent_windows=tuple(adjacent),
+        )
+
     @staticmethod
     def _sentence_role(relation: dict, sentence_id: str) -> str:
         owners = set(relation.get("owner_sentence_ids", []) or [])
@@ -174,10 +251,11 @@ class EvidencePackBuilder:
         subject_aliases: list[str],
         object_aliases: list[str],
         alignment_status: str,
+        support: dict[str, Any] | None = None,
+        subject_covered: bool | None = None,
+        object_covered: bool | None = None,
     ) -> EvidenceSpan:
-        support = self._support_match(
-            relation, unit.text, subject_aliases, object_aliases,
-        )
+        support = support or self._support_match(relation, unit.text, subject_aliases, object_aliases)
         trigger_match = str(support.get("match", "NONE"))
         return EvidenceSpan(
             span_id=f"ep-{unit.parent_sentence_id}-{unit.char_start}-{unit.char_end}",
@@ -187,8 +265,14 @@ class EvidencePackBuilder:
             sentence_id=unit.parent_sentence_id,
             role=self._sentence_role(relation, unit.parent_sentence_id),
             alignment_status=alignment_status,
-            subject_covered=_contains_alias(unit.text, subject_aliases),
-            object_covered=_contains_alias(unit.text, object_aliases),
+            subject_covered=(
+                _contains_alias(unit.text, subject_aliases)
+                if subject_covered is None else subject_covered
+            ),
+            object_covered=(
+                _contains_alias(unit.text, object_aliases)
+                if object_covered is None else object_covered
+            ),
             trigger_covered=trigger_match in {"EXPLICIT", "WEAK"},
             trigger_match=trigger_match,
             trigger_reason_codes=tuple(support.get("reason_codes", []) or []),
@@ -219,39 +303,33 @@ class EvidencePackBuilder:
     ) -> None:
         """Choose the deterministic minimal owner-only support closure."""
         owner_spans = [item for item in pack.spans if item.role == "OWNER"]
-        pack.context_span_ids = [item.span_id for item in pack.spans if item.role == "CONTEXT"]
-        subject_aliases = list((pack.alias_resolution or {}).get("subject", []) or [])
-        object_aliases = list((pack.alias_resolution or {}).get("object", []) or [])
-        predicate = str(relation.get("predicate", "") or "").upper()
-
-        self_contained = [
-            (item,) for item in owner_spans
-            if (
-                item.subject_covered
-                and item.object_covered
-                and item.trigger_match in {"EXPLICIT", "WEAK"}
-            )
-        ]
-        candidates: list[tuple[EvidenceSpan, ...]] = list(self_contained)
-        if not candidates:
-            for size in range(2, min(self.max_spans, len(owner_spans)) + 1):
-                for combo in itertools.combinations(owner_spans, size):
-                    if (
-                        any(item.subject_covered for item in combo)
-                        and any(item.object_covered for item in combo)
-                        and any(item.trigger_covered for item in combo)
-                    ):
-                        candidates.append(combo)
-                if candidates:
-                    break
-
-        if not candidates:
+        # Each span covers a subset of {subject, object, predicate trigger}.
+        # Retain the best partial cover for each (mask, strongest trigger).
+        # Keeping trigger strength separate preserves ties when an extension
+        # raises the strongest trigger of two different partial covers.
+        best: dict[tuple[int, int], tuple[EvidenceSpan, ...]] = {(0, 0): ()}
+        for span in owner_spans:
+            coverage = span.subject_covered | (span.object_covered << 1) | (span.trigger_covered << 2)
+            strength = {"EXPLICIT": 2, "WEAK": 1}.get(span.trigger_match, 0)
+            for (mask, trigger), partial in tuple(best.items()):
+                updated = mask | coverage
+                if updated == mask or len(partial) >= self.max_spans:
+                    continue
+                key = (updated, max(trigger, strength))
+                candidate = partial + (span,)
+                incumbent = best.get(key)
+                if incumbent is None or self._support_rank(
+                    candidate, primary_span_ids,
+                ) < self._support_rank(incumbent, primary_span_ids):
+                    best[key] = candidate
+        complete = [spans for (mask, _), spans in best.items() if mask == 0b111]
+        if not complete:
             pack.support_mode = "UNRESOLVED"
             pack.support_closure_reason_codes = ["owner_support_not_closed"]
             return
 
         chosen = tuple(sorted(
-            min(candidates, key=lambda items: self._support_rank(items, primary_span_ids)),
+            min(complete, key=lambda items: self._support_rank(items, primary_span_ids)),
             key=lambda item: (item.char_start, item.char_end, item.span_id),
         ))
         pack.minimal_support_span_ids = [item.span_id for item in chosen]
@@ -308,9 +386,13 @@ class EvidencePackBuilder:
         *,
         text: str,
         aliases_by_canonical: dict[str, list[str]] | None = None,
+        source_index: ArticleEvidenceIndex | None = None,
     ) -> EvidencePack:
         aliases_by_canonical = aliases_by_canonical or {}
-        source_hash = hashlib.sha256(text.encode("utf-8")).hexdigest() if text else ""
+        if source_index is not None and source_index.text != text:
+            raise ValueError("source_index was built for different article text")
+        source_index = source_index or self.index(text)
+        source_hash = source_index.source_sha256
         pack = EvidencePack(source_sha256=source_hash)
         subject_aliases = _aliases(relation, "subject", aliases_by_canonical)
         object_aliases = _aliases(relation, "object", aliases_by_canonical)
@@ -321,8 +403,31 @@ class EvidencePackBuilder:
         if not text:
             return pack
 
-        units = self.reader.read(text)
-        parents = self.reader.parent_units(text, units)
+        parents = source_index.parents
+        support_cache: dict[str, dict[str, Any]] = {}
+
+        def support_matcher(evidence: str) -> dict[str, Any]:
+            if evidence not in support_cache:
+                support_cache[evidence] = self._support_match(
+                    relation, evidence, subject_aliases, object_aliases,
+                )
+            return support_cache[evidence]
+
+        token_cache: dict[tuple[str, ...], tuple[tuple[str, ...], ...]] = {}
+
+        def covered(parent_index: int, aliases: list[str]) -> bool:
+            key = tuple(aliases)
+            if key not in token_cache:
+                token_cache[key] = tuple(_normalized_tokens(alias) for alias in aliases)
+            needles = token_cache[key]
+            haystack = source_index.parent_tokens[parent_index]
+            return any(
+                needle and any(
+                    haystack[index:index + len(needle)] == needle
+                    for index in range(len(haystack) - len(needle) + 1)
+                )
+                for needle in needles
+            )
         selected: list[tuple[EvidenceUnit, str]] = []
         primary_ranges: set[tuple[int, int]] = set()
         evidence_values = list(dict.fromkeys(
@@ -337,20 +442,14 @@ class EvidencePackBuilder:
         for evidence in evidence_values[: self.max_spans]:
             grounded, start, end = locate_contiguous(evidence, text)
             if grounded:
-                containing = next(
-                    (item for item in parents if item.char_start <= start and end <= item.char_end),
-                    None,
-                )
+                containing = source_index.containing_parent(start, end)
                 if containing is not None:
                     exact_units = [containing]
                 else:
                     # A quote may cover multiple source sentences.  Preserve
                     # their sentence identities instead of synthesizing one
                     # pseudo-span that would look self-contained.
-                    exact_units = [
-                        item for item in parents
-                        if item.char_end > start and item.char_start < end
-                    ]
+                    exact_units = list(source_index.overlapping_parents(start, end))
                     if not exact_units:
                         exact_units = [EvidenceUnit(
                             unit_id="evidence", section="ABSTRACT", text=text[start:end],
@@ -360,8 +459,8 @@ class EvidencePackBuilder:
                     selected.append((exact_unit, "MATCH_EXACT"))
                     primary_ranges.add((exact_unit.char_start, exact_unit.char_end))
             else:
-                fuzzy = max(parents, key=lambda item: _token_similarity(evidence, item.text), default=None)
-                score = _token_similarity(evidence, fuzzy.text) if fuzzy else 0.0
+                scored = [(_token_similarity(evidence, item.text), item) for item in parents]
+                score, fuzzy = max(scored, key=lambda item: item[0], default=(0.0, None))
                 if fuzzy and score >= self.fuzzy_threshold:
                     selected.append((fuzzy, "MATCH_FUZZY"))
                     primary_ranges.add((fuzzy.char_start, fuzzy.char_end))
@@ -369,15 +468,12 @@ class EvidencePackBuilder:
         # Repair incomplete/empty quotes from source sentences.  First prefer a
         # single sentence closing both endpoints; then use an adjacent pair.
         both = [
-            item for item in parents
-            if _contains_alias(item.text, subject_aliases)
-            and _contains_alias(item.text, object_aliases)
+            item for index, item in enumerate(parents)
+            if covered(index, subject_aliases) and covered(index, object_aliases)
         ]
         both.sort(key=lambda item: (
             -{"EXPLICIT": 2, "WEAK": 1}.get(
-                self._support_match(
-                    relation, item.text, subject_aliases, object_aliases,
-                ).get("match", "NONE"),
+                support_matcher(item.text).get("match", "NONE"),
                 0,
             ),
             len(item.text), item.char_start,
@@ -385,18 +481,13 @@ class EvidencePackBuilder:
         for item in both:
             selected.append((item, "MATCH_EXACT"))
 
-        ordered = sorted(parents, key=lambda item: item.char_start)
-        for index, first in enumerate(ordered[:-1]):
-            second = ordered[index + 1]
-            combined = first.text + " " + second.text
+        for window, first, second, window_tokens in source_index.adjacent_windows:
             if not (
-                _contains_alias(combined, subject_aliases)
-                and _contains_alias(combined, object_aliases)
+                _tokens_contain(window_tokens, subject_aliases)
+                and _tokens_contain(window_tokens, object_aliases)
             ):
                 continue
-            if self._support_match(
-                relation, combined, subject_aliases, object_aliases,
-            ).get("match") not in {"EXPLICIT", "WEAK"}:
+            if support_matcher(window.text).get("match") not in {"EXPLICIT", "WEAK"}:
                 continue
             selected.extend(((first, "MATCH_EXACT"), (second, "MATCH_EXACT")))
 
@@ -413,7 +504,7 @@ class EvidencePackBuilder:
         )
         for aliases in (subject_aliases, object_aliases):
             endpoint_parents = [
-                item for item in parents if _contains_alias(item.text, aliases)
+                item for index, item in enumerate(parents) if covered(index, aliases)
             ]
             endpoint_parents.sort(key=lambda item: (
                 min(
@@ -435,38 +526,51 @@ class EvidencePackBuilder:
             previous = unique.get(key)
             if previous is None or previous[1] != "MATCH_EXACT":
                 unique[key] = (unit, status)
+        parent_index_by_range = {
+            (item.char_start, item.char_end): index for index, item in enumerate(parents)
+        }
         ranked = sorted(unique.values(), key=lambda item: (
             -{"EXPLICIT": 2, "WEAK": 1}.get(
-                self._support_match(
-                    relation, item[0].text, subject_aliases, object_aliases,
-                ).get("match", "NONE"),
+                support_matcher(item[0].text).get("match", "NONE"),
                 0,
             ),
             item[1] != "MATCH_EXACT",
             (item[0].char_start, item[0].char_end) not in primary_ranges,
             not (
-                _contains_alias(item[0].text, subject_aliases)
-                and _contains_alias(item[0].text, object_aliases)
-            ),
+                covered(parent_index_by_range[(item[0].char_start, item[0].char_end)], subject_aliases)
+                and covered(parent_index_by_range[(item[0].char_start, item[0].char_end)], object_aliases)
+            ) if (item[0].char_start, item[0].char_end) in parent_index_by_range else True,
             item[0].char_start,
-        ))[:self.max_spans]
-        pack.spans = [
-            self._span(unit, relation, subject_aliases, object_aliases, status)
-            for unit, status in ranked
-        ]
+        ))
+        all_spans = []
+        for unit, status in ranked:
+            parent_index = parent_index_by_range.get((unit.char_start, unit.char_end))
+            all_spans.append(self._span(
+                unit, relation, subject_aliases, object_aliases, status,
+                support=support_matcher(unit.text),
+                subject_covered=(covered(parent_index, subject_aliases) if parent_index is not None else _contains_alias(unit.text, subject_aliases)),
+                object_covered=(covered(parent_index, object_aliases) if parent_index is not None else _contains_alias(unit.text, object_aliases)),
+            ))
+
+        primary_span_ids = {
+            item.span_id for item in all_spans
+            if (item.char_start, item.char_end) in primary_ranges
+        }
+        pack.spans = all_spans
+        self._finalize_support(pack, relation, primary_span_ids=primary_span_ids)
+        closure_ids = set(pack.minimal_support_span_ids)
+        closure_spans = [item for item in all_spans if item.span_id in closure_ids]
+        remaining_spans = [item for item in all_spans if item.span_id not in closure_ids]
+        pack.spans = closure_spans + remaining_spans[:max(0, self.max_spans - len(closure_spans))]
         pack.owner_sentence_ids = list(dict.fromkeys(
             item.sentence_id for item in pack.spans if item.role == "OWNER"
         ))
         pack.context_sentence_ids = list(dict.fromkeys(
             item.sentence_id for item in pack.spans if item.role == "CONTEXT"
         ))
+        pack.context_span_ids = [item.span_id for item in pack.spans if item.role == "CONTEXT"]
         pack.subject_covered = any(item.subject_covered for item in pack.spans)
         pack.object_covered = any(item.object_covered for item in pack.spans)
         pack.trigger_covered = any(item.trigger_covered for item in pack.spans)
         pack.source_traceable = bool(pack.spans)
-        primary_span_ids = {
-            item.span_id for item in pack.spans
-            if (item.char_start, item.char_end) in primary_ranges
-        }
-        self._finalize_support(pack, relation, primary_span_ids=primary_span_ids)
         return pack

@@ -220,13 +220,81 @@ def locate_contiguous(quote: str, text: str) -> tuple[bool, int, int]:
     match = re.search(re.escape(quote), text, flags=re.IGNORECASE)
     if match:
         return True, match.start(), match.end()
-    tokens = re.findall(r"\w+", unicodedata.normalize("NFKC", quote), flags=re.UNICODE)
+    normalized_quote = unicodedata.normalize("NFKC", quote).casefold()
+    tokens = re.findall(r"\w+", normalized_quote, flags=re.UNICODE)
     if not tokens:
         return False, -1, -1
     pattern = r"(?<!\w)" + r"(?:[\W_]+)".join(re.escape(token) for token in tokens) + r"(?!\w)"
-    match = re.search(pattern, unicodedata.normalize("NFKC", text), flags=re.IGNORECASE)
+    if text.isascii():
+        match = re.search(pattern, text.lower())
+        return (True, match.start(), match.end()) if match else (False, -1, -1)
+    normalized_text, source_ranges = _normalized_with_source_ranges(text)
+    match = re.search(pattern, normalized_text)
     if match:
-        return True, match.start(), match.end()
+        return True, source_ranges[match.start()][0], source_ranges[match.end() - 1][1]
+    return False, -1, -1
+
+
+def _normalized_with_source_ranges(text: str) -> tuple[str, list[tuple[int, int]]]:
+    """Normalize Unicode text while retaining a source interval per character."""
+    output: list[str] = []
+    source_ranges: list[tuple[int, int]] = []
+    cluster_start = 0
+
+    def append_cluster(start: int, end: int) -> None:
+        normalized_cluster = unicodedata.normalize("NFKC", text[start:end]).casefold()
+        output.append(normalized_cluster)
+        source_ranges.extend((start, end) for _ in normalized_cluster)
+
+    for index, character in enumerate(text):
+        if index == cluster_start:
+            continue
+        previous = text[index - 1]
+        current_category = unicodedata.category(character)
+        hangul_continuation = (
+            "\u1100" <= previous <= "\u1112" and "\u1161" <= character <= "\u1175"
+            or "\u1161" <= previous <= "\u1175" and "\u11a8" <= character <= "\u11c2"
+        )
+        if (
+            current_category.startswith("M")
+            or previous == "\u200d"
+            or character == "\u200d"
+            or hangul_continuation
+        ):
+            continue
+        append_cluster(cluster_start, index)
+        cluster_start = index
+    if cluster_start < len(text):
+        append_cluster(cluster_start, len(text))
+    return "".join(output), source_ranges
+
+
+def locate_mention(mention: str, text: str) -> tuple[bool, int, int]:
+    """Locate a whole grounded mention and return offsets into the original text."""
+    mention = str(mention or "").strip()
+    text = str(text or "")
+    if not mention or not text or not re.search(r"\w", mention, flags=re.UNICODE):
+        return False, -1, -1
+    exact_pattern = r"(?<!\w)" + re.escape(mention) + r"(?!\w)"
+    for match in re.finditer(exact_pattern, text, flags=re.IGNORECASE):
+        start, end = match.span()
+        adjacent = text[max(0, start - 1):start] + text[end:end + 1]
+        if not any(unicodedata.category(char).startswith("M") for char in adjacent):
+            if match.group().casefold() == mention.casefold():
+                return True, start, end
+    normalized_mention = unicodedata.normalize("NFKC", mention).casefold()
+    tokens = re.findall(r"\w+", normalized_mention, flags=re.UNICODE)
+    if not tokens:
+        return False, -1, -1
+    pattern = r"(?<!\w)" + r"(?:[\W_]+)".join(re.escape(token) for token in tokens) + r"(?!\w)"
+    if text.isascii():
+        match = re.search(pattern, text.lower())
+        return (True, match.start(), match.end()) if match else (False, -1, -1)
+    normalized_text, source_ranges = _normalized_with_source_ranges(text)
+    for match in re.finditer(pattern, normalized_text):
+        start, end = source_ranges[match.start()][0], source_ranges[match.end() - 1][1]
+        if unicodedata.normalize("NFKC", text[start:end]).casefold() == match.group():
+            return True, start, end
     return False, -1, -1
 
 
@@ -393,7 +461,7 @@ def _conditional_process_supported(mention: str, relations: list[dict], text: st
             continue
         evidence = str(rel.get("evidence", "") or "")
         grounded, _, _ = locate_contiguous(evidence, text)
-        if not grounded or not locate_contiguous(mention, evidence)[0]:
+        if not grounded or not locate_mention(mention, evidence)[0]:
             continue
         if METHOD_EVIDENCE_RE.search(evidence) and not VALIDATION_RE.search(evidence):
             continue
@@ -515,9 +583,14 @@ def _entity_span(entity: dict, text: str) -> tuple[bool, int, int, str]:
     end = entity.get("char_end")
     if isinstance(start, int) and isinstance(end, int) and 0 <= start < end <= len(text):
         span = text[start:end]
-        if normalize_surface(span) == normalize_surface(mention):
+        left_boundary = start == 0 or not re.match(r"\w", text[start - 1], flags=re.UNICODE)
+        right_boundary = end == len(text) or not re.match(r"\w", text[end], flags=re.UNICODE)
+        if (
+            normalize_surface(span) == normalize_surface(mention)
+            and left_boundary and right_boundary
+        ):
             return True, start, end, span
-    grounded, start, end = locate_contiguous(mention, text)
+    grounded, start, end = locate_mention(mention, text)
     return grounded, start, end, text[start:end] if grounded else ""
 
 
@@ -613,7 +686,7 @@ def prepare_extraction(
         attrs = entity.get("attributes", {}) or {}
         normalized_id = str(attrs.get("normalized_id", entity.get("normalized_id", "")) or "").strip()
         long_form = explicit_abbr.get(mention, "")
-        if long_form and not locate_contiguous(long_form, text)[0]:
+        if long_form and not locate_mention(long_form, text)[0]:
             long_form = ""
         canonical_surface = long_form or mention
         keys = [(entity_type, f"name:{normalize_surface(canonical_surface)}")]
@@ -656,7 +729,7 @@ def prepare_extraction(
         )
         canonical = copy.deepcopy(winner)
         if normalize_surface(canonical["mention"]) != normalize_surface(canonical_surface):
-            grounded, start, end = locate_contiguous(canonical_surface, text)
+            grounded, start, end = locate_mention(canonical_surface, text)
             canonical.update({
                 "mention": canonical_surface,
                 "source_span": text[start:end] if grounded else "",
@@ -929,7 +1002,7 @@ def evaluate_relation_evidence(
         endpoint = str(relation.get(side, "") or "")
         aliases = aliases_by_canonical.get(endpoint, [endpoint])
         aliases = list(dict.fromkeys([endpoint, *aliases]))
-        present = any(locate_contiguous(alias, evidence)[0] for alias in aliases if alias)
+        present = any(locate_mention(alias, evidence)[0] for alias in aliases if alias)
         endpoint_grounded[side] = present
         if not present:
             flags.add(f"{side}_not_grounded")

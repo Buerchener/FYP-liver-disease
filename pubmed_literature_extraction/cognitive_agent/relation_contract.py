@@ -54,7 +54,7 @@ SEMANTIC_REVIEW_FLAGS = frozenset({
     "trigger_not_linking_endpoints", "trigger_direction_mismatch",
     "ambiguous_endpoint", "manual_review", "pair_low_confidence",
     "pair_ambiguous_predicate", "evidence_not_entailed", "title_only",
-    "review_article",
+    "review_article", "relation_counterevidence",
     # A single-model judge-ENTAILED semantic proposal conflicts with the
     # deterministic semantic flags: the conflict is a REVIEW-worthy flag that
     # routes the relation to the independent (second-model) adjudicator.
@@ -134,6 +134,7 @@ TIERED_SEMANTIC_REVIEW_FLAGS = frozenset({
     "filtered_endpoint", "subject_filtered", "object_filtered",
     "endpoint_type_ambiguous", "subject_type_ambiguous", "object_type_ambiguous",
     "composite_endpoint", "schema_gap", "lineage_binding_missing",
+    "relation_counterevidence",
 })
 
 # Audit-only observations must never decide whether the asserted relation is
@@ -170,7 +171,7 @@ WRITE_REVIEW_FLAGS = frozenset({
 MODEL_OVERRIDABLE_WRITE_FLAGS = frozenset()
 
 
-VERIFICATION_POLICY_CONTRACT_VERSION = "tiered-v2-monotonic-v5"
+VERIFICATION_POLICY_CONTRACT_VERSION = "tiered-v2-monotonic-v6"
 
 
 @dataclass(frozen=True)

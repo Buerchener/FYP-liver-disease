@@ -89,6 +89,33 @@ Targets are α=0.05 for import-ready acceptance and α=0.10 for semantic-only
 acceptance. These are prospective error targets, not claimed achieved results;
 coverage and realised error must be reported on the frozen expert blind set.
 
+## 5. Intra-article support and counterevidence
+
+The graph candidate represents an unqualified typed triple. A finding in one cohort can support the triple while a different result in the same abstract denies it. Recording both statements exposes a scope decision for curation.
+
+For a candidate triple \(t\), the verifier collects explicit supporting clauses using the active schema. It searches results, conclusions and unstructured abstract text for opposing clauses. A counterevidence clause must attach an explicit negation cue to the candidate predicate and match both typed arguments around the trigger. The verifier masks that cue and reevaluates the same clause with the same predicate and endpoints. A clause qualifies when the masked text explicitly supports \(t\) under the same schema. The output preserves the two original excerpts, sentence IDs, character ranges, and counterevidence cue and trigger ranges.
+
+When both sides exist, the verifier selects a pair deterministically by sentence proximity and source order. It flags the candidate as contested and sends an otherwise accepted relation to review. The graph import gate also checks the flag. This preserves the candidate for a curator to resolve cohort or outcome scope. The check uses the same schema interface for LiverKG and dataset-specific extraction.
+
+Evidence packing models each owner span as covering a subset of the subject, object and predicate trigger. A bounded dynamic program finds a minimum cover before the display budget is filled with other spans. The article index stores original sentence boundaries and normalized token coverage once for all candidates and re-verification passes. Unicode-normalized lookups map back to original character coordinates.
+
+### Position relative to prior work
+
+BioRED defines document-level biomedical relation type and novelty labels. Eider uses extracted evidence sentences for inference-stage fusion. SciFact-Open studies supporting and refuting evidence across a collection of scientific abstracts. LiverKG uses both polarities **within one source article** to abstain on a typed graph candidate while retaining exact witnesses on both sides. These are task and method distinctions. Comparative extraction performance requires a shared benchmark. [BioRED](https://arxiv.org/abs/2204.04263), [Eider](https://aclanthology.org/2022.findings-acl.23/), [SciFact-Open](https://aclanthology.org/2022.findings-emnlp.347/)
+
+### Reproducible checks
+
+Run from the `pubmed_literature_extraction` directory.
+
+```bash
+python -m scripts.benchmark_evidence_contrast --replay-archive extraction_output/agent_results_v3_final_quality_30.json
+python -m scripts.benchmark_evidence_index
+```
+
+The paired ablation fixes each candidate and its positive quote and changes the surrounding text. It tests direct same-pair denials, irrelevant denials, section scope and negation-like wording. The fixed archive replay measures changed decisions on historical candidates. The index benchmark compares emitted evidence packs and local evidence-building time with and without reuse.
+
+The contrast check covers directly attached lexical negation on explicit, same-clause arguments. Implicit refutations, paraphrases, arbitrary cross-sentence coreference and conflicts across papers remain outside this evaluation. The synthetic pairs exercise the mechanism. The archive has no conflict gold labels. Estimating generalization and coverage loss requires an independently annotated conflict set.
+
 ## Intended contribution and limits
 
 The contribution is the combination of closed rule induction, independent

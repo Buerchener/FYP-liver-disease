@@ -1,6 +1,11 @@
 import unittest
 
-from cognitive_agent.extraction_quality import locate_contiguous, prepare_extraction
+from cognitive_agent.extraction_quality import (
+    evaluate_relation_evidence,
+    locate_contiguous,
+    locate_mention,
+    prepare_extraction,
+)
 from cognitive_agent.verifier import KGVerifier
 
 
@@ -47,6 +52,38 @@ class ExtractionQualityTests(unittest.TestCase):
             pmid="test",
             text=text,
         )
+
+    def test_normalized_quote_offsets_refer_to_original_source(self):
+        text = "ﬁrst signal. e\u0301 marker. final signal."
+        self.assertEqual(locate_contiguous("first signal.", text), (True, 0, 11))
+        self.assertEqual(locate_contiguous("é marker.", text), (True, 13, 22))
+        self.assertEqual(text[13:22], "e\u0301 marker")
+
+        # Normalization elsewhere in the article must not shift a later quote.
+        text = "ﬃ ﬂ ﬁrst. Actual evidence is here."
+        start = text.index("Actual")
+        end = start + len("Actual evidence is here.")
+        self.assertEqual(locate_contiguous("Actual evidence is here.", text), (True, start, end))
+
+    def test_mention_locator_requires_whole_token_and_supports_surface_variants(self):
+        self.assertEqual(locate_mention("ALT", "SALT is reported."), (False, -1, -1))
+        self.assertEqual(locate_mention("ALT", "ALT is reported."), (True, 0, 3))
+        text = "The HCC 1 marker increased."
+        self.assertEqual(
+            locate_mention("HCC-1", text),
+            (True, text.index("HCC"), text.index(" marker")),
+        )
+        text = "e\u0301 marker was detected."
+        self.assertEqual(locate_mention("é marker", text), (True, 0, 9))
+
+    def test_relation_endpoint_substrings_do_not_ground_false_mentions(self):
+        checked = evaluate_relation_evidence(
+            relation(subject="ALT", evidence="SALT is associated with HCC."),
+            "SALT is associated with HCC.",
+            {},
+        )
+        self.assertFalse(checked["subject_grounded_in_evidence"])
+        self.assertIn("subject_not_grounded", checked["quality_flags"])
 
     def test_generic_entities_are_rejected_but_preserved_for_review(self):
         text = "Tumor immune microenvironment and cancer were discussed."

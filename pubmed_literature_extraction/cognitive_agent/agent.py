@@ -2006,11 +2006,13 @@ class CognitiveAgent:
             # Phase 3: Verify → conditional second model → re-verify
             # ═══════════════════════════════════════════════════
             t3 = time.time()
+            source_index = self.verifier.evidence_pack_builder.index(text, units=evidence_units)
             initial_verified = self.verifier.verify(
                 raw_entities=raw_extraction.entities,
                 raw_relations=agent_plan.repaired_relations,
                 pmid=pmid,
                 text=text,
+                source_index=source_index,
             )
             risk_routes = []
             if self.config.risk_router_mode != "off":
@@ -2399,6 +2401,7 @@ class CognitiveAgent:
                     raw_relations=merged.relations,
                     pmid=pmid,
                     text=text,
+                    source_index=source_index,
                 )
             else:
                 verified = initial_verified
@@ -2566,6 +2569,7 @@ class CognitiveAgent:
                             raw_relations=merged.relations,
                             pmid=pmid,
                             text=text,
+                            source_index=source_index,
                         )
                     self.central_agent_v2.observe(
                         v2_state,
@@ -2653,6 +2657,7 @@ class CognitiveAgent:
                 raw_relations=merged.relations,
                 pmid=pmid,
                 text=text,
+                source_index=source_index,
             )
             finalization_audit = {
                 "passes": [pass_audit],
@@ -2689,6 +2694,7 @@ class CognitiveAgent:
                         raw_relations=merged.relations,
                         pmid=pmid,
                         text=text,
+                        source_index=source_index,
                     )
             elif self.config.agent_mode == "recall":
                 shadow_payload["relations"] = [
@@ -2872,6 +2878,7 @@ class CognitiveAgent:
                     raw_relations=hypothesis_candidates,
                     pmid=pmid,
                     text=text,
+                    source_index=source_index,
                 )
                 hypothesis_verification = [item.to_dict() for item in checked_hypotheses.relations]
                 # Keep hypotheses structurally separate even if a future
@@ -4013,6 +4020,12 @@ class CognitiveAgent:
                 "write_contract_valid": s.total_write_contract_valid,
                 "semantic_only": s.total_semantic_only,
                 "human_review": s.total_human_review,
+                "contested_relations": sum(
+                    record.get("phases", {}).get("verification", {}).get(
+                        "summary", {},
+                    ).get("contested_relations", 0)
+                    for record in self.history
+                ),
                 "entities_proposed": proposed_entities,
                 "relations_proposed": proposed_relations,
                 "relation_updates_proposed": proposed_updates,

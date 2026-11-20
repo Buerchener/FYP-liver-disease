@@ -15,11 +15,13 @@ from dataclasses import dataclass, field
 from cognitive_agent.memory.kg_memory import KGMemory
 from cognitive_agent.schema.write_contract import SchemaAdapter
 from cognitive_agent.schema.schema_profile import SchemaProfile, resolve_schema_profile
-from cognitive_agent.evidence_pack import EvidencePackBuilder
+from cognitive_agent.evidence_contrast import find_evidence_conflict
+from cognitive_agent.evidence_pack import ArticleEvidenceIndex, EvidencePackBuilder
 from cognitive_agent.extraction_quality import (
     article_quality_flags,
     evaluate_relation_evidence,
     locate_contiguous,
+    locate_mention,
     prepare_extraction,
     ratio_metric,
 )
@@ -153,6 +155,7 @@ class VerifiedRelation:
     claim_role: str = "CURRENT_FINDING"
     evidence_spans: list[dict] = field(default_factory=list)
     evidence_pack: dict = field(default_factory=dict)
+    contrastive_evidence: dict = field(default_factory=dict)
     support_mode: str = "UNRESOLVED"
     minimal_support_span_ids: list[str] = field(default_factory=list)
     context_span_ids: list[str] = field(default_factory=list)
@@ -237,12 +240,14 @@ class KGVerifier:
         predicate_thresholds: dict[str, float] | None = None,
         schema_profile: SchemaProfile | str | None = None,
         dataset_only: bool = False,
+        evidence_contrast: bool = True,
     ):
         self.kg_memory = kg_memory
         self.verification_policy = verification_policy
         self.policy = get_verification_policy(verification_policy)
         self.schema_profile = resolve_schema_profile(schema_profile)
         self.dataset_only = bool(dataset_only)
+        self.evidence_contrast = evidence_contrast
         self.schema_profile_manifest = self.schema_profile.manifest()
         self.schema_adapter = SchemaAdapter()
         self.evidence_pack_builder = EvidencePackBuilder(
@@ -263,6 +268,8 @@ class KGVerifier:
         raw_relations: list[dict],
         pmid: str = "",
         text: str = "",
+        *,
+        source_index: ArticleEvidenceIndex | None = None,
     ) -> VerifiedExtraction:
         """
         验证提取结果，将实体和关系与 Neo4j 交叉比对。
@@ -272,12 +279,17 @@ class KGVerifier:
             raw_relations: Phase 2 提取的原始关系列表
             pmid: PubMed ID
             text: Current article source text (title + abstract)
+            source_index: Optional article index reused across verification passes.
 
         Returns:
             VerifiedExtraction: 带 Neo4j 验证状态的提取结果
         """
+        if source_index is not None and source_index.text != text:
+            raise ValueError("source_index does not match the article text")
         if self.dataset_only:
-            return self._verify_dataset_only(raw_entities, raw_relations, pmid, text)
+            if source_index is None and self.evidence_contrast and text and raw_relations:
+                source_index = self.evidence_pack_builder.index(text)
+            return self._verify_dataset_only(raw_entities, raw_relations, pmid, text, source_index)
         prepared = prepare_extraction(
             raw_entities,
             raw_relations,
@@ -315,6 +327,8 @@ class KGVerifier:
             if self.schema_profile.article_quality_mode == "liverkg"
             else set()
         )
+        if source_index is None and prepared.relations:
+            source_index = self.evidence_pack_builder.index(text)
         for rel in prepared.relations:
             rel.setdefault("quality_flags", [])
             rel["quality_flags"] = sorted(set(rel["quality_flags"]) | article_flags)
@@ -323,6 +337,7 @@ class KGVerifier:
                 verified_entities,
                 text=text,
                 aliases_by_canonical=prepared.aliases_by_canonical,
+                source_index=source_index,
             )
             vr.scope_status = (
                 "OUT_OF_SCOPE" if "article_out_of_scope" in article_flags else "IN_SCOPE"
@@ -339,6 +354,7 @@ class KGVerifier:
 
     def _verify_dataset_only(
         self, raw_entities: list[dict], raw_relations: list[dict], pmid: str, text: str,
+        source_index: ArticleEvidenceIndex | None,
     ) -> VerifiedExtraction:
         """Validate source-backed dataset candidates without LiverKG/write gates."""
         prepared = prepare_extraction(
@@ -390,10 +406,10 @@ class KGVerifier:
             subject_aliases = subject_entity.canonical_mentions if subject_entity and subject_entity.grounded else []
             object_aliases = object_entity.canonical_mentions if object_entity and object_entity.grounded else []
             subject_grounded = bool(
-                contiguous and any(locate_contiguous(alias, evidence)[0] for alias in subject_aliases)
+                contiguous and any(locate_mention(alias, evidence)[0] for alias in subject_aliases)
             )
             object_grounded = bool(
-                contiguous and any(locate_contiguous(alias, evidence)[0] for alias in object_aliases)
+                contiguous and any(locate_mention(alias, evidence)[0] for alias in object_aliases)
             )
             predicate = str(raw.get("predicate", "") or "")
             rule = profile.rule(predicate)
@@ -416,6 +432,7 @@ class KGVerifier:
                 scope_status="OUT_OF_SCOPE" if "article_out_of_scope" in article_flags else "IN_SCOPE",
             )
             flags = set(raw["quality_flags"]) | article_flags
+            flags.discard("relation_counterevidence")
             grounds = {
                 "schema_mismatch": not schema_valid,
                 "evidence_untraceable": not contiguous,
@@ -439,6 +456,12 @@ class KGVerifier:
             review = (
                 set(vr.relation_card_reason_codes) if vr.relation_card_match != "EXPLICIT" else set()
             )
+            if not rejected and vr.relation_card_match == "EXPLICIT":
+                vr.contrastive_evidence = self._find_evidence_conflict(
+                    raw, source_index, subject_aliases, object_aliases,
+                )
+                if vr.contrastive_evidence:
+                    review.add("relation_counterevidence")
             if vr.uncertain:
                 review.add("uncertain")
             if vr.claim_role not in allowed_roles:
@@ -460,9 +483,25 @@ class KGVerifier:
                 vr.write_status = "SEMANTIC_ONLY"
             vr.quality_flags = sorted(flags | rejected | review)
             vr.write_reasons = ["dataset_candidate_only"]
+            if vr.contrastive_evidence:
+                vr.write_reasons.append("relation_counterevidence")
             result.relations.append(vr)
         result.summary = self._build_summary(result)
         return result
+
+    def _find_evidence_conflict(
+        self,
+        relation: dict,
+        source_index: ArticleEvidenceIndex | None,
+        subject_aliases: list[str],
+        object_aliases: list[str],
+    ) -> dict:
+        if not self.evidence_contrast or source_index is None:
+            return {}
+        return find_evidence_conflict(
+            relation, source_index=source_index, profile=self.schema_profile,
+            subject_aliases=subject_aliases, object_aliases=object_aliases,
+        )
 
     @staticmethod
     def _metric_value(metric: dict, empty_default: float = 1.0) -> float:
@@ -603,6 +642,7 @@ class KGVerifier:
             "semantic_accepted": semantic_accepted,
             "semantic_review": semantic_review,
             "semantic_rejected": semantic_rejected,
+            "contested_relations": sum(bool(rel.contrastive_evidence) for rel in result.relations),
             "semantic_only": semantic_only,
             "human_review": human_review,
             "blocked_relations": blocked_relations,
@@ -820,6 +860,7 @@ class KGVerifier:
         verified_entities: dict[str, VerifiedEntity],
         text: str = "",
         aliases_by_canonical: dict[str, list[str]] | None = None,
+        source_index: ArticleEvidenceIndex | None = None,
     ) -> VerifiedRelation:
         """验证单条关系"""
         relation = normalize_relation_semantics(relation)
@@ -1019,6 +1060,7 @@ class KGVerifier:
 
         pack = self.evidence_pack_builder.build(
             relation, text=text, aliases_by_canonical=aliases_by_canonical or {},
+            source_index=source_index,
         )
         vr.evidence_pack = pack.to_dict()
         vr.evidence_spans = [item.to_dict() for item in pack.spans]
@@ -1040,6 +1082,7 @@ class KGVerifier:
             "predicate_card_conflict", "predicate_card_type_only",
             "adjudication_span_mismatch", "adjudication_span_support_insufficient",
             "cross_sentence", "multi_span_support", "coreference_only_support",
+            "relation_counterevidence",
         })
         if pack.source_traceable:
             evidence_flags.discard("evidence_untraceable")
@@ -1159,6 +1202,14 @@ class KGVerifier:
             evidence_flags.add("schema_mismatch")
         elif vr.relation_card_match == "TYPE_ONLY":
             evidence_flags.add("predicate_card_type_only")
+        if vr.relation_card_match == "EXPLICIT" and subj_entity and obj_entity:
+            vr.contrastive_evidence = self._find_evidence_conflict(
+                relation, source_index,
+                list(pack.alias_resolution.get("subject", []) or []),
+                list(pack.alias_resolution.get("object", []) or []),
+            )
+            if vr.contrastive_evidence:
+                evidence_flags.add("relation_counterevidence")
 
         # ``manual_review`` is an audit marker, not a semantic reason.  Require
         # a concrete reason code so cached legacy rows cannot be silently
