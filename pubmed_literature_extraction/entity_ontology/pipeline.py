@@ -1,4 +1,4 @@
-"""Run an Entity Ontology batch from PubMed title/abstract JSONL to the workbench."""
+"""Run a LiverKG batch: PubMed JSONL -> extraction -> ontology -> concept relations -> graph files."""
 
 from datetime import datetime, timezone
 from graphlib import TopologicalSorter
@@ -14,9 +14,14 @@ from .concepts.normalization import resolve
 from .concepts.retrieve_pairs import DEFAULT_KNN_K
 from .extraction.coverage import VERSION as COVERAGE_VERSION, recover as recover_coverage
 from .extraction.mentions import build, conceptualization_input, read_articles
-from .extraction.native import EXTRACTOR_COMMIT, extract_articles
+from .extraction.native import extract_articles, extractor_identity
+from .export.graph import VERSION as EXPORT_VERSION, export_graph
 from .hierarchy.order_entities import order_for_hierarchy
 from .hierarchy.placement import run as place_incrementally
+from .linking.kg_links import (
+    VERSION as LINK_VERSION, V2Index, link_concepts, resolve_v2_data_dir, v2_data_digest,
+)
+from .relations.project import VERSION as PROJECTION_VERSION, project_relations, verify_relations
 
 
 def file_hash(path):
@@ -41,7 +46,7 @@ def verify_placement(placement, ranked):
 
 
 def run_batch(articles_path, run_id, *, config, runs_dir=DEFAULT_RUNS_DIR, title=None,
-              knn_k=DEFAULT_KNN_K, go_reference=True, entity_coverage=True):
+              knn_k=DEFAULT_KNN_K, go_reference=True, entity_coverage=True, v2_data=None):
     if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,79}", run_id):
         raise ValueError("--run-id accepts 1–80 lowercase letters, digits, and hyphens.")
     if knn_k < 1:
@@ -52,15 +57,20 @@ def run_batch(articles_path, run_id, *, config, runs_dir=DEFAULT_RUNS_DIR, title
     source_hash = hashlib.sha256(content).hexdigest()
     output = Path(runs_dir).resolve() / run_id
     config = Path(config).resolve()
+    v2_dir = resolve_v2_data_dir(v2_data)
+    extractor = extractor_identity()
     output.mkdir(parents=True, exist_ok=True)
     manifest_path = output / "manifest.json"
     articles = output / "articles.jsonl"
     placement_path = output / "incremental-placement/placement.json"
+    relations_path = output / "concept_relations.json"
     identity = {"articles_sha256": source_hash, "knn_k": knn_k,
-                "extraction_commit": EXTRACTOR_COMMIT, "go_reference_enabled": go_reference,
+                "extractor_fingerprint": extractor["fingerprint"], "go_reference_enabled": go_reference,
                 "model_config_sha256": file_hash(config),
                 "normalization_version": "v2",
-                "entity_coverage": COVERAGE_VERSION if entity_coverage else None}
+                "entity_coverage": COVERAGE_VERSION if entity_coverage else None,
+                "v2_data_sha256": v2_data_digest(v2_dir),
+                "integration_version": f"{LINK_VERSION}/{PROJECTION_VERSION}/{EXPORT_VERSION}"}
     provider, _ = read_settings(config, "audit_edges")
     embedding = read_json(config)["embedding"]
     environment_endpoints = [endpoint(connection) for connection in (provider, embedding)
@@ -69,6 +79,7 @@ def run_batch(articles_path, run_id, *, config, runs_dir=DEFAULT_RUNS_DIR, title
         identity["environment_endpoints_sha256"] = digest(environment_endpoints)
     manifest = {
         **identity, "run_id": run_id, "title": title or run_id, "pmids": pmids,
+        "extractor_git": extractor["git"],
         "created_at": datetime.now(timezone.utc).isoformat(), "status": "running", "stages": {},
     }
 
@@ -78,7 +89,9 @@ def run_batch(articles_path, run_id, *, config, runs_dir=DEFAULT_RUNS_DIR, title
             if any(previous.get(key) != value for key, value in identity.items()):
                 raise ValueError("This run ID already refers to different inputs or settings.")
             if previous["status"] == "complete":
-                if file_hash(articles) != source_hash or file_hash(placement_path) != previous["placement_sha256"]:
+                if (file_hash(articles) != source_hash
+                        or file_hash(placement_path) != previous["placement_sha256"]
+                        or file_hash(relations_path) != previous["relations_sha256"]):
                     raise ValueError("The completed batch files do not match the published manifest.")
                 return previous
             manifest["created_at"] = previous["created_at"]
@@ -146,6 +159,20 @@ def run_batch(articles_path, run_id, *, config, runs_dir=DEFAULT_RUNS_DIR, title
             verify_placement(placement, ranked)
             complete()
 
+            start("concept_linking")
+            v2_index = V2Index(v2_dir)
+            links = link_concepts(output, v2_dir, index=v2_index)
+            complete()
+
+            start("relation_projection")
+            projection = project_relations(output, extraction_path, links, v2_index)
+            verify_relations(projection, {concept["id"] for concept in concepts})
+            complete()
+
+            start("graph_export")
+            graph = export_graph(output, run_id)
+            complete()
+
             counts = {
                 "articles": len(pmids), "mentions": len(inventory["mentions"]),
                 "coverage_mentions": sum(m["upstream_status"] == "ontology_coverage"
@@ -155,9 +182,18 @@ def run_batch(articles_path, run_id, *, config, runs_dir=DEFAULT_RUNS_DIR, title
                 "candidate_pairs": retrieval["candidate_count"], "concepts": len(concepts),
                 "placement_decisions": len(placement["decisions"]), "nodes": len(placement["nodes"]),
                 "edges": len(placement["edges"]), "go_references": placement["go_reference_count"],
+                "concept_links": links["counts"],
+                "article_relations": projection["counts"]["article_relations"],
+                "concept_relations": projection["counts"]["concept_relations"],
+                "merged_evidence": projection["counts"]["merged_evidence"],
+                "unresolved_evidence": projection["counts"]["unresolved_evidence"],
+                "relation_gates": projection["counts"]["gate"],
+                "relation_novelty": projection["counts"]["novelty"],
+                "graph_rows": {name: meta["rows"] for name, meta in graph["files"].items()},
             }
             manifest.update(status="complete", phase="complete", counts=counts,
-                            placement_sha256=file_hash(placement_path))
+                            placement_sha256=file_hash(placement_path),
+                            relations_sha256=file_hash(relations_path))
             atomic_json(manifest_path, manifest)
             return manifest
         except (Exception, KeyboardInterrupt) as error:

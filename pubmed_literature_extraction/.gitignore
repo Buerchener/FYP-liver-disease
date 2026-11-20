@@ -22,6 +22,11 @@ tmp/
 status.json
 heartbeat*
 
+# Entity ontology runtime (runs, local model config, private inputs)
+/runs/
+/inputs/
+/entity-ontology.local.json
+
 # Large, reproducible experiment artifacts stay local or in archival storage.
 # Add a compact report explicitly when it has been reviewed; never bulk-add
 # benchmark output directories.

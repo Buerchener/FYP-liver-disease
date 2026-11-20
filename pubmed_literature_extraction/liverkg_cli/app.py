@@ -560,6 +560,28 @@ def research_leakage_check(args: list[str] = typer.Argument(None)) -> None:
     _run_script("scripts/check_agent_v3_leakage.py", list(args or []))
 
 
+@app.command(
+    "ontology",
+    context_settings={"allow_extra_args": True, "ignore_unknown_options": True},
+    add_help_option=False,
+)
+def ontology(ctx: typer.Context) -> None:
+    """Build the entity ontology and literature graph: run | serve | load.
+
+    Arguments are passed to ``python -m entity_ontology``; run
+    ``liverkg ontology --help`` for its options.
+    """
+    try:
+        from entity_ontology.__main__ import main as ontology_main
+    except ImportError as error:
+        console.print(
+            f"Entity ontology dependencies are missing ({error.name}). "
+            "Install them with: pip install -e '.[ontology]'"
+        )
+        raise typer.Exit(1)
+    raise typer.Exit(ontology_main(list(ctx.args)))
+
+
 def main() -> None:
     app()
 

@@ -5,9 +5,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "liverkg"
 version = "0.1.0"
-description = "Research-grade CLI for PubMed liver disease knowledge graph extraction."
+description = "Research-grade CLI for PubMed liver disease knowledge graph extraction and entity ontology construction."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 license = { text = "Research use" }
 authors = [
   { name = "LiverKG Contributors" }
@@ -31,6 +31,15 @@ dependencies = [
 dev = [
   "pytest>=8.0",
 ]
+# Entity ontology workflow (entity_ontology/): concept deduplication,
+# hierarchy construction and the GO reference agent.
+ontology = [
+  "numpy>=1.24,<2.4",
+  "scipy>=1.10,<2",
+  "scikit-learn>=1.6,<1.8",
+  "langgraph==1.2.22",
+  "pydantic==2.14.3",
+]
 
 [project.scripts]
 liverkg = "liverkg_cli.app:main"
@@ -41,4 +50,7 @@ py-modules = ["convert_pubmed_xml_to_jsonl"]
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["cognitive_agent*", "liverkg_cli*"]
+include = ["cognitive_agent*", "liverkg_cli*", "entity_ontology*"]
+
+[tool.setuptools.package-data]
+entity_ontology = ["config.example.json", "workbench/web/*"]

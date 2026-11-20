@@ -9,13 +9,13 @@ import tempfile
 import unicodedata
 
 
-def atomic_json(path, value):
+def atomic_text(path, text):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, name = tempfile.mkstemp(prefix='.' + path.name, dir=str(path.parent))
     try:
         with os.fdopen(fd, 'w', encoding='utf-8') as stream:
-            stream.write(json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + '\n')
+            stream.write(text)
             stream.flush()
             os.fsync(stream.fileno())
         os.replace(name, path)
@@ -29,9 +29,22 @@ def atomic_json(path, value):
             os.unlink(name)
 
 
+def atomic_json(path, value):
+    atomic_text(path, json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + '\n')
+
+
+def atomic_jsonl(path, rows):
+    atomic_text(path, ''.join(json.dumps(row, ensure_ascii=False, allow_nan=False) + '\n' for row in rows))
+
+
 def read_json(path):
     with Path(path).open(encoding='utf-8') as stream:
         return json.load(stream)
+
+
+def read_jsonl(path):
+    with Path(path).open(encoding='utf-8') as stream:
+        return [json.loads(line) for line in stream if line.strip()]
 
 
 @contextmanager

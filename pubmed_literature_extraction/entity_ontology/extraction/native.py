@@ -1,27 +1,24 @@
-"""Run the pinned LiverKG extractor in dry-run mode and expose its raw records."""
+"""Run the in-repository LiverKG extractor in dry-run mode and expose its raw records."""
 
-import fcntl
 import hashlib
-import io
 import json
 import os
 from pathlib import Path
 import shlex
 import subprocess
 import sys
-import tarfile
-import tempfile
+from urllib.parse import urlsplit
 
 from .mentions import read_articles
 from ..model import DEFAULT_CONFIG, live_provider, read_settings
 from ..storage import atomic_json, read_json, run_lock
 
 
-EXTRACTOR_COMMIT = "fc9ebd72971318a7738f15fc2b86369a552656c2"
-EXTRACTOR_DIRECTORY = "pubmed_literature_extraction"
-EXTRACTOR_REPOSITORY = "https://github.com/Buerchener/FYP-liver-disease.git"
+# The extractor ships next to this package: ``pubmed_literature_extraction/``
+# holds ``cognitive_agent/``, ``liverkg_cli/`` and ``entity_ontology/``.
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
-EXTRACTOR_CACHE = Path(".cache/entity_ontology/extractor")
+EXTRACTOR_PACKAGES = ("cognitive_agent", "liverkg_cli")
+EXTRACTOR_MODULES = ("convert_pubmed_xml_to_jsonl.py",)
 PROFILE = "quality"
 RUN_ID = "entity_ontology"
 AUXILIARY_KEYS = {
@@ -30,37 +27,50 @@ AUXILIARY_KEYS = {
 }
 
 
-def archive_source(runtime, repo):
-    source = runtime / EXTRACTOR_COMMIT
-    runtime.mkdir(parents=True, exist_ok=True)
-    with (runtime / ".archive.lock").open("a") as lock:
-        fcntl.flock(lock, fcntl.LOCK_EX)
-        if not source.exists():
-            git = ["git", "-C", str(repo)]
-            present = subprocess.run(
-                git + ["cat-file", "-e", f"{EXTRACTOR_COMMIT}^{{commit}}"], capture_output=True,
-            )
-            if present.returncode:
-                fetch = subprocess.run(
-                    git + ["fetch", "--no-tags", "--no-write-fetch-head",
-                           EXTRACTOR_REPOSITORY, EXTRACTOR_COMMIT], capture_output=True,
-                )
-                if fetch.returncode:
-                    raise RuntimeError(
-                        f"Could not fetch pinned LiverKG commit {EXTRACTOR_COMMIT}. "
-                        "Check network access and Git credentials for the LiverKG repository."
-                    )
-            archive = subprocess.run(
-                git + ["archive", "--format=tar", EXTRACTOR_COMMIT, EXTRACTOR_DIRECTORY],
-                check=True, capture_output=True,
-            ).stdout
-            with tempfile.TemporaryDirectory(dir=runtime) as directory:
-                unpacked = Path(directory) / "source"
-                unpacked.mkdir()
-                with tarfile.open(fileobj=io.BytesIO(archive)) as tar:
-                    tar.extractall(unpacked, filter="data")
-                unpacked.rename(source)
-    return source / EXTRACTOR_DIRECTORY
+def extractor_source(root=None):
+    """Return the extractor project root, which must contain its packages."""
+    root = Path(root or REPOSITORY_ROOT).resolve()
+    missing = [name for name in (*EXTRACTOR_PACKAGES, *EXTRACTOR_MODULES) if not (root / name).exists()]
+    if missing:
+        raise RuntimeError(
+            f"The LiverKG extractor was not found under {root} (missing: {', '.join(missing)}). "
+            "Run the ontology workflow from the FYP-liver-disease repository."
+        )
+    return root
+
+
+def extractor_fingerprint(source):
+    """Hash the extractor source so results are tied to the exact code that produced them."""
+    digest = hashlib.sha256()
+    files = sorted(path for package in EXTRACTOR_PACKAGES for path in (source / package).rglob("*.py"))
+    files += [source / module for module in EXTRACTOR_MODULES]
+    for path in files:
+        digest.update(path.relative_to(source).as_posix().encode("utf-8") + b"\0")
+        digest.update(path.read_bytes() + b"\0")
+    return digest.hexdigest()
+
+
+def git_revision(source):
+    """Record the Git commit for provenance; it is informational, not part of run identity."""
+    try:
+        head = subprocess.run(["git", "-C", str(source), "rev-parse", "HEAD"],
+                              capture_output=True, text=True, timeout=10)
+        if head.returncode:
+            return None
+        status = subprocess.run(
+            ["git", "-C", str(source), "status", "--porcelain", "--",
+             *EXTRACTOR_PACKAGES, *EXTRACTOR_MODULES],
+            capture_output=True, text=True, timeout=10,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    dirty = bool(status.stdout.strip()) if status.returncode == 0 else None
+    return {"commit": head.stdout.strip(), "dirty": dirty}
+
+
+def extractor_identity(root=None):
+    source = extractor_source(root)
+    return {"fingerprint": extractor_fingerprint(source), "git": git_revision(source)}
 
 
 def auxiliary_settings(path):
@@ -78,9 +88,20 @@ def auxiliary_settings(path):
     return settings
 
 
+def require_openai_compatible(base_url):
+    # cognitive_agent.agent selects its OpenAI-compatible LangExtract provider
+    # only for endpoints ending in /v1; any other base silently uses Gemini.
+    if not urlsplit(base_url).path.rstrip("/").casefold().endswith("/v1"):
+        raise ValueError(
+            "The extractor needs an OpenAI-compatible base URL ending in /v1 "
+            f"(got {base_url!r}). Set LIVERKG_API_BASE to the provider's /v1 endpoint."
+        )
+
+
 def extractor_env(runtime, source, config, output, auxiliary_env):
     connection, settings = read_settings(config, "audit_edges")
     live_provider(connection, settings)
+    require_openai_compatible(connection["base_url"])
     credential = os.environ[connection["api_key_env"]]
     output.mkdir(exist_ok=True)
     config_path = runtime / "extractor.toml"
@@ -98,6 +119,9 @@ def extractor_env(runtime, source, config, output, auxiliary_env):
         PRIMARY_LLM_MAX_OUTPUT_TOKENS="8192", PRIMARY_LLM_REQUEST_TIMEOUT_S="100",
         PRIMARY_LLM_MAX_RETRIES="2", AUX_MODEL_MAX_RETRIES="1",
         SCHEMA_PROFILE="", RULE_BUNDLE="", CONFORMAL_CALIBRATION="",
+        # Roles whose defaults point at another provider stay off unless the
+        # shell environment would otherwise switch them on.
+        ENTITY_RECOVERY_MODE="off", PAIRWISE_JUDGE_MODE="off",
         PYTHONUNBUFFERED="1", PYTHONDONTWRITEBYTECODE="1", PYTHONPATH=str(source),
     )
     return env
@@ -138,7 +162,7 @@ def extract_articles(articles, output_dir, *, config=None, repo=None, python=Non
     articles = Path(articles).resolve()
     output_dir = Path(output_dir).resolve()
     config = Path(config or os.getenv("ENTITY_MODEL_CONFIG") or DEFAULT_CONFIG).expanduser().resolve()
-    repo = Path(repo or REPOSITORY_ROOT).expanduser().resolve()
+    source = extractor_source(repo)
     python = Path(python or os.getenv("LIVERKG_EXTRACTOR_PYTHON") or sys.executable).expanduser().absolute()
     auxiliary_env = auxiliary_env or os.getenv("LIVERKG_EXTRACTOR_AUX_ENV")
     auxiliary_env = Path(auxiliary_env).expanduser() if auxiliary_env else None
@@ -154,7 +178,8 @@ def extract_articles(articles, output_dir, *, config=None, repo=None, python=Non
     manifest = {
         "article_sha256": hashlib.sha256(content).hexdigest(),
         "model_config_sha256": hashlib.sha256(config.read_bytes()).hexdigest(),
-        "commit": EXTRACTOR_COMMIT, "model": model, "profile": PROFILE, "pmids": pmids,
+        "extractor_fingerprint": extractor_fingerprint(source),
+        "model": model, "profile": PROFILE, "pmids": pmids,
     }
 
     with run_lock(runtime):
@@ -162,7 +187,7 @@ def extract_articles(articles, output_dir, *, config=None, repo=None, python=Non
         if final.exists() and not snapshot.exists():
             raise ValueError("An extraction output exists without an input snapshot.")
         if snapshot.exists() and read_json(snapshot) != manifest:
-            raise ValueError("Extraction input or model settings changed. Use a separate run directory.")
+            raise ValueError("Extraction input, extractor code or model settings changed. Use a separate run directory.")
         atomic_json(snapshot, manifest)
         if final.exists():
             validate_output(read_json(final), pmids, model)
@@ -185,7 +210,6 @@ def extract_articles(articles, output_dir, *, config=None, repo=None, python=Non
                     rejected.parent.mkdir(exist_ok=True)
                     checkpoint.replace(rejected)
         if len(valid) != len(pmids):
-            source = archive_source(repo / EXTRACTOR_CACHE, repo)
             env = extractor_env(runtime, source, config, native_output, auxiliary_env)
             args = [str(python), "-m", "liverkg_cli.app", "extract", str(articles),
                     "--profile", PROFILE, "--limit", str(len(pmids)), "--run-id", RUN_ID]

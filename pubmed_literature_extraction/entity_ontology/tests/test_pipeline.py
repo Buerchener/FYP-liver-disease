@@ -31,14 +31,60 @@ def fake_extract(articles, output, *, config):
             "mention": name, "type": "Protein", "source_span": name, "char_start": start,
             "char_end": start + len(name), "grounded": True, "alignment_status": "PARSED",
         })
+    verified = []
+    for name, aliases in (("Beta protein", ["Beta protein", "BP"]), ("Dual protein", ["Dual protein"])):
+        start = text.index(name)
+        verified.append({
+            "mention": name, "type": "Protein", "canonical_mentions": aliases,
+            "canonical_key": "Protein:" + name.lower(), "normalized_id": "",
+            "char_start": start, "char_end": start + len(name), "source_span": name,
+        })
+    evidence = "Beta protein and BP were stable."
+
+    def relation(predicate, write_status, subject="Beta protein", **extra):
+        start = text.index(evidence)
+        return {"subject": subject, "subject_type": "Protein", "predicate": predicate,
+                "object": "Dual protein", "object_type": "Protein", "evidence": evidence,
+                "evidence_char_start": start, "evidence_char_end": start + len(evidence),
+                "candidate_id": "c-" + predicate.lower(), "candidate_version": 1,
+                "write_status": write_status, "semantic_status": "ACCEPTED", **extra}
+
+    relations = [
+        relation("INTERACTS_WITH", "IMPORT_READY"),
+        relation("INTERACTS_WITH", "SEMANTIC_ONLY"),
+        relation("ASSOCIATED_WITH", "IMPORT_READY", contrastive_evidence={"status": "CONTESTED"}),
+        relation("INTERACTS_WITH", "IMPORT_READY", subject="Gamma protein"),
+    ]
     artifact = output / "agent_results.json"
     atomic_json(artifact, {
         "report": {"dry_run": True, "neo4j_connected": False, "total_articles": 1, "model": "fixture"},
         "records": [{"pmid": article["pmid"], "phases": {
             "reader": {"units": units}, "extraction": {"entities": entities},
+            "verification": {"entities": verified, "relations": relations,
+                             "review": {"raw_entities": entities, "filtered_entities": []}},
         }}],
     })
     return artifact
+
+
+def write_tsv(path, header, rows):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join("\t".join(row) for row in [header, *rows]) + "\n")
+
+
+def v2_fixture(root):
+    """A two-protein slice of the v2 data package that interacts in STRING."""
+    data = root / "v2-data"
+    write_tsv(data / "disgenet_liver_backbone/curated/genes.tsv", ["gene_id", "gene_symbol"],
+              [["7", "BETA1"], ["8", "DUAL1"]])
+    write_tsv(data / "string_human_liver_genes_v02/gene_string_mapping.tsv",
+              ["gene_id", "gene_symbol", "protein_ids_from_disgenet", "string_protein_id",
+               "preferred_name", "annotation"],
+              [["7", "BETA1", "P99997", "9606.ENSPBETA", "BETA1", "Beta protein; synthetic"],
+               ["8", "DUAL1", "P99998", "9606.ENSPDUAL", "DUAL1", "Dual protein; synthetic"]])
+    write_tsv(data / "string_human_liver_genes_v02/string_interactions.tsv",
+              ["string_protein_id_a", "string_protein_id_b"], [["9606.ENSPBETA", "9606.ENSPDUAL"]])
+    return data
 
 
 def fake_embeddings(texts):
@@ -111,12 +157,38 @@ class PipelineTest(unittest.TestCase):
             ):
                 connection, _ = read_settings(config, "audit_edges")
                 self.assertEqual(endpoint(connection), endpoint(settings["embedding"]))
-                options = {"config": config, "runs_dir": runs, "go_reference": False}
+                options = {"config": config, "runs_dir": runs, "go_reference": False,
+                           "v2_data": v2_fixture(root)}
                 result = pipeline.run_batch(articles, "example", **options)
                 self.assertEqual(result["status"], "complete")
                 self.assertEqual(result["counts"]["coverage_mentions"], 1)
                 self.assertEqual(result["counts"]["concepts"], 3)
                 self.assertEqual(result["counts"]["edges"], 4)
+
+                # Relations: two INTERACTS_WITH items merge; the contested one needs review;
+                # the endpoint that is not an extracted entity stays unresolved.
+                counts = result["counts"]
+                self.assertEqual(counts["article_relations"], 4)
+                self.assertEqual(counts["concept_relations"], 2)
+                self.assertEqual(counts["merged_evidence"], 1)
+                self.assertEqual(counts["unresolved_evidence"], 1)
+                self.assertEqual(counts["relation_gates"], {"AUTO": 1, "REVIEW": 1, "BLOCKED": 0})
+                self.assertEqual(counts["concept_links"], {"LINKED": 2, "AMBIGUOUS": 0, "NEW": 1})
+                projection = read_json(run / "concept_relations.json")
+                by_predicate = {row["predicate"]: row for row in projection["relations"]}
+                interacts = by_predicate["INTERACTS_WITH"]
+                self.assertEqual(interacts["gate"], "AUTO")
+                self.assertEqual(interacts["evidence_count"], 2)
+                self.assertEqual(interacts["novelty"], "KNOWN_IN_V2")
+                associated = by_predicate["ASSOCIATED_WITH"]
+                self.assertEqual(associated["gate"], "REVIEW")
+                self.assertIn("counter_evidence", associated["gate_reasons"])
+                self.assertEqual(associated["novelty"], "NEW")
+                unresolved = projection["unresolved_evidence"][0]
+                self.assertEqual(unresolved["reasons"], ["subject_unresolved"])
+                self.assertEqual(counts["graph_rows"]["relations"], 2)
+                self.assertEqual(counts["graph_rows"]["evidence"], 3)
+                self.assertEqual(counts["graph_rows"]["same_as"], 2)
 
                 mentions = read_json(run / "input_mentions.json")["mentions"]
                 self.assertEqual([row["mention"] for row in mentions],
