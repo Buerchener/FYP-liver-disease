@@ -95,7 +95,7 @@ The graph candidate represents an unqualified typed triple. A finding in one coh
 
 For a candidate triple \(t\), the verifier collects explicit supporting clauses using the active schema. It searches results, conclusions and unstructured abstract text for opposing clauses. A counterevidence clause must attach an explicit negation cue to the candidate predicate and match both typed arguments around the trigger. The verifier masks that cue and reevaluates the same clause with the same predicate and endpoints. A clause qualifies when the masked text explicitly supports \(t\) under the same schema. The output preserves the two original excerpts, sentence IDs, character ranges, and counterevidence cue and trigger ranges.
 
-When both sides exist, the verifier selects a pair deterministically by sentence proximity and source order. It flags the candidate as contested and sends an otherwise accepted relation to review. The graph import gate also checks the flag. This preserves the candidate for a curator to resolve cohort or outcome scope. The check uses the same schema interface for LiverKG and dataset-specific extraction.
+When both sides exist, the verifier flags the candidate as contested and sends an otherwise accepted relation to review. The graph import gate also checks the flag. The check uses the same schema interface for LiverKG and dataset-specific extraction. The comparison below refines which pair is shown first and how each reported finding is preserved.
 
 Evidence packing models each owner span as covering a subset of the subject, object and predicate trigger. A bounded dynamic program finds a minimum cover before the display budget is filled with other spans. The article index stores original sentence boundaries and normalized token coverage once for all candidates and re-verification passes. Unicode-normalized lookups map back to original character coordinates.
 
@@ -115,6 +115,39 @@ python -m scripts.benchmark_evidence_index
 The paired ablation fixes each candidate and its positive quote and changes the surrounding text. It tests direct same-pair denials, irrelevant denials, section scope and negation-like wording. The fixed archive replay measures changed decisions on historical candidates. The index benchmark compares emitted evidence packs and local evidence-building time with and without reuse.
 
 The contrast check covers directly attached lexical negation on explicit, same-clause arguments. Implicit refutations, paraphrases, arbitrary cross-sentence coreference and conflicts across papers remain outside this evaluation. The synthetic pairs exercise the mechanism. The archive has no conflict gold labels. Estimating generalization and coverage loss requires an independently annotated conflict set.
+
+## 6. Two independent checks for qualified evidence
+
+### Compare reported conditions before comparing outcomes
+
+A report can affirm a relation under one condition and deny it under another. The verifier represents each witness as a typed relation, polarity, condition map, and source span. Conditions come from the cited clause, with separate coordinates for the phrases that name a cohort, participant stratum, or analysis model. Each recognized dimension must have a single explicit value to support a decisive comparison.
+
+The verifier compares all supporting and opposing witnesses. An explicit shared condition takes priority over unresolved comparisons and differing report labels. Within the same comparison class it uses sentence proximity and source order. This prevents a nearby result in a different cohort from hiding a same-condition disagreement farther away. The output groups supported and opposed findings by condition alongside the evidence-pair counts. A missing qualifier is uncertainty about comparability, and a difference in recorded labels establishes a reporting distinction only. The unqualified triple stays in review when opposition exists.
+
+BioContext attaches context such as species, anatomy and negation to biomedical events. SciFact-Open documents evidence that applies only to a special case of a claim. The contribution here is to use explicit condition witnesses as the comparison key for *all* opposing claims within one abstract, then expose those qualified assertions at the graph acceptance boundary. [BioContext](https://pmc.ncbi.nlm.nih.gov/articles/PMC3413385/), [SciFact-Open](https://aclanthology.org/2022.findings-emnlp.347/)
+
+### Challenge entity attribution while holding the source fixed
+
+For an explicit candidate supported by a broad quote, the verifier checks whether any individual clause supports the original pair. If there is no direct clause witness, it substitutes one endpoint with another article-grounded entity of the same type while holding the predicate, other endpoint, and quote fixed. An alternative must have an affirmative, clause-local trigger attached to both arguments. It serves as an auditable reason to abstain from the original relation. The result records the rival argument and exact spans without proposing a replacement edge.
+
+DREEAM uses evidence as an attention supervision signal. CovEReD replaces entities in documents to generate counterfactual training and evaluation data. LiverKG uses endpoint substitution as an inference-time audit on an unchanged source, with a witnessed competing clause that can trigger abstention. [DREEAM](https://aclanthology.org/2023.eacl-main.145/), [CovEReD](https://aclanthology.org/2024.findings-emnlp.672/)
+
+### Paired factorial ablation
+
+Run the four combinations of the two checks with fixed candidate inputs.
+
+```bash
+python -m scripts.benchmark_conditioned_evidence
+python -m scripts.benchmark_conditioned_evidence --replay-archive extraction_output/agent_results_v3_final_quality_30.json
+```
+
+Scope cases vary the conditions around the same positive quote. Argument cases test the same typed candidate with mixed-clause decoys and controls for direct support, coordination and competing predicates. The checks report scope decision agreement, competing-argument review, and whether any unqualified candidate gains write eligibility. A regression also exercises two reported T2DM strata in a published abstract. The controlled fixtures and unlabelled replay measure mechanism behavior. Generalization to implicit conditions, coreference, and natural errors needs separate expert labels. [PubMed 41610839](https://pubmed.ncbi.nlm.nih.gov/41610839/)
+
+| Check | Observed outcome |
+|---|---|
+| Explicit condition comparisons | 9 of 9 expected outcomes, including a farther same-condition witness that outranked a nearer different-condition witness |
+| Argument competition | 3 misleading citations moved from import-ready to review and all 5 controls retained their import decisions |
+| Historical regression replay | 494 frozen candidates from 30 articles, with zero semantic decision changes or write promotions |
 
 ## Intended contribution and limits
 

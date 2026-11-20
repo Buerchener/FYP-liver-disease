@@ -12,6 +12,11 @@ from typing import Any
 
 from cognitive_agent.evidence_pack import ArticleEvidenceIndex
 from cognitive_agent.schema.schema_profile import SchemaProfile, _alias_spans
+from cognitive_agent.evidence_scope import (
+    compare_scope as compare_scope_status,
+    extract_scope_witnesses,
+    normalize_scope,
+)
 
 
 _CLAUSE_BREAK = re.compile(
@@ -46,7 +51,10 @@ def _clauses(parent_text: str, start: int):
 
 def _eligible_section(section: str) -> bool:
     normalized = re.sub(r"[^A-Z]+", "_", str(section or "").upper()).strip("_")
-    return normalized in {"ABSTRACT", "RESULT", "RESULTS", "CONCLUSION", "CONCLUSIONS"}
+    return normalized in {
+        "ABSTRACT", "RESULT", "RESULTS", "FINDING", "FINDINGS",
+        "CONCLUSION", "CONCLUSIONS",
+    }
 
 
 def _trigger_spans(patterns: tuple[str, ...], text: str) -> list[tuple[int, int]]:
@@ -68,19 +76,30 @@ def _scoped_negation(clause: str, trigger_start: int) -> tuple[int, int] | None:
     ), None)
 
 
+def _direct_argument_spans(
+    left: str, right: str, subject_aliases: list[str], object_aliases: list[str],
+) -> tuple[tuple[int, int], tuple[int, int]] | None:
+    # An unrelated object or conjunction between the trigger and an endpoint
+    # cannot be repaired into a denial just because the endpoint occurs later.
+    subject = max(
+        (
+            span for span in _alias_spans(left, subject_aliases)
+            if len(_WORD.findall(left[span[1]:])) <= 6
+            and not re.search(r"[,;:]|\b(?:and|or)\b", left[span[1]:], flags=re.I)
+        ),
+        key=lambda span: (span[1], -span[0]), default=None,
+    )
+    object_ = next((
+        span for span in _alias_spans(right, object_aliases)
+        if _OBJECT_PREFIX.fullmatch(right[:span[0]])
+    ), None)
+    return (subject, object_) if subject is not None and object_ is not None else None
+
+
 def _direct_arguments(
     left: str, right: str, subject_aliases: list[str], object_aliases: list[str],
 ) -> bool:
-    # An unrelated object or conjunction between the trigger and an endpoint
-    # cannot be repaired into a denial just because the endpoint occurs later.
-    return any(
-        len(_WORD.findall(left[end:])) <= 6
-        and not re.search(r"[,;:]|\b(?:and|or)\b", left[end:], flags=re.I)
-        for _, end in _alias_spans(left, subject_aliases)
-    ) and any(
-        _OBJECT_PREFIX.fullmatch(right[:start])
-        for start, _ in _alias_spans(right, object_aliases)
-    )
+    return _direct_argument_spans(left, right, subject_aliases, object_aliases) is not None
 
 
 def _trace(text: str, start: int, end: int, sentence_id: str, section: str) -> dict[str, Any]:
@@ -100,6 +119,7 @@ def find_evidence_conflict(
     profile: SchemaProfile,
     subject_aliases: list[str],
     object_aliases: list[str],
+    compare_scope: bool = True,
 ) -> dict[str, Any]:
     """Return paired explicit support and scoped negation for the same typed edge.
 
@@ -172,24 +192,66 @@ def find_evidence_conflict(
                     })
                     break
 
-    pairs = (
-        (support, counter)
-        for support in supports
-        for counter in counters
-        if support["char_start"] != counter["char_start"]
-        or support["char_end"] != counter["char_end"]
-    )
-    closest = min(
-        pairs,
-        default=None,
-        key=lambda pair: (
-            0 if pair[0]["sentence_id"] == pair[1]["sentence_id"] else 1,
-            abs(pair[0]["char_start"] - pair[1]["char_start"]),
-            pair[0]["char_start"],
-            pair[1]["char_start"],
-        ),
-    )
-    if closest is None:
+    if not supports or not counters:
         return {}
-    support, counter = closest
-    return {"status": "CONTESTED", "support": support, "counterevidence": counter}
+    if compare_scope:
+        for trace in (*supports, *counters):
+            trace["scope_witnesses"] = extract_scope_witnesses(
+                trace["text"], char_offset=trace["char_start"],
+            )
+    status_priority = {
+        "SHARED_SCOPE": 0,
+        "UNRESOLVED_SCOPE": 1,
+        "DIFFERENT_SCOPE": 2,
+    }
+    counts = dict.fromkeys(status_priority, 0)
+    best_pair = None
+    best_rank = None
+    for support in supports:
+        for counter in counters:
+            status = compare_scope_status(
+                support["scope_witnesses"], counter["scope_witnesses"],
+            ) if compare_scope else "UNRESOLVED_SCOPE"
+            counts[status] += 1
+            rank = (
+                status_priority[status],
+                support["sentence_id"] != counter["sentence_id"],
+                abs(support["char_start"] - counter["char_start"]),
+                support["char_start"], counter["char_start"],
+            )
+            if best_rank is None or rank < best_rank:
+                best_pair = support, counter, status
+                best_rank = rank
+    if best_pair is None:
+        return {}
+    support, counter, status = best_pair
+    result = {"status": "CONTESTED", "support": support, "counterevidence": counter}
+    if not compare_scope:
+        return result
+
+    result["source_sha256"] = source_index.source_sha256
+    result["scope_status"] = status
+    result["scope_pair_counts"] = counts
+
+    groups: dict[tuple, dict[str, Any]] = {}
+    for polarity, assertions in (("SUPPORT", supports), ("COUNTEREVIDENCE", counters)):
+        for assertion in assertions:
+            scope = normalize_scope(assertion.get("scope_witnesses", []))
+            signature = tuple((dimension, tuple(values)) for dimension, values in scope.items())
+            comparable = bool(signature and all(len(values) == 1 for _, values in signature))
+            # Missing or multivalued conditions do not identify a shared stratum.
+            key = (signature, polarity, -1 if comparable else assertion["char_start"])
+            group = groups.setdefault(key, {
+                "scope": scope,
+                "polarity": polarity,
+                "explicit_single_scope": comparable,
+                "assertions": [],
+            })
+            group["assertions"].append({**assertion, "role": polarity.casefold()})
+    result["scoped_assertions"] = [
+        {**group, "assertions": sorted(
+            group["assertions"], key=lambda item: (item["char_start"], item["char_end"]),
+        )}
+        for _, group in sorted(groups.items())
+    ]
+    return result

@@ -15,6 +15,7 @@ from dataclasses import dataclass, field
 from cognitive_agent.memory.kg_memory import KGMemory
 from cognitive_agent.schema.write_contract import SchemaAdapter
 from cognitive_agent.schema.schema_profile import SchemaProfile, resolve_schema_profile
+from cognitive_agent.evidence_arguments import find_argument_competitor
 from cognitive_agent.evidence_contrast import find_evidence_conflict
 from cognitive_agent.evidence_pack import ArticleEvidenceIndex, EvidencePackBuilder
 from cognitive_agent.extraction_quality import (
@@ -156,6 +157,7 @@ class VerifiedRelation:
     evidence_spans: list[dict] = field(default_factory=list)
     evidence_pack: dict = field(default_factory=dict)
     contrastive_evidence: dict = field(default_factory=dict)
+    argument_competition: dict = field(default_factory=dict)
     support_mode: str = "UNRESOLVED"
     minimal_support_span_ids: list[str] = field(default_factory=list)
     context_span_ids: list[str] = field(default_factory=list)
@@ -241,6 +243,8 @@ class KGVerifier:
         schema_profile: SchemaProfile | str | None = None,
         dataset_only: bool = False,
         evidence_contrast: bool = True,
+        evidence_scope: bool = True,
+        evidence_arguments: bool = True,
     ):
         self.kg_memory = kg_memory
         self.verification_policy = verification_policy
@@ -248,6 +252,8 @@ class KGVerifier:
         self.schema_profile = resolve_schema_profile(schema_profile)
         self.dataset_only = bool(dataset_only)
         self.evidence_contrast = evidence_contrast
+        self.evidence_scope = evidence_scope
+        self.evidence_arguments = evidence_arguments
         self.schema_profile_manifest = self.schema_profile.manifest()
         self.schema_adapter = SchemaAdapter()
         self.evidence_pack_builder = EvidencePackBuilder(
@@ -287,7 +293,7 @@ class KGVerifier:
         if source_index is not None and source_index.text != text:
             raise ValueError("source_index does not match the article text")
         if self.dataset_only:
-            if source_index is None and self.evidence_contrast and text and raw_relations:
+            if source_index is None and (self.evidence_contrast or self.evidence_arguments) and text and raw_relations:
                 source_index = self.evidence_pack_builder.index(text)
             return self._verify_dataset_only(raw_entities, raw_relations, pmid, text, source_index)
         prepared = prepare_extraction(
@@ -322,6 +328,7 @@ class KGVerifier:
             (entity.mention, entity.entity_type): entity
             for entity in result.entities
         }
+        entity_aliases = self._grounded_aliases(result.entities)
         article_flags = (
             article_quality_flags(text)
             if self.schema_profile.article_quality_mode == "liverkg"
@@ -338,6 +345,7 @@ class KGVerifier:
                 text=text,
                 aliases_by_canonical=prepared.aliases_by_canonical,
                 source_index=source_index,
+                entity_aliases=entity_aliases,
             )
             vr.scope_status = (
                 "OUT_OF_SCOPE" if "article_out_of_scope" in article_flags else "IN_SCOPE"
@@ -386,6 +394,7 @@ class KGVerifier:
             )
             result.entities.append(verified)
             entity_lookup[(verified.mention, verified.entity_type)] = verified
+        entity_aliases = self._grounded_aliases(result.entities)
 
         profile = self.schema_profile
         article_flags = article_quality_flags(text) if profile.article_quality_mode == "liverkg" else set()
@@ -432,7 +441,7 @@ class KGVerifier:
                 scope_status="OUT_OF_SCOPE" if "article_out_of_scope" in article_flags else "IN_SCOPE",
             )
             flags = set(raw["quality_flags"]) | article_flags
-            flags.discard("relation_counterevidence")
+            flags.difference_update({"relation_counterevidence", "evidence_argument_competitor"})
             grounds = {
                 "schema_mismatch": not schema_valid,
                 "evidence_untraceable": not contiguous,
@@ -462,6 +471,11 @@ class KGVerifier:
                 )
                 if vr.contrastive_evidence:
                     review.add("relation_counterevidence")
+                vr.argument_competition = self._find_argument_competitor(
+                    raw, source_index, entity_aliases, evidence,
+                )
+                if vr.argument_competition:
+                    review.add("evidence_argument_competitor")
             if vr.uncertain:
                 review.add("uncertain")
             if vr.claim_role not in allowed_roles:
@@ -485,6 +499,8 @@ class KGVerifier:
             vr.write_reasons = ["dataset_candidate_only"]
             if vr.contrastive_evidence:
                 vr.write_reasons.append("relation_counterevidence")
+            if vr.argument_competition:
+                vr.write_reasons.append("evidence_argument_competitor")
             result.relations.append(vr)
         result.summary = self._build_summary(result)
         return result
@@ -501,6 +517,29 @@ class KGVerifier:
         return find_evidence_conflict(
             relation, source_index=source_index, profile=self.schema_profile,
             subject_aliases=subject_aliases, object_aliases=object_aliases,
+            compare_scope=self.evidence_scope,
+        )
+
+    def _grounded_aliases(self, entities: list[VerifiedEntity]) -> dict[tuple[str, str], list[str]]:
+        if not self.evidence_arguments:
+            return {}
+        return {
+            (entity.mention, entity.entity_type): entity.canonical_mentions or [entity.mention]
+            for entity in entities if entity.grounded
+        }
+
+    def _find_argument_competitor(
+        self,
+        relation: dict,
+        source_index: ArticleEvidenceIndex | None,
+        entity_aliases: dict[tuple[str, str], list[str]],
+        quote: str,
+    ) -> dict:
+        if not entity_aliases or source_index is None:
+            return {}
+        return find_argument_competitor(
+            relation, source_index=source_index, profile=self.schema_profile,
+            entity_aliases=entity_aliases, quote=quote,
         )
 
     @staticmethod
@@ -643,6 +682,11 @@ class KGVerifier:
             "semantic_review": semantic_review,
             "semantic_rejected": semantic_rejected,
             "contested_relations": sum(bool(rel.contrastive_evidence) for rel in result.relations),
+            "argument_competitions": sum(bool(rel.argument_competition) for rel in result.relations),
+            "evidence_scope_counts": {
+                status: sum(rel.contrastive_evidence.get("scope_status") == status for rel in result.relations)
+                for status in ("SHARED_SCOPE", "DIFFERENT_SCOPE", "UNRESOLVED_SCOPE")
+            },
             "semantic_only": semantic_only,
             "human_review": human_review,
             "blocked_relations": blocked_relations,
@@ -861,6 +905,7 @@ class KGVerifier:
         text: str = "",
         aliases_by_canonical: dict[str, list[str]] | None = None,
         source_index: ArticleEvidenceIndex | None = None,
+        entity_aliases: dict[tuple[str, str], list[str]] | None = None,
     ) -> VerifiedRelation:
         """验证单条关系"""
         relation = normalize_relation_semantics(relation)
@@ -1083,6 +1128,7 @@ class KGVerifier:
             "adjudication_span_mismatch", "adjudication_span_support_insufficient",
             "cross_sentence", "multi_span_support", "coreference_only_support",
             "relation_counterevidence",
+            "evidence_argument_competitor",
         })
         if pack.source_traceable:
             evidence_flags.discard("evidence_untraceable")
@@ -1210,6 +1256,11 @@ class KGVerifier:
             )
             if vr.contrastive_evidence:
                 evidence_flags.add("relation_counterevidence")
+            vr.argument_competition = self._find_argument_competitor(
+                relation, source_index, entity_aliases or {}, vr.evidence,
+            )
+            if vr.argument_competition:
+                evidence_flags.add("evidence_argument_competitor")
 
         # ``manual_review`` is an audit marker, not a semantic reason.  Require
         # a concrete reason code so cached legacy rows cannot be silently

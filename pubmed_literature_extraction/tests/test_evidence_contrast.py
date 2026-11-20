@@ -148,6 +148,44 @@ class EvidenceContrastTests(unittest.TestCase):
         self.assertEqual(checked.semantic_status, "ACCEPTED")
         self.assertFalse(checked.contrastive_evidence)
 
+    def test_real_abstract_keeps_opposed_findings_in_their_reported_strata(self):
+        sources = Path(__file__).resolve().parents[1] / "extraction_output" / "pubmed_converted_500.jsonl"
+        with sources.open(encoding="utf-8") as rows:
+            article = next(item for item in map(json.loads, rows) if str(item["pmid"]) == "41610839")
+        text = f"TITLE: {article['title']}\nABSTRACT: {article['abstract']}"
+        payload = {
+            "name": "Outcome example", "contract_version": "test-v1",
+            "entity_types": ["Intervention", "Outcome"],
+            "predicates": {
+                "IMPROVES": {
+                    "allowed_signatures": [["Intervention", "Outcome"]],
+                    "explicit_patterns": [r"\bimprov(?:e|es|ed)\b"],
+                },
+            },
+        }
+        candidate = relation(
+            subject="semaglutide", subject_type="Intervention", predicate="IMPROVES",
+            object="fibrosis stage", object_type="Outcome",
+            evidence="semaglutide improved fibrosis stage", claim_role="CURRENT_FINDING",
+        )
+        entities = [
+            {"mention": candidate[side], "type": candidate[f"{side}_type"]}
+            for side in ("subject", "object")
+        ]
+        checked = KGVerifier(
+            OfflineGraph(), schema_profile=schema_profile_from_dict(payload), dataset_only=True,
+        ).verify(entities, [candidate], text=text).relations[0]
+        self.assertEqual(checked.semantic_status, "REVIEW")
+        self.assertFalse(checked.import_ready)
+        comparison = checked.contrastive_evidence
+        self.assertEqual(comparison["scope_status"], "DIFFERENT_SCOPE")
+        support, opposition = comparison["support"], comparison["counterevidence"]
+        self.assertEqual(support["section"], "FINDINGS")
+        self.assertIn("without T2DM", support["text"])
+        self.assertIn("with T2DM", opposition["text"])
+        for trace in (support, opposition):
+            self.assertEqual(text[trace["char_start"]:trace["char_end"]], trace["text"])
+
 
 if __name__ == "__main__":
     unittest.main()
