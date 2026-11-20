@@ -6,9 +6,9 @@ from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
 
-from entity_ontology import pipeline, stages
-from entity_ontology.embedding import EmbeddingAPI
-from entity_ontology.entity_placement_dag import EntityDAG
+from entity_ontology import model, pipeline
+from entity_ontology.concepts.embedding import EmbeddingAPI
+from entity_ontology.hierarchy.entity_placement_dag import EntityDAG
 from entity_ontology.model import endpoint, read_settings
 from entity_ontology.storage import atomic_json, read_json
 
@@ -105,8 +105,8 @@ class PipelineTest(unittest.TestCase):
             with (
                 patch.dict("os.environ", {"LIVERKG_API_BASE": "https://provider.example/v1"}),
                 patch.object(pipeline, "extract_articles", side_effect=fake_extract) as extract,
-                patch.object(stages, "live_provider", return_value=provider) as language_model,
-                patch("entity_ontology.retrieve_pairs.live_provider", return_value=provider),
+                patch.object(model, "live_provider", return_value=provider) as language_model,
+                patch("entity_ontology.concepts.retrieve_pairs.live_provider", return_value=provider),
                 patch.object(EmbeddingAPI, "embed", staticmethod(fake_embeddings)),
             ):
                 connection, _ = read_settings(config, "audit_edges")

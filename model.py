@@ -1,4 +1,6 @@
 """Read model settings and call an OpenAI-compatible chat endpoint."""
+from concurrent.futures import ThreadPoolExecutor
+import hashlib
 from http.client import HTTPException
 import json
 import os
@@ -9,7 +11,10 @@ import urllib.parse
 import urllib.request
 from urllib.parse import urlsplit
 
+from .storage import atomic_json, read_json
+
 DEFAULT_CONFIG = Path("entity-ontology.local.json")
+JSON_RETRY = ' Reply exactly as {"rows":[...]} with every requested ID once.'
 
 
 class ProviderError(RuntimeError):
@@ -133,3 +138,89 @@ def _read_keychain(binding, base_url):
     if result.returncode != 0 or not result.stdout.strip():
         raise ValueError("Could not read the configured item from macOS Keychain")
     return result.stdout.strip()
+
+
+def key(value):
+    return hashlib.sha256(
+        json.dumps(value, sort_keys=True, ensure_ascii=False).encode()
+    ).hexdigest()[:20]
+
+
+class ModelSession:
+    """Keep model configuration and journals scoped to a single batch."""
+
+    def __init__(self, config, output):
+        self.config = config
+        self.output = output
+
+    def request_settings(self):
+        conn, params = read_settings(self.config, "audit_edges")
+        return conn, {**params, "max_tokens": 6000}
+
+
+    def req(self, task):
+        stage, prompt, payload = task
+        conn, params = self.request_settings()
+        journal = (
+            self.output
+            / "calls"
+            / f"{stage}-{key([prompt, payload, params, endpoint(conn)])}.json"
+        )
+        ids = [r["id"] for r in payload["items"]]
+        if journal.exists():
+            result = read_json(journal)["response"]
+        else:
+            provider = live_provider(conn, params)
+            for attempt in range(2):
+                instruction = (
+                    prompt
+                    if attempt == 0
+                    else prompt + JSON_RETRY
+                )
+                answer = provider.generate(stage, instruction, payload, params)
+                try:
+                    result = json.loads(answer["content"])
+                    valid = answer["finish_reason"] == "stop" and sorted(ids) == sorted(
+                        row["id"] for row in result["rows"]
+                    )
+                except (KeyError, ValueError, TypeError):
+                    valid = False
+                if valid:
+                    atomic_json(
+                        journal,
+                        {
+                            "stage": stage,
+                            "model": answer["model"],
+                            "usage": answer["usage"],
+                            "parameters": params,
+                            "prompt": instruction,
+                            "request": payload,
+                            "response": result,
+                        },
+                    )
+                    break
+                atomic_json(
+                    self.output / "invalid_responses" / f"{journal.stem}-{attempt + 1}.json",
+                    {
+                        "stage": stage,
+                        "finish_reason": answer["finish_reason"],
+                        "content": answer["content"],
+                        "usage": answer["usage"],
+                    },
+                )
+            else:
+                raise ValueError(
+                    f"{stage}: responses did not cover all requested IDs with the expected schema"
+                )
+        if sorted(ids) != sorted(row["id"] for row in result["rows"]):
+            raise ValueError("Incomplete cached response")
+        return result["rows"]
+
+
+    def batch(self, stage, prompt, items, size, **context):
+        tasks = [
+            (stage, prompt, {"items": items[i : i + size], **context})
+            for i in range(0, len(items), size)
+        ]
+        with ThreadPoolExecutor(max_workers=3) as pool:
+            return [row for group in pool.map(self.req, tasks) for row in group]

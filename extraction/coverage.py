@@ -5,8 +5,8 @@ import hashlib
 import json
 import re
 
-from .storage import atomic_json
-from .normalization import IN_SCOPE
+from ..storage import atomic_json
+from ..entity_types import IN_SCOPE
 from .mentions import contexts, read_articles, span_status
 
 

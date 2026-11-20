@@ -6,8 +6,8 @@ from functools import wraps
 import json
 from threading import RLock, local
 
-from .model import ProviderError
-from .storage import atomic_json, digest, read_json
+from ..model import ProviderError
+from ..storage import atomic_json, digest, read_json
 
 
 class BudgetExceeded(RuntimeError):

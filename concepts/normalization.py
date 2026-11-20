@@ -1,9 +1,13 @@
 """Resolve the referent first. Apply the ontology scope in Python."""
 
 
-IN_SCOPE = [
-    "Disease", "Gene", "Protein", "Metabolite", "Pathway", "Tissue", "CellType",
-]
+from concurrent.futures import ThreadPoolExecutor
+from functools import partial
+
+from ..entity_types import IN_SCOPE
+from ..storage import atomic_json
+
+
 OUT_OF_SCOPE = {
     "MicrobialCommunity", "OrganismTaxon", "DrugTherapy", "Phenotype",
     "Measurement", "OtherEntity", "NonEntity",
@@ -102,3 +106,107 @@ def classify_output(row):
         "name": name.strip(), "definition": definition.strip(),
         "aliases": list(dict.fromkeys(alias.strip() for alias in aliases)), "reason": reason.strip(),
     }
+
+
+def normalization_requests(concept_input):
+    fields = ("id", "mention")
+    fields = (*fields, "context_id", "same_span_conflicts", "supporting_sentence_ids")
+    for article in concept_input["articles"]:
+        items = [
+            {field: mention[field] for field in fields}
+            for mention in article["mentions"]
+            if mention["offset_status"] == "exact"
+        ]
+        if items:
+            yield (
+                "normalize_referent_v2",
+                PROMPT,
+                {
+                    "pmid": article["pmid"],
+                    "types": IN_SCOPE,
+                    "sentences": article["sentences"],
+                    "items": items,
+                },
+            )
+
+
+def checked_normalization_call(request, task, check):
+    stage, prompt, payload = task
+    try:
+        return [check(row) for row in request(task)]
+    except (KeyError, TypeError, ValueError):
+        correction = {
+            **payload,
+            "output_format_correction": "Use the listed kind vocabulary and return the required fields for each supplied ID.",
+        }
+        return [check(row) for row in request((stage, prompt, correction))]
+
+
+def request_referents(task, *, request):
+    _, _, payload = task
+    first = checked_normalization_call(request, task, classify_output)
+    source = {item["id"]: item for item in payload["items"]}
+    items = [
+        {**source[row["id"]], "name": row["name"], "definition": row["definition"]}
+        for row in first if row["kind"] and row["kind"] != "NonEntity"
+    ]
+    if not items:
+        return first
+    reviewed = dict(checked_normalization_call(
+        request,
+        ("normalize_type_check_v2", TYPE_PROMPT, {**payload, "items": items}), audited_kind,
+    ))
+    final = []
+    for row in first:
+        ident = row["id"]
+        if ident not in reviewed or row["kind"] == reviewed[ident]:
+            final.append(row)
+            continue
+        revised = {**row, "kind": reviewed[ident]}
+        if reviewed[ident] in {AMBIGUOUS, "NonEntity"}:
+            revised.update(name=source[ident]["mention"], definition="", aliases=[])
+        final.append({**classify_output(revised), "initial_kind": row["kind"]})
+    return final
+
+
+def resolve(concept_input, *, session):
+    mentions = [
+        mention for article in concept_input["articles"] for mention in article["mentions"]
+    ]
+    decisions = {}
+    for m in mentions:
+        if m["offset_status"] != "exact":
+            decisions[m["id"]] = {
+                "id": m["id"],
+                "status": "review",
+                "name": m["mention"],
+                "kind": "",
+                "aliases": [],
+                "definition": "",
+                "reason": "原始提及缺少可验证的字符坐标，替代出现仅供复核。",
+            }
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        request = partial(request_referents, request=session.req)
+        for result in pool.map(request, normalization_requests(concept_input)):
+            for r in result:
+                if r["status"] not in (
+                    "keep",
+                    "review",
+                    "outside_scope",
+                ) or not isinstance(r["aliases"], list):
+                    raise ValueError(f"invalid decision: {r['id']}")
+                if r["status"] == "keep" and r["kind"] not in IN_SCOPE:
+                    r = {
+                        **r,
+                        "status": "review",
+                        "model_status": "keep",
+                        "scope_note": "模型提出了本轮七类之外的类型，保留为类型扩充候选。",
+                    }
+                if r["status"] == "keep" and (
+                    not r["name"].strip() or not r["definition"].strip()
+                ):
+                    raise ValueError(f"invalid kept concept: {r['id']}")
+                decisions[r["id"]] = r
+    rows = [decisions[m["id"]] for m in mentions]
+    atomic_json(session.output / "normalization.json", rows)
+    return rows

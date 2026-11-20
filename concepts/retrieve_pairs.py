@@ -11,8 +11,8 @@ from sklearn.decomposition import PCA
 from sklearn.metrics.pairwise import cosine_distances
 
 from .embedding import EmbeddingAPI, Embeddings
-from .model import endpoint, live_provider, read_settings
-from .storage import digest, norm, read_json, run_lock
+from ..model import endpoint, live_provider, read_settings
+from ..storage import digest, norm, read_json, run_lock
 
 
 DEFAULT_KNN_K = 2

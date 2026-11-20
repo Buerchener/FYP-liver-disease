@@ -33,13 +33,13 @@ def main(argv=None):
     args = parser.parse_args(argv)
 
     if args.command == "setup-extractor":
-        from .extraction import EXTRACTOR_CACHE, REPOSITORY_ROOT, archive_source
+        from .extraction.native import EXTRACTOR_CACHE, REPOSITORY_ROOT, archive_source
 
         source = archive_source(REPOSITORY_ROOT / EXTRACTOR_CACHE, REPOSITORY_ROOT)
         return subprocess.call([sys.executable, "-m", "pip", "install", str(source)])
 
     if args.command == "serve":
-        from .workbench import serve as serve_workbench
+        from .workbench.server import serve as serve_workbench
 
         serve_workbench(args.runs_dir, port=args.port, open_browser=args.open)
         return 0

@@ -6,9 +6,9 @@ from pathlib import Path
 import re
 from time import sleep
 
-from .model import ProviderError
+from ..model import ProviderError
 from .ranking_journal import ContractError, LLMJournal, strict_json
-from .storage import read_json
+from ..storage import read_json
 
 
 STAGE = "global_concept_rank"

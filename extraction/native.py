@@ -13,14 +13,14 @@ import tarfile
 import tempfile
 
 from .mentions import read_articles
-from .model import DEFAULT_CONFIG, live_provider, read_settings
-from .storage import atomic_json, read_json, run_lock
+from ..model import DEFAULT_CONFIG, live_provider, read_settings
+from ..storage import atomic_json, read_json, run_lock
 
 
 EXTRACTOR_COMMIT = "fc9ebd72971318a7738f15fc2b86369a552656c2"
 EXTRACTOR_DIRECTORY = "pubmed_literature_extraction"
 EXTRACTOR_REPOSITORY = "https://github.com/Buerchener/FYP-liver-disease.git"
-REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
+REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 EXTRACTOR_CACHE = Path(".cache/entity_ontology/extractor")
 PROFILE = "quality"
 RUN_ID = "entity_ontology"

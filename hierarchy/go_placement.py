@@ -4,7 +4,7 @@ import json
 import subprocess
 import sys
 
-from .storage import atomic_json, digest, read_json
+from ..storage import atomic_json, digest, read_json
 
 
 GO_TYPES = {"Pathway", "BiologicalProcess", "MolecularFunction", "CellularComponent"}
@@ -80,7 +80,7 @@ class GOReferenceLookup:
     def _lookup(self, request):
         concept_id = request["concept_id"]
         command = [
-            sys.executable, "-m", "entity_ontology.go_reference",
+            sys.executable, "-m", "entity_ontology.hierarchy.go_reference",
             "--model-config", str(self.config), "--mode", "auto",
             "--max-tool-calls", str(MAX_TOOL_CALLS), "--model-timeout", "20",
             "--state-dir", str(self.directory / "agent-runs"),

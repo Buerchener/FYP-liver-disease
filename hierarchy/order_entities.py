@@ -1,9 +1,13 @@
 """Prepare a broad-first entity processing order for hierarchy construction."""
 
 from collections import defaultdict
+from functools import lru_cache
 import hashlib
 import json
+from types import SimpleNamespace
 
+from .. import model
+from ..storage import atomic_json
 from .ranking import (
     MERGE_SIDES_STAGE,
     MERGE_STAGE,
@@ -103,4 +107,19 @@ def apply_entity_order(concepts, report):
             ranked.append(by_id[ident])
     if len(ranked) != len(concepts):
         raise ValueError("Entity order must include each concept exactly once.")
+    return ranked
+
+
+def order_for_hierarchy(concepts, *, session):
+    conn, params = session.request_settings()
+    journal_dir = session.output / "ordering" / model.key([model.endpoint(conn), conn.get("extra_body", {})])
+
+    @lru_cache(maxsize=1)
+    def provider():
+        return model.live_provider(conn, params)
+
+    engine = SimpleNamespace(generate=lambda *args: provider().generate(*args))
+    report = rank_entity_concepts(concepts, engine, params, journal_dir)
+    ranked = apply_entity_order(concepts, report)
+    atomic_json(session.output / "concept_order.json", report)
     return ranked

@@ -10,8 +10,8 @@ import threading
 from urllib.parse import parse_qs, urlsplit
 import webbrowser
 
-from .order_entities import apply_entity_order
-from .storage import read_json
+from ..hierarchy.order_entities import apply_entity_order
+from ..storage import read_json
 
 WEB = Path(__file__).resolve().parent / "web"
 RUN_ID = re.compile(r"[a-z0-9][a-z0-9-]{0,79}")

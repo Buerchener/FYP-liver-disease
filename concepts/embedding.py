@@ -10,8 +10,8 @@ import urllib.request
 
 import numpy as np
 
-from .model import ProviderError
-from .storage import atomic_json, digest, read_json
+from ..model import ProviderError
+from ..storage import atomic_json, digest, read_json
 
 
 class EmbeddingAPI:

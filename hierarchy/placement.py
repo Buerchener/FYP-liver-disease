@@ -2,10 +2,9 @@
 
 import hashlib
 
-from .stages import Stages, key
 from .entity_placement_dag import EntityDAG
-from .model import ProviderError
-from .storage import atomic_json, read_json, run_lock
+from ..model import ModelSession, ProviderError, key
+from ..storage import atomic_json, read_json, run_lock
 from .go_placement import GO_TYPES, GOReferenceLookup, reference_evidence
 from .order_entities import apply_entity_order
 
@@ -299,8 +298,8 @@ def run(source, output, *, config, go_reference=True):
     order_path = source / "concept_order.json"
     order = read_json(order_path)
     concepts = apply_entity_order(read_json(concepts_path)["concepts"], order)
-    stages = Stages(config, output)
-    _, parameters = stages.request_settings()
+    session = ModelSession(config, output)
+    _, parameters = session.request_settings()
     summary = {
         "method": "incremental_dual_review_dag",
         "model": parameters["model"],
@@ -319,7 +318,7 @@ def run(source, output, *, config, go_reference=True):
         decisions = []
         for index, concept in enumerate(concepts, 1):
             try:
-                decision = place_one(dag, concept, request=stages.req, go_lookup=go_lookup)
+                decision = place_one(dag, concept, request=session.req, go_lookup=go_lookup)
             except InvalidJudgment as error:
                 decision = {
                     "concept_id": concept["id"], "source_mentions": concept["source_mentions"],

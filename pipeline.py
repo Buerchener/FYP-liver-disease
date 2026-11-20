@@ -7,14 +7,16 @@ from pathlib import Path
 import re
 
 from . import DEFAULT_RUNS_DIR
-from .stages import Stages
-from .model import endpoint, read_settings
+from .model import ModelSession, endpoint, read_settings
 from .storage import atomic_json, digest, read_json, run_lock
-from .extraction import EXTRACTOR_COMMIT, extract_articles
-from .coverage import VERSION as COVERAGE_VERSION, recover as recover_coverage
-from .mentions import build, conceptualization_input, read_articles
-from .placement import run as place_incrementally
-from .retrieve_pairs import DEFAULT_KNN_K
+from .concepts.deduplicate import deduplicate
+from .concepts.normalization import resolve
+from .concepts.retrieve_pairs import DEFAULT_KNN_K
+from .extraction.coverage import VERSION as COVERAGE_VERSION, recover as recover_coverage
+from .extraction.mentions import build, conceptualization_input, read_articles
+from .extraction.native import EXTRACTOR_COMMIT, extract_articles
+from .hierarchy.order_entities import order_for_hierarchy
+from .hierarchy.placement import run as place_incrementally
 
 
 def file_hash(path):
@@ -89,7 +91,7 @@ def run_batch(articles_path, run_id, *, config, runs_dir=DEFAULT_RUNS_DIR, title
             temp_articles.replace(articles)
 
         # Keep all model journals and intermediate results tied to this batch.
-        stages = Stages(config, output)
+        session = ModelSession(config, output)
         stage = "extraction"
 
         def start(name):
@@ -114,12 +116,12 @@ def run_batch(articles_path, run_id, *, config, runs_dir=DEFAULT_RUNS_DIR, title
                 raise ValueError("Unexpected extraction mode or article count.")
             if any(row["phases"]["extraction"].get("error") for row in extraction["records"]):
                 raise ValueError("Some abstracts reported an extraction error.")
-            manifest["extraction_model"] = report.get("model") or stages.request_settings()[1]["model"]
+            manifest["extraction_model"] = report.get("model") or session.request_settings()[1]["model"]
             coverage_path = None
             if entity_coverage:
                 complete()
                 start("entity_coverage")
-                coverage_path = recover_coverage(articles, extraction_path, output, request=stages.req)
+                coverage_path = recover_coverage(articles, extraction_path, output, request=session.req)
             inventory = build(output, extraction_path, coverage_path=coverage_path)
             atomic_json(output / "input_mentions.json", inventory)
             compact = conceptualization_input(inventory)
@@ -127,16 +129,16 @@ def run_batch(articles_path, run_id, *, config, runs_dir=DEFAULT_RUNS_DIR, title
             complete()
 
             start("conceptualization")
-            normalized = stages.resolve(compact)
+            normalized = resolve(compact, session=session)
             complete()
 
             start("embedding_and_deduplication")
-            concepts = stages.deduplicate(compact, normalized, knn_k=knn_k)
+            concepts = deduplicate(compact, normalized, session=session, knn_k=knn_k)
             retrieval = read_json(output / "retrieval/retrieved_pairs.json")
             complete()
 
             start("ordering")
-            ranked = stages.order_for_hierarchy(concepts)
+            ranked = order_for_hierarchy(concepts, session=session)
             complete()
 
             start("incremental_placement")
