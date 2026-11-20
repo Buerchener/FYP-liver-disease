@@ -53,4 +53,4 @@ where = ["."]
 include = ["cognitive_agent*", "liverkg_cli*", "entity_ontology*"]
 
 [tool.setuptools.package-data]
-entity_ontology = ["config.example.json", "workbench/web/*"]
+entity_ontology = ["config.example.json", "config.single-model.example.json", "workbench/web/*"]

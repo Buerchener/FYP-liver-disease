@@ -10,7 +10,7 @@ from sklearn.cluster import HDBSCAN
 from sklearn.decomposition import PCA
 from sklearn.metrics.pairwise import cosine_distances
 
-from .embedding import EmbeddingAPI, Embeddings
+from .embedding import LOCAL_KIND, EmbeddingAPI, Embeddings, LocalCharNgramEmbeddings
 from ..model import endpoint, live_provider, read_settings
 from ..storage import digest, norm, read_json, run_lock
 
@@ -28,11 +28,18 @@ CLUSTER_SETTINGS = {
 def _entity_vectors(rows, directory, config_path):
     cfg = read_json(config_path)["embedding"]
     connection, parameters = read_settings(config_path, "audit_edges")
-    base = endpoint(cfg).rstrip("/")
-    if (not base or base != endpoint(connection).rstrip("/")
-            or cfg["api_key_env"] != connection["api_key_env"]):
-        raise ValueError("Embedding and language models must use the same configured credential and endpoint.")
-    cfg["base_url"] = base
+    local = cfg.get("kind") == LOCAL_KIND
+    if local:
+        if type(cfg.get("dimensions")) is not int or cfg["dimensions"] < 64:
+            raise ValueError("Local embeddings need integer dimensions of at least 64.")
+        base, provider = LOCAL_KIND, LocalCharNgramEmbeddings(cfg)
+    else:
+        base = endpoint(cfg).rstrip("/")
+        if (not base or base != endpoint(connection).rstrip("/")
+                or cfg["api_key_env"] != connection["api_key_env"]):
+            raise ValueError("Embedding and language models must use the same configured credential and endpoint.")
+        cfg["base_url"] = base
+        provider = EmbeddingAPI(cfg)
     model_spec = {key: cfg[key] for key in ("model", "dimensions", "batch_size")}
     vector_dir = directory / "vectors" / digest([base, cfg["model"], cfg["dimensions"]])[:20]
     vector_dir.mkdir(parents=True, exist_ok=True)
@@ -40,10 +47,10 @@ def _entity_vectors(rows, directory, config_path):
         row["id"]: "\n".join([row["name"], row["kind"], row["definition"], *row["aliases"]])
         for row in rows
     }
-    embeddings = Embeddings(EmbeddingAPI(cfg), cfg, vector_dir)
+    embeddings = Embeddings(provider, cfg, vector_dir)
     embeddings.restore()
     cached = sum(digest([entity_id, text]) in embeddings.vectors for entity_id, text in texts.items())
-    if cached < len(texts):
+    if cached < len(texts) and not local:
         live_provider(connection, parameters)
     vectors = embeddings.for_texts(texts)
     return vectors, {

@@ -1,0 +1,19 @@
+{
+  "llm": {
+    "provider": {
+      "kind": "openai_compatible",
+      "base_url_env": "LIVERKG_API_BASE",
+      "api_key_env": "LIVERKG_API_KEY",
+      "timeout_seconds": 120
+    },
+    "stages": {
+      "audit_edges": {"model": "YOUR_CHAT_MODEL", "temperature": 0, "max_tokens": 6000}
+    }
+  },
+  "embedding": {
+    "kind": "local_char_ngram",
+    "model": "local-char-ngram-hash-1024",
+    "dimensions": 1024,
+    "batch_size": 64
+  }
+}

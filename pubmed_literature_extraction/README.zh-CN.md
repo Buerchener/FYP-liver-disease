@@ -193,6 +193,11 @@ liverkg ontology load --run-id first-batch --database liverkg-integrated --dry-r
 
 `python -m entity_ontology …` 与 `liverkg ontology …` 等价。结果保存在 `runs/entity_ontology/<run-id>/`；同一输入、配置和批次名可以续跑。抽取器代码的哈希是批次身份的一部分，抽取器代码改动后需要换一个批次名。
 
+只有一个 OpenAI 兼容对话模型、没有向量模型时，复制 `entity_ontology/config.single-model.example.json` 并填入模型名：
+
+- 抽取器的第二模型和辅助裁判在没有另配 key 时复用同一个模型，运行清单里记为 `auxiliary_models: single_model`。想用独立的第二模型，把 `SECOND_LLM_API_KEY` 或 `DEEPSEEK_API_KEY` 写进 `LIVERKG_EXTRACTOR_AUX_ENV` 指向的文件。
+- 去重候选改用本地字符 n-gram 哈希向量，不需要向量服务。它能找到拼写相近的同义候选，找不到毫无字面重合的同义词；是否合并仍由大模型判断。
+
 概念级关系的门禁只降级、不升级：
 
 | 状态 | 条件 |

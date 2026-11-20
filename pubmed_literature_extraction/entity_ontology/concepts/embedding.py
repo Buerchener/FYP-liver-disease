@@ -13,6 +13,32 @@ import numpy as np
 from ..model import ProviderError
 from ..storage import atomic_json, digest, read_json
 
+LOCAL_KIND = "local_char_ngram"
+
+
+class LocalCharNgramEmbeddings:
+    """Offline lexical vectors for candidate retrieval without an embedding API.
+
+    Word-bounded character 3-5-grams are hashed into a fixed space, so a text's
+    vector never depends on its batch or on the rest of the corpus. Spelling
+    variants ("type 2 diabetes" / "type 2 diabetes mellitus") become neighbours;
+    synonyms that share no characters do not, so this is a fallback for
+    single-model runs. Merges are still decided by the LLM equivalence check.
+    """
+
+    def __init__(self, config):
+        from sklearn.feature_extraction.text import HashingVectorizer
+
+        self.config = config
+        self.vectorizer = HashingVectorizer(
+            analyzer="char_wb", ngram_range=(3, 5), n_features=config["dimensions"],
+            alternate_sign=False, norm="l2", lowercase=True,
+        )
+
+    def embed(self, texts):
+        vectors = self.vectorizer.transform(texts).toarray()
+        return {"vectors": vectors.tolist(), "model": self.config["model"], "usage": None}
+
 
 class EmbeddingAPI:
     def __init__(self, config):

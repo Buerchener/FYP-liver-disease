@@ -88,6 +88,22 @@ def auxiliary_settings(path):
     return settings
 
 
+def auxiliary_mode(settings):
+    """'separate' when a second-model key is configured, otherwise 'single_model'."""
+    return "separate" if settings.get("SECOND_LLM_API_KEY") or settings.get("DEEPSEEK_API_KEY") else "single_model"
+
+
+def single_model_env(base_url, credential, model):
+    # The extractor always enables its second model and DeepSeek-style
+    # auxiliary judges. Without separate keys they reuse the configured model,
+    # so one OpenAI-compatible endpoint is enough to run the whole system.
+    return {
+        "SECOND_LLM_API_KEY": credential, "SECOND_LLM_API_BASE": base_url, "SECOND_LLM_MODEL_ID": model,
+        "DEEPSEEK_API_KEY": credential, "DEEPSEEK_API_BASE": base_url, "AUX_PRIMARY_MODEL": model,
+        "ENTITY_RECOVERY_MODEL": model, "PAIRWISE_JUDGE_MODEL": model,
+    }
+
+
 def require_openai_compatible(base_url):
     # cognitive_agent.agent selects its OpenAI-compatible LangExtract provider
     # only for endpoints ending in /v1; any other base silently uses Gemini.
@@ -107,7 +123,8 @@ def extractor_env(runtime, source, config, output, auxiliary_env):
     config_path = runtime / "extractor.toml"
     config_path.write_text("output_dir = " + json.dumps(str(output), ensure_ascii=False) + "\n")
     env = {k: v for k, v in os.environ.items() if not k.startswith("NEO4J_")}
-    env.update(auxiliary_settings(auxiliary_env))
+    auxiliary = auxiliary_settings(auxiliary_env)
+    env.update(auxiliary)
     env.update(
         GEMINI_MODEL=settings["model"], GEMINI_API_BASE=connection["base_url"],
         GEMINI_API_KEY=credential, AUX_CRITIC_MODEL=settings["model"],
@@ -124,6 +141,8 @@ def extractor_env(runtime, source, config, output, auxiliary_env):
         ENTITY_RECOVERY_MODE="off", PAIRWISE_JUDGE_MODE="off",
         PYTHONUNBUFFERED="1", PYTHONDONTWRITEBYTECODE="1", PYTHONPATH=str(source),
     )
+    if auxiliary_mode(auxiliary) == "single_model":
+        env.update(single_model_env(connection["base_url"], credential, settings["model"]))
     return env
 
 
@@ -179,6 +198,7 @@ def extract_articles(articles, output_dir, *, config=None, repo=None, python=Non
         "article_sha256": hashlib.sha256(content).hexdigest(),
         "model_config_sha256": hashlib.sha256(config.read_bytes()).hexdigest(),
         "extractor_fingerprint": extractor_fingerprint(source),
+        "auxiliary_models": auxiliary_mode(auxiliary_settings(auxiliary_env)),
         "model": model, "profile": PROFILE, "pmids": pmids,
     }
 

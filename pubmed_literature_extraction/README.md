@@ -204,6 +204,15 @@ liverkg ontology serve --open
 liverkg ontology load --run-id first-batch --database liverkg-integrated --dry-run
 ```
 
+With a single OpenAI-compatible chat model and no embedding model, start from
+`entity_ontology/config.single-model.example.json`. The extractor's second model
+and auxiliary judges then reuse that model unless `SECOND_LLM_API_KEY` or
+`DEEPSEEK_API_KEY` is supplied through the file named by
+`LIVERKG_EXTRACTOR_AUX_ENV` (the run records `auxiliary_models`), and synonym
+candidates come from local character n-gram hashing vectors. These find
+spelling variants but not synonyms without shared characters; the LLM still
+decides every merge.
+
 The concept-level gate can only keep or lower the extractor's decision.
 `AUTO` needs at least one `IMPORT_READY` evidence item, no negation,
 counter-evidence or statistical non-confirmation, placed concepts on both ends
