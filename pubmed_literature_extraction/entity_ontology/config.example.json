@@ -1,0 +1,23 @@
+{
+  "llm": {
+    "provider": {
+      "kind": "openai_compatible",
+      "base_url_env": "LIVERKG_API_BASE",
+      "api_key_env": "LIVERKG_API_KEY",
+      "timeout_seconds": 100,
+      "extra_body": {"enable_thinking": false}
+    },
+    "stages": {
+      "audit_edges": {"model": "qwen3.7-flash", "temperature": 0, "max_tokens": 6000}
+    }
+  },
+  "embedding": {
+    "kind": "openai_compatible",
+    "base_url_env": "LIVERKG_API_BASE",
+    "api_key_env": "LIVERKG_API_KEY",
+    "timeout_seconds": 100,
+    "model": "text-embedding-v4",
+    "dimensions": 1024,
+    "batch_size": 10
+  }
+}

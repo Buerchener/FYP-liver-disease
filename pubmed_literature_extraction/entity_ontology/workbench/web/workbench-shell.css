@@ -1,0 +1,113 @@
+.workbench-page {
+  --canvas: #fff;
+  --surface: #f6f8fa;
+  --paper: #fff;
+  --ink: #24292f;
+  --muted: #57616c;
+  --line: #dce1e6;
+  --accent: #245d91;
+  --accent-soft: #eef4fa;
+  --display-blue: #245d91;
+  --display-font: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --sans: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --research-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --workbench-sticky-offset: 18px;
+  --layout-width: 1380px;
+  --layout-edge: clamp(20px, 3vw, 44px);
+  min-height: 100vh;
+}
+
+.workbench-masthead { background: #22262a; color: #f8f9fa; }
+.masthead-inner {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 56px;
+  width: min(100%, var(--layout-width));
+  margin-inline: auto;
+  padding-inline: var(--layout-edge);
+}
+.workbench-brand { color: #fff; font-size: 1.17rem; font-weight: 740; letter-spacing: -.02em; }
+.workbench-brand:hover { color: #fff; text-decoration: none; }
+.workbench-brand:focus-visible { outline-color: #a8c9e8; }
+.masthead-title { border-left: 1px solid #606970; padding-inline-start: 15px; color: #d9dde1; font-size: .84rem; }
+
+.workbench-layout {
+  display: grid;
+  grid-template-columns: 178px minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(25px, 3.2vw, 45px);
+  width: min(100%, var(--layout-width));
+  margin-inline: auto;
+  padding: 25px var(--layout-edge) 0;
+}
+.workbench-layout[data-toc="true"] { grid-template-columns: 178px minmax(0, 1fr) 147px; }
+.workbench-sidebar, .workbench-toc {
+  position: sticky;
+  top: 27px;
+  max-height: calc(100dvh - 54px);
+  overflow: auto;
+  padding-block: 5px;
+}
+.workbench-navigation { min-width: 0; font-size: .875rem; }
+.nav-group { margin: 20px 0 0; }
+.nav-group-title { margin: 0 0 4px; padding-inline-start: 11px; font-size: .78rem; font-weight: 670; color: var(--ink); }
+.workbench-stage-list { list-style: none; margin: 0; padding: 0; }
+.workbench-nav-link {
+  display: block;
+  min-height: 30px;
+  border-left: 2px solid transparent;
+  padding: 5px 9px;
+  color: var(--muted);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.workbench-nav-link:hover { color: var(--accent); background: var(--surface); }
+.workbench-nav-link[aria-current] { border-left-color: var(--accent); color: var(--accent); font-weight: 690; }
+.workbench-nav-link[aria-disabled] { color: var(--muted); opacity: .62; cursor: default; }
+.workbench-nav-link[aria-disabled]:hover { background: transparent; text-decoration: none; }
+.workbench-nav-link:focus-visible { outline-offset: -2px; }
+
+.workbench-toc { padding-top: 7px; }
+.workbench-toc p { margin-bottom: 8px; font-size: .82rem; font-weight: 680; }
+.workbench-toc ul { border-left: 1px solid var(--line); list-style: none; margin: 0; padding: 0 0 0 12px; }
+.workbench-toc a { display: inline-block; padding-block: 4px; font-size: .82rem; }
+.workbench-toc a[aria-current] { color: var(--ink); font-weight: 670; }
+
+.workbench-skip {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 20;
+  transform: translateY(calc(-100% - 12px));
+  padding: 7px 11px;
+  background: var(--paper);
+  color: var(--accent);
+}
+.workbench-skip:focus { transform: none; }
+
+@media (max-width: 1140px) {
+  .workbench-layout, .workbench-layout[data-toc="true"] { grid-template-columns: 162px minmax(0, 1fr); }
+  .workbench-toc { display: none; }
+}
+@media (max-width: 840px) {
+  .workbench-page { --workbench-sticky-offset: 0px; }
+  .workbench-layout, .workbench-layout[data-toc="true"] { display: block; padding-top: 0; }
+  .workbench-sidebar {
+    position: static;
+    max-height: none;
+    overflow: hidden;
+    margin-inline: calc(-1 * var(--layout-edge));
+    padding: 0 var(--layout-edge);
+    border-bottom: 1px solid var(--line);
+  }
+  .workbench-navigation { display: flex; align-items: center; gap: 9px; padding-block: 5px; overflow-x: auto; scrollbar-width: thin; }
+  .nav-group, .workbench-stage-list { display: contents; }
+  .nav-group-title { display: none; }
+  .workbench-nav-link { min-height: 36px; border-left: 0; border-bottom: 2px solid transparent; padding: 7px 5px 5px; }
+  .workbench-nav-link[aria-current] { border-bottom-color: var(--accent); }
+}
+@media (max-width: 420px) {
+  .workbench-page { --layout-edge: 16px; }
+  .masthead-inner { min-height: 50px; }
+}
